@@ -1,0 +1,27 @@
+% Joshu Fenemore's Data from 2007 on Waiting Times at Orbiter Bust Stop
+%The raw data -- the waiting times i minutes for each direction 
+antiTimes=[8 3 7 18 18 3 7 9 9 25 0 0 25 6 10 0 10 8 16 9 1 5 16 6 4 1 3 21 0 28 3 8 ... 
+6 6 11 8 10 15 0 8 7 11 10 9 12 13 8 10 11 8 7 11 5 9 11 14 13 5 8 9 12 10 13 6 11 13]; 
+clockTimes=[0 0 11 1 9 5 14 16 2 10 21 1 14 2 10 24 6 1 14 14 0 14 4 11 15 0 10 2 13 2 22 ... 
+10 5 6 13 1 13 10 11 4 7 9 12 8 16 15 14 5 10 12 9 8 0 5 13 13 6 8 4 13 15 7 11 6 23 1]; 
+sampleTimes=[antiTimes clockTimes];% pool all times into 1 array 
+% L = Log Likelihood of data x as a function of parameter lambda
+L=@(lambda)sum(log(lambda*exp(-lambda * sampleTimes)));
+LAMBDAS=[0.0001:0.01:1]; % sample some values for lambda
+clf;
+subplot(1,3,1); 
+plot(LAMBDAS,arrayfun(L,LAMBDAS)); % plot the Log Likelihood function
+% Now we will find the Maximum Likelihood Estimator by finding the minimizer of -L
+MLE = fminbnd(@(lambda)-sum(log(lambda*exp(-lambda * sampleTimes))),0.0001,1)
+MeanEstimate=1/MLE
+hold on; % plot the MLE
+plot([MLE],[-1300],'r.','MarkerSize',25); ylabel('log-likelihood'); xlabel('\lambda');
+subplot(1,3,2); % plot a histogram estimate
+histogram(sampleTimes,1,[min(sampleTimes),max(sampleTimes)],'m',2);
+hold on; TIMES=[0.00001:0.01:max(sampleTimes)+20]; % points on support
+plot(TIMES,MLE*exp(-MLE * TIMES ),'k-') % plot PDF at MLE to compare with histogram
+% compare the empirical DF to the best fitted DF
+subplot(1,3,3)
+ECDF(sampleTimes,5,0.0,20); hold on
+plot(TIMES,ExponentialCdf(TIMES,MLE),'b-')
+ylabel('DF or empirical DF'); xlabel('support');

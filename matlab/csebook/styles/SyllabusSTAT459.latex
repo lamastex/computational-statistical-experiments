@@ -1,0 +1,43 @@
+{
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Time Table \& Course Overview for STAT 459}
+\begin{table}[hbt]
+\centering
+\caption{Time Table \& Course Overview} \label{T:TTCB459}
+{\scriptsize
+ \begin{tabular}{|ll|l|l|l|} \hline
+Lec.& Lab.&  & Topics & Section/Labworks/Simulations \\ 
+ \hline
+ 1 & & & Sets, Numbers, Functions and Probability & %\ref{S:CompStatExps},
+Read: \ref{S:SetTheory}, \ref{S:NatIntRatNumbers}, \ref{S:Reals}, \ref{S:Probability},\ref{S:CondProb}  \\
+ 2 & & & Random variables and Expectations & Read: \ref{S:RVBasicDefs}, \ref{S:ElemDiscRV}, \ref{S:ElemContRV}, \ref{S:Expectations},\ref{S:StochProc}\\
+    &1 & &  Introduction to {\sc Matlab} & Do LWs: \ref{LW:IntroMatlab}, \ref{LW:Seqs}, \ref{LW:VecsMats}, \ref{LW:2Dplot}, \ref{LW:FloorCeil}, \ref{LW:T3X}, \ref{LW:Unif01Pdf}, \ref{LW:Unif01Cdf}, \ref{LW:PlotUnif01PdfCdf} \\ \hline
+ 
+ 3 & & & Random Numbers &  Read: \ref{S:PhysRNG}, \ref{S:RNGIntro} \\
+ 4 & & & Statistics  & Read: \ref{S:DataStats}, \ref{S:ExploringData}, \ref{S:EDA}\\
+    &2 & & RNG and Exploratory Data Analysis    & 
+Do LWs: \ref{LW:GenericLCGS}--\ref{LW:3DPlotsMersenneTwister}, \ref{LW:XsFromUni01Twstr101mean}, \ref{LW:XsFromUni01Twstr101varstd}, \ref{LW:SortedXsFromUni01Twstr101}, \ref{LW:ECDF},  \ref{LW:qthSampleQuantile}, \ref{LW:hist}, \ref{LW:StemEcdf}, \ref{LW:2DScatter}, \ref{LW:3DScatter} \\ 
+    & & &  & 
+Do LWs: \ref{LW:matrixplot5DUniform},\ref{LW:NZEQChCch20110222},\ref{LW:NZEQChCch20110222EDA}, [optional LWs:\ref{LW:ChchDailyRainfallSince}, \ref{LW:ChchTempsLoad}, \ref{LW:JoeWordle},\ref{LW:DPtrajectoryparsing}] \\ \hline
+
+ 5 & &  & Finite Markov Chains Introduction &   Read:\ref{S:FiniteMCIntro} \\
+ 6 & &  & Finite Markov Chains Introduction  & Read: \ref{S:FiniteMCIntro}, Do:  \ref{EXR:FreddyGoldCoin}, \ref{Exr:NonMarkovProjection1}, \ref{Exr:RegularSampledChainIsMarkov}, \ref{Exr:ProveInHomMultismu0Pt}, \\ 
+    & 3&  & Computations with Markov chains   & Do: \ref{EX:FlippantFreddy}, \ref{EX:DryWetChain}, \ref{EXR:FreddyGoldCoin}$^*$, 
+    \ref{EX:DryWetChainHotCold}, \ref{Exr:DryWetChainHotCold}$^*$ \\ \hline
+
+ 7 &     &  & Random Mapping Representation \& Simulation  & Read: \ref{S:FiniteMCRMRandSim}, Do: \ref{EXR:ProofofMCFromRMR}  \\
+ 8 &     &  & Random Mapping Representation \& Simulation  & Read: \ref{S:FiniteMCRMRandSim}, Do: \ref{EXR:DrunkardWalkOnKGon}   \\
+     & 4 &  & Simulations of Markov Chains  & Do: \ref{EX:RMRFreddy}, \ref{LW:MCSimBydeMoivre}, \ref{SIM:FlippantFreddyByMCSimBydeMoivre}, \ref{LW:MCSimBydeMoivreRecurse}, \ref{SIM:FreddyGoldCoinRMR}, \ref{SIM:DrunkardsWalkBlock}, \ref{SIM:TrappedinLounge6}\\ \hline
+%    &    &  &  &        \\ \hline
+     
+ 9 &     &  & Irreducibility \& Aperiodicity   & Read: \ref{S:IrredAperiod}, Do: \ref{EXR:ExsIrreducibleOrNot}, \ref{EXR:DrunkardsWalkOnKGonIrredAperiod}, \ref{EXR:KingRWChessBoard}, \ref{EXR:KingRWChessTorus}  \\
+10 &     &  & Stationarity  & Read: \ref{S:Stationarity}, Do: \ref{EXR:SixStatesWith3Blockof2}, \ref{EXR:ConvexCombof2StationaryDistrns}, \ref{EXR:ConvexCombof2StationaryDistrns}  \\
+     & 5 &  &   & Do: \ref{EXR:KingRWChessBoard}, \ref{EXR:KingRWChessTorus} \\
+     &    &  &  &        \\ \hline
+
+ \end{tabular}
+ } \\
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}

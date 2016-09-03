@@ -1,0 +1,326 @@
+\chapter{General Markov Chains}
+In this chapter we will study Markov chains on a general state space, i.e., state spaces that are not necessarily finite or countable.
+
+\section{Markov Chain Monte Carlo}
+
+This Section is under \work.
+
+The methods described so far are generally unsuitable for complex multivariate or multi-dimensional distributions. One way to generate from such distributions is based on the simple idea that if a Markov chain is designed with a desired distribution as its stationary distribution, the states of the stationary chain will provide the required sample values. This approach is known as {\it Markov Chain Monte Carlo (MCMC)}.
+
+
+A distribution with density/mass function $f$ is a {\it stationary distribution} of a Markov chain if $X^{(t)}\sim f$ implies $X^{(t+1)}\sim f$.  
+
+To generate from a desired distribution using MCMC, the Markov chain must have the following properties:
+
+\begin{asparaenum}[(a)]
+\item The state space of the Markov chain must coincide with the support of the desired distribution.
+
+\item {\it Irreducible}: The Markov chain must be free to move over the entire state space.
+
+\item {\it Harris recurrent}: The Markov chain must not get stuck in any subset of the state space.
+
+\item {\it Positive}: The Markov chain must converge to a unique stationary distribution regardless of the starting state.
+
+\item {\it Aperiodic}: The Markov chain must not exhibit any deterministic pattern of movement.
+\end{asparaenum}
+
+\begin{definition}[Ergodic Markov Chain]
+An {\it ergodic} Markov chain is one that is irreducible, positive, Harris recurrent and {\it aperiodic}.
+\end{definition}
+
+%\begin{flushright}   $\boxbox$ \end{flushright}
+MCMC is based on the observation that the state of an {\it ergodic} Markov chain will eventually converge to a stationary distribution, no matter which state the chain starts in. Thus, to obtain a sample from a desired distribution $f$, an ergodic Markov chain with $f$ as its stationary distribution can be constructed and then run till it is stationary. The required sample values are given by the states of the stationary chain. Let $X^{(0)},X^{(1)},\ldots$ represent a sequence of states for an ergodic Markov chain and suppose that it reaches its stationary distribution $f$ after transition $T$. Then a sample with distribution $f$ is given by $\{X^{(t)}:t>T\}$. Note that unlike sample points given by the previous methods, which are independent, the sample points given by MCMC are {\it dependent} because they are states from a Markov chain.
+
+Generic algorithms that allow an ergodic Markov chain with a specified stationary distribution to be constructed easily are available. Many of these algorithms can be regarded as variants of the {\it Metropolis-Hastings algorithm}.
+
+\begin{algorithm}%WORK rewrite
+\caption{Metropolis-Hastings Sampler}
+\label{A:MHSampler}
+\begin{algorithmic}[1]
+\STATE {
+{\it input:} 
+\begin{itemize}
+\item[(1)] shape of a target density $\tilde{f}(x) = \left({\int \tilde{f}(x)dx}\right) f(x)$,
+\item[(2)] a {\it transition kernel}, $q(y|x)$.
+\end{itemize}
+}
+\STATE {\it output:} a sequence of samples $x_0,\ldots$ from the Markov chain $\{X\}_{i \in \Zz_+}$ with stationary distribution $f$
+
+\STATE Choose initial state $X^{(0)}$ and {\it proposal distribution} $g$.
+\REPEAT
+\STATE At iteration $t$,
+\STATE Generate $X\sim g(x|X^{(t-1)})$ and $U\sim U(0,1)$,
+\STATE Compute {\it acceptance probability}
+\begin{equation}
+\alpha=\min\left\{1,\frac{f(\tilde{X})g(X^{(t-1)}|\tilde{X})}{f(X^{(t-1)})g(\tilde{X})|X^{(t-1)}} \right\},
+\end{equation}
+\STATE
+{\bf If} $U \leq \alpha$
+{\bf then} $X^{(t)} \gets \tilde{X}$, %(accept $\tilde{X}$ with probability $\alpha$)
+{\bf else} $X^{(t)} \gets X^{(t-1)}$
+\UNTIL desired number of samples are obtained from $\{X\}_{i \in \Zz_+}$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{definition}[Transition Kernel]
+The transitions of a Markov chain are governed by a conditional density/mass function known as the {\it transition kernel}, $q(y|x)$. For a discrete state space:
+\begin{equation}
+q(y|x)=P(X^{(t+1)}=y|X^{(t)}=x),
+\end{equation}
+while for a continuous state space:
+\begin{equation}
+\int_Aq(y|x)dy=P(X^{(t+1)}\in A|X^{(t)}=x),
+\end{equation}
+for any subset $A$ of the state space.
+\end{definition}
+
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\begin{prop}If a Markov chain with transition kernel $q(y|x)$ satisfies the {\it detailed balance condition}:
+\begin{equation}
+q(x|y)f(y)=q(y|x)f(x),
+\end{equation}
+where $f$ is a density/mass function, then $f$ is a stationary distribution of the chain.
+
+\begin{proof}
+Let $S$ be the state space of the Markov chain and let $A\subset S$. Suppose that $X^{(t)}\sim f$. Then:
+
+\begin{displaymath}
+\begin{split}
+P(X^{(t+1)}\in A)&=\int_S P(X^{(t+1)\in A, X^{(t)}=y}dy)\\
+&=\int_S P(X^{(t+1)\in A| X^{(t)}=y}f(y)dy)\\
+&=\int_S\int_A q(x|y)f(y)dxdy\\
+&=\int_S\int_A q(y|x)f(x)dxdy\\
+&=\int_Af(x)dx.
+\end{split}
+\end{displaymath} 
+
+Therefore, $X^{(t+1)}\sim f$ and so $f$ is a stationary distribution.
+\end{proof}
+\end{prop}
+
+\begin{prop}
+In the Metropolis-Hastings algorithm, if the support of the proposal distribution is at least as large as the support of $f$, then the algorithm produces a Markov chain that has a stationary distribution $f$.
+
+\begin{proof}
+Let
+$$\alpha(x,y)=\min\left\{ 1,\frac{f(y)g(x|y)}{f(x)g(y|x)}\right\}.$$
+
+The transition kernel of the Metropolis-Hastings chain is:
+\begin{equation}
+q(y|x)=\alpha(x,y)g(y|x)+[1-\beta(x)]\delta_x(y),
+\end{equation}
+where:
+\begin{equation}
+\beta(x)=\int_S\alpha(x,y)g(y|x)dy,
+\end{equation}
+
+and $\delta_x(\cdotp)$ is the Dirac delta function at $x$.
+
+It is enough to show that the Metropolis-Hastings chain satisfies the detailed balance condition with $f$, i.e. that $q(y|x)f(x)=q(x|y)f(y)$. This follows from:
+
+$$\alpha(x,y)g(y|x)f(x)=\min\{f(x)g(u|x),f(y)g(x|y)\}=\alpha(y,x)g(x|y)f(y),$$
+
+and:
+$$[1-\beta(x)]\delta_x(y)f(x)=[1-\beta(y)]\delta_y(x)f(y).$$
+\end{proof}
+\end{prop}
+
+Since $f$ is used only to compute the acceptance probability, and appears both in the numerator and denominator, the algorithm is applicable even if $f$ is not known completely but only up to a multiplicative constant. This is frequently the case in practice, where $f$ is available as an un-normalised distribution. Some common variants of the Metropolis-Hastings algorithm include the {\it Metropolis sampler, independent Metropolis-Hastings sampler, single-component Metropolis-Hastings sampler} and {\it Gibbs sampler}.
+
+The {\it Metropolis sampler} is obtained when a symmetric proposal distribution is used, i.e. $g(\tilde{X}|X^{(t-1)})=g(X^{(t-1)}|\tilde{x})$. In this case, the acceptance probability simplifies to:
+
+\begin{equation}
+\alpha=\min\left\{1,\frac{f(\tilde{X})}{f(X^{(t-1)})}\right\}
+\end{equation}
+
+A special case where $g(\tilde{X}|X^{(t-1)})=g(|\tilde{X}-X^{(t-1)}|)$ is known as the {\it random walk Metropolis-Hastings (RWMH) sampler}.
+
+\begin{example}[{\tt rwmh\_vonMises\_uniform}]
+The von Mises density with the location parameter $a\in[-\pi,\pi]$ and a scale parameter $b > 0$ is given by:
+\begin{equation}
+f(x)=\frac{e_{b\cos(x-a)}}{2\pi I_0(b)},
+\end{equation}
+
+for $x\in[-\pi ,\pi]$, and where $I_0$ is the modified Bessel function of the first kind and order zero. Implement the RWMH sampler for generating from the von Mises density with $a = 0$ and $b = 3$ by using the $U(-1, 1)$ density to generate steps in the random walk, i.e. $g(\cdot|x)=U(x-1,x+1)$.
+
+Matlab code: For m = 1000 iterations of the IMH sampler,
+\begin{VrbM}
+b = 3;
+m = 1000;
+x = ones(1,m); % allocate storage and initialise to 1
+for k = 2:m
+	y = x(k-1) + unifrnd(-1,1); % unifrnd(a,b) is the Matlab function for generating
+		% U(a,b) random variables
+   	alpha = min(1,exp(b * (cos(y) - cos(x(k-1)))));
+	if rand < alpha
+		x(k) = y;
+	else
+		x(k) = x(k-1);
+	end % if
+end % for
+\end{VrbM}
+\end{example}
+
+When the proposal distribution is independent of $X^{(t-1)}$, the {\it independent Metropolis-Hastings (IMH) sampler} is obtained, with the acceptance probability given by:
+\begin{equation}
+\alpha=\min\left\{ 1,\frac{f(\tilde{X}g(X^{(t-1)}))}{f(X^{(t-1)})g(\tilde{X})}\right|\}
+\end{equation}
+This algorithm usually works well if $g$ is close to $f$ and has heavier tails than $f$.
+
+\begin{example}
+Consider the log-normal distribution whose density is:
+\begin{equation}
+f(x)=\frac{1}{x\sqrt{2\pi}}\exp\left\{-\frac{(\log x)^2}{2} \right\},
+\end{equation}
+for $x\geq 0$. Use the IMH sampler with a gamma distribution proposal to generate from the log-normal distribution.
+
+The gamma density with shape parameter $a > 0$ and scale parameter $b > 0$ is given by:
+\begin{equation}
+g(x)=\frac{1}{b^a\Gamma(a)}x^{a-1}e^{-x/b},
+\end{equation}
+
+
+for $x \geq  0$. Note that the IMH acceptance probability can be written as:
+$$\alpha=\min\left\{1, \frac{f(\tilde{X})/g(\tilde{X})}{f(X^{(t-1)})/g(X^{(t-1)})}\right\},$$
+
+which involves the ratio $f /g$ in both the numerator and denominator, thus making multiplicative constants in $f$ and $g$ irrelevant and able to be discarded. In other words, is is enough to use:
+
+$$\frac{\tilde{f}(x)}{\tilde{g}(x)}=\frac{\exp[-(\log x)^2/2]}{x^ae^{-x/b}}=\frac{1}{x^a}\exp[\frac{x}{b}-\frac{(\log x)^2}{2}]
+$$
+to compute $\alpha$.
+
+Matlab code: For $m = 1000$ iterations of the IMH sampler using $gamma(1.5, 2.5)$ as proposal distribution:
+\begin{VrbM}
+m = 1000;
+x = 0.5 * ones(1,m); % allocate storage and initialise to 0.5
+for k = 2:m
+	y = gamrnd(1.5,2.5); % gamrnd is the Matlab function for generating gamma
+		 % random variables
+  	alpha = (x(k-1) / y)^1.5 * \exp((y - x(k-1)) /2.5 + (log(x(k-1))^2 - log(y)^2) /2) ;
+  	alpha = min(1,alpha);
+  	if rand < alpha
+		x(k) = y;
+	else
+		x(k) = x(k-1);
+	end % if
+end % for
+\end{VrbM}
+\end{example}
+
+In general, $X$ may be multivariate. The idea behind the {\it single-component Metropolis-Hastings sampler} is to update $X$ using a series of steps at each iteration, rather than a single step. To do this, $X$ is partitioned into $d$ parts: $X=(X_[1],X_[2],\ldots,X_[d])$. Let $X_[-j]$ denote $X$ with the $j^{\textrm{th}}$ part omitted, and suppose that the conditional distributions, $f(x_{[j]}|x_{[-j]})$, are known.
+
+% WORK make into algorithm
+\subsection{\alg -- {\it Single-component Metropolis-Hastings sampler.}}
+Choose initial state $X^{(0)}$ and proposal distribution $g$.\\
+\begin{tabbing}
+\=At ite\=ration $t$,\\
+		\>For j = $1, 2,\ldots, d,$\\
+				\>		\>Generate $\tilde{ X}_{[j]}\sim g(x_{[j]}|X^{(t)}_{[1]},\ldots,X^{(t)}_{[j-1]},X^{(t-1)}_{[j]},\ldots,X^{(t-1)}_{[d]},)$  and $U_j\sim U(0,1)$ ,\\
+				\>\>Compute\\
+\end{tabbing}
+
+
+
+\begin{equation}
+\begin{split}
+\alpha_j=\min\{1,&\frac{f(\tilde{X}_{[j]}|X^{(t)}_{[1]},\ldots,X^{(t)}_{[j-1]},X^{(t-1)}_{[j+1]},\ldots,X^{(t-1)}_{[d]},)}{f(X^{(t-1)}_{[j]}|X^{(t)}_{[1]},\ldots,X^{(t)}_{[j-1]},X^{(t-1)}_{[j+1]},\ldots,X^{(t-1)}_{[d]},)}\cdot\\
+&\frac{g(X^{(t-1)}_{[j]}|X^{(t)}_{[1]},\ldots,X^{(t)}_{[j-1]},\tilde{X}_{[j]},X^{(t-1)}_{[j+1]},\ldots,X^{(t-1)}_{[d]},)}{g(\tilde{X}_{[j]}|X^{(t)}_{[1]},\ldots,X^{(t)}_{[j-1]},X^{(t-1)}_{[j]},X^{(t-1)}_{[j+1]},\ldots,X^{(t-1)}_{[d]},)}\}
+\end{split} 
+\end{equation}
+
+\begin{tabbing}
+\=If $U_j$\=$\leq\alpha_j$\\
+\>\>Set $X^{(t)}_{[j]}=\tilde{X}_{[j]}.$\\(accept $\tilde{X}_[j]$ with probability $\alpha_j$)\\
+\>Else\>\\
+\>\>Set $X^{(t)}_{[j]}=X^{(t-1)}_{[j]}.$\\
+\end{tabbing}
+%\begin{flushright}   $\boxbox$ \end{flushright}
+
+If it is possible to generate from the conditional distributions, $f(x_{[j]}|x-{[-j]})$, then by choosing them as the proposal distribution in the single-component Metropolis-Hastings sampler, the acceptance probabilities will always be one and the proposals will always be accepted. The resulting algorithm is known as the {\it Gibbs sampler}, which effectively generates from the conditional distributions.
+\subsection{\alg --{\it Gibbs sampler.}}
+Choose initial state $X^{(0)}$.
+\begin{tabbing}
+
+\=At it\=eration \=$t$,\\
+				\>\>For $j$\>$ = 1, 2, бн, d,$\\
+						\>\>\>Generate $X^{(t)}_{[j]}\sim f(x_{[j]}|X^{(t)}_{[1]},\ldots,X^{(t)}_{[j-1]},X^{(t-1)}_{[j+1]},\ldots,X^{(t-1)}_{[d]})$.\\
+\end{tabbing}
+
+\begin{example}[{\tt gibbs\_example.m.}]
+Consider the joint density:
+$$f(x,y,z)\propto x^4y^3z^2(1-x-y-z)$$
+ 
+where $x, y, z > 0$ and $x + y + z < 1$. Let $B(a, b)$ represent a beta distribution with parameters $a$ and $b$. The conditional distributions for $x$, $y$ and $z$ are given by:
+\begin{displaymath}
+\begin{array}{l}
+ x|y,z\sim (1-y-z)q, \space q\sim B(5,2),\\
+ y|x,z\sim (1-x-z)r, \space r\sim B(4,2),\\
+ z|x,y\sim (1-x-y)s, \space s\sim B(3,2).\\
+\end{array}
+\end{displaymath}
+
+	
+In other words, the conditional distribution of $x$, given $y$ and $z$, is the same as the distribution of $(1-y-z)q$ where $q$ has a $B(5, 2)$ distribution, and so on. Implement a Gibbs sampler to generate samples from the joint density.
+
+\Matlab code: For $m = 1000$ iterations of the Gibbs sampler:
+\begin{VrbM}
+m = 1000;
+x = 0.3 * ones(1,m); % allocate storage and initialise to 0.3
+y = x;
+z = y;
+for k = 2:m
+	x(k) = (1 - y(k-1) - z(k-1)) * betarnd(5,2); % betarnd is the Matlab function for
+		  % generating beta random variables
+	y(k) = (1 - x(k) - z(k-1)) * betarnd(4,2);
+	z(k) = (1 - x(k) - y(k)) * betarnd(3,2);
+end
+\end{VrbM}
+\end{example}
+
+Hybrid combinations of single-component Metropolis-Hastings and Gibbs sampling are possible, with some parts of $X$ updated using Gibbs updates, and others (which cannot be generated from their conditional distributions) using Metropolis-Hastings updates.
+
+In practice, a MCMC sampler is used to generate a long sequence of Markov chain states. After an initial {\it burn-in period}, the states are assumed to have the required stationary distribution, at least approximately. The difficulty in using MCMC is deciding how long the burn-in period should be.
+
+
+
+\section{Exercises}
+
+\begin{exercise}
+Implement the IMH sampler in Example 2.4.9. Perform 10,000 iterations and plot the outputs sequentially. Comment on the appearance of the plot with regard to convergence to the target density. Plot the density histogram for the last 5000 iterations, and superimpose the target and proposal densities onto it.
+\end{exercise}
+
+\begin{exercise}
+Implement the Gibbs sampler in Example 2.4.12. Perform 10,000 Gibbs iterations, and plot the sequential outputs for $x$, $y$ and $z$. Comment on the appearance of the plots with regard to convergence to the target density. Obtain a three-dimensional scatter plot of the last 5000 sample points (use the {\tt plot3} function).
+\end{exercise}
+
+\begin{exercise}
+\begin{asparaenum}[(a)]
+\item Generate a sample of size 20 from the $N(0.06, 1)$ distribution.
+
+\item	Treat the sample from Part (a) as observations from an $N(\theta, 1)$ distribution. Pretend that you do not know $\theta$ and wish to infer its value using the Bayesian approach. Denoting the sample by $z={z_1,\ldots,z_{20}}$, the posterior density of $\theta$, given $z$, is given by Bayes' theorem as:
+$$f(\theta|z)\propto f(z|\theta)f(\theta),$$
+where $f(z|\theta)$ is the likelihood function, i.e.:
+$$f(z|\theta)\propto \exp[ -\frac{1}{2} \sum^n_{i=1} (z_i-\theta)^2 ],$$
+
+and $f(\theta)$ is a prior density for $\theta$. Choosing the Cauchy$(0,1)$ density as the prior density, the posterior density is therefore:
+$$f(\theta|z)\propto \exp [-\frac{1}{2}\sum^n_{i=1}(z_i-\theta)^2] \frac{1}{1+\theta^2}.$$
+
+Implement the IMH sampler for generating from the posterior density, using the Cauchy$(0,1)$ as the proposal density.
+
+(c)	Use your IMH sampler to generate 1000 values from the posterior distribution. Use the generated values to estimate the mean of the posterior distribution and to obtain an approximate 95\% probability interval for $\theta$.
+\end{asparaenum}
+\end{exercise}
+
+\begin{exercise}
+Suppose $x$ and $y$ have conditional distributions that are exponential distributions restricted to the interval $(0, 5)$. Then:
+$$f(x|y)\propto ye^{-xy}\textrm{ and } f(y|x)\propto xe^{-xy}.$$
+
+\begin{asparaenum}[(a)]
+\item Implement the Gibbs sampler for generating sample points from the joint distribution $f(x,y)$.
+
+\item	Use your Gibbs sampler to generate 5000 sample points from $f(x,y)$. Use appropriate plots of the Markov chain outputs to assess convergence to the target distribution.
+
+\item	Obtain a two-dimensional scatter plot of your generated sample points.
+\end{asparaenum}
+\end{exercise}
+

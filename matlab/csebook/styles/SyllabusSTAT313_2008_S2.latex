@@ -1,0 +1,117 @@
+\addcontentsline{toc}{chapter}{Course Syllabus}
+
+\begin{table}[htpb]
+\centering
+\begin{tabular*}{5.0in}{@{\extracolsep{\fill}}|llr|} \hline
+%STAT 218 & \hspace*{0.5 in} & Semester 2, 2007 \\ 
+STAT 313 - 08S2 (C)  & \hspace*{0.5 in} & Semester Two 2008 \\
+
+14 points & & 14/07/2008-12/11/2008  \\
+ & & \\
+\multicolumn{3}{|c|}{{\bf Computational Statistics}} \\
+\multicolumn{3}{|c|}{
+{Course Syllabus:Wednesday, 12th July 2008}} \\
+\multicolumn{3}{|c|}{
+%{Revised Syllabus: Tuesday, 25th September, 2007 
+%(See \S~\ref*{S:RevisedSyllabus})
+%}
+}\\
+ & & \\
+\multicolumn{3}{|r|}{Course Coordinator: Raazesh Sainudiin} \\ \hline
+\end{tabular*}
+\end{table}
+
+\section{About the Course}\label{S:AboutCourse}
+Data analysis and statistical inference based on permutation methods, EDF methods, boostrap and resampling methods, kernel methods, and Markov chain methods.\\{\bf Pre-requisites}: 11 points from (STAT212 or STAT214 or STAT222 or STAT224) and a further 11 points from STAT210-299 and MATH108\\{\bf Recommended Preparation}: (MATH109 or MATH199) and STAT218
+
+\section{Formal Interactions}
+\subsection*{Lectures}
+{\bf Days}: Wednesdays \ {\bf Times}: 10:00am-11:00am \& 3:00pm-4:00pm \\
+{\bf Place}: Commerce 011 Lecture Theatre \\
+{\bf Lecturer}: Raazesh Sainudiin \\
+{\bf Purpose}: To communicate the essential concepts and techniques necessary for a sound application of computers to solve statistical problems as described in \hyperref[S:AboutCourse]{\S~\ref*{S:AboutCourse}}.  This course is a continuation of STAT 218.
+
+{\small \emph{You are encouraged to be actively engaged during the lectures to make the most of them.  Since it is impossible to impart knowledge to a passive audience, it is in your best interest to think of the lectures as an interactive video game as opposed to a TV show.  Please ask questions at anytime during the lectures.
+}}
+\subsection*{Laboratories}
+{\bf Days}: Tuesdays \\ {\bf Times}: 4:00pm \textendash 5:00pm \\ {\bf Place}: 035  Erskine Building\\
+{\bf Purpose}: Implementing code in a personal computer.  This activity will reinforce and complement the lectures.
+
+\section{Individualised Interactions \& Course Communications}
+{\bf Lecturer}: Raazesh Sainudiin, 724 Erskine Building \\
+{\bf Email}: {\tt r.sainudiin@math.canterbury.ac.nz} \\
+{\bf Office Hours}: TBA \\
+{\bf Purpose}: To clarify specific topics or examples that were unclear to a student or a small group of students during past formal interactions.\\
+{\bf Course url}: \url{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT313}
+
+\section{Student Evaluation}\label{S:StudentEval}
+\begin{itemize}
+\item[15\%] Mid-semester assignment that will involve coding and/or pencil \& paper 
+\item[35\%] Term project report (in a small group or by yourself) -- {\scriptsize {\bf 30.0\% based on written report \& 5\% based on partly peer-reviewed oral presentation}}.  Please visit \href{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218/projects/Stat218StudentProjects2007.pdf}{\url{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218/projects/Stat218StudentProjects2007.pdf}} to see the term projects completed by students of STAT 218 from 2007.  You are expected to demonstrate original statistical thinking.
+\item[50\%] Open book, open notes final exam.
+\end{itemize}
+ 
+%\begin{table}
+%\centering
+%\caption{Time Table \& Course Overview} \label{T:TTCB}
+%{\scriptsize
+% %\begin{tabular*}{4.5in}{@{\extracolsep{\fill}}|ll||l|l|l|}
+% \begin{tabular}{|ll|l|l|l|}%|l|l|l|l|}
+% \hline
+%Lec.& Lab.& Date  & Topics & Section/Labwork \\ 
+% \hline
+% 1 & & 16-07-08& Probability Model & \ref{S:ProbModel} [\ref{S:SetTheory}, \ref{S:NatIntRatNumbers},\ref{S:Reals}]$^*$ \\
+% 2 & & 16-07-08& Random Variables \& Statistics & \ref{S:RandomVariable}, \ref{S:Statistics}  \\
+%    &1 & no lab &  Introduction to {\sc Matlab} & [\ref{LW:IntroMatlab}, \ref{LW:Seqs}, \ref{LW:VecsMats}, \ref{LW:2Dplot}, \ref{LW:FloorCeil}, \ref{LW:T3X}] \\ \hline
+%    
+% 3 & & 23-07-08& Random Variables, RNG, \& Statistics & \ref{S:RandomVariable}, \ref{S:RNGIntro}, \ref{S:Statistics}  \\
+% 4 & & 23-07-08& Random Variables, RNG, \& Statistics & \ref{S:RandomVariable}, \ref{S:RNGMatlab}, \ref{S:Statistics}  \\
+%    &2 & 22-07-08& Random Variables, RNG, \& Statistics  & \ref{LW:Unif01Pdf}, \ref{LW:Unif01Cdf}, \ref{LW:PlotUnif01PdfCdf}, \ref{LW:XsFromUni01Twstr101mean}, \ref{LW:XsFromUni01Twstr101varstd}, \ref{LW:SortedXsFromUni01Twstr101}, \ref{LW:ECDF} \\ \hline
+%     
+% 5 & & 30-07-08 &  Common RVs \& Simulation (Continuous $F^{[-1]}$)  & \ref{S:InvS}, \ref{S:InvSContinuousRVs} \\
+% 6 & & 30-07-08 & Common RVs \& Simulation (Continuous $F^{[-1]}$)  & \ref{S:InvS}, \ref{S:InvSContinuousRVs} \\
+%    & 3& 29-07-08&  Statistics \& Data Visualisation  & \ref{LW:qthSampleQuantile}, \ref{LW:hist}, \ref{LW:StemEcdf}, \ref{LW:2DScatter}, \ref{LW:3DScatter} \\ \hline
+
+% 7 & & 06-08-08 & Discrete RV \& Simulation & \ref{S:InvSDiscrete}, \ref{S:InvSDiscreteRVs} \\
+% 8 & & 06-08-08 & Alias Method \& Rejection Sampling & \\ 
+%     & 4 & 05-08-08 & Continuous \& Discrete RV Simulation  & \\ \hline
+%          
+% 9 & & 13-08-08 & Markov Chains & \\
+% 10 & & 13-08-08 & Markov Chain Monte Carlo & \\
+%          & 5 & 12-08-08 & Simulation Markov Chains  & \\ \hline
+%          
+% 11 & & 20-08-08 & Basics of Estimation: bias, MSE, ... & \\
+% 12 & & 20-08-08 & Monte Carlo Integration \& Importance Sampling  & \\ 
+%       & 6 & 19-08-08 & Implementation  & \\ \hline \hline%2 week break
+%         
+% 13 &  & 10-09-08 & Basics of Hypothesis Testing: size, level, power \& p-value   & \\
+% 14 &  & 10-09-08 & Wald, $\chi^2$ \& Permutation Tests & \\
+%        & 7 & 09-09-08 & Implementation  & \\ \hline
+
+% 15 &  &17-09-08 & Parametric \& Non-parametric Bootstrap-based Tests & \\
+% 16 &  &17-09-08 &  & \\ 
+%       & 8 & 16-09-08 & Implementation  & \\ \hline
+%       
+% 17 &  &24-09-08 & The Learning Problem  & \\
+% 18 &  &24-09-08 & Kernalization & \\
+%        & 9 & 23-09-08 & Implementation  & \\ \hline
+%        
+% 19 &  & 01-10-08 & Kernel Density Estimation & \\
+% 20 & & 01-10-08 &  & \\ 
+%       & 10 & 30-09-08 & Implementation  & \\ \hline
+%       
+% 21 & & 08-10-08 & Classification & \\ 
+% 22 & & 08-10-08 &   & \\
+%       & 11 & 07-10-08 &  & \\ \hline
+%       
+% 23 &  & 15-10-08& & \\
+% 24 &  & 15-10-08 & Vapnik-Chervonenkis Theory & \\ 
+%      & 12 & 14-10-08 & Project Presentation & \\ \hline
+% %*Oral    & 18/10/07 & &  & Erskine 446 \\
+% %Presentation &  & & at the Maths \& Stats Dept.~Seminar &  Room No.~TBA \\
+%%\end{tabular*}
+% \end{tabular}\\
+% {${}^*$ Sections and labworks enclosed by square brackets indicate material for self-study.}
+%} 
+%\end{table}
+Lecture Notes will be updated to the course web-page regularly about a week after the lecture.  Taking your own notes in class is essential.  The topics may change as we may not be able to cover such an ambitious survey of computational statistics.

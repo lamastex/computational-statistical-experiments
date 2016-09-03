@@ -1,0 +1,119 @@
+\documentclass[a4paper]{letter}
+\usepackage{url}
+\usepackage[pdftex]{hyperref}
+\usepackage{amssymb,amsmath}
+
+\begin{document}
+\input{Macros.tex}
+\address{
+Dr.~Raazesh Sainudiin and\\				
+Dr.~Dominic Lee\\
+Laboratory for Mathematical Statistical Experiments and\\
+Department of Mathematics and Statistics\\
+University of Canterbury, Private Bag 4800\\
+Christchurch, New Zealand\\
+Telephone: +64-3-364 2987, Extn 7691\\
+%Fascimile: +64-3-364 2587\\
+{\tt r.sainudiin@math.canterbury.ac.nz}%\\
+%\url{www.math.canterbury.ac.nz/~r.sainudiin}
+}
+\signature{Raazesh Sainudiin \qquad Dominic Lee}
+\begin{letter}{}
+{
+Mr.~David Tranah\\
+Editor\\
+Cambridge University Press\\
+}
+
+\opening{Dear Mr.~Tranah,} 
+
+We would like to propose a text book at the integrative interface of computation, mathematics and statistics.  
+
+{\bf Title:} Computational Statistical Experiments in \Matlab
+
+{\bf Reasons for Writing:} 
+
+This book is intended as an undergraduate textbook on introductory to intermediate level Computational Statistics. 
+The goal is to equip students with some of the most useful tools in Computational Statistics and the ability to use them effectively. 
+This will be achieved by maintaining balance between theoretical foundation, algorithmic implementation and practical application of these tools. 
+Hands-on experimentation is encouraged by describing algorithms in pseudocode as well as providing functional and self-contained Matlab code, together with plenty of real data examples. 
+The book will adopt a spiral model of instruction that emphasizes motivation, clarity and concreteness of ideas at the introductory level, followed by mathematical formalism, implementational subtleties and extensions at the intermediate level.
+
+{\em Who is this book addressed to?}
+
+This book is a guide for a {\it computational statistical experimenter}.
+
+A {\it statistical experimenter} is a person who conducts a {\it statistical experiment} (for simplicity, from now on, these will be called ``experimenters" and ``experiments").  Roughly, an experiment is an action with an {\it empirically observable outcome} (data) that cannot necessarily be predicted with certainty, in the sense that a {\it repetition} of the experiment may result in a different outcome.  Most quantitative scientists are experimenters if they apply statistical principles to further their current understanding or {\it theory} of an {\it empirically observable real-world phenomenon} (simply, a {\it phenomenon}).  Roughly, `furthering' your understanding or theory is done by improving your mathematical model (\lq rigorous cartoon\rq) of the phenomenon on the basis of its compatibility with the {\it observed data} or {\it outcome} of the experiment.  In this sense, an experimenter attempts to learn about a phenomenon through the outcome of an experiment.  An experimenter is often a scientist or engineer, and vice versa.
+
+Technological advances have fundamentally inter-twined computers with most experiments today.  First, our instrumentational capacity to observe an empirical phenomenon, by means of automated data gathering (sensing) and representation (storage and retrieval), is steadily increasing.  Second, our computational capability to process statistical information or to make decisions using such massive data-sets is also steadily increasing.  Thus, our recent technological advances are facilitating computationally intensive statistical experiments based on possibly massive amounts of empirical observations, in a manner that was not viable a decade ago.  Hence, a successful scientist or engineer in most specialisations today is a {\it computational statistical experimenter}, i.e.~a statistical experimenter who understands the information structures used to represent their data as well as the statistical algorithms used to process their scientific or engineering decisions.  This course is designed to help you take the first steps along this path.
+
+Let us first demonstrate the need for a statistical experiment.  Recall that statistical inference or learning is the process of using observations or data to infer some aspect of the distribution function (DF) that generated it.  A generic question is:
+\[
+\text{Given realisations from $X_1, X_2, \ldots, X_n \sim$ some unknown DF $F$, how do we infer $F$} ?
+\]
+Some of the concrete problems involving experiments include:
+\begin{itemize}
+\item {\bf Simulation:} Often, it is necessary to simulate a random variable (RV) with some specific distribution to gain insight into its features or simulate whole systems, such as the air-traffic queues at Heathrow Airport, to make better management decisions.
+\item {\bf Exploration:} This is the art of (visually) exploring the observed data in order to better understand the empirical phenomenon that generated the data.  Visual explorations of simulated data may provide benchmarks against which we may compare and contrast the observed data.
+\item {\bf Estimation:}
+\begin{enumerate}
+\item {\bf Parametric Estimation:} Using samples from some unknown DF $F$ that is parameterised by some unknown $\theta$, we can estimate $\theta$ from a statistic $\widehat{\Theta}_n$ called the estimator of $\theta$ using one of several methods (maximum likelihood, moment estimation or parametric bootstrap).
+\item {\bf Non-parametric Estimation of the DF:}  Based on $n$ independent and identically distributed (IID) observations from an unknown DF $F$, we can estimate it under the general assumption that $F$ belongs to the collection all DFs.
+\item {\bf Confidence Sets:}  We can obtain a $1-\alpha$ confidence set for the point estimates, of the unknown parameter $\theta$  that belongs to a collection of parameters (also known as parameter space) denoted by $\BB{\Theta}$ or the unknown  DF $F$ that belongs to the collection all DFs denoted by $\{ \text{all DFs} \}$.
+\end{enumerate}
+\item {\bf Testing:}  Based on observations from some DF $F$ that is hypothesised as belonging to a subset $\BB{\Theta}_0$ of $\BB{\Theta}$ called the space of null hypotheses, we will learn to test (attempt to reject) the falsifiable null hypothesis that $F$ belongs to a smaller collection of parameters denoted by $\BB{\Theta}_0$.  This smaller collection is contained in the parameter space $\BB{\Theta}$.
+\item {\bf Learning:}  Supervised, unsupervised learning, classification and regression \ldots
+\end{itemize}
+
+{\em What is unique about our book?}
+
+\begin{itemize}
+\item Our unified and integrative approach to statistical experiments where mathematical, statistical and computational aspects naturally come together, will provide the student with the fundamentals so that they can pursue new experiments on their own.
+\item Current books in the field either focus on a long list of recipes with little cohesive mathematical and algorithmic structure or ignore fundamental aspects of the field such as the rudiments of random number generation.  Our book is specifically designed to have a solid introduction to the fundamentals in the style of classical books in the foundational areas by Luc Devroye, Donald Knuth and Larry Wasserman.
+\item Appealing to students of the YouTube generation is a high priority.  Various measures have been taken to keep the book interesting to the current generation of students.  These measures include:
+\begin{itemize}
+\item Each concept is introduced from a historical perspective to make it more concrete for the student.
+\item Kinesthetic learning --- learning by doing with one's hands --- is known to reinforce mathematical and algorithmic concepts.  We have chosen several experiments that allow kinesthetic learning (Galton's quincunx, Galton's dice, Buffon's Needle, etc.).  See the accompanying Laboratory for Mathematical statistical Experiments and the devices that have been built for such purpose at \url{http://www.math.canterbury.ac.nz/~r.sainudiin/lmse}.
+\item Computer animations and interactive visualisations known as {\em visual cognitive tools} of fundamental concepts are provided in \Matlab code.  The instructor and/or the student may use these code demos to teach and/or learn each concept.  See Chapter 6 of current draft for example.
+\item Our book uses \Matlab as opposed to {\tt R} for computational statistics.  In most engineering curricula, \Matlab is used in almost all other courses.  Therefore, there is a demand for a book in computational statistics in \Matlab in our increasingly data-rich world.
+\item All codes for the book will be provided and no additional toolboxes will be needed.  In effect our codes will form a toolbox that will accompany the book.
+\item Our examples are taken from physical, social and biological sciences to keep the subject of interest to computational statistical experimenters across all fields of science and engineering.
+\item Finally, the most unique aspect of our book is the student projects.  We encourage each student to conduct her/his own experiment, including the original concept formulation, data collection, algorithm design, coding and data analysis and writing a statistical report. Such an active approach to computational statistical experiments engages and empowers the student.  Please visit:
+\begin{itemize}
+\item
+\href{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218/projects/Stat218StudentProjects2007.pdf}{\url{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218/projects/Stat218StudentProjects2007.pdf}} \item
+\href{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218/projects/Stat218StudentProjects2008.pdf}{\url{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218/projects/Stat218StudentProjects2008.pdf}}
+\end{itemize}
+to see the term projects completed by budding computational statistical experimenters, students of this course at our home institution.
+\end{itemize}
+\end{itemize}
+
+
+{Working Outline of Chapters}
+
+The statistical experiment and the basic objects that make it mathematically definitive and internally consistent are introduced later. The precursor to an experiment is a mathematical model for probability in the `real world' called the {\it probability model}.  This arises from an axiomatic system based on more fundamental objects, such as sample space, outcomes, events, probability, the addition rule for mutually exclusive events, the definition of conditional probability, limits, real number system, and random variables.  These objects in turn build on the set theory, so a refresher in set theory is our first stop.  Then, we will introduce the probability model via the intuition behind this construction, and various useful notions associated with continuous and discrete random variables, such as distribution, density, mass function and expectations.  Commonly encountered random variables will serve as examples.  We will learn to simulate these random variables and visualise the realisations.  We will visit the most elementary limit theorems before conducting our own computational statistical experiments involving estimation, testing and learning.
+
+The Table of Contents in the current draft is our starting point for the final book.  
+We hope to have about 500 pages when we are finished with our book.  
+If we hear positively from you and have a consensus on the direction of our book then we hope to finish the book by mid February 2013.
+
+Link to the current draft of our book (very rough notes):\\
+\url{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT459/CSEBook.pdf}
+
+Link to the \Matlab codes in the book (Labworks, Simulations and Visual Cognitive Tools):\\
+\url{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT459/CSEMatlabScripts.tar.gz}
+
+
+Please feel free to contact us if you have any further questions about the project.
+
+\closing{Yours sincerely}
+%\ps{Postscript: I loved the picture of your cat you emailed me!}
+%\encl{CV, teaching statement, research statement, reference list, publication list}
+%\cc{Mr Big Boss}
+
+
+\vspace{1.5cm}
+
+\end{letter}
+\end{document}
+

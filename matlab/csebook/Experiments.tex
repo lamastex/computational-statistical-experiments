@@ -1,0 +1,90 @@
+\chapter{Statistical Experiments}\label{S:StatExps}
+\section{Introduction}
+We formalize the notion of a staistical experiment.  Let us first motivate the need for a statistical experiment.  Recall that statistical inference or learning is the process of using observations or data to infer the distribution that generated it.  A generic question is:
+\[
+\text{Given realizations from $X_1, X_2, \ldots, X_n \sim$ some unknown DF $F$, how do we infer $F$} ?
+\]
+However, to make this question tractable or even sensible it is best to restrict ourselves to a particular  class or family of DFs that may be assumed to contain the unknown DF $F$.
+\begin{definition}[Experiment]
+A statistical experiment $\E{E}$ is a set of probability distributions (DFs, PDFs or PMFs) $\Pz := \{P_{\theta} : \theta \in \BB{\Theta} \}$ associated with a RV $X$ and indexed by the set $\BB{\Theta}$.  We refer to $\BB{\Theta}$ as the parameter space or the index set and $d:\BB{\Theta} \rightarrow \Pz$ that associates to each $\theta \in \BB{\Theta}$ a probability $P_{\theta} \in \Pz$ as the index map.
+\end{definition}
+\section{Some Common Experiments}
+Next, let's formally consider some experiments we have already encountered.
+\begin{Exp}[The Fundamental Experiment]\label{Exp:Uniform01}
+The `uniformly pick a number in the interval $[0,1]$' experiment is the following singleton family of DFs  :
+\[
+\Pz = \{ \,  F(x) = x \BB{1}_{[0,1]}(x)  \, \} 
+\]
+where, the only distribution $F(x)$ in the family $\Pz$ is a re-expression of~\eqref{E:Uniform01DF} using the indicator function $\BB{1}_{[0,1]}(x)$.  The parameter space of the fundamental experiment is a singleton whose DF is its own inverse, ie.~$F(x) = F^{[-1]}(x)$.
+%The two dimensional parameter space or index set for this experiment is $\BB{\Theta} = \{ -\infty < a < b < \infty \} = \{ (a,b) \in \Rz \times \Rz :  a < b \}$, a half-plane.
+\end{Exp}
+
+\begin{Exp}[Bernoulli]\label{Exp:Bernoulli}
+The `toss 1 times' experiment is the following family of densities (PMFs) :
+\[
+\Pz = \{ \,  f(x; p) :  p \in [0,1] \, \} 
+\]
+where, $f(x; p)$ is given in~\eqref{E:Bernoullipdf}.  The one dimensional parameter space or index set for this experiment is  $\BB{\Theta} = [0,1] \subset \Rz$.
+\end{Exp}
+
+\begin{Exp}[Point~Mass]\label{Exp:PointMass}
+The `deterministically choose a specific real number' experiment is the following family of DFs :
+\[
+\Pz = \{ \,  F(x; a) :  a \in \Rz \, \} 
+\]
+where, $F(x; a)$ is given in~\eqref{E:PointMasscdf}.  The one dimensional parameter space or index set for this experiment is $\BB{\Theta} = \Rz$, the entire real line.
+\end{Exp}
+Note that we can use the PDF's or the DF's to specify the family $\Pz$ of an experiment.  When an experiment can be parametrized by finitely many parameters it is said to a {\bf parametric} experiment.  \hyperref[Exp:Bernoulli]{Experiment~\ref*{Exp:Bernoulli}} involving discrete RVs as well as \hyperref[Exp:PointMass]{Experiment \ref*{Exp:PointMass}} are {\bf parametric} since they both have only one parameter (the parameter space is one dimensional for Experiments \ref*{Exp:Bernoulli} and \ref*{Exp:PointMass}).   The \hyperref[Uniform01]{Fundamental Experiment \ref*{Exp:Uniform01}} involving the continuous RV of \hyperref[M:Uniform01]{Model \ref*{M:Uniform01}} is also parametric since its parameter space, being a point, is zero-dimensional.  The next example is also parametric and involves $(k-1)$-dimensional families of discrete RVs.
+
+\begin{Exp}[{de~Moivre[k]}]\label{Exp:GenDiscrete}
+The `pick a number from the set $[k] := \{1,2,\ldots,k\}$ somehow' experiment is the following family of densities (PMFs) :
+\[
+\Pz = \{ \,  f(x; \theta_1,\theta_2,\ldots,\theta_k) :   (\theta_1,\theta_2,\ldots,\theta_k) \in \bigtriangleup_k \, \} 
+\]
+where, $f(x; \theta_1,\theta_2,\ldots,\theta_k)$ is any PMF such that 
+\[
+f(x; \theta_1,\theta_2,\ldots,\theta_k) = \theta_x, \qquad x \in \{1,2,\ldots,k\} \ .
+\]
+The $k-1$ dimensional parameter space $\BB{\Theta}$ is the $k$-Simplex $\bigtriangleup_k$.  This as an `exhaustive' experiment since all possible densities over the finite set $[k] := \{1,2,\ldots,k\}$ are being considered that can be thought of as ``the outcome of rolling a convex polyhedral die with $k$ faces and an arbirtary center of mass specified by the $\theta_i$'s.''
+\begin{figure}
+\caption{Geometry of the $\BB{\Theta}$'s for $\demoivre[k]$ Experiments with $k \in \{1, 2, 3, 4\}$.}
+\vspace{5cm}
+\end{figure}
+\end{Exp}
+An experiment with infinite dimensional parameter space $\BB{\Theta}$ is said to be {\bf nonparametric} .  Next we consider two nonparametric experiments.
+\begin{Exp}[All DFs]\label{Exp:AllDFs}
+The `pick a number from the Real line in an arbitrary way' experiment is the following family of distribution functions (DFs) :
+\[
+\Pz = \{ \,  F(x; F) :  F~is~a~DF \, \} = \BB{\Theta} 
+\]
+where, the DF $F(x; F)$ is indexed or parameterized by itself. Thus, the parameter space 
+\[
+\BB{\Theta}=\Pz=\{ \text{all DFs}\}
+\]
+is the infinite dimensional space of {\bf All DFs} ''.
+\end{Exp}
+Next we consider a {\bf nonparametric} experiment involving continuous RVs.
+\begin{Exp}[Sobolev Densities]\label{Exp:Sob}
+The `pick a number from the Real line in some reasonable way' experiment is the following family of densities (pdfs) :
+\[
+\Pz = \left\{ \,  f(x; f) :  \int(f''(x))^2 < \infty \, \right\} = \BB{\Theta} 
+\]
+where, the density $f(x; f)$ is indexed by itself.  Thus, the parameter space $\BB{\Theta}=\Pz$ is the infinite dimensional {\bf Sobolev space} of ``not too wiggly functions''.
+\end{Exp}
+
+\section{Typical Decision Problems with Experiments}
+Some of the concrete problems involving experiments include:
+\begin{itemize}
+\item {\bf Simulation:} Often it is necessary to simulate a RV with some specific distribution to gain insight into its features or simulate whole systems such as the air-traffic queues at `London Heathrow' to make better management decisions.
+\item {\bf Estimation:} 
+\begin{enumerate}
+\item {\bf Parametric Estimation:} Using samples from some unknown DF $F$ parameterized by some unknown $\theta$, we can estimate $\theta$ from a statistic $T_n$ called the estimator of $\theta$ using one of several methods (maximum likelihood, moment estimation, or parametric bootstrap).
+\item {\bf Nonparametric Estimation of the DF:}  Based on $n$ IID observations from an unknown DF $F$, we can estimate it under the general assumption that $F \in \{ \text{all DFs} \}$.
+\item {\bf Confidence Sets:}  We can obtain a $1-\alpha$ confidence set for the point estimates, of the unknown parameter $\theta \in \BB{\Theta}$ or the unknown  DF $F \in \{ \text{all DFs} \}$
+\end{enumerate}
+\item {\bf Hypothesis Testing:}  Based on observations from some DF $F$ that is hypothesized to belong to a subset $\BB{\Theta}_0$ of $\BB{\Theta}$ called the space of null hypotheses, we will learn to test (attempt to reject) the falsifiable null hypothesis that $F \in \BB{\Theta}_0 \subset \BB{\Theta}$.
+\item $\ldots $ 
+\end{itemize}
+
+
+

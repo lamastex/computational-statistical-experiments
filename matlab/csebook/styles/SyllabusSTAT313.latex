@@ -1,0 +1,68 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Time Table \& Course Overview for STAT 313}
+\begin{table}[hbt]
+\centering
+\caption{Time Table \& Course Overview} \label{T:TTCB}
+{\scriptsize
+ \begin{tabular}{|ll|l|l|l|} \hline
+Lec.& Lab.&  & Topics & Section/Labworks/Simulations \\ 
+ \hline
+ 1 & & & Sets, Numbers, Functions and Probability & %\ref{S:CompStatExps},
+\ref{S:SetTheory}, \ref{S:NatIntRatNumbers}, \ref{S:Reals}, \ref{S:Probability},\ref{S:CondProb}  \\
+ 2 & & & Random variables and Expectations & \ref{S:RVBasicDefs}, \ref{S:ElemDiscRV}, \ref{S:ElemContRV}, \ref{S:Expectations},\ref{S:StochProc}\\
+    &1 & &  Introduction to {\sc Matlab} & LWs: \ref{LW:IntroMatlab}, \ref{LW:Seqs}, \ref{LW:VecsMats}, \ref{LW:2Dplot}, \ref{LW:FloorCeil}, \ref{LW:T3X}, \ref{LW:Unif01Pdf}, \ref{LW:Unif01Cdf}, \ref{LW:PlotUnif01PdfCdf} \\ \hline
+ 
+ 3 & & & Random Numbers &  \ref{S:PhysRNG}, \ref{S:RNGIntro} \\
+ 4 & & & Statistics  & \ref{S:DataStats}, \ref{S:ExploringData}, \ref{S:EDA}\\
+    &2 & & RNG and Exploratory Data Analysis    & 
+LWs: \ref{LW:GenericLCGS}--\ref{LW:3DPlotsMersenneTwister}, \ref{LW:XsFromUni01Twstr101mean}, \ref{LW:XsFromUni01Twstr101varstd}, \ref{LW:SortedXsFromUni01Twstr101}, \ref{LW:ECDF},  \ref{LW:qthSampleQuantile}, \ref{LW:hist}, \ref{LW:StemEcdf}, \ref{LW:2DScatter}, \ref{LW:3DScatter} \\ 
+    & & &  & 
+LWs: \ref{LW:matrixplot5DUniform},\ref{LW:NZEQChCch20110222},\ref{LW:NZEQChCch20110222EDA}, [optional LWs:\ref{LW:ChchDailyRainfallSince}, \ref{LW:ChchTempsLoad}, \ref{LW:JoeWordle},\ref{LW:DPtrajectoryparsing}] \\ \hline
+
+ 5 & &  & Common RVs &   \ref{S:InvS}, \ref{S:InvSContinuousRVs} \\
+ 6 & &  & Common RVs \& Simulation  & \ref{S:InvS}, \ref{S:InvSContinuousRVs} \\ 
+    & 3&  & Simulation of RVs   & Sims \& LWs: \ref{LW:guiInversionSamplerUniform}, \ref{SIM:Uniformab}, \ref{LW:guiInversionSamplerExponential}, \ref{SIM:Exponential}, \ref{LW:Next7Buses}, \ref{LW:guiInversionSamplerLaplace}, \ref{SIM:Laplace}, \ref{LW:guiInversionSamplerCauchy}, \ref{SIM:StdCauchy}, \ref{LW:RunningMeanCauchy} \\ \hline
+
+ 7 & &  & Common RVs \& Simulation & \ref{S:InvSContinuousRVs}, \ref{S:InvSDiscrete}, \ref{S:InvSDiscreteRVs} \\
+ 8 & &  & Common RV, \rv~\& Simulation & \ref{S:InvSDiscreteRVs}, \ref{S:Quincunx}, \ref{S:RVecs} \\
+     & 4 &  & Implementation  & LWs \& Sims: \ref{LW:NormalIntervalProb}, \ref{SIM:NormalByNewRap}, \ref{LW:CLTOfExponentials}, \ref{SIM:Bernoulli}, \ref{SIM:PointMass}, \ref{SIM:deMoivreEqui}, \ref{SIM:deMoivre}, \ref{LW:RelFreqHistForGeomSims}, \ref{LW:BinomialPdf}, \\
+   & & & &  Sims \& LWs: \ref{SIM:Geometric}, \ref{SIM:BinomialFromBernoulliSum}, \ref{SIM:BinomialFromGeoms}      \\ \hline
+          
+ 9 & &  &  Common RV, \rv~\& Simulation &  \ref{S:InvSDiscreteRVs}, \ref{S:Quincunx}, \ref{S:RVecs} \\
+ 10 & &  & Rejection Sampling, Other RVs and \rv s \& Experiments &  \ref{S:RS}, \ref{S:OtherContRVs}, \ref{S:OtherRVecs}, \ref{S:SummaryRVs}, \ref{S:StatExps} \\ 
+          & 5 &  & Simulation  & Sims: \ref{SIM:Poisson}, \ref{LW:QuincunxSampler}, \ref{LW:SeptcunxSampler},  \ref{SIM:Multinomial}, \ref{LW:guiRejectionsNormal01}, \ref{SIM:Normal01FromLaplace}, \ref{SIM:Gamma} \& LWs: \ref{LW:MultinomialPdf}, \ref{LW:randn} \\ \hline
+          
+ 11 & &  & Limits of RVs \& Limit Laws in Statistics  &  \ref{S:ConvOfRVs}, \ref{S:LimitLawsStats}  \\
+ 12 & &  &  Limit Laws in Statistics \& Point Estimation & \ref{S:LimitLawsStats}, \ref{S:PointEstimation} \\
+         & 6 &  & Point Estimation  & LWs: \ref{LW:1000CoinTossingExp}, \ref{LW:BernoulliMLE}\\ \hline \hline%2 week break
+         
+ 13 &  &  & Point Estimation \& Confidence Sets & \ref{S:PointEstimation}, \ref{S:PropPointEstim}, \ref{S:ConfidenceSets} \\
+  14 &  &  & Confidence Intervals \& Likelihoods & \ref{S:ConfidenceSets} , \ref{S:Likelihood} \\ 
+        & 7 &  & Implementation  & LWs: (\ref{LW:BernoulliMLE}), \ref{LW:ExponentialMLEOrbiter}, \ref{LW:ExponentialBusMLE} \\ \hline
+
+ 15 &  &  & Maximum Likelihood Estimation  & \ref{S:MLE} \\
+ 16 &  & & Fisher Information & \ref{S:PropsMLE}, \ref{S:FisherInfo} \\
+       & 8 &  & Implementation  & LWs: \ref{LW:NZSIEarthQuakesExponentialMLE}, \ref{LW:RayleighOceanHeightsMLE}, \ref{LW:ExponentialMLECIOrbiter}, \ref{LW:IDSeededBusStopMLECI} \\ \hline
+       
+ 17 &  & & Multiparameter  Local Optimisation  & \ref{S:MultiParamEstIntro}, \ref{S:PracticalMultiDimOptimization} \\
+ 18 &  & & Multiparameter Maximum Likelihood Estimation & \ref{S:ConfSetsMultiParamModels} \\
+        & 9 &  & Implementation  & \ref{S:PracticalMultiDimOptimization}, \ref{LW:CoeffOfVarForBivNormal} \\ \hline
+        
+ 19 &  &  & DF Estimation \& Plug-in Estimation & \ref{S:EstimDF}, \ref{S:PlugIn} \\
+ 20 & &  & Bootstrap & \ref{S:NPBootstrap}, \ref{S:PBootstrap} \\ 
+       & 10 &  & Implementation & LWs: \ref{LW:NZSIEQTimesECDFsConfBands}, \ref{LW:OrbiterECDFsConfBands}, \ref{LW:PlugInEstimatesEarthQuakes}, \ref{LW:NZSIEQTimesMedianBootstrap}, \ref{LW:LSATGPACorrBoot}  \\ \hline
+       
+ 21 & &   & Monte Carlo Integral Estimation &  \ref{S:BMC} \\
+ 22 & &   & Importance Sampling & \ref{S:IS} \\ 
+       & 11 &  & Implementation  &  \ref{LW:1DintegralOverInterval}, \ref{LW:2DintegralOverRectangle}, \ref{LW:1DintegralOverUnboundedDomain}, \ref{LW:GaussianTailProbs}$^*$ \\ \hline
+       
+ 23 &  &  &Hypothesis Testing: size, level, power, Wald Test \& p-value     & \ref{S:HypTestIntro}, \ref{S:WaldTest}, \ref{S:p-values} \\ 
+ 24 &  &  & Permutation Test \& $\chisquare$  & \ref{S:PermTest}, \ref{S:Chi2} \\
+      & 12 &  & Testing & \ref{LW:Shells}, ** \\ \hline
+ %*Oral    & 18/10/07 & &  & Erskine 446 \\
+ %Presentation &  & & at the Maths \& Stats Dept.~Seminar &  Room No.~TBA \\
+%\end{tabular*}
+ \end{tabular}
+ } \\
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,13 @@
+digraph G {
+    size="4,2"
+    ratio=fill
+    rankdir=LR
+    ranksep="equally"
+    ratio="compress"
+    0[label="r", color= red];
+    1[label="f", color= blue];
+    0->0 [label="1-p", color= black];
+    0->1 [label="p", minlen=1.0, weight=2.0, color= black];
+    1->1 [label="1-q",  color= black];
+    1->0 [label="q", minlen=4.0, weight=1.0, color= black];
+}

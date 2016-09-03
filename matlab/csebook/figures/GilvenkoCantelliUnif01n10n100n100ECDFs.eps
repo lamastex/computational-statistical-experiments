@@ -1,0 +1,4331 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: MATLAB, The Mathworks, Inc. Version 7.6.0.324 (R2008a). Operating System: Darwin 8.11.1 Darwin Kernel Version 8.11.1: Wed Oct 10 18:23:28 PDT 2007; root:xnu-792.25.20~1/RELEASE_I386 i386.
+%%Title: /Users/raazesh/Machome/UoC/Courses/SVN_CCLnotes_Repos/CCLnotes_CompStatExps/trunk/figures/GilvenkoCantelliUnif01n10n100n100ECDFs2.eps
+%%CreationDate: 05/22/2008  00:58:34
+%%DocumentNeededFonts: Helvetica
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%LanguageLevel: 2
+%%Pages: 1
+%%BoundingBox:  -166   215   778   576
+%%EndComments
+
+%%BeginProlog
+% MathWorks dictionary
+/MathWorks 160 dict begin
+% definition operators
+/bdef {bind def} bind def
+/ldef {load def} bind def
+/xdef {exch def} bdef
+/xstore {exch store} bdef
+% operator abbreviations
+/c  /clip ldef
+/cc /concat ldef
+/cp /closepath ldef
+/gr /grestore ldef
+/gs /gsave ldef
+/mt /moveto ldef
+/np /newpath ldef
+/cm /currentmatrix ldef
+/sm /setmatrix ldef
+/rm /rmoveto ldef
+/rl /rlineto ldef
+/s {show newpath} bdef
+/sc {setcmykcolor} bdef
+/sr /setrgbcolor ldef
+/sg /setgray ldef
+/w /setlinewidth ldef
+/j /setlinejoin ldef
+/cap /setlinecap ldef
+/rc {rectclip} bdef
+/rf {rectfill} bdef
+% page state control
+/pgsv () def
+/bpage {/pgsv save def} bdef
+/epage {pgsv restore} bdef
+/bplot /gsave ldef
+/eplot {stroke grestore} bdef
+% orientation switch
+/portraitMode 0 def /landscapeMode 1 def /rotateMode 2 def
+% coordinate system mappings
+/dpi2point 0 def
+% font control
+/FontSize 0 def
+/FMS {/FontSize xstore findfont [FontSize 0 0 FontSize neg 0 0]
+  makefont setfont} bdef
+/reencode {exch dup where {pop load} {pop StandardEncoding} ifelse
+  exch dup 3 1 roll findfont dup length dict begin
+  { 1 index /FID ne {def}{pop pop} ifelse } forall
+  /Encoding exch def currentdict end definefont pop} bdef
+/isroman {findfont /CharStrings get /Agrave known} bdef
+/FMSR {3 1 roll 1 index dup isroman {reencode} {pop pop} ifelse
+  exch FMS} bdef
+/csm {1 dpi2point div -1 dpi2point div scale neg translate
+ dup landscapeMode eq {pop -90 rotate}
+  {rotateMode eq {90 rotate} if} ifelse} bdef
+% line types: solid, dotted, dashed, dotdash
+/SO { [] 0 setdash } bdef
+/DO { [.5 dpi2point mul 4 dpi2point mul] 0 setdash } bdef
+/DA { [6 dpi2point mul] 0 setdash } bdef
+/DD { [.5 dpi2point mul 4 dpi2point mul 6 dpi2point mul 4
+  dpi2point mul] 0 setdash } bdef
+% macros for lines and objects
+/L {lineto stroke} bdef
+/MP {3 1 roll moveto 1 sub {rlineto} repeat} bdef
+/AP {{rlineto} repeat} bdef
+/PDlw -1 def
+/W {/PDlw currentlinewidth def setlinewidth} def
+/PP {closepath eofill} bdef
+/DP {closepath stroke} bdef
+/MR {4 -2 roll moveto dup  0 exch rlineto exch 0 rlineto
+  neg 0 exch rlineto closepath} bdef
+/FR {MR stroke} bdef
+/PR {MR fill} bdef
+/L1i {{currentfile picstr readhexstring pop} image} bdef
+/tMatrix matrix def
+/MakeOval {newpath tMatrix currentmatrix pop translate scale
+0 0 1 0 360 arc tMatrix setmatrix} bdef
+/FO {MakeOval stroke} bdef
+/PO {MakeOval fill} bdef
+/PD {currentlinewidth 2 div 0 360 arc fill
+   PDlw -1 eq not {PDlw w /PDlw -1 def} if} def
+/FA {newpath tMatrix currentmatrix pop translate scale
+  0 0 1 5 -2 roll arc tMatrix setmatrix stroke} bdef
+/PA {newpath tMatrix currentmatrix pop	translate 0 0 moveto scale
+  0 0 1 5 -2 roll arc closepath tMatrix setmatrix fill} bdef
+/FAn {newpath tMatrix currentmatrix pop translate scale
+  0 0 1 5 -2 roll arcn tMatrix setmatrix stroke} bdef
+/PAn {newpath tMatrix currentmatrix pop translate 0 0 moveto scale
+  0 0 1 5 -2 roll arcn closepath tMatrix setmatrix fill} bdef
+/vradius 0 def /hradius 0 def /lry 0 def
+/lrx 0 def /uly 0 def /ulx 0 def /rad 0 def
+/MRR {/vradius xdef /hradius xdef /lry xdef /lrx xdef /uly xdef
+  /ulx xdef newpath tMatrix currentmatrix pop ulx hradius add uly
+  vradius add translate hradius vradius scale 0 0 1 180 270 arc 
+  tMatrix setmatrix lrx hradius sub uly vradius add translate
+  hradius vradius scale 0 0 1 270 360 arc tMatrix setmatrix
+  lrx hradius sub lry vradius sub translate hradius vradius scale
+  0 0 1 0 90 arc tMatrix setmatrix ulx hradius add lry vradius sub
+  translate hradius vradius scale 0 0 1 90 180 arc tMatrix setmatrix
+  closepath} bdef
+/FRR {MRR stroke } bdef
+/PRR {MRR fill } bdef
+/MlrRR {/lry xdef /lrx xdef /uly xdef /ulx xdef /rad lry uly sub 2 div def
+  newpath tMatrix currentmatrix pop ulx rad add uly rad add translate
+  rad rad scale 0 0 1 90 270 arc tMatrix setmatrix lrx rad sub lry rad
+  sub translate rad rad scale 0 0 1 270 90 arc tMatrix setmatrix
+  closepath} bdef
+/FlrRR {MlrRR stroke } bdef
+/PlrRR {MlrRR fill } bdef
+/MtbRR {/lry xdef /lrx xdef /uly xdef /ulx xdef /rad lrx ulx sub 2 div def
+  newpath tMatrix currentmatrix pop ulx rad add uly rad add translate
+  rad rad scale 0 0 1 180 360 arc tMatrix setmatrix lrx rad sub lry rad
+  sub translate rad rad scale 0 0 1 0 180 arc tMatrix setmatrix
+  closepath} bdef
+/FtbRR {MtbRR stroke } bdef
+/PtbRR {MtbRR fill } bdef
+/stri 6 array def /dtri 6 array def
+/smat 6 array def /dmat 6 array def
+/tmat1 6 array def /tmat2 6 array def /dif 3 array def
+/asub {/ind2 exch def /ind1 exch def dup dup
+  ind1 get exch ind2 get sub exch } bdef
+/tri_to_matrix {
+  2 0 asub 3 1 asub 4 0 asub 5 1 asub
+  dup 0 get exch 1 get 7 -1 roll astore } bdef
+/compute_transform {
+  dmat dtri tri_to_matrix tmat1 invertmatrix 
+  smat stri tri_to_matrix tmat2 concatmatrix } bdef
+/ds {stri astore pop} bdef
+/dt {dtri astore pop} bdef
+/db {2 copy /cols xdef /rows xdef mul dup 3 mul string
+  currentfile 
+  3 index 0 eq {/ASCIIHexDecode filter}
+  {/ASCII85Decode filter 3 index 2 eq {/RunLengthDecode filter} if }
+  ifelse exch readstring pop
+  dup 0 3 index getinterval /rbmap xdef
+  dup 2 index dup getinterval /gbmap xdef
+  1 index dup 2 mul exch getinterval /bbmap xdef pop pop}bdef
+/it {gs np dtri aload pop moveto lineto lineto cp c
+  cols rows 8 compute_transform 
+  rbmap gbmap bbmap true 3 colorimage gr}bdef
+/il {newpath moveto lineto stroke}bdef
+currentdict end def
+%%EndProlog
+
+%%BeginSetup
+MathWorks begin
+
+0 cap
+
+end
+%%EndSetup
+
+%%Page: 1 1
+%%BeginPageSetup
+%%PageBoundingBox:  -166   215   778   576
+MathWorks begin
+bpage
+%%EndPageSetup
+
+%%BeginObject: obj1
+bplot
+
+/dpi2point 12 def
+portraitMode -1992 6912 csm
+
+    0     0 11338  4325 rc
+85 dict begin %Colortable dictionary
+/c0 { 0.000000 0.000000 0.000000 sr} bdef
+/c1 { 1.000000 1.000000 1.000000 sr} bdef
+/c2 { 0.900000 0.000000 0.000000 sr} bdef
+/c3 { 0.000000 0.820000 0.000000 sr} bdef
+/c4 { 0.000000 0.000000 0.800000 sr} bdef
+/c5 { 0.910000 0.820000 0.320000 sr} bdef
+/c6 { 1.000000 0.260000 0.820000 sr} bdef
+/c7 { 0.000000 0.820000 0.820000 sr} bdef
+c0
+1 j
+1 sg
+   0    0 11339 4326 rf
+6 w
+0 3525 2420 0 0 -3525 1474 3848 4 MP
+PP
+-2420 0 0 3525 2420 0 0 -3525 1474 3848 5 MP stroke
+4 w
+DO
+SO
+6 w
+0 sg
+1474 3848 mt 3894 3848 L
+1474  323 mt 3894  323 L
+1474 3848 mt 1474  323 L
+3894 3848 mt 3894  323 L
+1474 3848 mt 3894 3848 L
+1474 3848 mt 1474  323 L
+1675 3848 mt 1675 3813 L
+1675  323 mt 1675  359 L
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 120 FMSR
+
+1642 3994 mt 
+(0) s
+2079 3848 mt 2079 3813 L
+2079  323 mt 2079  359 L
+1996 3994 mt 
+(0.2) s
+2482 3848 mt 2482 3813 L
+2482  323 mt 2482  359 L
+2399 3994 mt 
+(0.4) s
+2885 3848 mt 2885 3813 L
+2885  323 mt 2885  359 L
+2802 3994 mt 
+(0.6) s
+3289 3848 mt 3289 3813 L
+3289  323 mt 3289  359 L
+3206 3994 mt 
+(0.8) s
+3692 3848 mt 3692 3813 L
+3692  323 mt 3692  359 L
+3659 3994 mt 
+(1) s
+1474 3555 mt 1509 3555 L
+3894 3555 mt 3858 3555 L
+1373 3599 mt 
+(0) s
+1474 2967 mt 1509 2967 L
+3894 2967 mt 3858 2967 L
+1273 3011 mt 
+(0.2) s
+1474 2380 mt 1509 2380 L
+3894 2380 mt 3858 2380 L
+1273 2424 mt 
+(0.4) s
+1474 1792 mt 1509 1792 L
+3894 1792 mt 3858 1792 L
+1273 1836 mt 
+(0.6) s
+1474 1205 mt 1509 1205 L
+3894 1205 mt 3858 1205 L
+1273 1249 mt 
+(0.8) s
+1474  617 mt 1509  617 L
+3894  617 mt 3858  617 L
+1373  661 mt 
+(1) s
+1474 3848 mt 3894 3848 L
+1474  323 mt 3894  323 L
+1474 3848 mt 1474  323 L
+3894 3848 mt 3894  323 L
+gs 1474 323 2421 3527 rc
+24 w
+/c8 { 1.000000 0.000000 0.000000 sr} bdef
+c8
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+3 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 3 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+3 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 3089 1496 300 MP stroke
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 3 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2486 2374 300 MP stroke
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 3 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 3 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 3 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 3 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 1883 3252 300 MP stroke
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 3 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 1675 3555 104 MP stroke
+6 w
+gr
+
+c8
+40 W
+0 sg
+1692 3261 PD
+gs 1474 323 2421 3527 rc
+218 0 1474 3555 2 MP stroke
+0 -294 1692 3555 2 MP stroke
+332 0 1692 3261 2 MP stroke
+gr
+
+  24   24 1692 3261 FO
+  24   24 2024 3261 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2024 2967 PD
+gs 1474 323 2421 3527 rc
+332 0 1692 3261 2 MP stroke
+0 -294 2024 3261 2 MP stroke
+163 0 2024 2967 2 MP stroke
+gr
+
+  24   24 2024 2967 FO
+  24   24 2187 2967 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2187 2674 PD
+gs 1474 323 2421 3527 rc
+163 0 2024 2967 2 MP stroke
+0 -293 2187 2967 2 MP stroke
+12 0 2187 2674 2 MP stroke
+gr
+
+  24   24 2187 2674 FO
+  24   24 2199 2674 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2199 2380 PD
+gs 1474 323 2421 3527 rc
+12 0 2187 2674 2 MP stroke
+0 -294 2199 2674 2 MP stroke
+97 0 2199 2380 2 MP stroke
+gr
+
+  24   24 2199 2380 FO
+  24   24 2296 2380 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2296 2086 PD
+gs 1474 323 2421 3527 rc
+97 0 2199 2380 2 MP stroke
+0 -294 2296 2380 2 MP stroke
+189 0 2296 2086 2 MP stroke
+gr
+
+  24   24 2296 2086 FO
+  24   24 2485 2086 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2485 1792 PD
+gs 1474 323 2421 3527 rc
+189 0 2296 2086 2 MP stroke
+0 -294 2485 2086 2 MP stroke
+99 0 2485 1792 2 MP stroke
+gr
+
+  24   24 2485 1792 FO
+  24   24 2584 1792 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2584 1499 PD
+gs 1474 323 2421 3527 rc
+99 0 2485 1792 2 MP stroke
+0 -293 2584 1792 2 MP stroke
+185 0 2584 1499 2 MP stroke
+gr
+
+  24   24 2584 1499 FO
+  24   24 2769 1499 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2769 1205 PD
+gs 1474 323 2421 3527 rc
+185 0 2584 1499 2 MP stroke
+0 -294 2769 1499 2 MP stroke
+362 0 2769 1205 2 MP stroke
+gr
+
+  24   24 2769 1205 FO
+  24   24 3131 1205 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3131 911 PD
+gs 1474 323 2421 3527 rc
+362 0 2769 1205 2 MP stroke
+0 -294 3131 1205 2 MP stroke
+208 0 3131 911 2 MP stroke
+gr
+
+  24   24 3131  911 FO
+  24   24 3339  911 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3339 617 PD
+gs 1474 323 2421 3527 rc
+208 0 3131 911 2 MP stroke
+0 -294 3339 911 2 MP stroke
+403 0 3339 617 2 MP stroke
+3742 617 PD
+gr
+
+40 W
+1906 3261 PD
+gs 1474 323 2421 3527 rc
+403 0 1503 3555 2 MP stroke
+0 -294 1906 3555 2 MP stroke
+132 0 1906 3261 2 MP stroke
+gr
+
+  24   24 1906 3261 FO
+  24   24 2038 3261 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2038 2967 PD
+gs 1474 323 2421 3527 rc
+132 0 1906 3261 2 MP stroke
+0 -294 2038 3261 2 MP stroke
+10 0 2038 2967 2 MP stroke
+gr
+
+  24   24 2038 2967 FO
+  24   24 2048 2967 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2048 2674 PD
+gs 1474 323 2421 3527 rc
+10 0 2038 2967 2 MP stroke
+0 -293 2048 2967 2 MP stroke
+412 0 2048 2674 2 MP stroke
+gr
+
+  24   24 2048 2674 FO
+  24   24 2460 2674 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2460 2380 PD
+gs 1474 323 2421 3527 rc
+412 0 2048 2674 2 MP stroke
+0 -294 2460 2674 2 MP stroke
+25 0 2460 2380 2 MP stroke
+gr
+
+  24   24 2460 2380 FO
+  24   24 2485 2380 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2485 2086 PD
+gs 1474 323 2421 3527 rc
+25 0 2460 2380 2 MP stroke
+0 -294 2485 2380 2 MP stroke
+508 0 2485 2086 2 MP stroke
+gr
+
+  24   24 2485 2086 FO
+  24   24 2993 2086 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2993 1792 PD
+gs 1474 323 2421 3527 rc
+508 0 2485 2086 2 MP stroke
+0 -294 2993 2086 2 MP stroke
+73 0 2993 1792 2 MP stroke
+gr
+
+  24   24 2993 1792 FO
+  24   24 3066 1792 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3066 1499 PD
+gs 1474 323 2421 3527 rc
+73 0 2993 1792 2 MP stroke
+0 -293 3066 1792 2 MP stroke
+10 0 3066 1499 2 MP stroke
+gr
+
+  24   24 3066 1499 FO
+  24   24 3076 1499 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3076 1205 PD
+gs 1474 323 2421 3527 rc
+10 0 3066 1499 2 MP stroke
+0 -294 3076 1499 2 MP stroke
+504 0 3076 1205 2 MP stroke
+gr
+
+  24   24 3076 1205 FO
+  24   24 3580 1205 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3580 911 PD
+gs 1474 323 2421 3527 rc
+504 0 3076 1205 2 MP stroke
+0 -294 3580 1205 2 MP stroke
+5 0 3580 911 2 MP stroke
+gr
+
+  24   24 3580  911 FO
+  24   24 3585  911 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3585 617 PD
+gs 1474 323 2421 3527 rc
+5 0 3580 911 2 MP stroke
+0 -294 3585 911 2 MP stroke
+310 0 3585 617 2 MP stroke
+gr
+
+40 W
+1724 3261 PD
+gs 1474 323 2421 3527 rc
+250 0 1474 3555 2 MP stroke
+0 -294 1724 3555 2 MP stroke
+23 0 1724 3261 2 MP stroke
+gr
+
+  24   24 1724 3261 FO
+  24   24 1747 3261 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+1747 2967 PD
+gs 1474 323 2421 3527 rc
+23 0 1724 3261 2 MP stroke
+0 -294 1747 3261 2 MP stroke
+26 0 1747 2967 2 MP stroke
+gr
+
+  24   24 1747 2967 FO
+  24   24 1773 2967 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+1773 2674 PD
+gs 1474 323 2421 3527 rc
+26 0 1747 2967 2 MP stroke
+0 -293 1773 2967 2 MP stroke
+534 0 1773 2674 2 MP stroke
+gr
+
+  24   24 1773 2674 FO
+  24   24 2307 2674 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2307 2380 PD
+gs 1474 323 2421 3527 rc
+534 0 1773 2674 2 MP stroke
+0 -294 2307 2674 2 MP stroke
+10 0 2307 2380 2 MP stroke
+gr
+
+  24   24 2307 2380 FO
+  24   24 2317 2380 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2317 2086 PD
+gs 1474 323 2421 3527 rc
+10 0 2307 2380 2 MP stroke
+0 -294 2317 2380 2 MP stroke
+226 0 2317 2086 2 MP stroke
+gr
+
+  24   24 2317 2086 FO
+  24   24 2543 2086 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2543 1792 PD
+gs 1474 323 2421 3527 rc
+226 0 2317 2086 2 MP stroke
+0 -294 2543 2086 2 MP stroke
+18 0 2543 1792 2 MP stroke
+gr
+
+  24   24 2543 1792 FO
+  24   24 2561 1792 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2561 1499 PD
+gs 1474 323 2421 3527 rc
+18 0 2543 1792 2 MP stroke
+0 -293 2561 1792 2 MP stroke
+400 0 2561 1499 2 MP stroke
+gr
+
+  24   24 2561 1499 FO
+  24   24 2961 1499 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2961 1205 PD
+gs 1474 323 2421 3527 rc
+400 0 2561 1499 2 MP stroke
+0 -294 2961 1499 2 MP stroke
+417 0 2961 1205 2 MP stroke
+gr
+
+  24   24 2961 1205 FO
+  24   24 3378 1205 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3378 911 PD
+gs 1474 323 2421 3527 rc
+417 0 2961 1205 2 MP stroke
+0 -294 3378 1205 2 MP stroke
+52 0 3378 911 2 MP stroke
+gr
+
+  24   24 3378  911 FO
+  24   24 3430  911 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3430 617 PD
+gs 1474 323 2421 3527 rc
+52 0 3378 911 2 MP stroke
+0 -294 3430 911 2 MP stroke
+403 0 3430 617 2 MP stroke
+3833 617 PD
+gr
+
+40 W
+1854 3261 PD
+gs 1474 323 2421 3527 rc
+380 0 1474 3555 2 MP stroke
+0 -294 1854 3555 2 MP stroke
+29 0 1854 3261 2 MP stroke
+gr
+
+  24   24 1854 3261 FO
+  24   24 1883 3261 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+1883 2967 PD
+gs 1474 323 2421 3527 rc
+29 0 1854 3261 2 MP stroke
+0 -294 1883 3261 2 MP stroke
+304 0 1883 2967 2 MP stroke
+gr
+
+  24   24 1883 2967 FO
+  24   24 2187 2967 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2187 2674 PD
+gs 1474 323 2421 3527 rc
+304 0 1883 2967 2 MP stroke
+0 -293 2187 2967 2 MP stroke
+332 0 2187 2674 2 MP stroke
+gr
+
+  24   24 2187 2674 FO
+  24   24 2519 2674 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2519 2380 PD
+gs 1474 323 2421 3527 rc
+332 0 2187 2674 2 MP stroke
+0 -294 2519 2674 2 MP stroke
+115 0 2519 2380 2 MP stroke
+gr
+
+  24   24 2519 2380 FO
+  24   24 2634 2380 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2634 2086 PD
+gs 1474 323 2421 3527 rc
+115 0 2519 2380 2 MP stroke
+0 -294 2634 2380 2 MP stroke
+25 0 2634 2086 2 MP stroke
+gr
+
+  24   24 2634 2086 FO
+  24   24 2659 2086 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2659 1792 PD
+gs 1474 323 2421 3527 rc
+25 0 2634 2086 2 MP stroke
+0 -294 2659 2086 2 MP stroke
+130 0 2659 1792 2 MP stroke
+gr
+
+  24   24 2659 1792 FO
+  24   24 2789 1792 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2789 1499 PD
+gs 1474 323 2421 3527 rc
+130 0 2659 1792 2 MP stroke
+0 -293 2789 1792 2 MP stroke
+393 0 2789 1499 2 MP stroke
+gr
+
+  24   24 2789 1499 FO
+  24   24 3182 1499 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3182 1205 PD
+gs 1474 323 2421 3527 rc
+393 0 2789 1499 2 MP stroke
+0 -294 3182 1499 2 MP stroke
+175 0 3182 1205 2 MP stroke
+gr
+
+  24   24 3182 1205 FO
+  24   24 3357 1205 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3357 911 PD
+gs 1474 323 2421 3527 rc
+175 0 3182 1205 2 MP stroke
+0 -294 3357 1205 2 MP stroke
+175 0 3357 911 2 MP stroke
+gr
+
+  24   24 3357  911 FO
+  24   24 3532  911 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3532 617 PD
+gs 1474 323 2421 3527 rc
+175 0 3357 911 2 MP stroke
+0 -294 3532 911 2 MP stroke
+363 0 3532 617 2 MP stroke
+gr
+
+40 W
+1860 3261 PD
+gs 1474 323 2421 3527 rc
+386 0 1474 3555 2 MP stroke
+0 -294 1860 3555 2 MP stroke
+382 0 1860 3261 2 MP stroke
+gr
+
+  24   24 1860 3261 FO
+  24   24 2242 3261 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2242 2967 PD
+gs 1474 323 2421 3527 rc
+382 0 1860 3261 2 MP stroke
+0 -294 2242 3261 2 MP stroke
+131 0 2242 2967 2 MP stroke
+gr
+
+  24   24 2242 2967 FO
+  24   24 2373 2967 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2373 2674 PD
+gs 1474 323 2421 3527 rc
+131 0 2242 2967 2 MP stroke
+0 -293 2373 2967 2 MP stroke
+162 0 2373 2674 2 MP stroke
+gr
+
+  24   24 2373 2674 FO
+  24   24 2535 2674 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2535 2380 PD
+gs 1474 323 2421 3527 rc
+162 0 2373 2674 2 MP stroke
+0 -294 2535 2674 2 MP stroke
+110 0 2535 2380 2 MP stroke
+gr
+
+  24   24 2535 2380 FO
+  24   24 2645 2380 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2645 2086 PD
+gs 1474 323 2421 3527 rc
+110 0 2535 2380 2 MP stroke
+0 -294 2645 2380 2 MP stroke
+15 0 2645 2086 2 MP stroke
+gr
+
+  24   24 2645 2086 FO
+  24   24 2660 2086 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2660 1792 PD
+gs 1474 323 2421 3527 rc
+15 0 2645 2086 2 MP stroke
+0 -294 2660 2086 2 MP stroke
+97 0 2660 1792 2 MP stroke
+gr
+
+  24   24 2660 1792 FO
+  24   24 2757 1792 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2757 1499 PD
+gs 1474 323 2421 3527 rc
+97 0 2660 1792 2 MP stroke
+0 -293 2757 1792 2 MP stroke
+30 0 2757 1499 2 MP stroke
+gr
+
+  24   24 2757 1499 FO
+  24   24 2787 1499 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2787 1205 PD
+gs 1474 323 2421 3527 rc
+30 0 2757 1499 2 MP stroke
+0 -294 2787 1499 2 MP stroke
+420 0 2787 1205 2 MP stroke
+gr
+
+  24   24 2787 1205 FO
+  24   24 3207 1205 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3207 911 PD
+gs 1474 323 2421 3527 rc
+420 0 2787 1205 2 MP stroke
+0 -294 3207 1205 2 MP stroke
+69 0 3207 911 2 MP stroke
+gr
+
+  24   24 3207  911 FO
+  24   24 3276  911 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3276 617 PD
+gs 1474 323 2421 3527 rc
+69 0 3207 911 2 MP stroke
+0 -294 3276 911 2 MP stroke
+404 0 3276 617 2 MP stroke
+3680 617 PD
+gr
+
+40 W
+1861 3261 PD
+gs 1474 323 2421 3527 rc
+387 0 1474 3555 2 MP stroke
+0 -294 1861 3555 2 MP stroke
+46 0 1861 3261 2 MP stroke
+gr
+
+  24   24 1861 3261 FO
+  24   24 1907 3261 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+1907 2967 PD
+gs 1474 323 2421 3527 rc
+46 0 1861 3261 2 MP stroke
+0 -294 1907 3261 2 MP stroke
+47 0 1907 2967 2 MP stroke
+gr
+
+  24   24 1907 2967 FO
+  24   24 1954 2967 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+1954 2674 PD
+gs 1474 323 2421 3527 rc
+47 0 1907 2967 2 MP stroke
+0 -293 1954 2967 2 MP stroke
+346 0 1954 2674 2 MP stroke
+gr
+
+  24   24 1954 2674 FO
+  24   24 2300 2674 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2300 2380 PD
+gs 1474 323 2421 3527 rc
+346 0 1954 2674 2 MP stroke
+0 -294 2300 2674 2 MP stroke
+4 0 2300 2380 2 MP stroke
+gr
+
+  24   24 2300 2380 FO
+  24   24 2304 2380 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2304 2086 PD
+gs 1474 323 2421 3527 rc
+4 0 2300 2380 2 MP stroke
+0 -294 2304 2380 2 MP stroke
+132 0 2304 2086 2 MP stroke
+gr
+
+  24   24 2304 2086 FO
+  24   24 2436 2086 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2436 1792 PD
+gs 1474 323 2421 3527 rc
+132 0 2304 2086 2 MP stroke
+0 -294 2436 2086 2 MP stroke
+168 0 2436 1792 2 MP stroke
+gr
+
+  24   24 2436 1792 FO
+  24   24 2604 1792 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2604 1499 PD
+gs 1474 323 2421 3527 rc
+168 0 2436 1792 2 MP stroke
+0 -293 2604 1792 2 MP stroke
+574 0 2604 1499 2 MP stroke
+gr
+
+  24   24 2604 1499 FO
+  24   24 3178 1499 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3178 1205 PD
+gs 1474 323 2421 3527 rc
+574 0 2604 1499 2 MP stroke
+0 -294 3178 1499 2 MP stroke
+13 0 3178 1205 2 MP stroke
+gr
+
+  24   24 3178 1205 FO
+  24   24 3191 1205 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3191 911 PD
+gs 1474 323 2421 3527 rc
+13 0 3178 1205 2 MP stroke
+0 -294 3191 1205 2 MP stroke
+487 0 3191 911 2 MP stroke
+gr
+
+  24   24 3191  911 FO
+  24   24 3678  911 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3678 617 PD
+gs 1474 323 2421 3527 rc
+487 0 3191 911 2 MP stroke
+0 -294 3678 911 2 MP stroke
+217 0 3678 617 2 MP stroke
+gr
+
+40 W
+2133 3261 PD
+gs 1474 323 2421 3527 rc
+403 0 1730 3555 2 MP stroke
+0 -294 2133 3555 2 MP stroke
+51 0 2133 3261 2 MP stroke
+gr
+
+  24   24 2133 3261 FO
+  24   24 2184 3261 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2184 2967 PD
+gs 1474 323 2421 3527 rc
+51 0 2133 3261 2 MP stroke
+0 -294 2184 3261 2 MP stroke
+28 0 2184 2967 2 MP stroke
+gr
+
+  24   24 2184 2967 FO
+  24   24 2212 2967 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2212 2674 PD
+gs 1474 323 2421 3527 rc
+28 0 2184 2967 2 MP stroke
+0 -293 2212 2967 2 MP stroke
+133 0 2212 2674 2 MP stroke
+gr
+
+  24   24 2212 2674 FO
+  24   24 2345 2674 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2345 2380 PD
+gs 1474 323 2421 3527 rc
+133 0 2212 2674 2 MP stroke
+0 -294 2345 2674 2 MP stroke
+171 0 2345 2380 2 MP stroke
+gr
+
+  24   24 2345 2380 FO
+  24   24 2516 2380 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2516 2086 PD
+gs 1474 323 2421 3527 rc
+171 0 2345 2380 2 MP stroke
+0 -294 2516 2380 2 MP stroke
+98 0 2516 2086 2 MP stroke
+gr
+
+  24   24 2516 2086 FO
+  24   24 2614 2086 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2614 1792 PD
+gs 1474 323 2421 3527 rc
+98 0 2516 2086 2 MP stroke
+0 -294 2614 2086 2 MP stroke
+67 0 2614 1792 2 MP stroke
+gr
+
+  24   24 2614 1792 FO
+  24   24 2681 1792 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2681 1499 PD
+gs 1474 323 2421 3527 rc
+67 0 2614 1792 2 MP stroke
+0 -293 2681 1792 2 MP stroke
+161 0 2681 1499 2 MP stroke
+gr
+
+  24   24 2681 1499 FO
+  24   24 2842 1499 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2842 1205 PD
+gs 1474 323 2421 3527 rc
+161 0 2681 1499 2 MP stroke
+0 -294 2842 1499 2 MP stroke
+485 0 2842 1205 2 MP stroke
+gr
+
+  24   24 2842 1205 FO
+  24   24 3327 1205 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3327 911 PD
+gs 1474 323 2421 3527 rc
+485 0 2842 1205 2 MP stroke
+0 -294 3327 1205 2 MP stroke
+119 0 3327 911 2 MP stroke
+gr
+
+  24   24 3327  911 FO
+  24   24 3446  911 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3446 617 PD
+gs 1474 323 2421 3527 rc
+119 0 3327 911 2 MP stroke
+0 -294 3446 911 2 MP stroke
+403 0 3446 617 2 MP stroke
+3849 617 PD
+gr
+
+40 W
+1903 3261 PD
+gs 1474 323 2421 3527 rc
+403 0 1500 3555 2 MP stroke
+0 -294 1903 3555 2 MP stroke
+410 0 1903 3261 2 MP stroke
+gr
+
+  24   24 1903 3261 FO
+  24   24 2313 3261 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2313 2967 PD
+gs 1474 323 2421 3527 rc
+410 0 1903 3261 2 MP stroke
+0 -294 2313 3261 2 MP stroke
+113 0 2313 2967 2 MP stroke
+gr
+
+  24   24 2313 2967 FO
+  24   24 2426 2967 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2426 2674 PD
+gs 1474 323 2421 3527 rc
+113 0 2313 2967 2 MP stroke
+0 -293 2426 2967 2 MP stroke
+40 0 2426 2674 2 MP stroke
+gr
+
+  24   24 2426 2674 FO
+  24   24 2466 2674 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2466 2380 PD
+gs 1474 323 2421 3527 rc
+40 0 2426 2674 2 MP stroke
+0 -294 2466 2674 2 MP stroke
+96 0 2466 2380 2 MP stroke
+gr
+
+  24   24 2466 2380 FO
+  24   24 2562 2380 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2562 2086 PD
+gs 1474 323 2421 3527 rc
+96 0 2466 2380 2 MP stroke
+0 -294 2562 2380 2 MP stroke
+279 0 2562 2086 2 MP stroke
+gr
+
+  24   24 2562 2086 FO
+  24   24 2841 2086 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2841 1792 PD
+gs 1474 323 2421 3527 rc
+279 0 2562 2086 2 MP stroke
+0 -294 2841 2086 2 MP stroke
+298 0 2841 1792 2 MP stroke
+gr
+
+  24   24 2841 1792 FO
+  24   24 3139 1792 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3139 1499 PD
+gs 1474 323 2421 3527 rc
+298 0 2841 1792 2 MP stroke
+0 -293 3139 1792 2 MP stroke
+262 0 3139 1499 2 MP stroke
+gr
+
+  24   24 3139 1499 FO
+  24   24 3401 1499 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3401 1205 PD
+gs 1474 323 2421 3527 rc
+262 0 3139 1499 2 MP stroke
+0 -294 3401 1499 2 MP stroke
+80 0 3401 1205 2 MP stroke
+gr
+
+  24   24 3401 1205 FO
+  24   24 3481 1205 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3481 911 PD
+gs 1474 323 2421 3527 rc
+80 0 3401 1205 2 MP stroke
+0 -294 3481 1205 2 MP stroke
+67 0 3481 911 2 MP stroke
+gr
+
+  24   24 3481  911 FO
+  24   24 3548  911 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3548 617 PD
+gs 1474 323 2421 3527 rc
+67 0 3481 911 2 MP stroke
+0 -294 3548 911 2 MP stroke
+347 0 3548 617 2 MP stroke
+gr
+
+40 W
+2236 3261 PD
+gs 1474 323 2421 3527 rc
+404 0 1832 3555 2 MP stroke
+0 -294 2236 3555 2 MP stroke
+150 0 2236 3261 2 MP stroke
+gr
+
+  24   24 2236 3261 FO
+  24   24 2386 3261 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2386 2967 PD
+gs 1474 323 2421 3527 rc
+150 0 2236 3261 2 MP stroke
+0 -294 2386 3261 2 MP stroke
+2386 2967 PD
+gr
+
+  24   24 2386 2967 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2386 2674 PD
+gs 1474 323 2421 3527 rc
+2386 2967 PD
+0 -293 2386 2967 2 MP stroke
+473 0 2386 2674 2 MP stroke
+gr
+
+  24   24 2386 2674 FO
+  24   24 2859 2674 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2859 2380 PD
+gs 1474 323 2421 3527 rc
+473 0 2386 2674 2 MP stroke
+0 -294 2859 2674 2 MP stroke
+186 0 2859 2380 2 MP stroke
+gr
+
+  24   24 2859 2380 FO
+  24   24 3045 2380 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3045 2086 PD
+gs 1474 323 2421 3527 rc
+186 0 2859 2380 2 MP stroke
+0 -294 3045 2380 2 MP stroke
+33 0 3045 2086 2 MP stroke
+gr
+
+  24   24 3045 2086 FO
+  24   24 3078 2086 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3078 1792 PD
+gs 1474 323 2421 3527 rc
+33 0 3045 2086 2 MP stroke
+0 -294 3078 2086 2 MP stroke
+29 0 3078 1792 2 MP stroke
+gr
+
+  24   24 3078 1792 FO
+  24   24 3107 1792 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3107 1499 PD
+gs 1474 323 2421 3527 rc
+29 0 3078 1792 2 MP stroke
+0 -293 3107 1792 2 MP stroke
+65 0 3107 1499 2 MP stroke
+gr
+
+  24   24 3107 1499 FO
+  24   24 3172 1499 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3172 1205 PD
+gs 1474 323 2421 3527 rc
+65 0 3107 1499 2 MP stroke
+0 -294 3172 1499 2 MP stroke
+177 0 3172 1205 2 MP stroke
+gr
+
+  24   24 3172 1205 FO
+  24   24 3349 1205 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3349 911 PD
+gs 1474 323 2421 3527 rc
+177 0 3172 1205 2 MP stroke
+0 -294 3349 1205 2 MP stroke
+220 0 3349 911 2 MP stroke
+gr
+
+  24   24 3349  911 FO
+  24   24 3569  911 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3569 617 PD
+gs 1474 323 2421 3527 rc
+220 0 3349 911 2 MP stroke
+0 -294 3569 911 2 MP stroke
+326 0 3569 617 2 MP stroke
+gr
+
+40 W
+1792 3261 PD
+gs 1474 323 2421 3527 rc
+318 0 1474 3555 2 MP stroke
+0 -294 1792 3555 2 MP stroke
+113 0 1792 3261 2 MP stroke
+gr
+
+  24   24 1792 3261 FO
+  24   24 1905 3261 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+1905 2967 PD
+gs 1474 323 2421 3527 rc
+113 0 1792 3261 2 MP stroke
+0 -294 1905 3261 2 MP stroke
+108 0 1905 2967 2 MP stroke
+gr
+
+  24   24 1905 2967 FO
+  24   24 2013 2967 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2013 2674 PD
+gs 1474 323 2421 3527 rc
+108 0 1905 2967 2 MP stroke
+0 -293 2013 2967 2 MP stroke
+56 0 2013 2674 2 MP stroke
+gr
+
+  24   24 2013 2674 FO
+  24   24 2069 2674 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2069 2380 PD
+gs 1474 323 2421 3527 rc
+56 0 2013 2674 2 MP stroke
+0 -294 2069 2674 2 MP stroke
+81 0 2069 2380 2 MP stroke
+gr
+
+  24   24 2069 2380 FO
+  24   24 2150 2380 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2150 2086 PD
+gs 1474 323 2421 3527 rc
+81 0 2069 2380 2 MP stroke
+0 -294 2150 2380 2 MP stroke
+330 0 2150 2086 2 MP stroke
+gr
+
+  24   24 2150 2086 FO
+  24   24 2480 2086 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2480 1792 PD
+gs 1474 323 2421 3527 rc
+330 0 2150 2086 2 MP stroke
+0 -294 2480 2086 2 MP stroke
+71 0 2480 1792 2 MP stroke
+gr
+
+  24   24 2480 1792 FO
+  24   24 2551 1792 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2551 1499 PD
+gs 1474 323 2421 3527 rc
+71 0 2480 1792 2 MP stroke
+0 -293 2551 1792 2 MP stroke
+447 0 2551 1499 2 MP stroke
+gr
+
+  24   24 2551 1499 FO
+  24   24 2998 1499 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+2998 1205 PD
+gs 1474 323 2421 3527 rc
+447 0 2551 1499 2 MP stroke
+0 -294 2998 1499 2 MP stroke
+433 0 2998 1205 2 MP stroke
+gr
+
+  24   24 2998 1205 FO
+  24   24 3431 1205 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3431 911 PD
+gs 1474 323 2421 3527 rc
+433 0 2998 1205 2 MP stroke
+0 -294 3431 1205 2 MP stroke
+103 0 3431 911 2 MP stroke
+gr
+
+  24   24 3431  911 FO
+  24   24 3534  911 FO
+gs 1474 323 2421 3527 rc
+gr
+
+40 W
+3534 617 PD
+gs 1474 323 2421 3527 rc
+103 0 3431 911 2 MP stroke
+0 -294 3534 911 2 MP stroke
+361 0 3534 617 2 MP stroke
+gr
+
+3188 3450 mt 
+(n=10) s
+1 sg
+0 3525 2419 0 0 -3525 4658 3848 4 MP
+PP
+-2419 0 0 3525 2419 0 0 -3525 4658 3848 5 MP stroke
+4 w
+DO
+SO
+6 w
+0 sg
+4658 3848 mt 7077 3848 L
+4658  323 mt 7077  323 L
+4658 3848 mt 4658  323 L
+7077 3848 mt 7077  323 L
+4658 3848 mt 7077 3848 L
+4658 3848 mt 4658  323 L
+4859 3848 mt 4859 3813 L
+4859  323 mt 4859  359 L
+4826 3994 mt 
+(0) s
+5262 3848 mt 5262 3813 L
+5262  323 mt 5262  359 L
+5179 3994 mt 
+(0.2) s
+5665 3848 mt 5665 3813 L
+5665  323 mt 5665  359 L
+5582 3994 mt 
+(0.4) s
+6069 3848 mt 6069 3813 L
+6069  323 mt 6069  359 L
+5986 3994 mt 
+(0.6) s
+6472 3848 mt 6472 3813 L
+6472  323 mt 6472  359 L
+6389 3994 mt 
+(0.8) s
+6875 3848 mt 6875 3813 L
+6875  323 mt 6875  359 L
+6842 3994 mt 
+(1) s
+4658 3555 mt 4693 3555 L
+7077 3555 mt 7041 3555 L
+4557 3599 mt 
+(0) s
+4658 2967 mt 4693 2967 L
+7077 2967 mt 7041 2967 L
+4457 3011 mt 
+(0.2) s
+4658 2380 mt 4693 2380 L
+7077 2380 mt 7041 2380 L
+4457 2424 mt 
+(0.4) s
+4658 1792 mt 4693 1792 L
+7077 1792 mt 7041 1792 L
+4457 1836 mt 
+(0.6) s
+4658 1205 mt 4693 1205 L
+7077 1205 mt 7041 1205 L
+4457 1249 mt 
+(0.8) s
+4658  617 mt 4693  617 L
+7077  617 mt 7041  617 L
+4557  661 mt 
+(1) s
+4658 3848 mt 7077 3848 L
+4658  323 mt 7077  323 L
+4658 3848 mt 4658  323 L
+7077 3848 mt 7077  323 L
+gs 4658 323 2420 3527 rc
+24 w
+c8
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 3 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 3 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+3 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 3 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 3 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 6272 1496 300 MP stroke
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+3 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 3 -3 
+2 -3 2 -3 2 -3 5669 2374 300 MP stroke
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 5067 3252 300 MP stroke
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 3 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 3 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 4859 3555 104 MP stroke
+6 w
+0 sg
+202 0 0 -30 11 0 0 -29 8 0 0 -29 26 0 0 -30 
+16 0 0 -29 33 0 0 -30 3 0 0 -29 92 0 0 -29 
+76 0 0 -30 14 0 0 -58 37 0 0 -30 23 0 0 -29 
+1 0 0 -30 1 0 0 -29 57 0 0 -29 5 0 0 -30 
+8 0 0 -29 7 0 0 -29 22 0 0 -30 26 0 0 -29 
+44 0 0 -30 2 0 0 -29 31 0 0 -29 4 0 0 -30 
+37 0 0 -29 7 0 0 -29 6 0 0 -30 7 0 0 -29 
+1 0 0 -30 10 0 0 -29 26 0 0 -29 7 0 0 -30 
+2 0 0 -29 12 0 0 -29 43 0 0 -30 3 0 0 -29 
+88 0 0 -30 13 0 0 -29 18 0 0 -29 3 0 0 -30 
+8 0 0 -29 36 0 0 -29 22 0 0 -30 11 0 0 -29 
+3 0 0 -29 51 0 0 -30 17 0 0 -29 31 0 0 -30 
+7 0 0 -29 1 0 0 -29 1 0 0 -30 9 0 0 -29 
+42 0 0 -29 2 0 0 -30 23 0 0 -29 45 0 0 -30 
+54 0 0 -29 12 0 0 -29 29 0 0 -30 49 0 0 -29 
+13 0 0 -30 44 0 0 -29 5 0 0 -29 10 0 0 -30 
+11 0 0 -29 11 0 0 -29 5 0 0 -30 21 0 0 -29 
+32 0 0 -30 24 0 0 -29 20 0 0 -29 12 0 0 -30 
+36 0 0 -29 9 0 0 -29 7 0 0 -30 8 0 0 -29 
+24 0 0 -29 24 0 0 -30 7 0 0 -29 22 0 0 -30 
+13 0 0 -29 2 0 0 -29 9 0 0 -30 3 0 0 -29 
+6 0 0 -29 1 0 0 -30 17 0 0 -29 84 0 0 -30 
+38 0 0 -29 69 0 0 -29 3 0 0 -30 2 0 0 -29 
+5 0 0 -29 34 0 0 -30 23 0 0 -29 44 0 0 -30 
+5 0 0 -29 12 0 0 -29 1 0 0 -30 202 0 4661 3555 200 MP stroke
+201 0 0 -30 28 0 0 -29 40 0 0 -29 25 0 0 -30 
+2 0 0 -29 5 0 0 -30 1 0 0 -29 14 0 0 -29 
+114 0 0 -30 48 0 0 -29 23 0 0 -29 36 0 0 -30 
+6 0 0 -29 12 0 0 -30 20 0 0 -29 5 0 0 -29 
+1 0 0 -30 2 0 0 -29 2 0 0 -29 17 0 0 -30 
+72 0 0 -29 10 0 0 -30 2 0 0 -29 8 0 0 -29 
+2 0 0 -30 3 0 0 -29 27 0 0 -29 1 0 0 -30 
+42 0 0 -29 35 0 0 -30 10 0 0 -29 9 0 0 -29 
+24 0 0 -30 8 0 0 -29 27 0 0 -29 5 0 0 -30 
+1 0 0 -29 7 0 0 -30 18 0 0 -29 40 0 0 -29 
+13 0 0 -30 27 0 0 -29 15 0 0 -29 8 0 0 -30 
+1 0 0 -29 17 0 0 -29 2 0 0 -30 4 0 0 -29 
+24 0 0 -30 7 0 0 -58 3 0 0 -30 21 0 0 -29 
+10 0 0 -29 17 0 0 -30 27 0 0 -29 24 0 0 -30 
+10 0 0 -29 50 0 0 -29 6 0 0 -30 2 0 0 -29 
+48 0 0 -30 24 0 0 -29 3 0 0 -29 4 0 0 -30 
+10 0 0 -29 5 0 0 -29 18 0 0 -30 42 0 0 -29 
+25 0 0 -30 29 0 0 -29 25 0 0 -29 16 0 0 -30 
+4 0 0 -29 26 0 0 -29 35 0 0 -30 54 0 0 -29 
+93 0 0 -29 28 0 0 -30 15 0 0 -29 45 0 0 -30 
+6 0 0 -29 36 0 0 -29 10 0 0 -30 15 0 0 -29 
+13 0 0 -29 13 0 0 -30 2 0 0 -29 3 0 0 -30 
+13 0 0 -29 44 0 0 -29 9 0 0 -30 20 0 0 -29 
+19 0 0 -29 1 0 0 -30 10 0 0 -29 2 0 0 -30 
+25 0 0 -29 24 0 0 -29 58 0 0 -30 202 0 4749 3555 200 MP stroke
+202 0 0 -30 41 0 0 -29 28 0 0 -29 9 0 0 -30 
+3 0 0 -29 19 0 0 -30 12 0 0 -29 31 0 0 -29 
+24 0 0 -30 21 0 0 -29 5 0 0 -29 8 0 0 -30 
+2 0 0 -29 26 0 0 -30 20 0 0 -29 7 0 0 -29 
+11 0 0 -30 8 0 0 -29 6 0 0 -29 16 0 0 -30 
+3 0 0 -29 6 0 0 -30 24 0 0 -29 16 0 0 -29 
+4 0 0 -30 1 0 0 -29 5 0 0 -29 11 0 0 -30 
+17 0 0 -29 5 0 0 -30 9 0 0 -29 1 0 0 -29 
+34 0 0 -30 5 0 0 -29 32 0 0 -29 27 0 0 -30 
+4 0 0 -29 13 0 0 -30 67 0 0 -29 45 0 0 -29 
+10 0 0 -30 15 0 0 -29 12 0 0 -29 22 0 0 -30 
+32 0 0 -29 14 0 0 -29 7 0 0 -30 1 0 0 -29 
+19 0 0 -30 52 0 0 -29 2 0 0 -29 3 0 0 -30 
+24 0 0 -29 25 0 0 -29 38 0 0 -30 33 0 0 -29 
+9 0 0 -30 13 0 0 -29 4 0 0 -29 39 0 0 -30 
+28 0 0 -29 85 0 0 -30 4 0 0 -29 1 0 0 -29 
+17 0 0 -30 61 0 0 -29 15 0 0 -29 1 0 0 -30 
+41 0 0 -29 32 0 0 -30 9 0 0 -29 30 0 0 -29 
+15 0 0 -30 22 0 0 -29 11 0 0 -29 1 0 0 -30 
+35 0 0 -29 36 0 0 -29 64 0 0 -30 68 0 0 -29 
+9 0 0 -30 40 0 0 -29 38 0 0 -29 5 0 0 -30 
+2 0 0 -29 31 0 0 -29 12 0 0 -30 30 0 0 -29 
+56 0 0 -30 1 0 0 -29 57 0 0 -29 21 0 0 -30 
+15 0 0 -29 12 0 0 -29 1 0 0 -30 25 0 0 -29 
+1 0 0 -30 16 0 0 -29 7 0 0 -29 33 0 0 -30 
+202 0 4672 3555 202 MP stroke
+202 0 0 -30 7 0 0 -29 31 0 0 -29 80 0 0 -30 
+1 0 0 -59 18 0 0 -29 26 0 0 -29 28 0 0 -30 
+49 0 0 -29 13 0 0 -29 36 0 0 -30 4 0 0 -29 
+12 0 0 -30 2 0 0 -29 3 0 0 -29 9 0 0 -30 
+27 0 0 -29 21 0 0 -29 16 0 0 -30 5 0 0 -29 
+46 0 0 -30 15 0 0 -29 2 0 0 -29 2 0 0 -30 
+15 0 0 -29 37 0 0 -29 48 0 0 -30 5 0 0 -29 
+11 0 0 -30 19 0 0 -29 3 0 0 -29 53 0 0 -30 
+17 0 0 -29 26 0 0 -29 80 0 0 -30 21 0 0 -29 
+72 0 0 -30 35 0 0 -29 7 0 0 -29 1 0 0 -30 
+12 0 0 -29 1 0 0 -29 59 0 0 -30 15 0 0 -29 
+25 0 0 -29 37 0 0 -30 17 0 0 -29 30 0 0 -30 
+24 0 0 -29 7 0 0 -29 26 0 0 -30 22 0 0 -29 
+37 0 0 -29 2 0 0 -30 9 0 0 -29 15 0 0 -30 
+8 0 0 -29 18 0 0 -29 2 0 0 -30 14 0 0 -59 
+3 0 0 -29 2 0 0 -29 9 0 0 -30 11 0 0 -29 
+1 0 0 -29 13 0 0 -30 13 0 0 -29 31 0 0 -30 
+20 0 0 -29 32 0 0 -29 4 0 0 -30 8 0 0 -29 
+13 0 0 -29 20 0 0 -30 12 0 0 -29 37 0 0 -29 
+57 0 0 -30 21 0 0 -29 6 0 0 -30 13 0 0 -29 
+19 0 0 -29 12 0 0 -30 5 0 0 -29 27 0 0 -29 
+27 0 0 -30 52 0 0 -29 4 0 0 -30 11 0 0 -29 
+29 0 0 -29 26 0 0 -30 4 0 0 -29 2 0 0 -59 
+9 0 0 -29 73 0 0 -30 45 0 0 -29 12 0 0 -29 
+7 0 0 -30 202 0 4658 3555 196 MP stroke
+201 0 0 -30 50 0 0 -29 9 0 0 -29 15 0 0 -30 
+2 0 0 -29 4 0 0 -30 5 0 0 -29 34 0 0 -59 
+6 0 0 -29 18 0 0 -29 37 0 0 -30 7 0 0 -29 
+12 0 0 -30 1 0 0 -29 20 0 0 -29 33 0 0 -30 
+4 0 0 -29 3 0 0 -29 3 0 0 -30 48 0 0 -29 
+7 0 0 -30 16 0 0 -29 17 0 0 -29 47 0 0 -30 
+11 0 0 -29 42 0 0 -29 14 0 0 -30 9 0 0 -29 
+5 0 0 -30 1 0 0 -29 62 0 0 -29 21 0 0 -30 
+14 0 0 -29 4 0 0 -29 9 0 0 -30 66 0 0 -29 
+9 0 0 -30 28 0 0 -29 16 0 0 -29 2 0 0 -30 
+43 0 0 -29 24 0 0 -29 43 0 0 -30 15 0 0 -29 
+31 0 0 -29 18 0 0 -30 13 0 0 -29 31 0 0 -30 
+1 0 0 -29 24 0 0 -29 4 0 0 -30 40 0 0 -29 
+22 0 0 -29 5 0 0 -30 15 0 0 -29 32 0 0 -30 
+23 0 0 -29 11 0 0 -29 4 0 0 -30 36 0 0 -29 
+5 0 0 -30 47 0 0 -29 30 0 0 -29 12 0 0 -30 
+52 0 0 -29 14 0 0 -29 6 0 0 -30 5 0 0 -29 
+42 0 0 -30 6 0 0 -29 3 0 0 -29 38 0 0 -30 
+30 0 0 -29 7 0 0 -29 48 0 0 -30 43 0 0 -29 
+70 0 0 -29 48 0 0 -30 37 0 0 -29 5 0 0 -30 
+1 0 0 -29 11 0 0 -29 45 0 0 -30 20 0 0 -58 
+53 0 0 -30 1 0 0 -29 2 0 0 -30 4 0 0 -29 
+11 0 0 -29 7 0 0 -30 11 0 0 -29 16 0 0 -29 
+9 0 0 -30 1 0 0 -29 56 0 0 -30 11 0 0 -29 
+37 0 0 -29 8 0 0 -30 202 0 4669 3555 198 MP stroke
+202 0 0 -30 4 0 0 -29 3 0 0 -29 6 0 0 -30 
+1 0 0 -29 29 0 0 -30 1 0 0 -29 22 0 0 -29 
+6 0 0 -30 18 0 0 -29 1 0 0 -29 67 0 0 -30 
+11 0 0 -29 28 0 0 -30 8 0 0 -29 20 0 0 -29 
+6 0 0 -30 3 0 0 -29 16 0 0 -29 13 0 0 -30 
+3 0 0 -29 34 0 0 -30 33 0 0 -58 52 0 0 -30 
+19 0 0 -29 6 0 0 -29 90 0 0 -30 13 0 0 -29 
+23 0 0 -30 41 0 0 -29 5 0 0 -59 81 0 0 -29 
+18 0 0 -29 23 0 0 -30 37 0 0 -29 11 0 0 -30 
+49 0 0 -58 17 0 0 -30 10 0 0 -29 4 0 0 -29 
+12 0 0 -30 21 0 0 -29 32 0 0 -29 3 0 0 -30 
+18 0 0 -29 30 0 0 -30 9 0 0 -29 46 0 0 -29 
+20 0 0 -30 8 0 0 -29 19 0 0 -29 33 0 0 -30 
+4 0 0 -29 32 0 0 -30 4 0 0 -29 10 0 0 -29 
+23 0 0 -30 19 0 0 -29 22 0 0 -30 38 0 0 -29 
+9 0 0 -29 11 0 0 -30 11 0 0 -29 33 0 0 -29 
+74 0 0 -30 3 0 0 -29 10 0 0 -30 2 0 0 -29 
+2 0 0 -29 20 0 0 -30 1 0 0 -29 16 0 0 -29 
+53 0 0 -30 12 0 0 -29 28 0 0 -29 4 0 0 -30 
+14 0 0 -29 12 0 0 -30 7 0 0 -29 3 0 0 -88 
+25 0 0 -29 52 0 0 -30 55 0 0 -29 5 0 0 -30 
+39 0 0 -29 35 0 0 -29 2 0 0 -30 11 0 0 -29 
+9 0 0 -29 36 0 0 -30 34 0 0 -29 25 0 0 -30 
+9 0 0 -29 35 0 0 -29 2 0 0 -30 201 0 4739 3555 192 MP stroke
+201 0 0 -30 25 0 0 -29 7 0 0 -29 79 0 0 -30 
+23 0 0 -59 17 0 0 -29 2 0 0 -29 11 0 0 -30 
+29 0 0 -29 35 0 0 -29 21 0 0 -30 19 0 0 -29 
+7 0 0 -30 6 0 0 -29 55 0 0 -29 10 0 0 -30 
+4 0 0 -29 4 0 0 -29 8 0 0 -30 77 0 0 -29 
+15 0 0 -30 24 0 0 -29 83 0 0 -59 7 0 0 -29 
+32 0 0 -29 7 0 0 -30 39 0 0 -29 22 0 0 -30 
+18 0 0 -29 12 0 0 -29 13 0 0 -30 6 0 0 -29 
+6 0 0 -29 13 0 0 -30 37 0 0 -29 6 0 0 -30 
+4 0 0 -29 49 0 0 -29 4 0 0 -30 13 0 0 -29 
+24 0 0 -29 1 0 0 -30 11 0 0 -29 96 0 0 -29 
+12 0 0 -30 4 0 0 -29 24 0 0 -30 17 0 0 -29 
+10 0 0 -29 11 0 0 -30 1 0 0 -29 25 0 0 -29 
+46 0 0 -30 6 0 0 -29 16 0 0 -30 4 0 0 -29 
+40 0 0 -29 2 0 0 -30 14 0 0 -29 46 0 0 -30 
+17 0 0 -29 6 0 0 -29 14 0 0 -30 1 0 0 -29 
+31 0 0 -29 1 0 0 -30 8 0 0 -29 24 0 0 -30 
+20 0 0 -29 44 0 0 -29 6 0 0 -30 30 0 0 -29 
+8 0 0 -29 20 0 0 -30 21 0 0 -29 30 0 0 -29 
+27 0 0 -30 5 0 0 -29 5 0 0 -30 25 0 0 -29 
+25 0 0 -29 8 0 0 -30 13 0 0 -29 81 0 0 -29 
+15 0 0 -30 27 0 0 -29 7 0 0 -30 33 0 0 -29 
+50 0 0 -29 10 0 0 -30 4 0 0 -29 12 0 0 -29 
+24 0 0 -30 2 0 0 -29 27 0 0 -30 1 0 0 -29 
+26 0 0 -29 19 0 0 -30 202 0 4669 3555 198 MP stroke
+202 0 0 -30 2 0 0 -29 10 0 0 -29 25 0 0 -30 
+19 0 0 -29 13 0 0 -30 9 0 0 -29 5 0 0 -29 
+13 0 0 -30 2 0 0 -29 22 0 0 -29 14 0 0 -30 
+54 0 0 -29 15 0 0 -30 23 0 0 -29 42 0 0 -29 
+21 0 0 -30 5 0 0 -29 7 0 0 -29 101 0 0 -30 
+70 0 0 -29 45 0 0 -30 13 0 0 -29 29 0 0 -29 
+40 0 0 -30 1 0 0 -29 23 0 0 -29 12 0 0 -30 
+7 0 0 -29 1 0 0 -30 21 0 0 -29 2 0 0 -29 
+40 0 0 -30 3 0 0 -29 5 0 0 -29 49 0 0 -30 
+42 0 0 -29 18 0 0 -30 4 0 0 -29 4 0 0 -29 
+4 0 0 -30 21 0 0 -29 66 0 0 -29 17 0 0 -30 
+22 0 0 -29 100 0 0 -29 30 0 0 -30 15 0 0 -29 
+21 0 0 -30 13 0 0 -29 2 0 0 -29 19 0 0 -30 
+38 0 0 -29 3 0 0 -29 1 0 0 -30 5 0 0 -29 
+29 0 0 -30 1 0 0 -29 5 0 0 -29 45 0 0 -30 
+15 0 0 -29 2 0 0 -30 17 0 0 -29 11 0 0 -29 
+22 0 0 -30 3 0 0 -29 4 0 0 -29 18 0 0 -30 
+1 0 0 -29 17 0 0 -30 14 0 0 -29 5 0 0 -29 
+12 0 0 -30 11 0 0 -29 21 0 0 -59 18 0 0 -29 
+36 0 0 -59 40 0 0 -29 30 0 0 -30 2 0 0 -29 
+11 0 0 -29 23 0 0 -30 6 0 0 -29 13 0 0 -29 
+4 0 0 -30 24 0 0 -29 4 0 0 -30 7 0 0 -29 
+17 0 0 -29 13 0 0 -30 26 0 0 -29 8 0 0 -29 
+5 0 0 -30 17 0 0 -29 15 0 0 -30 13 0 0 -29 
+71 0 0 -29 17 0 0 -30 202 0 4769 3555 198 MP stroke
+202 0 0 -30 21 0 0 -29 10 0 0 -59 5 0 0 -29 
+27 0 0 -30 2 0 0 -29 40 0 0 -29 6 0 0 -30 
+30 0 0 -29 36 0 0 -29 16 0 0 -30 14 0 0 -29 
+30 0 0 -30 38 0 0 -29 12 0 0 -29 2 0 0 -30 
+6 0 0 -29 13 0 0 -29 24 0 0 -30 16 0 0 -29 
+36 0 0 -30 17 0 0 -29 15 0 0 -29 56 0 0 -30 
+4 0 0 -29 8 0 0 -29 16 0 0 -30 8 0 0 -29 
+23 0 0 -30 5 0 0 -29 4 0 0 -29 2 0 0 -30 
+14 0 0 -29 10 0 0 -29 8 0 0 -30 5 0 0 -29 
+23 0 0 -30 34 0 0 -29 2 0 0 -29 3 0 0 -30 
+48 0 0 -29 24 0 0 -29 61 0 0 -30 4 0 0 -29 
+44 0 0 -29 8 0 0 -30 16 0 0 -29 4 0 0 -30 
+27 0 0 -29 25 0 0 -29 27 0 0 -30 63 0 0 -29 
+22 0 0 -29 2 0 0 -59 20 0 0 -30 43 0 0 -29 
+25 0 0 -29 13 0 0 -30 11 0 0 -29 32 0 0 -30 
+55 0 0 -29 4 0 0 -29 40 0 0 -30 11 0 0 -29 
+5 0 0 -59 19 0 0 -29 1 0 0 -30 6 0 0 -29 
+14 0 0 -29 16 0 0 -30 22 0 0 -29 26 0 0 -29 
+62 0 0 -30 4 0 0 -29 44 0 0 -59 2 0 0 -29 
+5 0 0 -30 35 0 0 -29 36 0 0 -29 18 0 0 -30 
+38 0 0 -29 12 0 0 -29 22 0 0 -30 7 0 0 -29 
+28 0 0 -30 3 0 0 -29 53 0 0 -29 13 0 0 -30 
+1 0 0 -29 98 0 0 -29 10 0 0 -30 18 0 0 -29 
+46 0 0 -30 16 0 0 -29 17 0 0 -29 7 0 0 -30 
+202 0 4688 3555 194 MP stroke
+202 0 0 -30 101 0 0 -29 32 0 0 -29 2 0 0 -30 
+18 0 0 -29 1 0 0 -30 6 0 0 -29 16 0 0 -29 
+1 0 0 -30 11 0 0 -29 2 0 0 -29 21 0 0 -30 
+1 0 0 -29 17 0 0 -30 4 0 0 -29 24 0 0 -29 
+7 0 0 -30 53 0 0 -29 22 0 0 -29 27 0 0 -30 
+17 0 0 -29 5 0 0 -30 15 0 0 -29 5 0 0 -29 
+23 0 0 -30 25 0 0 -29 5 0 0 -29 16 0 0 -30 
+14 0 0 -29 14 0 0 -30 6 0 0 -29 40 0 0 -29 
+54 0 0 -30 84 0 0 -29 59 0 0 -29 14 0 0 -30 
+31 0 0 -29 2 0 0 -30 4 0 0 -29 3 0 0 -29 
+26 0 0 -30 4 0 0 -29 34 0 0 -29 28 0 0 -59 
+31 0 0 -29 9 0 0 -30 31 0 0 -29 8 0 0 -30 
+9 0 0 -29 21 0 0 -29 19 0 0 -30 5 0 0 -29 
+5 0 0 -29 22 0 0 -30 16 0 0 -29 32 0 0 -30 
+3 0 0 -29 6 0 0 -29 6 0 0 -30 12 0 0 -29 
+7 0 0 -30 3 0 0 -29 69 0 0 -29 49 0 0 -30 
+34 0 0 -29 35 0 0 -29 21 0 0 -30 24 0 0 -29 
+17 0 0 -30 42 0 0 -29 4 0 0 -59 77 0 0 -29 
+26 0 0 -29 23 0 0 -30 47 0 0 -29 11 0 0 -29 
+2 0 0 -30 5 0 0 -29 6 0 0 -30 9 0 0 -29 
+11 0 0 -29 16 0 0 -30 1 0 0 -29 6 0 0 -29 
+40 0 0 -30 14 0 0 -29 1 0 0 -30 53 0 0 -29 
+2 0 0 -29 29 0 0 -30 40 0 0 -29 42 0 0 -29 
+2 0 0 -30 28 0 0 -29 18 0 0 -30 9 0 0 -29 
+33 0 0 -29 25 0 0 -30 201 0 4660 3555 198 MP stroke
+gr
+
+6371 3450 mt 
+(n=100) s
+1 sg
+0 3525 2420 0 0 -3525 7841 3848 4 MP
+PP
+-2420 0 0 3525 2420 0 0 -3525 7841 3848 5 MP stroke
+4 w
+DO
+SO
+6 w
+0 sg
+7841 3848 mt 10261 3848 L
+7841  323 mt 10261  323 L
+7841 3848 mt 7841  323 L
+10261 3848 mt 10261  323 L
+7841 3848 mt 10261 3848 L
+7841 3848 mt 7841  323 L
+8042 3848 mt 8042 3813 L
+8042  323 mt 8042  359 L
+8009 3994 mt 
+(0) s
+8446 3848 mt 8446 3813 L
+8446  323 mt 8446  359 L
+8363 3994 mt 
+(0.2) s
+8849 3848 mt 8849 3813 L
+8849  323 mt 8849  359 L
+8766 3994 mt 
+(0.4) s
+9252 3848 mt 9252 3813 L
+9252  323 mt 9252  359 L
+9169 3994 mt 
+(0.6) s
+9656 3848 mt 9656 3813 L
+9656  323 mt 9656  359 L
+9573 3994 mt 
+(0.8) s
+10059 3848 mt 10059 3813 L
+10059  323 mt 10059  359 L
+10026 3994 mt 
+(1) s
+7841 3555 mt 7876 3555 L
+10261 3555 mt 10225 3555 L
+7740 3599 mt 
+(0) s
+7841 2967 mt 7876 2967 L
+10261 2967 mt 10225 2967 L
+7640 3011 mt 
+(0.2) s
+7841 2380 mt 7876 2380 L
+10261 2380 mt 10225 2380 L
+7640 2424 mt 
+(0.4) s
+7841 1792 mt 7876 1792 L
+10261 1792 mt 10225 1792 L
+7640 1836 mt 
+(0.6) s
+7841 1205 mt 7876 1205 L
+10261 1205 mt 10225 1205 L
+7640 1249 mt 
+(0.8) s
+7841  617 mt 7876  617 L
+10261  617 mt 10225  617 L
+7740  661 mt 
+(1) s
+7841 3848 mt 10261 3848 L
+7841  323 mt 10261  323 L
+7841 3848 mt 7841  323 L
+10261 3848 mt 10261  323 L
+gs 7841 323 2421 3527 rc
+24 w
+c8
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+3 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 3 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+3 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 9456 1496 300 MP stroke
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 3 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 8853 2374 300 MP stroke
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 3 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 3 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 3 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 3 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -2 2 -3 2 -3 
+2 -3 2 -3 2 -3 8250 3252 300 MP stroke
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 3 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 3 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -2 2 -3 2 -3 2 -3 2 -3 2 -3 
+2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 2 -3 8042 3555 104 MP stroke
+6 w
+0 sg
+202 0 0 -3 3 0 0 -6 1 0 0 -3 1 0 0 -6 
+1 0 0 -6 1 0 0 -3 5 0 0 -6 2 0 0 -3 
+3 0 0 -2 3 0 0 -3 2 0 0 -6 1 0 0 -3 
+9 0 0 -3 6 0 0 -6 5 0 0 -3 2 0 0 -3 
+2 0 0 -3 1 0 0 -3 5 0 0 -3 1 0 0 -6 
+3 0 0 -3 2 0 0 -2 1 0 0 -3 5 0 0 -6 
+8 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -6 3 0 0 -6 
+1 0 0 -3 12 0 0 -5 2 0 0 -3 3 0 0 -3 
+1 0 0 -6 1 0 0 -3 1 0 0 -9 1 0 0 -3 
+1 0 0 -3 2 0 0 -6 1 0 0 -6 1 0 0 -3 
+3 0 0 -8 7 0 0 -3 1 0 0 -3 4 0 0 -3 
+1 0 0 -6 1 0 0 -3 3 0 0 -3 1 0 0 -6 
+7 0 0 -3 2 0 0 -6 2 0 0 -3 2 0 0 -2 
+1 0 0 -6 5 0 0 -3 2 0 0 -6 5 0 0 -3 
+2 0 0 -6 4 0 0 -3 1 0 0 -3 1 0 0 -3 
+3 0 0 -6 2 0 0 -3 1 0 0 -3 9 0 0 -5 
+5 0 0 -6 6 0 0 -3 1 0 0 -3 3 0 0 -3 
+5 0 0 -3 6 0 0 -6 1 0 0 -9 6 0 0 -6 
+1 0 0 -5 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 2 0 0 -3 9 0 0 -3 5 0 0 -3 
+3 0 0 -6 1 0 0 -6 3 0 0 -3 6 0 0 -3 
+1 0 0 -3 2 0 0 -3 1 0 0 -2 1 0 0 -3 
+2 0 0 -6 3 0 0 -3 1 0 0 -3 1 0 0 -3 
+6 0 0 -3 2 0 0 -3 1 0 0 -3 4 0 0 -3 
+3 0 0 -3 2 0 0 -3 4 0 0 -3 1 0 0 -3 
+4 0 0 -5 2 0 0 -3 1 0 0 -6 1 0 0 -6 
+1 0 0 -3 5 0 0 -3 1 0 0 -6 6 0 0 -3 
+3 0 0 -3 5 0 0 -3 3 0 0 -6 1 0 0 -3 
+1 0 0 -2 3 0 0 -3 6 0 0 -3 1 0 0 -3 
+1 0 0 -3 3 0 0 -3 3 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -9 2 0 0 -3 5 0 0 -3 
+2 0 0 -3 2 0 0 -5 1 0 0 -3 1 0 0 -6 
+2 0 0 -6 3 0 0 -3 9 0 0 -3 1 0 0 -3 
+1 0 0 -3 2 0 0 -6 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -2 7 0 0 -6 
+5 0 0 -6 4 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 9661 1196 300 MP stroke
+0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 9 0 
+0 -3 1 0 0 -6 3 0 0 -2 1 0 0 -3 7 0 
+0 -3 1 0 0 -3 2 0 0 -3 5 0 0 -6 3 0 
+0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -6 1 0 
+0 -3 3 0 0 -6 1 0 0 -3 1 0 0 -2 1 0 
+0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 
+0 -6 1 0 0 -3 1 0 0 -6 6 0 0 -3 2 0 
+0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -6 6 0 
+0 -5 1 0 0 -3 1 0 0 -6 1 0 0 -3 3 0 
+0 -3 10 0 0 -3 4 0 0 -3 3 0 0 -3 2 0 
+0 -3 1 0 0 -3 3 0 0 -3 4 0 0 -6 8 0 
+0 -3 3 0 0 -5 3 0 0 -6 2 0 0 -6 2 0 
+0 -3 4 0 0 -3 1 0 0 -3 2 0 0 -3 4 0 
+0 -3 1 0 0 -6 2 0 0 -6 4 0 0 -3 1 0 
+0 -2 1 0 0 -3 1 0 0 -6 3 0 0 -6 2 0 
+0 -3 3 0 0 -3 2 0 0 -3 5 0 0 -3 1 0 
+0 -3 1 0 0 -6 8 0 0 -3 2 0 0 -6 1 0 
+0 -2 2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -9 7 0 0 -3 5 0 
+0 -6 4 0 0 -6 1 0 0 -3 2 0 0 -5 3 0 
+0 -6 1 0 0 -3 3 0 0 -3 2 0 0 -3 6 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -6 8 0 
+0 -6 4 0 0 -3 2 0 0 -3 2 0 0 -3 3 0 
+0 -5 1 0 0 -3 2 0 0 -6 6 0 0 -3 6 0 
+0 -6 3 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -6 1 0 0 -6 1 0 0 -2 1 0 
+0 -6 1 0 0 -3 3 0 0 -6 4 0 0 -3 1 0 
+0 -6 2 0 0 -6 2 0 0 -3 1 0 0 -9 1 0 
+0 -5 5 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 
+0 -9 1 0 0 -6 7 0 0 -3 1 0 0 -3 1 0 
+0 -6 1 0 0 -9 1 0 0 -2 1 0 0 -6 3 0 
+0 -3 5 0 0 -3 4 0 0 -3 1 0 0 -3 1 0 
+0 -9 2 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 
+0 -3 2 0 0 -6 7 0 0 -2 2 0 0 -3 1 0 
+0 -6 2 0 0 -6 3 0 0 -3 1 0 0 -3 4 0 
+0 -3 2 0 0 -3 6 0 0 -6 1 0 0 -6 2 0 
+0 -3 1 0 0 -3 1 0 0 -2 1 0 0 -3 3 0 
+0 -3 4 0 0 -3 9293 1792 300 MP stroke
+8 0 0 -3 2 0 0 -3 2 0 0 -3 3 0 0 -3 
+2 0 0 -3 1 0 0 -6 5 0 0 -3 6 0 0 -3 
+1 0 0 -3 2 0 0 -6 2 0 0 -2 5 0 0 -3 
+4 0 0 -3 1 0 0 -3 1 0 0 -9 3 0 0 -3 
+3 0 0 -3 1 0 0 -6 2 0 0 -3 3 0 0 -9 
+4 0 0 -3 1 0 0 -2 3 0 0 -3 1 0 0 -3 
+6 0 0 -3 2 0 0 -6 4 0 0 -9 1 0 0 -6 
+4 0 0 -3 2 0 0 -3 6 0 0 -3 1 0 0 -3 
+4 0 0 -2 1 0 0 -6 7 0 0 -3 1 0 0 -6 
+4 0 0 -3 4 0 0 -3 3 0 0 -6 2 0 0 -6 
+2 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -5 
+3 0 0 -6 2 0 0 -3 1 0 0 -6 1 0 0 -9 
+2 0 0 -3 3 0 0 -3 4 0 0 -3 2 0 0 -3 
+1 0 0 -6 5 0 0 -3 3 0 0 -2 1 0 0 -3 
+1 0 0 -3 2 0 0 -3 1 0 0 -9 1 0 0 -6 
+3 0 0 -3 2 0 0 -6 1 0 0 -3 8 0 0 -3 
+2 0 0 -3 3 0 0 -3 2 0 0 -3 1 0 0 -2 
+1 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 
+4 0 0 -9 5 0 0 -3 5 0 0 -3 3 0 0 -3 
+5 0 0 -6 1 0 0 -3 5 0 0 -3 4 0 0 -5 
+7 0 0 -6 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -6 4 0 0 -3 4 0 0 -3 1 0 0 -3 
+1 0 0 -5 1 0 0 -3 2 0 0 -3 1 0 0 -6 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -6 
+1 0 0 -3 3 0 0 -3 2 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -2 2 0 0 -9 5 0 0 -3 
+5 0 0 -3 5 0 0 -3 3 0 0 -3 3 0 0 -3 
+4 0 0 -3 1 0 0 -3 2 0 0 -3 5 0 0 -3 
+1 0 0 -6 1 0 0 -3 1 0 0 -3 1 0 0 -2 
+1 0 0 -3 2 0 0 -3 3 0 0 -3 4 0 0 -3 
+1 0 0 -6 2 0 0 -3 1 0 0 -6 3 0 0 -6 
+2 0 0 -3 2 0 0 -6 1 0 0 -3 9 0 0 -2 
+3 0 0 -6 1 0 0 -3 3 0 0 -3 2 0 0 -3 
+5 0 0 -3 1 0 0 -3 9 0 0 -3 1 0 0 -3 
+1 0 0 -3 3 0 0 -6 5 0 0 -3 1 0 0 -3 
+3 0 0 -3 3 0 0 -2 13 0 0 -9 3 0 0 -3 
+1 0 0 -3 1 0 8901 2362 300 MP stroke
+0 -3 4 0 0 -6 1 0 0 -3 5 0 0 -3 1 0 
+0 -3 1 0 0 -6 2 0 0 -3 4 0 0 -3 14 0 
+0 -2 4 0 0 -3 3 0 0 -3 2 0 0 -3 1 0 
+0 -3 2 0 0 -3 4 0 0 -6 1 0 0 -3 4 0 
+0 -3 3 0 0 -6 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -2 1 0 0 -3 6 0 
+0 -3 6 0 0 -3 3 0 0 -6 4 0 0 -3 4 0 
+0 -3 3 0 0 -3 1 0 0 -3 3 0 0 -6 3 0 
+0 -6 4 0 0 -3 1 0 0 -3 1 0 0 -5 5 0 
+0 -3 1 0 0 -3 5 0 0 -6 3 0 0 -3 1 0 
+0 -3 9 0 0 -6 3 0 0 -3 5 0 0 -3 1 0 
+0 -3 3 0 0 -3 1 0 0 -3 2 0 0 -3 4 0 
+0 -8 4 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 
+0 -6 1 0 0 -3 6 0 0 -3 1 0 0 -3 2 0 
+0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 7 0 
+0 -2 2 0 0 -3 3 0 0 -3 11 0 0 -3 2 0 
+0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 4 0 
+0 -6 3 0 0 -3 1 0 0 -3 5 0 0 -3 1 0 
+0 -3 3 0 0 -3 2 0 0 -3 2 0 0 -2 3 0 
+0 -3 8 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 
+0 -3 4 0 0 -6 1 0 0 -3 2 0 0 -6 6 0 
+0 -3 1 0 0 -3 4 0 0 -3 5 0 0 -3 2 0 
+0 -3 1 0 0 -5 4 0 0 -3 3 0 0 -3 2 0 
+0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 6 0 
+0 -3 4 0 0 -3 3 0 0 -3 1 0 0 -6 1 0 
+0 -3 2 0 0 -6 8 0 0 -3 1 0 0 -2 1 0 
+0 -3 2 0 0 -9 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 4 0 0 -3 1 0 0 -3 1 0 
+0 -9 1 0 0 -3 2 0 0 -3 3 0 0 -2 2 0 
+0 -3 1 0 0 -3 2 0 0 -3 4 0 0 -3 3 0 
+0 -3 1 0 0 -6 1 0 0 -3 1 0 0 -3 9 0 
+0 -6 3 0 0 -12 1 0 0 -2 1 0 0 -3 2 0 
+0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 4 0 0 -3 2 0 0 -3 1 0 
+0 -6 2 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 
+0 -3 1 0 0 -2 1 0 0 -3 2 0 0 -3 2 0 
+0 -3 3 0 0 -3 3 0 0 -3 2 0 0 -6 3 0 
+0 -3 1 0 0 -3 8510 2891 300 MP stroke
+3 0 0 -9 1 0 0 -3 3 0 0 -3 1 0 0 -2 
+1 0 0 -3 2 0 0 -3 4 0 0 -3 5 0 0 -6 
+2 0 0 -3 1 0 0 -6 2 0 0 -3 2 0 0 -6 
+7 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -3 
+1 0 0 -2 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+15 0 0 -6 1 0 0 -6 1 0 0 -3 1 0 0 -3 
+1 0 0 -9 2 0 0 -3 1 0 0 -6 3 0 0 -2 
+2 0 0 -6 1 0 0 -3 3 0 0 -6 4 0 0 -6 
+4 0 0 -6 3 0 0 -6 2 0 0 -3 2 0 0 -9 
+2 0 0 -2 1 0 0 -3 2 0 0 -6 1 0 0 -9 
+2 0 0 -3 7 0 0 -3 2 0 0 -3 1 0 0 -3 
+3 0 0 -3 4 0 0 -6 3 0 0 -3 2 0 0 -3 
+1 0 0 -5 3 0 0 -6 1 0 0 -3 1 0 0 -6 
+3 0 0 -3 3 0 0 -6 5 0 0 -3 1 0 0 -3 
+2 0 0 -6 2 0 0 -3 1 0 0 -3 1 0 0 -2 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+2 0 0 -6 2 0 0 -6 2 0 0 -3 4 0 0 -3 
+3 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 13 0 0 -2 1 0 0 -3 1 0 0 -6 
+2 0 0 -3 1 0 0 -6 2 0 0 -3 3 0 0 -3 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 3 0 0 -3 
+2 0 0 -6 4 0 0 -3 2 0 0 -2 2 0 0 -6 
+2 0 0 -3 4 0 0 -3 2 0 0 -3 1 0 0 -3 
+3 0 0 -6 3 0 0 -3 3 0 0 -3 6 0 0 -3 
+3 0 0 -3 2 0 0 -3 1 0 0 -6 1 0 0 -2 
+1 0 0 -6 3 0 0 -3 3 0 0 -3 4 0 0 -3 
+2 0 0 -3 1 0 0 -3 8 0 0 -6 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 9 0 0 -2 5 0 0 -3 2 0 0 -3 
+2 0 0 -3 4 0 0 -3 1 0 0 -3 4 0 0 -3 
+1 0 0 -3 3 0 0 -3 11 0 0 -3 3 0 0 -3 
+1 0 0 -3 15 0 0 -6 3 0 0 -8 1 0 0 -6 
+2 0 0 -3 2 0 0 -3 4 0 0 -12 10 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+7 0 0 -6 2 0 0 -2 4 0 0 -3 3 0 0 -3 
+1 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+3 0 0 -6 2 0 0 -3 7 0 0 -3 5 0 0 -3 
+1 0 0 -6 1 0 8110 3464 300 MP stroke
+0 -6 1 0 0 -2 1 0 0 -3 2 0 0 -3 1 0 
+0 -3 4 0 0 -3 2 0 0 -9 8 0 0 -3 8 0 
+0 -3 3 0 0 -6 1 0 0 -3 2 0 0 -6 5 0 
+0 -3 1 0 0 -5 2 0 0 -3 3 0 0 -3 2 0 
+0 -6 5 0 0 -6 12 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 202 0 7841 3555 47 MP stroke
+202 0 0 -3 1 0 0 -3 1 0 0 -6 3 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -6 4 0 0 -3 
+1 0 0 -8 2 0 0 -3 1 0 0 -3 1 0 0 -9 
+3 0 0 -3 1 0 0 -3 1 0 0 -6 4 0 0 -3 
+3 0 0 -3 6 0 0 -6 1 0 0 -8 2 0 0 -3 
+1 0 0 -6 1 0 0 -3 5 0 0 -3 3 0 0 -3 
+2 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 0 -3 
+7 0 0 -6 1 0 0 -3 1 0 0 -3 3 0 0 -5 
+1 0 0 -3 2 0 0 -3 1 0 0 -6 2 0 0 -3 
+2 0 0 -3 4 0 0 -3 3 0 0 -9 1 0 0 -6 
+6 0 0 -3 1 0 0 -3 1 0 0 -5 2 0 0 -3 
+1 0 0 -3 2 0 0 -6 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -3 
+3 0 0 -6 1 0 0 -3 4 0 0 -3 7 0 0 -3 
+2 0 0 -5 1 0 0 -3 1 0 0 -3 7 0 0 -3 
+1 0 0 -3 4 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -6 5 0 0 -3 1 0 0 -6 
+1 0 0 -3 5 0 0 -2 1 0 0 -6 1 0 0 -3 
+4 0 0 -3 4 0 0 -3 4 0 0 -3 4 0 0 -3 
+3 0 0 -3 7 0 0 -3 2 0 0 -3 6 0 0 -3 
+1 0 0 -3 4 0 0 -3 3 0 0 -3 1 0 0 -3 
+2 0 0 -5 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -9 2 0 0 -3 1 0 0 -3 
+3 0 0 -3 4 0 0 -6 7 0 0 -3 2 0 0 -3 
+3 0 0 -2 1 0 0 -6 1 0 0 -6 4 0 0 -3 
+3 0 0 -3 4 0 0 -12 2 0 0 -6 8 0 0 -3 
+1 0 0 -3 2 0 0 -5 4 0 0 -3 2 0 0 -3 
+5 0 0 -6 9 0 0 -3 3 0 0 -3 1 0 0 -3 
+3 0 0 -3 4 0 0 -3 3 0 0 -3 1 0 0 -6 
+2 0 0 -3 1 0 0 -6 1 0 0 -2 1 0 0 -3 
+3 0 0 -3 1 0 0 -9 1 0 0 -3 2 0 0 -3 
+2 0 0 -12 2 0 0 -9 3 0 0 -5 3 0 0 -3 
+6 0 0 -3 4 0 0 -3 2 0 0 -3 2 0 0 -3 
+4 0 0 -3 6 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -6 1 0 0 -3 2 0 0 -3 2 0 0 -6 
+1 0 0 -2 4 0 0 -3 1 0 0 -3 3 0 0 -6 
+1 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 9692 1199 300 MP stroke
+0 -9 1 0 0 -3 3 0 0 -3 2 0 0 -3 1 0 
+0 -5 3 0 0 -6 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 4 0 0 -3 2 0 0 -3 4 0 0 -3 1 0 
+0 -9 2 0 0 -3 1 0 0 -3 2 0 0 -5 4 0 
+0 -6 1 0 0 -6 1 0 0 -3 1 0 0 -3 9 0 
+0 -6 1 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 
+0 -6 1 0 0 -3 8 0 0 -3 1 0 0 -2 4 0 
+0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 2 0 0 -3 3 0 0 -3 13 0 0 -3 1 0 
+0 -3 3 0 0 -3 1 0 0 -6 5 0 0 -3 2 0 
+0 -3 3 0 0 -3 1 0 0 -2 2 0 0 -3 9 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 3 0 0 -3 4 0 0 -3 3 0 
+0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 
+0 -11 1 0 0 -3 1 0 0 -3 3 0 0 -6 5 0 
+0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -9 1 0 0 -3 2 0 0 -3 3 0 0 -3 5 0 
+0 -2 1 0 0 -3 3 0 0 -9 2 0 0 -3 1 0 
+0 -3 2 0 0 -6 2 0 0 -3 2 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -6 1 0 0 -3 1 0 
+0 -2 1 0 0 -3 3 0 0 -3 2 0 0 -3 4 0 
+0 -6 2 0 0 -3 3 0 0 -3 6 0 0 -3 1 0 
+0 -3 1 0 0 -3 3 0 0 -6 2 0 0 -6 1 0 
+0 -3 4 0 0 -2 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 4 0 0 -3 15 0 
+0 -6 7 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 
+0 -3 1 0 0 -6 4 0 0 -5 2 0 0 -6 2 0 
+0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 4 0 0 -3 2 0 0 -3 1 0 
+0 -3 2 0 0 -3 3 0 0 -3 3 0 0 -3 4 0 
+0 -3 1 0 0 -2 2 0 0 -3 1 0 0 -3 3 0 
+0 -6 5 0 0 -3 2 0 0 -3 3 0 0 -3 6 0 
+0 -9 4 0 0 -3 1 0 0 -3 1 0 0 -6 3 0 
+0 -3 1 0 0 -2 5 0 0 -6 1 0 0 -3 3 0 
+0 -9 1 0 0 -3 1 0 0 -3 3 0 0 -6 1 0 
+0 -3 3 0 0 -3 3 0 0 -3 1 0 0 -3 3 0 
+0 -8 2 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 
+0 -3 3 0 0 -3 9336 1754 300 MP stroke
+1 0 0 -6 1 0 0 -6 5 0 0 -3 2 0 0 -3 
+7 0 0 -6 12 0 0 -3 2 0 0 -2 5 0 0 -6 
+2 0 0 -3 2 0 0 -6 1 0 0 -3 1 0 0 -6 
+1 0 0 -9 2 0 0 -6 8 0 0 -3 1 0 0 -3 
+1 0 0 -5 3 0 0 -3 1 0 0 -3 2 0 0 -3 
+6 0 0 -6 4 0 0 -3 2 0 0 -3 3 0 0 -3 
+2 0 0 -3 3 0 0 -9 1 0 0 -3 1 0 0 -3 
+1 0 0 -2 8 0 0 -3 5 0 0 -3 1 0 0 -6 
+3 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -6 
+2 0 0 -3 6 0 0 -2 7 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -9 4 0 0 -3 
+6 0 0 -3 2 0 0 -3 2 0 0 -6 5 0 0 -3 
+1 0 0 -3 1 0 0 -3 3 0 0 -2 1 0 0 -6 
+6 0 0 -6 1 0 0 -3 1 0 0 -6 1 0 0 -3 
+5 0 0 -6 3 0 0 -3 1 0 0 -6 1 0 0 -3 
+1 0 0 -3 1 0 0 -2 1 0 0 -3 6 0 0 -6 
+1 0 0 -3 1 0 0 -3 5 0 0 -3 2 0 0 -3 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 2 0 0 -2 1 0 0 -3 2 0 0 -3 
+6 0 0 -3 4 0 0 -3 2 0 0 -3 2 0 0 -3 
+2 0 0 -3 3 0 0 -3 4 0 0 -6 1 0 0 -3 
+3 0 0 -3 11 0 0 -9 13 0 0 -5 3 0 0 -6 
+1 0 0 -3 1 0 0 -6 4 0 0 -3 1 0 0 -6 
+2 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 0 -3 
+3 0 0 -3 3 0 0 -3 3 0 0 -5 2 0 0 -3 
+1 0 0 -3 4 0 0 -6 5 0 0 -3 1 0 0 -3 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 12 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -5 3 0 0 -6 
+3 0 0 -3 3 0 0 -3 2 0 0 -3 1 0 0 -6 
+5 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+5 0 0 -3 1 0 0 -3 5 0 0 -3 2 0 0 -6 
+3 0 0 -2 3 0 0 -3 1 0 0 -6 4 0 0 -3 
+6 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -9 2 0 0 -9 9 0 0 -3 3 0 0 -2 
+2 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -3 
+3 0 0 -3 1 0 8934 2315 300 MP stroke
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 
+0 -6 2 0 0 -3 1 0 0 -3 8 0 0 -3 3 0 
+0 -3 1 0 0 -2 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 5 0 
+0 -3 2 0 0 -6 1 0 0 -6 1 0 0 -3 3 0 
+0 -6 7 0 0 -3 1 0 0 -2 1 0 0 -3 1 0 
+0 -3 5 0 0 -3 5 0 0 -3 1 0 0 -3 6 0 
+0 -3 11 0 0 -6 1 0 0 -9 4 0 0 -3 20 0 
+0 -6 4 0 0 -3 1 0 0 -2 2 0 0 -3 3 0 
+0 -3 3 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 
+0 -6 4 0 0 -3 6 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -6 3 0 
+0 -2 3 0 0 -3 2 0 0 -3 4 0 0 -3 1 0 
+0 -6 2 0 0 -6 1 0 0 -6 1 0 0 -3 2 0 
+0 -3 2 0 0 -3 3 0 0 -3 2 0 0 -6 4 0 
+0 -5 6 0 0 -3 2 0 0 -3 2 0 0 -3 2 0 
+0 -6 3 0 0 -6 5 0 0 -3 1 0 0 -3 6 0 
+0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -3 4 0 
+0 -2 2 0 0 -3 1 0 0 -3 3 0 0 -3 5 0 
+0 -3 5 0 0 -3 2 0 0 -3 1 0 0 -3 5 0 
+0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 6 0 0 -3 5 0 0 -3 2 0 0 -5 7 0 
+0 -3 1 0 0 -3 1 0 0 -3 5 0 0 -3 3 0 
+0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 7 0 
+0 -9 3 0 0 -6 2 0 0 -3 2 0 0 -3 1 0 
+0 -3 2 0 0 -2 3 0 0 -3 5 0 0 -6 1 0 
+0 -3 4 0 0 -6 1 0 0 -9 1 0 0 -3 1 0 
+0 -3 3 0 0 -3 2 0 0 -3 1 0 0 -6 2 0 
+0 -2 11 0 0 -3 2 0 0 -3 1 0 0 -3 8 0 
+0 -3 3 0 0 -3 1 0 0 -6 2 0 0 -3 3 0 
+0 -3 1 0 0 -3 3 0 0 -3 3 0 0 -6 6 0 
+0 -3 1 0 0 -3 1 0 0 -2 3 0 0 -3 1 0 
+0 -3 4 0 0 -3 1 0 0 -3 5 0 0 -3 3 0 
+0 -3 1 0 0 -3 2 0 0 -3 5 0 0 -3 1 0 
+0 -3 2 0 0 -3 6 0 0 -3 3 0 0 -6 3 0 
+0 -8 1 0 0 -6 1 0 0 -3 2 0 0 -6 3 0 
+0 -3 1 0 0 -3 1 0 0 -3 6 0 0 -3 4 0 
+0 -3 2 0 0 -3 8521 2853 300 MP stroke
+2 0 0 -3 2 0 0 -3 1 0 0 -3 5 0 0 -2 
+4 0 0 -3 2 0 0 -3 2 0 0 -6 6 0 0 -3 
+4 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 2 0 0 -9 6 0 0 -5 2 0 0 -3 
+1 0 0 -6 2 0 0 -3 2 0 0 -3 5 0 0 -3 
+1 0 0 -3 1 0 0 -6 2 0 0 -3 4 0 0 -3 
+3 0 0 -3 4 0 0 -6 2 0 0 -5 2 0 0 -6 
+2 0 0 -3 5 0 0 -3 2 0 0 -3 6 0 0 -3 
+2 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 
+2 0 0 -6 2 0 0 -3 1 0 0 -3 7 0 0 -3 
+1 0 0 -2 1 0 0 -3 1 0 0 -9 1 0 0 -6 
+3 0 0 -9 1 0 0 -3 2 0 0 -6 1 0 0 -3 
+4 0 0 -6 2 0 0 -2 1 0 0 -3 3 0 0 -3 
+1 0 0 -3 3 0 0 -6 3 0 0 -3 3 0 0 -3 
+3 0 0 -3 2 0 0 -3 2 0 0 -3 4 0 0 -3 
+2 0 0 -3 3 0 0 -3 4 0 0 -6 2 0 0 -2 
+3 0 0 -6 3 0 0 -3 1 0 0 -3 2 0 0 -3 
+6 0 0 -3 1 0 0 -6 7 0 0 -3 1 0 0 -6 
+1 0 0 -3 1 0 0 -3 1 0 0 -8 1 0 0 -3 
+6 0 0 -6 5 0 0 -3 4 0 0 -3 1 0 0 -3 
+2 0 0 -3 4 0 0 -3 4 0 0 -3 1 0 0 -3 
+2 0 0 -6 2 0 0 -3 1 0 0 -3 3 0 0 -3 
+4 0 0 -2 1 0 0 -3 1 0 0 -6 4 0 0 -3 
+2 0 0 -3 3 0 0 -3 4 0 0 -3 7 0 0 -9 
+4 0 0 -3 2 0 0 -3 1 0 0 -6 2 0 0 -3 
+1 0 0 -2 3 0 0 -3 1 0 0 -3 5 0 0 -3 
+1 0 0 -6 2 0 0 -9 1 0 0 -3 1 0 0 -6 
+4 0 0 -6 2 0 0 -3 2 0 0 -3 1 0 0 -2 
+5 0 0 -3 4 0 0 -6 4 0 0 -6 3 0 0 -3 
+5 0 0 -3 3 0 0 -3 2 0 0 -6 2 0 0 -3 
+4 0 0 -3 4 0 0 -6 2 0 0 -3 3 0 0 -8 
+2 0 0 -9 3 0 0 -3 1 0 0 -3 2 0 0 -3 
+3 0 0 -3 1 0 0 -3 2 0 0 -3 10 0 0 -3 
+2 0 0 -3 1 0 0 -3 3 0 0 -3 2 0 0 -8 
+5 0 0 -3 3 0 0 -6 1 0 0 -6 4 0 0 -6 
+6 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+1 0 0 -3 4 0 0 -3 4 0 0 -2 9 0 0 -3 
+2 0 0 -3 1 0 8122 3431 300 MP stroke
+0 -3 1 0 0 -6 2 0 0 -3 1 0 0 -3 4 0 
+0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 
+0 -9 3 0 0 -5 4 0 0 -3 1 0 0 -3 1 0 
+0 -6 1 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 
+0 -3 5 0 0 -3 7 0 0 -6 1 0 0 -3 5 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -2 3 0 
+0 -9 1 0 0 -3 5 0 0 -3 4 0 0 -3 1 0 
+0 -3 1 0 0 -3 4 0 0 -3 7 0 0 -3 1 0 
+0 -3 2 0 0 -3 201 0 7841 3555 69 MP stroke
+201 0 0 -3 1 0 0 -3 2 0 0 -3 5 0 0 -6 
+2 0 0 -3 7 0 0 -3 1 0 0 -9 4 0 0 -3 
+6 0 0 -5 3 0 0 -6 2 0 0 -3 1 0 0 -3 
+3 0 0 -6 2 0 0 -3 5 0 0 -3 3 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+4 0 0 -3 1 0 0 -3 3 0 0 -2 2 0 0 -3 
+4 0 0 -3 7 0 0 -3 4 0 0 -6 1 0 0 -3 
+1 0 0 -6 4 0 0 -3 5 0 0 -9 1 0 0 -3 
+1 0 0 -8 1 0 0 -6 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -6 1 0 0 -9 
+1 0 0 -3 1 0 0 -3 3 0 0 -6 1 0 0 -2 
+1 0 0 -3 2 0 0 -3 2 0 0 -3 5 0 0 -6 
+1 0 0 -3 3 0 0 -6 1 0 0 -3 2 0 0 -3 
+1 0 0 -6 1 0 0 -3 1 0 0 -3 3 0 0 -3 
+1 0 0 -5 3 0 0 -3 4 0 0 -3 6 0 0 -3 
+3 0 0 -3 2 0 0 -3 1 0 0 -6 3 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -6 
+13 0 0 -5 2 0 0 -6 3 0 0 -3 2 0 0 -3 
+1 0 0 -3 7 0 0 -6 5 0 0 -3 1 0 0 -3 
+7 0 0 -3 1 0 0 -3 5 0 0 -3 5 0 0 -3 
+3 0 0 -3 1 0 0 -3 1 0 0 -5 1 0 0 -6 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+7 0 0 -3 5 0 0 -3 3 0 0 -3 4 0 0 -3 
+2 0 0 -3 3 0 0 -3 2 0 0 -3 2 0 0 -3 
+1 0 0 -2 3 0 0 -6 3 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -6 3 0 0 -3 
+4 0 0 -3 3 0 0 -3 2 0 0 -3 3 0 0 -3 
+3 0 0 -3 3 0 0 -3 1 0 0 -2 1 0 0 -3 
+2 0 0 -3 2 0 0 -3 5 0 0 -3 1 0 0 -3 
+2 0 0 -3 4 0 0 -3 2 0 0 -3 8 0 0 -3 
+3 0 0 -3 3 0 0 -6 2 0 0 -3 2 0 0 -3 
+2 0 0 -3 1 0 0 -2 1 0 0 -3 1 0 0 -3 
+2 0 0 -3 6 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -9 
+1 0 0 -9 2 0 0 -2 7 0 0 -3 2 0 0 -3 
+1 0 0 -3 3 0 0 -6 1 0 0 -3 1 0 0 -3 
+2 0 0 -6 1 0 0 -3 4 0 0 -6 1 0 0 -3 
+1 0 0 -3 1 0 9688 1167 300 MP stroke
+0 -3 2 0 0 -2 1 0 0 -6 1 0 0 -3 4 0 
+0 -3 2 0 0 -6 1 0 0 -3 1 0 0 -3 1 0 
+0 -6 6 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 
+0 -3 2 0 0 -5 1 0 0 -3 1 0 0 -6 2 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 4 0 
+0 -3 1 0 0 -9 3 0 0 -6 2 0 0 -8 3 0 
+0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 
+0 -3 3 0 0 -3 15 0 0 -3 2 0 0 -6 2 0 
+0 -6 2 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 
+0 -3 3 0 0 -2 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 5 0 0 -6 1 0 0 -6 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 4 0 0 -3 4 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -5 4 0 
+0 -3 2 0 0 -3 1 0 0 -6 2 0 0 -3 4 0 
+0 -3 2 0 0 -3 1 0 0 -6 2 0 0 -3 2 0 
+0 -6 3 0 0 -3 3 0 0 -3 2 0 0 -2 1 0 
+0 -3 5 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -6 2 0 0 -3 4 0 0 -3 1 0 
+0 -3 1 0 0 -3 5 0 0 -9 1 0 0 -3 10 0 
+0 -2 2 0 0 -3 3 0 0 -3 2 0 0 -3 12 0 
+0 -3 1 0 0 -6 4 0 0 -3 2 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -6 2 0 0 -6 1 0 
+0 -5 1 0 0 -3 1 0 0 -6 1 0 0 -6 3 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 
+0 -3 4 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -2 1 0 0 -3 2 0 
+0 -6 1 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 4 0 0 -12 2 0 0 -3 3 0 0 -3 1 0 
+0 -3 1 0 0 -5 1 0 0 -3 2 0 0 -3 3 0 
+0 -6 2 0 0 -6 2 0 0 -3 1 0 0 -3 3 0 
+0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 
+0 -3 6 0 0 -6 1 0 0 -2 7 0 0 -3 3 0 
+0 -3 1 0 0 -6 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 3 0 0 -3 4 0 0 -3 2 0 
+0 -3 3 0 0 -3 1 0 0 -3 11 0 0 -3 1 0 
+0 -3 2 0 0 -5 4 0 0 -3 4 0 0 -3 4 0 
+0 -3 1 0 0 -3 1 0 0 -6 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 9347 1719 300 MP stroke
+1 0 0 -3 2 0 0 -3 4 0 0 -3 3 0 0 -3 
+2 0 0 -3 1 0 0 -2 1 0 0 -3 5 0 0 -3 
+1 0 0 -3 1 0 0 -6 11 0 0 -3 3 0 0 -3 
+2 0 0 -6 1 0 0 -3 1 0 0 -6 1 0 0 -9 
+3 0 0 -5 3 0 0 -6 2 0 0 -3 5 0 0 -3 
+6 0 0 -6 2 0 0 -3 2 0 0 -3 3 0 0 -3 
+2 0 0 -3 5 0 0 -3 2 0 0 -6 2 0 0 -3 
+2 0 0 -2 9 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -6 3 0 0 -3 2 0 0 -3 2 0 0 -3 
+2 0 0 -3 5 0 0 -3 2 0 0 -3 1 0 0 -3 
+3 0 0 -6 1 0 0 -3 1 0 0 -2 3 0 0 -6 
+1 0 0 -6 3 0 0 -3 4 0 0 -3 2 0 0 -3 
+2 0 0 -3 6 0 0 -3 2 0 0 -3 3 0 0 -3 
+3 0 0 -3 4 0 0 -3 2 0 0 -3 1 0 0 -2 
+4 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 5 0 0 -9 1 0 0 -3 10 0 0 -3 
+2 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 0 -3 
+9 0 0 -3 3 0 0 -2 4 0 0 -3 1 0 0 -3 
+2 0 0 -6 3 0 0 -3 6 0 0 -3 2 0 0 -6 
+1 0 0 -3 5 0 0 -3 7 0 0 -3 7 0 0 -3 
+2 0 0 -6 2 0 0 -5 2 0 0 -3 1 0 0 -3 
+5 0 0 -3 2 0 0 -3 5 0 0 -3 2 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+2 0 0 -6 6 0 0 -3 1 0 0 -3 7 0 0 -3 
+4 0 0 -3 4 0 0 -2 6 0 0 -6 1 0 0 -3 
+1 0 0 -3 3 0 0 -3 2 0 0 -3 2 0 0 -6 
+1 0 0 -3 1 0 0 -3 4 0 0 -3 3 0 0 -3 
+1 0 0 -3 2 0 0 -3 4 0 0 -3 4 0 0 -5 
+2 0 0 -3 1 0 0 -3 6 0 0 -3 3 0 0 -6 
+6 0 0 -3 1 0 0 -6 1 0 0 -3 3 0 0 -3 
+4 0 0 -3 3 0 0 -3 1 0 0 -6 1 0 0 -5 
+1 0 0 -6 1 0 0 -6 1 0 0 -3 2 0 0 -3 
+2 0 0 -6 1 0 0 -3 2 0 0 -3 12 0 0 -3 
+1 0 0 -3 1 0 0 -3 4 0 0 -2 4 0 0 -3 
+1 0 0 -6 1 0 0 -3 3 0 0 -3 3 0 0 -6 
+1 0 0 -3 2 0 0 -3 2 0 0 -3 7 0 0 -3 
+1 0 0 -3 3 0 0 -3 7 0 0 -3 3 0 0 -6 
+1 0 0 -5 3 0 8925 2256 300 MP stroke
+0 -6 2 0 0 -3 2 0 0 -3 4 0 0 -3 4 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -6 2 0 
+0 -3 2 0 0 -3 1 0 0 -3 3 0 0 -5 5 0 
+0 -6 4 0 0 -3 1 0 0 -3 5 0 0 -3 1 0 
+0 -3 2 0 0 -3 3 0 0 -3 3 0 0 -3 1 0 
+0 -3 7 0 0 -3 1 0 0 -3 1 0 0 -6 3 0 
+0 -3 1 0 0 -2 4 0 0 -3 1 0 0 -6 1 0 
+0 -6 5 0 0 -3 3 0 0 -3 2 0 0 -3 2 0 
+0 -3 1 0 0 -3 4 0 0 -3 1 0 0 -6 2 0 
+0 -3 1 0 0 -3 2 0 0 -2 1 0 0 -3 1 0 
+0 -3 1 0 0 -6 1 0 0 -6 1 0 0 -6 3 0 
+0 -6 2 0 0 -3 4 0 0 -3 3 0 0 -3 7 0 
+0 -6 4 0 0 -2 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 5 0 0 -6 1 0 0 -3 4 0 0 -3 1 0 
+0 -3 1 0 0 -3 4 0 0 -3 2 0 0 -3 1 0 
+0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -5 6 0 0 -6 1 0 0 -3 8 0 0 -3 2 0 
+0 -6 4 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 
+0 -6 2 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 
+0 -2 2 0 0 -3 2 0 0 -3 7 0 0 -3 1 0 
+0 -3 3 0 0 -3 4 0 0 -3 2 0 0 -3 1 0 
+0 -3 4 0 0 -6 7 0 0 -3 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 5 0 0 -2 3 0 0 -3 1 0 
+0 -3 1 0 0 -3 8 0 0 -3 3 0 0 -3 1 0 
+0 -6 5 0 0 -3 1 0 0 -6 4 0 0 -6 1 0 
+0 -9 1 0 0 -2 1 0 0 -3 4 0 0 -3 2 0 
+0 -3 4 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 
+0 -3 1 0 0 -6 1 0 0 -3 2 0 0 -3 1 0 
+0 -6 1 0 0 -3 1 0 0 -3 1 0 0 -5 2 0 
+0 -3 5 0 0 -3 1 0 0 -3 3 0 0 -6 4 0 
+0 -3 2 0 0 -6 4 0 0 -3 4 0 0 -6 3 0 
+0 -6 2 0 0 -3 3 0 0 -3 3 0 0 -2 3 0 
+0 -3 4 0 0 -6 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 4 0 0 -3 8 0 0 -3 1 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -11 5 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 5 0 0 -3 1 0 0 -3 4 0 0 -3 4 0 
+0 -3 2 0 0 -3 8558 2800 300 MP stroke
+1 0 0 -3 5 0 0 -6 1 0 0 -3 2 0 0 -3 
+6 0 0 -2 3 0 0 -3 3 0 0 -3 2 0 0 -3 
+3 0 0 -3 2 0 0 -3 6 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+4 0 0 -3 10 0 0 -3 2 0 0 -8 11 0 0 -3 
+1 0 0 -3 1 0 0 -6 3 0 0 -3 2 0 0 -6 
+4 0 0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -3 
+1 0 0 -3 2 0 0 -3 6 0 0 -3 3 0 0 -2 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 4 0 0 -3 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 4 0 0 -3 
+2 0 0 -3 6 0 0 -3 3 0 0 -6 3 0 0 -3 
+1 0 0 -6 1 0 0 -5 6 0 0 -6 2 0 0 -3 
+6 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -6 
+2 0 0 -3 2 0 0 -5 3 0 0 -3 1 0 0 -3 
+3 0 0 -3 2 0 0 -3 3 0 0 -3 3 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -6 1 0 0 -6 
+3 0 0 -6 1 0 0 -5 2 0 0 -6 1 0 0 -3 
+3 0 0 -6 2 0 0 -3 1 0 0 -6 2 0 0 -3 
+7 0 0 -3 1 0 0 -3 5 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -8 1 0 0 -3 
+1 0 0 -3 1 0 0 -6 1 0 0 -3 7 0 0 -6 
+3 0 0 -3 2 0 0 -6 3 0 0 -3 4 0 0 -6 
+3 0 0 -2 3 0 0 -3 2 0 0 -3 2 0 0 -3 
+1 0 0 -9 1 0 0 -3 1 0 0 -3 5 0 0 -3 
+3 0 0 -3 1 0 0 -3 1 0 0 -6 4 0 0 -3 
+5 0 0 -3 1 0 0 -2 10 0 0 -3 1 0 0 -3 
+1 0 0 -9 2 0 0 -3 7 0 0 -3 2 0 0 -6 
+1 0 0 -6 1 0 0 -3 6 0 0 -3 1 0 0 -3 
+4 0 0 -5 1 0 0 -6 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 5 0 0 -6 1 0 0 -3 1 0 0 -3 
+3 0 0 -3 2 0 0 -3 1 0 0 -6 9 0 0 -6 
+9 0 0 -2 5 0 0 -9 3 0 0 -6 2 0 0 -3 
+4 0 0 -3 2 0 0 -3 2 0 0 -9 2 0 0 -3 
+12 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -2 
+2 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -6 1 0 0 -3 1 0 0 -3 4 0 0 -3 
+3 0 0 -3 1 0 8166 3361 300 MP stroke
+0 -3 1 0 0 -6 6 0 0 -3 1 0 0 -5 5 0 
+0 -6 1 0 0 -3 4 0 0 -3 8 0 0 -3 1 0 
+0 -3 3 0 0 -3 2 0 0 -3 1 0 0 -6 1 0 
+0 -6 11 0 0 -3 1 0 0 -6 2 0 0 -2 1 0 
+0 -3 1 0 0 -3 2 0 0 -6 1 0 0 -3 3 0 
+0 -3 2 0 0 -3 4 0 0 -3 1 0 0 -3 2 0 
+0 -3 4 0 0 -6 3 0 0 -3 3 0 0 -3 2 0 
+0 -5 1 0 0 -6 5 0 0 -6 1 0 0 -9 1 0 
+0 -3 3 0 0 -3 1 0 0 -6 1 0 0 -3 1 0 
+0 -3 2 0 0 -3 2 0 0 -5 1 0 0 -6 1 0 
+0 -3 2 0 0 -6 7 0 0 -3 2 0 0 -3 1 0 
+0 -3 4 0 0 -3 3 0 0 -3 2 0 0 -3 6 0 
+0 -3 201 0 7841 3555 99 MP stroke
+202 0 0 -6 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+1 0 0 -6 1 0 0 -3 1 0 0 -6 1 0 0 -6 
+5 0 0 -2 1 0 0 -3 7 0 0 -3 1 0 0 -3 
+1 0 0 -3 2 0 0 -9 4 0 0 -3 3 0 0 -3 
+1 0 0 -3 5 0 0 -3 4 0 0 -6 3 0 0 -3 
+2 0 0 -5 1 0 0 -3 1 0 0 -3 10 0 0 -6 
+3 0 0 -3 1 0 0 -3 1 0 0 -3 9 0 0 -3 
+5 0 0 -3 6 0 0 -3 7 0 0 -3 1 0 0 -3 
+1 0 0 -6 2 0 0 -3 2 0 0 -2 6 0 0 -6 
+2 0 0 -3 2 0 0 -3 5 0 0 -6 1 0 0 -3 
+4 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+3 0 0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -3 
+5 0 0 -2 1 0 0 -3 1 0 0 -6 2 0 0 -3 
+1 0 0 -3 3 0 0 -3 1 0 0 -6 3 0 0 -3 
+1 0 0 -6 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -2 1 0 0 -3 1 0 0 -3 
+2 0 0 -3 3 0 0 -3 1 0 0 -3 7 0 0 -3 
+1 0 0 -3 1 0 0 -3 7 0 0 -3 1 0 0 -3 
+3 0 0 -6 5 0 0 -3 1 0 0 -6 4 0 0 -2 
+1 0 0 -3 8 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 5 0 0 -9 
+2 0 0 -6 1 0 0 -3 2 0 0 -8 2 0 0 -3 
+2 0 0 -3 1 0 0 -6 4 0 0 -6 1 0 0 -3 
+8 0 0 -3 1 0 0 -3 4 0 0 -3 3 0 0 -3 
+4 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -8 
+7 0 0 -3 3 0 0 -3 4 0 0 -6 11 0 0 -3 
+2 0 0 -3 3 0 0 -3 3 0 0 -3 1 0 0 -3 
+3 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -3 
+6 0 0 -3 3 0 0 -2 1 0 0 -3 6 0 0 -3 
+3 0 0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -9 
+2 0 0 -3 4 0 0 -3 6 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -8 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -6 
+1 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -3 
+2 0 0 -6 3 0 0 -3 2 0 0 -5 3 0 0 -3 
+5 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -6 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 5 0 9662 1158 300 MP stroke
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -2 2 0 0 -6 3 0 0 -3 2 0 0 -3 1 0 
+0 -3 4 0 0 -9 1 0 0 -6 6 0 0 -3 3 0 
+0 -6 1 0 0 -8 1 0 0 -3 4 0 0 -3 1 0 
+0 -3 1 0 0 -6 3 0 0 -6 1 0 0 -3 3 0 
+0 -3 1 0 0 -3 1 0 0 -6 3 0 0 -9 1 0 
+0 -2 3 0 0 -6 1 0 0 -3 2 0 0 -3 1 0 
+0 -6 3 0 0 -9 1 0 0 -3 2 0 0 -3 2 0 
+0 -3 6 0 0 -3 3 0 0 -3 3 0 0 -5 1 0 
+0 -3 3 0 0 -3 10 0 0 -3 2 0 0 -3 4 0 
+0 -3 1 0 0 -9 3 0 0 -6 2 0 0 -3 1 0 
+0 -3 3 0 0 -3 1 0 0 -3 7 0 0 -5 4 0 
+0 -3 1 0 0 -3 5 0 0 -6 3 0 0 -6 1 0 
+0 -3 4 0 0 -6 1 0 0 -3 1 0 0 -3 3 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 7 0 
+0 -2 2 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 
+0 -6 1 0 0 -3 4 0 0 -6 1 0 0 -3 7 0 
+0 -6 1 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 
+0 -3 1 0 0 -2 5 0 0 -6 1 0 0 -3 3 0 
+0 -3 1 0 0 -3 1 0 0 -6 4 0 0 -3 1 0 
+0 -3 1 0 0 -6 1 0 0 -3 2 0 0 -3 2 0 
+0 -3 1 0 0 -5 1 0 0 -3 1 0 0 -3 3 0 
+0 -3 1 0 0 -6 4 0 0 -6 1 0 0 -3 5 0 
+0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 
+0 -3 1 0 0 -6 3 0 0 -2 2 0 0 -6 6 0 
+0 -6 2 0 0 -3 1 0 0 -3 1 0 0 -6 1 0 
+0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 
+0 -3 1 0 0 -3 5 0 0 -3 1 0 0 -2 1 0 
+0 -3 5 0 0 -3 2 0 0 -3 2 0 0 -6 1 0 
+0 -3 6 0 0 -3 3 0 0 -3 1 0 0 -3 4 0 
+0 -3 1 0 0 -3 4 0 0 -3 3 0 0 -3 2 0 
+0 -3 1 0 0 -8 2 0 0 -3 3 0 0 -3 1 0 
+0 -6 10 0 0 -3 2 0 0 -6 4 0 0 -3 1 0 
+0 -6 3 0 0 -3 5 0 0 -6 3 0 0 -3 4 0 
+0 -2 1 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 
+0 -6 1 0 0 -3 1 0 0 -3 5 0 0 -3 4 0 
+0 -3 2 0 0 -3 4 0 0 -6 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 9307 1734 300 MP stroke
+1 0 0 -5 1 0 0 -3 1 0 0 -3 11 0 0 -3 
+2 0 0 -3 4 0 0 -3 3 0 0 -3 12 0 0 -3 
+1 0 0 -3 1 0 0 -3 5 0 0 -6 1 0 0 -3 
+2 0 0 -8 3 0 0 -3 5 0 0 -3 1 0 0 -3 
+3 0 0 -3 1 0 0 -3 19 0 0 -3 1 0 0 -3 
+6 0 0 -3 1 0 0 -3 4 0 0 -3 2 0 0 -3 
+3 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 0 -5 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 4 0 0 -6 
+5 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -6 13 0 0 -3 2 0 0 -6 2 0 0 -3 
+1 0 0 -2 2 0 0 -6 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 3 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -6 3 0 0 -3 1 0 0 -3 8 0 0 -3 
+7 0 0 -3 1 0 0 -2 2 0 0 -3 1 0 0 -3 
+3 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 3 0 0 -3 4 0 0 -6 3 0 0 -6 
+1 0 0 -11 6 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -6 2 0 0 -12 1 0 0 -3 5 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -8 
+3 0 0 -3 3 0 0 -3 2 0 0 -3 3 0 0 -3 
+1 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 2 0 0 -3 3 0 0 -3 1 0 0 -3 
+1 0 0 -3 2 0 0 -6 8 0 0 -2 1 0 0 -3 
+2 0 0 -3 3 0 0 -6 1 0 0 -3 1 0 0 -3 
+3 0 0 -6 1 0 0 -6 2 0 0 -3 1 0 0 -9 
+7 0 0 -5 3 0 0 -3 3 0 0 -3 2 0 0 -6 
+1 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 4 0 0 -3 
+5 0 0 -6 2 0 0 -3 2 0 0 -2 2 0 0 -3 
+1 0 0 -3 1 0 0 -6 2 0 0 -6 4 0 0 -3 
+3 0 0 -3 4 0 0 -3 2 0 0 -3 1 0 0 -3 
+4 0 0 -3 5 0 0 -6 3 0 0 -2 2 0 0 -3 
+3 0 0 -3 1 0 0 -3 6 0 0 -6 5 0 0 -6 
+3 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+4 0 0 -3 1 0 0 -6 1 0 0 -3 2 0 0 -3 
+1 0 0 -2 1 0 0 -3 2 0 0 -3 2 0 0 -3 
+5 0 0 -3 2 0 0 -3 4 0 0 -3 3 0 0 -3 
+3 0 0 -6 1 0 8914 2280 300 MP stroke
+0 -3 3 0 0 -3 2 0 0 -6 8 0 0 -3 2 0 
+0 -3 6 0 0 -2 2 0 0 -3 3 0 0 -6 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 5 0 0 -3 2 0 0 -3 3 0 
+0 -3 1 0 0 -3 3 0 0 -3 5 0 0 -8 3 0 
+0 -6 1 0 0 -3 4 0 0 -3 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 2 0 0 -3 5 0 0 -6 3 0 
+0 -3 2 0 0 -3 4 0 0 -6 3 0 0 -2 3 0 
+0 -3 4 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 7 0 
+0 -6 8 0 0 -6 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -5 1 0 0 -3 2 0 0 -3 1 0 
+0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -3 2 0 
+0 -3 2 0 0 -3 4 0 0 -3 4 0 0 -3 1 0 
+0 -2 2 0 0 -6 9 0 0 -3 3 0 0 -3 4 0 
+0 -3 3 0 0 -3 1 0 0 -6 2 0 0 -6 4 0 
+0 -3 1 0 0 -3 1 0 0 -6 3 0 0 -3 4 0 
+0 -5 1 0 0 -3 2 0 0 -6 2 0 0 -3 3 0 
+0 -3 3 0 0 -6 1 0 0 -3 2 0 0 -3 1 0 
+0 -3 4 0 0 -3 3 0 0 -8 1 0 0 -6 1 0 
+0 -3 2 0 0 -9 1 0 0 -6 1 0 0 -6 4 0 
+0 -3 4 0 0 -3 3 0 0 -3 2 0 0 -3 4 0 
+0 -5 1 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 
+0 -6 5 0 0 -3 2 0 0 -3 5 0 0 -3 1 0 
+0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 
+0 -3 4 0 0 -6 3 0 0 -5 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 1 0 0 -6 3 0 0 -3 1 0 
+0 -3 4 0 0 -3 5 0 0 -3 4 0 0 -3 2 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -6 2 0 
+0 -2 1 0 0 -3 3 0 0 -6 1 0 0 -3 4 0 
+0 -6 1 0 0 -3 1 0 0 -3 1 0 0 -3 13 0 
+0 -3 2 0 0 -3 1 0 0 -6 1 0 0 -3 3 0 
+0 -3 5 0 0 -5 3 0 0 -3 1 0 0 -3 1 0 
+0 -6 1 0 0 -3 6 0 0 -3 1 0 0 -3 2 0 
+0 -9 2 0 0 -3 6 0 0 -3 2 0 0 -3 2 0 
+0 -3 1 0 0 -2 2 0 0 -3 5 0 0 -3 3 0 
+0 -3 2 0 0 -6 8549 2832 300 MP stroke
+1 0 0 -3 4 0 0 -3 2 0 0 -3 1 0 0 -6 
+1 0 0 -3 4 0 0 -3 1 0 0 -6 3 0 0 -3 
+4 0 0 -2 2 0 0 -3 3 0 0 -3 5 0 0 -3 
+2 0 0 -3 5 0 0 -3 2 0 0 -3 3 0 0 -3 
+1 0 0 -6 2 0 0 -3 1 0 0 -6 5 0 0 -6 
+1 0 0 -5 6 0 0 -9 7 0 0 -3 7 0 0 -3 
+1 0 0 -3 2 0 0 -3 2 0 0 -9 3 0 0 -3 
+1 0 0 -6 1 0 0 -5 1 0 0 -3 3 0 0 -3 
+1 0 0 -3 3 0 0 -3 2 0 0 -6 3 0 0 -3 
+5 0 0 -3 6 0 0 -3 3 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -6 7 0 0 -5 
+1 0 0 -6 2 0 0 -3 1 0 0 -3 2 0 0 -3 
+3 0 0 -3 4 0 0 -3 1 0 0 -6 1 0 0 -6 
+2 0 0 -3 2 0 0 -6 1 0 0 -2 5 0 0 -3 
+4 0 0 -3 2 0 0 -3 3 0 0 -3 5 0 0 -3 
+2 0 0 -3 2 0 0 -6 1 0 0 -3 6 0 0 -3 
+1 0 0 -3 1 0 0 -6 1 0 0 -3 1 0 0 -3 
+2 0 0 -2 3 0 0 -6 6 0 0 -3 1 0 0 -3 
+4 0 0 -3 3 0 0 -6 1 0 0 -6 2 0 0 -3 
+3 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 3 0 0 -2 2 0 0 -3 4 0 0 -3 
+3 0 0 -3 1 0 0 -3 1 0 0 -6 2 0 0 -3 
+1 0 0 -6 1 0 0 -3 3 0 0 -6 5 0 0 -3 
+1 0 0 -3 2 0 0 -3 1 0 0 -2 4 0 0 -3 
+22 0 0 -3 1 0 0 -3 1 0 0 -6 1 0 0 -3 
+4 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -6 
+3 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -5 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 4 0 0 -3 
+3 0 0 -3 3 0 0 -6 4 0 0 -3 1 0 0 -3 
+1 0 0 -3 2 0 0 -9 1 0 0 -6 5 0 0 -2 
+6 0 0 -3 1 0 0 -6 1 0 0 -3 3 0 0 -3 
+5 0 0 -6 4 0 0 -3 1 0 0 -6 1 0 0 -3 
+5 0 0 -3 1 0 0 -3 2 0 0 -3 16 0 0 -3 
+2 0 0 -2 1 0 0 -3 1 0 0 -3 2 0 0 -6 
+1 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 0 -3 
+1 0 0 -3 1 0 0 -6 1 0 0 -3 1 0 0 -3 
+4 0 0 -3 1 0 0 -3 1 0 0 -5 2 0 0 -6 
+7 0 0 -3 1 0 8162 3390 300 MP stroke
+0 -3 5 0 0 -3 5 0 0 -6 1 0 0 -9 1 0 
+0 -6 1 0 0 -6 1 0 0 -2 3 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 
+0 -3 2 0 0 -3 9 0 0 -3 1 0 0 -3 6 0 
+0 -3 1 0 0 -3 2 0 0 -3 3 0 0 -6 1 0 
+0 -3 5 0 0 -2 1 0 0 -6 4 0 0 -6 2 0 
+0 -3 3 0 0 -9 4 0 0 -3 4 0 0 -3 1 0 
+0 -3 7 0 0 -3 4 0 0 -3 1 0 0 -3 7 0 
+0 -3 2 0 0 -5 3 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -6 8 0 0 -3 3 0 0 -3 1 0 
+0 -3 1 0 0 -3 2 0 0 -3 4 0 0 -3 202 0 
+7841 3555 89 MP stroke
+201 0 0 -3 2 0 0 -3 2 0 0 -3 9 0 0 -3 
+3 0 0 -3 4 0 0 -3 1 0 0 -3 2 0 0 -3 
+5 0 0 -3 2 0 0 -3 5 0 0 -3 1 0 0 -3 
+1 0 0 -2 2 0 0 -3 1 0 0 -3 2 0 0 -3 
+3 0 0 -3 4 0 0 -3 1 0 0 -6 1 0 0 -6 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+3 0 0 -3 2 0 0 -3 3 0 0 -5 1 0 0 -9 
+2 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 0 -3 
+1 0 0 -6 2 0 0 -3 1 0 0 -2 2 0 0 -3 
+7 0 0 -3 2 0 0 -6 1 0 0 -3 2 0 0 -3 
+1 0 0 -6 3 0 0 -3 5 0 0 -3 6 0 0 -3 
+1 0 0 -3 2 0 0 -3 1 0 0 -6 3 0 0 -11 
+1 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -9 4 0 0 -3 1 0 0 -6 1 0 0 -3 
+9 0 0 -3 1 0 0 -2 1 0 0 -3 1 0 0 -6 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+3 0 0 -9 1 0 0 -6 2 0 0 -3 3 0 0 -3 
+1 0 0 -3 1 0 0 -2 7 0 0 -3 2 0 0 -3 
+7 0 0 -6 1 0 0 -6 1 0 0 -3 4 0 0 -3 
+4 0 0 -9 1 0 0 -6 1 0 0 -6 1 0 0 -2 
+6 0 0 -3 1 0 0 -3 1 0 0 -6 1 0 0 -3 
+2 0 0 -6 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+2 0 0 -3 6 0 0 -3 4 0 0 -3 3 0 0 -3 
+2 0 0 -3 2 0 0 -2 2 0 0 -6 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 7 0 0 -6 3 0 0 -6 
+2 0 0 -3 1 0 0 -3 4 0 0 -6 1 0 0 -3 
+1 0 0 -5 1 0 0 -3 3 0 0 -6 1 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -6 
+4 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -6 
+4 0 0 -5 1 0 0 -3 2 0 0 -6 2 0 0 -6 
+1 0 0 -3 9 0 0 -3 4 0 0 -3 2 0 0 -3 
+5 0 0 -3 2 0 0 -3 4 0 0 -3 1 0 0 -3 
+3 0 0 -3 6 0 0 -5 3 0 0 -6 4 0 0 -3 
+1 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 
+3 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 0 -6 
+1 0 0 -3 1 0 0 -6 2 0 0 -2 4 0 0 -3 
+1 0 0 -3 1 0 9710 1178 300 MP stroke
+0 -6 1 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 1 0 0 -6 2 0 0 -6 1 0 
+0 -6 2 0 0 -2 7 0 0 -3 2 0 0 -3 4 0 
+0 -6 1 0 0 -3 9 0 0 -6 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 7 0 
+0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -2 2 0 
+0 -3 4 0 0 -3 4 0 0 -3 2 0 0 -3 2 0 
+0 -6 3 0 0 -3 9 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 5 0 0 -3 1 0 0 -3 4 0 
+0 -6 2 0 0 -2 1 0 0 -6 1 0 0 -6 4 0 
+0 -3 5 0 0 -3 1 0 0 -6 9 0 0 -3 5 0 
+0 -3 1 0 0 -6 9 0 0 -3 3 0 0 -3 1 0 
+0 -5 2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 8 0 0 -3 2 0 0 -3 6 0 
+0 -3 4 0 0 -6 2 0 0 -3 1 0 0 -3 3 0 
+0 -3 1 0 0 -3 3 0 0 -3 3 0 0 -2 5 0 
+0 -3 4 0 0 -3 1 0 0 -3 13 0 0 -3 1 0 
+0 -6 1 0 0 -3 6 0 0 -3 11 0 0 -6 2 0 
+0 -6 1 0 0 -3 1 0 0 -6 1 0 0 -5 2 0 
+0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 3 0 0 -6 1 0 0 -3 2 0 
+0 -3 2 0 0 -6 4 0 0 -3 5 0 0 -8 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 9 0 
+0 -3 6 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 
+0 -3 1 0 0 -6 7 0 0 -3 2 0 0 -3 3 0 
+0 -3 1 0 0 -2 10 0 0 -3 1 0 0 -6 1 0 
+0 -3 2 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 
+0 -3 3 0 0 -3 1 0 0 -6 1 0 0 -3 3 0 
+0 -3 1 0 0 -3 3 0 0 -3 2 0 0 -2 3 0 
+0 -3 1 0 0 -3 3 0 0 -3 4 0 0 -6 2 0 
+0 -6 7 0 0 -6 1 0 0 -3 2 0 0 -3 1 0 
+0 -3 2 0 0 -3 2 0 0 -6 6 0 0 -5 1 0 
+0 -3 1 0 0 -3 9 0 0 -3 2 0 0 -3 3 0 
+0 -3 3 0 0 -3 2 0 0 -6 5 0 0 -6 1 0 
+0 -3 3 0 0 -3 4 0 0 -6 1 0 0 -2 5 0 
+0 -3 4 0 0 -3 1 0 0 -6 1 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -6 9301 1725 300 MP stroke
+1 0 0 -3 2 0 0 -3 1 0 0 -8 6 0 0 -6 
+1 0 0 -3 1 0 0 -3 3 0 0 -6 11 0 0 -3 
+1 0 0 -6 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+2 0 0 -3 3 0 0 -3 1 0 0 -2 2 0 0 -3 
+1 0 0 -3 1 0 0 -6 4 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+3 0 0 -3 8 0 0 -3 7 0 0 -3 1 0 0 -6 
+5 0 0 -2 1 0 0 -3 3 0 0 -3 6 0 0 -6 
+2 0 0 -6 3 0 0 -3 1 0 0 -3 1 0 0 -6 
+1 0 0 -3 1 0 0 -3 5 0 0 -3 4 0 0 -3 
+1 0 0 -3 1 0 0 -2 1 0 0 -3 3 0 0 -3 
+6 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 2 0 0 -3 1 0 0 -3 10 0 0 -3 
+2 0 0 -6 1 0 0 -6 1 0 0 -2 5 0 0 -3 
+3 0 0 -3 1 0 0 -6 2 0 0 -9 2 0 0 -3 
+2 0 0 -6 4 0 0 -3 2 0 0 -3 4 0 0 -3 
+2 0 0 -3 4 0 0 -5 1 0 0 -3 5 0 0 -3 
+3 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -6 
+2 0 0 -3 4 0 0 -3 1 0 0 -3 1 0 0 -6 
+3 0 0 -3 2 0 0 -6 2 0 0 -2 3 0 0 -6 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -3 
+1 0 0 -6 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+2 0 0 -3 5 0 0 -6 2 0 0 -3 11 0 0 -5 
+4 0 0 -6 1 0 0 -3 2 0 0 -3 4 0 0 -3 
+5 0 0 -3 2 0 0 -3 1 0 0 -6 4 0 0 -3 
+6 0 0 -3 4 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 5 0 0 -2 4 0 0 -3 1 0 0 -6 
+5 0 0 -6 3 0 0 -6 7 0 0 -3 3 0 0 -6 
+1 0 0 -3 1 0 0 -3 4 0 0 -3 3 0 0 -3 
+2 0 0 -5 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+4 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+5 0 0 -6 2 0 0 -6 2 0 0 -3 7 0 0 -8 
+3 0 0 -3 1 0 0 -3 1 0 0 -3 5 0 0 -6 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -6 
+2 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+1 0 0 -6 3 0 0 -2 3 0 0 -3 6 0 0 -6 
+6 0 0 -3 3 0 0 -3 2 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 8922 2277 300 MP stroke
+0 -6 2 0 0 -3 2 0 0 -3 2 0 0 -9 10 0 
+0 -11 3 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 3 0 0 -6 4 0 0 -3 1 0 0 -3 2 0 
+0 -3 1 0 0 -6 3 0 0 -3 1 0 0 -2 5 0 
+0 -3 4 0 0 -3 1 0 0 -3 12 0 0 -3 1 0 
+0 -6 3 0 0 -3 2 0 0 -6 3 0 0 -3 3 0 
+0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -3 2 0 
+0 -3 1 0 0 -2 2 0 0 -3 1 0 0 -3 4 0 
+0 -3 4 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 
+0 -3 1 0 0 -3 5 0 0 -6 2 0 0 -3 1 0 
+0 -3 4 0 0 -9 5 0 0 -2 1 0 0 -3 5 0 
+0 -6 1 0 0 -3 3 0 0 -3 1 0 0 -9 5 0 
+0 -3 1 0 0 -3 4 0 0 -3 2 0 0 -3 4 0 
+0 -3 3 0 0 -3 5 0 0 -3 1 0 0 -2 4 0 
+0 -3 1 0 0 -6 2 0 0 -3 2 0 0 -3 1 0 
+0 -3 1 0 0 -3 3 0 0 -3 11 0 0 -6 3 0 
+0 -3 1 0 0 -3 2 0 0 -6 1 0 0 -5 2 0 
+0 -3 1 0 0 -6 2 0 0 -6 3 0 0 -3 1 0 
+0 -3 4 0 0 -3 1 0 0 -3 2 0 0 -3 7 0 
+0 -3 1 0 0 -6 1 0 0 -3 4 0 0 -2 1 0 
+0 -3 15 0 0 -6 1 0 0 -6 2 0 0 -3 3 0 
+0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -6 3 0 0 -3 2 0 0 -6 4 0 0 -2 8 0 
+0 -3 2 0 0 -6 2 0 0 -3 2 0 0 -6 2 0 
+0 -3 3 0 0 -3 3 0 0 -3 4 0 0 -3 1 0 
+0 -6 3 0 0 -3 3 0 0 -3 3 0 0 -3 2 0 
+0 -3 5 0 0 -2 5 0 0 -3 1 0 0 -3 1 0 
+0 -3 6 0 0 -3 1 0 0 -3 1 0 0 -6 4 0 
+0 -3 1 0 0 -3 1 0 0 -3 6 0 0 -3 1 0 
+0 -3 7 0 0 -3 2 0 0 -3 7 0 0 -3 1 0 
+0 -2 1 0 0 -3 2 0 0 -6 3 0 0 -3 1 0 
+0 -6 5 0 0 -3 2 0 0 -3 4 0 0 -6 3 0 
+0 -6 2 0 0 -6 3 0 0 -3 2 0 0 -2 3 0 
+0 -6 4 0 0 -6 2 0 0 -3 1 0 0 -6 6 0 
+0 -3 3 0 0 -3 3 0 0 -6 1 0 0 -3 1 0 
+0 -3 4 0 0 -3 2 0 0 -3 1 0 0 -2 2 0 
+0 -3 3 0 0 -3 1 0 0 -3 2 0 0 -6 2 0 
+0 -6 3 0 0 -3 8513 2841 300 MP stroke
+4 0 0 -3 5 0 0 -3 3 0 0 -3 3 0 0 -3 
+1 0 0 -3 1 0 0 -6 1 0 0 -2 1 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -6 2 0 0 -3 
+2 0 0 -3 4 0 0 -3 1 0 0 -3 1 0 0 -3 
+4 0 0 -3 3 0 0 -6 5 0 0 -3 1 0 0 -2 
+2 0 0 -3 4 0 0 -3 4 0 0 -3 2 0 0 -3 
+3 0 0 -6 1 0 0 -3 1 0 0 -3 1 0 0 -6 
+1 0 0 -6 4 0 0 -3 1 0 0 -6 2 0 0 -2 
+1 0 0 -3 3 0 0 -6 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 2 0 0 -6 1 0 0 -6 1 0 0 -3 
+3 0 0 -3 2 0 0 -3 7 0 0 -3 3 0 0 -3 
+2 0 0 -2 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -6 1 0 0 -3 5 0 0 -3 1 0 0 -3 
+1 0 0 -6 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -5 2 0 0 -3 2 0 0 -3 
+2 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 
+7 0 0 -3 1 0 0 -3 7 0 0 -6 1 0 0 -3 
+3 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+1 0 0 -2 3 0 0 -6 5 0 0 -6 2 0 0 -3 
+1 0 0 -3 2 0 0 -3 1 0 0 -6 2 0 0 -3 
+1 0 0 -3 7 0 0 -6 1 0 0 -3 2 0 0 -3 
+3 0 0 -2 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+3 0 0 -3 3 0 0 -3 2 0 0 -3 7 0 0 -3 
+3 0 0 -6 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+4 0 0 -6 1 0 0 -3 15 0 0 -5 3 0 0 -3 
+4 0 0 -3 4 0 0 -6 1 0 0 -3 1 0 0 -3 
+2 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -6 2 0 0 -6 3 0 0 -5 1 0 0 -3 
+1 0 0 -3 2 0 0 -6 2 0 0 -3 5 0 0 -3 
+5 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -6 1 0 0 -3 3 0 0 -5 1 0 0 -3 
+1 0 0 -3 1 0 0 -6 1 0 0 -3 2 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -3 
+1 0 0 -3 4 0 0 -3 1 0 0 -6 1 0 0 -3 
+6 0 0 -5 3 0 0 -3 1 0 0 -3 2 0 0 -6 
+1 0 0 -3 1 0 0 -3 2 0 0 -6 1 0 0 -3 
+1 0 0 -3 5 0 0 -3 2 0 0 -6 5 0 0 -3 
+3 0 0 -2 5 0 8171 3378 300 MP stroke
+0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -6 1 0 
+0 -3 7 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -6 1 0 0 -3 1 0 0 -3 3 0 0 -3 2 0 
+0 -3 3 0 0 -2 1 0 0 -3 3 0 0 -3 9 0 
+0 -3 1 0 0 -3 1 0 0 -6 2 0 0 -3 1 0 
+0 -3 8 0 0 -3 5 0 0 -6 3 0 0 -6 1 0 
+0 -6 1 0 0 -2 2 0 0 -3 3 0 0 -3 1 0 
+0 -3 2 0 0 -6 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 2 0 0 -3 4 0 0 -6 3 0 0 -3 1 0 
+0 -3 1 0 0 -3 6 0 0 -5 1 0 0 -3 6 0 
+0 -3 1 0 0 -3 10 0 0 -3 2 0 0 -6 6 0 
+0 -6 2 0 0 -3 3 0 0 -3 1 0 0 -3 2 0 
+0 -3 201 0 7845 3555 99 MP stroke
+202 0 0 -3 1 0 0 -3 1 0 0 -6 1 0 0 -3 
+1 0 0 -6 1 0 0 -3 2 0 0 -3 2 0 0 -3 
+2 0 0 -3 2 0 0 -3 1 0 0 -2 2 0 0 -3 
+1 0 0 -3 4 0 0 -3 8 0 0 -3 2 0 0 -3 
+2 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -3 3 0 0 -9 1 0 0 -5 
+3 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -9 5 0 0 -3 2 0 0 -3 2 0 0 -3 
+4 0 0 -6 2 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -8 1 0 0 -3 1 0 0 -3 5 0 0 -3 
+1 0 0 -3 3 0 0 -3 2 0 0 -3 1 0 0 -3 
+4 0 0 -6 1 0 0 -3 3 0 0 -9 3 0 0 -2 
+2 0 0 -6 4 0 0 -3 2 0 0 -6 1 0 0 -3 
+2 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -3 
+3 0 0 -6 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -2 1 0 0 -3 8 0 0 -3 4 0 0 -6 
+6 0 0 -6 3 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 4 0 0 -3 1 0 0 -3 2 0 0 -3 
+4 0 0 -6 3 0 0 -8 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 4 0 0 -3 1 0 0 -3 5 0 0 -6 
+4 0 0 -3 1 0 0 -3 1 0 0 -3 6 0 0 -3 
+2 0 0 -3 1 0 0 -3 3 0 0 -2 2 0 0 -6 
+3 0 0 -12 8 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 3 0 0 -3 7 0 0 -3 
+1 0 0 -3 1 0 0 -3 3 0 0 -2 2 0 0 -3 
+1 0 0 -6 1 0 0 -3 2 0 0 -6 1 0 0 -3 
+2 0 0 -6 1 0 0 -3 1 0 0 -3 5 0 0 -3 
+2 0 0 -3 6 0 0 -3 1 0 0 -5 3 0 0 -3 
+1 0 0 -6 3 0 0 -3 1 0 0 -6 1 0 0 -3 
+2 0 0 -3 1 0 0 -6 1 0 0 -6 2 0 0 -3 
+1 0 0 -3 5 0 0 -3 1 0 0 -2 5 0 0 -3 
+10 0 0 -3 1 0 0 -3 1 0 0 -6 2 0 0 -3 
+2 0 0 -3 4 0 0 -6 1 0 0 -3 2 0 0 -3 
+3 0 0 -3 3 0 0 -3 1 0 0 -6 5 0 0 -2 
+2 0 0 -3 2 0 0 -3 3 0 0 -3 1 0 0 -3 
+6 0 0 -3 5 0 0 -3 3 0 0 -6 1 0 0 -3 
+1 0 0 -3 1 0 0 -6 3 0 0 -3 2 0 0 -3 
+5 0 0 -3 6 0 9705 1170 300 MP stroke
+0 -2 7 0 0 -3 1 0 0 -3 6 0 0 -3 3 0 
+0 -3 2 0 0 -3 3 0 0 -3 3 0 0 -3 4 0 
+0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 4 0 
+0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 
+0 -2 3 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 
+0 -6 4 0 0 -3 1 0 0 -6 2 0 0 -3 2 0 
+0 -3 2 0 0 -6 3 0 0 -3 5 0 0 -3 2 0 
+0 -5 3 0 0 -6 3 0 0 -3 1 0 0 -3 4 0 
+0 -6 4 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 
+0 -6 1 0 0 -6 1 0 0 -6 1 0 0 -2 1 0 
+0 -6 2 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 
+0 -3 3 0 0 -3 1 0 0 -3 4 0 0 -6 1 0 
+0 -3 5 0 0 -3 4 0 0 -3 1 0 0 -3 2 0 
+0 -3 2 0 0 -2 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 7 0 
+0 -6 3 0 0 -3 2 0 0 -6 4 0 0 -2 1 0 
+0 -3 1 0 0 -3 1 0 0 -6 1 0 0 -6 1 0 
+0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 
+0 -6 3 0 0 -6 2 0 0 -3 1 0 0 -2 2 0 
+0 -9 5 0 0 -3 1 0 0 -3 1 0 0 -9 8 0 
+0 -6 1 0 0 -3 4 0 0 -3 1 0 0 -3 2 0 
+0 -3 7 0 0 -3 2 0 0 -5 2 0 0 -3 6 0 
+0 -6 3 0 0 -3 4 0 0 -3 1 0 0 -6 4 0 
+0 -3 1 0 0 -6 1 0 0 -3 4 0 0 -9 1 0 
+0 -2 4 0 0 -3 2 0 0 -3 2 0 0 -3 3 0 
+0 -3 2 0 0 -3 6 0 0 -3 1 0 0 -3 2 0 
+0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 5 0 
+0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -5 3 0 
+0 -3 1 0 0 -3 4 0 0 -3 7 0 0 -3 5 0 
+0 -3 3 0 0 -3 1 0 0 -6 1 0 0 -3 4 0 
+0 -3 1 0 0 -9 3 0 0 -3 2 0 0 -3 1 0 
+0 -2 3 0 0 -3 3 0 0 -3 2 0 0 -3 3 0 
+0 -3 4 0 0 -3 4 0 0 -6 2 0 0 -6 4 0 
+0 -3 3 0 0 -3 2 0 0 -3 4 0 0 -3 2 0 
+0 -3 1 0 0 -3 7 0 0 -5 6 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 5 0 
+0 -3 1 0 0 -3 9338 1713 300 MP stroke
+4 0 0 -3 2 0 0 -3 2 0 0 -3 4 0 0 -3 
+9 0 0 -3 2 0 0 -3 2 0 0 -3 4 0 0 -2 
+1 0 0 -6 1 0 0 -3 2 0 0 -3 2 0 0 -3 
+1 0 0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -3 
+2 0 0 -3 1 0 0 -6 4 0 0 -3 2 0 0 -3 
+1 0 0 -3 5 0 0 -5 1 0 0 -6 1 0 0 -6 
+9 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -6 2 0 0 -3 5 0 0 -6 
+2 0 0 -2 2 0 0 -3 12 0 0 -6 2 0 0 -6 
+2 0 0 -3 2 0 0 -3 1 0 0 -6 1 0 0 -3 
+1 0 0 -3 1 0 0 -6 1 0 0 -6 1 0 0 -2 
+3 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 2 0 0 -3 3 0 0 -3 3 0 0 -6 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 0 -6 
+3 0 0 -5 6 0 0 -6 4 0 0 -3 1 0 0 -3 
+3 0 0 -6 1 0 0 -6 4 0 0 -6 8 0 0 -3 
+1 0 0 -3 3 0 0 -3 2 0 0 -3 5 0 0 -5 
+1 0 0 -3 2 0 0 -6 2 0 0 -3 1 0 0 -3 
+1 0 0 -6 1 0 0 -3 1 0 0 -3 3 0 0 -6 
+3 0 0 -3 8 0 0 -3 2 0 0 -5 1 0 0 -6 
+1 0 0 -3 5 0 0 -3 2 0 0 -3 3 0 0 -3 
+8 0 0 -3 4 0 0 -3 3 0 0 -6 3 0 0 -3 
+1 0 0 -6 2 0 0 -6 4 0 0 -5 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 5 0 0 -3 4 0 0 -3 
+3 0 0 -3 2 0 0 -3 4 0 0 -3 5 0 0 -6 
+1 0 0 -3 11 0 0 -3 3 0 0 -3 1 0 0 -3 
+2 0 0 -3 3 0 0 -2 1 0 0 -6 3 0 0 -3 
+3 0 0 -3 1 0 0 -3 1 0 0 -3 7 0 0 -3 
+1 0 0 -3 2 0 0 -3 2 0 0 -6 4 0 0 -3 
+3 0 0 -6 4 0 0 -3 1 0 0 -2 1 0 0 -3 
+4 0 0 -3 2 0 0 -9 7 0 0 -3 1 0 0 -6 
+1 0 0 -3 7 0 0 -3 2 0 0 -3 1 0 0 -6 
+1 0 0 -5 1 0 0 -3 3 0 0 -3 4 0 0 -3 
+1 0 0 -3 1 0 0 -3 8 0 0 -3 2 0 0 -3 
+3 0 0 -6 1 0 0 -3 12 0 0 -6 1 0 0 -3 
+5 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -5 
+2 0 0 -3 4 0 0 -3 3 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 8935 2271 300 MP stroke
+0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 5 0 0 -2 2 0 0 -3 1 0 0 -3 2 0 
+0 -3 4 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 
+0 -3 1 0 0 -6 1 0 0 -6 2 0 0 -3 1 0 
+0 -3 2 0 0 -3 8 0 0 -3 1 0 0 -2 6 0 
+0 -6 4 0 0 -6 1 0 0 -3 4 0 0 -6 4 0 
+0 -3 6 0 0 -3 2 0 0 -3 1 0 0 -6 2 0 
+0 -3 1 0 0 -3 1 0 0 -5 5 0 0 -6 2 0 
+0 -3 3 0 0 -3 2 0 0 -3 2 0 0 -3 3 0 
+0 -3 5 0 0 -3 2 0 0 -3 5 0 0 -6 1 0 
+0 -3 4 0 0 -6 3 0 0 -3 1 0 0 -2 3 0 
+0 -3 1 0 0 -6 1 0 0 -6 9 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -6 2 0 0 -3 4 0 
+0 -3 4 0 0 -6 3 0 0 -3 3 0 0 -5 4 0 
+0 -3 1 0 0 -3 1 0 0 -3 5 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 3 0 0 -3 3 0 0 -3 1 0 0 -3 2 0 
+0 -6 1 0 0 -2 2 0 0 -3 1 0 0 -3 2 0 
+0 -3 2 0 0 -6 5 0 0 -3 5 0 0 -3 1 0 
+0 -3 3 0 0 -3 3 0 0 -3 3 0 0 -3 4 0 
+0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -2 1 0 
+0 -3 6 0 0 -6 2 0 0 -3 2 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 6 0 
+0 -3 1 0 0 -3 4 0 0 -3 2 0 0 -3 4 0 
+0 -6 1 0 0 -5 5 0 0 -3 2 0 0 -3 1 0 
+0 -3 1 0 0 -3 7 0 0 -3 2 0 0 -3 2 0 
+0 -9 2 0 0 -6 5 0 0 -3 5 0 0 -3 1 0 
+0 -3 2 0 0 -3 4 0 0 -2 2 0 0 -3 2 0 
+0 -3 7 0 0 -6 1 0 0 -3 4 0 0 -6 1 0 
+0 -6 2 0 0 -3 1 0 0 -3 12 0 0 -3 2 0 
+0 -3 1 0 0 -3 3 0 0 -3 2 0 0 -2 3 0 
+0 -3 2 0 0 -3 13 0 0 -3 1 0 0 -3 3 0 
+0 -6 3 0 0 -6 5 0 0 -6 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 5 0 0 -3 2 0 0 -3 5 0 
+0 -2 1 0 0 -3 1 0 0 -3 2 0 0 -3 7 0 
+0 -3 1 0 0 -3 5 0 0 -3 1 0 0 -6 1 0 
+0 -6 1 0 0 -6 8545 2806 300 MP stroke
+3 0 0 -3 4 0 0 -3 1 0 0 -3 1 0 0 -2 
+3 0 0 -9 1 0 0 -6 1 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -6 1 0 0 -3 6 0 0 -3 
+1 0 0 -3 3 0 0 -6 4 0 0 -2 1 0 0 -3 
+4 0 0 -3 4 0 0 -3 1 0 0 -3 1 0 0 -3 
+2 0 0 -6 1 0 0 -12 1 0 0 -3 1 0 0 -3 
+1 0 0 -5 6 0 0 -3 1 0 0 -3 2 0 0 -6 
+2 0 0 -3 2 0 0 -3 4 0 0 -3 2 0 0 -3 
+1 0 0 -3 2 0 0 -3 1 0 0 -6 2 0 0 -6 
+1 0 0 -3 6 0 0 -2 1 0 0 -3 3 0 0 -3 
+3 0 0 -3 2 0 0 -3 4 0 0 -3 5 0 0 -3 
+1 0 0 -6 4 0 0 -6 8 0 0 -3 2 0 0 -3 
+7 0 0 -3 2 0 0 -6 1 0 0 -5 5 0 0 -3 
+3 0 0 -3 1 0 0 -6 13 0 0 -3 2 0 0 -3 
+2 0 0 -6 5 0 0 -6 6 0 0 -3 2 0 0 -3 
+2 0 0 -3 2 0 0 -3 2 0 0 -2 3 0 0 -3 
+1 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -6 
+2 0 0 -3 1 0 0 -6 2 0 0 -3 1 0 0 -6 
+3 0 0 -3 1 0 0 -3 13 0 0 -3 5 0 0 -2 
+2 0 0 -3 5 0 0 -3 3 0 0 -3 1 0 0 -6 
+3 0 0 -6 1 0 0 -3 2 0 0 -6 5 0 0 -6 
+7 0 0 -6 4 0 0 -3 1 0 0 -2 2 0 0 -3 
+5 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -6 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -6 
+1 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+2 0 0 -2 4 0 0 -3 3 0 0 -3 1 0 0 -3 
+1 0 0 -6 4 0 0 -3 2 0 0 -9 1 0 0 -9 
+1 0 0 -3 3 0 0 -6 2 0 0 -2 4 0 0 -3 
+4 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+2 0 0 -6 4 0 0 -9 3 0 0 -3 7 0 0 -3 
+1 0 0 -3 1 0 0 -6 2 0 0 -2 1 0 0 -6 
+1 0 0 -3 1 0 0 -3 3 0 0 -6 3 0 0 -3 
+1 0 0 -6 4 0 0 -6 1 0 0 -3 4 0 0 -3 
+7 0 0 -3 6 0 0 -3 3 0 0 -2 2 0 0 -3 
+1 0 0 -6 2 0 0 -3 7 0 0 -9 1 0 0 -3 
+1 0 0 -3 3 0 0 -3 2 0 0 -6 2 0 0 -6 
+1 0 0 -3 6 0 0 -2 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 2 0 8156 3387 300 MP stroke
+0 -6 1 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 
+0 -9 1 0 0 -3 4 0 0 -6 2 0 0 -3 1 0 
+0 -2 3 0 0 -6 2 0 0 -3 3 0 0 -3 8 0 
+0 -6 1 0 0 -9 2 0 0 -6 2 0 0 -3 2 0 
+0 -3 1 0 0 -3 2 0 0 -3 4 0 0 -2 1 0 
+0 -3 2 0 0 -3 5 0 0 -3 1 0 0 -3 2 0 
+0 -6 10 0 0 -3 1 0 0 -3 5 0 0 -3 5 0 
+0 -3 7 0 0 -6 1 0 0 -6 1 0 0 -3 1 0 
+0 -2 3 0 0 -3 3 0 0 -3 1 0 0 -3 4 0 
+0 -3 6 0 0 -6 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 201 0 
+7844 3555 89 MP stroke
+202 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 0 -3 
+1 0 0 -6 3 0 0 -3 1 0 0 -3 5 0 0 -3 
+1 0 0 -3 7 0 0 -3 1 0 0 -3 1 0 0 -2 
+2 0 0 -3 7 0 0 -3 1 0 0 -3 3 0 0 -3 
+1 0 0 -3 4 0 0 -3 1 0 0 -9 1 0 0 -3 
+1 0 0 -6 2 0 0 -3 1 0 0 -6 6 0 0 -5 
+5 0 0 -3 1 0 0 -3 3 0 0 -3 6 0 0 -3 
+3 0 0 -3 6 0 0 -3 3 0 0 -3 3 0 0 -3 
+1 0 0 -3 2 0 0 -3 7 0 0 -3 6 0 0 -6 
+5 0 0 -3 15 0 0 -2 4 0 0 -3 6 0 0 -6 
+1 0 0 -3 2 0 0 -3 4 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -6 2 0 0 -6 1 0 0 -3 
+6 0 0 -8 2 0 0 -9 3 0 0 -3 3 0 0 -9 
+2 0 0 -3 2 0 0 -3 2 0 0 -6 5 0 0 -6 
+5 0 0 -3 7 0 0 -8 1 0 0 -6 6 0 0 -3 
+2 0 0 -3 7 0 0 -3 5 0 0 -3 1 0 0 -3 
+1 0 0 -3 2 0 0 -6 2 0 0 -6 4 0 0 -3 
+1 0 0 -3 1 0 0 -2 1 0 0 -3 1 0 0 -3 
+8 0 0 -3 3 0 0 -9 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+4 0 0 -3 2 0 0 -3 4 0 0 -3 6 0 0 -2 
+1 0 0 -3 2 0 0 -6 1 0 0 -3 1 0 0 -3 
+3 0 0 -6 1 0 0 -3 5 0 0 -3 1 0 0 -3 
+3 0 0 -3 7 0 0 -3 2 0 0 -3 1 0 0 -3 
+3 0 0 -3 4 0 0 -2 6 0 0 -6 4 0 0 -3 
+2 0 0 -3 4 0 0 -3 1 0 0 -9 2 0 0 -3 
+3 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 0 -6 
+3 0 0 -3 2 0 0 -2 2 0 0 -6 2 0 0 -6 
+1 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+5 0 0 -3 2 0 0 -6 5 0 0 -6 1 0 0 -6 
+2 0 0 -5 3 0 0 -3 1 0 0 -6 2 0 0 -6 
+1 0 0 -3 1 0 0 -3 1 0 0 -6 1 0 0 -6 
+4 0 0 -3 1 0 0 -6 1 0 0 -2 2 0 0 -3 
+4 0 0 -6 2 0 0 -3 1 0 0 -3 2 0 0 -3 
+3 0 0 -9 4 0 0 -3 1 0 0 -6 2 0 0 -3 
+6 0 0 -3 3 0 0 -3 1 0 0 -8 2 0 0 -3 
+5 0 0 -3 2 0 0 -3 2 0 0 -3 3 0 0 -3 
+6 0 0 -3 2 0 9640 1196 300 MP stroke
+0 -3 1 0 0 -3 1 0 0 -3 4 0 0 -3 2 0 
+0 -3 6 0 0 -6 2 0 0 -5 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 2 0 0 -3 5 0 0 -3 3 0 
+0 -3 8 0 0 -3 1 0 0 -6 3 0 0 -6 3 0 
+0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -2 4 0 
+0 -3 6 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -9 4 0 
+0 -3 2 0 0 -3 4 0 0 -3 5 0 0 -3 2 0 
+0 -3 5 0 0 -2 6 0 0 -3 2 0 0 -3 2 0 
+0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -3 2 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 6 0 
+0 -3 2 0 0 -3 1 0 0 -3 3 0 0 -3 4 0 
+0 -5 5 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 3 0 0 -6 3 0 0 -3 1 0 0 -3 10 0 
+0 -6 2 0 0 -3 2 0 0 -6 1 0 0 -6 2 0 
+0 -2 1 0 0 -6 4 0 0 -3 2 0 0 -3 1 0 
+0 -3 2 0 0 -6 1 0 0 -3 8 0 0 -3 11 0 
+0 -6 1 0 0 -3 4 0 0 -3 1 0 0 -3 3 0 
+0 -3 2 0 0 -2 1 0 0 -3 3 0 0 -3 1 0 
+0 -3 1 0 0 -6 2 0 0 -3 2 0 0 -3 2 0 
+0 -3 1 0 0 -3 13 0 0 -6 1 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -2 2 0 
+0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -3 2 0 
+0 -3 4 0 0 -9 4 0 0 -3 1 0 0 -6 2 0 
+0 -3 3 0 0 -3 2 0 0 -3 9 0 0 -3 5 0 
+0 -2 2 0 0 -3 5 0 0 -3 1 0 0 -3 5 0 
+0 -3 3 0 0 -3 3 0 0 -3 2 0 0 -6 2 0 
+0 -3 2 0 0 -3 6 0 0 -3 3 0 0 -3 2 0 
+0 -6 2 0 0 -5 4 0 0 -3 1 0 0 -6 1 0 
+0 -3 7 0 0 -3 1 0 0 -3 5 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -3 2 0 
+0 -3 3 0 0 -6 1 0 0 -3 2 0 0 -5 1 0 
+0 -3 10 0 0 -3 2 0 0 -6 1 0 0 -3 3 0 
+0 -3 2 0 0 -3 10 0 0 -3 3 0 0 -3 3 0 
+0 -6 1 0 0 -3 3 0 0 -3 5 0 0 -3 1 0 
+0 -2 1 0 0 -6 1 0 0 -3 1 0 0 -3 3 0 
+0 -3 2 0 0 -3 9 0 0 -6 2 0 0 -3 4 0 
+0 -6 1 0 0 -9 9228 1731 300 MP stroke
+1 0 0 -3 6 0 0 -2 2 0 0 -3 1 0 0 -3 
+3 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+4 0 0 -3 3 0 0 -3 1 0 0 -3 2 0 0 -3 
+3 0 0 -3 3 0 0 -2 2 0 0 -9 2 0 0 -3 
+3 0 0 -3 1 0 0 -3 1 0 0 -9 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 4 0 0 -3 
+1 0 0 -5 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 5 0 0 -6 1 0 0 -6 2 0 0 -3 
+2 0 0 -3 3 0 0 -3 4 0 0 -3 2 0 0 -3 
+1 0 0 -8 2 0 0 -3 2 0 0 -3 4 0 0 -6 
+3 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 0 -6 
+1 0 0 -3 2 0 0 -3 10 0 0 -3 3 0 0 -6 
+4 0 0 -2 2 0 0 -3 2 0 0 -3 3 0 0 -6 
+1 0 0 -3 1 0 0 -6 1 0 0 -6 6 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -2 9 0 0 -3 4 0 0 -3 
+3 0 0 -3 3 0 0 -3 3 0 0 -3 2 0 0 -3 
+3 0 0 -12 3 0 0 -3 3 0 0 -3 1 0 0 -3 
+2 0 0 -3 2 0 0 -3 1 0 0 -2 1 0 0 -6 
+1 0 0 -3 2 0 0 -3 4 0 0 -3 4 0 0 -6 
+7 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -6 1 0 0 -8 2 0 0 -6 
+3 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+1 0 0 -3 2 0 0 -3 4 0 0 -9 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -5 1 0 0 -3 
+1 0 0 -3 4 0 0 -3 1 0 0 -3 3 0 0 -3 
+2 0 0 -3 3 0 0 -3 1 0 0 -6 2 0 0 -6 
+1 0 0 -3 3 0 0 -3 4 0 0 -3 1 0 0 -3 
+3 0 0 -2 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -6 4 0 0 -3 4 0 0 -9 1 0 0 -6 
+3 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -2 
+1 0 0 -3 3 0 0 -3 2 0 0 -3 1 0 0 -6 
+1 0 0 -3 5 0 0 -3 2 0 0 -3 4 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 5 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -2 
+2 0 0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -6 
+1 0 0 -12 1 0 8902 2280 300 MP stroke
+0 -3 1 0 0 -3 8 0 0 -3 1 0 0 -3 2 0 
+0 -3 3 0 0 -5 4 0 0 -6 2 0 0 -3 3 0 
+0 -3 1 0 0 -6 1 0 0 -3 6 0 0 -6 5 0 
+0 -3 3 0 0 -3 1 0 0 -3 2 0 0 -3 6 0 
+0 -3 2 0 0 -3 2 0 0 -5 4 0 0 -3 1 0 
+0 -3 2 0 0 -6 1 0 0 -3 8 0 0 -3 5 0 
+0 -3 1 0 0 -12 3 0 0 -3 2 0 0 -3 2 0 
+0 -8 1 0 0 -3 4 0 0 -3 1 0 0 -3 1 0 
+0 -3 2 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 
+0 -3 2 0 0 -3 4 0 0 -3 2 0 0 -3 2 0 
+0 -3 1 0 0 -6 1 0 0 -2 1 0 0 -3 3 0 
+0 -9 1 0 0 -3 1 0 0 -3 3 0 0 -3 2 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 
+0 -3 1 0 0 -3 6 0 0 -3 1 0 0 -3 4 0 
+0 -2 2 0 0 -6 2 0 0 -3 1 0 0 -9 1 0 
+0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -6 1 0 0 -3 1 0 0 -3 1 0 
+0 -2 1 0 0 -3 1 0 0 -3 5 0 0 -9 1 0 
+0 -3 8 0 0 -3 1 0 0 -3 5 0 0 -3 1 0 
+0 -3 2 0 0 -6 10 0 0 -3 4 0 0 -5 1 0 
+0 -3 3 0 0 -3 1 0 0 -3 2 0 0 -6 2 0 
+0 -6 3 0 0 -3 4 0 0 -3 7 0 0 -6 2 0 
+0 -3 4 0 0 -6 1 0 0 -3 2 0 0 -2 1 0 
+0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 
+0 -3 5 0 0 -3 3 0 0 -3 3 0 0 -3 1 0 
+0 -6 2 0 0 -3 1 0 0 -3 3 0 0 -3 2 0 
+0 -3 3 0 0 -6 1 0 0 -2 2 0 0 -3 1 0 
+0 -6 2 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 7 0 0 -3 1 0 0 -3 1 0 
+0 -3 13 0 0 -6 6 0 0 -3 1 0 0 -8 1 0 
+0 -3 6 0 0 -3 3 0 0 -3 5 0 0 -3 1 0 
+0 -3 1 0 0 -3 3 0 0 -6 2 0 0 -3 1 0 
+0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 
+0 -3 5 0 0 -2 2 0 0 -3 3 0 0 -3 1 0 
+0 -3 3 0 0 -3 3 0 0 -3 5 0 0 -3 1 0 
+0 -3 4 0 0 -6 6 0 0 -3 4 0 0 -3 2 0 
+0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -2 3 0 0 -3 8530 2820 300 MP stroke
+10 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -3 
+4 0 0 -3 1 0 0 -3 3 0 0 -3 3 0 0 -3 
+4 0 0 -3 1 0 0 -3 1 0 0 -6 2 0 0 -3 
+1 0 0 -3 10 0 0 -2 1 0 0 -3 1 0 0 -3 
+8 0 0 -6 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+3 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -6 1 0 0 -3 1 0 0 -2 7 0 0 -3 
+4 0 0 -3 5 0 0 -3 2 0 0 -3 3 0 0 -3 
+3 0 0 -12 2 0 0 -3 6 0 0 -6 3 0 0 -3 
+2 0 0 -3 3 0 0 -8 1 0 0 -3 1 0 0 -3 
+2 0 0 -6 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -6 8 0 0 -6 3 0 0 -3 1 0 0 -3 
+2 0 0 -3 6 0 0 -5 1 0 0 -3 1 0 0 -3 
+2 0 0 -6 1 0 0 -6 1 0 0 -6 5 0 0 -3 
+4 0 0 -9 1 0 0 -6 1 0 0 -2 6 0 0 -3 
+2 0 0 -3 1 0 0 -3 3 0 0 -9 4 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 5 0 0 -3 
+1 0 0 -3 3 0 0 -3 3 0 0 -6 1 0 0 -2 
+5 0 0 -3 11 0 0 -3 7 0 0 -6 2 0 0 -3 
+2 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -3 8 0 0 -3 2 0 0 -3 
+2 0 0 -8 4 0 0 -6 1 0 0 -3 1 0 0 -3 
+6 0 0 -3 5 0 0 -3 2 0 0 -3 3 0 0 -9 
+3 0 0 -3 2 0 0 -6 1 0 0 -3 3 0 0 -3 
+3 0 0 -5 3 0 0 -6 1 0 0 -3 1 0 0 -3 
+2 0 0 -3 9 0 0 -6 1 0 0 -3 6 0 0 -6 
+1 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 0 -3 
+1 0 0 -5 1 0 0 -3 4 0 0 -3 7 0 0 -3 
+1 0 0 -12 1 0 0 -3 5 0 0 -3 1 0 0 -3 
+1 0 0 -6 1 0 0 -3 7 0 0 -3 1 0 0 -5 
+2 0 0 -3 2 0 0 -3 4 0 0 -3 1 0 0 -3 
+1 0 0 -3 5 0 0 -6 2 0 0 -6 3 0 0 -3 
+1 0 0 -3 3 0 0 -6 2 0 0 -3 1 0 0 -2 
+1 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 3 0 0 -6 2 0 0 -3 
+1 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -6 3 0 0 -2 2 0 0 -9 1 0 0 -3 
+1 0 0 -6 2 0 8144 3396 300 MP stroke
+0 -3 2 0 0 -3 4 0 0 -3 4 0 0 -3 3 0 
+0 -3 2 0 0 -3 2 0 0 -3 5 0 0 -3 2 0 
+0 -3 1 0 0 -2 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 3 0 0 -6 1 0 0 -3 6 0 
+0 -3 2 0 0 -6 1 0 0 -3 1 0 0 -3 1 0 
+0 -6 2 0 0 -5 4 0 0 -3 2 0 0 -6 1 0 
+0 -6 2 0 0 -3 4 0 0 -3 1 0 0 -3 9 0 
+0 -6 1 0 0 -3 3 0 0 -3 3 0 0 -6 2 0 
+0 -3 1 0 0 -2 4 0 0 -6 2 0 0 -3 4 0 
+0 -3 3 0 0 -3 1 0 0 -6 2 0 0 -6 1 0 
+0 -6 3 0 0 -3 201 0 7843 3555 85 MP stroke
+201 0 0 -3 1 0 0 -6 1 0 0 -3 1 0 0 -3 
+2 0 0 -3 2 0 0 -6 5 0 0 -3 4 0 0 -3 
+2 0 0 -3 3 0 0 -3 1 0 0 -2 1 0 0 -3 
+1 0 0 -6 5 0 0 -3 1 0 0 -6 1 0 0 -9 
+1 0 0 -3 1 0 0 -3 5 0 0 -6 1 0 0 -3 
+1 0 0 -3 4 0 0 -2 5 0 0 -3 2 0 0 -6 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 4 0 0 -3 1 0 0 -3 1 0 0 -3 
+4 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -2 1 0 0 -3 3 0 0 -3 9 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -6 
+3 0 0 -3 5 0 0 -3 3 0 0 -3 2 0 0 -9 
+1 0 0 -3 7 0 0 -5 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -6 2 0 0 -6 1 0 0 -3 
+4 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 0 -3 
+1 0 0 -3 3 0 0 -3 1 0 0 -2 2 0 0 -9 
+1 0 0 -3 3 0 0 -3 2 0 0 -6 3 0 0 -3 
+4 0 0 -6 1 0 0 -6 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -2 1 0 0 -6 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 4 0 0 -3 2 0 0 -3 
+3 0 0 -3 4 0 0 -6 3 0 0 -3 2 0 0 -6 
+2 0 0 -3 2 0 0 -3 2 0 0 -2 2 0 0 -3 
+1 0 0 -3 4 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -6 1 0 0 -3 2 0 0 -6 1 0 0 -3 
+5 0 0 -3 2 0 0 -3 4 0 0 -6 2 0 0 -2 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -6 
+9 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+5 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 3 0 0 -2 5 0 0 -3 
+5 0 0 -3 7 0 0 -6 1 0 0 -3 1 0 0 -6 
+7 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 
+4 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -5 
+2 0 0 -3 5 0 0 -6 2 0 0 -3 4 0 0 -3 
+1 0 0 -6 2 0 0 -3 7 0 0 -6 2 0 0 -3 
+5 0 0 -3 6 0 0 -3 1 0 0 -3 5 0 0 -3 
+5 0 0 -5 2 0 0 -3 4 0 0 -6 6 0 0 -3 
+2 0 0 -3 2 0 0 -3 4 0 0 -3 2 0 0 -6 
+2 0 0 -3 7 0 9699 1158 300 MP stroke
+0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 
+0 -2 2 0 0 -3 2 0 0 -3 1 0 0 -6 7 0 
+0 -3 1 0 0 -6 1 0 0 -3 1 0 0 -3 3 0 
+0 -3 1 0 0 -3 2 0 0 -9 1 0 0 -3 1 0 
+0 -2 5 0 0 -6 1 0 0 -3 1 0 0 -6 1 0 
+0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 
+0 -6 1 0 0 -6 2 0 0 -3 3 0 0 -3 7 0 
+0 -2 6 0 0 -3 3 0 0 -6 3 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -6 1 0 
+0 -3 3 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 
+0 -8 2 0 0 -3 2 0 0 -3 1 0 0 -3 4 0 
+0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -6 2 0 
+0 -6 2 0 0 -3 2 0 0 -3 1 0 0 -3 4 0 
+0 -3 6 0 0 -3 1 0 0 -2 1 0 0 -3 1 0 
+0 -9 2 0 0 -3 2 0 0 -6 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 5 0 0 -3 2 0 0 -3 5 0 
+0 -3 5 0 0 -3 2 0 0 -3 2 0 0 -2 3 0 
+0 -3 3 0 0 -6 1 0 0 -3 1 0 0 -3 5 0 
+0 -6 6 0 0 -3 12 0 0 -3 2 0 0 -3 3 0 
+0 -3 13 0 0 -3 1 0 0 -3 6 0 0 -6 4 0 
+0 -5 2 0 0 -3 2 0 0 -6 3 0 0 -3 3 0 
+0 -3 4 0 0 -3 1 0 0 -3 3 0 0 -3 2 0 
+0 -6 2 0 0 -3 14 0 0 -3 1 0 0 -3 1 0 
+0 -3 7 0 0 -2 2 0 0 -6 2 0 0 -3 2 0 
+0 -6 4 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 2 0 0 -6 2 0 0 -3 1 0 0 -3 2 0 
+0 -3 6 0 0 -3 9 0 0 -2 1 0 0 -6 1 0 
+0 -6 4 0 0 -3 2 0 0 -6 1 0 0 -3 2 0 
+0 -6 1 0 0 -3 1 0 0 -3 7 0 0 -3 1 0 
+0 -6 6 0 0 -5 3 0 0 -3 1 0 0 -3 4 0 
+0 -6 1 0 0 -3 6 0 0 -3 1 0 0 -3 1 0 
+0 -3 3 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 
+0 -3 1 0 0 -6 2 0 0 -2 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 4 0 0 -3 3 0 0 -3 2 0 
+0 -3 2 0 0 -3 1 0 0 -9 2 0 0 -3 1 0 
+0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 3 0 
+0 -2 3 0 0 -3 4 0 0 -12 4 0 0 -3 2 0 
+0 -3 1 0 0 -3 9319 1713 300 MP stroke
+2 0 0 -3 4 0 0 -6 3 0 0 -3 1 0 0 -3 
+2 0 0 -3 4 0 0 -5 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 4 0 0 -6 4 0 0 -3 2 0 0 -3 
+1 0 0 -3 4 0 0 -3 1 0 0 -3 4 0 0 -3 
+1 0 0 -2 1 0 0 -3 6 0 0 -3 8 0 0 -3 
+10 0 0 -3 3 0 0 -6 2 0 0 -3 6 0 0 -3 
+1 0 0 -3 4 0 0 -3 3 0 0 -6 1 0 0 -3 
+4 0 0 -3 5 0 0 -3 2 0 0 -2 4 0 0 -3 
+4 0 0 -3 3 0 0 -6 1 0 0 -3 3 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 0 -3 
+4 0 0 -6 4 0 0 -3 6 0 0 -6 1 0 0 -5 
+3 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 0 -3 
+1 0 0 -3 1 0 0 -3 3 0 0 -3 2 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -6 
+2 0 0 -2 1 0 0 -3 1 0 0 -3 6 0 0 -3 
+3 0 0 -3 1 0 0 -3 8 0 0 -3 4 0 0 -3 
+3 0 0 -3 1 0 0 -6 1 0 0 -3 2 0 0 -3 
+3 0 0 -3 5 0 0 -3 1 0 0 -3 5 0 0 -2 
+1 0 0 -9 2 0 0 -3 1 0 0 -6 1 0 0 -3 
+8 0 0 -3 2 0 0 -3 4 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -6 3 0 0 -3 6 0 0 -2 
+2 0 0 -3 1 0 0 -6 8 0 0 -3 5 0 0 -3 
+3 0 0 -6 2 0 0 -3 4 0 0 -3 1 0 0 -3 
+4 0 0 -3 1 0 0 -3 10 0 0 -6 3 0 0 -3 
+6 0 0 -3 3 0 0 -2 1 0 0 -3 3 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -3 
+1 0 0 -3 9 0 0 -3 6 0 0 -3 1 0 0 -3 
+1 0 0 -3 6 0 0 -2 1 0 0 -6 6 0 0 -6 
+1 0 0 -3 2 0 0 -9 6 0 0 -3 3 0 0 -3 
+1 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 0 -3 
+1 0 0 -5 2 0 0 -6 1 0 0 -6 4 0 0 -3 
+2 0 0 -3 4 0 0 -3 2 0 0 -3 1 0 0 -6 
+2 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 0 -3 
+1 0 0 -2 3 0 0 -3 4 0 0 -6 1 0 0 -6 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 3 0 0 -3 
+7 0 0 -6 1 0 8908 2236 300 MP stroke
+0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -5 3 0 0 -3 2 0 0 -3 3 0 0 -6 1 0 
+0 -3 1 0 0 -3 2 0 0 -3 3 0 0 -3 1 0 
+0 -3 4 0 0 -3 1 0 0 -3 4 0 0 -3 4 0 
+0 -3 1 0 0 -8 2 0 0 -3 5 0 0 -6 1 0 
+0 -6 3 0 0 -3 3 0 0 -3 4 0 0 -3 5 0 
+0 -3 4 0 0 -6 3 0 0 -3 2 0 0 -3 1 0 
+0 -6 3 0 0 -2 4 0 0 -3 1 0 0 -3 1 0 
+0 -6 4 0 0 -3 2 0 0 -3 7 0 0 -3 1 0 
+0 -3 1 0 0 -3 4 0 0 -3 3 0 0 -3 5 0 
+0 -3 2 0 0 -3 3 0 0 -3 2 0 0 -3 1 0 
+0 -2 1 0 0 -3 1 0 0 -6 1 0 0 -3 1 0 
+0 -3 4 0 0 -3 3 0 0 -3 4 0 0 -3 1 0 
+0 -6 1 0 0 -3 1 0 0 -6 1 0 0 -3 1 0 
+0 -3 1 0 0 -5 1 0 0 -3 1 0 0 -3 1 0 
+0 -6 1 0 0 -3 1 0 0 -6 1 0 0 -6 4 0 
+0 -3 4 0 0 -3 1 0 0 -6 1 0 0 -3 3 0 
+0 -2 2 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 
+0 -3 1 0 0 -6 1 0 0 -3 7 0 0 -3 1 0 
+0 -3 5 0 0 -3 1 0 0 -3 3 0 0 -6 1 0 
+0 -3 2 0 0 -5 4 0 0 -6 7 0 0 -3 2 0 
+0 -3 5 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 
+0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -2 3 0 
+0 -3 1 0 0 -6 2 0 0 -6 8 0 0 -12 2 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 2 0 0 -3 5 0 0 -5 1 0 0 -9 4 0 
+0 -3 1 0 0 -6 5 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -6 1 0 0 -3 2 0 0 -3 7 0 
+0 -3 2 0 0 -5 3 0 0 -6 2 0 0 -3 2 0 
+0 -3 5 0 0 -3 5 0 0 -6 5 0 0 -3 4 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 
+0 -3 3 0 0 -6 8 0 0 -5 5 0 0 -3 2 0 
+0 -3 1 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 
+0 -3 1 0 0 -3 6 0 0 -3 1 0 0 -6 3 0 
+0 -6 2 0 0 -3 5 0 0 -3 1 0 0 -2 2 0 
+0 -3 1 0 0 -6 2 0 0 -3 1 0 0 -3 1 0 
+0 -9 1 0 0 -3 8555 2797 300 MP stroke
+1 0 0 -6 8 0 0 -3 9 0 0 -6 1 0 0 -3 
+3 0 0 -2 2 0 0 -3 2 0 0 -3 2 0 0 -3 
+2 0 0 -3 2 0 0 -3 3 0 0 -6 2 0 0 -3 
+5 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+3 0 0 -3 3 0 0 -3 7 0 0 -3 1 0 0 -5 
+1 0 0 -3 1 0 0 -9 1 0 0 -3 2 0 0 -6 
+2 0 0 -3 3 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 6 0 0 -2 7 0 0 -3 
+2 0 0 -3 1 0 0 -6 2 0 0 -3 7 0 0 -3 
+3 0 0 -3 1 0 0 -6 1 0 0 -6 1 0 0 -3 
+8 0 0 -3 1 0 0 -3 1 0 0 -5 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+3 0 0 -6 6 0 0 -3 7 0 0 -3 1 0 0 -6 
+2 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+3 0 0 -2 1 0 0 -3 1 0 0 -3 3 0 0 -9 
+4 0 0 -3 2 0 0 -6 2 0 0 -3 2 0 0 -6 
+5 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+3 0 0 -2 1 0 0 -6 5 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -6 4 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 5 0 0 -6 3 0 0 -3 
+2 0 0 -3 3 0 0 -2 2 0 0 -3 1 0 0 -3 
+4 0 0 -3 2 0 0 -3 1 0 0 -3 3 0 0 -3 
+1 0 0 -3 1 0 0 -9 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 2 0 0 -3 7 0 0 -3 6 0 0 -8 
+2 0 0 -6 4 0 0 -3 4 0 0 -3 2 0 0 -3 
+1 0 0 -3 2 0 0 -3 4 0 0 -3 1 0 0 -3 
+1 0 0 -3 5 0 0 -6 2 0 0 -3 1 0 0 -2 
+4 0 0 -3 3 0 0 -3 1 0 0 -9 1 0 0 -3 
+1 0 0 -6 4 0 0 -3 5 0 0 -3 4 0 0 -3 
+4 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 0 -3 
+1 0 0 -2 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+2 0 0 -3 2 0 0 -3 1 0 0 -3 5 0 0 -3 
+6 0 0 -3 10 0 0 -6 1 0 0 -3 1 0 0 -2 
+4 0 0 -6 1 0 0 -6 2 0 0 -6 1 0 0 -3 
+2 0 0 -6 2 0 0 -6 2 0 0 -3 9 0 0 -3 
+2 0 0 -3 2 0 0 -3 1 0 0 -5 5 0 0 -3 
+1 0 0 -3 1 0 8177 3340 300 MP stroke
+0 -3 1 0 0 -3 5 0 0 -3 1 0 0 -6 3 0 
+0 -6 2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 7 0 0 -2 3 0 0 -3 1 0 
+0 -3 1 0 0 -3 3 0 0 -3 2 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -3 6 0 
+0 -3 1 0 0 -6 2 0 0 -6 2 0 0 -5 1 0 
+0 -9 1 0 0 -3 5 0 0 -3 2 0 0 -12 3 0 
+0 -6 3 0 0 -6 5 0 0 -3 1 0 0 -3 2 0 
+0 -2 1 0 0 -6 2 0 0 -3 9 0 0 -6 2 0 
+0 -3 6 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 
+0 -3 4 0 0 -3 1 0 0 -3 5 0 0 -9 1 0 
+0 -2 5 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 
+0 -3 3 0 0 -6 4 0 0 -3 2 0 0 -3 201 0 
+7842 3555 113 MP stroke
+201 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 
+4 0 0 -6 4 0 0 -6 2 0 0 -3 3 0 0 -3 
+1 0 0 -6 1 0 0 -2 1 0 0 -6 9 0 0 -3 
+2 0 0 -3 3 0 0 -9 1 0 0 -3 4 0 0 -6 
+2 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -8 
+2 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 0 -3 
+5 0 0 -3 1 0 0 -3 1 0 0 -6 1 0 0 -3 
+4 0 0 -3 5 0 0 -3 2 0 0 -6 2 0 0 -3 
+1 0 0 -5 2 0 0 -3 7 0 0 -3 1 0 0 -3 
+2 0 0 -6 1 0 0 -3 1 0 0 -3 4 0 0 -3 
+3 0 0 -3 3 0 0 -3 1 0 0 -3 2 0 0 -3 
+6 0 0 -3 4 0 0 -8 3 0 0 -3 1 0 0 -3 
+2 0 0 -6 1 0 0 -6 13 0 0 -3 5 0 0 -6 
+3 0 0 -3 1 0 0 -9 7 0 0 -6 3 0 0 -2 
+1 0 0 -3 1 0 0 -3 5 0 0 -3 4 0 0 -6 
+1 0 0 -3 2 0 0 -3 3 0 0 -3 4 0 0 -6 
+1 0 0 -6 8 0 0 -3 1 0 0 -3 2 0 0 -5 
+1 0 0 -3 4 0 0 -6 4 0 0 -6 1 0 0 -3 
+1 0 0 -6 5 0 0 -3 2 0 0 -3 3 0 0 -3 
+5 0 0 -3 4 0 0 -6 3 0 0 -3 2 0 0 -2 
+2 0 0 -3 6 0 0 -9 7 0 0 -3 4 0 0 -3 
+4 0 0 -9 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -6 14 0 0 -2 3 0 0 -3 
+3 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+2 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 2 0 0 -5 7 0 0 -3 2 0 0 -6 
+2 0 0 -3 5 0 0 -3 1 0 0 -6 2 0 0 -3 
+5 0 0 -3 5 0 0 -9 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 2 0 0 -2 1 0 0 -3 2 0 0 -3 
+3 0 0 -3 7 0 0 -3 3 0 0 -6 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -9 
+4 0 0 -3 3 0 0 -8 2 0 0 -3 1 0 0 -3 
+1 0 0 -6 1 0 0 -3 3 0 0 -3 1 0 0 -6 
+3 0 0 -6 4 0 0 -3 2 0 0 -3 3 0 0 -6 
+1 0 0 -2 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 2 0 0 -3 5 0 0 -3 1 0 0 -3 
+3 0 0 -3 2 0 9664 1196 300 MP stroke
+0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -3 3 0 
+0 -6 3 0 0 -3 2 0 0 -2 3 0 0 -3 1 0 
+0 -6 1 0 0 -3 4 0 0 -6 4 0 0 -3 1 0 
+0 -3 2 0 0 -3 1 0 0 -6 3 0 0 -6 2 0 
+0 -3 5 0 0 -3 1 0 0 -2 1 0 0 -3 2 0 
+0 -3 2 0 0 -3 2 0 0 -3 3 0 0 -6 3 0 
+0 -3 1 0 0 -3 3 0 0 -3 9 0 0 -3 1 0 
+0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -11 3 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 
+0 -6 2 0 0 -3 2 0 0 -3 1 0 0 -6 2 0 
+0 -3 2 0 0 -3 1 0 0 -6 3 0 0 -2 3 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 5 0 
+0 -3 3 0 0 -3 1 0 0 -3 4 0 0 -3 2 0 
+0 -3 1 0 0 -3 4 0 0 -3 4 0 0 -6 1 0 
+0 -3 1 0 0 -3 1 0 0 -5 7 0 0 -3 3 0 
+0 -3 3 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 
+0 -3 1 0 0 -6 6 0 0 -3 1 0 0 -6 1 0 
+0 -3 1 0 0 -6 3 0 0 -2 9 0 0 -3 3 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 7 0 
+0 -3 7 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -3 3 0 0 -6 2 0 0 -6 1 0 0 -3 1 0 
+0 -2 5 0 0 -3 1 0 0 -9 3 0 0 -3 3 0 
+0 -3 1 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 
+0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 4 0 
+0 -3 1 0 0 -3 2 0 0 -2 2 0 0 -6 6 0 
+0 -3 9 0 0 -3 1 0 0 -3 1 0 0 -12 2 0 
+0 -3 2 0 0 -3 1 0 0 -3 2 0 0 -3 6 0 
+0 -6 3 0 0 -2 1 0 0 -3 1 0 0 -6 3 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 
+0 -6 3 0 0 -3 3 0 0 -3 3 0 0 -3 1 0 
+0 -3 9 0 0 -3 3 0 0 -3 1 0 0 -2 4 0 
+0 -6 4 0 0 -3 1 0 0 -3 4 0 0 -6 1 0 
+0 -3 3 0 0 -6 3 0 0 -9 3 0 0 -3 4 0 
+0 -3 1 0 0 -3 1 0 0 -2 8 0 0 -3 4 0 
+0 -6 2 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 
+0 -3 1 0 0 -6 7 0 0 -3 3 0 0 -3 1 0 
+0 -3 1 0 0 -6 4 0 0 -3 5 0 0 -2 4 0 
+0 -3 1 0 0 -3 9286 1742 300 MP stroke
+1 0 0 -3 3 0 0 -3 1 0 0 -3 7 0 0 -3 
+2 0 0 -6 3 0 0 -9 3 0 0 -6 10 0 0 -3 
+3 0 0 -3 4 0 0 -2 2 0 0 -3 1 0 0 -6 
+2 0 0 -6 1 0 0 -3 1 0 0 -9 2 0 0 -6 
+3 0 0 -3 1 0 0 -3 2 0 0 -6 5 0 0 -2 
+3 0 0 -3 2 0 0 -3 1 0 0 -3 4 0 0 -3 
+2 0 0 -6 1 0 0 -6 1 0 0 -3 3 0 0 -3 
+1 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -2 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -9 2 0 0 -6 1 0 0 -3 
+2 0 0 -9 1 0 0 -3 1 0 0 -3 1 0 0 -2 
+1 0 0 -3 1 0 0 -6 3 0 0 -6 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -6 
+4 0 0 -6 1 0 0 -6 1 0 0 -2 2 0 0 -3 
+6 0 0 -3 1 0 0 -3 12 0 0 -6 6 0 0 -3 
+3 0 0 -6 8 0 0 -3 4 0 0 -3 3 0 0 -3 
+5 0 0 -3 3 0 0 -3 4 0 0 -3 1 0 0 -3 
+1 0 0 -5 1 0 0 -3 3 0 0 -6 1 0 0 -3 
+3 0 0 -6 4 0 0 -3 2 0 0 -6 1 0 0 -3 
+4 0 0 -6 3 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -2 4 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 2 0 0 -6 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 10 0 0 -3 1 0 0 -6 
+3 0 0 -3 2 0 0 -3 2 0 0 -2 1 0 0 -3 
+8 0 0 -6 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+2 0 0 -3 5 0 0 -3 3 0 0 -3 1 0 0 -3 
+1 0 0 -6 1 0 0 -3 6 0 0 -3 4 0 0 -3 
+2 0 0 -2 6 0 0 -3 4 0 0 -3 2 0 0 -3 
+1 0 0 -3 3 0 0 -3 2 0 0 -3 4 0 0 -3 
+3 0 0 -3 8 0 0 -3 2 0 0 -3 2 0 0 -6 
+3 0 0 -3 2 0 0 -3 3 0 0 -2 2 0 0 -6 
+2 0 0 -3 1 0 0 -3 1 0 0 -6 1 0 0 -3 
+5 0 0 -3 1 0 0 -3 1 0 0 -6 2 0 0 -6 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -2 
+2 0 0 -3 6 0 0 -3 2 0 0 -6 1 0 0 -6 
+1 0 0 -6 3 0 0 -3 2 0 0 -6 6 0 0 -3 
+2 0 0 -3 2 0 0 -3 3 0 0 -3 4 0 0 -5 
+1 0 0 -3 1 0 8917 2306 300 MP stroke
+0 -3 6 0 0 -3 1 0 0 -6 1 0 0 -3 3 0 
+0 -3 1 0 0 -6 3 0 0 -3 2 0 0 -3 6 0 
+0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -5 1 0 
+0 -6 7 0 0 -3 4 0 0 -3 3 0 0 -3 11 0 
+0 -3 5 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 2 0 0 -3 6 0 0 -6 6 0 0 -3 1 0 
+0 -5 2 0 0 -6 2 0 0 -3 1 0 0 -3 2 0 
+0 -6 2 0 0 -3 1 0 0 -3 6 0 0 -3 1 0 
+0 -6 1 0 0 -6 5 0 0 -5 2 0 0 -3 2 0 
+0 -6 1 0 0 -3 2 0 0 -9 2 0 0 -6 2 0 
+0 -3 1 0 0 -3 1 0 0 -6 1 0 0 -3 1 0 
+0 -5 4 0 0 -3 1 0 0 -3 1 0 0 -6 5 0 
+0 -3 1 0 0 -3 2 0 0 -3 4 0 0 -3 3 0 
+0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -3 2 0 
+0 -6 4 0 0 -3 4 0 0 -2 2 0 0 -3 2 0 
+0 -3 7 0 0 -6 2 0 0 -3 4 0 0 -6 1 0 
+0 -6 1 0 0 -3 5 0 0 -3 2 0 0 -3 5 0 
+0 -3 3 0 0 -3 1 0 0 -2 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 6 0 
+0 -3 4 0 0 -6 1 0 0 -6 2 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -5 4 0 0 -6 3 0 0 -3 4 0 0 -3 1 0 
+0 -3 2 0 0 -3 4 0 0 -3 1 0 0 -3 3 0 
+0 -3 2 0 0 -3 3 0 0 -3 4 0 0 -3 3 0 
+0 -3 1 0 0 -6 1 0 0 -2 1 0 0 -3 1 0 
+0 -3 3 0 0 -6 2 0 0 -3 1 0 0 -9 2 0 
+0 -3 4 0 0 -6 2 0 0 -3 12 0 0 -9 3 0 
+0 -2 4 0 0 -6 2 0 0 -3 1 0 0 -3 3 0 
+0 -3 4 0 0 -3 2 0 0 -3 3 0 0 -3 3 0 
+0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -6 2 0 0 -3 2 0 0 -2 1 0 0 -6 1 0 
+0 -3 2 0 0 -3 1 0 0 -6 3 0 0 -3 2 0 
+0 -6 2 0 0 -3 2 0 0 -3 2 0 0 -3 2 0 
+0 -3 3 0 0 -3 3 0 0 -3 1 0 0 -2 2 0 
+0 -9 1 0 0 -3 3 0 0 -3 9 0 0 -3 4 0 
+0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 5 0 0 -3 1 0 0 -3 1 0 
+0 -3 3 0 0 -2 8546 2864 300 MP stroke
+5 0 0 -3 2 0 0 -6 2 0 0 -3 2 0 0 -6 
+5 0 0 -3 1 0 0 -3 2 0 0 -3 4 0 0 -3 
+5 0 0 -6 1 0 0 -3 1 0 0 -3 2 0 0 -2 
+3 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 3 0 0 -6 2 0 0 -3 7 0 0 -3 
+4 0 0 -3 8 0 0 -9 3 0 0 -3 3 0 0 -3 
+10 0 0 -2 1 0 0 -3 1 0 0 -6 2 0 0 -6 
+4 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -3 
+4 0 0 -3 1 0 0 -3 5 0 0 -3 3 0 0 -6 
+4 0 0 -8 1 0 0 -3 2 0 0 -3 4 0 0 -3 
+6 0 0 -3 1 0 0 -3 8 0 0 -6 1 0 0 -3 
+2 0 0 -6 1 0 0 -3 8 0 0 -6 2 0 0 -5 
+1 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 0 -3 
+3 0 0 -6 2 0 0 -3 4 0 0 -6 1 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -3 
+3 0 0 -3 3 0 0 -2 1 0 0 -3 1 0 0 -3 
+6 0 0 -3 1 0 0 -3 2 0 0 -6 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 3 0 0 -9 1 0 0 -6 
+4 0 0 -3 1 0 0 -2 4 0 0 -3 3 0 0 -3 
+3 0 0 -3 4 0 0 -3 3 0 0 -3 3 0 0 -6 
+3 0 0 -6 2 0 0 -3 3 0 0 -3 2 0 0 -3 
+1 0 0 -6 2 0 0 -3 3 0 0 -5 2 0 0 -3 
+2 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+3 0 0 -3 1 0 0 -12 3 0 0 -3 2 0 0 -3 
+2 0 0 -3 3 0 0 -3 2 0 0 -2 1 0 0 -9 
+5 0 0 -3 5 0 0 -3 6 0 0 -3 1 0 0 -3 
+2 0 0 -6 1 0 0 -3 2 0 0 -3 2 0 0 -3 
+1 0 0 -3 2 0 0 -6 4 0 0 -2 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+1 0 0 -3 7 0 0 -3 1 0 0 -6 1 0 0 -6 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -2 1 0 0 -6 2 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 5 0 0 -3 5 0 0 -3 
+1 0 0 -6 1 0 0 -3 2 0 0 -6 10 0 0 -3 
+2 0 0 -3 1 0 0 -2 7 0 0 -6 1 0 0 -3 
+3 0 0 -3 3 0 0 -9 1 0 0 -3 3 0 0 -3 
+6 0 0 -6 4 0 0 -3 1 0 0 -6 1 0 0 -5 
+2 0 0 -3 4 0 8159 3428 300 MP stroke
+0 -3 2 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 
+0 -3 3 0 0 -3 4 0 0 -6 2 0 0 -3 4 0 
+0 -3 5 0 0 -6 2 0 0 -3 8 0 0 -3 9 0 
+0 -2 2 0 0 -6 3 0 0 -3 2 0 0 -3 3 0 
+0 -3 5 0 0 -3 1 0 0 -6 2 0 0 -3 5 0 
+0 -3 9 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 
+0 -6 2 0 0 -2 1 0 0 -3 2 0 0 -3 10 0 
+0 -3 3 0 0 -3 1 0 0 -6 1 0 0 -6 2 0 
+0 -3 2 0 0 -3 1 0 0 -3 4 0 0 -3 202 0 
+7845 3555 73 MP stroke
+202 0 0 -9 7 0 0 -3 1 0 0 -3 5 0 0 -3 
+1 0 0 -3 2 0 0 -3 3 0 0 -6 4 0 0 -3 
+1 0 0 -3 2 0 0 -2 6 0 0 -3 3 0 0 -9 
+6 0 0 -3 1 0 0 -3 1 0 0 -6 3 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -3 
+2 0 0 -3 1 0 0 -3 3 0 0 -2 1 0 0 -3 
+2 0 0 -3 12 0 0 -3 1 0 0 -6 6 0 0 -3 
+19 0 0 -6 1 0 0 -6 1 0 0 -3 2 0 0 -3 
+2 0 0 -3 2 0 0 -3 6 0 0 -3 1 0 0 -2 
+2 0 0 -3 4 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 2 0 0 -3 6 0 0 -3 1 0 0 -3 
+2 0 0 -6 1 0 0 -3 1 0 0 -3 4 0 0 -6 
+3 0 0 -3 5 0 0 -2 1 0 0 -3 3 0 0 -3 
+1 0 0 -3 3 0 0 -3 3 0 0 -9 1 0 0 -6 
+3 0 0 -3 13 0 0 -9 1 0 0 -6 1 0 0 -5 
+7 0 0 -6 2 0 0 -3 2 0 0 -6 1 0 0 -3 
+2 0 0 -3 1 0 0 -6 3 0 0 -3 4 0 0 -3 
+2 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 0 -2 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+7 0 0 -3 5 0 0 -3 4 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -6 5 0 0 -3 1 0 0 -3 
+1 0 0 -6 2 0 0 -2 1 0 0 -3 1 0 0 -3 
+6 0 0 -3 3 0 0 -3 1 0 0 -6 1 0 0 -3 
+2 0 0 -9 2 0 0 -3 2 0 0 -3 4 0 0 -3 
+3 0 0 -3 2 0 0 -5 2 0 0 -3 2 0 0 -3 
+1 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 0 -6 
+1 0 0 -3 3 0 0 -3 6 0 0 -6 1 0 0 -2 
+1 0 0 -6 8 0 0 -3 3 0 0 -6 4 0 0 -3 
+1 0 0 -3 1 0 0 -6 3 0 0 -3 3 0 0 -3 
+2 0 0 -3 2 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -2 1 0 0 -3 10 0 0 -6 2 0 0 -3 
+1 0 0 -6 1 0 0 -6 1 0 0 -3 2 0 0 -3 
+4 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -2 3 0 0 -6 1 0 0 -3 
+2 0 0 -6 3 0 0 -3 2 0 0 -3 6 0 0 -6 
+1 0 0 -3 1 0 0 -3 5 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 9672 1167 300 MP stroke
+0 -3 5 0 0 -2 1 0 0 -3 3 0 0 -3 1 0 
+0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -6 3 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 5 0 0 -3 5 0 0 -3 4 0 
+0 -2 2 0 0 -3 1 0 0 -6 2 0 0 -3 4 0 
+0 -6 3 0 0 -3 2 0 0 -9 1 0 0 -3 5 0 
+0 -3 1 0 0 -6 2 0 0 -5 4 0 0 -3 1 0 
+0 -6 3 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 
+0 -6 1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 7 0 0 -3 9 0 0 -3 1 0 0 -3 2 0 
+0 -2 7 0 0 -6 1 0 0 -3 1 0 0 -6 1 0 
+0 -3 1 0 0 -6 1 0 0 -3 3 0 0 -6 3 0 
+0 -6 7 0 0 -3 1 0 0 -3 2 0 0 -2 2 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 2 0 0 -3 2 0 0 -3 4 0 0 -3 2 0 
+0 -6 3 0 0 -3 1 0 0 -6 1 0 0 -3 2 0 
+0 -3 2 0 0 -2 2 0 0 -6 1 0 0 -3 1 0 
+0 -3 4 0 0 -6 1 0 0 -3 1 0 0 -3 2 0 
+0 -6 5 0 0 -3 6 0 0 -3 8 0 0 -3 3 0 
+0 -6 4 0 0 -5 2 0 0 -3 5 0 0 -6 2 0 
+0 -3 10 0 0 -3 4 0 0 -3 1 0 0 -3 4 0 
+0 -3 1 0 0 -3 4 0 0 -9 2 0 0 -3 4 0 
+0 -3 2 0 0 -2 5 0 0 -3 1 0 0 -3 4 0 
+0 -3 1 0 0 -3 3 0 0 -3 3 0 0 -3 13 0 
+0 -3 2 0 0 -3 1 0 0 -9 2 0 0 -9 2 0 
+0 -5 2 0 0 -3 4 0 0 -3 2 0 0 -3 5 0 
+0 -3 2 0 0 -3 1 0 0 -6 3 0 0 -3 2 0 
+0 -3 2 0 0 -3 5 0 0 -3 3 0 0 -3 1 0 
+0 -3 1 0 0 -6 7 0 0 -8 2 0 0 -3 2 0 
+0 -3 2 0 0 -6 3 0 0 -3 2 0 0 -6 1 0 
+0 -3 3 0 0 -6 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 1 0 0 -5 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 2 0 0 -6 2 0 0 -3 1 0 0 -9 1 0 
+0 -6 1 0 0 -6 1 0 0 -3 3 0 0 -2 1 0 
+0 -3 5 0 0 -6 1 0 0 -3 3 0 0 -3 1 0 
+0 -6 1 0 0 -3 3 0 0 -3 8 0 0 -3 1 0 
+0 -9 13 0 0 -6 1 0 0 -2 3 0 0 -3 7 0 
+0 -3 2 0 0 -3 9280 1745 300 MP stroke
+2 0 0 -3 1 0 0 -6 2 0 0 -3 2 0 0 -3 
+2 0 0 -3 2 0 0 -3 2 0 0 -3 5 0 0 -6 
+2 0 0 -3 2 0 0 -3 1 0 0 -2 1 0 0 -3 
+2 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+3 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 
+3 0 0 -3 1 0 0 -3 2 0 0 -6 2 0 0 -3 
+1 0 0 -3 1 0 0 -5 3 0 0 -3 1 0 0 -3 
+2 0 0 -3 2 0 0 -9 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 2 0 0 -9 
+2 0 0 -2 3 0 0 -3 1 0 0 -3 3 0 0 -6 
+3 0 0 -3 5 0 0 -6 2 0 0 -3 1 0 0 -3 
+3 0 0 -3 1 0 0 -9 1 0 0 -5 2 0 0 -3 
+2 0 0 -6 1 0 0 -6 7 0 0 -6 3 0 0 -3 
+4 0 0 -3 7 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 0 -2 
+5 0 0 -3 2 0 0 -3 6 0 0 -9 1 0 0 -3 
+4 0 0 -3 6 0 0 -3 2 0 0 -6 6 0 0 -6 
+2 0 0 -3 7 0 0 -3 1 0 0 -3 1 0 0 -2 
+2 0 0 -3 4 0 0 -3 4 0 0 -3 4 0 0 -3 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -6 4 0 0 -3 3 0 0 -3 2 0 0 -6 
+3 0 0 -3 1 0 0 -3 1 0 0 -2 3 0 0 -3 
+1 0 0 -3 3 0 0 -6 2 0 0 -3 5 0 0 -3 
+1 0 0 -3 10 0 0 -3 1 0 0 -3 4 0 0 -3 
+2 0 0 -6 4 0 0 -3 3 0 0 -6 2 0 0 -2 
+1 0 0 -3 1 0 0 -6 1 0 0 -6 4 0 0 -6 
+4 0 0 -6 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+2 0 0 -6 2 0 0 -3 1 0 0 -2 2 0 0 -3 
+3 0 0 -6 3 0 0 -3 2 0 0 -3 2 0 0 -3 
+1 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -6 2 0 0 -3 1 0 0 -3 1 0 0 -5 
+7 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+2 0 0 -3 2 0 0 -6 8 0 0 -3 5 0 0 -3 
+1 0 0 -3 2 0 0 -3 2 0 0 -6 5 0 0 -3 
+1 0 0 -5 2 0 0 -9 1 0 0 -3 2 0 0 -3 
+1 0 0 -6 1 0 0 -3 4 0 0 -3 1 0 0 -3 
+1 0 0 -3 4 0 0 -6 8 0 0 -3 4 0 0 -3 
+5 0 0 -2 1 0 8920 2300 300 MP stroke
+0 -6 1 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 
+0 -3 7 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 
+0 -3 2 0 0 -6 4 0 0 -3 1 0 0 -3 2 0 
+0 -3 7 0 0 -2 6 0 0 -6 1 0 0 -3 4 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 7 0 
+0 -3 1 0 0 -3 9 0 0 -3 7 0 0 -3 1 0 
+0 -3 3 0 0 -3 4 0 0 -3 4 0 0 -5 2 0 
+0 -3 3 0 0 -3 1 0 0 -6 3 0 0 -3 2 0 
+0 -6 1 0 0 -6 2 0 0 -3 1 0 0 -3 1 0 
+0 -3 3 0 0 -3 6 0 0 -3 6 0 0 -3 3 0 
+0 -5 2 0 0 -6 1 0 0 -6 1 0 0 -3 2 0 
+0 -6 4 0 0 -3 5 0 0 -3 2 0 0 -3 2 0 
+0 -6 4 0 0 -3 1 0 0 -3 3 0 0 -2 3 0 
+0 -3 1 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 
+0 -3 2 0 0 -3 3 0 0 -6 2 0 0 -3 3 0 
+0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 6 0 
+0 -8 1 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 
+0 -9 4 0 0 -3 7 0 0 -6 1 0 0 -3 4 0 
+0 -6 1 0 0 -6 2 0 0 -2 4 0 0 -3 8 0 
+0 -3 4 0 0 -3 1 0 0 -3 6 0 0 -3 5 0 
+0 -3 3 0 0 -3 4 0 0 -3 1 0 0 -3 1 0 
+0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 2 0 
+0 -3 1 0 0 -3 1 0 0 -2 1 0 0 -6 1 0 
+0 -3 1 0 0 -3 4 0 0 -3 5 0 0 -3 2 0 
+0 -9 1 0 0 -3 2 0 0 -3 3 0 0 -3 2 0 
+0 -6 9 0 0 -6 5 0 0 -2 2 0 0 -6 6 0 
+0 -3 2 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 
+0 -3 2 0 0 -6 4 0 0 -3 2 0 0 -3 1 0 
+0 -3 1 0 0 -3 9 0 0 -6 2 0 0 -2 4 0 
+0 -6 3 0 0 -3 5 0 0 -3 4 0 0 -3 1 0 
+0 -6 1 0 0 -3 7 0 0 -3 1 0 0 -6 5 0 
+0 -3 1 0 0 -3 1 0 0 -3 5 0 0 -3 2 0 
+0 -2 4 0 0 -3 1 0 0 -3 2 0 0 -3 2 0 
+0 -3 3 0 0 -3 1 0 0 -6 1 0 0 -6 1 0 
+0 -3 3 0 0 -3 1 0 0 -3 1 0 0 -3 5 0 
+0 -3 1 0 0 -3 14 0 0 -2 1 0 0 -3 1 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -6 2 0 
+0 -3 1 0 0 -3 8514 2841 300 MP stroke
+5 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 
+1 0 0 -3 3 0 0 -3 3 0 0 -5 1 0 0 -3 
+3 0 0 -3 1 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 5 0 0 -3 
+1 0 0 -5 3 0 0 -3 2 0 0 -3 1 0 0 -6 
+1 0 0 -12 1 0 0 -3 3 0 0 -3 5 0 0 -3 
+2 0 0 -3 3 0 0 -6 7 0 0 -5 2 0 0 -3 
+3 0 0 -3 4 0 0 -6 2 0 0 -3 2 0 0 -3 
+4 0 0 -3 1 0 0 -3 2 0 0 -6 3 0 0 -6 
+1 0 0 -3 1 0 0 -3 5 0 0 -3 3 0 0 -5 
+1 0 0 -3 1 0 0 -3 3 0 0 -3 6 0 0 -3 
+1 0 0 -3 3 0 0 -3 2 0 0 -3 2 0 0 -3 
+1 0 0 -6 1 0 0 -3 6 0 0 -3 1 0 0 -3 
+2 0 0 -3 1 0 0 -2 1 0 0 -3 1 0 0 -3 
+1 0 0 -9 1 0 0 -3 4 0 0 -3 3 0 0 -3 
+1 0 0 -3 1 0 0 -3 14 0 0 -6 1 0 0 -9 
+6 0 0 -2 1 0 0 -6 1 0 0 -3 2 0 0 -6 
+1 0 0 -3 1 0 0 -3 3 0 0 -3 1 0 0 -3 
+1 0 0 -3 1 0 0 -6 4 0 0 -3 7 0 0 -3 
+1 0 0 -3 2 0 0 -5 3 0 0 -3 1 0 0 -3 
+3 0 0 -3 6 0 0 -9 4 0 0 -3 3 0 0 -6 
+2 0 0 -9 2 0 0 -3 1 0 0 -3 1 0 0 -2 
+1 0 0 -3 3 0 0 -3 2 0 0 -3 1 0 0 -3 
+1 0 0 -3 5 0 0 -3 10 0 0 -3 1 0 0 -3 
+1 0 0 -6 2 0 0 -3 1 0 0 -6 2 0 0 -6 
+3 0 0 -2 2 0 0 -3 8 0 0 -3 6 0 0 -6 
+1 0 0 -3 2 0 0 -6 1 0 0 -3 1 0 0 -3 
+1 0 0 -3 3 0 0 -3 1 0 0 -3 7 0 0 -3 
+4 0 0 -3 1 0 0 -3 3 0 0 -2 1 0 0 -3 
+1 0 0 -3 2 0 0 -3 2 0 0 -3 1 0 0 -3 
+3 0 0 -3 2 0 0 -3 2 0 0 -6 1 0 0 -3 
+1 0 0 -3 2 0 0 -6 1 0 0 -3 3 0 0 -3 
+1 0 0 -2 1 0 0 -3 3 0 0 -3 5 0 0 -6 
+3 0 0 -3 5 0 0 -3 1 0 0 -3 2 0 0 -3 
+3 0 0 -3 4 0 0 -3 5 0 0 -3 4 0 0 -3 
+2 0 0 -3 3 0 0 -6 2 0 0 -2 2 0 0 -3 
+2 0 0 -3 1 0 8152 3384 300 MP stroke
+0 -3 4 0 0 -3 3 0 0 -3 2 0 0 -6 2 0 
+0 -3 1 0 0 -3 1 0 0 -3 2 0 0 -3 3 0 
+0 -9 1 0 0 -3 4 0 0 -8 3 0 0 -3 2 0 
+0 -3 2 0 0 -3 3 0 0 -3 3 0 0 -3 4 0 
+0 -3 1 0 0 -3 1 0 0 -3 1 0 0 -3 2 0 
+0 -3 5 0 0 -3 1 0 0 -8 1 0 0 -3 2 0 
+0 -3 6 0 0 -3 12 0 0 -3 2 0 0 -3 3 0 
+0 -3 1 0 0 -3 1 0 0 -3 4 0 0 -3 1 0 
+0 -3 2 0 0 -3 4 0 0 -6 2 0 0 -3 1 0 
+0 -3 1 0 0 -5 1 0 0 -3 2 0 0 -6 2 0 
+0 -6 1 0 0 -3 1 0 0 -3 3 0 0 -3 3 0 
+0 -3 1 0 0 -6 202 0 7842 3555 93 MP stroke
+gr
+
+9555 3450 mt 
+(n=1000) s
+
+end %%Color Dict
+
+eplot
+%%EndObject
+
+epage
+end
+
+showpage
+
+%%Trailer
+%%EOF

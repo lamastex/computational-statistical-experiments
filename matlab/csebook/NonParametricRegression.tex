@@ -1,0 +1,273 @@
+\chapter{Nonparametric regression}
+This chapter is under \work.
+\section{Kernel regression}
+Let $(x_1,y_1),\ldots,(x_n,y_n)$ be a bivariate sample of size $n$. Assuming that the relationship between $x$ and $y$ can be expressed as:
+\begin{equation}
+y_i=m(x_i)+\epsilon_i,
+\end{equation}
+
+where $\epsilon_1,\epsilon_2,\ldots$ are IID with mean 0 and constant variance $\sigma^2$. Our goal is to estimate the {\it regression function (or regression curve)} $m(x)$.
+
+{\it Nonparametric regression} is a collection of techniques for estimating the regression function without making strong assumptions about the shape of the function. Beside kernel regression, other nonparametric regression techniques include spline regression, wavelet regression and tree regression.
+
+Kernel regression methods can be broadly classified as:
+\begin{asparaenum}[(a)]
+\item {\it Local polynomial kernel regression methods.}
+
+\item {\it Others}, e.g. the {\it Gasser-Muller method} and the {\it Priestley-Chao method}.
+\end{asparaenum}
+We will focus mainly on the local polynomial kernel regression methods because they perform better. Moreover, with respect to mean squared error, the Gasser-Muller and Priestley-Chao methods are asymptotically inadmissible.
+
+\subsection{Local polynomial kernel regression}
+The estimated value of the regression function at a particular point, say $x^*$, is obtained by locally fitting a $p^{\textrm{th}}$ degree polynomial to the data via weighted least squares:
+\begin{asparaenum}[(a)]
+\item Let:
+\begin{equation}
+m_p(x,x^*)=\beta_0+\beta_1(x-x^*)+\beta_2(x-x^*)^2+\ldots+\beta_p(x-x^*)^p.
+\end{equation}
+\item Estimate the coefficients, $\beta_0,\beta_1,\ldots,\beta_p$ by weighted least squares:
+\begin{equation}
+(\hat{\beta}_0,\hat{\beta}_1,\ldots,\hat{\beta}_p)=\arg\min\sum^{n}_{i=1}K_h(x_i-x^*)[y_i-m_p(x_i,x^*)]^2.
+\end{equation}
+\item Let:
+\begin{equation}
+\hat{m}_{p,h}(x,x^*)=\hat{\beta}_0+\hat{\beta}_1(x-x^*)+\hat{\beta}_2(x-x^*)^2+\ldots+\hat{\beta}_p(x-x^*)^p.
+\end{equation}
+\item The estimated value of the regression function at $x^*$ is given by:
+\begin{equation}
+\hat{m}(x^*)=\hat{m}_{p,h}(x^*,x^*)=\hat{\beta}_0
+\end{equation}
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{asparaenum}
+Note that the points are first shifted in the $x$-axis, so that the origin is at $x^*$, and then the polynomial is fitted to the shifted points by weighted least squares. The weights are provided by a kernel centred on $x^*$, i.e. $K_h(x-x^*)$. The consequence of the shift is that the estimate of the regression function at $x^*$ is now simply the estimate of the $y$-intercept, i.e. $\hat{\beta}_0$.
+
+To obtain the regression coefficients by weighted least squares, let:
+$$B=\left(\begin{array}{c}\beta_0\\\beta_1\\\textrm{M}\\\beta_p\end{array}\right),\space 
+Y=\left(\begin{array}{c}y_1\\\textrm{M}\\y_n\end{array}\right),\space 
+X_{x^*}=\left(\begin{array}{cccc}1&(x_1-x^*)&\Lambda &(x_1-x^*)^p\\\textrm{M}&\textrm{M}&\textrm{M}&\textrm{M}\\1&(x_n-x^*)&\Lambda &(x_n-x^*)^p
+\end{array}\right)$$
+$$W_{x^*}=\left(\begin{array}{cccc}
+K_k(x_1-x^*)&0&\Lambda&0\\
+0&K_k(x_2-x^*)&&\textrm{M}\\
+\textrm{M}&&\textrm{O}&0\\
+0&\Lambda&0&K_k(x_n-x^*)\\
+\end{array}\right).$$
+Then:
+\begin{equation}
+\hat{B}=(X^T_{x^*}W_{x^*}X_{x^*})^{-1}X^T_{x^*}W_{x^*}Y.
+\end{equation}
+
+If $e_1$ is the $(p + 1)$-column vector with 1 in the first row and 0 elsewhere, then:
+\begin{equation}
+\hat{m}(x^*)=e_1^T(X^T_{x^*}W_{x^*}X_{x^*})^{-1}X^T_{x^*}W_{x^*}Y.
+\end{equation}
+
+Special cases of local polynomial kernel regression include:
+
+\begin{asparaenum}[(a)]
+\item {\it Nadaraya-Watson method.} This corresponds to $p = 0$, i.e. fit a constant locally to the data. The estimate of the regression function at $x^*$ can be expressed as:
+\begin{equation}
+\hat{m}(x^*)=\frac{\sum^n_{i=1}K_h(x_i-x^*)y_i}{\sum^n_{j=1}K_h(x_j-x^*)}.
+\end{equation}
+\item {\it Local linear kernel regression.} This corresponds to $p = 1$, i.e. fit a straight line locally to the data. The estimate of the regression function at $x^*$ can be expressed as:
+\begin{equation}
+\hat{m}(x^*)=\frac{\sum^n_{i=1}[\hat{s}_2(x^*)-\hat{s}_1(x^*)(x_i-x^*)]K_h(x_i-x^*)y_i}{\hat{s}_2(x^*)\hat{s}_0(x^*)-\hat{s}_1(x^*)^2},
+\end{equation}
+where:
+\begin{equation}
+\hat{s}_r(x^*)=\sum^n_{i=1}(x_i-x^*)^rK_h(x_i-x^*),
+\end{equation}
+which may be thought of as a weighted $r^{\textrm{th}}$ moment about $x^*$.
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{asparaenum}
+
+See WJ\footnote{Wand, M.P. and Jones, M.C. (1995), {\it Kernel Smoothing}, Chapman \& Hall.}: Figure 5.1 for a visualisation of this regression.
+%\begin{flushright}   $\boxbox$ \end{flushright}
+Notice that for $p = 0$ and $p = 1$, the estimates of the regression function have the form:
+\begin{equation}
+\hat{m}(x^*)=\sum^n_{i=1}\omega_i(x^*)y_i,
+\end{equation}
+where:
+\begin{equation}
+\sum^n_{i=1}\omega_i(x^*)=1,
+\end{equation}
+
+i.e. the estimates are weighted (linear) combinations of the $y$ values. In general, this is true of local polynomial kernel regression for any $p$. The weights, $\omega_1(x^*),\ldots,\omega_n(x^*)$, are called {\it equivalent kernel weights} and they depend on the point $x^*$ at which the regression function is being estimated.
+
+See WJ: Figures 5.6 and 5.7 for a visualisation of this method.
+%\begin{flushright}   $\boxbox$ \end{flushright}
+For routine use, local linear kernel regression is recommended because it has good asymptotic properties and behaves well at boundaries.
+
+\subsection{Choice of kernel bandwidth}
+
+The bandwidth selection methods for kernel density estimation can be adapted for kernel regression.
+
+One approach is to consider the optimal bandwidth that minimises the asymptotic conditional mean of the integrated weighted squared error:
+\begin{equation}
+\lim_{n\rightarrow\infty}E[\int\{\hat{m}(x)-m(x)\}^2f(x)dx|x_1,\ldots,x_n],
+\end{equation}
+
+where $f$ is the density of the predictors.
+
+Assuming that the perturbation variance $\sigma^2$ is constant and that the predictors are supported on the bounded interval $[a, b]$, the optimal bandwidth for local linear kernel regression is given by\footnote{Ruppert, D., Sheather, S. J. and Wand, M. P. (1995), \textquotedblleft An effective bandwidth selector for local least squares regression", {\it Journal of the American Statistical Association 90, 1257-1270}.}:
+\begin{equation}
+h=[\frac{c_K\sigma^2(b-a)}{c_mn}]^{1/5},
+\end{equation}
+where: 
+\begin{equation}
+c_K=\frac{\int K(x)^2dx}{[\int x^2K(x)dx]^2},
+\end{equation}
+
+depends on the kernel $K$, and:
+\begin{equation}
+c_m=\int m^{\prime\prime}(x)^2f(x)dx,
+\end{equation}
+
+depends on the regression function $m$.
+
+For the Gaussian kernel, $c_K=(2\sqrt{\pi})^{-1}$, and for the Epanechnikov kernel, $c_K=15$.
+
+To compute the optimal bandwidth, plug-in estimates of $\sigma^2$ and $c_m$ are required. One way to do this is implemented in the \Matlab function {\tt loclinbw}:
+\begin{VrbM}
+% loclinbw.m
+% Bandwidth selection for local linear kernel regression.
+% Estimates the optimal asymptotic mean integrated weighted squared error
+% by the rule-of-thumb method.
+%
+% Assumptions: Homoscesdastic, bounded predictor support.
+%
+% Usage: bw = loclinbw(x,y,kertype);
+%
+% Inputs: x = column vector of predictors.
+%             y = column vector of responses.
+%             kertype = kernel type:
+%                             1 = Gaussian,
+%                             2 = Epanechnikov.
+%
+% Output: bw = bandwidth.
+%
+% Reference: Ruppert, D., Sheather, S. J. and Wand, M. P. (1995),
+% "An effective bandwidth selector for local least squares regression",
+% Journal of the American Statistical Association 90, 1257-1270.
+\end{VrbM}
+This bandwidth should be used as an initial guide to what the appropriate bandwidth should be, by exploring other values close to it.
+%\begin{flushright}   $\boxbox$ \end{flushright}
+
+See WJ: Figure 5.2 for a depiction of this.
+%\begin{flushright}   $\boxbox$ \end{flushright}
+
+\begin{labwork}
+The data in {\tt automobile.txt} are the horsepower (HP, in column 1) and miles per gallon (MPG, in column 2) of 82 automobiles. Estimate the regression function for MPG against HP using local linear Gaussian kernel regression.
+
+\begin{VrbM}
+data = load('automobile.txt');
+x = data(:,1);
+y = data(:,2);
+bw = loclinbw(x,y,1)
+s = [40:330]';
+n = length(x);
+ns = length(s);
+yfit = zeros(ns,1);
+for i = 1:ns
+    K = normpdf(x,s(i),bw);
+    xdev = x - s(i);
+    xdevK = xdev .* K;
+    s0 = sum(K);
+    s1 = sum(xdevK);
+    s2 = sum(xdev .* xdevK);
+    w = ((s2 - s1 * xdev) .* K) / (s0 * s2 - s1 * s1);
+    yfit(i) = w' * y;
+end
+plot(x,y,'.b',s,yfit,'-r')
+xlabel('HP'), ylabel('MPG')
+title(['Local linear Gaussian kernel regression with bw = ' num2str(bw)])
+\end{VrbM}
+Results:
+\begin{VrbM}
+bw = 13.3923
+\end{VrbM}
+%\includegraphics
+Notice the gap in the HP values that causes the estimated regression curve to look suspicious - we should expect MPG to decrease monotonically with HP. We can therefore increase the kernel bandwidth slowly until the estimated regression curve is approximately monotone. A bandwidth of about 34 appears to be adequate.
+%\includegraphics
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{labwork}
+
+\section{Extension to multivariate predictors}
+Suppose that the predictors $x_1,\ldots,x_n$ are multivariate, say $d$-dimensional, but the responses $y_1,\ldots,y_n$ are still univariate. Once again, assume that the relationship between $x$ and $y$ can be expressed as:
+\begin{equation}
+y_i=m(x_i)+\epsilon_i=m(x_i(1),\ldots,x_i(d))+\epsilon_i,
+\end{equation}
+
+where $x_i(j)$ denotes the $j^{\textrm{th}}$ component of $x_i$, and $\epsilon_1,\epsilon_2,\ldots$ are IID with mean 0 and constant variance $\sigma^2$.
+
+\subsection{Multivariate kernel regression}
+We will describe the extension of local linear kernel regression to multivariate predictors. The estimated value of the regression function at a point $x^*$ is obtained by locally fitting a hyperplane to the data via weighted least squares, with weights provided by a multivariate kernel:
+\begin{asparaenum}[(a)]
+\item Let $m_1(x,x^*)=\beta_0+\beta_1(1)[x(1)-x^*(1)]+\Lambda+\beta_1(d)[x(d)-x^*(d)]$.
+
+\item Estimate the regression coefficients by weighted least squares:
+$$(\hat{\beta}_0,\hat{\beta}_1(1),\ldots,\hat{\beta}_1(d))=\arg\min\sum^n_{i=1}K_H(x_i-x^*)[y_i-m_1(x_i,x^*)]^2.$$
+
+\item Let $\hat{m}_{1,H}(x,x^*)=\hat{\beta}_0+\hat{\beta}_1(1)[x(1)-x^*(1)]+\Lambda+\hat{\beta}_1(d)[x(d)-x^*(d)]$.
+
+\item The estimated value of the regression function at $x^*$ is given by:
+
+$$\hat{m}(x^*)=\hat{m}_{1,H}(x^*,x^*)=\hat{\beta}_0,$$
+
+which can be computed directly from:
+$$\hat{m}(x^*)=e_1^T(X^T_{x^*}W_{x^*}X_{x^*})^{-1}X^T_{x^*}W_{x^*}Y,$$
+
+where $e_1$ is the $(d + 1)$-column vector with 1 in the first row and 0 elsewhere:
+$$X_{x^*}=\left(\begin{array}{cccc}1&(x_1(1)-x^*(1))&\Lambda &(x_1(d)-x^*(d))\\\textrm{M}&\textrm{M}&\textrm{M}&\textrm{M}\\1&(x_n(1)-x^*(1))&\Lambda &(x_n(d)-x^*(d))
+\end{array}\right)$$
+and:
+$$W_{x^*}=\left(\begin{array}{cccc}
+K_H(x_1-x^*)&0&\Lambda&0\\
+0&K_H(x_2-x^*)&&\textrm{M}\\
+\textrm{M}&&\textrm{O}&0\\
+0&\Lambda&0&K_H(x_n-x^*)\\
+\end{array}\right).$$
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{asparaenum}
+Clearly, the extension from univariate predictors to multivariate ones is straightforward. Unfortunately, to get a good estimate of the regression function as $d$ increases requires the sample size to grow much faster than $d$ - this is known as the {\it curse of dimensionality}.
+
+\subsection{Additive regression}
+This is an alternative approach that models the multivariate regression function as a sum of univariate regression functions, one for each dimension, plus a constant term $m_0$:
+\begin{equation}
+y_i=m(x_i)+\epsilon_i=m_0+\sum^d_{j=1}m_j(x_i(j))+\epsilon_i.
+\end{equation}
+
+Thus, $m_j$ is a univariate regression function for the $j^{\textrm{th}}$ component of the predictor. Finding the regression functions is not the same as performing d separate univariate regressions because the other dimensions must be taken into account when fitting for one dimension. This involves an iterative procedure known as {\it backfitting}, where the residuals from the current iteration are used to improve the fit in the next iteration.
+
+Additive regression performs well if the multivariate regression function is represented well by the assumed additive model, and if the components of the predictor are not strongly correlated.
+%\begin{flushright}   $\boxbox$ \end{flushright}
+
+See Scott\footnote{Scott, D.W. (1992), {\it Multivariate Density Estimation: Theory, Practice and Visualization,} Wiley.}: Figures 8.7 and 8.9 for a graphic illustration.
+
+\section{Exercises}
+\begin{exercise}
+Work through Example 6.1.7 for the automobile data.
+\end{exercise}
+\begin{exercise}
+The data in {\tt car.txt} are the miles per gallon (MPG) (column 1) and top speed (column 2) of 82 cars.
+\begin{asparaenum}[(a)]
+\item Perform a regression of top speed (response) on MPG (predictor) using local linear Gaussian kernel regression with the bandwidth that minimises the asymptotic conditional mean integrated weighted squared error. Produce a scatter plot of the data points with the estimated regression curve superimposed.
+\item Suppose that the relationship between top speed and MPG is actually monotone. Adjust the bandwidth to get a regression curve that reflects this but does not oversmooth. Produce a scatter plot of the data points with the new regression curve superimposed.
+\end{asparaenum}
+\end{exercise}
+
+\begin{exercise}
+The second column of {\tt glass.txt} contains measurements of the refractive index of 214 glass specimens collected in forensic work. The fifth column contains the aluminium contents of the glass specimens.
+\begin{asparaenum}[(a)]
+\item Perform a local linear Gaussian kernel regression of refractive index $(y)$ against aluminium content $(x)$, with four times the bandwidth that minimises the asymptotic conditional mean integrated weighted squared error. Produce a scatter plot of the data points with the estimated regression curve superimposed.
+\item Obtain a point-wise 0.95 BCA confidence band for the regression function by bootstrapping residuals with 1000 bootstrap replicates.
+\end{asparaenum}
+\end{exercise}
+
+\begin{exercise}
+The data in {\tt motorcycle.txt} are from 94 simulated motorcycle accidents. The first column contains the times in milliseconds since impact; the second column contains the head accelerations in gs.
+\begin{asparaenum}[(a)]
+\item Perform a local linear Gaussian kernel regression of head acceleration $(y)$ versus time $(x)$, with the bandwidth that minimises the asymptotic conditional mean integrated weighted squared error. Produce a scatter plot of the data points with the estimated regression curve superimposed.
+\item Obtain a point-wise 0.95 BCA confidence band for the regression function by bootstrapping residuals with 1000 bootstrap replicates.
+\end{asparaenum}
+\end{exercise}

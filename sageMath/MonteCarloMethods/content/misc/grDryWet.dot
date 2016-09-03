@@ -1,0 +1,11 @@
+digraph G {
+    size="4,2"
+    ratio=fill
+    rankdir=LR
+    0[label="Dry 0", color= red];
+    1[label="Wet 1", color= blue];
+    0->0 [label="0.9", color= black];
+    0->1 [label="0.1", color= black];
+    1->1 [label="0.5", color= black];
+    1->0 [label="0.5", color= black];
+}

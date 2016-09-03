@@ -1,0 +1,194 @@
+PlayList Monte Carlo Methods in Sage
+http://www.youtube.com/user/raazeshsainudiin#grid/user/4DDB9E61C36E6DE6
+
+Video 1.0
+Sing In To UCDMS Sage Notebook Server (and KIAST server as a backup)
+
+How to sign in or create and account and log in to the University of Canterbury Maths and Stats Department Sage Notebook Server as well as the KIAST Groundhog Day Sage Notebook Server.  This is a video for Monte Carlo Methods course (STAT 221) for University of Canterbury Students in Christchurch, New Zealand.
+
+http://www.youtube.com/watch?v=m-CjNxIDNOU
+
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/m-CjNxIDNOU?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/m-CjNxIDNOU?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 1.1
+Monte Carlo Methods Sage Lecture 1.1 
+This is a video Lecture 1.1 for Monte Carlo Methods course using Sage.
+Computational Statisitcal Experiments, Sage
+http://www.youtube.com/watch?v=OW7mJf4l_W4
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/OW7mJf4l_W4?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/OW7mJf4l_W4?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 1.2
+Monte Carlo Methods Sage Lecture 1.2 - Integet arithmetic and order of operations
+This is a video Lecture 1.2 for Monte Carlo Methods course using Sage.  Interactive data fetching and visualizing in Sage.  Introduction to Numbers: Integers and Order of Operations.
+Integet arithmetic, order of operations, Sage
+http://www.youtube.com/watch?v=N4Vd2jAePm4
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/N4Vd2jAePm4?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/N4Vd2jAePm4?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 1.3
+Monte Carlo Methods Sage Lecture 1.3 - Rationals and Reals, Assignments and Variables
+This is a video Lecture 1.3 for Monte Carlo Methods course using Sage.  Introduction to Numbers: Rational and Real Arithmetic, Types, Assignments and Variables.
+Rational and Real Arithmetic, Types, Assignment and Variables in Sage
+http://www.youtube.com/watch?v=-Y95GYjOD50
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/-Y95GYjOD50?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/-Y95GYjOD50?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 1.4
+Monte Carlo Methods Sage Lecture 1.4 - Booleans and Mathematical Constants
+This is a video Lecture 1.4 for Monte Carlo Methods course using Sage.  Introduction to Booleans and Mathematical Constants.
+Booleans and Mathematical constants
+http://www.youtube.com/watch?v=Y-SoSli7RlQ
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/Y-SoSli7RlQ?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/Y-SoSli7RlQ?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 1.5
+Monte Carlo Methods Sage Lecture 1.5  - Introduction to sets
+This is a video Lecture 1.5 for Monte Carlo Methods course using Sage.  Introduction to Sets.
+sets
+http://www.youtube.com/watch?v=DCvZoreYZXg
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/DCvZoreYZXg?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/DCvZoreYZXg?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 1.6
+Monte Carlo Methods Sage Lecture 1.6 - Sets in Sage
+This is a video Lecture 1.6 for Monte Carlo Methods course using Sage.  Introduction to Sets in Sage.
+Sets in Sage
+http://www.youtube.com/watch?v=a2OVA8Z6wXU
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/a2OVA8Z6wXU?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/a2OVA8Z6wXU?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 2.1
+Monte Carlo Methods Sage Lecture 2.1 - Map, function, collections and probability in Sage - Part 1
+This is video Lecture 2.1 for Monte Carlo Methods course using Sage.   Introduction to Map, function, collections in Sage and Probability - Part 1.
+map, function, collections, probability, sage
+http://www.youtube.com/watch?v=239UY6UStq0
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/239UY6UStq0?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/239UY6UStq0?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 2.2
+Monte Carlo Methods Sage Lecture 2.2 - Map, function, collections and probability in Sage - Part 2
+This is video Lecture 2.2 for Monte Carlo Methods course using Sage.   Introduction to Map, function, collections in Sage and Probability - Part 2.
+map, function, collections, probability, sage
+http://www.youtube.com/watch?v=vHBl7uhkpdI
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/vHBl7uhkpdI?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/vHBl7uhkpdI?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 2.3
+Monte Carlo Methods Sage Lecture 2.3 - Map, function, collections and probability in Sage - Part 3
+This is video Lecture 2.3 for Monte Carlo Methods course using Sage.   Introduction to Map, function, collections in Sage and Probability - Part 3.
+map, function, collections, probability, sage
+http://www.youtube.com/watch?v=6JkvFv8NR80
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/6JkvFv8NR80?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/6JkvFv8NR80?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 2.4
+Monte Carlo Methods Sage Lecture 2.4 - Map, function, collections and probability in Sage - Part 4
+This is video Lecture 2.4 for Monte Carlo Methods course using Sage.   Introduction to Map, function, collections in Sage and Probability - Part 4.
+map, function, collections, probability, sage
+http://www.youtube.com/watch?v=631cZIoIETw
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/631cZIoIETw?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/631cZIoIETw?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 2.5
+Monte Carlo Methods Sage Lecture 2.5 - Map, function, collections and probability in Sage - Part 5
+This is video Lecture 2.5 for Monte Carlo Methods course using Sage.   Introduction to Map, function, collections in Sage and Probability - Part 5.
+map, function, collections, probability, sage
+http://www.youtube.com/watch?v=ntSTAgAJFD0
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/ntSTAgAJFD0?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/ntSTAgAJFD0?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 2.6
+Monte Carlo Methods Sage Lecture 2.6 - Map, function, collections and probability in Sage - Part 6
+This is video Lecture 2.6 for Monte Carlo Methods course using Sage.   Introduction to Map, function, collections in Sage and Probability - Part 6.
+map, function, collections, probability, sage
+http://www.youtube.com/watch?v=o7f_inqeAzY
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/o7f_inqeAzY?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/o7f_inqeAzY?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 2.7
+Monte Carlo Methods Sage Lecture 2.7 - Map, function, collections and probability in Sage - Part 7
+This is video Lecture 2.7 for Monte Carlo Methods course using Sage.   Introduction to Map, function, collections in Sage and Probability - Part 7.
+map, function, collections, probability, sage
+http://www.youtube.com/watch?v=H0L704XPv74
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/H0L704XPv74?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/H0L704XPv74?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 2.8
+Monte Carlo Methods Sage Lecture 2.8 - Map, function, collections and probability in Sage - Part 8
+This is video Lecture 2.8 for Monte Carlo Methods course using Sage.   Introduction to Map, function, collections in Sage and Probability - Part 8.
+map, function, collections, probability, sage
+http://www.youtube.com/watch?v=CzN8z7dQMYM
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/CzN8z7dQMYM?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/CzN8z7dQMYM?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 3.1
+Monte Carlo Methods Sage Lecture 3.1
+This is video Lecture 3.1 for Monte Carlo Methods course using Sage.   Introduction to  Conditional Probability, Random Variables, Expectations, Loops and Conditionals - Part 1.
+Conditional Probability, Random Variables, Expectations, Loops and Conditionals
+http://www.youtube.com/watch?v=gohxcrimehI
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/gohxcrimehI?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/gohxcrimehI?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 3.2
+Monte Carlo Methods Sage Lecture 3.2
+This is video Lecture 3.2 for Monte Carlo Methods course using Sage.   Introduction to  Conditional Probability, Random Variables, Expectations, Loops and Conditionals - Part 2.
+Conditional Probability, Random Variables, Expectations, Loops and Conditionals
+http://www.youtube.com/watch?v=Vfrjzpaysto
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/Vfrjzpaysto?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/Vfrjzpaysto?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 3.3
+Monte Carlo Methods Sage Lecture 3.3
+This is video Lecture 3.3 for Monte Carlo Methods course using Sage.   Introduction to  Conditional Probability, Random Variables, Expectations, Loops and Conditionals - Part 3.
+Conditional Probability, Random Variables, Expectations, Loops and Conditionals
+http://www.youtube.com/watch?v=xw4bSaIpk2A
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/xw4bSaIpk2A?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/xw4bSaIpk2A?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 3.4
+Monte Carlo Methods Sage Lecture 3.4
+This is video Lecture 3.4 for Monte Carlo Methods course using Sage.   Introduction to  Conditional Probability, Random Variables, Expectations, Loops and Conditionals - Part 4.
+Conditional Probability, Random Variables, Expectations, Loops and Conditionals
+http://www.youtube.com/watch?v=jG6iMLzW-34
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/jG6iMLzW-34?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/jG6iMLzW-34?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 3.5
+Monte Carlo Methods Sage Lecture 3.5
+This is video Lecture 3.5 for Monte Carlo Methods course using Sage.   Introduction to  Conditional Probability, Random Variables, Expectations, Loops and Conditionals - Part 5.
+Conditional Probability, Random Variables, Expectations, Loops and Conditionals
+http://www.youtube.com/watch?v=YuYtcB0paNk
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/YuYtcB0paNk?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/YuYtcB0paNk?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 3.6
+Monte Carlo Methods Sage Lecture 3.6
+This is video Lecture 3.6 for Monte Carlo Methods course using Sage.   Introduction to  Conditional Probability, Random Variables, Expectations, Loops and Conditionals - Part 6.
+Conditional Probability, Random Variables, Expectations, Loops and Conditionals
+http://www.youtube.com/watch?v=bn1Bo-irkV4
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/bn1Bo-irkV4?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/bn1Bo-irkV4?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 4.1
+Monte Carlo Methods Sage Lecture 4.1
+This is video Lecture 4.1 for Monte Carlo Methods course using Sage.   Introduction to Continuous Random Variables, Expectations, Data, Statistics, Arrays and Tuples - Part 1.
+Continuous Random Variables, Expectations, Data, Statistics, Arrays and Tuples
+http://www.youtube.com/watch?v=-AfeaVbh2O4
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/-AfeaVbh2O4?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/-AfeaVbh2O4?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 4.2
+Monte Carlo Methods Sage Lecture 4.2
+This is video Lecture 4.2 for Monte Carlo Methods course using Sage.   Introduction to Continuous Random Variables, Expectations, Data, Statistics, Arrays and Tuples - Part 2.
+Continuous Random Variables, Expectations, Data, Statistics, Arrays and Tuples
+http://www.youtube.com/watch?v=2SNWrrcJdXM
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/2SNWrrcJdXM?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/2SNWrrcJdXM?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 4.3
+Monte Carlo Methods Sage Lecture 4.3
+This is video Lecture 4.3 for Monte Carlo Methods course using Sage.   Introduction to Continuous Random Variables, Expectations, Data, Statistics, Arrays and Tuples - Part 3.
+Continuous Random Variables, Expectations, Data, Statistics, Arrays and Tuples
+http://www.youtube.com/watch?v=JlKlBlAWqPw
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/JlKlBlAWqPw?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/JlKlBlAWqPw?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 4.4
+Monte Carlo Methods Sage Lecture 4.4
+This is video Lecture 4.4 for Monte Carlo Methods course using Sage.   Introduction to Continuous Random Variables, Expectations, Data, Statistics, Arrays and Tuples - Part 4.
+Continuous Random Variables, Expectations, Data, Statistics, Arrays and Tuples
+http://www.youtube.com/watch?v=aaSVfn-U2Go
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/aaSVfn-U2Go?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/aaSVfn-U2Go?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 4.5
+Monte Carlo Methods Sage Lecture 4.5
+This is video Lecture 4.5 for Monte Carlo Methods course using Sage.   Introduction to Continuous Random Variables, Expectations, Data, Statistics, Arrays and Tuples - Part 5.
+Continuous Random Variables, Expectations, Data, Statistics, Arrays and Tuples
+http://www.youtube.com/watch?v=tq4srZ1jw8c
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/tq4srZ1jw8c?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/tq4srZ1jw8c?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+
+Video 4.6
+Monte Carlo Methods Sage Lecture 4.6
+This is video Lecture 4.6 for Monte Carlo Methods course using Sage.   Introduction to Continuous Random Variables, Expectations, Data, Statistics, Arrays and Tuples - Part 6.
+Continuous Random Variables, Expectations, Data, Statistics, Arrays and Tuples
+http://www.youtube.com/watch?v=-As5RO70Yyo
+<object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/-As5RO70Yyo?hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/-As5RO70Yyo?hl=en&fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object>
+

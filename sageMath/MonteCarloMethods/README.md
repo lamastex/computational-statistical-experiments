@@ -3,10 +3,17 @@ Raazesh Sainudiin - lamaste.org - Courses - Monte Carlo Methods
 [STAT 221: Monte Carlo Methods](README.md)
 ==========================================
 
-© 2004 2005 2006 2007 2008 2009 2010 2011 2012 Raazesh Sainudiin. © 2008
-2009 2010 2011 2012 Dominic Lee.
+Jenny Harlow, Raazesh Sainudiin and Dominic Lee,
 
-Read [**about this course**](about.md) first!\
+Laboratory for Mathematical Statistical Experiments, Christchurch Centre
+Christchurch, New Zealand
+
+© 2007–2016 Raazesh Sainudiin, © 2008–2013 Dominic Lee, © 2009-2011 Jennifer Harlow.
+
+This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 4.0 International License. To view a copy of this license, visit
+[https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+Read [**about this course**](about.md) first!
 
 **Time and Place for Presence**
 
@@ -28,13 +35,13 @@ Read [**about this course**](about.md) first!\
         YYYYMMDD)
     -   16%: Assessment 2 has two parts with equal weights:
         1.  Paper and Pencil Part: [Assessment
-            2a](content/pdf/Assessment2a_221_2012.pdf) (due at 1000
+            2a](content/pdf/Assessment2a_221_2011.pdf) (due at 1000
             hours on YYYYMMDD)
         2.  Sage Worksheet Part: published on YYYYMMDD (electronically
             due at 2359 hours YYYYMMDD)
     -   16%: Assessment 3 has two parts with equal weights:
         1.  Paper and Pencil Part: [Assessment
-            3a](content/pdf/Assessment3a_221_2012.pdf) (due at 1000
+            3a](content/pdf/Assessment3a_221_2011.pdf) (due at 1000
             hours on YYYYMMDD)
         2.  Sage Worksheet Part: published on YYYYMMDD (electronically
             due at 2359 hours YYYYMMDD)
@@ -55,12 +62,12 @@ Read [**about this course**](about.md) first!\
         (published at
         [sage.ac.nz](http://sage.math.canterbury.ac.nz/home/pub/56/) or
         [sagenb.org](http://sagenb.org/home/pub/5032) or
-        [sagenb.com](http://sagenb.com/home/pub/5032) ) \
+        [sagenb.com](http://sagenb.com/home/pub/5032) ) 
     -   Introduction to SAGE: (i) [Create an
         account](PreSage/SageNbNewAccount.pdf) on [our Sage notebook
         server](http://sage.math.canterbury.ac.nz/)
         ([YouTubeLink\_0.0](http://www.youtube.com/watch?v=m-CjNxIDNOU)),
-        (ii) [sign in](PreSage/SageSignInAndUsing.pdf),\
+        (ii) [sign in](PreSage/SageSignInAndUsing.pdf),
          (iii) Do the exercises in worksheet
         [Stat221Week01](http://sage.math.canterbury.ac.nz/home/pub/56/)
         ([YouTubeLink\_1.1](http://www.youtube.com/watch?v=OW7mJf4l_W4),
@@ -79,97 +86,97 @@ Read [**about this course**](about.md) first!\
         (published at
         [sage.ac.nz](http://sage.math.canterbury.ac.nz/home/pub/57/) or
         [sagenb.org](http://sagenb.org/home/pub/5033) or
-        [sagenb.com](http://sagenb.com/home/pub/5033)) \
+        [sagenb.com](http://sagenb.com/home/pub/5033)) 
 
 3.  **Week 03:**
     -   STAT221Week03: Conditional Probability, Random Variables,
         Expectations, Loops and Conditionals (published at
         [sage.ac.nz](http://sage.math.canterbury.ac.nz/home/pub/58/) or
         [sagenb.org](http://sagenb.org/home/pub/5034) or
-        [sagenb.com](http://sagenb.com/home/pub/5034)) \
+        [sagenb.com](http://sagenb.com/home/pub/5034)) 
 
 4.  **Week 04:**
     -   STAT221Week04: Continuous Random Variables, Expectations, Data,
         Statistics, Arrays and Tuples (published at
         [sage.ac.nz](http://sage.math.canterbury.ac.nz/home/pub/60/) or
         [sagenb.org](http://sagenb.org/home/pub/5035) or
-        [sagenb.com](http://sagenb.com/home/pub/5035)) \
+        [sagenb.com](http://sagenb.com/home/pub/5035)) 
 
 5.  **Week 05:**
     -   STAT221Week05: More on Statistics, List Comprehensions, and New
         Zealand Earthquake Data (published at
         [sage.ac.nz](http://sage.math.canterbury.ac.nz/home/pub/61/) or
         [sagenb.org](http://sagenb.org/home/pub/5036) or
-        [sagenb.com](http://sagenb.com/home/pub/5036)) \
+        [sagenb.com](http://sagenb.com/home/pub/5036)) 
 
 6.  **Week 06:**
     -   STAT221Week06: Modular Arithmetic, Linear Congruential
         Generators, and Pseudo-Random Numbers (published at
         [sage.ac.nz](http://sage.math.canterbury.ac.nz/home/pub/66/) or
         [sagenb.org](http://sagenb.org/home/pub/5037) or
-        [sagenb.com](http://sagenb.com/home/pub/5037)) \
+        [sagenb.com](http://sagenb.com/home/pub/5037)) 
 
 7.  **Week 07:**
     -   STAT221Week07: Pseudo-Random Numbers, Simulating from Some
         Discrete and Continuous Random Variables (published at
         [sage.ac.nz](http://sage.math.canterbury.ac.nz/home/pub/70/) or
         [sagenb.org](http://sagenb.org/home/pub/5038) or
-        [sagenb.com](http://sagenb.com/home/pub/5038)) \
+        [sagenb.com](http://sagenb.com/home/pub/5038)) 
 
 8.  **Week 08:**
     -   STAT221Week08: Estimation and Likelihood, Maximum Likelihood
         Estimators, Symbolic Expressions in Sage (published at
         [sage.ac.nz](http://sage.math.canterbury.ac.nz/home/pub/72/) or
         [sagenb.org](http://sagenb.org/home/pub/5039) or
-        [sagenb.com](http://sagenb.com/home/pub/5039)) \
+        [sagenb.com](http://sagenb.com/home/pub/5039)) 
     -   [Tutorial08.pdf](content/pdf/Tutorial08.pdf)
 
 9.  **Week 09:**
     -   STAT221Week09: Markov Chains (published at
         [sage.ac.nz](http://sage.math.canterbury.ac.nz/home/pub/73/) or
         [sagenb.org](http://sagenb.org/home/pub/5040) or
-        [sagenb.com](http://sagenb.com/home/pub/5040)) \
+        [sagenb.com](http://sagenb.com/home/pub/5040)) 
 
 10. **Week 10:**
     -   STAT221Week10: Limits, Convergence and Estimation (published at
         [sage.ac.nz](http://sage.math.canterbury.ac.nz/home/pub/75/) or
         [sagenb.org](http://sagenb.org/home/pub/5041) or
-        [sagenb.com](http://sagenb.com/home/pub/5041)) \
+        [sagenb.com](http://sagenb.com/home/pub/5041)) 
     -   [Tutorial10.pdf](content/pdf/Tutorial10.pdf)
 
 11. **Week 11:**
     -   STAT221Week11: Non-parametric Estimation and Testing (published
         at [sage.ac.nz](http://sage.math.canterbury.ac.nz/home/pub/76/)
         or [sagenb.org](http://sagenb.org/home/pub/5042) or
-        [sagenb.com](http://sagenb.com/home/pub/5042)) \
+        [sagenb.com](http://sagenb.com/home/pub/5042)) 
 
 12. **Week 12:**
-    -   Lectures: Permutation Test and Monte Carlo Integration. \
+    -   Lectures: Permutation Test and Monte Carlo Integration. 
         Face-To-Face-Transmission - gotto be physically here for the
         last week!
 
-Sage Work Sheets as SWS and PDF files\
+Sage Work Sheets as SWS and PDF files
 
-1.  [STAT221Week01.sws](content/sws/STAT221Week01.sws) \
+1.  [STAT221Week01.sws](content/sws/STAT221Week01.sws) 
      and [STAT221Week01.pdf](content/pdf/STAT221Week01.pdf)
-2.  [STAT221Week02.sws](content/sws/STAT221Week02.sws) \
+2.  [STAT221Week02.sws](content/sws/STAT221Week02.sws) 
      and [STAT221Week02.pdf](content/pdf/STAT221Week02.pdf)
-3.  [STAT221Week03.sws](content/sws/STAT221Week03.sws) \
+3.  [STAT221Week03.sws](content/sws/STAT221Week03.sws) 
      and [STAT221Week03.pdf](content/pdf/STAT221Week03.pdf)
-4.  [STAT221Week04.sws](content/sws/STAT221Week04.sws) \
+4.  [STAT221Week04.sws](content/sws/STAT221Week04.sws) 
      and [STAT221Week04.pdf](content/pdf/STAT221Week04.pdf)
-5.  [STAT221Week05.sws](content/sws/STAT221Week05.sws) \
+5.  [STAT221Week05.sws](content/sws/STAT221Week05.sws) 
      and [STAT221Week05.pdf](content/pdf/STAT221Week05.pdf)
-6.  [STAT221Week06.sws](content/sws/STAT221Week06.sws) \
+6.  [STAT221Week06.sws](content/sws/STAT221Week06.sws) 
      and [STAT221Week06.pdf](content/pdf/STAT221Week06.pdf)
-7.  [STAT221Week07.sws](content/sws/STAT221Week07.sws) \
+7.  [STAT221Week07.sws](content/sws/STAT221Week07.sws) 
      and [STAT221Week07.pdf](content/pdf/STAT221Week07.pdf)
-8.  [STAT221Week08.sws](content/sws/STAT221Week08.sws) \
+8.  [STAT221Week08.sws](content/sws/STAT221Week08.sws) 
      and [STAT221Week08.pdf](content/pdf/STAT221Week08.pdf)
-9.  [STAT221Week09.sws](content/sws/STAT221Week09.sws) \
+9.  [STAT221Week09.sws](content/sws/STAT221Week09.sws) 
      and [STAT221Week09.pdf](content/pdf/STAT221Week09.pdf)
-10. [STAT221Week10.sws](content/sws/STAT221Week10.sws) \
+10. [STAT221Week10.sws](content/sws/STAT221Week10.sws) 
      and [STAT221Week10.pdf](content/pdf/STAT221Week10.pdf)
-11. [STAT221Week11.sws](content/sws/STAT221Week11.sws) \
+11. [STAT221Week11.sws](content/sws/STAT221Week11.sws) 
      and [STAT221Week11.pdf](content/pdf/STAT221Week11.pdf)
 

@@ -277,9 +277,708 @@ The plot was saved as an encapsulated postscript file from the File menu of the 
 --- one can obtain any other random object from the fundamental model!
 \newpage
 
+\section{Random Vectors as $\Rz^m$-valued Random Variables}\label{S:RVecs}
+
+Often, in experiments we are measuring two or more aspects simultaneously.  
+For example, we may be measuring the diameters and lengths of cylindrical shafts manufactured in a plant or heights, weights and blood-sugar levels of individuals in a clinical trial.  
+Thus, the underlying outcome $\omega \in \Omega$ needs to be mapped to measurements as realizations of random vectors in the real plane $\Rz^2 = (-\infty, \infty) \times (-\infty, \infty)$ or the real space $\Rz^3 = (-\infty, \infty) \times (-\infty, \infty) \times (-\infty, \infty)$:
+\[
+\omega \mapsto \left( X(\omega),Y(\omega) \right) : \Omega \to \Rz^2  \qquad \qquad \qquad \omega \mapsto \left( X(\omega),Y(\omega), Z(\omega) \right) : \Omega \to \Rz^3
+\]
+%\vspace{2cm}
+
+More generally, we may be interested in heights, weights, blood-sugar levels, family medical history, known allergies, etc. of individuals in the clinical trial and thus need to make $m$ measurements of the outcome in $\Rz^m$ using a ``measurable mapping'' from $\Omega \to \Rz^m$.  
+To deal with such multivariate measurements we need the notion of {\bf random vectors} ({\rv}s), i.e.~ordered pairs of random variables $(X,Y)$, ordered triples of random variables $(X,Y,Z)$, or more generally ordered $m$-tuples of random variables $(X_1,X_2,\ldots,X_m)$.  
+
+\subsection{$\Rz^2$-valued Random Variables}
+
+We first focus on understanding $(X,Y)$, a bivariate \rv~or $\Rz^2$-valued RV that is obtained from a pair of discrete or continuous RVs.  
+We then generalize to $\Rz^m$-valued RVs with $m>2$ in the next section.
+
+\begin{definition}[JDF]\label{Df:JDF}
+The {\bf joint distribution function (JDF)} or {\bf joint cumulative distribution function (JCDF)}, $F_{X,Y}(x,y):\mathbb{R}^2\to [0,1]$, of the bivariate random vector $(X,Y)$ is
+\begin{eqnarray}\label{E:j2DF}
+F_{X,Y}(x,y)\; 
+&=& \p(X\leq x \cap Y \leq y) \;= \;\p(X\leq x , Y \leq y)\notag\\
+&=& P\left( \{ \omega: X(\omega) \le x, Y(\omega) \le y \} \right) \mbox{, for any } (x,y) \in \mathbb{R}^2 \enspace ,
+\end{eqnarray}
+where the right-hand side represents the probability that the random vector $(X,Y)$ takes on a value in 
+$\{(x',y'): x' \leq x, y' \leq y\}$, the set of points in the plane that are south-west of the point $(x,y)$.
+\end{definition}
+
+The JDF $F_{X,Y}(x,y):\Rz^2\to\Rz$ satisfies the following conditions to remain a probability: 
+\begin{enumerate}
+\item $0 \leq F_{X,Y}(x,y) \leq 1$
+\item $F_{X,Y}(x,y)$ is an non-decreasing function of both $x$ and $y$
+\item $F_{X,Y}(x,y) \to 1$ as $x\to \infty$ and $y\to \infty$
+\item $F_{X,Y}(x,y) \to 0$ as $x\to -\infty$ and $y\to -\infty$
+\end{enumerate}
+
+\begin{definition}[JPMF]
+If $(X,Y)$ is a {\bf discrete random vector} that takes values in a discrete support set $\mathcal{S}_{X,Y} = \{(x_i,y_j): i=1,2,\ldots, \, j=1,2,\ldots\} \subset \Rz^2$ with probabilities $p_{i,j}=\p(X=x_i,Y=y_j)>0$, then its \textbf{joint probability mass function} (or JPMF) is:
+\begin{equation}\label{Eq:j2DPMF}
+f_{X,Y}(x_i,y_j) = \p(X=x_i,Y=y_j) %P\left(\{\omega: X(\omega) = x_i, Y(\omega)=y_j \}\right) 
+=\begin{cases}
+p_{i,j}&\quad \textrm{if } (x_i,y_j) \in \mathcal{S}_{X,Y}\\
+0&\quad \textrm{otherwise}
+\end{cases}  \enspace .
+\end{equation}
+
+Since $\p(\Omega)=1$, $\sum_{{\substack{(x_i,y_j) \in \mathcal{S}_{X,Y}}}}f_{X,Y}(x_i,y_j)=1$.
+\end{definition}
+
+From JPMF $f_{X,Y}$ we can get the values of the JDF $F_{X,Y}(x,y)$ and the probability of any event $B$ by simply taking sums,
+\begin{equation}\label{Eq:2DiscretejDFFromjPMF}
+\boxed{F_{X,Y}(x,y)\;=\;\sum_{x_i\leq x, y_j \leq y}f_{X,Y}(x_i,y_j) }\enspace ,
+\qquad \boxed{\p(B)\;=\;\sum_{\substack{(x_i, y_j) \in B \cap \mathcal{S}_{X,Y}}}f_{X,Y}(x_i,y_j) }\enspace ,
+\end{equation}
+
+\begin{example}\label{Eg:Discrete2DPMF}
+Let $(X,Y)$ be a discrete bivariate \rv with the following joint probability mass function (JPMF):
+\[
+f_{X,Y}(x,y) := P (X=x,Y=y)  = 
+\begin{cases}
+0.1 & \text{ if } (x,y)=(0,0)\\
+0.3 & \text{ if } (x,y)=(0,1)\\
+0.2 & \text{ if } (x,y)=(1,0)\\
+0.4 & \text{ if } (x,y)=(1,1)\\
+0.0 & \text{ otherwise.}
+\end{cases} 
+\]
+\begin{center}
+\makebox{\includegraphics[width=5.0in]{figures/Discrete2DPMF}}
+\end{center}
+It is helpful to write down the JPMF $f_{X,Y}(x,y)$ in a tabular form:
+\begin{center}
+\begin{tabular}{|c|c c|}
+\hline
+& $Y=0$ & $Y=1$ \\ \hline
+$X=0$& $0.1$ & $0.3$  \\
+$X=1$& $0.2$ & $0.4$  \\ \hline
+\end{tabular}
+\end{center}
+From the above Table we can read for instance that the joint probability $f_{X,Y}(0,0)=0.1$.
+
+Find $\p(B)$ for the event $B=\{(0,0),(1,1)\}$, $F_{X,Y}(1/2,1/2)$, $F_{X,Y}(3/2,1/2)$, $F_{X,Y}(4,5)$ and $F_{X,Y}(-4,-1)$.
+
+\begin{enumerate}
+\item $\p(B) = \sum_{(x,y) \in \{(0,0),(1,1)\}}f_{X,Y}(x,y) = f_{X,Y}(0,0)+f_{X,Y}(1,1)=0.1+0.4$
+\item $F_{X,Y}(1/2,1/2) = \sum_{\{(x,y): x\leq 1/2, y \leq 1/2\}} f_{X,Y}(x,y)=f_{X,Y}(0,0)=0.1$
+\item $F_{X,Y}(3/2,1/2) = \sum_{\{(x,y): x\leq 3/2, y \leq 1/2\}} f_{X,Y}(x,y)=f_{X,Y}(0,0)+f_{X,Y}(1,0)=0.1+0.2=0.3$
+\item $F_{X,Y}(4,5) = \sum_{\{(x,y): x\leq 4, y \leq 5\}} f_{X,Y}(x,y)=f_{X,Y}(0,0)+f_{X,Y}(0,1)+f_{X,Y}(1,0)+f_{X,Y}(1,1)=1$
+\item $F_{X,Y}(-4,-1) = \sum_{\{(x,y): x\leq -4, y \leq -1\}} f_{X,Y}(x,y)=0$
+\end{enumerate}
+%\vspace{2cm}
+\end{example}
+
+\begin{definition}[JPDF] We say $(X,Y)$ is a {\bf continuous $\R^2$-valued random variable} if its JDF $F_{X,Y}(x,y)$ is differentiable and its {\bf joint probability density function (JPDF)} is given by:
+\[
+f_{X,Y}(x,y) = \frac{\partial^2}{\partial x \partial y} F_{X,Y}(x,y) \enspace .
+\]
+\end{definition}
+
+For notational convenience, we sometimes suppress the subscripting when the random variables are clear from the context and write $f(x,y)$ and $F(x,y)$ instead of $f_{X,Y}(x,y)$ and $F_{X,Y}(x,y)$, respectively.
+
+From JPDF $f_{X,Y}$ we can compute the JDF $F_{X,Y}$ at any point $(x,y) \in \Rz^2$ and more generally we can compute the probability of any event $B$, that can be cast as a region in $\Rz^2$, by simply taking two-dimensional integrals:
+\begin{equation}\label{Eq:2ContjDFFromjPDF}
+\boxed{F_{X,Y}(x,y) = \int_{-\infty}^{y} \int_{-\infty}^{x} f_{X,Y}(u,v) du dv}\enspace ,
+\end{equation}
+and
+\begin{equation}\label{Eq:2ContProbEventFromjPDF}
+\boxed{\p(B)\;=\; \int\int_{B} f_{X,Y}(x,y) dx dy}\enspace .
+\end{equation}
+In particular, if $\Bz_{\delta}(x,y)$ denotes a square of a small area $\delta>0$ that is centered at $(x,y)$, then the following approximate equality holds and improves as $\delta \to 0$:
+\begin{equation}\label{Eq:2ContProbEventFromjPDFInSmallBall}
+\p\left( (X,Y) \in \Bz_{\delta}(x,y) \right) \approxeq \delta f_{X,Y}(x,y) \enspace .
+\end{equation}
+The JPDF satisfies the following two properties:
+\be
+\item integrates to $1$, i.e., $\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X,Y}(x,y) dx dy=1$
+\item is a non-negative function, i.e., $f_{X,Y}(x,y) \geq 0$ for every $(x,y) \in \mathbb{R}^2$.
+\ee
+
+\begin{example}\label{Eg:Unif2DPDFandCDF}
+Let $(X,Y)$ be a continuous \rv~that is uniformly distributed on the unit square $[0,1]^2 := [0,1] \times [0,1]$ with following JPDF:
+\[
+f(x,y) =  \BB{1}_{[0,1]^2}(x) 
+\begin{cases}
+1 & \text{ if } (x,y) \in [0,1]^2 \\
+0 & \text{ otherwise}.
+\end{cases}
+\]
+Find explicit expressions for the following: (1) DF $F(x,y)$ for any $(x,y) \in [0,1]^2$, (2) $\p(X \leq 1/3, Y \leq 1/2)$, (3) $P\left( (X,Y) \in [1/4,1/2]\times[1/3,2/3] \right)$.
+
+\begin{center}
+\makebox{\includegraphics[width=6.5in]{figures/Unif2DPDFandCDF}}
+\end{center}
+
+Let us begin to find the needed expressions.
+\be
+\item
+Let $(x,y) \in [0,1]^2$ then by Equation~\eqref{Eq:2ContjDFFromjPDF}:
+{\small
+\begin{align*}
+F_{X,Y}(x,y) 
+&= \int_{-\infty}^{y} \int_{-\infty}^{x} f_{X,Y}(u,v) dudv
+= \int_{0}^{y} \int_{0}^{{x}} 1 dudv
+= \int_{0}^{y} \left[ u \right]_{u=0}^{x}  dv
+= \int_{0}^{y} x  dv
+&= \left[ x v \right]_{v=0}^{y}
+= {x}{y}
+\end{align*}
+}
+\item We can obtain $\p(X \leq 1/3, Y \leq 1/2)$ by evaluating $F_{X,Y}$ at $(1/3,1/2)$:
+{\small
+\begin{align*}
+\p(X \leq 1/3, Y \leq 1/2)
+&= F_{X,Y}(1/3,1/2)
+= \frac{1}{3}\frac{1}{2}
+= \frac{1}{6}
+\end{align*}
+}
+We can also find $\p(X \leq 1/3, Y \leq 1/2)$ by integrating the JPDF over the rectangular event $A=\{X < 1/3, Y < 1/2 \} \subset [0,1]^2$ according to Equation~\eqref{Eq:2ContProbEventFromjPDF}.  
+This amounts here to finding the area of $A$, we compute $\p(A) = (1/3) (1/2) = 1/6$.  
+
+\item We can find $P\left( (X,Y) \in [1/4,1/2]\times[1/3,2/3] \right)$ by integrating the JPDF over the rectangular event $B=[1/4,1/2]\times[1/3,2/3]$ according to Equation~\eqref{Eq:2ContProbEventFromjPDF}:
+{\small
+\begin{align*}
+P\left( (X,Y) \in [1/4,1/2]\times[1/3,2/3] \right)
+&=\int\int_B f_{X,Y}(x,y)dxdy
+=\int_{1/3}^{2/3}\int_{1/4}^{1/2} 1 dx dy\\
+&=\int_{1/3}^{2/3} \left[ x \right]_{1/4}^{1/2}  dy
+=\int_{1/3}^{2/3} \left[ \frac{1}{2}-\frac{1}{4} \right]  dy
+=\left(\frac{1}{2}-\frac{1}{4}\right)\left[ y \right]_{1/3}^{2/3}\\ 
+&=\left(\frac{1}{2}-\frac{1}{4}\right)\left( \frac{2}{3}-\frac{1}{3} \right) 
+=\frac{1}{4} \left( \frac{1}{3} \right) =\frac{1}{12}
+\end{align*}
+}
+\ee
+
+In general, for a bivariate uniform \rv~on the unit square the $\p([a,b]\times[c,d]) = (b-a)(d-c)$ for any event given by the rectangular region $[a,b]\times[c,d]$ inside the unit square $[0,1]\times[0,1]$.  
+Thus any two events with the same rectangular area have the same probability (imagine sliding a small rectangle inside the unit square... no matter where you slide this rectangle to while remaining in the unit square, the probability of $\omega \mapsto (X(\omega),Y(\omega))=(x,y)$ falling inside this ``slidable'' rectangle is the same...).
+\end{example}
+ 
+\begin{example}\label{Eg:PlotPDF2ServerTimes}
+Let the RV $X$ denote the time until a web server connects to your computer, and let the RV $Y$ denote the time until the server authorizes you as a valid user.  
+Each of these RVs measures the waiting time from a common starting time (in milliseconds) and $X < Y$.  
+From past response times of the web server we know that a good approximation for the JPDF of the \rv~$(X,Y)$ is
+\[
+f_{X,Y}(x,y) = 
+\begin{cases}
+\frac{6}{10^6} \exp \left( -\frac{1}{1000}x-\frac{2}{1000}y \right)
+& \text{ if } x>0,y>0,x <y\\
+0 & \text{ otherwise}.
+\end{cases}
+\]
+Answer the following:
+\be
+\item identify the support of $(X,Y)$, i.e., the region in the plane where $f_{X,Y}$ takes positive values
+\item check that $f_{X,Y}$ indeed integrates to $1$ as it should
+\item Find $P(X \leq 400, Y \leq 800)$
+\item It is known that humans prefer a response time of under $1/10$ seconds ($10^2$ milliseconds) from the web server before they get impatient.  What is $P(X+Y < 10^2)$? 
+\ee
+\begin{center}
+\makebox{\includegraphics[width=6.0in]{figures/PlotPDF2ServerTimes}}
+\end{center}
+Let us answer the questions.
+\be
+\item
+The support is the intersection of the positive quadrant with the $y>x$ half-plane.
+\item
+{\scriptsize
+\begin{align*}
+\int_{y=-\infty}^{\infty}\int_{x=-\infty}^{\infty} f_{X,Y}(x,y) dx dy 
+&= \int_{x=0}^{\infty}\int_{y=x}^{\infty} f_{X,Y}(x,y) dy dx\\
+&= \int_{x=0}^{\infty}\int_{y=x}^{\infty} \frac{6}{10^6} \exp \left( -\frac{1}{1000}x-\frac{2}{1000}y \right) dy dx\\
+&= \frac{6}{10^6} \int_{x=0}^{\infty} \left(\int_{y=x}^{\infty} \exp \left( -\frac{2}{1000}y \right) dy \right) \exp \left(-\frac{1}{1000}x\right) dx\\
+&= \frac{6}{10^6} \int_{x=0}^{\infty} \left[ -\frac{1000}{2} \exp \left( -\frac{2}{1000}y \right) \right]_{y=x}^{\infty}  \exp \left(-\frac{1}{1000}x\right) dx\\
+&= \frac{6}{10^6} \int_{x=0}^{\infty} \left[0 +\frac{1000}{2}\exp \left( -\frac{2}{1000}x \right) \right]  \exp \left(-\frac{1}{1000}x\right) dx\\
+&= \frac{6}{10^6} \int_{x=0}^{\infty} \frac{1000}{2}\exp \left( -\frac{2}{1000}x -\frac{1}{1000}x\right) dx\\
+&= \frac{6}{10^6} \frac{1000}{2} \left[ -\frac{1000}{3} \exp \left(-\frac{3}{1000}x\right)\right]_{x=0}^{\infty} \\
+&= \frac{6}{10^6} \frac{1000}{2} \left[0 +\frac{1000}{3} \right] \\
+&=1
+\end{align*}
+}
+\item
+First, identify the region with positive JPDF for the event $(X \leq 400, Y \leq 800)$
+{\scriptsize
+\begin{align*}
+&P(X \leq 400, Y \leq 800)\\
+&= \int_{x=0}^{400} \int_{y=x}^{800} f_{X,Y}(x,y) dy dx \\
+&= \int_{x=0}^{400} \int_{y=x}^{800} \frac{6}{10^6} \exp \left( -\frac{1}{1000}x-\frac{2}{1000}y \right) dy dx \\
+&= \frac{6}{10^6}  \int_{x=0}^{400} \left[ -\frac{1000}{2} \exp \left( -\frac{2}{1000}y \right) \right]_{y=x}^{800}  \exp \left(-\frac{1}{1000}x\right) dx\\
+&= \frac{6}{10^6} \frac{1000}{2} \int_{x=0}^{400} \left( - \exp \left( -\frac{1600}{1000} \right) + \exp \left( -\frac{2}{1000}x \right) \right)  \exp \left(-\frac{1}{1000}x\right) dx\\
+&= \frac{6}{10^6} \frac{1000}{2} \int_{x=0}^{400} \left( \exp \left( -\frac{3}{1000}x \right) - e^{-8/5} \exp \left(-\frac{1}{1000}x\right)\right) dx\\
+&= \frac{6}{10^6} \frac{1000}{2} \left( \left( -\frac{1000}{3} \exp \left( -\frac{3}{1000}x \right) \right)_{x=0}^{400} - e^{-8/5} \left(-1000 \exp \left(-\frac{1}{1000}x\right)\right)_{x=0}^{400} \right) \\
+&= \frac{6}{10^6} \frac{1000}{2} 1000 \left( \frac{1}{3}\left(1- e^{-6/5} \right) - e^{-8/5} \left( 1-e^{-2/5}\right) \right) \\
+&= 3 \left( \frac{1}{3}\left(1- e^{-6/5} \right) - e^{-8/5} \left( 1-e^{-2/5}\right) \right) \\
+&\approxeq 0.499 \enspace .
+\end{align*}
+}
+\item
+First, identify the region with positive JPDF for the event $(X+Y \leq c)$, say $c=500$ (but generally $c$ can be any positive number).
+This is the triangular region at the intersection of the four half-planes: $x>0$, $x < c$, $y>x$ and $y<c-x$. ({\em Draw picture here})
+%\vspace{2cm}\\
+Let's integrate the JPDF over our triangular event as follows:
+{\scriptsize
+\begin{align*}
+P(X+Y \leq c) 
+&= \int_{x=0}^{c/2}\int_{y=x}^{c-x} f_{X,Y}(x,y) dy dx \\
+&= \int_{x=0}^{c/2}\int_{y=x}^{c-x} \frac{6}{10^6} \exp \left( -\frac{1}{1000}x-\frac{2}{1000}y \right) dy dx \\
+&= \frac{6}{10^6} \int_{x=0}^{c/2}\int_{y=x}^{c-x}  \exp \left( -\frac{1}{1000}x-\frac{2}{1000}y \right) dy dx \\
+&= \frac{6}{10^6} \frac{1000}{2} \int_{x=0}^{c/2} \left[ - \exp \left( -\frac{2}{1000}y \right) \right]_{y=x}^{c-x}  \exp \left(-\frac{1}{1000}x\right) dx\\
+&= \frac{3}{10^3} \int_{x=0}^{c/2} \left[ - \exp \left( -\frac{2c-2x}{1000} \right) + \exp \left( -\frac{2x}{1000} \right) \right]  \exp \left(-\frac{x}{1000}\right) dx\\
+&= \frac{3}{10^3} \int_{x=0}^{c/2} \left(  \exp \left( -\frac{3x}{1000} \right) - \exp \left( \frac{x-2c}{1000} \right) \right)  dx\\
+&= 3 \left( \left[-\frac{1}{3} \exp \left( -\frac{3x}{1000} \right) \right]_{x=0}^{c/2} - \left[ e^{-2c/1000} \exp \left( \frac{x}{1000} \right)\right]_{x=0}^{c/2} \right)  \\
+&= 3  \left(\frac{1}{3} (1-e^{-3c/2000}) - e^{-2c/1000} (e^{c/2000}-1) \right)\\
+&= 1 - e^{-3c/2000} + 3 e^{-2c/1000} - 3 e^{-3c/2000}\\
+&= 1 - 4 e^{-3c/2000} + 3 e^{-c/500}
+\end{align*}
+}
+%\vspace{1cm}\\
+\item $P(X+Y<100) = 1 - 4 e^{-300/2000} + 3 e^{-100/500} \approxeq 0.134$.  This means only about one in one hundred requests to this server will be processed within 100 milliseconds.
+\ee
+We can obtain $P(X+Y<c)$ for several values of $c$ using \Matlab and note that about 96\% of requests are processed in less than 3000 milliseconds or 3 seconds.
+\begin{VrbM}
+>> c = [100 1000 2000 3000 4000]
+c =  100        1000        2000        3000        4000
+
+>> p = 1 - 4 * exp(-3*c/2000) + 3 * exp(-c/500)
+
+p =  0.0134     0.5135      0.8558      0.9630      0.9911
+\end{VrbM}
+\end{example}
+
+\begin{definition}[Marginal PDF or PMF]
+If the \rv~$(X,Y)$ has $f_{X,Y}(x,y)$ as its joint PDF or joint PMF, then the 
+{\bf marginal PDF or PMF} of a random vector $(X,Y)$ is defined by :
+\[
+f_{X}(x) =
+\begin{cases}
+\int_{-\infty}^{\infty} f_{X,Y}(x,y) dy & \text{if $(X,Y)$ is a continuous \rv}  \\
+\sum_{y} f_{X,Y}(x,y) & \text{if $(X,Y)$ is a discrete \rv} \\
+\end{cases}
+\]
+and the  {\bf marginal PDF or PMF} of $Y$ is defined by:
+\[
+f_{Y}(y) = 
+\begin{cases}
+\int_{-\infty}^{\infty} f_{X,Y}(x,y) dx & \text{if $(X,Y)$ is a continuous \rv}  \\
+\sum_{x} f_{X,Y}(x,y) & \text{if $(X,Y)$ is a discrete \rv} \\
+\end{cases}
+\]
+\end{definition}
+
+\begin{example}
+Obtain the marginal PMFs $f_Y(y)$ and $f_X(x)$ from the joint PMF $f_{X,Y}(x,y)$ of the discrete \rv~in \hyperref[Eg:Discrete2DPMF]{Example~\ref*{Eg:Discrete2DPMF}}.
+Just sum $f_{X,Y}(x,y)$ over $x$'s and $y$'s (reported in a tabular form):
+\begin{center}
+\begin{tabular}{|c|c c|}
+\hline
+& $Y=0$ & $Y=1$ \\ \hline
+$X=0$& $0.1$ & $0.3$  \\
+$X=1$& $0.2$ & $0.4$  \\ \hline
+\end{tabular}
+\end{center}
+From the above Table we can find:
+\begin{align*}
+f_X(x) = P(X=x) 
+&= \sum_{y} f_{X,Y}(x,y) \\
+&= 
+f_{X,Y}(x,0) + f_{X,Y}(x,1) = 
+\begin{cases}
+f_{X,Y}(0,0) + f_{X,Y}(0,1) = 0.1+0.3=0.4 & \text{ if } x=0\\
+f_{X,Y}(1,0) + f_{X,Y}(1,1) = 0.2+0.4=0.6 & \text{ if } x=1\\
+\end{cases}
+\end{align*}
+Similarly,
+\begin{align*}
+f_Y(y) = P(Y=y) 
+&= \sum_{x} f_{X,Y}(x,y) \\
+&= 
+f_{X,Y}(0,y) + f_{X,Y}(1,y) 
+= 
+\begin{cases}
+f_{X,Y}(0,0) + f_{X,Y}(1,0) = 0.1+0.2=0.3 & \text{ if } y=0\\
+f_{X,Y}(0,1) + f_{X,Y}(1,1) = 0.3+0.4=0.7 & \text{ if } y=1\\
+\end{cases}
+\end{align*}
+Just report the marginal probabilities as row and column sums of the JPDF table.
+
+Thus marginal PMF gives us the probability of a specific RV, within a \rv, taking a value irrespective of the value taken by the other RV in this \rv. 
+\end{example}
+
+\begin{example}
+Obtain the marginal PDFs $f_Y(y)$ and $f_X(x)$ from the joint PDF $f_{X,Y}(x,y)$ of the continuous \rv~in \hyperref[Eg:Unif2DPDFandCDF]{Example~\ref*{Eg:Unif2DPDFandCDF}} (the bivariate uniform \rv~on $[0,1]^2$).
+
+\begin{center}
+\makebox{\includegraphics[width=6.0in]{figures/PlotPDFSamplesMarginalsUnif2D}}
+\end{center}
+
+Let us suppose $(x,y) \in [0,1]^2$ and note that $f_{X,Y}=0$ if $(x,y) \notin [0,1]^2$.  
+We can obtain marginal PMFs $f_X(x)$ and $f_Y(y)$ by integrating the JPDF $f_{X,Y}=1$ along $y$ and $x$, respectively.
+\[
+f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) dy = \int_{0}^{1} f_{X,Y}(x,y) dy 
+= \int_{0}^{1} 1 dy = \left[ y \right]_0^1 = 1-0 = 1
+\]
+Similarly,
+\[
+f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) dx = \int_{0}^{1} f_{X,Y}(x,y) dx 
+= \int_{0}^{1} 1 dx = \left[ x \right]_0^1 = 1-0 = 1
+\]
+We are seeing a histogram of the {\bf marginal samples} and their marginal PDFs in the Figure.
+\end{example}
+
+Thus marginal PDF gives us the probability density of a specific RV in a \rv, irrespective of the value taken by the other RV in this \rv. 
+
+\begin{example}
+Obtain the marginal PDF $f_Y(y)$ from the joint PDF $f_{X,Y}(x,y)$ of the continuous \rv~in \hyperref[Eg:PlotPDF2ServerTimes]{Example~\ref*{Eg:PlotPDF2ServerTimes}} that gave the response times of a web server.
+\[
+f_{X,Y}(x,y) = 
+\begin{cases}
+\frac{6}{10^6} \exp \left( -\frac{1}{1000}x-\frac{2}{1000}y \right)
+& \text{ if } x>0,y>0,x <y\\
+0 & \text{ otherwise}.
+\end{cases}
+\]
+Use $f_Y(y)$ to compute the probability that $Y$ exceeds 2000 milliseconds.
+
+%\vspace{5in}
+First we need to obtain an expression for $f_Y(y)$. For $y > 0$,
+{\scriptsize
+\begin{align*}
+f_Y(y) 
+&= \int_{x=-\infty}^{\infty} f_{X,Y}(x,y) dx\\
+&= \int_{x=-\infty}^{\infty} 6 \times 10^{-6} e^{-0.001 x - 0.002y} dx\\
+&= 6 \times 10^{-6} \int_{x=0}^{y} e^{-0.001 x - 0.002y} dx\\ 
+&= 6 \times 10^{-6} e^{-0.002y} \int_{x=0}^{y}  e^{-0.001 x} dx\\ 
+&= 6 \times 10^{-6} e^{-0.002y} \left[ \frac{e^{-0.001 x}}{-0.001}\right]_{x=0}^{x=y}\\ 
+&= 6 \times 10^{-6} e^{-0.002y} \left( \frac{e^{-0.001 y}}{-0.001} - \frac{e^{-0.001 \times 0}}{-0.001} \right)\\ 
+&= 6 \times 10^{-6} e^{-0.002y} \left( \frac{1- e^{-0.001 y}}{0.001} \right)\\ 
+&= 6 \times 10^{-3} e^{-0.002y} \left({1- e^{-0.001 y}} \right)\\ 
+\end{align*}
+}
+We have the marginal PDF of $Y$ and from this we can obtain 
+{\scriptsize
+\begin{align*}
+P(Y>2000)
+&= \int_{2000}^{\infty} f_Y(y) dy \\
+&= \int_{2000}^{\infty} 6 \times 10^{-3} e^{-0.002y} \left({1- e^{-0.001 y}} \right) dy\\
+&= 6 \times 10^{-3} \int_{2000}^{\infty}  e^{-0.002y} dy - \int_{2000}^{\infty} e^{-0.003 y} dy\\
+&= 6 \times 10^{-3} \left( \left[ \frac{e^{-0.002y}}{-0.002} \right]_{2000}^{\infty} 
+- \left( \left[ \frac{e^{-0.003y}}{-0.003} \right]_{2000}^{\infty} \right) \right)\\
+&= 6 \times 10^{-3} \left( \frac{e^{-4}}{0.002} - \frac{e^{-6}}{0.003} \right)\\
+&= 0.05
+\end{align*}
+}
+
+{\scriptsize
+Alternatively, you can obtain $P(Y>2000)$ by directly integrating the joint PDF $f_{X,Y}(x,y)$ over the appropriate region (but you may now have to integrate two pieces: rectangular infinite strip ${(x,y): 0<x<2000, y>2000}$ and a triangular infinite piece $\{(x,y): y>x, y>2000, x> 2000\}$)... more involved but we get the same answer.
+\begin{multline*}
+P(Y>2000) = \int_{x=0}^{2000} \left( \int_{y=2000}^{\infty} 6 \times 10^{-6} e^{-0.001 x - 0.002y} dy \right) dx + \\
+\int_{x=2000}^{\infty} \left( \int_{y=x}^{\infty} 6 \times 10^{-6} e^{-0.001 x - 0.002y} dy \right) dx 
+\\
+\vdots \text{(try as a tutorial problem)} \\
+P(Y>2000) = 0.0475 + 0.0025 = 0.05
+\end{multline*}
+}
+\end{example}
+
+We have seen the notion of independnece of two events in \hyperref[D:IndOf2Events]{Definition~\ref*{D:IndOf2Events}} or of a sequence of events in \hyperref[D:IndOfSeqOfEvents]{Definition~\ref*{D:IndOfSeqOfEvents}}. 
+Recall that independence amounts to having the probability of the joint occurrence of the events to be given by the product of the probabilities of each of the events.
+
+We can use the definition of independence of two events to define the independence of two random variables using their distribution functions.
+
+\begin{definition}[Independence of Two RVs]\label{D:Ind2RVs}
+Consider an $\Rz^2$-valued RV $X:=(X_1,X_2)$. Then the $\Rz$-valued RVs $X_1$ and $X_2$ are said to be independent or independently distributed if and only if
+\[
+\p(X_{1} \leq x_{1}, X_{2} \leq x_{2} ) = \p(X_{1} \leq x_{1}) \p(X_{2} \leq x_{2})
+\]
+or equivalently,
+\[
+F_{X_{1},X_{2}}(x_{1},x_{2}) = F_{X_{1}}(x_{1}) F_{X_{2}}(x_{2}) \enspace ,
+\]
+for any pair of real numbers $(x_{1},x_{2}) \in \Rz^2$.
+
+By the above definition, for {\bf discrete} RVs $X_1,X_2$ that are independent, the following equality is satisfied between the joint and marginal PMFs:
+\[
+f_{X_1,X_2}(x_1,x_2) = \p(X_{1}= x_{1}, X_{2} = x_{2}) = \p(X_{1} = x_{1}) \p(X_{2} = x_{2}) = f_{X_1}(x_1) f_{X_2}(x_2) \text{ for any} (x_{1},x_{2}) \in \Rz^2 \enspace ,
+\]
+and for {\bf continuous} RVs $X_1,X_2$ that are independent, the following equality is satisfied between the joint and marginal PDFs:
+\[
+f_{X_1,X_2}(x_1,x_2) = f_{X_1}(x_1) f_{X_2}(x_2)  \text{ for any} (x_{1},x_{2}) \in \Rz^2 \enspace .
+\] 
+\end{definition}
+
+In summary, two RVs $X$ and $Y$ are said to be {\bf independent} if and only if for every $(x,y)$
+\[
+\boxed{
+F_{X,Y}(x,y) = F_X(x) \times F_Y(y) \qquad \text{ or } f_{X,Y}(x,y) = f_X(x) \times f_Y(y)
+}
+\]
+
+Let us confirm that our familiar experiment of tossing a fair coin twice independently when encoded by a pair of independent $\bernoulli(1/2)$ RVs satisfies the above definition.
+\begin{example}[Pair of independent $\bernoulli(1/2)$ RVs]
+Let $X_1$ and $X_2$ be a pair of independent $\bernoulli(1/2)$ RVs each taking values in the set $\{0,1\}$ with the following tabulated probabilities. Verify that the JPMF $f_{X_1,X_2}(x_1,x_2)=1/4$ for each $(x_1,x_2) \in \{0,1\}^2$ is indeed given by the marginal PMF $f_{X_i}(x_i)=1/2$ for each $i \in \{1,2\}$ and each $x_i \in \{0,1\}$.
+
+\begin{center}
+\begin{tabular}{|c|c c|c|}
+\hline
+& $X_2=0$ & $X_2=1$ & \\ \hline
+$X_1=0$& $1/4$ & $1/4$ & $1/2$ \\
+$X_1=1$& $1/4$ & $1/4$ & $1/2$ \\ \hline
+& $1/2$ & $1/2$ & $1$\\ \hline
+\end{tabular}
+\end{center}
+From the above Table we can read for instance that the {\em joint probability} that $\Rz^2$-valued RV $(X_1,X_2)$ takes the value or realization $(0,0)$ is $1/4$ from the first entry of the inner-most tabulated rectangle, 
+i.e., $\p((X_1,X_2)=(0,0))=1/4$, 
+and that the {\em marginal probability} that the RV $X_1$ takes the value or relaization $0$ is $1/2$, 
+i.e., $\p(X_1=0)=1/2$. 
+Clearly, $1/4=1/2 \times 1/2$, and so our familiar experiment when seen as an $\Rz^2$-valued RV is indeed composed of two independent$\Rz$-valued $\bernoulli(1/2)$ RVs. 
+\end{example}
+
+\begin{example}
+Recall the $\Rz^2$-valued continuous RV $(X,Y)$ of \hyperref[Eg:Unif2DPDFandCDF]{Example~\ref*{Eg:Unif2DPDFandCDF}} 
+that is uniformly distributed on the unit square $[0,1]^2$. 
+First show that $X$ and $Y$ independent. 
+Then show that both $X$ and $Y$ are identically distributed according to the $\uniform(0,1)$ RV. 
+
+This can be shown by checking that the joint PDF is indeed equal to the product of the marginal PDFs of $\uniform(0,1)$ RVs as follows:
+\[
+\begin{cases}
+1= f_{X,Y}(x,y) =  f_X(x) \times f_Y(y) = 1 \times 1 = 1 & \text{ if } (x,y) \in [0,1]^2\\
+0= f_{X,Y}(x,y) =  f_X(x) \times f_Y(y) = 0 \times 0 = 0 & \text{ if } (x,y) \notin [0,1]^2
+\end{cases}
+\]
+\end{example}
+
+Are $X$ and $Y$ independent in the server times \rv~from \hyperref[Eg:PlotPDF2ServerTimes]{Example~\ref*{Eg:PlotPDF2ServerTimes}}?
+
+We can compute $f_X(x)$ and use the already computed $f_Y(y)$ to mechanically check if the JPDF is the product of the marginal PDFs.  But intuitively, we know that these RVs (connection time and authentication time) are dependent -- one is strictly greater than the other.  
+Also the JPDF has zero density when $x>y$, but the product of the marginal densities won't.
+
+Now, let us take advantage of independent random variables and solve some problems.
+
+\begin{example}[distcance between random faults in a manufactured line]
+Suppose two points are tossed independently and uniformly at random onto a line segment of unit length.  
+What is the probability that the distance between the two points does not exceed a given length $l$? 
+
+\vspace{5cm}
+done in lectures...
+
+\end{example}
+
+\begin{example}[Buffon's Needle Experiment to Physically Estimate $\pi$]
+~
+
+done in lectures...
+\vspace{5cm}
+
+\end{example}
+
+Often we will have a condition where one of the two random variables that make up a random vector $(X_1,X_2)$ already occurs and takes a value. 
+And we might want to compute the probability of the occurrence of the other random variable given this conditional information.
+For this all we need to do is extend the idea of conditional probabiliies to $\Rz^2$-valued random variables as defined below.
+
+\begin{definition}[Conditional PDF or PMF]
+Let $(X_1,X_2)$ be a discrete bivariate \rv.  The conditional PMF of $X_1|X_2=x_2$, where $f_{X_2}(x_2) := \p(X_2=x_2) > 0$ is:
+\[
+f_{X_1|X_2}(x_1 | x_2) := \p(X_1=x_1 | X_2=x_2) = \frac{\p(X_1=x_1,X_2=x_2)}{\p(X_2=x_2)} = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_2}(x_2)} \ .
+\]
+Similarly, if $f_{X_1}(x_1) := \p(X_1=x_1) >0$, then the conditional PMF of $X_2|X_1=x_1$ is:
+\[
+f_{X_2|X_1}(x_2|x_1) := \p(X_2=x_2 | X_1=x_1) = \frac{\p(X_1=x_1,X_2=x_2)}{\p(X_1=x_1)} = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_1}(x_1)} \ .
+\]
+If $(X_1,X_2)$ are continuous RVs such that the marginal PDF $f_{X_2}(x_2)>0$, then the conditional PDF of $X_1|X_2=x_2$ is:
+\[
+f_{X_1|X_2}(x_1|x_2) = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_2}(x_2)}, \qquad \p(X_1 \in A| X_2=x_2) = \int_A f_{X_1|X_2}(x_1|x_2) dx_1 \ .
+\]
+Similarly, if $f_{X_1}(x_1)>0$, then the conditional PDF of $X_2|X_1=x_1$ is:
+\[
+f_{X_2|X_1}(x_2|x_1) = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_1}(x_1)}, \qquad \p(X_2 \in A| X_1=x_1) = \int_A f_{X_2|X_1}(x_2|x_1) dx_2 \ .
+\]
+\end{definition}
+
+\newpage
+
+\subsection{$\Rz^m$-valued Random Variables}
+
+%Extension to multivariate random vectors that are made of more than two RVs is straightforward.  
+Consider the \rv~ $X$ whose components are the RVs $X_1,X_2,\ldots,X_m$, i.e., $X := (X_1,X_2,\ldots,X_m)$, where $m \geq 2$.  
+A particular realization of this RV is a point $(x_1,x_2,\ldots,x_m)$ in $\Rz^m$.  
+Now, let us extend the notions of JCDF, JPMF and JPDF to $\Rz^m$.  
+
+\begin{definition}[multivariate JDF]\label{Df:JmDF}
+The {\bf joint distribution function (JDF)} or {\bf joint cumulative distribution function (JCDF)}, $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m):\mathbb{R}^m\to [0,1]$, of the multivariate random vector $(X_1,X_2,\ldots,X_m)$ is
+\begin{eqnarray}\label{E:jmDF}
+F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)\; 
+&=& P(X\leq x_1 \cap X_2 \leq x_2 \cap \cdots \cap X_m \leq x_m)\notag\\ 
+&=& P(X_1\leq x_1 , X_2 \leq x_2, \ldots, X_m \leq x_m)\\
+&=& P\left( \{ \omega: X_1(\omega) \leq x_1, X_2(\omega) \leq x_2, \ldots, X_m(\omega) \leq x_m \} \right), \notag
+\end{eqnarray}
+for any $(x_1,x_2,\ldots,x_m) \in \mathbb{R}^m$, 
+where the right-hand side represents the probability that the random vector $(X_1,X_2,\ldots,X_m)$ takes on a value in 
+$\{(x'_1,x'_2,\ldots,x'_m): x'_1 \leq x_1, x'_2 \leq x_2, \ldots, x'_m \leq x_m\}$, the set of points in $\Rz^m$ that are less than the point $(x_1,x_2,\ldots,x_m)$ in each coordinate $1,2,\ldots,m$.
+\end{definition}
+
+The JDF $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m):\Rz^m\to\Rz$ satisfies the following conditions to remain a probability: 
+\begin{enumerate}
+\item $0 \leq F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) \leq 1$
+\item $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)$ is an increasing function of $x_1$, $x_2$, $\ldots$ and $x_m$
+\item $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) \to 1$ as $x_1\to \infty$, $x_2\to \infty$, $\ldots$ and $x_m\to \infty$
+\item $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) \to 0$ as $x_1\to -\infty$, $x_2\to -\infty$, $\ldots$ and $x_m\to -\infty$
+\end{enumerate}
+
+\begin{definition}[Multivariate JPMF]
+If $(X_1,X_2,\ldots,X_m)$ is a {\bf discrete random vector} that takes values in a discrete support set $\mathcal{S}_{X_1,X_2,\ldots,X_m}$, then its \textbf{joint probability mass function} (or JPMF) is:
+\begin{equation}\label{Eq:jmDPMF}
+f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) = P(X_1=x_1,X_2=x_2,\ldots,X_m=x_m) \enspace . 
+\end{equation}
+\end{definition}
+Since $P(\Omega)=1$, $\sum_{{\substack{(x_1,x_2,\ldots,x_m) \in \mathcal{S}_{X_1,X_2,\ldots,X_m}}}}f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)=1$.
+
+From JPMF $f_{X_1,X_2,\ldots,X_m}$ we can get the JCDF $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)$ and the probability of any event $B$ by simply taking sums as in Equation~\eqref{Eq:2DiscretejDFFromjPMF} but now over all $m$ coordinates.
+%\begin{equation}\label{Eq:2DiscretejDFFromjPMF}
+%\boxed{F_{X_1,X_2,\ldots,X_m}(x,y)\;=\;\sum_{x_i\leq x, y_j \leq y}f_{X_1,X_2,\ldots,X_m}(x_i,y_j) }\enspace ,
+%\qquad \boxed{P(B)\;=\;\sum_{\substack{(x_i, y_j) \in B \cap \mathcal{S}_{X_1,X_2,\ldots,X_m}}}f_{X_1,X_2,\ldots,X_m}(x_i,y_j) }\enspace ,
+%\end{equation}
+
+\begin{definition}[Multivariate JPDF]
+$(X_1,X_2,\ldots,X_m)$ is a {\bf continuous random vector} if its JDF $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)$ is differentiable and the {\bf joint probability density function (JPDF)} is given by:
+\[
+f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) = \frac{\partial^m}{\partial x_1 \partial x_2 \cdots \partial x_m} F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) \enspace ,
+\]
+\end{definition}
+
+From JPDF $f_{X_1,X_2,\ldots,X_m}$ we can compute the JDF $F_{X_1,X_2,\ldots,X_m}$ at any point $(x_1,x_2,\ldots,x_m) \in \Rz^m$ and more generally we can compute the probability of any event $B$, that can be cast as a region in $\Rz^m$, by ``simply'' taking $m$-dimensional integrals (you have done such iterated integrals when $m=3$):
+\begin{equation}\label{Eq:mContjDFFromjPDF}
+\boxed{F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) = \int_{-\infty}^{x_m} \cdots \int_{-\infty}^{x_2} \int_{-\infty}^{x_1} f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) dx_1 dx_2\ldots d x_m}\enspace ,
+\end{equation}
+and
+\begin{equation}\label{Eq:mContProbEventFromjPDF}
+\boxed{P(B)\;=\; \int\cdots\int\int_{B} f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) dx_1 dx_2\ldots d x_m}\enspace .
+\end{equation}
+The JPDF satisfies the following two properties:
+\be
+\item integrates to $1$, i.e., $\int_{-\infty}^{\infty} \cdots \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) dx_1 dx_2\ldots d x_m=1$
+\item is a non-negative function, i.e., $f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) \geq 0$.
+\ee
+
+The marginal PDF (marginal PMF) is obtained by integrating (summing) the JPDF (JPMF) over all other random variables.  
+For example, the marginal PDF of $X_1$ is
+\[
+f_{X_1}(x_1) =
+\int_{x_2=-\infty}^{\infty}\cdots \int_{x_m=-\infty}^{\infty} f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) dx_2\ldots d x_m 
+\]
+
+\begin{definition}[Independence of Sequence of RVs]\label{D:IndRVs}
+A finite or infinite sequence of RVs $X_1,X_2,\ldots$ is said to be independent or independently distributed if and only if
+\[
+\p(X_{i_1} \leq x_{i_1}, X_{i_2} \leq x_{i_2}, \ldots,  X_{i_k} \leq x_{i_k} ) = \p(X_{i_1} \leq x_{i_1}) \p(X_{i_2} \leq x_{i_2}) \cdots,  \p(X_{i_k} \leq x_{i_k} )
+\]
+or equivalently,
+\[
+F_{X_{i_1},X_{i_2},\ldots,X_{i_m}}(x_{i_1},x_{i_2},\ldots,x_{i_m}) = F_{X_{i_1}}(x_{i_1}) F_{X_{i_2}}(x_{i_2}) \cdots F_{X_{i_m}}(x_{i_m}) \enspace ,
+\]
+for any distinct subset of indices $\{i_1,i_2,\ldots,i_m\}$ of $\{1,2,\ldots\}$, the index set of the sequence of RVs and any sequence of real numbers $x_{i_1},x_{i_2},\ldots,x_{i_m}$.
+
+By the above definition, the sequence of {\bf discrete} RVs $X_1,X_2,\ldots$ taking values in an at most countable set $\Dz$ are said to be independently distributed if for any distinct subset of indices $\{i_1,i_2,\ldots,i_k\}$ such that the corresponding RVs $X_{i_1},X_{i_2},\ldots,X_{i_k}$ exists as a distinct subset of our original sequence of RVs $X_1,X_2,\ldots$ and for any elements $x_{i_1}, x_{i_2},\ldots,x_{i_k}$ in $\Dz$, the following equality is satisfied:
+\[
+\p(X_{i_1}= x_{i_1}, X_{i_2} = x_{i_2}, \ldots,  X_{i_k} = x_{i_k} ) = \p(X_{i_1} = x_{i_1}) \p(X_{i_2} = x_{i_2}) \cdots  \p(X_{i_k} = x_{i_k})
+\]
+\end{definition}
+For an independent sequence of RVs $\{X_1,X_2,\ldots\}$, we have
+\begin{eqnarray}
+&&\p(X_{i+1} \leq x_{i+1} | X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1) \notag\\
+\notag \\
+&=& \frac{\p(X_{i+1} \leq x_{i+1}, X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1)}{\p(X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1)} \notag \\
+\notag \\
+&=& \frac{\p(X_{i+1} \leq x_{i+1}) \p(X_{i} \leq x_{i}) \p(X_{i-1} \leq x_{i-1}) \cdots \p(X_1 \leq x_1)}{\p(X_{i} \leq x_{i}) \p(X_{i-1} \leq x_{i-1}) \cdots \p(X_1 \leq x_1)} \notag \\
+\notag \\
+&=& \p(X_{i+1} \leq x_{i+1}) \notag 
+\end{eqnarray}
+The above equality that 
+\[
+\p(X_{i+1} \leq x_{i+1} | X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1) =  \p(X_{i+1} \leq x_{i+1}) 
+\]
+simply says that the conditional distribution of the RV $X_{i+1}$ given all previous RVs $X_i,X_{i-1},\ldots,X_1$ is simply determined by the distribution of $X_{i+1}$.
+
+When a sequence of RVs are not independent they are said to be {\bf dependent}.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% this is from old CSE book and should be banished....
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\comment{
+Let us try to relate some discrete probability models to the Quincunx.  First, we need to introduce simple random vectors, i.e.~ordered pairs, ordered triples, or more generally ordered $m$-tuples of random variables $X := (X_1,X_2,\ldots,X_m)$ as $\Rz^m$-valued random variables.  
+
+\begin{definition}[Joint PDF, PMF, CDF]
+A function $f_{X_1,X_2}(x_1,x_2)$ or more simply $f(x_1,x_2)$ is called a {\bf joint PDF (or PMF)} for the ordered pair of random variables or $\Rz^2$-valued RV or \rv  $X := (X_1,X_2)$ if:
+\begin{enumerate}
+\item $f(x_1,x_2) \geq 0$ for all $(x_1,x_2) \in \Rz^2$
+\item
+$$
+1= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} dF(x_1,x_2) =
+\begin{cases}
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x_1,x_2) dx_1 dx_2 & \text{if $(X_1,X_2)$ are continuous}  \\
+\sum_{x_1} \sum_{x_2} f(x_1,x_2) & \text{if $(X_1,X_2)$ are discrete} \\
+\end{cases}
+$$
+\item for any event $A \subset \Rz^2$,
+$$
+\p(A) =  \int \int_{A} dF(x_1,x_2) =
+\begin{cases}
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \BB{1}_A((x_2,x_2)) f(x_1,x_2) dx_1 dx_2 & \text{if $(X_1,X_2)$ are continuous}  \\
+\sum_{x_1} \sum_{x_2}  \BB{1}_A((x_2,x_2)) f(x_1,x_2) & \text{if $(X_1,X_2)$ are discrete} \\
+\end{cases}
+$$
+\end{enumerate}
+where, $F_{X_1,X_2}(x_1,x_2)$ of simply $F(x_1,x_2)$ is the {\bf joint CDF or joint DF} for discrete or continuous $\Rz^2$-valued RV $(X_1,X_2)$ gives the probability of the ``south-west corner'' of $(x_1,x_2)$ as follows:
+\[
+F(x_1,x_2) := \p(X_1 \leq x_1, X_2 \leq x_2) \ .
+\]
+\end{definition}
+
+\begin{definition}[Marginal PDF or PMF]
+If the \rv~$(X_1,X_2)$ has $f(x_1,x_2)$ as its joint density, i.e.~joint PDF or joint PMF, then the {\bf marginal PDF or PMF} of $X_1$ is defined by:
+\[
+f(x_1) = \p(X_1=x_1) =
+\begin{cases}
+\int_{-\infty}^{\infty} f(x_1,x_2) dx_2 & \text{if $(X_1,X_2)$ are continuous}  \\
+\sum_{x_2} f(x_1,x_2) & \text{if $(X_1,X_2)$ are discrete} \\
+\end{cases}
+\]
+and the  {\bf marginal PDF or PMF} of $X_2$ is defined by:
+\[
+f(x_2) = \p(X_2=x_2) =
+\begin{cases}
+\int_{-\infty}^{\infty} f(x_1,x_2) dx_1 & \text{if $(X_1,X_2)$ are continuous}  \\
+\sum_{x_1} f(x_1,x_2) & \text{if $(X_1,X_2)$ are discrete} \\
+\end{cases}
+\]
+\end{definition}
+
+\begin{example}[Bivariate Uniform]  Let $(X_1,X_2)$ be uniformly distributed on the square $[0,1]^2 := [0,1] \times [0,1]$.  Then,
+\[
+f(x_1,x_2) = \BB{1}_{[0,1]^2}(x_1,x_2) \ .
+\]
+Let the rectangular event $A=\{X_1 < 1/3, Y < 1/2 \} \subset [0,1]^2$.  By integrating the joint PDF over $A$, which amounts here to finding the area of $A$, we compute $\p(A) = (1/3) (1/2) = 1/6$.  Note that the marginal PDF of $X_1$ or $X_2$ is the PDF of the $\uniform(0,1)$ RV.
+\end{example}
+
+}% this is from old CSE book and should be banished....
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newpage
 
 \section{Expectations}\label{S:Expectations}
-It is convenient to summarise a RV by a single number.  This single number can be made to represent some average or expected feature of the RV via an integral with respect to the density of the RV.  
+
+Expectation is perhaps the most fundamental concept in probability theory. In fact, probability is itself an expectation as you will soon see!
+
+Expectation is one of the fundamental concepts in probability.  The
+expected value of a real-valued random variable gives the population mean, a measure of the
+centre of the distribution of the variable in some sense.  
+Its variance measures its spread and so on.
 
 \begin{definition}[Expectation of a RV]
 The {\bf expectation}, or {\bf expected value}, or {\bf mean}, or {\bf first moment}, of a random variable $X$, with distribution function $F$ and density $f$, is defined to be
@@ -321,29 +1020,130 @@ as the $k$-th moment of the RV $X$ and say that the $k$-th moment exists when $\
 \]
 \end{definition}
 
-\subsection*{Properties of Expectations}
+%%%%%%%%%%%%%%%%%%%%%%%%% fromPrsStEng
 
-\begin{enumerate}
-\item If the $k$-th moment exists and if $j<k$ then the $j$-th moment exists.
+\subsection{Expectations of functions of random variables}\label{S:ExpectationsOfFunsOfRVs}
 
-\item If $X_1,X_2,\ldots,X_n$ are RVs and $a_1,a_2,\ldots,a_n$ are constants, then 
+More generally, by taking the expected value of various functions of a random variable, we can measure many interesting features of its distribution, including spread and correlation.
+
+\begin{definition}[Expectation of a function of a RV]\label{Df:expectation}
+The \textbf{Expectation} of a function $g(X)$ of a random variable $X$ is defined as:
+\[
+E(g(X))\; :=\; \int g(x) dF(x) = 
+\begin{cases}
+\displaystyle \sum_x g(x) f(x) & \text{if $X$ is a discrete RV}\\[12pt]
+\displaystyle \int_{-\infty}^{\infty} g(x) f(x) dx & \text{if $X$ is a continuous RV}
+\end{cases}
+\]
+provided $E(g(X))$ exists, i.e., $\int |g(x)| dF(x) < \infty$.
+\end{definition}
+
+The {\bf mean} which characterises the central location of the random variable $X$ is merely the expectation of the identity function $g(x)=x$:
+\[
+E(X)\; =\;
+\begin{cases}
+\displaystyle \sum_x x f(x) & \text{if $X$ is a discrete RV}\\[12pt]
+\displaystyle\int_{-\infty}^{\infty} x f(x) dx & \text{if $X$ is a
+  continuous RV}
+\end{cases}
+\]
+Often, mean is denoted by $\mu$.
+
+The \textbf{variance} which characterises the spread or the
+  variability of the random variable $X$ is also the expectation of the
+  function $g(x)=(x-E(X))^2$:
+\[
+V(X)\; =\; E \left( (X-E(X))^2 \right)\; =\;
+\begin{cases}
+\displaystyle\sum_x (x-E(X))^2 f(x) & \text{if $X$ is a discrete RV}\\[12pt]
+\displaystyle\int_{-\infty}^{\infty} (x-E(X))^2 f(x) dx & \text{if $X$ is a continuous RV}
+\end{cases}
+\] 
+Often, variance is denoted by $\sigma^2$. 
+
+%\begin{framed}
+INTUITIVELY, WHAT IS EXPECTATION?\\
+
+Definition \ref{Df:expectation} gives expectation as a ``weighted average'' of the possible values. This is true but some intuitive idea of expectation is also helpful.
+\begin{itemize}
+\item Expectation is what you expect. \\[6pt]
+Consider tossing a fair coin. If it is heads you lose \$10. If it is tails you win \$10. What do you expect to win? Nothing. If $X$ is the amount you win then $$E(X)\;=\;-10\times \frac{1}{2}+10\times \frac{1}{2}\;=\;0\,.$$
+
+So what you expect (nothing) and the weighted average ($E(X)=0$) agree.
+
+
+\item Expectation is a long run average.\\[6pt]
+Suppose you are able to repeat an experiment independently, over and over again. 
+Each experiment produces one value $x$ of a random variable $X$.  
+If you take the average of the $x$ values for a large number of trials, then this average converges to $E(X)$ as the number of trials grows.  In fact, this is called the {\bf law of large numbers}.
+\end{itemize}
+%\end{framed}
+
+\subsection*{Properties of expectations}
+The following results, where $a$ is a  constant, may easily be
+proved using the properties of summations and integrals:
+
+\bit
+\item[] $\boxed{E(a ) \,=\, a}$
+
+\item[] $\boxed{E(a \,g(X)) \,=\, a\, E(g(X))}$
+
+\item[] $\boxed{E(g(X)+h(X))  \,=\, E(g(X)) \,+\, E(h(X))}$
+\eit
+Note that here  $g(X)$ and $h(X)$ are functions of the random variable
+$X$: e.g.  $g(X)=X^2$.
+
+Using these results we can obtain the following useful formula for variance:
+\begin{eqnarray*}
+V(X)
+&=& E\left((X-E(X))^2\right)\\[3pt]
+& =& E \left( X^2 - 2 X E(X) + (E(X))^2 \right) \\[3pt]
+&=& E ( X^2) - E \left( 2 X E(X) \right) + E \left( (E(X))^2
+\right)\\[3pt]
+& =& E ( X^2) - 2 E(X) E \left( X \right) + (E(X))^2 \\[3pt]
+&=& E ( X^2) - 2 (E(X))^2 + (E(X))^2\\[3pt]
+&=& E(X^2) - (E(X))^2 \enspace .
+\end{eqnarray*}
+That is, \[
+\boxed{
+V(X) \;=\; E(X^2) \,- \,(E(X))^2
+}.
+\]
+
+The above properties of expectations imply that for constants $a$ and $b$,
+%V(aX+b) = a^2 V(X) \enspace .
+\begin{equation}\label{E:VofAffineofRVs}
+\boxed{
+\V(aX+b) = a^2\V(X) \ . 
+}
+\end{equation}
+
+More generally, for random variables $X_1,X_2,\ldots,X_n$ and constants $a_1,a_2,\ldots,a_n$
+\begin{itemize}
+\item
 \begin{equation}\label{E:EofLinCombofRVs}
 \e \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i \e(X_i) \ .
 \end{equation}
+%E \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i E(X_i)}$
+%\smallskip
+\item
+%$\boxed{V \left(  \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 V(X_i)}$, provided $X_1,X_2,\ldots,X_n$ are independent
+\begin{equation}\label{E:VofLinCombofRVs}
+\V \left(  \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 \V(X_i) , \text{ provided $X_1,X_2,\ldots,X_n$ are independent}\ .
+\end{equation}
 \item Let $X_1,X_2,\ldots,X_n$ be independent RVs, then
 \begin{equation}\label{E:EofProdIndRVs}
-\e \left(  \prod_{i=1}^n X_i \right) = \prod_{i=1}^{n} \e(X_i) \ .
+\e \left(  \prod_{i=1}^n X_i \right) = \prod_{i=1}^{n} \e(X_i) , \text{ provided $X_1,X_2,\ldots,X_n$ are independent}\ .
 \end{equation}
-\item $\V(X) = \e(X^2) - (\e(X))^2$ \ . [prove by completing the square and applying \eqref{E:EofLinCombofRVs}]
-\item If $a$ and $b$ are constants then:
-\begin{equation}\label{E:VofAffineofRVs}
-\V(aX+b) = a^2\V(X) \ . 
-\end{equation}
-\item If $X_1,X_2,\ldots,X_n$ are independent and $a_1,a_2,\ldots,a_n$ are constants, then:
-\begin{equation}\label{E:VofLinCombofRVs}
-\V \left(  \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 \V(X_i) \ .
-\end{equation}
-\end{enumerate}
+\end{itemize}
+
+%\item If the $k$-th moment exists and if $j<k$ then the $j$-th moment exists.
+
+%\item $\V(X) = \e(X^2) - (\e(X))^2$ \ . [prove by completing the square and applying \eqref{E:EofLinCombofRVs}]
+%\item If $a$ and $b$ are constants then:
+%\item If $X_1,X_2,\ldots,X_n$ are independent and $a_1,a_2,\ldots,a_n$ are constants, then:
+%\end{enumerate}
+
 
 \paragraph{Mean and variance of $\bernoulli(\theta)$ RV:}
 Let $X \sim \bernoulli(\theta)$.  Then, 
@@ -414,36 +1214,40 @@ Thus, probability is a special case of expectation.  Recall our LTRF motivation 
 %\]
 %\end{example}
 
-\section{Stochastic Processes}\label{S:StochProc}
-\begin{definition}[Independence of RVs]\label{D:IndRVs}
-A finite or infinite sequence of RVs $X_1,X_2,\ldots$ is said to be independent or independently distributed if
-\[
-\p(X_{i_1} \leq x_{i_1}, X_{i_2} \leq x_{i_2}, \ldots,  X_{i_k} \leq x_{i_k} ) = \p(X_{i_1} \leq x_{i_1}) \p(X_{i_2} \leq x_{i_2}) \cdots,  \p(X_{i_k} \leq x_{i_k} )
-\]
-for any distinct subset $\{i_1,i_2,\ldots,i_l\}$ of indices of the sequence of RVs and any sequence of real numbers $x_{i_1},x_{i_2},\ldots,x_{i_k}$.
+\subsection{Expectations of functions of $\Rz^2$-valued random variables}\label{S:ExpectationsOfFunsOf2RVs}
 
-By the above definition, the sequence of {\bf discrete} RVs $X_1,X_2,\ldots$ taking values in an at most countable set $\Dz$ are said to be independently distributed if for any distinct subset of indices $\{i_1,i_2,\ldots,i_k\}$ such that the corresponding RVs $X_{i_1},X_{i_2},\ldots,X_{i_k}$ exists as a distinct subset of our original sequence of RVs $X_1,X_2,\ldots$ and for any elements $x_{i_1}, x_{i_2},\ldots,x_{i_k}$ in $\Dz$, the following equality is satisfied:
+In the case of a single random variable we saw that its expectation gives the population mean, 
+a measure of the center of the distribution of the variable in some sense.  
+Similarly, by taking the expected value of various functions of a $\Rz^2$-valued random variable, we can measure many interesting features of its joint distribution.
+
+\begin{definition}\label{Df:2expectation}
+The \textbf{Expectation} of a function $g(X,Y)$ of the $\Rz^2$-valued RV $(X,Y)$ is defined as:
 \[
-\p(X_{i_1}= x_{i_1}, X_{i_2} = x_{i_2}, \ldots,  X_{i_k} = x_{i_k} ) = \p(X_{i_1} = x_{i_1}) \p(X_{i_2} = x_{i_2}) \cdots  \p(X_{i_k} = x_{i_k})
+E(g(X,Y))\; =\;
+\begin{cases}
+\displaystyle \sum_{(x,y)} g(x,y) f_{X,Y}(x,y) & \text{if $(X,Y)$ is a discrete \rv}\\[12pt]
+\displaystyle \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x,y) f_{X,Y}(x,y) dx dy & \text{if $(X,Y)$ is a continuous \rv}
+\end{cases}
 \]
 \end{definition}
-For an independent sequence of RVs $\{X_1,X_2,\ldots\}$, we have
-\begin{eqnarray}
-&&\p(X_{i+1} \leq x_{i+1} | X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1) \notag\\
-\notag \\
-&=& \frac{\p(X_{i+1} \leq x_{i+1}, X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1)}{\p(X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1)} \notag \\
-\notag \\
-&=& \frac{\p(X_{i+1} \leq x_{i+1}) \p(X_{i} \leq x_{i}) \p(X_{i-1} \leq x_{i-1}) \cdots \p(X_1 \leq x_1)}{\p(X_{i} \leq x_{i}) \p(X_{i-1} \leq x_{i-1}) \cdots \p(X_1 \leq x_1)} \notag \\
-\notag \\
-&=& \p(X_{i+1} \leq x_{i+1}) \notag 
-\end{eqnarray}
-The above equality that 
-\[
-\p(X_{i+1} \leq x_{i+1} | X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1) =  \p(X_{i+1} \leq x_{i+1}) 
-\]
-simply says that the conditional distribution of the RV $X_{i+1}$ given all previous RVs $X_i,X_{i-1},\ldots,X_1$ is simply determined by the distribution of $X_{i+1}$.
 
-When a sequence of RVs are not independent they are said to be {\bf dependent}.  
+Some typical expectations for $\Rz^2$-valued random variables are:
+
+\be
+\item Joint Moments
+\[
+E(X^r Y^s)
+\]
+\item 
+We need a new notion for the variance of two RVs.
+
+If $E(X^2) < \infty$ and $E(Y^2) < \infty$ then $E(|X Y|) < \infty$ and $E(|(X-E(X))(Y-E(Y))|) < \infty$.  This allows the definition of {\bf covariance} of $X$ and $Y$ as
+\[
+\cv(X,Y) := E \left((X-E(X))(Y-E(Y))\right) = E(X Y) - E(X) E(Y)
+\]
+\ee
+
+\section{Stochastic Processes}\label{S:StochProc}
 
 \begin{definition}[Stochastic Process]
 A collection of RVs  \[

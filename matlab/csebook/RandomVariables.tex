@@ -642,7 +642,7 @@ f_Y(y) =
 
 \newpage
 
-\section{Random Vectors as $\Rz^m$-valued Random Variables}\label{S:RVecs}
+\section{$\Rz^m$-valued Random Variables}\label{S:RVecs}
 
 Often, in experiments we are measuring two or more aspects simultaneously.  
 For example, we may be measuring the diameters and lengths of cylindrical shafts manufactured in a plant or heights, weights and blood-sugar levels of individuals in a clinical trial.  
@@ -1562,76 +1562,6 @@ Let $A$ be an event and let $r(X)=\BB{1}_{A}(x)$.  Recall $\BB{1}_A(x)$ is $1$ i
 Thus, probability is a special case of expectation.  Recall our LTRF motivation for the definition of probability and make the connection.
 \end{example}
 
-Next, let us compute the mean and variance of our two familiar RVs.
-
-\paragraph{Mean and variance of $\bernoulli(\theta)$ RV:}
-Let $X \sim \bernoulli(\theta)$.  Then, 
-\[
-\e(X) = \sum_{x=0}^1 x f(x) = (0 \times (1-\theta)) + (1 \times \theta) = 0+\theta=\theta \ ,
-\]
-\[
-\e(X^2) =  \sum_{x=0}^1 x^2 f(x) =  (0^2 \times (1-\theta) ) + (1^2 \times \theta) = 0+\theta= \theta \ ,
-\]
-\[
-\V(X) = \e(X^2) - (\e(X))^2 = \theta - \theta^2 = \theta(1-\theta) \ .
-\]
-Parameter specifically,
-\[
-\e_{\theta}(X)=\theta \qquad \text{and} \qquad \V_{\theta}(X)=\theta(1-\theta) \ .
-\]
-\begin{figure}[htpb]
-\caption{Mean ($\e_{\theta}(X)$), variance ($\V_{\theta}(X)$) and the rate of change of variance ($\frac{d}{d \theta} \V_{\theta}(X)$) of a $\bernoulli(\theta)$ RV $X$ as a function of the parameter $\theta$.\label{F:MeanVarBernoulli}}
-\centering   \makebox{\includegraphics[width=5.0in]{figures/PlotMeanVarBernoulli}}
-\end{figure}
-
-Maximum of the variance $\V_{\theta}(X)$ is found by setting the derivative to zero, solving for $\theta$ and showing the second derivative is locally negative, i.e.~$\V_{\theta}(X)$ is concave down:
-\[
-\V_{\theta}'(X) := \frac{d}{d \theta} \V_{\theta}(X) = 1-2 \theta = 0  \iff \theta = \frac{1}{2} \ , 
-\qquad \V_{\theta}''(X) := \frac{d}{d \theta} \left( \frac{d}{d \theta} \V_{\theta}(X) \right) = -2 < 0 \ ,
-\]
-\[
-\max_{\theta \in [0,1]} \V_{\theta}(X) = \frac{1}{2} \left(1-\frac{1}{2} \right) = \frac{1}{4} \ , 
-\text{since $\V_{\theta}(X)$ is maximized at $\theta = \frac{1}{2}$}
-\]
-The plot depicting these expectations as well as the rate of change of the variance are depicted in \hyperref[F:MeanVarBernoulli]{Figure \ref*{F:MeanVarBernoulli}}.  Note from this Figure that $\V_{\theta}(X)$ attains its maximum  value of $1/4$ at $\theta=0.5$ where $\frac{d}{d\theta}\V_{\theta}(X)=0$.  Furthermore, we know that we don't have a minimum at $\theta=0.5$ since the second derivative $\V_{\theta}''(X) = -2$ is negative for any $\theta \in [0,1]$.  This confirms that $\V_{\theta}(X)$ is concave down and therefore we have a maximum of $\V_{\theta}(X)$ at $\theta=0.5$.  We will revisit this example when we employ a numerical approach called Newton-Raphson method to solve for the maximum of a differentiable function by setting its derivative equal to zero.
-
-\paragraph{Mean and variance of $\uniform(0,1)$ RV:}
-Let $X \sim \uniform(0,1)$.  Then, 
-\[
-\e(X) = \int_{x=0}^1 x f(x)\, dx = \int_{x=0}^1 x \ 1 \, dx = \frac{1}{2} \left( x^2 \right]_{x=0}^{x=1} = \frac{1}{2} \left( 1-0 \right) = \frac{1}{2} \ ,
-\]
-\[
-\e(X^2) = \int_{x=0}^1 x^2 f(x)\, dx = \int_{x=0}^1 x^2 \ 1 \, dx =  \frac{1}{3} \left( x^3 \right]_{x=0}^{x=1} = \frac{1}{3} \left( 1-0 \right) = \frac{1}{3} \ ,
-\]
-\[
-\V(X) = \e(X^2) - (\e(X))^2 = \frac{1}{3}  - \left( \frac{1}{2} \right)^2  = \frac{1}{3}  - \frac{1}{4} = \frac{1}{12} \ .
-\]
-
-\begin{example}[Expected Exponential of the $Uniform(0,1)$ RV]
-Let $X \sim Uniform(0,1)$ and $Y=r(X)=e^X$.  Compute $\e(Y)$. 
-
-We can simply apply the definition of $\e(r(X))$, since $Y=r(X)$, is just a function of $X$, as follows: 
-\[
-\e(Y) = \int_0^1 e^x f(x) dx = \int_0^1 e^x 1 \ dx = e-1 \ .
-\]
-%You could have also found out that the density $f(y)=1/y$ for the RV $Y$, provided $1<y<e$, and $0$ otherwise.  Again,
-%\[
-%\e(Y) = \int_1^e y f(y) dy = \int_1^e y \frac{1}{y} dy = \int_1^e 1 \ dy = e-1 \ .
-%\]
-\end{example}
-
-\paragraph{Mean and Variance of $\exponential(\lambda)$:}
-Show that the mean of an $\exponential(\lambda)$ RV $X$ is:
-\[
-\e_{\lambda}(X) = \int_{0}^{\infty} x f(x;\lambda)\,dx
-=   \int_{0}^{\infty} x \lambda e^{-\lambda x}\,dx
-= \frac{1}{\lambda} \ ,
-\]
-and the variance is:
-\[
-\V_{\lambda}(X) = \left(  \frac{1}{\lambda} \right)^2 \ .
-\]
-
 \subsection*{Expectations of functions of $\Rz^2$-valued random variables}\label{S:ExpectationsOfFunsOf2RVs}
 
 In the case of a single random variable we saw that its expectation gives the population mean, 
@@ -1762,6 +1692,76 @@ More generally, for random variables $X_1,X_2,\ldots,X_n$ and constants $a_1,a_2
 %\item If $a$ and $b$ are constants then:
 %\item If $X_1,X_2,\ldots,X_n$ are independent and $a_1,a_2,\ldots,a_n$ are constants, then:
 %\end{enumerate}
+Next, let us compute the mean and variance of our familiar RVs.
+
+\paragraph{Mean and variance of $\bernoulli(\theta)$ RV:}
+Let $X \sim \bernoulli(\theta)$.  Then, 
+\[
+\e(X) = \sum_{x=0}^1 x f(x) = (0 \times (1-\theta)) + (1 \times \theta) = 0+\theta=\theta \ ,
+\]
+\[
+\e(X^2) =  \sum_{x=0}^1 x^2 f(x) =  (0^2 \times (1-\theta) ) + (1^2 \times \theta) = 0+\theta= \theta \ ,
+\]
+\[
+\V(X) = \e(X^2) - (\e(X))^2 = \theta - \theta^2 = \theta(1-\theta) \ .
+\]
+Parameter specifically,
+\[
+\e_{\theta}(X)=\theta \qquad \text{and} \qquad \V_{\theta}(X)=\theta(1-\theta) \ .
+\]
+\begin{figure}[htpb]
+\caption{Mean ($\e_{\theta}(X)$), variance ($\V_{\theta}(X)$) and the rate of change of variance ($\frac{d}{d \theta} \V_{\theta}(X)$) of a $\bernoulli(\theta)$ RV $X$ as a function of the parameter $\theta$.\label{F:MeanVarBernoulli}}
+\centering   \makebox{\includegraphics[width=5.0in]{figures/PlotMeanVarBernoulli}}
+\end{figure}
+
+Maximum of the variance $\V_{\theta}(X)$ is found by setting the derivative to zero, solving for $\theta$ and showing the second derivative is locally negative, i.e.~$\V_{\theta}(X)$ is concave down:
+\[
+\V_{\theta}'(X) := \frac{d}{d \theta} \V_{\theta}(X) = 1-2 \theta = 0  \iff \theta = \frac{1}{2} \ , 
+\qquad \V_{\theta}''(X) := \frac{d}{d \theta} \left( \frac{d}{d \theta} \V_{\theta}(X) \right) = -2 < 0 \ ,
+\]
+\[
+\max_{\theta \in [0,1]} \V_{\theta}(X) = \frac{1}{2} \left(1-\frac{1}{2} \right) = \frac{1}{4} \ , 
+\text{since $\V_{\theta}(X)$ is maximized at $\theta = \frac{1}{2}$}
+\]
+The plot depicting these expectations as well as the rate of change of the variance are depicted in \hyperref[F:MeanVarBernoulli]{Figure \ref*{F:MeanVarBernoulli}}.  Note from this Figure that $\V_{\theta}(X)$ attains its maximum  value of $1/4$ at $\theta=0.5$ where $\frac{d}{d\theta}\V_{\theta}(X)=0$.  Furthermore, we know that we don't have a minimum at $\theta=0.5$ since the second derivative $\V_{\theta}''(X) = -2$ is negative for any $\theta \in [0,1]$.  This confirms that $\V_{\theta}(X)$ is concave down and therefore we have a maximum of $\V_{\theta}(X)$ at $\theta=0.5$.  We will revisit this example when we employ a numerical approach called Newton-Raphson method to solve for the maximum of a differentiable function by setting its derivative equal to zero.
+
+\paragraph{Mean and variance of $\uniform(0,1)$ RV:}
+Let $X \sim \uniform(0,1)$.  Then, 
+\[
+\e(X) = \int_{x=0}^1 x f(x)\, dx = \int_{x=0}^1 x \ 1 \, dx = \frac{1}{2} \left( x^2 \right]_{x=0}^{x=1} = \frac{1}{2} \left( 1-0 \right) = \frac{1}{2} \ ,
+\]
+\[
+\e(X^2) = \int_{x=0}^1 x^2 f(x)\, dx = \int_{x=0}^1 x^2 \ 1 \, dx =  \frac{1}{3} \left( x^3 \right]_{x=0}^{x=1} = \frac{1}{3} \left( 1-0 \right) = \frac{1}{3} \ ,
+\]
+\[
+\V(X) = \e(X^2) - (\e(X))^2 = \frac{1}{3}  - \left( \frac{1}{2} \right)^2  = \frac{1}{3}  - \frac{1}{4} = \frac{1}{12} \ .
+\]
+
+\begin{example}[Expected Exponential of the $Uniform(0,1)$ RV]
+Let $X \sim Uniform(0,1)$ and $Y=r(X)=e^X$.  Compute $\e(Y)$. 
+
+We can simply apply the definition of $\e(r(X))$, since $Y=r(X)$, is just a function of $X$, as follows: 
+\[
+\e(Y) = \int_0^1 e^x f(x) dx = \int_0^1 e^x 1 \ dx = e-1 \ .
+\]
+%You could have also found out that the density $f(y)=1/y$ for the RV $Y$, provided $1<y<e$, and $0$ otherwise.  Again,
+%\[
+%\e(Y) = \int_1^e y f(y) dy = \int_1^e y \frac{1}{y} dy = \int_1^e 1 \ dy = e-1 \ .
+%\]
+\end{example}
+
+\paragraph{Mean and Variance of $\exponential(\lambda)$:}
+Show that the mean of an $\exponential(\lambda)$ RV $X$ is:
+\[
+\e_{\lambda}(X) = \int_{0}^{\infty} x f(x;\lambda)\,dx
+=   \int_{0}^{\infty} x \lambda e^{-\lambda x}\,dx
+= \frac{1}{\lambda} \ ,
+\]
+and the variance is:
+\[
+\V_{\lambda}(X) = \left(  \frac{1}{\lambda} \right)^2 \ .
+\]
+
 
 \section{Stochastic Processes}\label{S:StochProc}
 

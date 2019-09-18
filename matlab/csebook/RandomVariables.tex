@@ -275,6 +275,371 @@ The plot was saved as an encapsulated postscript file from the File menu of the 
 {\bf **universality of the fundamental model}
 
 --- one can obtain any other random object from the fundamental model!
+
+\section{Transformations of random variables}\label{S:TransformationsOFRvs}
+
+Suppose we know the distribution of a random variable $X$.  How do we find the distribution of a transformation of $X$, say $g(X)$?
+Before we answer this question let us ask a motivational question.  Why are we interested in functions of random variables?
+
+\begin{example}
+Consider a simple financial example where an individual sells $X$ items per day, the profit per item is $\$ 5$ and the overhead costs are $\$ 500$ per day.  The original random variable is $X$, but the random variable $Y$ which gives the daily profit is of more interest, where
+\[
+Y = 5X - 500 \enspace . 
+\]
+\end{example}
+
+\begin{example}
+In a cell-phone system a mobile signal may have a signal-to-noise-ratio of $X$, but engineers prefer to express such ratios in decibels, i.e.,
+\[
+Y = 10 \log_{10}(X) \enspace .
+\]
+\end{example}
+
+Hence in a great many situations we are more interested in functions of random variables. 
+Let us return to our original question of determining the distribution of a transformation or function of $X$.  
+First note that this transformation of $X$ is itself another random variable, say $Y = g(X)$, 
+where $g$ is a function from a subset $\mathbb{X}$ of $\mathbb{R}$ to a subset $\mathbb{Y}$ of $\mathbb{R}$, 
+i.e., $g: \mathbb{X} \to \mathbb{Y}$, $\mathbb{X} \subset \mathbb{R}$ and $\mathbb{Y} \subset \mathbb{R}$.
+
+The {\bf inverse image} of a set $A$ is the set of all real numbers in $\mathbb{X}$ whose image is in $A$, i.e.,
+\[
+g^{[-1]}(A) = \{x \in \mathbb{X} : g(x) \in A \} \enspace .
+\] 
+In other words,
+\[
+x \in g^{[-1]}(A) \ \text{if and only if} \ g(x) \in A \enspace .
+\]
+For example,
+\begin{itemize}
+\item if $g(x)=2x$ then $g^{[-1]}([4,6])=[2,3]$
+\item if $g(x)=2x+1$ then $g^{[-1]}([5,7])=[2,3]$
+\item if $g(x)=x^3$ then $g^{[-1]}([1,8])=[1,2]$
+\item if $g(x)=x^2$ then $g^{[-1]}([1,4])=[-2,-1] \cup [1,2]$
+\item if $g(x)=\sin(x)$ then $g^{[-1]}([-1,1])=\mathbb{R}$
+\item if ... %Raaz add other examples of the transformations done in the sequel here
+\end{itemize}
+For the singleton set $A = \{y\}$, we write $g^{[-1]}(y)$ instead of $g^{[-1]}(\{y\})$.  
+For example,
+\begin{itemize}
+\item if $g(x)=2x$ then $g^{[-1]}(4)=\{2\}$
+\item if $g(x)=2x+1$ then $g^{[-1]}(7)=\{3\}$
+\item if $g(x)=x^3$ then $g^{[-1]}(8)=\{2\}$
+\item if $g(x)=x^2$ then $g^{[-1]}(4)=\{-2,2\}$
+\item if $g(x)=\sin(x)$ then $g^{[-1]}(0)=\{k \pi: k \in \mathbb{Z}\} = \{\ldots, -3 \pi, -2 \pi, -\pi,0,\pi, 2\pi,3\pi, \ldots\}$
+\item if ... %Raaz add other examples of the transformations done in the sequel here
+\end{itemize}
+If $g:\mathbb{X}\to\mathbb{Y}$ is one-to-one (injective) and onto (surjective), then the inverse image of a singleton set is itself a singleton set.  
+Thus, the inverse image of such a function $g$ becomes itself a function and is called the {\bf inverse function}.
+One can find the inverse function, if it exists by the following steps:
+\begin{itemize}
+\item[{\sf Step 1;}] write $y=g(x)$
+\item[{\sf Step 2;}] solve for $x$ in terms of $y$
+\item[{\sf Step 3;}] set $g^{-1}(y)$ to be this solution
+\end{itemize}
+We write $g^{-1}$ whenever the inverse image $g^{[-1]}$ exists as an inverse function of $g$.  
+Thus, the inverse function $g^{-1}$ is a specific type of inverse image $g^{[-1]}$.  
+For example,
+\begin{itemize}
+\item if $g(x)=2x$ then $g:\mathbb{R} \to \mathbb{R}$ is injective and surjective and therefore its inverse function is:\\
+{\sf Step 1;} $y=2x$, {\sf Step 2;} $x=\frac{y}{2}$, {\sf Step 3;} $g^{-1}(y)=\frac{y}{2}$
+\item if $g(x)=2x+1$ then $g:\mathbb{R} \to \mathbb{R}$ is injective and surjective and therefore its inverse function is:\\
+{\sf Step 1;} $y=2x+1$, {\sf Step 2;} $x=\frac{y-1}{2}$, {\sf Step 3;} $g^{-1}(y)=\frac{y-1}{2}$
+\item if $g(x)=x^3$ then $g:\mathbb{R} \to \mathbb{R}$ is injective and surjective and therefore its inverse function is:\\
+{\sf Step 1;} $y=x^3$, {\sf Step 2;} $x={y}^{\frac{1}{3}}$, {\sf Step 3;} $g^{-1}(y)={y}^{\frac{1}{3}}$
+\end{itemize}
+However, you need to be careful by limiting the domain to obtain the inverse function for the following examples:
+\begin{itemize}
+\item if $g(x)=x^2$ and domain of $g$ is $[0,+\infty)$ then its inverse function is $g^{-1}(y)=\sqrt{y}$, 
+i.e., if $g(x)=x^2 : [0,+\infty) \to [0,+\infty)$ then the inverse image $g^{[-1]}(y)$ for $y \in [0,+\infty)$ is given by the inverse function $g^{-1}(y)=\sqrt{y} : [0,+\infty) \to [0,+\infty)$.
+\item if $g(x)=x^2$ and domain of $g$ is $(-\infty,0]$ then its inverse function is $g^{-1}(y)=-\sqrt{y}$, 
+i.e., if $g(x)=x^2 : (-\infty,0] \to [0,+\infty)$ then the inverse image $g^{[-1]}(y)$ for $y \in [0,+\infty)$ is given by the inverse function $g^{-1}(y)=-\sqrt{y} : [0,+\infty) \to (-\infty,0]$.
+\item if $g(x)=\sin(x)$ and domain of $g$ is $[0,\frac{\pi}{2}]$ then its inverse function $g^{-1}(y)=\arcsin(y)$, i.e., if $g(x)=\sin(x) : [0,\frac{\pi}{2}] \to [0,1]$ then the inverse image $g^{[-1]}(y)$ for $y \in [0,1]$ is given by the inverse function $g^{-1}(y)=\arcsin(y) : [0,1] \to [0, \frac{\pi}{2}]$.
+\item if $g(x)=\sin(x)$ and domain of $g$ is $[-\frac{\pi}{2},\frac{\pi}{2}]$ then its inverse function $g^{-1}(y)=\arcsin(y)$, i.e., if $g(x)=\sin(x) : [-\frac{\pi}{2},\frac{\pi}{2}] \to [-1,1]$ then the inverse image $g^{[-1]}(y)$ for $y \in [-1,1]$ is given by the inverse function $g^{-1}(y)=\arcsin(y) : [-1,1] \to [-\frac{\pi}{2},\frac{\pi}{2}]$.
+\item if ... %Raaz add other examples of the transformations done in the sequel here
+\end{itemize}
+  
+Now, let us return to our question of determining the distribution of the transformation $g(X)$.  To answer this question we must first observe that the inverse image $g^{[-1]}$ satisfies the following properties:
+\begin{itemize}
+\item $g^{[-1]}(\mathbb{Y}) = \mathbb{X}$
+\item For any set $A$, $g^{[-1]}(A^c) = \left(g^{[-1]}(A)\right)^c$
+\item For any collection of sets $\{A_1,A_2,\ldots\}$,
+\[
+g^{[-1]}\left( A_1 \cup A_2 \cup \cdots \right) = g^{[-1]}(A_1) \cup g^{[-1]}(A_2) \cup \cdots \enspace.
+\]
+\end{itemize}
+Consequentially, 
+\begin{equation}\label{E:ProbOfgOfX}
+\boxed{P \left( g(X) \in A \right) = P \left(X \in g^{[-1]}(A) \right)}
+\end{equation} 
+satisfies the axioms of probability and gives the desired probability of the event $A$ from the transformation $Y=g(X)$ in terms of the probability of the event given by the inverse image of $A$ underpinned by the random variable $X$.  
+It is crucial to understand this from the sample space $\Omega$ of the underlying experiment in the sense that Equation~\eqref{E:ProbOfgOfX} is just short-hand for its actual meaning:
+\[
+P \left( \{\omega \in \Omega: g(X(\omega)) \in A\} \right) 
+= P \left( \left\{ \omega \in \Omega: X(\omega) \in g^{[-1]}(A) \right\} \right) \enspace .
+\]
+Because we have more than one random variable to consider, namely, $X$ and its transformation $Y=g(X)$ we will subscript the probability density or mass function and the distribution function by the random varaible itself.  For example we denote the distribution function of $X$ by $F_X(x)$ and that of $Y$ by $F_Y(y)$.
+
+\subsection{Transformation of discrete random variables}
+For a discrete random variable $X$ with probability mass function $f_X$ we can obtain the probability mass function $f_Y$ of $Y=g(X)$ using Equation~\eqref{E:ProbOfgOfX} as follows:
+\begin{eqnarray*}
+f_Y(y) 
+&=& P(Y =y) = P(Y \in \{y\}) \\
+&=& P \left( g(X) \in \{y\} \right) = P \left(X \in g^{[-1]}(\{y\}) \right)\\
+&=& P \left(X \in g^{[-1]}(y) \right) = \sum_{x \in g^{[-1]}(y)} f_X(x) = \sum_{x \in \{x: g(x)=y\}} f_X(x) \enspace .
+\end{eqnarray*}
+This gives the formula:
+\begin{equation}\label{E:PMFOfgOfX}
+\boxed{
+f_Y(y) = P(Y =y) = \sum_{x \in g^{[-1]}(y)} f_X(x) = \sum_{x \in \{x: g(x)=y\}} f_X(x) \enspace .
+}
+\end{equation}
+
+\begin{example}\label{EXMP:Discrete1to1TransYis2X}
+Let $X$ be the discrete random variable with probability mass function $f_X$ as tabulated below:\\
+\begin{center}
+\begin{tabular}{r|rrr}
+$x$ & -1 & 0 & 1\\ \hline
+ &  &  & \\ 
+$f_X(x)=P(X=x)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$
+\end{tabular}
+\end{center}
+If $Y=2X$ then the transformation $g(X)=2X$ has inverse image $g^{[-1]}(y)=\{y/2\}$.  
+Then, by Equation~\eqref{E:PMFOfgOfX} the probability mass function of $Y$ is expressed in terms of the known probabilities of $X$ as:\\ 
+$$f_Y(y)=P(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{x \in \{y/2\}} f_X(x) = f_X(y/2) \enspace ,$$
+and tabulated below:\\
+\begin{center}
+\begin{tabular}{r|rrr}
+$y$ & -2 & 0 & 2\\ \hline
+ &  &  & \\ 
+$f_Y(y)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$
+\end{tabular}
+\end{center}
+\end{example}
+
+\begin{example}\label{EXMP:Discrete1to1TransYis2Xplus1}
+If $X$ is the random variable in the previous Example then what is the probability mass function of $Y=2X+1$?
+Once again,
+$$f_Y(y)=P(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{x \in \{(y-1)/2\}} f_X(x) = f_X((y-1)/2) \enspace ,$$
+and tabulated below:\\
+\begin{center}
+\begin{tabular}{r|rrr}
+$y$ & -1 & 1 & 3\\ \hline
+ &  &  & \\ 
+$f_Y(y)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$
+\end{tabular}
+\end{center}
+\end{example}
+
+In fact, obtaining the probability of a one-to-one transformation of a discrete random variable as in Examples~\ref{EXMP:Discrete1to1TransYis2X} and \ref{EXMP:Discrete1to1TransYis2Xplus1} is merely a matter of looking up the probability at the image of the inverse function.  This is because there is only one term in the sum that appears in Equation~\eqref{E:PMFOfgOfX}.  When the transformation is not one-to-one the number of terms in the sum can be more than one as shown in the next Example.
+
+\begin{example}
+Reconsider the random variable $X$ of the last two Examples and let $Y=X^2$.  
+Recall that $g(x)=x^2$ does not have an inverse function unless the domain is restricted to the positive or the negative parts of the real line.  
+Since our random variable $X$ takes values on both sides of the real line, namely $\{-1,0,1\}$, let us note that the transformation $g(X)=X^2$ is no longer a one-to-one function.  
+Then, by Equation~\eqref{E:PMFOfgOfX} the probability mass function of $Y$ is expressed in terms of the known probabilities of $X$ as:\\ 
+\[
+f_Y(y)=P(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{\{x:g(x)=y\}} f_X(x) = \sum_{\{x:x^2=y\}} f_X(x) \enspace ,
+\]
+computed for each $y \in \{0,1\}$ as follows:
+\begin{eqnarray*}
+f_Y(0) &=& \sum_{\{x:x^2=0\}} f_X(x) = f_X(0)=\frac{1}{2} \enspace ,\\
+f_Y(1) &=& \sum_{\{x:x^2=1\}} f_X(x) = f_X(-1)+f_X(1)=\frac{1}{4}+\frac{1}{4}=\frac{1}{2} \enspace ,
+\end{eqnarray*}
+and finally tabulated below:\\
+\begin{center}
+\begin{tabular}{r|ccc}
+$y$ & 0 & & 1\\ \hline
+ &  &  & \\ 
+$f_Y(y)$ & $\frac{1}{2}$ & \quad & $\frac{1}{2}$
+\end{tabular}\enspace .
+\end{center}
+\end{example}
+
+\subsection{Transformation of continuous random variables}
+Suppose we know $F_X$ and/or $f_X$ of a continuous random variable $X$.  
+Let $Y=g(X)$ be a transformation of $X$.  
+Our objective is to obtain $F_Y$ and/or $f_Y$ of $Y$ from $F_X$ and/or $f_X$.  
+%We will look at two techniques in Sections~\ref{S:DirectMethod} and \ref{S:f_YDirectlyFromf_X} to achieve our objective.
+
+\subsubsection{One-to-one transformations}\label{S:f_YDirectlyFromf_X}
+The easiest case for transformations of continuous random variables is when $g$ is {\bf one-to-one and monotone}.  
+\begin{itemize}
+\item{
+First, let us consider the case when $g$ is {\bf monotone and increasing} on the range of the random variable $X$.  
+In this case $g^{-1}$ is also an increasing function and we can obtain the distribution function of $Y=g(X)$ in terms of the distribution function of $X$ as   
+\[
+F_Y(y) =P \left(Y \leq y \right)=P \left(g(X) \leq y \right) = P \left(X \leq g^{-1}(y) \right) = F_X(g^{-1}(y)) \enspace .
+\]
+Now, let us use a form of chainrule to compute the density of $Y$ as follows:
+\[
+f_Y(y) 
+= \frac{d}{dy} F_Y(y)
+= \frac{d}{dy} F_X \left(g^{-1}(y) \right)
+= f_X \left( g^{-1}(y) \right) \frac{d}{dy} \left(g^{-1}(y) \right) \enspace . 
+\]
+}
+\item{
+Second, let us consider the case when $g$ is {\bf monotone and decreasing} on the range of the random variable $X$.  
+In this case $g^{-1}$ is also a decreasing function and we can obtain the distribution function of $Y=g(X)$ in terms of the distribution function of $X$ as   
+\[
+F_Y(y) =P \left(Y \leq y \right)=P \left(g(X) \leq y \right) = P \left(X \geq g^{-1}(y) \right) = 1- F_X(g^{-1}(y)) \enspace ,
+\]
+and the density of $Y$ as 
+\[
+f_Y(y) 
+= \frac{d}{dy} F_Y(y)
+= \frac{d}{dy} \left(1-F_X \left(g^{-1}(y) \right) \right)
+= -f_X \left( g^{-1}(y) \right) \frac{d}{dy} \left(g^{-1}(y) \right) \enspace . 
+\]
+For a monotonic and decreasing $g$, its inverse function $g^{-1}$ is also decreasing and consequently the density $f_Y$ is indeed positive because $\frac{d}{dy} \left(g^{-1}(y) \right)$ is negative.  
+}
+\end{itemize}
+We can combine the above two cases and obtain the following 
+{\bf change of variable formula} for the probability density of $Y=g(X)$ when $g$ is one-to-one and monotone on the range of $X$.
+\begin{equation}\label{E:f_YFromf_X_Under_one-to-one-g}
+\boxed{
+f_Y(y) = f_X \left( g^{-1}(y) \right) \left\vert \frac{d}{dy} g^{-1}(y) \right\vert \enspace .}
+\end{equation}
+
+The steps involved in finding the density of $Y=g(X)$ for a one-to-one and monotone $g$ are:
+\begin{enumerate}
+\item Write $y=g(x)$ for $x$ in range of $x$ and check that $g(x)$ is monotone over the required range to apply the change of variable formula. 
+\item Write $x=g^{-1}(y)$ for $y$ in range of $y$.
+\item Obtain $\left\vert \frac{d}{dy} g^{-1}(y) \right\vert$ for $y$ in range of $y$.
+\item Finally, from Equation~\eqref{E:f_YFromf_X_Under_one-to-one-g} get $f_Y(y) = f_X \left( g^{-1}(y) \right) \left\vert \frac{d}{dy} g^{-1}(y) \right\vert$ for $y$ in range of $y$. 
+\end{enumerate}
+
+Let us use these four steps to obtain the density of monotone transformations of continuous random variables.
+
+\begin{example}
+Let $X$ be $\uniform(0,1)$ random variable and let $Y=g(X)=1-X$.  
+We are interested in the density of the tranformed random variable $Y$. Let us follow the four steps and use the change of variable formula to obtain $f_Y$ from $f_X$ and $g$.
+\begin{enumerate}
+\item $y=g(x)=1-x$ is a monotone decreasing function over $0 \leq x \leq 1$, the range of $X$.  
+So, we can apply the change of variable formula. 
+\item $x=g^{-1}(y)=1-y$ is a monotone decreasing function over $1-0 \geq 1-x \geq 1-1$, i.e., $0 \leq y \leq 1$.  
+\item For $0 \leq y \leq 1$,
+\[
+ \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
+= \left\vert \frac{d}{dy} \left( 1-y \right) \right\vert 
+= \left\vert -1 \right\vert = 1 \enspace .
+\]
+\item we can use Equation~\eqref{E:f_YFromf_X_Under_one-to-one-g} to find the density of $Y$ as follows:
+\[
+f_Y(y) = f_X \left( g^{-1}(y) \right) \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
+= f_X \left( 1-y \right)  \, 1
+= 1 \enspace ,
+\]
+for $0 \leq y \leq 1$
+\end{enumerate}
+Thus, we have shown that if $X$ is a $\uniform(0,1)$ random variable then $Y=1-X$ is also a $\uniform(0,1)$ random variable.
+\end{example}
+
+\begin{example}
+Let $X$ be a $\uniform(0,1)$ random variable and let $Y=g(X)=-\log(X)$.  
+We are interested in the density of the tranformed random variable $Y$.  
+Once again, since $g$ is a one-to-one monotone function let us follow the four steps and use the change of variable formula to obtain $f_Y$ from $f_X$ and $g$.
+\begin{enumerate}
+\item $y=g(x)=-\log(x)$ is a monotone decreasing function over $0 < x < 1$, the range of $X$.  
+So, we can apply the change of variable formula. 
+\item $x=g^{-1}(y)=\exp(-y)$ is a monotone decreasing function over %$-\log(0) > -\log(x) > -\log(1)$, i.e., %Ben does not like -\log(0)=-\infty because -\log(0) is said to be undefined to these students -- raaz expected -\log(0) = \lim_{x \to 0^+} \log(x) = -\infty is reasonable to assume here.
+$0 < y < \infty$.  
+\item For $0 < y < \infty$,
+\[
+ \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
+= \left\vert \frac{d}{dy} \left( \exp(-y) \right) \right\vert 
+= \left\vert -\exp(-y) \right\vert = \exp(-y) \enspace .
+\]
+\item We can use Equation~\eqref{E:f_YFromf_X_Under_one-to-one-g} to find the density of $Y$ as follows:
+\[
+f_Y(y) = f_X \left( g^{-1}(y) \right) \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
+= f_X \left( \exp(-y) \right)  \, \exp(-y)
+= 1 \, \exp(-y) = \exp(-y) \enspace .
+\]
+Note that $0 < \exp(-y) < 1$ for $0 < y < \infty$.
+\end{enumerate}
+Thus, we have shown that if $X$ is a $\uniform(0,1)$ random variable then $Y=-\log(X)$ is an random variable with PDF $f_Y(y)=\BB{1}_{(0,\infty)}(y)\exp(-y)$. 
+We can similarly show that for a parameter $\lambda>0$, if $X \sim \uniform(0,1)$ then $Y=-\lambda^{-1} \log(X)$ yields a probability model of RVs that are parameterized by $\lambda$ and extremely useful in applications. We introduce it next.
+\end{example}
+
+\begin{model}[$\exponential(\lambda)$]\label{M:exponential}
+For a given $\lambda > 0$, an $\exponential(\lambda)$ RV has the following PDF $f$ and DF $F$:
+\begin{eqnarray}\label{E:Exponentialpdfcdf}
+f(x; \lambda) = \lambda e^{-\lambda x} \qquad &
+F(x; \lambda)= 1-e^{-\lambda x}  \ .
+\end{eqnarray}
+This distribution is fundamental because of its property of {\bf memorylessness} and plays a fundamental role in continuous time
+%Markov
+processes as we will see later.
+\end{model}
+
+\remove{
+We encode the PDF and DF of the $\exponential(\lambda)$ RV as \Matlab functions {\tt ExponentialPdf} and {\tt ExponentialCdf} and use them to produce \hyperref[F:plotPdfCdfExponentials]{Figure~\ref*{F:plotPdfCdfExponentials}} in \hyperref[Mf:ExponentialPdfCdf]{Labwork~\ref*{Mf:ExponentialPdfCdf}}.
+}%end remove
+
+\begin{figure}[htpb]
+\caption{Density and distribution functions of $\exponential(\lambda)$ RVs, for $\lambda=1, 10, 10^{-1}$, in four different axes scales.\label{F:plotPdfCdfExponentials}}
+\centering   \makebox{\includegraphics[width=6.5in]{figures/plotPdfCdfExponentials}}
+\end{figure}
+
+
+\subsubsection{Direct method}\label{S:DirectMethod}
+If the transformation $g$ in $Y=g(X)$ is not necessarily one-to-one then special care is needed to obtain the distribution function or density of $Y$.  
+For a continuous random variable $X$ with a known distribution function $F_X$ we can obtain the distribution function $F_Y$ of $Y=g(X)$ using Equation~\eqref{E:ProbOfgOfX} as follows:
+\begin{eqnarray*}
+F_Y(y)
+&=& P \left(Y \leq y \right) = P \left(Y \in (-\infty, y] \right)\\
+&=& P \left( g(X) \in (-\infty, y] \right) = P \left( X \in g^{[-1]}((-\infty, y]) \right) = P \left(X \in \{x: g(x) \in (-\infty,y]\}  \right) \enspace . %\\
+\end{eqnarray*}
+In words, the above equalities just mean that the probability that $Y \leq y$ is the probability that $X$ takes a value $x$ that satisfies $g(x) \leq y$.  
+We can use this approach if it is reasonably easy to find the set $g^{[-1]}((-\infty,y]) = \{x: g(x) = (-\infty,y]\}$.% as done in Section~\ref{S:DirectMethod}.
+
+\begin{example}
+Let $X$ be any random variable with distribution function $F_X$.  Let $Y=g(X)=X^2$.  
+Then we can find $F_Y$, the distribution function of $Y$ from $F_X$ as follows:
+\begin{itemize}
+\item {Since $Y=X^2 \geq 0$, if $y < 0$ then $F_Y(y) = P\left( X \in \{ x : x^2 < y\} \right) = P(X \in \emptyset) = 0$.}
+\item {If $y \geq 0$ then
+\begin{eqnarray*}
+F_Y(y) = P \left(Y \leq y \right) 
+&=& P \left( X^2 \leq y \right) \\
+&=& P \left( -\sqrt{y} \leq X \leq \sqrt{y} \right) \\
+&=& F_X(\sqrt{y}) - F_X(-\sqrt{y}) \enspace .
+\end{eqnarray*}
+}
+\end{itemize}
+By differentiation we get:
+\begin{itemize}
+\item {If $y<0$ then $f_Y(y)=\frac{d}{dy}(F_Y(y)) = \frac{d}{dy} 0 = 0$.}
+\item {If $y \geq 0$ then
+\begin{eqnarray*}
+f_Y(y) 
+= \frac{d}{dy}\left( F_Y(y) \right) 
+&=& \frac{d}{dy}\left( F_X(\sqrt{y}) - F_X( - \sqrt{y}) \right)\\
+&=& \frac{d}{dy}\left( F_X(\sqrt{y}) \right) - \frac{d}{dy}\left( F_X( - \sqrt{y}) \right)\\
+&=& \frac{1}{2}y^{-\frac{1}{2}} f_X(\sqrt{y}) - \left( -\frac{1}{2}y^{-\frac{1}{2}} f_X( - \sqrt{y}) \right)\\
+&=& \frac{1}{2 \sqrt{y}} \left( f_X(\sqrt{y}) + f_X( - \sqrt{y}) \right) \enspace .
+\end{eqnarray*}
+}
+\end{itemize}
+Therefore, the distribution function of $Y=X^2$ is:
+\begin{equation}\label{E:F_YofX^2}
+F_Y(y) = 
+\begin{cases}
+0 & \text{ if } y < 0 \\
+F_X(\sqrt{y}) - F_X(-\sqrt{y}) & \text{ if } y \geq 0 \enspace .
+\end{cases}
+\end{equation}
+and the probability density function of $Y=X^2$ is:
+\begin{equation}\label{E:f_YofX^2}
+f_Y(y) = 
+\begin{cases}
+0 & \text{ if } y < 0 \\
+\frac{1}{2 \sqrt{y}} \left( f_X(\sqrt{y}) + f_X( - \sqrt{y}) \right) & \text{ if } y \geq 0 \enspace .
+\end{cases}
+\end{equation}
+\end{example} 
+
 \newpage
 
 \section{Random Vectors as $\Rz^m$-valued Random Variables}\label{S:RVecs}
@@ -759,7 +1124,7 @@ Also the JPDF has zero density when $x>y$, but the product of the marginal densi
 
 Now, let us take advantage of independent random variables and solve some problems.
 
-\begin{example}[distcance between random faults in a manufactured line]
+\begin{example}[distance between random faults in a manufactured line]
 Suppose two points are tossed independently and uniformly at random onto a line segment of unit length.  
 What is the probability that the distance between the two points does not exceed a given length $l$? 
 
@@ -768,6 +1133,32 @@ done in lectures...
 
 \end{example}
 
+Let us introduce parameters for the lower and upper bounds of the interval upon which a continuous RV is uniformly distributed using the following probability model.
+ 
+\begin{model}[$\uniform(\theta_1,\theta_2)$]\label{M:Uniformab}
+Given two real parameters $\theta_1,\theta_2 \in \Rz$, such that $\theta_1 < \theta_2$, the PDF of the $Uniform(\theta_1,\theta_2)$ RV $X$ is:
+\begin{equation}\label{E:Uniformabpdf}
+f(x;\theta_1,\theta_2) =
+\begin{cases}
+\frac{1}{\theta_2 - \theta_1} & \text{if $\theta_1 \leq x \leq \theta_2$,}\\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+and its DF given by $F(x;\theta_1,\theta_2) = \int_{- \infty}^x f(y; \theta_1,\theta_2) \, dy$ is:
+\begin{equation}\label{E:Uniformabcdf}
+F(x; \theta_1,\theta_2) =
+\begin{cases}
+0 & \text{if $x < \theta_1$} \\
+\frac{x-\theta_1}{\theta_2-\theta_1} & if~\theta_1 \leq x \leq \theta_2,\\
+1 & \text{if $x > \theta_2$}
+\end{cases}
+\end{equation}
+Recall that we emphasise the dependence of the probabilities on the two parameters $\theta_1$ and $\theta_2$ by specifying them following the semicolon in the argument for $f$ and $F$.
+\end{model}
+\begin{figure}[htpb]
+\caption{A plot of the PDF, DF or CDF and inverse DF of the $\uniform(-1,1)$ RV $X$.\label{F:unifpm1}}
+\centering   \makebox{\includegraphics[width=6.5in]{figures/Unifpm1pdfcdf}}
+\end{figure}
 \begin{example}[Buffon's Needle Experiment to Physically Estimate $\pi$]
 ~
 
@@ -775,6 +1166,8 @@ done in lectures...
 \vspace{5cm}
 
 \end{example}
+
+\subsection{Conditional Random Variables}
 
 Often we will have a condition where one of the two random variables that make up a random vector $(X_1,X_2)$ already occurs and takes a value. 
 And we might want to compute the probability of the occurrence of the other random variable given this conditional information.
@@ -799,7 +1192,77 @@ f_{X_2|X_1}(x_2|x_1) = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_1}(x_1)}, \qquad \p(X_2 
 \]
 \end{definition}
 
-\newpage
+Let us consider a few discrete RVs for the simple coin tossing experiment $\E{E}_{\theta}^{3}$ that build on the $\bernoulli(\theta)$ RV $X_i$ for the $i$-th toss in an {\bf independent and identically distibuted (IID.)} manner.
+\begin{table}[htpb]
+\caption{The $8$ $\omega$'s in the sample space $\Omega$ of the experiment $\E{E}_{\theta}^{3}$ are given in the first row above.  The RV $Y$ is the number of `Heads' in the $3$ tosses and the RV $Z$ is the number of `Tails' in the $3$ tosses.  Finally, the RVs $Y'$ and $Z'$ are the indicator functions of the event that `all three tosses were Heads' and the event that `all three tosses were Tails', respectively.\label{T:T3XRVs}}
+ \begin{tabular}{r c c c c c c c c l}
+ \hline
+$\omega$:    & {\tt HHH} & {\tt HHT} & {\tt HTH} & {\tt HTT} & {\tt THH} & {\tt THT} & {\tt TTH} & {\tt TTT} & RV Definitions / Model \\ \hline
+ \\
+$\p(\omega)$: & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ &  $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$  & $X_i \overset{\IID}{\sim} \bernoulli(\frac{1}{2})$ \\
+ \\
+$Y(\omega)$: & 3         & 2         & 2         & 1         & 2         & 1         & 1         & 0        & $Y := X_1+X_2+X_3$ \\
+ \\
+$Z(\omega)$: & 0         & 1         & 1         & 2         & 1         & 2         & 2         & 3        & $Z := (1-X_1)+(1-X_2)+(1-X_3)$ \\
+ \\
+$Y'(\omega)$: & 1         & 0         & 0         & 0         & 0         & 0         & 0         & 0       & $Y' :=  X_1 X_2 X_3$ \\
+\\
+$Z'(\omega)$: & 0         & 0         & 0         & 0         & 0         & 0         & 0         & 1       & $Y' :=  (1-X_1)(1-X_2)(1-X_3)$ \\ \hline
+ \end{tabular}
+ \end{table}
+ \begin{classwork}[Two random variables of `toss a coin thrice' experiment]
+Describe the probability of the RV $Y$ and $Y'$ of \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}} in terms of its PMF.  Repeat the process for the RV $Z$ in your spare time.
+ \begin{eqnarray}
+ \p(Y=y) =%:= \p(\{\omega: Y(\omega)=y\}) = 
+ \begin{cases}
+ \qquad & \qquad \notag \\
+ \qquad & \qquad \notag \\
+ \qquad & \qquad \notag \\
+ \qquad & \qquad \notag
+ \end{cases} 
+ & \qquad \qquad \qquad \qquad \qquad
+\p(Y'=y') =%:= \p(\{\omega: Y'(\omega)=y'\}) = 
+ \begin{cases}
+ \qquad & \qquad \notag \\
+ \qquad & \qquad \notag 
+ \end{cases}
+ \end{eqnarray}
+ \end{classwork}
+ 
+ \begin{classwork}[The number of `Heads' given there is at least one `Tails']
+ Consider the following two questions.
+ \begin{enumerate}
+\item What is conditional probability $\p(Y|Y'=0)$ ?
+%{\color{Gray}{
+ \[
+ \begin{array}{c c c c}
+ \hline \\
+ \p(Y=y | Y'=0) & =\frac{\p(Y=y,Y'=0)}{\p(Y'=0)} & =\frac{\p(\{\omega: Y(\omega)=y \  \cap \ Y'(\omega)=0\})}{\p(\{\omega: Y'(\omega)=0\})} & = ? \\ \hline \\
+ \\
+ \p(Y=0 | Y'=0) & \frac{\p(Y=0,Y'=0)}{\p(Y'=0)} & \frac{\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & \frac{1}{7} \\
+\\
+\p(Y=1 | Y'=0) & \frac{\p(Y=1,Y'=0)}{\p(Y'=0)} & \frac{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & \frac{3}{7} \\
+\\
+\p(Y=2 | Y'=0) & \frac{\p(Y=2,Y'=0)}{\p(Y'=0)} & \frac{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & \frac{3}{7} \\
+\\
+\p(Y=3 | Y'=0) & \frac{\p(Y=3,Y'=0)}{\p(Y'=0)} & \frac{\p(\emptyset)}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & 0 \\
+\\ \hline
+\p(Y \in \{0,1,2,3\} | Y'=0) & \frac{\sum_{y=0}^3{\p(Y=y,Y'=0)}}{\p(Y'=0)} & \frac {\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & 1 \\ \hline
+ \end{array}
+ \]
+% }}
+\item What is $\p(Y|Y'=1)$ ?
+%{\color{Gray}{
+ \[
+\p(Y=y | Y'=1) = 
+\begin{cases}
+1 & \text{if $y=3$} \\
+0 & \text{otherwise}
+ \end{cases}
+ \]
+ %}}
+ \end{enumerate}
+ \end{classwork}
 
 \subsection{$\Rz^m$-valued Random Variables}
 
@@ -1029,18 +1492,18 @@ More generally, by taking the expected value of various functions of a random va
 \begin{definition}[Expectation of a function of a RV]\label{Df:expectation}
 The \textbf{Expectation} of a function $g(X)$ of a random variable $X$ is defined as:
 \[
-E(g(X))\; :=\; \int g(x) dF(x) = 
+\e(g(X))\; :=\; \int g(x) dF(x) = 
 \begin{cases}
 \displaystyle \sum_x g(x) f(x) & \text{if $X$ is a discrete RV}\\[12pt]
 \displaystyle \int_{-\infty}^{\infty} g(x) f(x) dx & \text{if $X$ is a continuous RV}
 \end{cases}
 \]
-provided $E(g(X))$ exists, i.e., $\int |g(x)| dF(x) < \infty$.
+provided $\e(g(X))$ exists, i.e., $\int |g(x)| dF(x) < \infty$.
 \end{definition}
 
 The {\bf mean} which characterises the central location of the random variable $X$ is merely the expectation of the identity function $g(x)=x$:
 \[
-E(X)\; =\;
+\e(X)\; =\;
 \begin{cases}
 \displaystyle \sum_x x f(x) & \text{if $X$ is a discrete RV}\\[12pt]
 \displaystyle\int_{-\infty}^{\infty} x f(x) dx & \text{if $X$ is a
@@ -1051,12 +1514,12 @@ Often, mean is denoted by $\mu$.
 
 The \textbf{variance} which characterises the spread or the
   variability of the random variable $X$ is also the expectation of the
-  function $g(x)=(x-E(X))^2$:
+  function $g(x)=(x-\e(X))^2$:
 \[
-V(X)\; =\; E \left( (X-E(X))^2 \right)\; =\;
+\V(X)\; =\; \e \left( (X-\e(X))^2 \right)\; =\;
 \begin{cases}
-\displaystyle\sum_x (x-E(X))^2 f(x) & \text{if $X$ is a discrete RV}\\[12pt]
-\displaystyle\int_{-\infty}^{\infty} (x-E(X))^2 f(x) dx & \text{if $X$ is a continuous RV}
+\displaystyle\sum_x (x-\e(X))^2 f(x) & \text{if $X$ is a discrete RV}\\[12pt]
+\displaystyle\int_{-\infty}^{\infty} (x-\e(X))^2 f(x) dx & \text{if $X$ is a continuous RV}
 \end{cases}
 \] 
 Often, variance is denoted by $\sigma^2$. 
@@ -1067,83 +1530,39 @@ INTUITIVELY, WHAT IS EXPECTATION?\\
 Definition \ref{Df:expectation} gives expectation as a ``weighted average'' of the possible values. This is true but some intuitive idea of expectation is also helpful.
 \begin{itemize}
 \item Expectation is what you expect. \\[6pt]
-Consider tossing a fair coin. If it is heads you lose \$10. If it is tails you win \$10. What do you expect to win? Nothing. If $X$ is the amount you win then $$E(X)\;=\;-10\times \frac{1}{2}+10\times \frac{1}{2}\;=\;0\,.$$
+Consider tossing a fair coin. If it is heads you lose \$10. If it is tails you win \$10. 
+What do you expect to win? Nothing. 
+If $X$ is the amount you win then $$\e(X)\;=\;-10\times \frac{1}{2}+10\times \frac{1}{2}\;=\;0\,.$$
 
-So what you expect (nothing) and the weighted average ($E(X)=0$) agree.
+So what you expect (nothing) and the weighted average ($\e(X)=0$) agree.
 
 
 \item Expectation is a long run average.\\[6pt]
 Suppose you are able to repeat an experiment independently, over and over again. 
 Each experiment produces one value $x$ of a random variable $X$.  
-If you take the average of the $x$ values for a large number of trials, then this average converges to $E(X)$ as the number of trials grows.  In fact, this is called the {\bf law of large numbers}.
+If you take the average of the $x$ values for a large number of trials, then this average converges to $\e(X)$ as the number of trials grows.  In fact, this is called the {\bf law of large numbers}.
 \end{itemize}
 %\end{framed}
 
-\subsection*{Properties of expectations}
-The following results, where $a$ is a  constant, may easily be
-proved using the properties of summations and integrals:
+We can concretize the above two intuitive insights by the following two examples.
 
-\bit
-\item[] $\boxed{E(a ) \,=\, a}$
-
-\item[] $\boxed{E(a \,g(X)) \,=\, a\, E(g(X))}$
-
-\item[] $\boxed{E(g(X)+h(X))  \,=\, E(g(X)) \,+\, E(h(X))}$
-\eit
-Note that here  $g(X)$ and $h(X)$ are functions of the random variable
-$X$: e.g.  $g(X)=X^2$.
-
-Using these results we can obtain the following useful formula for variance:
-\begin{eqnarray*}
-V(X)
-&=& E\left((X-E(X))^2\right)\\[3pt]
-& =& E \left( X^2 - 2 X E(X) + (E(X))^2 \right) \\[3pt]
-&=& E ( X^2) - E \left( 2 X E(X) \right) + E \left( (E(X))^2
-\right)\\[3pt]
-& =& E ( X^2) - 2 E(X) E \left( X \right) + (E(X))^2 \\[3pt]
-&=& E ( X^2) - 2 (E(X))^2 + (E(X))^2\\[3pt]
-&=& E(X^2) - (E(X))^2 \enspace .
-\end{eqnarray*}
-That is, \[
-\boxed{
-V(X) \;=\; E(X^2) \,- \,(E(X))^2
-}.
+\begin{example}[Winnings on Average]
+Let $Y = r(X)$.  Then
+\[
+\e(Y) = \e(r(X)) = \int r(x)\, d F(x) \ .
 \]
+Think of playing a game where we draw $x \sim X$ and then I pay you $y=r(x)$.  Then your average income is $r(x)$ times the chance that $X=x$, summed (or integrated) over all values of $x$.
+\end{example}
 
-The above properties of expectations imply that for constants $a$ and $b$,
-%V(aX+b) = a^2 V(X) \enspace .
-\begin{equation}\label{E:VofAffineofRVs}
-\boxed{
-\V(aX+b) = a^2\V(X) \ . 
-}
+\begin{example}[Probability is an Expectation]
+Let $A$ be an event and let $r(X)=\BB{1}_{A}(x)$.  Recall $\BB{1}_A(x)$ is $1$ if $x \in A$ and $\BB{1}_A(x)=0$ if $x \notin A$.  Then
+\begin{equation}\label{E:ExpectationofIndicator}
+\e(\BB{1}_A(X)) = \int \BB{1}_A(x)\, dF(x) = \int_A dF(x) = \p(X \in A) = \p(A)
 \end{equation}
+Thus, probability is a special case of expectation.  Recall our LTRF motivation for the definition of probability and make the connection.
+\end{example}
 
-More generally, for random variables $X_1,X_2,\ldots,X_n$ and constants $a_1,a_2,\ldots,a_n$
-\begin{itemize}
-\item
-\begin{equation}\label{E:EofLinCombofRVs}
-\e \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i \e(X_i) \ .
-\end{equation}
-%E \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i E(X_i)}$
-%\smallskip
-\item
-%$\boxed{V \left(  \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 V(X_i)}$, provided $X_1,X_2,\ldots,X_n$ are independent
-\begin{equation}\label{E:VofLinCombofRVs}
-\V \left(  \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 \V(X_i) , \text{ provided $X_1,X_2,\ldots,X_n$ are independent}\ .
-\end{equation}
-\item Let $X_1,X_2,\ldots,X_n$ be independent RVs, then
-\begin{equation}\label{E:EofProdIndRVs}
-\e \left(  \prod_{i=1}^n X_i \right) = \prod_{i=1}^{n} \e(X_i) , \text{ provided $X_1,X_2,\ldots,X_n$ are independent}\ .
-\end{equation}
-\end{itemize}
-
-%\item If the $k$-th moment exists and if $j<k$ then the $j$-th moment exists.
-
-%\item $\V(X) = \e(X^2) - (\e(X))^2$ \ . [prove by completing the square and applying \eqref{E:EofLinCombofRVs}]
-%\item If $a$ and $b$ are constants then:
-%\item If $X_1,X_2,\ldots,X_n$ are independent and $a_1,a_2,\ldots,a_n$ are constants, then:
-%\end{enumerate}
-
+Next, let us compute the mean and variance of our two familiar RVs.
 
 \paragraph{Mean and variance of $\bernoulli(\theta)$ RV:}
 Let $X \sim \bernoulli(\theta)$.  Then, 
@@ -1188,33 +1607,32 @@ Let $X \sim \uniform(0,1)$.  Then,
 \V(X) = \e(X^2) - (\e(X))^2 = \frac{1}{3}  - \left( \frac{1}{2} \right)^2  = \frac{1}{3}  - \frac{1}{4} = \frac{1}{12} \ .
 \]
 
-\begin{prop}[Winnings on Average]
-Let $Y = r(X)$.  Then
-\[
-\e(Y) = \e(r(X)) = \int r(x)\, d F(x) \ .
-\]
-Think of playing a game where we draw $x \sim X$ and then I pay you $y=r(x)$.  Then your average income is $r(x)$ times the chance that $X=x$, summed (or integrated) over all values of $x$.
-\end{prop}
+\begin{example}[Expected Exponential of the $Uniform(0,1)$ RV]
+Let $X \sim Uniform(0,1)$ and $Y=r(X)=e^X$.  Compute $\e(Y)$. 
 
-\begin{example}[Probability is an Expectation]
-Let $A$ be an event and let $r(X)=\BB{1}_{A}(x)$.  Recall $\BB{1}_A(x)$ is $1$ if $x \in A$ and $\BB{1}_A(x)=0$ if $x \notin A$.  Then
-\begin{equation}\label{E:ExpectationofIndicator}
-\e(\BB{1}_A(X)) = \int \BB{1}_A(x)\, dF(x) = \int_A f(x)\, dx = \p(X \in A) = \p(A)
-\end{equation}
-Thus, probability is a special case of expectation.  Recall our LTRF motivation for the definition of probability and make the connection.
-\end{example}
-%\begin{example}[Exponential of the $Uniform(0,1)$ RV]
-%Let $X \sim Uniform(0,1)$.  Let $Y=r(x)=e^X$.  Then,
-%\[
-%\e(Y) = \int_0^1 e^x f(x) dx = \int_0^1 e^x 1 \ dx = e-1 \ .
-%\]
+We can simply apply the definition of $\e(r(X))$, since $Y=r(X)$, is just a function of $X$, as follows: 
+\[
+\e(Y) = \int_0^1 e^x f(x) dx = \int_0^1 e^x 1 \ dx = e-1 \ .
+\]
 %You could have also found out that the density $f(y)=1/y$ for the RV $Y$, provided $1<y<e$, and $0$ otherwise.  Again,
 %\[
 %\e(Y) = \int_1^e y f(y) dy = \int_1^e y \frac{1}{y} dy = \int_1^e 1 \ dy = e-1 \ .
 %\]
-%\end{example}
+\end{example}
 
-\subsection{Expectations of functions of $\Rz^2$-valued random variables}\label{S:ExpectationsOfFunsOf2RVs}
+\paragraph{Mean and Variance of $\exponential(\lambda)$:}
+Show that the mean of an $\exponential(\lambda)$ RV $X$ is:
+\[
+\e_{\lambda}(X) = \int_{0}^{\infty} x f(x;\lambda)\,dx
+=   \int_{0}^{\infty} x \lambda e^{-\lambda x}\,dx
+= \frac{1}{\lambda} \ ,
+\]
+and the variance is:
+\[
+\V_{\lambda}(X) = \left(  \frac{1}{\lambda} \right)^2 \ .
+\]
+
+\subsection*{Expectations of functions of $\Rz^2$-valued random variables}\label{S:ExpectationsOfFunsOf2RVs}
 
 In the case of a single random variable we saw that its expectation gives the population mean, 
 a measure of the center of the distribution of the variable in some sense.  
@@ -1223,7 +1641,7 @@ Similarly, by taking the expected value of various functions of a $\Rz^2$-valued
 \begin{definition}\label{Df:2expectation}
 The \textbf{Expectation} of a function $g(X,Y)$ of the $\Rz^2$-valued RV $(X,Y)$ is defined as:
 \[
-E(g(X,Y))\; =\;
+\e(g(X,Y))\; =\;
 \begin{cases}
 \displaystyle \sum_{(x,y)} g(x,y) f_{X,Y}(x,y) & \text{if $(X,Y)$ is a discrete \rv}\\[12pt]
 \displaystyle \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x,y) f_{X,Y}(x,y) dx dy & \text{if $(X,Y)$ is a continuous \rv}
@@ -1236,16 +1654,114 @@ Some typical expectations for $\Rz^2$-valued random variables are:
 \be
 \item Joint Moments
 \[
-E(X^r Y^s)
+\e(X^r Y^s)
 \]
+When $r=s=1$, we have $\e(XY)$, the expectation of the product of two RVs.
 \item 
 We need a new notion for the variance of two RVs.
 
-If $E(X^2) < \infty$ and $E(Y^2) < \infty$ then $E(|X Y|) < \infty$ and $E(|(X-E(X))(Y-E(Y))|) < \infty$.  This allows the definition of {\bf covariance} of $X$ and $Y$ as
+If $\e(X^2) < \infty$ and $\e(Y^2) < \infty$ then $\e(|X Y|) < \infty$ and $\e(|(X-\e(X))(Y-\e(Y))|) < \infty$.  This allows the definition of {\bf covariance} of $X$ and $Y$ as
 \[
-\cv(X,Y) := E \left((X-E(X))(Y-E(Y))\right) = E(X Y) - E(X) E(Y)
+\cv(X,Y) := \e \left((X-\e(X))(Y-\e(Y))\right) = \e(X Y) - \e(X) \e(Y)
 \]
 \ee
+
+The same ideas naturally extend, via multiple sums and integrals, to define the expectation of functions of $\Rz^k$-valued random variables with $k>2$.
+
+\subsection*{Viewing a deterministic real variable as a random variable}
+
+Consider the class of discrete RVs with distributions that place all probability mass on a single real number.  
+This is the probability model for the deterministic real variable, which is often thought of as an unknown constant $\theta \in \Rz$.
+\begin{model}[$\pointmass(\theta)$]
+Given a specific point $\theta \in \Rz$, we say an RV $X$ has point mass at $\theta$ or is $\pointmass(\theta)$ distributed if the DF is:
+\begin{equation}\label{E:PointMasscdf}
+F(x;\theta) =
+\begin{cases}
+0 & \text{if $x < \theta$} \\
+1 & \text{if $x \geq \theta$}
+\end{cases}
+\end{equation}
+and the PMF is:
+\begin{equation}
+f(x;\theta) =
+\begin{cases}
+0 & \text{if  $x \neq \theta$} \\
+1 & \text{if $x = \theta$}
+\end{cases}
+\end{equation}
+\end{model}
+Thus, $\pointmass(\theta)$ RV $X$ is deterministic in the sense that every realisation of $X$ is exactly equal to $\theta \in \Rz$.  We will see that this distribution plays a central limiting role in asymptotic statistics.
+\paragraph{Mean and variance of $\pointmass(\theta)$ RV:}
+Let $X \sim \pointmass(\theta)$.  Then:
+\[
+\e(X) = \sum_{x} x f(x) = \theta \times 1 = \theta \ , \qquad
+\V(X) = \e(X^2) - (\e(X))^2 = \theta^2 - \theta^2 = 0 \ .
+\]
+
+\subsection*{Properties of expectations}
+The following results, where $a$ is a  constant, may easily be
+proved using the properties of summations and integrals:
+
+\bit
+\item[] $\boxed{\e(a ) \,=\, a}$
+
+\item[] $\boxed{\e(a \,g(X)) \,=\, a\, \e(g(X))}$
+
+\item[] $\boxed{\e(g(X)+h(X))  \,=\, \e(g(X)) \,+\, \e(h(X))}$
+\eit
+Note that here  $g(X)$ and $h(X)$ are functions of the random variable
+$X$: e.g.  $g(X)=X^2$.
+
+Using these results we can obtain the following useful formula for variance:
+\begin{eqnarray*}
+V(X)
+&=& E\left((X-\e(X))^2\right)\\[3pt]
+& =& E \left( X^2 - 2 X \e(X) + (\e(X))^2 \right) \\[3pt]
+&=& E ( X^2) - E \left( 2 X \e(X) \right) + E \left( (\e(X))^2
+\right)\\[3pt]
+& =& E ( X^2) - 2 \e(X) E \left( X \right) + (\e(X))^2 \\[3pt]
+&=& E ( X^2) - 2 (\e(X))^2 + (\e(X))^2\\[3pt]
+&=& \e(X^2) - (\e(X))^2 \enspace .
+\end{eqnarray*}
+That is, \[
+\boxed{
+V(X) \;=\; \e(X^2) \,- \,(\e(X))^2
+}.
+\]
+
+The above properties of expectations imply that for constants $a$ and $b$,
+%V(aX+b) = a^2 V(X) \enspace .
+\begin{equation}\label{E:VofAffineofRVs}
+\boxed{
+\V(aX+b) = a^2\V(X) \ . 
+}
+\end{equation}
+
+More generally, for random variables $X_1,X_2,\ldots,X_n$ and constants $a_1,a_2,\ldots,a_n$
+\begin{itemize}
+\item
+\begin{equation}\label{E:EofLinCombofRVs}
+\e \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i \e(X_i) \ .
+\end{equation}
+%E \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i \e(X_i)}$
+%\smallskip
+\item
+%$\boxed{V \left(  \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 V(X_i)}$, provided $X_1,X_2,\ldots,X_n$ are independent
+\begin{equation}\label{E:VofLinCombofRVs}
+\V \left(  \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 \V(X_i) , \text{ provided $X_1,X_2,\ldots,X_n$ are independent}\ .
+\end{equation}
+\item Let $X_1,X_2,\ldots,X_n$ be independent RVs, then
+\begin{equation}\label{E:EofProdIndRVs}
+\e \left(  \prod_{i=1}^n X_i \right) = \prod_{i=1}^{n} \e(X_i) , \text{ provided $X_1,X_2,\ldots,X_n$ are independent}\ .
+\end{equation}
+\end{itemize}
+
+%\item If the $k$-th moment exists and if $j<k$ then the $j$-th moment exists.
+
+%\item $\V(X) = \e(X^2) - (\e(X))^2$ \ . [prove by completing the square and applying \eqref{E:EofLinCombofRVs}]
+%\item If $a$ and $b$ are constants then:
+%\item If $X_1,X_2,\ldots,X_n$ are independent and $a_1,a_2,\ldots,a_n$ are constants, then:
+%\end{enumerate}
 
 \section{Stochastic Processes}\label{S:StochProc}
 
@@ -1287,77 +1803,3 @@ The sequence of RVs or the stochastic process $\left(X_i\right)_{i \in \Nz} := X
 This is a class of stochastic processes that is more general than the IID class.
 \end{definition}
 
-\remove{
-Let us consider a few discrete RVs for the simple coin tossing experiment $\E{E}_{\theta}^{3}$ that build on the $\bernoulli(\theta)$ RV $X_i$ for the $i$-th toss in an {\bf independent and identically distibuted (IID.)} manner.
-\begin{table}[htpb]
-\caption{The $8$ $\omega$'s in the sample space $\Omega$ of the experiment $\E{E}_{\theta}^{3}$ are given in the first row above.  The RV $Y$ is the number of `Heads' in the $3$ tosses and the RV $Z$ is the number of `Tails' in the $3$ tosses.  Finally, the RVs $Y'$ and $Z'$ are the indicator functions of the event that `all three tosses were Heads' and the event that `all three tosses were Tails', respectively.\label{T:T3XRVs}}
- \begin{tabular}{r c c c c c c c c l}
- \hline
-$\omega$:    & {\tt HHH} & {\tt HHT} & {\tt HTH} & {\tt HTT} & {\tt THH} & {\tt THT} & {\tt TTH} & {\tt TTT} & RV Definitions / Model \\ \hline
- \\
-$\p(\omega)$: & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ &  $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$  & $X_i \overset{\IID}{\sim} \bernoulli(\frac{1}{2})$ \\
- \\
-$Y(\omega)$: & 3         & 2         & 2         & 1         & 2         & 1         & 1         & 0        & $Y := X_1+X_2+X_3$ \\
- \\
-$Z(\omega)$: & 0         & 1         & 1         & 2         & 1         & 2         & 2         & 3        & $Z := (1-X_1)+(1-X_2)+(1-X_3)$ \\
- \\
-$Y'(\omega)$: & 1         & 0         & 0         & 0         & 0         & 0         & 0         & 0       & $Y' :=  X_1 X_2 X_3$ \\
-\\
-$Z'(\omega)$: & 0         & 0         & 0         & 0         & 0         & 0         & 0         & 1       & $Y' :=  (1-X_1)(1-X_2)(1-X_3)$ \\ \hline
- \end{tabular}
- \end{table}
- \begin{classwork}[Two random variables of `toss a coin thrice' experiment]
-Describe the probability of the RV $Y$ and $Y'$ of \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}} in terms of its PMF.  Repeat the process for the RV $Z$ in your spare time.
- \begin{eqnarray}
- \p(Y=y) =%:= \p(\{\omega: Y(\omega)=y\}) = 
- \begin{cases}
- \qquad & \qquad \notag \\
- \qquad & \qquad \notag \\
- \qquad & \qquad \notag \\
- \qquad & \qquad \notag
- \end{cases} 
- & \qquad \qquad \qquad \qquad \qquad
-\p(Y'=y') =%:= \p(\{\omega: Y'(\omega)=y'\}) = 
- \begin{cases}
- \qquad & \qquad \notag \\
- \qquad & \qquad \notag 
- \end{cases}
- \end{eqnarray}
- \end{classwork}
- 
- \begin{classwork}[The number of `Heads' given there is at least one `Tails']
- Consider the following two questions.
- \begin{enumerate}
-\item What is conditional probability $\p(Y|Y'=0)$ ?
-%{\color{Gray}{
- \[
- \begin{array}{c c c c}
- \hline \\
- \p(Y=y | Y'=0) & =\frac{\p(Y=y,Y'=0)}{\p(Y'=0)} & =\frac{\p(\{\omega: Y(\omega)=y \  \cap \ Y'(\omega)=0\})}{\p(\{\omega: Y'(\omega)=0\})} & = ? \\ \hline \\
- \\
- \p(Y=0 | Y'=0) & \frac{\p(Y=0,Y'=0)}{\p(Y'=0)} & \frac{\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & \frac{1}{7} \\
-\\
-\p(Y=1 | Y'=0) & \frac{\p(Y=1,Y'=0)}{\p(Y'=0)} & \frac{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & \frac{3}{7} \\
-\\
-\p(Y=2 | Y'=0) & \frac{\p(Y=2,Y'=0)}{\p(Y'=0)} & \frac{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & \frac{3}{7} \\
-\\
-\p(Y=3 | Y'=0) & \frac{\p(Y=3,Y'=0)}{\p(Y'=0)} & \frac{\p(\emptyset)}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & 0 \\
-\\ \hline
-\p(Y \in \{0,1,2,3\} | Y'=0) & \frac{\sum_{y=0}^3{\p(Y=y,Y'=0)}}{\p(Y'=0)} & \frac {\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & 1 \\ \hline
- \end{array}
- \]
-% }}
-\item What is $\p(Y|Y'=1)$ ?
-%{\color{Gray}{
- \[
-\p(Y=y | Y'=1) = 
-\begin{cases}
-1 & \text{if $y=3$} \\
-0 & \text{otherwise}
- \end{cases}
- \]
- %}}
- \end{enumerate}
- \end{classwork}
-
-}

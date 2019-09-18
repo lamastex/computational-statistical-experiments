@@ -48,26 +48,8 @@ This algorithm emphasises the fundamental sampler's availability in an {\it inpu
 %}%end remove
 \section{Continuous Random Variables}
 
-\begin{model}[$\uniform(\theta_1,\theta_2)$]\label{M:Uniformab}
-Given two real parameters $\theta_1,\theta_2 \in \Rz$, such that $\theta_1 < \theta_2$, the PDF of the $Uniform(\theta_1,\theta_2)$ RV $X$ is:
-\begin{equation}\label{E:Uniformabpdf}
-f(x;\theta_1,\theta_2) =
-\begin{cases}
-\frac{1}{\theta_2 - \theta_1} & \text{if $\theta_1 \leq x \leq \theta_2$,}\\
-0 & \text{otherwise}
-\end{cases}
-\end{equation}
-and its DF given by $F(x;\theta_1,\theta_2) = \int_{- \infty}^x f(y; \theta_1,\theta_2) \, dy$ is:
-\begin{equation}\label{E:Uniformabcdf}
-F(x; \theta_1,\theta_2) =
-\begin{cases}
-0 & \text{if $x < \theta_1$} \\
-\frac{x-\theta_1}{\theta_2-\theta_1} & if~\theta_1 \leq x \leq \theta_2,\\
-1 & \text{if $x > \theta_2$}
-\end{cases}
-\end{equation}
-Recall that we emphasise the dependence of the probabilities on the two parameters $\theta_1$ and $\theta_2$ by specifying them following the semicolon in the argument for $f$ and $F$.
-\end{model}
+Recall the $\uniform(\theta_1,\theta_2)$ RV of \hyperref[M:Uniformab]{Model \ref*{M:Uniformab}} with the following PDF, DFand inverse DF. Let us simulate from it using the inversion sampler.
+
 \begin{figure}[htpb]
 \caption{A plot of the PDF, DF or CDF and inverse DF of the $\uniform(-1,1)$ RV $X$.\label{F:unifpm1}}
 \centering   \makebox{\includegraphics[width=6.5in]{figures/Unifpm1pdfcdf}}
@@ -117,37 +99,8 @@ It is just as easy to draw $n$ IID samples from $\uniform(\theta_1,\theta_2)$ RV
 
 %}%end remove
 
-\begin{model}[$\exponential(\lambda)$]
-For a given $\lambda > 0$, an $\exponential(\lambda)$ RV has the following PDF $f$ and DF $F$:
-\begin{eqnarray}\label{E:Exponentialpdfcdf}
-f(x; \lambda) = \lambda e^{-\lambda x} \qquad &
-F(x; \lambda)= 1-e^{-\lambda x}  \ .
-\end{eqnarray}
-This distribution is fundamental because of its property of {\bf memorylessness} and plays a fundamental role in continuous time
-%Markov
-processes as we will see later.
-\end{model}
+Recall the $\exponential(\lambda)$ RV of \hyperref[M:exponential]{Model \ref*{M:exponential}}. Let us simulate from it using the inversion sampler.
 
-%\remove{
-We encode the PDF and DF of the $\exponential(\lambda)$ RV as \Matlab functions {\tt ExponentialPdf} and {\tt ExponentialCdf} and use them to produce \hyperref[F:plotPdfCdfExponentials]{Figure~\ref*{F:plotPdfCdfExponentials}} in \hyperref[Mf:ExponentialPdfCdf]{Labwork~\ref*{Mf:ExponentialPdfCdf}}.
-%}%end remove
-
-\begin{figure}[htpb]
-\caption{Density and distribution functions of $Exponential(\lambda)$ RVs, for $\lambda=1, 10, 10^{-1}$, in four different axes scales.\label{F:plotPdfCdfExponentials}}
-\centering   \makebox{\includegraphics[width=6.5in]{figures/plotPdfCdfExponentials}}
-\end{figure}
-
-\paragraph{Mean and Variance of $\exponential(\lambda)$:}
-Show that the mean of an $\exponential(\lambda)$ RV $X$ is:
-\[
-\e_{\lambda}(X) = \int_{0}^{\infty} x f(x;\lambda)\,dx
-=   \int_{0}^{\infty} x \lambda e^{-\lambda x}\,dx
-= \frac{1}{\lambda} \ ,
-\]
-and the variance is:
-\[
-\V_{\lambda}(X) = \left(  \frac{1}{\lambda} \right)^2 \ .
-\]
 
 %\remove{
 \begin{labwork}[Inversion Sampler Demo -- $\exponential(0.5)$]\label{LW:guiInversionSamplerExponential}
@@ -607,32 +560,7 @@ Again, it is straightforward to do replicate experiments, e.g.~to demonstrate th
 >> theta=0.5; Reps=10000; n=1000; hist(sum(floor(rand(n,Reps)+theta))/n,30)
 \end{VrbM}
 
-Consider the class of discrete RVs with distributions that place all probability mass on a single real number.  This is the probability model for the  deterministic real variable.
-\begin{model}[$\pointmass(\theta)$]
-Given a specific point $\theta \in \Rz$, we say an RV $X$ has point mass at $\theta$ or is $\pointmass(\theta)$ distributed if the DF is:
-\begin{equation}\label{E:PointMasscdf}
-F(x;\theta) =
-\begin{cases}
-0 & \text{if $x < \theta$} \\
-1 & \text{if $x \geq \theta$}
-\end{cases}
-\end{equation}
-and the PMF is:
-\begin{equation}
-f(x;\theta) =
-\begin{cases}
-0 & \text{if  $x \neq \theta$} \\
-1 & \text{if $x = \theta$}
-\end{cases}
-\end{equation}
-\end{model}
-Thus, $\pointmass(\theta)$ RV $X$ is deterministic in the sense that every realisation of $X$ is exactly equal to $\theta \in \Rz$.  We will see that this distribution plays a central limiting role in asymptotic statistics.
-\paragraph{Mean and variance of $\pointmass(\theta)$ RV:}
-Let $X \sim \pointmass(\theta)$.  Then:
-\[
-\e(X) = \sum_{x} x f(x) = \theta \times 1 = \theta \ , \qquad
-\V(X) = \e(X^2) - (\e(X))^2 = \theta^2 - \theta^2 = 0 \ .
-\]
+Recall the $\pointmass(\theta)$ RV. Formally, we can simulate from it trivially as follows.
 \begin{simulation}[$\pointmass(\theta)$]\label{SIM:PointMass}
 Let us simulate a sample from the $\pointmass(\theta)$ RV $X$.  Since this RV produces the same realisation $\theta$ we can implement it via the following M-file:
 

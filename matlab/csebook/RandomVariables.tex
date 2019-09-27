@@ -274,7 +274,7 @@ The plot was saved as an encapsulated postscript file from the File menu of the 
 
 {\bf **universality of the fundamental model}
 
---- one can obtain any other random object from the fundamental model!
+--- one can obtain any other random variable from the fundamental model!
 
 \section{Transformations of random variables}\label{S:TransformationsOFRvs}
 
@@ -383,14 +383,14 @@ Because we have more than one random variable to consider, namely, $X$ and its t
 For a discrete random variable $X$ with probability mass function $f_X$ we can obtain the probability mass function $f_Y$ of $Y=g(X)$ using Equation~\eqref{E:ProbOfgOfX} as follows:
 \begin{eqnarray*}
 f_Y(y) 
-&=& P(Y =y) = P(Y \in \{y\}) \\
+&=& \p(Y =y) = \p(Y \in \{y\}) \\
 &=& P \left( g(X) \in \{y\} \right) = P \left(X \in g^{[-1]}(\{y\}) \right)\\
 &=& P \left(X \in g^{[-1]}(y) \right) = \sum_{x \in g^{[-1]}(y)} f_X(x) = \sum_{x \in \{x: g(x)=y\}} f_X(x) \enspace .
 \end{eqnarray*}
 This gives the formula:
 \begin{equation}\label{E:PMFOfgOfX}
 \boxed{
-f_Y(y) = P(Y =y) = \sum_{x \in g^{[-1]}(y)} f_X(x) = \sum_{x \in \{x: g(x)=y\}} f_X(x) \enspace .
+f_Y(y) = \p(Y =y) = \sum_{x \in g^{[-1]}(y)} f_X(x) = \sum_{x \in \{x: g(x)=y\}} f_X(x) \enspace .
 }
 \end{equation}
 
@@ -400,12 +400,12 @@ Let $X$ be the discrete random variable with probability mass function $f_X$ as 
 \begin{tabular}{r|rrr}
 $x$ & -1 & 0 & 1\\ \hline
  &  &  & \\ 
-$f_X(x)=P(X=x)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$
+$f_X(x)=\p(X=x)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$
 \end{tabular}
 \end{center}
 If $Y=2X$ then the transformation $g(X)=2X$ has inverse image $g^{[-1]}(y)=\{y/2\}$.  
 Then, by Equation~\eqref{E:PMFOfgOfX} the probability mass function of $Y$ is expressed in terms of the known probabilities of $X$ as:\\ 
-$$f_Y(y)=P(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{x \in \{y/2\}} f_X(x) = f_X(y/2) \enspace ,$$
+$$f_Y(y)=\p(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{x \in \{y/2\}} f_X(x) = f_X(y/2) \enspace ,$$
 and tabulated below:\\
 \begin{center}
 \begin{tabular}{r|rrr}
@@ -419,7 +419,7 @@ $f_Y(y)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$
 \begin{example}\label{EXMP:Discrete1to1TransYis2Xplus1}
 If $X$ is the random variable in the previous Example then what is the probability mass function of $Y=2X+1$?
 Once again,
-$$f_Y(y)=P(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{x \in \{(y-1)/2\}} f_X(x) = f_X((y-1)/2) \enspace ,$$
+$$f_Y(y)=\p(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{x \in \{(y-1)/2\}} f_X(x) = f_X((y-1)/2) \enspace ,$$
 and tabulated below:\\
 \begin{center}
 \begin{tabular}{r|rrr}
@@ -438,7 +438,7 @@ Recall that $g(x)=x^2$ does not have an inverse function unless the domain is re
 Since our random variable $X$ takes values on both sides of the real line, namely $\{-1,0,1\}$, let us note that the transformation $g(X)=X^2$ is no longer a one-to-one function.  
 Then, by Equation~\eqref{E:PMFOfgOfX} the probability mass function of $Y$ is expressed in terms of the known probabilities of $X$ as:\\ 
 \[
-f_Y(y)=P(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{\{x:g(x)=y\}} f_X(x) = \sum_{\{x:x^2=y\}} f_X(x) \enspace ,
+f_Y(y)=\p(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{\{x:g(x)=y\}} f_X(x) = \sum_{\{x:x^2=y\}} f_X(x) \enspace ,
 \]
 computed for each $y \in \{0,1\}$ as follows:
 \begin{eqnarray*}
@@ -454,6 +454,8 @@ $f_Y(y)$ & $\frac{1}{2}$ & \quad & $\frac{1}{2}$
 \end{tabular}\enspace .
 \end{center}
 \end{example}
+
+
 
 \subsection{Transformation of continuous random variables}
 Suppose we know $F_X$ and/or $f_X$ of a continuous random variable $X$.  
@@ -511,7 +513,7 @@ The steps involved in finding the density of $Y=g(X)$ for a one-to-one and monot
 
 Let us use these four steps to obtain the density of monotone transformations of continuous random variables.
 
-\begin{example}
+\begin{example}\label{Ex:1-UisU}
 Let $X$ be $\uniform(0,1)$ random variable and let $Y=g(X)=1-X$.  
 We are interested in the density of the tranformed random variable $Y$. Let us follow the four steps and use the change of variable formula to obtain $f_Y$ from $f_X$ and $g$.
 \begin{enumerate}
@@ -598,7 +600,7 @@ We can use this approach if it is reasonably easy to find the set $g^{[-1]}((-\i
 Let $X$ be any random variable with distribution function $F_X$.  Let $Y=g(X)=X^2$.  
 Then we can find $F_Y$, the distribution function of $Y$ from $F_X$ as follows:
 \begin{itemize}
-\item {Since $Y=X^2 \geq 0$, if $y < 0$ then $F_Y(y) = P\left( X \in \{ x : x^2 < y\} \right) = P(X \in \emptyset) = 0$.}
+\item {Since $Y=X^2 \geq 0$, if $y < 0$ then $F_Y(y) = P\left( X \in \{ x : x^2 < y\} \right) = \p(X \in \emptyset) = 0$.}
 \item {If $y \geq 0$ then
 \begin{eqnarray*}
 F_Y(y) = P \left(Y \leq y \right) 
@@ -839,8 +841,8 @@ Answer the following:
 \be
 \item identify the support of $(X,Y)$, i.e., the region in the plane where $f_{X,Y}$ takes positive values
 \item check that $f_{X,Y}$ indeed integrates to $1$ as it should
-\item Find $P(X \leq 400, Y \leq 800)$
-\item It is known that humans prefer a response time of under $1/10$ seconds ($10^2$ milliseconds) from the web server before they get impatient.  What is $P(X+Y < 10^2)$? 
+\item Find $\p(X \leq 400, Y \leq 800)$
+\item It is known that humans prefer a response time of under $1/10$ seconds ($10^2$ milliseconds) from the web server before they get impatient.  What is $\p(X+Y < 10^2)$? 
 \ee
 \begin{center}
 \makebox{\includegraphics[width=6.0in]{figures/PlotPDF2ServerTimes}}
@@ -868,7 +870,7 @@ The support is the intersection of the positive quadrant with the $y>x$ half-pla
 First, identify the region with positive JPDF for the event $(X \leq 400, Y \leq 800)$
 {\scriptsize
 \begin{align*}
-&P(X \leq 400, Y \leq 800)\\
+&\p(X \leq 400, Y \leq 800)\\
 &= \int_{x=0}^{400} \int_{y=x}^{800} f_{X,Y}(x,y) dy dx \\
 &= \int_{x=0}^{400} \int_{y=x}^{800} \frac{6}{10^6} \exp \left( -\frac{1}{1000}x-\frac{2}{1000}y \right) dy dx \\
 &= \frac{6}{10^6}  \int_{x=0}^{400} \left[ -\frac{1000}{2} \exp \left( -\frac{2}{1000}y \right) \right]_{y=x}^{800}  \exp \left(-\frac{1}{1000}x\right) dx\\
@@ -887,7 +889,7 @@ This is the triangular region at the intersection of the four half-planes: $x>0$
 Let's integrate the JPDF over our triangular event as follows:
 {\scriptsize
 \begin{align*}
-P(X+Y \leq c) 
+\p(X+Y \leq c) 
 &= \int_{x=0}^{c/2}\int_{y=x}^{c-x} f_{X,Y}(x,y) dy dx \\
 &= \int_{x=0}^{c/2}\int_{y=x}^{c-x} \frac{6}{10^6} \exp \left( -\frac{1}{1000}x-\frac{2}{1000}y \right) dy dx \\
 &= \frac{6}{10^6} \int_{x=0}^{c/2}\int_{y=x}^{c-x}  \exp \left( -\frac{1}{1000}x-\frac{2}{1000}y \right) dy dx \\
@@ -901,9 +903,9 @@ P(X+Y \leq c)
 \end{align*}
 }
 %\vspace{1cm}\\
-\item $P(X+Y<100) = 1 - 4 e^{-300/2000} + 3 e^{-100/500} \approxeq 0.134$.  This means only about one in one hundred requests to this server will be processed within 100 milliseconds.
+\item $\p(X+Y<100) = 1 - 4 e^{-300/2000} + 3 e^{-100/500} \approxeq 0.134$.  This means only about one in one hundred requests to this server will be processed within 100 milliseconds.
 \ee
-We can obtain $P(X+Y<c)$ for several values of $c$ using \Matlab and note that about 96\% of requests are processed in less than 3000 milliseconds or 3 seconds.
+We can obtain $\p(X+Y<c)$ for several values of $c$ using \Matlab and note that about 96\% of requests are processed in less than 3000 milliseconds or 3 seconds.
 \begin{VrbM}
 >> c = [100 1000 2000 3000 4000]
 c =  100        1000        2000        3000        4000
@@ -947,7 +949,7 @@ $X=1$& $0.2$ & $0.4$  \\ \hline
 \end{center}
 From the above Table we can find:
 \begin{align*}
-f_X(x) = P(X=x) 
+f_X(x) = \p(X=x) 
 &= \sum_{y} f_{X,Y}(x,y) \\
 &= 
 f_{X,Y}(x,0) + f_{X,Y}(x,1) = 
@@ -958,7 +960,7 @@ f_{X,Y}(1,0) + f_{X,Y}(1,1) = 0.2+0.4=0.6 & \text{ if } x=1\\
 \end{align*}
 Similarly,
 \begin{align*}
-f_Y(y) = P(Y=y) 
+f_Y(y) = \p(Y=y) 
 &= \sum_{x} f_{X,Y}(x,y) \\
 &= 
 f_{X,Y}(0,y) + f_{X,Y}(1,y) 
@@ -1026,7 +1028,7 @@ f_Y(y)
 We have the marginal PDF of $Y$ and from this we can obtain 
 {\scriptsize
 \begin{align*}
-P(Y>2000)
+\p(Y>2000)
 &= \int_{2000}^{\infty} f_Y(y) dy \\
 &= \int_{2000}^{\infty} 6 \times 10^{-3} e^{-0.002y} \left({1- e^{-0.001 y}} \right) dy\\
 &= 6 \times 10^{-3} \int_{2000}^{\infty}  e^{-0.002y} dy - \int_{2000}^{\infty} e^{-0.003 y} dy\\
@@ -1038,13 +1040,13 @@ P(Y>2000)
 }
 
 {\scriptsize
-Alternatively, you can obtain $P(Y>2000)$ by directly integrating the joint PDF $f_{X,Y}(x,y)$ over the appropriate region (but you may now have to integrate two pieces: rectangular infinite strip ${(x,y): 0<x<2000, y>2000}$ and a triangular infinite piece $\{(x,y): y>x, y>2000, x> 2000\}$)... more involved but we get the same answer.
+Alternatively, you can obtain $\p(Y>2000)$ by directly integrating the joint PDF $f_{X,Y}(x,y)$ over the appropriate region (but you may now have to integrate two pieces: rectangular infinite strip ${(x,y): 0<x<2000, y>2000}$ and a triangular infinite piece $\{(x,y): y>x, y>2000, x> 2000\}$)... more involved but we get the same answer.
 \begin{multline*}
-P(Y>2000) = \int_{x=0}^{2000} \left( \int_{y=2000}^{\infty} 6 \times 10^{-6} e^{-0.001 x - 0.002y} dy \right) dx + \\
+\p(Y>2000) = \int_{x=0}^{2000} \left( \int_{y=2000}^{\infty} 6 \times 10^{-6} e^{-0.001 x - 0.002y} dy \right) dx + \\
 \int_{x=2000}^{\infty} \left( \int_{y=x}^{\infty} 6 \times 10^{-6} e^{-0.001 x - 0.002y} dy \right) dx 
 \\
 \vdots \text{(try as a tutorial problem)} \\
-P(Y>2000) = 0.0475 + 0.0025 = 0.05
+\p(Y>2000) = 0.0475 + 0.0025 = 0.05
 \end{multline*}
 }
 \end{example}
@@ -1275,8 +1277,8 @@ Now, let us extend the notions of JCDF, JPMF and JPDF to $\Rz^m$.
 The {\bf joint distribution function (JDF)} or {\bf joint cumulative distribution function (JCDF)}, $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m):\mathbb{R}^m\to [0,1]$, of the multivariate random vector $(X_1,X_2,\ldots,X_m)$ is
 \begin{eqnarray}\label{E:jmDF}
 F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)\; 
-&=& P(X\leq x_1 \cap X_2 \leq x_2 \cap \cdots \cap X_m \leq x_m)\notag\\ 
-&=& P(X_1\leq x_1 , X_2 \leq x_2, \ldots, X_m \leq x_m)\\
+&=& \p(X\leq x_1 \cap X_2 \leq x_2 \cap \cdots \cap X_m \leq x_m)\notag\\ 
+&=& \p(X_1\leq x_1 , X_2 \leq x_2, \ldots, X_m \leq x_m)\\
 &=& P\left( \{ \omega: X_1(\omega) \leq x_1, X_2(\omega) \leq x_2, \ldots, X_m(\omega) \leq x_m \} \right), \notag
 \end{eqnarray}
 for any $(x_1,x_2,\ldots,x_m) \in \mathbb{R}^m$, 
@@ -1295,15 +1297,15 @@ The JDF $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m):\Rz^m\to\Rz$ satisfies the f
 \begin{definition}[Multivariate JPMF]
 If $(X_1,X_2,\ldots,X_m)$ is a {\bf discrete random vector} that takes values in a discrete support set $\mathcal{S}_{X_1,X_2,\ldots,X_m}$, then its \textbf{joint probability mass function} (or JPMF) is:
 \begin{equation}\label{Eq:jmDPMF}
-f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) = P(X_1=x_1,X_2=x_2,\ldots,X_m=x_m) \enspace . 
+f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) = \p(X_1=x_1,X_2=x_2,\ldots,X_m=x_m) \enspace . 
 \end{equation}
 \end{definition}
-Since $P(\Omega)=1$, $\sum_{{\substack{(x_1,x_2,\ldots,x_m) \in \mathcal{S}_{X_1,X_2,\ldots,X_m}}}}f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)=1$.
+Since $\p(\Omega)=1$, $\sum_{{\substack{(x_1,x_2,\ldots,x_m) \in \mathcal{S}_{X_1,X_2,\ldots,X_m}}}}f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)=1$.
 
 From JPMF $f_{X_1,X_2,\ldots,X_m}$ we can get the JCDF $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)$ and the probability of any event $B$ by simply taking sums as in Equation~\eqref{Eq:2DiscretejDFFromjPMF} but now over all $m$ coordinates.
 %\begin{equation}\label{Eq:2DiscretejDFFromjPMF}
 %\boxed{F_{X_1,X_2,\ldots,X_m}(x,y)\;=\;\sum_{x_i\leq x, y_j \leq y}f_{X_1,X_2,\ldots,X_m}(x_i,y_j) }\enspace ,
-%\qquad \boxed{P(B)\;=\;\sum_{\substack{(x_i, y_j) \in B \cap \mathcal{S}_{X_1,X_2,\ldots,X_m}}}f_{X_1,X_2,\ldots,X_m}(x_i,y_j) }\enspace ,
+%\qquad \boxed{\p(B)\;=\;\sum_{\substack{(x_i, y_j) \in B \cap \mathcal{S}_{X_1,X_2,\ldots,X_m}}}f_{X_1,X_2,\ldots,X_m}(x_i,y_j) }\enspace ,
 %\end{equation}
 
 \begin{definition}[Multivariate JPDF]
@@ -1319,7 +1321,7 @@ From JPDF $f_{X_1,X_2,\ldots,X_m}$ we can compute the JDF $F_{X_1,X_2,\ldots,X_m
 \end{equation}
 and
 \begin{equation}\label{Eq:mContProbEventFromjPDF}
-\boxed{P(B)\;=\; \int\cdots\int\int_{B} f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) dx_1 dx_2\ldots d x_m}\enspace .
+\boxed{\p(B)\;=\; \int\cdots\int\int_{B} f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) dx_1 dx_2\ldots d x_m}\enspace .
 \end{equation}
 The JPDF satisfies the following two properties:
 \be
@@ -1621,14 +1623,16 @@ f(x;\theta) =
 \end{equation}
 \end{model}
 Thus, $\pointmass(\theta)$ RV $X$ is deterministic in the sense that every realisation of $X$ is exactly equal to $\theta \in \Rz$.  We will see that this distribution plays a central limiting role in asymptotic statistics.
-\paragraph{Mean and variance of $\pointmass(\theta)$ RV:}
+
+\begin{example}[Mean and variance of $\pointmass(\theta)$ RV]
 Let $X \sim \pointmass(\theta)$.  Then:
 \[
 \e(X) = \sum_{x} x f(x) = \theta \times 1 = \theta \ , \qquad
 \V(X) = \e(X^2) - (\e(X))^2 = \theta^2 - \theta^2 = 0 \ .
 \]
+\end{example}
 
-\subsection*{Properties of expectations}
+\subsection{Properties of expectations}\label{S:PropOfEs}
 The following results, where $a$ is a  constant, may easily be
 proved using the properties of summations and integrals:
 
@@ -1694,7 +1698,7 @@ More generally, for random variables $X_1,X_2,\ldots,X_n$ and constants $a_1,a_2
 %\end{enumerate}
 Next, let us compute the mean and variance of our familiar RVs.
 
-\paragraph{Mean and variance of $\bernoulli(\theta)$ RV:}
+\begin{example}[Mean and variance of $\bernoulli(\theta)$ RV]
 Let $X \sim \bernoulli(\theta)$.  Then, 
 \[
 \e(X) = \sum_{x=0}^1 x f(x) = (0 \times (1-\theta)) + (1 \times \theta) = 0+\theta=\theta \ ,
@@ -1724,8 +1728,9 @@ Maximum of the variance $\V_{\theta}(X)$ is found by setting the derivative to z
 \text{since $\V_{\theta}(X)$ is maximized at $\theta = \frac{1}{2}$}
 \]
 The plot depicting these expectations as well as the rate of change of the variance are depicted in \hyperref[F:MeanVarBernoulli]{Figure \ref*{F:MeanVarBernoulli}}.  Note from this Figure that $\V_{\theta}(X)$ attains its maximum  value of $1/4$ at $\theta=0.5$ where $\frac{d}{d\theta}\V_{\theta}(X)=0$.  Furthermore, we know that we don't have a minimum at $\theta=0.5$ since the second derivative $\V_{\theta}''(X) = -2$ is negative for any $\theta \in [0,1]$.  This confirms that $\V_{\theta}(X)$ is concave down and therefore we have a maximum of $\V_{\theta}(X)$ at $\theta=0.5$.  We will revisit this example when we employ a numerical approach called Newton-Raphson method to solve for the maximum of a differentiable function by setting its derivative equal to zero.
+\end{example}
 
-\paragraph{Mean and variance of $\uniform(0,1)$ RV:}
+\begin{example}[Mean and variance of $\uniform(0,1)$ RV]
 Let $X \sim \uniform(0,1)$.  Then, 
 \[
 \e(X) = \int_{x=0}^1 x f(x)\, dx = \int_{x=0}^1 x \ 1 \, dx = \frac{1}{2} \left( x^2 \right]_{x=0}^{x=1} = \frac{1}{2} \left( 1-0 \right) = \frac{1}{2} \ ,
@@ -1736,9 +1741,10 @@ Let $X \sim \uniform(0,1)$.  Then,
 \[
 \V(X) = \e(X^2) - (\e(X))^2 = \frac{1}{3}  - \left( \frac{1}{2} \right)^2  = \frac{1}{3}  - \frac{1}{4} = \frac{1}{12} \ .
 \]
+\end{example}
 
-\begin{example}[Expected Exponential of the $Uniform(0,1)$ RV]
-Let $X \sim Uniform(0,1)$ and $Y=r(X)=e^X$.  Compute $\e(Y)$. 
+\begin{example}[Expected Exponential of the $\uniform(0,1)$ RV]
+Let $X \sim \uniform(0,1)$ and $Y=r(X)=e^X$.  Compute $\e(Y)$. 
 
 We can simply apply the definition of $\e(r(X))$, since $Y=r(X)$, is just a function of $X$, as follows: 
 \[
@@ -1786,7 +1792,7 @@ Of course the above process is quite general and can allow for arbitrary depende
 Generally, we cannot produce useful models without making simplifying assumptions. 
 The absolutely simplest but extremely useful assumption is that of the {\bf Independent and Identically Distributed or IID Process} or merely {\bf IID Sequence of RVs} when the index set is a subset of $\Nz$. 
 
-This is exactly rhe sequence of RVs associated with our product experiment $\mathcal{E}^{\otimes \infty} := (\Omega, \mathcal{F}_{\mathcal{X}}, P_{\theta})^{\otimes \infty}$.
+This is exactly the sequence of RVs associated with our product experiment $\mathcal{E}^{\otimes \infty} := (\Omega, \mathcal{F}_{\mathcal{X}}, P_{\theta})^{\otimes \infty}$.
     
 \begin{definition}[Independent and Identically Distributed (IID) Process]
 The finite or infinite sequence of RVs or the stochastic process $X_1, X_2,\ldots$ is said to be independent and identically distributed or IID if :
@@ -1866,7 +1872,7 @@ The outcome of a $\geometric(\theta)$ RV can be thought of as ``the number of to
 \centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSimHistGeomthetaHalf}}
 \end{figure}
 
-\paragraph{Mean and variance of $\geometric(\theta)$ RV:}
+\begin{example}[Mean and variance of $\geometric(\theta)$ RV]
 Let $X \sim \geometric(\theta)$ RV.  Then,
 \[
 \e(X) = \sum_{x=0}^{\infty} x \theta(1-\theta)^x =  \theta \sum_{x=0}^{\infty} x (1-\theta)^x
@@ -1888,6 +1894,7 @@ Similarly, it can be shown that
 \caption{Mean and variance of a $\geometric(\theta)$ RV $X$ as a function of the parameter $\theta$.\label{F:MeanVarGeom}}
 \centering   \makebox{\includegraphics[width=5.0in]{figures/PlotMeanVarGeom}}
 \end{figure}
+\end{example}
 
 \begin{example}[Coupon Collectors Problem]
 Recall the Coupon Collector's Probelms from lectures.%TODO
@@ -1930,7 +1937,7 @@ where, $\binom{n}{x}$ is:
 $\binom{n}{x}$ is read as ``$n$ choose $x$.''
  \end{model}
  %{\scriptsize
-\begin{proof} This is only a sketch. A formal proof should start with the mathematical induction for the very formula for the binomial coeeficient.
+\begin{proof} This is only a sketch. A formal proof should start with the mathematical induction for the very formula for the binomial coefficient.
 
 Observe that for the $\binomial(n,\theta)$ RV $X$, $\p(X=x) = f(x;n,\theta)$ is the probability that $x$ of the $n$ $\bernoulli(\theta)$ trials result in an outcome of $1$'s.  Next note that if all $n$ $X_i$'s are $0$'s, then $X=0$, and if all $n$ $X_i$'s are $1$'s, then $X=n$.  In general, if some of the $n$ $X_i$'s are $1$'s and the others are $0$, then $X$ can only take values in $\{0,1,2,\ldots,n\}$ and therefore $f(x;n,\theta)=0$ if $x \notin \{0,1,2,\ldots,n\}$.
 
@@ -1956,6 +1963,155 @@ However, this is a nontrivial sum to evaluate.  Instead, we may use \eqref{E:Eof
 \end{figure}
 
 
+\section{Convergence of Random Variables}\label{S:ConvOfRVs}
+This important topic is concerned with the limiting behavior of sequences of RVs
+\[
+\{X_i \}_{i=1}^n := X_1,X_2,X_3, \ldots X_{n-1}, X_n \qquad \text{as  $n \rightarrow \infty$ .}
+\]
+From a statistical viewpoint $n \rightarrow \infty$ is associated with the amount of data or information $\rightarrow \infty$.  Refresh yourself with notions of convergence, limits and continuity in the real line (\hyperref[S:AnalysisRefresher]{\S~\ref*{S:AnalysisRefresher}}) before proceeding further.
+
+\begin{classwork}[Convergence of $X_i \sim \normal(0,1/i)$]\label{CW:Normal01bynConvToPointMass0}
+Suppose you are given an independent sequence of RVs $\{X_i \}_{i=1}^n$, where $X_i \sim \normal(0,1/i)$.  How would you talk about the convergence of $X_n \sim \normal(0,1/n)$ as $n$ approaches $\infty$ ?  Take a look at \hyperref[F:PlotNormal01bynConvToPointMass0]{Figure \ref*{F:PlotNormal01bynConvToPointMass0}} for insight.  The probability mass of $X_n$ increasingly concentrates about $0$ as $n$ approaches $\infty$ and the variance $1/n$ approaches $0$, as depicted in \hyperref[F:PlotNormal01bynConvToPointMass0]{Figure \ref*{F:PlotNormal01bynConvToPointMass0}}.  Based on this observation, can we expect $\lim_{n \rightarrow \infty} X_n = X$, where the limiting RV $X \sim \pointmass(0)$ ?
+
+The answer is {\bf no}.  This is because $\p(X_n=X)=0$ for any $n$, since $X \sim \pointmass(0)$ is a discrete RV with exactly one outcome $0$ and $X_n \sim \normal(0,1/n)$ is a continuous RV for every $n$, however large.  In other words, a continuous RV, such as $X_n$, has $0$ probability of realizing any single real number in its support, such as $0$.    
+\begin{figure}[htpb]
+\caption{Distribution functions of several $\normal(\mu,\sigma^2)$ RVs for $\sigma^2 = 1,\frac{1}{10},\frac{1}{100},\frac{1}{1000}$.\label{F:PlotNormal01bynConvToPointMass0}}
+\centering   \makebox{\includegraphics[width=6.5in]{figures/PlotNormal01bynConvToPointMass0}}
+\end{figure}
+\end{classwork}
+
+Thus, we need more sophisticated notions of convergence for sequences of RVs.  Two such notions are formalized next as they are minimal prerequisites for a clear understanding of three basic propositions in Statistics :
+\begin{enumerate} 
+\item Weak Law of Large Numbers,
+\item Central Limit Theorem,
+\item Gilvenko-Cantelli Theorem.
+\end{enumerate}
+
+\begin{definition}[Convergence in Distribution]\label{D:ConvInDist}
+Let $X_1,X_2,\ldots,$ be a sequence of RVs and let $X$ be another RV.  Let $F_n$ denote the DF of $X_n$ and $F$ denote the DF of $X$.  The we say that $X_n$ converges to $X$ in distribution, and write:
+\[
+X_n \rightsquigarrow X
+\]
+if for any real number $t$ at which $F$ is continuous,
+\[
+\lim_{n \rightarrow \infty} F_n(t) = F(t) \qquad \text{[in the sense of \hyperref[D:LimitofRealFunction]{Definition \ref*{D:LimitofRealFunction}}].}
+\]
+The above limit, by \eqref{E:DF} in our \hyperref[D:DF]{Definition \ref*{D:DF}} of a DF, can be equivalently expressed as follows: 
+\begin{eqnarray}
+& & \lim_{n \rightarrow \infty} \p( \ \{\omega: X_n(\omega) \leq  t \} \ )= 
+\p( \ \{\omega: X(\omega) \leq  t \} \ ), \notag \\
+&\text{i.e.~} & \p( \ \{\omega: X_n(\omega) \leq t \} \ ) \rightarrow \p( \ \{\omega: X(\omega) \leq  t \} \ ), \quad \text{as} \quad n \rightarrow \infty \notag \ .
+\end{eqnarray}
+\end{definition}
+
+\begin{definition}[Convergence in Probability]\label{D:ConvInProb}
+Let $X_1,X_2,\ldots,$ be a sequence of RVs and let $X$ be another RV.  Let $F_n$ denote the DF of $X_n$ and $F$ denote the DF of $X$.  The we say that $X_n$ converges to $X$ in probability, and write:
+\[
+X_n \overset{P}{\longrightarrow} X
+\]
+if for every real number $\epsilon > 0$,
+\[
+\lim_{n \rightarrow \infty} \p(|X_n-X|> \epsilon) = 0 \qquad \text{[in the sense of \hyperref[D:LimitofRealFunction]{Definition \ref*{D:LimitofRealFunction}}].}
+\]
+Once again, the above limit, by \eqref{E:ProbOfRV} in our \hyperref[D:RV]{Definition \ref*{D:RV}} of a RV, can be equivalently expressed as follows: 
+\[
+\lim_{n \rightarrow \infty} \p( \ \{\omega: |X_n(\omega) - X(\omega)| > \epsilon\} \ )=0, \qquad \text{ie,} \qquad \p( \ \{\omega: |X_n(\omega) - X(\omega)| > \epsilon\} \ ) \rightarrow 0, \quad \text{as} \quad n \rightarrow \infty \ .
+\]
+\end{definition}
+
+Let us revisit the problem of convergence in \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} armed with our new notions of convergence.
+\begin{example}[Convergence in distribution]\label{EX:Normal01bynConvinDistToPointMass0}
+Suppose you are given an independent sequence of RVs $\{X_i \}_{i=1}^n$, where $X_i \sim \normal(0,1/i)$ with DF $F_n$ and let $X \sim \pointmass(0)$ with DF $F$.  We can formalize our observation in \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} that $X_n$ is concentrating about $0$ as $n \to \infty$ by the statement:
+\[
+\text{$X_n$ is converging in distribution to $X$, ie,} \qquad X_n \rightsquigarrow X \ .
+\]
+{\scriptsize
+\begin{proof}
+To check that the above statement is true we need to verify that the definition of convergence in distribution is satisfied for our sequence of RVs $X_1,X_2,\ldots$ and the limiting RV $X$.  Thus, we need to verify that for any continuity point $t$ of the $\pointmass(0)$ DF $F$, $\lim_{n \to \infty} F_n(t)=F(t)$.  First note that 
+\[
+X_n \sim \normal(0,1/n) \implies Z := \sqrt{n} X_n \sim \normal(0,1) \ ,
+\]
+and thus
+\[
+F_n(t) = \p(X_n < t) = \p(\sqrt{n} X_n < \sqrt{n} t) = \p(Z < \sqrt{n} t) \ .
+\]
+The only discontinuous point of $F$ is $0$ where $F$ jump from $0$ to $1$.  
+
+When $t < 0$, $F(t)$, being the constant $0$ function over the interval $(-\infty,0)$, is continuous at $t$.  Since $\sqrt{n} t \to -\infty$, as $n \to \infty$,
+\[
+\lim_{n \to \infty} F_n(t)  = \lim_{n \to \infty} \p(Z < \sqrt{n} t) = 0 = F(t) \ .
+\]
+And, when $t >0$, $F(t)$, being the constant $1$ function over the interval $(0,\infty)$, is again continuous at $t$.  Since $\sqrt{n} t \to \infty$, as $n \to \infty$,
+\[
+\lim_{n \to \infty} F_n(t)  = \lim_{n \to \infty} \p(Z < \sqrt{n} t) = 1 = F(t) \ .
+\]
+Thus, we have proved that $X_n \rightsquigarrow X$ by verifying that for any $t$ at which the $\pointmass(0)$ DF $F$ is continuous, we also have the desired equality: $\lim_{n \to \infty} F_n(t)=F(t)$.
+\end{proof}
+However, note that 
+\[
+F_n(0)=\frac{1}{2} \neq F(0)=1 \ ,
+\]
+and so convergence fails at $0$, i.e.~$\lim_{n \to \infty}F_n(t) \neq F(t)$ at $t=0$.  But, $t=0$ is not a continuity point of $F$ and the definition of convergence in distribution only requires the convergence to hold at continuity points of $F$.
+}
+\end{example}
+For the same sequence of RVs in  \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} and \hyperref[EX:Normal01bynConvinDistToPointMass0]{Example \ref*{EX:Normal01bynConvinDistToPointMass0}} we are tempted to ask whether $X_n \sim \normal(0,1/n)$ converges in probability to $X \sim \pointmass(0)$, i.e.~whether $X_n \overset{P}{\longrightarrow} X$.  We need some elementary inequalities in Probability to help us answer this question.  We visit these inequalities next.
+
+\begin{prop}[Markov's Inequality]
+Let $(\Omega,\C{F},P)$ be a probability triple and let $X=X(\omega)$ be a non-negative RV.  Then,
+\begin{equation}\label{E:MarkovNeq}
+\p(X \geq \epsilon) \leq \frac{\e(X)}{\epsilon}, \qquad \text{for any} \quad \epsilon > 0 \ .
+\end{equation}
+{\scriptsize
+\begin{proof}
+\begin{eqnarray}
+X &=& X \BB{1}_{ \{y: y \geq \epsilon \} } (x) + X \BB{1}_{ \{y: y < \epsilon \} } (x) \notag \\
+&\geq& X \BB{1}_{ \{y: y \geq \epsilon \} } (x) \notag \\
+&\geq& \epsilon  \BB{1}_{ \{y: y \geq \epsilon \} } (x) \notag \\
+\end{eqnarray}
+Finally, taking expectations on both sides of the above inequality and then using the fact that the expectation of an indicator function of an event is simply the probability of that event \eqref{E:ExpectationofIndicator}, we get the desired result:
+\[
+\e(X) \geq \epsilon \e( \BB{1}_{ \{y: y \geq \epsilon \} } (x)) = \epsilon \p(X \geq \epsilon) \ .
+\]
+\end{proof}
+}
+\end{prop}
+Let us look at some immediate consequences of Markov's inequality.
+\begin{prop}[Chebychev's Inequality]
+For {\bf any} RV $X$ and any $\epsilon > 0$,
+\begin{eqnarray}
+\p(|X| > \epsilon) &\leq& \frac{\e(|X|)}{\epsilon} \label{E:ChebychevNeq1} \\
+\p(|X| > \epsilon) = \p(X^2 \geq \epsilon^2) &\leq& \frac{\e(X^2)}{\epsilon^2} \label{E:ChebychevNeq2} \\
+\p(|X-\e(X)| \geq \epsilon) = \p((X-\e(X))^2 \geq \epsilon^2) &\leq& \frac{\e(X-\e(X))^2}{\epsilon^2}  = \frac{\V(X)}{\epsilon^2}  \label{E:ChebychevNeq3} 
+\end{eqnarray}
+{\scriptsize
+\begin{proof}
+All three forms of Chebychev's inequality are mere corollaries (careful reapplications) of Markov's inequality.
+\end{proof}
+}
+\end{prop}
+
+Armed with Markov's inequality we next enquire the convergence in probability for the sequence of RVs in \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} and \hyperref[EX:Normal01bynConvinDistToPointMass0]{Example \ref*{EX:Normal01bynConvinDistToPointMass0}}.
+
+\begin{example}[Convergence in probability]\label{EX:Normal01bynConvinProbToPointMass0}
+Does the the sequence of RVs $\{X_n\}_{n=1}^{\infty}$, where $X_n \sim \normal(0,1/n)$, converge in probability to $X \sim \pointmass(0)$, i.e.~does $X_n \overset{P}{\longrightarrow} X$ ?
+
+To find out if $X_n \overset{P}{\longrightarrow} X$, we need to show that for any $\epsilon >0$, $\lim_{n \to \infty} \p(|X_n-X|>\epsilon)=0$.
+
+Let $\epsilon$ be any real number greater than $0$, then
+\begin{eqnarray}
+\p(|X_n|>\epsilon) &=& \p(|X_n|^2 > \epsilon^2) \notag \\
+&=& \frac{\e(X_n^2)}{\epsilon^2} \qquad \text{[by Markov's Inequality \eqref{E:MarkovNeq}]} \notag \\
+&=& \frac{\frac{1}{n}}{\epsilon^2} \to 0, \quad \text{as} \quad n \to \infty \qquad \text{[in the sense of \hyperref[D:LimitofRealFunction]{Definition \ref*{D:LimitofRealFunction}}].} \notag
+\end{eqnarray}
+Hence, we have shown that for any $\epsilon >0$, $\lim_{n \to \infty} \p(|X_n-X|>\epsilon)=0$ and therefore by \hyperref[D:ConvInProb]{Definition \ref*{D:ConvInProb}}, $X_n \overset{P}{\longrightarrow} X$ or $X_n \overset{P}{\longrightarrow} 0$.  
+
+{\scriptsize
+{\bf Convention:} When $X$ has a $\pointmass(\theta)$ distribution and $X_n \overset{P}{\longrightarrow} X$, we simply write $X_n \overset{P}{\longrightarrow} \theta$.
+}
+\end{example}
+
+Now that we have been introduced to two notions of convergence for sequences of RVs we can begin to appreciate the  construction of limiting random variables. % We will see a limiting sum of $n$ independent $\bernoulli(\theta)$ RVs as $n \to \infty$ and $\theta \to 0$ such that $n \theta = \lambda$. %  statements of the basic limit theorems of Statistics.  
+%But first we formally define a statistic.
 In several situations it becomes cumbersome to model the events using the $\binomial(n,\theta)$ RV, especially when when the parameter $\theta \propto 1/n$ and the events become rare.  However, for some real parameter $\lambda>0$, the $\binomial(n,\lambda/n)$ RV with probability of the number of successes in $n$ trials, with per-trial success probability $\lambda/n$, approaches the Poisson distribution with expectation $\lambda$, as $n$ approaches $\infty$ (actually, it converges in distribution as defined later).  The $\poisson(\lambda)$ RV is much simpler to work with than the combinatorially laden $\binomial(n,\theta=\lambda/n)$ RV.  We sketch the details of this next.
 
 %{\scriptsize
@@ -2043,6 +2199,394 @@ Note that $\poisson(\lambda)$ distribution is one whose mean and variance are th
 
 The $\poisson(\lambda)$ RV $X$ is also related to the IID $\exponential(\lambda)$ RV $Y_1,Y_2,\ldots$: $X$ is the number of occurrences, per unit time, of an instantaneous event whose inter-occurrence time is the IID $\exponential(\lambda)$ RV.  For example, the number of buses arriving at our bus-stop in the next minute, with exponentially distributed inter-arrival times, has a Poisson distribution.
 
+\section{Characteristic Functions}
+The characteristic function (CF) of a random variable gives another way to specify its distribution. 
+Thus CF is a powerful tool for analytical results involving random variables
+(\href{http://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)}{more}).
+
+\begin{definition}[Characteristic Function (CF)]
+Let $X$ be a RV and $\imath=\sqrt{-1}$. The function $\phi_X(t) : \Rz \to \Cz$ defined by
+\begin{equation}\label{E:CF}
+\boxed{
+\phi_X(t) := E \left( \exp \left( \imath t X\right) \right) = 
+\begin{cases}
+\sum_{x} \exp \left( \imath t x\right) f_X(x) & \text{ if $X$ is discrete RV}\\
+\int_{-\infty}^{\infty} \exp \left( \imath t x\right) f_X(x) dx & \text{ if $X$ is continuous RV}
+\end{cases}
+}
+\end{equation}
+is called the {\bf characteristic function} of $X$.
+\end{definition}
+
+NOTE: 
+$\phi_X(t)$ exists for any $t \in \Rz$, because
+\begin{align*}
+\phi_X(t) 
+&= E \left( \exp \left( \imath t X\right) \right) \\
+&= E \left( \cos(tX)+ \imath \sin(tX) \right)\\
+&= E \left( \cos(tX) \right) + \imath E \left(\sin(tX) \right)
+\end{align*}
+and the last two expected values are well-defined, because the sine and cosine functions are bounded by $[-1,1]$.
+
+For a continuous RV, $\int_{-\infty}^{\infty} \exp \left(- \imath t x\right) f_X(x) dx$ is called the {\em Fourier transform} of $f_X$.  
+This is the CF but with $t$ replaced by $-t$.  
+You will also encounter Fourier transforms when solving differential equations.
+
+
+\subsection{Obtaining Moments from Characteristic Function}
+
+Recall that the $k$-th moment of $X$ is $E(X^k)$ for any $k \in \Nz:=\{1,2,3,\ldots\}$ is
+\begin{framed}
+%\Df{\label{Df:KthMoment} % TODO make this a definition proper
+\[
+E(X^k)\; =\;
+\begin{cases}
+\displaystyle \sum_x x^k f_X(x) & \text{if $X$ is a discrete RV}\\[12pt]
+\displaystyle \int_{-\infty}^{\infty} x^2 f_X(x) dx & \text{if $X$ is a continuous RV}
+\end{cases}
+\]
+%}
+\end{framed}
+
+The characteristic function can be used to derive the moments of $X$ due to the following nice relationship between the the $k$-th moment of $X$ and the $k$-th derivative of the CF of $X$.
+
+\begin{framed}
+\begin{prop}[Moment \& CF.]
+Let $X$ be a random variable and $\phi_X(t)$ be its CF.  
+If $E(X^k)$ exists and is finite, then $\phi_X(t)$ is $k$ times continuously differentiable and
+\begin{equation*}
+E(X^k) = \frac{1}{\imath^k} \left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0} \enspace .
+\end{equation*}
+where $\left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0}$ is the $k$-th derivative of $\phi_X(t)$ with respect to $t$, evaluated at the point $t=0$.
+\end{prop}
+\end{framed}
+
+\begin{proof}
+The proper proof is very messy so we just give a sketch of the ideas in the proof.  
+Due to the linearity of the expectation (integral) and the derivative operators, we can change the order of operations:
+\begin{align*}
+\frac{d^k \phi_X(t)}{dt^k}
+&= \frac{d^k}{dt^k} E(\exp(\imath t X))
+= E \left( \frac{d^k}{dt^k} \exp(\imath t X) \right)
+= E \left( (\imath X)^k \exp(\imath t X) \right)
+= \imath^k E \left( X^k \exp(\imath t X) \right)
+\end{align*}
+The RHS evaluated at $t=0$ is
+\[
+\left[ \frac{d^k \phi_X(t)}{dt^k} \right]_{t=0}
+= \left[ \imath^k E \left( X^k \exp(\imath t X) \right) \right]_{t=0} 
+= \imath^k E \left( X^k \right)
+\]
+This completes the sketch of the proof.
+\end{proof}
+
+The above Theorem gives us the relationship between the moments and the derivatives of the CF if we already know that the moment exists.  
+When one wants to compute a moment of a random variable, what we need is the following Theorem.
+
+\begin{framed}
+\begin{prop}[{\bf Moments from CF.}]
+Let $X$ be a random variable and $\phi_X(t)$ be its CF.  
+If $\phi_X(t)$ is $k$ times differentiable at the point $t=0$, then
+\be
+\item if $k$ is even, the $n$-th moment of $X$ exists and is finite for any $0 \leq n \leq k$;
+\item if $k$ is odd, the $n$-th moment of $X$ exists and is finite for any $0 \leq n \leq k-1$.
+\ee
+In both cases,
+\begin{equation}\label{E:CFToMoments}
+E(X^k) = \frac{1}{\imath^k} \left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0} \enspace .
+\end{equation}
+where $\left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0}$ is the $k$-th derivative of $\phi_X(t)$ with respect to $t$, evaluated at the point $t=0$.
+\end{prop}
+\end{framed}
+
+\begin{proof}
+For proof see e.g., Ushakov, N. G. (1999) Selected topics in characteristic functions, VSP (p.~39).
+\end{proof}
+
+
+\begin{example}
+Let $X$ be the $\bernoulli(\theta)$ RV.  
+Find the CF of $X$.   
+Then use CF to find $E(X)$, $E(X^2)$ and from this obtain the variance $V(X) = E(X^2)-(E(X))^2$.
+
+Solution: 
+
+{\bf Part 1}
+
+Recall the PMF for this discrete RV with parameter $\theta \in (0,1)$ is
+\[
+f_X(x;\theta) = 
+\begin{cases}
+\theta & \text{ if } x = 1\\
+1-\theta & \text{ if } x = 0\\
+0 & \text{ otherwise}.
+\end{cases}
+\]
+Let's first find the CF of $X$
+\begin{align*}
+\phi_X(t)
+&= E \left( \exp(\imath t X) \right) 
+= \sum_x  \exp(\imath t x) f_X(x;\theta) \qquad \text{By Defn.~in Equation~\eqref{E:CF}}\\
+&= \exp(\imath t \times 0) (1-\theta) + \exp(\imath t \times 1) \theta 
+= \exp(0) (1-\theta) + \exp(\imath t) \theta 
+=  1-\theta + \theta \exp(\imath t)  
+\end{align*}
+
+{\bf Part 2:}
+
+Let's differentiate CF 
+\begin{align*}
+\frac{d}{dt}\phi_X(t)
+&= \frac{d}{dt}\left(1-\theta + \theta e^{\imath t} \right) 
+=  \theta \imath \exp(\imath t)
+\end{align*}
+
+We get $E(X)$ by evaluating $\frac{d}{dt}\phi_X(t)$ at $t=0$ and dividing by $\imath$ according to Equation~\eqref{E:CFToMoments} as follows:
+\begin{align*}
+E(X)
+&= \frac{1}{\imath} \left[ \frac{d}{dt}\phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath} \left[ \theta \imath \exp(\imath t) \right]_{t=0} 
+= \frac{1}{\imath} \left( \theta \imath \exp(\imath 0) \right) 
+=  \theta \enspace.
+\end{align*}
+Similarly from Equation~\eqref{E:CFToMoments} we can get $E(X^2)$ as follows:
+\begin{align*}
+E(X^2)
+&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{d}{dt} \phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \theta \imath \exp(\imath t) \right]_{t=0}\\ 
+&= \frac{1}{\imath^2} \left[ \theta \imath^2 \exp(\imath t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left( \theta \imath^2 \exp(\imath 0) \right) 
+=  \theta \enspace.
+\end{align*}
+Finally, from the first and second moments we can get the variance as follows:
+\[
+V(X) = E(X^2) - (E(X))^2 = \theta - \theta^2 = \theta(1-\theta) \enspace .
+\]
+Let's check that this is what we have as variance for the $\bernoulli(\theta)$ RV if we directly computed it using weighted sums in the definition of expectations: $E(X)=1 \times \theta + 0 \times (1-\theta)=\theta$, $E(X^2) = 1^2 \times \theta + 0^2 \times (1-\theta)=\theta$and thus giving the same $V(X) = E(X^2) - (E(X))^2 = \theta - \theta^2 = \theta(1-\theta)$.
+\end{example}
+
+\begin{example}
+Let $X$ be an $\exponential(\lambda)$ RV. 
+First show that its CF is $\lambda/(\lambda- \imath t)$.  
+Then use CF to find $E(X)$, $E(X^2)$ and from this obtain the variance $V(X) = E(X^2)-(E(X))^2$.
+
+Solution:
+
+Recall that the PDF of an $\exponential(\lambda)$ RV for a given parameter $\lambda \in (0,\infty)$ is $\lambda e^{-\lambda x}$ if $x \in [0, \infty)$ and $0$ if $x \notin [0, \infty)$.
+
+{\bf Part 1:} Find the CF.
+
+We will use the fact that 
+$$\int_0^{\infty} \alpha e^{-\alpha x} dx = \left[ -e^{-\alpha x} \right]_0^{\infty} = 1$$
+
+\begin{align*}
+\phi_X(t)
+&= E(\exp(\imath X t))
+= E\left( e^{\imath X t} \right)
+= \int_{-\infty}^{\infty} e^{\imath x t} \lambda e^{-\lambda x} dx
+= \lambda  \int_{0}^{\infty} e^{-(\lambda-\imath t) x} dx\\
+&= \frac{\lambda}{\lambda-\imath t}  \int_{0}^{\infty} (\lambda-\imath t) e^{-(\lambda-\imath t) x} dx
+= \frac{\lambda}{\lambda-\imath t}  \int_{0}^{\infty} \alpha e^{-\alpha x} dx
+= \frac{\lambda}{\lambda-\imath t} \enspace, 
+\end{align*}
+where $\alpha = \lambda-\imath t$ with $\lambda > 0$.
+
+Alternatively, you can use $e^{\imath t x} = \cos(tx)+\imath \sin(tx)$ and do integration by parts to arrive at the same answer starting from:
+\begin{align*}
+\phi_X(t)
+&= \int_{-\infty}^{\infty} e^{\imath x t} \lambda e^{-\lambda x} dx
+= \int_{-\infty}^{\infty} \cos(t x) e^{-\lambda x} dx + \imath \int_{-\infty}^{\infty} \sin(t x) e^{-\lambda x} dx
+\vdots 
+= \frac{\lambda}{\lambda-\imath t} \enspace .
+\end{align*}
+
+{\bf Part 2:}
+
+Let us differentiate the CF to get moments using Equation~\eqref{E:CFToMoments} (CF has to be once and twice differentiable at $t=0$ to get the first and second moments).
+\begin{align*}
+\frac{d}{dt}\phi_X(t)
+&= \frac{d}{dt}\left( \frac{\lambda}{\lambda-\imath t} \right) 
+= \lambda \left( -1 \times (\lambda-\imath t)^{-2} \times \frac{d}{dt} (\lambda-\imath t) \right) \\
+&= \lambda \left( \frac{-1}{(\lambda-\imath t)^{2}} \times (-\imath ) \right) 
+= \frac{\lambda \imath}{(\lambda-\imath t)^{2}} 
+\end{align*}
+
+We get $E(X)$ by evaluating $\frac{d}{dt}\phi_X(t)$ at $t=0$ and dividing by $\imath$ according to Equation~\eqref{E:CFToMoments} as follows:
+\begin{align*}
+E(X)
+&= \frac{1}{\imath} \left[ \frac{d}{dt}\phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath} \left[ \frac{\lambda \imath}{(\lambda-\imath t)^{2}} \right]_{t=0} 
+= \frac{1}{\imath} \left( \frac{\lambda \imath}{\lambda^{2}} \right) 
+= \frac{1}{\imath} \left( \frac{\imath}{\lambda} \right) 
+=  \frac{1}{\lambda} 
+\end{align*}
+
+Let's pause and see if this makes sense.... Yes, because the expected value of $\exponential(\lambda)$ RV is indeed $1/\lambda$ (recall from when we introduced this RV).
+
+Similarly from Equation~\eqref{E:CFToMoments} we can get $E(X^2)$ as follows:
+\begin{align*}
+E(X^2)
+&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{d}{dt} \phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{\lambda \imath}{(\lambda-\imath t)^{2}} \right]_{t=0} \\
+&= \frac{1}{\imath^2} \left[ \lambda \imath \times \frac{d}{dt} {(\lambda-\imath t)^{-2}} \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \lambda \imath \left( -2(\lambda-\imath t)^{-3} \frac{d}{dt} {(\lambda-\imath t)} \right) \right]_{t=0}\\ 
+&= \frac{1}{\imath^2} \left[ \lambda \imath \left( -2(\lambda-\imath t)^{-3} \times (-\imath ) \right) \right]_{t=0}
+= \frac{1}{\imath^2} \left[ \frac{2 \lambda \imath^2}{(\lambda-\imath t)^{3}} \right]_{t=0}
+= \frac{1}{\imath^2} \left( \frac{2 \lambda \imath^2}{\lambda^{3}} \right) 
+=  \frac{2}{\lambda^{2}}\enspace.
+\end{align*}
+Finally, from the first and second moments we can get the variance as follows:
+\[
+V(X) = E(X^2) - (E(X))^2 = \frac{2}{\lambda^2} - \left(\frac{1}{\lambda}\right)^2  = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{2-1}{\lambda^2} = \frac{1}{\lambda^2}   \enspace .
+\]
+%\vspace{3cm}
+
+Let's check that this is what we had as variance for the $\exponential(\lambda)$ RV when we first introduced it and directly computed using integrals for definition of expectation.
+\end{example}
+
+Characteristic functions can be used to characterize the distribution of a random variable.
+
+Two RVs $X$ and $Y$ have the same DFs , i.e., $F_X(x) = F_Y(x)$ for all $x \in \Rz$, if and only if they have the same characteristic functions, i.e. $\phi_X(t) = \phi_Y(t)$ for all $t \in \Rz$ (for proof see Resnick, S. I. (1999) A Probability Path, Birkhauser). 
+
+Thus, if we can show that two RVs have the same CF then we know they are the same.  This can be much more challenging or impossible to do directly with their DFs.
+
+Let $Z$ be $\normal(0,1)$, the standard normal RV.
+We can find the CF for $Z$ using couple of tricks as follows
+\begin{align*}
+\phi_Z(t)
+&= E\left(e^{\imath t Z} \right)\\
+&= \int_{-\infty}^{\infty} e^{\imath t z} f_Z(z) dz = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{\imath t z} e^{-z^2/2} dz = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{\imath t z -z^2/2} dz \\
+&= \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{-(t^2 + (z - \imath t)^2)/2} dz = e^{-t^2/2} \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{ -(z - \imath t)^2/2} dz \\
+&= e^{-t^2/2} \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{ -y^2/2} dy  \qquad \text{substituting $y=z-\imath t, dy=dz$}\\
+&= e^{-t^2/2} \frac{1}{\sqrt{2 \pi}} \sqrt{2 \pi}  \qquad \text{using the normalizing constant in PDF of $\normal(0,1)$ RV}\\
+&= e^{-t^2/2}
+\end{align*}
+
+Thus the CF of the standard normal RV $Z$ is
+\begin{equation}\label{E:cfStandardNormal}
+\boxed{
+\phi_Z(t) = e^{-t^2/2}
+}
+\end{equation}
+
+
+Let $X$ be a RV with CF $\phi_X(t)$.  Let $Y$ be a linear transformation of $X$
+\[
+Y= a + bX
+\]
+where $a$ and $b$ are two constant real numbers and $b \neq 0$.  
+Then the CF of $Y$ is
+\begin{equation}\label{E:cfofLinearTransformation}
+\boxed{
+\phi_Y(t) = \exp(\imath a t) \phi_X(b t)
+}
+\end{equation}
+
+\begin{proof}
+This is easy to prove using the definition of CF as follows:
+\begin{align*}
+\phi_Y(t)
+&= E\left(\exp(\imath t Y) \right)
+= E\left(\exp(\imath t (a + bX) ) \right)
+= E\left(\exp(\imath t a + \imath t b X) \right)\\
+&= E\left(\exp(\imath t a) \exp(\imath t b X) \right)
+= \exp(\imath t a) E\left( \exp(\imath t b X) \right)
+= \exp(\imath t a) \phi_X(b t)
+\end{align*}
+\end{proof}
+
+\begin{example}
+Let $Y$ be a $\normal(\mu,\sigma^2)$ RV.  
+Recall that $Y$ is a linear transformation of $Z$, i.e., $Y = \mu + \sigma Z$ where $Z$ is a $\normal(0,1)$ RV.  
+Using Equations~\eqref{E:cfStandardNormal} and \eqref{E:cfofLinearTransformation} find the CF of $Y$.
+
+Solution:
+
+\begin{align*}
+\phi_Y(t) 
+& = \exp(\imath \mu t) \phi_Z(\sigma t), \qquad \text{ since $Y = \mu + \sigma Z$}\\
+& = e^{\imath \mu t} e^{(-\sigma^2 t^2)/2}, \qquad \text{ since $\phi_Z(t)=e^{-t^2/2}$}\\
+& = e^{\imath \mu t - (\sigma^2 t^2)/2}
+\end{align*}
+\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A generalization of \eqref{E:cfofLinearTransformation} is the following.  
+If $X_1,X_2,\ldots,X_n$ are independent RVs and $a_1,a_2,\ldots,a_n$ are some constants, then the CF of the linear combination $Y=\sum_{i=1}^n a_i X_i$ is
+\begin{equation}\label{E:LinCombCF} 
+\boxed{
+\phi_Y (t) = \phi_{X_1} (a_1 t) \times \phi_{X_2} (a_2 t) \times \cdots \times \phi_{X_n} (a_n t) = \prod_{i=1}^n \phi_{X_i} (a_i t) \enspace .
+}
+\end{equation}
+%In other symbols: $$\phi_{\sum_{i=1}^n a_i X_i}(t) = \prod_{i=1}^n \phi_{X_i} (a_i t) \enspace .$$ 
+\begin{example}
+Using the following three facts:
+\bit 
+\item~~~ Eqn.~\eqref{E:LinCombCF} 
+\item~~~ the $\binomial(n,\theta)$ RV $Y$ is the sum of $n$ independent $\bernoulli(\theta)$ RVs (from Probability Course)  
+\item~~~ the CF of $\bernoulli(\theta)$ RV (from lecture notes for Inference Course)
+\eit
+find the CF of the $\binomial(n,\theta)$ RV $Y$.
+
+Solution:
+
+Let $X_1,X_2,\ldots,X_n$ be independent $\bernoulli(\theta)$ RVs with CF $\left( 1-\theta + \theta e^{\imath t} \right)$ then $Y=\sum_{i=1}^n  X_i$ is the $\binomial(n,\theta)$ RV and by Eqn.~\eqref{E:LinCombCF} 
+with $a_1=a_2=\cdots=1$, we get
+\[
+\phi_Y (t) = \phi_{X_1} ( t) \times \phi_{X_2} (t) \cdots \phi_{X_n} ( t)
+= \prod_{i=1}^n \phi_{X_i} ( t) = \prod_{i=1}^n \left( 1-\theta + \theta e^{\imath t} \right)
+= \left( 1-\theta + \theta e^{\imath t} \right)^n \enspace . 
+\]
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{example}
+Let $Z_1$ and $Z_2$ be independent $\normal(0,1)$ RVs.  
+\be
+\item~
+Use Eqn.~\eqref{E:LinCombCF} 
+to find the CF of $Z_1+Z_2$.  
+\item~
+From the CF of $Z_1+Z_2$ identify what RV it is.
+\item~
+Use Eqn.~\eqref{E:LinCombCF} 
+to find the CF of $2Z_1$.
+\item~
+From the CF of $2Z_1$ identify what RV it is.
+\item~
+Try to understand the difference between the distributions of $Z_1+Z_2$ and $2 Z_1$ inspite of $Z_1$ and $Z_2$ having the same distibution.
+\ee
+{Hint: from lectures we know that $\phi_X(t) = e^{\imath \mu t - (\sigma^2 t^2)/2}$ for a $\normal(\mu,\sigma^2)$ RV $X$.}
+
+Solution:
+
+\be
+\item~
+By Eqn.~\eqref{E:LinCombCF} 
+we just multiply the characteristic functions of $Z_1$ and $Z_2$, both of which are $e^{-t^2/2}$,
+\[
+\phi_{Z_1+Z_2}(t)= \phi_{Z_1}(t) \times \phi_{Z_2}(t) = e^{-t^2/2} \times e^{-t^2/2} = e^{-2t^2/2} = e^{-t^2} \enspace . 
+\]  
+\item~
+The CF of $Z_1+Z_2$ is that of the $\normal(\mu,\sigma^2)$ RV with $\mu=0$ and $\sigma^2=2$.  
+Thus $Z_1+Z_2$ is the $\normal(0,2)$ RV with mean parameter $\mu=0$ and variance paramter $\sigma^2=2$.
+\item~
+We can again use Eqn.~\eqref{E:LinCombCF} 
+to find the CF of $2Z_1$ as follows
+\[
+\phi_{2Z_1} = \phi_{Z_1}(2 t) = e^{-2^2t^2/2} \enspace .
+\]
+\item~
+The CF of $2Z_1$ is that of the $\normal(\mu,\sigma^2)$ RV with $\mu=0$ and $\sigma^2=2^2=4$.
+Thus $2Z_1$ is the $\normal(0,4)$ RV with mean parameter $\mu=0$ and variance paramter $\sigma^2=4$.
+\item~
+$2Z_1$ has a bigger variance from multiplying the standard normal RV by $2$ while $Z_1+Z_2$ has a smaller variance from adding two independent standard normal RVs.  Thus, the result of adding the same RV twice does not have the same distribution as that of multiplying it by $2$.  In other words $2 \times Z$ is not equal to $Z+Z$ in terms of its probability distribution! 
+\ee
+\end{example}
+
 \newpage
 \section*{Exercises}
 
@@ -2095,7 +2639,7 @@ $$so the  distribution function is:
 \end{cases}
 \]
 
-The graphs of $f(x)$ and $F(x)$ for random variable $X$ are shown below:
+%The graphs of $f(x)$ and $F(x)$ for random variable $X$ are shown below:
 
 %TODO\centering   \makebox{\includegraphics[width=6.5in]{figures/fandFfor5YearMachine.png}}
 
@@ -2196,6 +2740,55 @@ $$\p(X\geq 1)\;=\;\p(X=1)+\p(X=2)\;=\;\frac{8}{15}+\frac{1}{3}\;=\;\frac{13}{15}
 $$\p(X>1)\;=\;\p(X=2)\;=\;\frac{1}{3}$$
 \ee
 
+%transformation of RVs
+\Exercise
+Let $X$ be the outcome of a fair die roll with probability mass function given by
+\[
+f_X(x) = 
+\begin{cases}
+\frac{1}{6} & \text{ if } x \in \{1,2,3,4,5,6\}\\
+0 & \text{ otherwise} \, .
+\end{cases}
+\]
+If $Y = (X-3)^2$ then find the probability mass function of $Y$,  $f_Y (y)$.
+\Answer
+Using Equation~\eqref{E:PMFOfgOfX}, we can tabulate as follows:
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$y$ & $0$ & $1$ & $4$ & $9$\\\hline
+$f_Y(y)$ & $f_X(3)=\frac{1}{6}$ & $f_X(2)+f_X(4)=\frac{2}{6}$ & $f_X(1)+f_X(5)=\frac{2}{6}$ & $f_X(6)=\frac{1}{6}$\\\hline
+\end{tabular}
+
+\Exercise
+Given a natural number $n$ as a parameter, i.e., given a parameter $n \in \{1,2,3,\ldots\}$, let $X$ be a discrete uniform random variable on the finite set
+$$\mathbb{X}=\{-n,-n+1,\ldots,-1,0,1,\ldots,n-1,n\}$$
+i.e.~the probability mass function of $X$ is:
+\[
+f_X(x;n) = 
+\begin{cases}
+\frac{1}{2n+1} & \text{ if } x \in \mathbb{X} \\
+0 & \text{ otherwise}\, .
+\end{cases}
+\]
+Find the probability mass function $f_Y(y;n)$ for $Y=|X|$, the absolute value of $X$.
+\Answer
+The probability mass function $f_Y(y;n)$ for $Y=|X|$, the absolute value of $X$, comes from applying the formula:
+\[
+f_Y(y;n) = \sum_{x \in \{ x: g(x)=y\}} f_X(x;n) \enspace ,
+\]
+as follows:
+\[
+f_Y(y) = 
+\begin{cases}
+\sum_{x \in \{ x: |x|=0\}} f_X(x;n) = f_X(0;n) = \frac{1}{2n+1} & \text{ if } y =0 \\
+ \sum_{x \in \{ x: |x|=y\}} f_X(x;n) = \left( f_X(y;n)+f_X(-y;n) \right) = \frac{2}{2n+1} & \text{ if } y \in \{1,2,\ldots,n\} \\
+0 & \text{otherwise}
+\end{cases}
+\]
+
+
+
 \Exercise
 Suppose that  a random variable $X$ has geometric  probability mass function,
   \[f(x)\;=\;\frac{k}{2^x}\quad (x=0,1,2,\dots)\,.\]
@@ -2225,6 +2818,49 @@ Therefore, \[  2 k\;=\; 1 \,, \quad \text{that
 }
 That is,  $\p(X\geq4)\,=\,\displaystyle \frac{1}{16}$.
 \ee
+
+\Exercise
+If $X$ is a $\geometric(\theta)$ random variable and $Y=\left(\frac{1}{2}\right)^X$ then find an expression for $f_Y(y)$.
+\Answer
+We are given that $Y=2^{-X}$. Define the function
+$$g: \{1,2,3,\ldots\} \to \{2^{-1},2^{-2},2^{-3},\ldots\}$$
+by $y=g(x)=2^{-x}$.  Then $g$ is one-to-one and onto and so by Equation~\eqref{E:PMFOfgOfX},
+\[
+f_Y(y) = \sum_{x \in g^{[-1]}(y)} f_X(x) = \sum_{x \in g^{-1}(y)} f_X(x) = \sum_{x \in \{ -\log_2(y) \} } f_X(x) = f_X(-\log_2(y))\, .
+\]
+Note that the second equality above is emphasizing that the inverse image $g{[-1]}(y)$ is indeed the inverse function $g^{-1}(y)$ for this $g:\{1,2,3,\ldots\} \to \{2^{-1},2^{-2},2^{-3},\ldots\}$.  Therefore,
+\[
+f_Y(y) = 
+\begin{cases}
+f_X(-\log_2(y)) = \theta (1-\theta)^{-\log_2(y)-1} & \text{ if } y \in \{2^{-1},2^{-2},2^{-3},\ldots\}\\
+0 & \text{ otherwise} \, .
+\end{cases}
+\]
+
+\Exercise
+If $X$ is a continuous random variable with probability density function
+\[
+f_X(x)\;=\;\begin{cases} x e^{- x} &  x\geqslant 0\\ 0 & x< 0\end{cases},
+\]
+find the probability density function of $Y\,=\, e^X$.
+\Answer
+Since  $y=g(x) = e^x$ is a monotone increasing function for $x \geqslant 0$,  we can apply the change of variable formula.
+
+Now $x= g^{-1}(y) = \log_e(y)$ is a monotone increasing function for $y$ in $[1,\infty)$
+\[\left|  \frac{d}{dy}\left(g^{-1}(y)\right)\right|\;=\; \left|  \frac{d}{dy}\left(\log_e(y)\right)\right|\;=\; \frac{1}{y}\,.\]
+
+Therefore
+\[
+  f_Y(y) \;=\; f_X\left( \log_e(y)\right) \times  \left| \frac{1}{y} \right|\;=\;  \log_e(y) \,e^{-\log_e(y)} \times  \frac{1}{y} \;=\; \log_e(y) \, \frac{1}{y^2}
+\]
+since $e^{-\log_e(y)} = e^{\log_e(y^{-1})}  = y^{-1}$.
+
+So the  probability density
+  function  of $Y$ is given by
+\[f_Y(y)\;=\;\begin{cases} \displaystyle  \frac{\log_e(y)}{y^2} &   \text{ if } x \geqslant 1 \\ 0 &
+  \text{otherwise}
+\end{cases} \,.
+\]
 
 \Exercise
 Four fair coins are tossed simultaneously.  
@@ -2477,6 +3113,27 @@ Hence \[\p( X=2 )\;=\;   \frac{e^{-0.1} (0.1)^2}{2!}  \;=\;0.45\% \;
 \item Occurrence of lacunae may not always be independent. For example, a machine malfunction may cause them to be clumped.
 \ee
 
+\Exercise
+If $X$ is a $\poisson(\lambda)$ random variable find the probability mass function,  $f_Y (y)$, of
+\[
+Y\,=\,\frac{1}{(X+1)^{2}} \enspace .
+\]
+\Answer
+Since $X$ is a $\poisson(\lambda)$ random variable (by suppressing the `$;\lambda$' in the argument to $f_X(\cdot)$ for notational ease), we get
+\[ f_X(x) \,=\, \p(X=x)\,=\, 
+\begin{cases}
+\frac{\lambda^x \, e^{-\lambda} }{ x!} & \text{ for }  x= 0, 1, 2, \dots \\
+0 & \text{ otherwise} \,.
+\end{cases}
+\]
+
+If $Y=(X+1)^{-2}$ then  \[Y \,\in\, \left\{1, \frac{1}{4}, \frac{1}{9}, \dots \right\} \]
+and since $y=g(x)=(x+1)^{-2}$ has $g^{-1}(y)=y^{-1/2}-1$ as its inverse function, we get:
+\[
+f_Y(y)\;=\; \p(Y=y)\;=\; \sum_{\{ x: g(x)=y\}}f_X(x)  \;=\; f_X\left( \frac{1}{\sqrt y}-1\right) \;=\; \frac{\lambda^{(\frac{1}{\sqrt y} -1)} \, e^{-\lambda}}{(\frac{1}{\sqrt y} -1)!}
+\]
+for $y = 1, \frac{1}{4}, \frac{1}{9}, \dots $, and $0$ otherwise.
+
 %question 9 (cts )
 \Exercise
 Find the probability that none of the three bulbs in a traffic signal need to be replaced during the first 1200 hours of operation if the length of time before a single bulb needs to  be replaced is a continuous random variable $X$ with density
@@ -2527,8 +3184,111 @@ k&=\;\frac{1}{1-e^{-2}} \quad (\approx 1.1565)
 \ee
 
 \Exercise
-{**}Starting from the definition of the variance of a random variable (Definition~\ref{D:VarianceofX}) show that
+If $X$, the received power at an antenna is an $\exponential(\lambda)$ random variable then find the probability density function of the amplitude $Y\,=\, \sqrt X$.
+\Answer
+Since $y=g(x) = \sqrt{x}$ is a monotone increasing function for $x \geqslant 0$,  we can apply the change of variable formula.
+
+Now $x= g^{-1}(y) = y^2$ is a monotone increasing function for $y\geqslant 0$ so on this interval
+\[
+\left|  \frac{d}{dy}\left(g^{-1}(y)\right)\right|\;=\; \left|  \frac{d}{dy}\left( y^2\right)\right|\;=\; 2y\,.\]
+Therefore
+\[
+f_Y(y) 
+\;=\; f_X\left(  y^2\right) \times  \left| 2y \right|
+\;=\;  \lambda e ^{-\lambda y^2} \times  2y  \;=\;   2 \lambda y e ^{-\lambda y^2}\,.
+\]
+So the  probability density function  of $Y$ is given by
+\[
+f_Y(y)\;=\;\begin{cases} \displaystyle  2 \lambda y e ^{-\lambda y^2}   &    y\geqslant 0 \\ 0 & y <0
+\end{cases} \,.
+\]
+
+
+\Exercise
+If $X$ is a $\uniform(a,b)$ random variable where $0 < a < b$, find  the probability density function, $f_Y (y)$, of \[ Y\,=\, \log_e(X) \, .\]
+\Answer
+First note that $y=g(x) = \log_e(x)$ is a monotone increasing function over  $a \leqslant x \leqslant b$, so we can apply the change of variable formula.
+
+ $x= g^{-1}(y) = e^y$ is a monotone increasing function over $\log_e(a) \leqslant   \log_e(x) \leqslant \log_e(b)$, that is, over $\log_e(a) \leqslant   y \leqslant   \log_e(b)$.
+
+For $\log_e(a) \leqslant   y \leqslant   \log_e(b)$,
+
+\[\left|  \frac{d}{dy}\left(g^{-1}(y)\right)\right|\;=\; \left|  \frac{d}{dy}\left(e^y)\right)\right|\;=\; e^y\,.\]
+
+Therefore 
+\[
+  f_Y(y) \;=\; f_X\left(g^{-1}(y)\right) \times  \left|  \frac{d}{dy} \left(g^{-1}(y)\right)\right|\;=\; \frac{1}{b-a} \times e^y\,.
+\]
+So the  probability density
+  function  of $Y$ is given by  
+\[f_Y(y)\;=\;\begin{cases} \displaystyle  \frac{e^y}{b-a}  &   \log_e(a)\leqslant x \leqslant \log_e(b)\\ 0 &
+  \text{otherwise}
+\end{cases} \,.
+\]
+
+
+\Exercise
+Let $X$ be the number of air
+  conditioners a  store  sells each day, and assume that $X$ has
+  probability mass function $f(10)=0.1$, $f(11)=0.3$,
+  $f(12)=0.4$, $f(13)=0.2$.
+\be
+\item  Find the expected number of conditioners that the store sells
+  each day.
+\item If the profit per conditioner is $\$55$, what is the expected daily profit?
+\ee
+\Answer
+\be
+\item
+The expected number of conditioners that the store sells daily  is
+\ba{\e(X)&=\;\sum_{i=1}^{n}x_ip_{x_i}\\[6pt]
+&=(10\times0.1+11\times0.3+12\times0.4+13\times0.2)\\[6pt]
+&=1+3.3+4.8+2.6\\[6pt]
+&=11.7\enspace . }
+\item
+The profit per conditioner is $\$55$, and so the expected daily profit given by
+\[E( 55 \,X)\;=\; 55 E(X) \;=\; 55 \times 11.7 \;=\; 643.50\, ,\]
+is $\$643.50$.
+\ee
+
+\Exercise
+A small petrol station is supplied with fuel  every Saturday
+  afternoon. Assume that its volume of sales $X$, in ten thousands of
+  litres, has density
+$$f(x)\;=\;\begin{cases}6x(1-x)&0\leq x \leq
+  1\\0&\textrm{otherwise}\end{cases}\,.$$
+Determine the mean and  variance of $X$.
+\Answer
+The expected value $\e(X)$ is
+\ba{\e(X)&=\int^1_0 6x(1-x)x\,dx\\
+&=\;\int^1_0 (6x^2-6x^3)\,dx\\[3pt]
+&=\;\left. 2x^3-\frac{6}{4}x^4\right]^1_0\\
+&=\;2(1^3-0)-\frac{6}{4}(1^4-0)\\
+&=\;0.5}
+
+\ba{\e(X^2)&=\int^1_0 6x(1-x)x^2\,dx\\[3pt]
+&=\;\int^1_0 6x^3-6x^4\,dx\\[3pt]
+&=\;\left.\frac{6}{4}x^4-\frac{6}{5}x^5\right]^1_0\\
+&=\;\frac{6}{4}(1^4-0)-\frac{6}{5}(1^5-0)\\
+&=0.3  
+}
+the variance is $\V(X)\;=\;\e(X^2)-(\e(X))^2\;=\;0.3-0.5^2\;=\;0.05$
+
+\Exercise
+Starting from the definition of the variance of a random variable (Definition~\ref{D:VarianceofX}) show that
 \[\V(X) = \e(X^2) - \left(\e(X)\right)^2 \enspace .\]
+\Answer
+This was already done in Section~\ref{S:PropOfEs} on Properties of Expectation. Make sure you understand each step.
+
+\Exercise
+Show that $V(aX+b) = a^2 V(X)$ for constants $a$ and $b$ and a random variable $X$.
+\Answer
+Using the definition of variance, expectations and by completing the square, we get:
+\begin{multline*}
+V(aX+b) = E ((aX+b)^2) - (E(aX+b))^2 = E \left( (aX)^2 + 2aXb + b^2 \right) - \left( aE(X)+b\right)^2 \\
+= a^2 E \left(X^2\right) + 2ab E(X) + b^2 - a^2(E(X))^2 - 2abE(X) - b^2
+= a^2 \left( E \left(X^2\right) - (E(X))^2 \right) = a^2 V(X) \, .
+\end{multline*}
 
 \Exercise
 {**}Let $X$ be a discrete random variable with PMF given by
@@ -2552,6 +3312,51 @@ f(x) =
 \end{itemize}
 
 \Exercise
+Find the mean and the variance of the following  random variables.
+\be
+\item $X$ a discrete uniform random variable on $\{1,2,3,4,5,6\}$, i.e., \textit{the number a fair die turns up}.
+ \item $X$ is a $\uniform(0,8)$ random variable, i.e., \textit{a continuous uniform random variable from the interval} $[0,8]$.
+
+\item $X$ has a density function
+$$
+f(x)\,=\, 
+\begin{cases} 
+2e^{-2x} & \text{ if }  x \geq 0\\ 
+0 & \text{ otherwise} \, . 
+\end{cases}
+$$
+\ee
+\Answer
+\be
+\item
+The probability mass function of $X$ is
+$$f(x)=\begin{cases}\frac{1}{6}&x=1\\
+\frac{1}{6}&x=2\\
+\frac{1}{6}&x=3\\
+\frac{1}{6}&x=4\\
+\frac{1}{6}&x=5\\
+\frac{1}{6}&x=6
+\end{cases}$$
+and so
+$$\e(X)\;=\;\sum_{i=1}^6
+x_if(x_i)\;=\;\frac{1}{6}+\frac{2}{6}+\frac{3}{6}+\frac{4}{6}+\frac{5}{6}+\frac{6}{6}\;=\;3.5\,.$$
+Now,
+$$\e(X^2)\;=\;\sum_{i=1}^6 x^2_if(x_i)\;=\;\frac{1}{6}+\frac{4}{6}+\frac{9}{6}+\frac{16}{6}+\frac{25}{6}+\frac{36}{6}\;=\;\frac{91}{6}\;=\;15.1667$$
+and so  the variance is
+\[V(X)\; =\; \e(X^2) - (\e(X))^2 \;=\; 15.1667-3.5^2\;=\;2.9167\,.\] 
+  
+\item The density function of the uniform distribution, $X$,  on $[0,8]$ is  $$f(x)=\begin{cases}\frac{1}{8}&0<x<8\\0&\textrm{otherwise}\end{cases}$$
+Therefore, $$\e(X)\;=\;\frac{8+0}{2}\;=\;4\enspace,$$
+and $$\V(X)\;=\;\frac{(8-0)^2}{12}\;=\;\frac{16}{3}$$
+
+\item Since $f(x)$ is the density function of an $\exponential(\lambda)$ random variable with parameter $\lambda=2$, we can use earlier results to get
+$$\e(X)\;=\;\frac{1}{2}\quad \text{and}\quad
+\V(X)\;=\;\frac{1}{4}\enspace.$$
+
+(You should also be able to do this by integration!)
+\ee
+
+\Exercise
 Let $(X,Y)$ be a continuous \rv~with joint probability density function (JPDF)
 \[
 f_{X,Y}(x,y)
@@ -2563,12 +3368,12 @@ a (x^2+y) & \text{ if } 0 < x < 1 \text{ and } 0 < y < 1\\
 \]
 Find the following:
 \be
-\item~the normalizing constant $a$ which will ensure $P(\Omega) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_{X,Y}(x,y) dx dy = 1$
+\item~the normalizing constant $a$ which will ensure $\p(\Omega) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_{X,Y}(x,y) dx dy = 1$
 \item~$f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) dy$ called the marginal probability density function (MPDF) of $X$
 \item~$f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) dx$ called the marginal probability density function (MPDF) of $Y$
 \item Check if $f_X(x)f_Y(y)=f_{X,Y}(x,y)$ for every $(x,y)$ and decide whether $X$ and $Y$ are independent random variables.  {Hint: $X$ and $Y$ are said to be independent if $f_X(x)f_Y(y)=f_{X,Y}(x,y)$ for every $(x,y)$.}
 \item~$F_{X,Y}(x,y)$, the joint cumulative distribution function (JCDF) of $(X,Y)$ for any $(x,y) \in (0,1) \times (0,1)$ 
-\item~the probability that $X > 0.5$ and $Y<0.6$, i.e., $P(X>0.5,Y<0.6)$
+\item~the probability that $X > 0.5$ and $Y<0.6$, i.e., $\p(X>0.5,Y<0.6)$
 \item~$E(X)$, the expectation of $X$ or the first moment of $X$
 \item~$E(Y)$, the expectation of $Y$ or the first moment of $Y$
 \item~$E(XY)$, the expectation of $XY$
@@ -2650,7 +3455,7 @@ F_{X,Y}(x,y)
 \end{align*}
 \item~
 \begin{align*}
-P(X>0.5,Y<0.6) 
+\p(X>0.5,Y<0.6) 
 &= \int_{-\infty}^{0.6} \int_{0.5}^{\infty} f_{X,Y}(x,y) dx dy
 = \int_{0}^{0.6} \int_{0.5}^{1} \frac{6}{5} (x^2+y) dx dy\\
 &= \frac{6}{5} \int_{0}^{0.6} \left[ \frac{x^3}{3}+yx \right]_{x=0.5}^{1} dy
@@ -2698,6 +3503,32 @@ E(XY)
 \cv(X,Y) = E(XY)-E(X)E(Y) = \frac{7}{20}-\left(\frac{3}{5} \times \frac{3}{5} \right) = \frac{7}{20}-\frac{9}{25} = \frac{35}{100}-\frac{36}{100} = -\frac{1}{100}
 \]
 \ee
+
+\Exercise
+Logs are milled to have a width of $\mu$.
+The actual width of a randomly selected item is $X$.
+If $X$ is a $\normal(\mu,\sigma^2)$ random variable then find the probability density function of the {\em squared-error} of the milling process,
+\[ Y\,=\, (X-\mu)^2\,.\]
+\Answer
+Note that $Y= (X-\mu)^2$ is not on-to-one so it is better to use the direct method by differentiating the distribution function  of $Y$, $F_Y(y)$,  to obtain $f_Y(y)$.
+
+If $y\geqslant 0$,
+\begin{align*}
+ F_Y(y)\;=&\; \p(Y \leqslant y) \\[3pt]
+ \;=&\;  \p( (X-\mu)^2 \leqslant y) \\[3pt]
+ \;=&\; \p(-\sqrt y \leqslant X-\mu \leqslant \sqrt y)\\[3pt]
+ \;=&\; \p(\mu -\sqrt y \leqslant X  \leqslant \mu + \sqrt y)\\[3pt]
+\;=&\; F_X( \mu + \sqrt y) \,-\, F_X( \mu + \sqrt y)
+\end{align*}
+
+Differentiating this expression gives
+\begin{align*}
+f_Y(y) \;=&\; \frac{d}{dy} \left(F_X( \mu + \sqrt y) \,-\, F_X( \mu - \sqrt y)  \right) \\[3pt]
+\;=&\;\frac{1}{2} y^{-\frac{1}{2}} \, f_X (\mu + \sqrt y ) \,- \, \left( -\frac{1}{2} y^{-\frac{1}{2}} \right)\, f_X (\mu - \sqrt y ) \\[3pt]
+\;=&\;\frac{1}{2 \sqrt y } \left(  f_X (\mu + \sqrt y )  + f_X (\mu - \sqrt y )  \right)
+\end{align*}
+
+Note: If $y<0$ then $f_Y(y) = 0$  since  $F_Y(y)=0$ in this case.
 
 \Exercise
 Let $(X,Y)$ be a discrete random vector (\rv) with support:
@@ -2907,11 +3738,11 @@ Suppose that the JPDF of these variables is
 0 & \text{ otherwise} \enspace.
 \end{cases}
 \end{align*}
-What is the probability that the device operates for more than 1000 hours without any failures? [Hint: The requested probability is $P(X_1>1000,X_2>1000,X_3>1000,X_4>1000)$ since each one of the four components of the device must not fail before 1000 hours.]
+What is the probability that the device operates for more than 1000 hours without any failures? [Hint: The requested probability is $\p(X_1>1000,X_2>1000,X_3>1000,X_4>1000)$ since each one of the four components of the device must not fail before 1000 hours.]
 \Answer
 ~\\
 \begin{multline*}
-P(X_1>1000,X_2>1000,X_3>1000,X_4>1000) \\
+\p(X_1>1000,X_2>1000,X_3>1000,X_4>1000) \\
 = \int_{1000}^{\infty} \int_{1000}^{\infty} \int_{1000}^{\infty} \int_{1000}^{\infty} 9 \times 10^{-12} e^{-0.001 x_1 - 0.002 x_2 - 0.0015 x_3 - 0.003 x_4} dx_1 dx_2 dx_3 dx_4\\
 = 9 \times 10^{-12} \int_{1000}^{\infty} \int_{1000}^{\infty} \int_{1000}^{\infty} \int_{1000}^{\infty}  e^{-0.001 x_1} e^{- 0.002 x_2} e^{- 0.0015 x_3} e^{- 0.003 x_4} dx_1 dx_2 dx_3 dx_4\\
 =  9 \times 10^{-12} \int_{1000}^{\infty} e^{-0.001 x_1} \int_{1000}^{\infty} e^{- 0.002 x_2} \int_{1000}^{\infty} e^{- 0.0015 x_3} \int_{1000}^{\infty} e^{- 0.003 x_4} dx_4 dx_3 dx_2 dx_1\\
@@ -2934,25 +3765,26 @@ Suppose the RVs $Y_1$, $Y_2$ and $Y_3$ represent the thickness in micrometers of
 Assume $Y_1$, $Y_2$ and $Y_3$ are $\normal(10000,250^2)$, $\normal(1000,20^2)$ and $\normal(80,4^2)$ RVs, respectively.  
 Further suppose that they are independent.  
 The required specifications for the thickness of the substrate, active layer and coating layer are $[9500,10500]$, $[950,1050]$ and $[75,85]$, respectively.  
-What proportion of chemical products meets all thickness specifications? [Hint: this is just $P(9500<Y_1<10500,950<Y_2<1050,75<Y_3<85)$]  Which one of the three thicknesses has the least probability of meeting specifications?   
+What proportion of chemical products meets all thickness specifications? [Hint: this is just $\p(9500<Y_1<10500,950<Y_2<1050,75<Y_3<85)$]  Which one of the three thicknesses has the least probability of meeting specifications?   
 \Answer
 ~\\
 Due to independence of $Y_1$, $Y_2$ and $Y_3$
 \begin{multline*}
-P(9500<Y_1<10500,950<Y_2<1050,75<Y_3<85)\\ = P(9500<Y_1<10500) P(950<Y_2<1050) P(75<Y_3<85)
+\p(9500<Y_1<10500,950<Y_2<1050,75<Y_3<85)\\ = \p(9500<Y_1<10500) \p(950<Y_2<1050) \p(75<Y_3<85)
 \end{multline*}
 After standardizing each Normal RV (subtracting its mean and dividing by its standard deviation) we get
 \begin{align*}
-&~ P(9500<Y_1<10500) P(950<Y_2<1050) P(75<Y_3<85)\\
+&~ \p(9500<Y_1<10500) \p(950<Y_2<1050) \p(75<Y_3<85)\\
 &=  P\left(\frac{9500-10000}{250}< Z < \frac{10500-10000}{250} \right) P\left( \frac{950-1000}{20}<Z<\frac{1050-1000}{20}\right)\\
 &\qquad \qquad \qquad \qquad \qquad \qquad P\left(\frac{75-80}{4}<Z<\frac{85-80}{4}\right)\\
-&= P(-2.0<Z<2.0) P(-2.5<Z<2.5) P(-1.25<Z<1.25) \\
+&= \p(-2.0<Z<2.0) \p(-2.5<Z<2.5) \p(-1.25<Z<1.25) \\
 &= (\Phi(2.0)-(1-\Phi(2.0)) \times (\Phi(2.5)-(1-\Phi(2.5)) \times (\Phi(1.25)-(1-\Phi(1.25))\\
 &= (2\Phi(2.0)-1) \times (2\Phi(2.5)-1) \times (2\Phi(1.25)-1)\\
 &= ((2 \times 0.9772) -1) \times ((2 \times 0.9938) - 1) \times ((2 \times 0.8944)-1) \qquad \text{ using Table for $\Phi(z)$} \\
 &= 0.9544 \times 0.9876 \times 0.7888 = 0.7435
 \end{align*}
-To follow the fourth-last equality above see Example 8.14(d) from EMTH119.  The values for the distribution function $\Phi(z)$ of the $\normal(0,1)$ RV $Z$ are in the table on page 67. 
+%To follow the fourth-last equality above see Example 8.14(d) from EMTH119. % TODO? 
+The values for the distribution function $\Phi(z)$ of the $\normal(0,1)$ RV $Z$ are in the table on page 67. 
 
 The thickness of the coating layer represented by $Y_3$ has the least probability ($0.7888$) of meeting specifications.  Consequently, a priority should be to reduce variability in this part of the process.
 
@@ -2981,9 +3813,9 @@ By the special property of Normal RVs -- a linear combination of independent nor
 $\ol{X}_{10}$ is a $\normal(12.1,0.001)$ RV.
 Consequetly, the probability of interest is
 \begin{align*}
-P(\ol{X}_{10} < 12.01) 
+\p(\ol{X}_{10} < 12.01) 
 &= P \left( \frac{\ol{X}_{10}-E(\ol{X}_{10})}{\sqrt{0.001}} < \frac{12.01 - E(\ol{X}_{10})}{\sqrt{0.001}} \right) = P\left(Z < \frac{12.01-12.1}{0.0316}\right)\\ 
-&\approxeq P(Z<-2.85) = 1-P(Z<2.85) = 1-\Phi(2.85) = 1-0.9978=0.0022
+&\approxeq \p(Z<-2.85) = 1-\p(Z<2.85) = 1-\Phi(2.85) = 1-0.9978=0.0022
 \end{align*}
 
 \Exercise
@@ -2998,6 +3830,210 @@ Using the $\multinomial(n=10,\theta_1=0.6,\theta_2=0.3,\theta_3=0.08,\theta_4=0.
 &= \frac{10!}{6! \times 2! \times 2! \times 0!} \times 0.6^6 \times 0.3^2 \times 0.08^2 \times 0.02^0\\
 &= \frac{10 \times 9 \times 8 \times 7 \times 6 \times 5 \times 4 \times 3 \times 2 \times 1}{(6 \times 5 \times 4 \times 3 \times 2 \times 1) \times (2 \times 1) \times (2 \times 1) \times 1} \times  0.6^6 \times 0.3^2 \times 0.08^2 \times 1 \approxeq 0.03386\\
 \end{align*}
+
+%CF
+\Exercise
+Let $X$ be a discrete random variable (RV) with probability mass function (PMF)
+\[
+f_X(x) = 
+\begin{cases}
+\frac{1}{3} & \text{ if } x=0\\
+\frac{1}{3} & \text{ if } x=1\\
+\frac{1}{3} & \text{ if } x=2\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+\]
+\be
+\item~Find the characteristic function (CF) of $X$
+\item~Using the CF find $V(X)$, the variance of $X$. {Hint: $V(X)=E(X^2)-(E(X))^2$}
+\ee
+
+\Answer
+~\\
+\be
+\item~The CF of the discrete RV $X$ is
+\begin{align*}
+\phi_X(t) 
+&= E(e^{\imath t X}) = \sum_{x\in\{0,1,2\}} e^{\imath t x} f_X(x)
+= e^{\imath t \times 0} \times \frac{1}{3} + e^{\imath t \times 1} \times \frac{1}{3}+e^{\imath t \times 2} \times \frac{1}{3}\\
+&= \frac{1}{3} \left(1+e^{\imath t} + e^{\imath 2 t}\right) \enspace .
+\end{align*}
+
+\item~To find $V(X)$ using $V(X)=E(X^2)-(E(X))^2$ we need the first two moments of $X$.  First, differentiate $\phi_X(t)$ w.r.t.~$t$
+\begin{align*}
+\frac{d}{dt}\phi_X(t)
+= \frac{d}{dt} \left( \frac{1}{3} \left(1+e^{\imath t} + e^{\imath 2 t}\right) \right)
+= \frac{1}{3} \left(0+ \imath e^{\imath t} + 2 \imath e^{\imath 2 t} \right)
+= \frac{\imath}{3} \left(e^{\imath t} + 2 e^{\imath 2 t} \right)
+\end{align*}
+We get the $k$-th moment $E(X^k)$ by multiplying the $k$-th derivative of $\phi_X(t)$ evaluated at $t=0$ by $\frac{1}{\imath^k}$ as follows:
+\begin{align*}
+E(X) 
+= \frac{1}{\imath} \left[ \frac{d}{dt}\phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath} \left[ \frac{\imath}{3} \left(e^{\imath t} + 2 e^{\imath 2 t} \right)\right]_{t=0} 
+= \frac{1}{\imath} \frac{\imath}{3} \left(e^0+2e^0\right) = \frac{1}{3}(1+2)=1 \enspace .
+\end{align*}
+\begin{align*}
+E(X^2) 
+&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{\imath}{3} \left(e^{\imath t} + 2 e^{\imath 2 t} \right) \right]_{t=0}
+= \frac{1}{\imath^2} \left[ \frac{\imath}{3} \left(\imath e^{\imath t} + 4 \imath e^{\imath 2 t} \right) \right]_{t=0}\\
+& = \frac{1}{3} \left(e^0 + 4 e^0\right) = \frac{5}{3} \enspace .
+\end{align*}
+Finally,
+\[
+V(X) = E(X^2)-(E(X))^2 = \frac{5}{3} - 1^2 = \frac{5-3}{3}=\frac{2}{3} \enspace .
+\] 
+\ee
+
+\Exercise
+Recall that the $\geometric(\theta)$ RV $X$ has the following PMF
+\[
+f_X(x;\theta) = 
+\begin{cases}
+\theta (1-\theta)^x & \text{ if } x \in \{0,1,2,3,\ldots\}\\
+0 & \text{ otherwise}
+\end{cases}
+\]
+\be
+\item~Find the CF of $X$. (Hint: the sum of the infinite geometric series $\sum_{x=0}^{\infty} a r^x = \frac{a}{1-r}$.)
+\item~Using the CF find $E(X)$.
+\ee
+\Answer
+~\\
+\be
+\item~
+\[
+\phi_X(t) = E \left(e^{\imath t X}\right) = \sum_{x=0}^{\infty} e^{\imath t x}\theta(1-\theta)^x
+= \sum_{x=0}^{\infty} \theta \left(e^{\imath t} (1-\theta)\right)^x = \frac{\theta}{1-e^{\imath t} (1-\theta)} \enspace .
+\]
+The last equality is due to $\sum_{x=0}^{\infty} a r^x = \frac{a}{1-r}$ with $a=\theta$ and $r=e^{\imath t} (1-\theta)$.
+\item~
+\begin{align*}
+E(X)
+&= \frac{1}{\imath} \left[ \frac{d}{dt} \left( \frac{\theta}{1-e^{\imath t}(1-\theta)} \right) \right]_{t=0} 
+=  \frac{1}{\imath} \theta \left[ \frac{d}{dt} \left( \left(1-e^{\imath t}(1-\theta)\right)^{-1} \right) \right]_{t=0} \\
+&= \frac{1}{\imath} \theta \left[ -\left(1-e^{\imath t} (1-\theta)\right)^{-2} \frac{d}{dt} \left( 1-e^{\imath t}(1-\theta)\right) \right]_{t=0}\\ 
+&= \frac{1}{\imath} \theta \left[ -\left(1-e^{\imath t} (1-\theta)\right)^{-2} \left( 0-\imath e^{\imath t}(1-\theta)\right) \right]_{t=0}\\
+&= \frac{1}{\imath} \theta \left( -\left(1-e^{0} (1-\theta)\right)^{-2} \left( -\imath e^{0}(1-\theta)\right) \right)\\ 
+&= \frac{1}{\imath} \theta \left( -\left(1- 1+\theta\right)^{-2} \left( -\imath (1-\theta)\right) \right)\\
+&=\frac{1-\theta}{\theta} \enspace .
+\end{align*}
+\ee
+
+\Exercise
+Let $X$ be the $\uniform(a,b)$ RV with the following probability density function (PDF)
+\[
+f_X(x; a,b) = 
+\begin{cases}
+\frac{1}{b-a} & \text{ if } x \in [a,b] \\
+0 & \text{ otherwise} \enspace.
+\end{cases}
+\]
+Find the CF of $X$.
+\Answer
+~\\
+\begin{align*}
+\phi_X(t) 
+&= E\left( e^{\imath t X} \right) 
+= \int_{-\infty}^{\infty} e^{\imath t x} f_X(x;a,b) dx
+= \int_{a}^{b} e^{\imath t x} \frac{1}{b-a} dx
+= \frac{1}{b-a} \int_{a}^{b} e^{\imath t x} dx
+= \frac{1}{b-a} \left[ \frac{e^{\imath t x}}{\imath t} \right]_{x=a}^b\\
+&=  \frac{1}{(b-a)\imath t} \left( e^{\imath t b} - e^{\imath t a}\right) \enspace .
+\end{align*}
+
+\Exercise
+%\vspace{0.5cm}
+
+%A nice property of CFs we will use for some of the exercises below is the following.  If $X_1,X_2,\ldots,X_n$ are independent RVs and $a_1,a_2,\ldots,a_n$ are some constants, then the CF of the linear combination $Y=\sum_{i=1}^n a_i X_i$ is
+%\begin{equation}\label{E:LinCombCFtut}
+%\phi_Y (t) = \phi_{X_1} (a_1 t) \times \phi_{X_2} (a_2 t) \times \cdots \times \phi_{X_n} (a_n t) = \prod_{i=1}^n \phi_{X_i} (a_i t) \enspace .
+%\end{equation}
+
+Recall that the $\poisson(\lambda)$ RV has the following PMF
+\[
+f_X(x;\lambda) = 
+\begin{cases}
+\frac{\lambda^x}{x!}e^{-\lambda} & \text{ if } x \in \{0,1,2,3,\ldots \}\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+\]
+{Hint: the power series of $e^{\alpha} = \sum_{x=0}^{\infty} \frac{\alpha^x}{x!}$.}
+\be
+\item~
+Find the CF of $X$.
+\item~
+Find the variance of $X$ using its CF.
+\ee
+\Answer
+~\\
+\be
+\item~
+\[
+\phi_X(t) = E\left(e^{\imath t X}\right)
+= \sum_{x=0}^{\infty} e^{\imath t x} \frac{\lambda^x}{x!}e^{-\lambda}
+= e^{-\lambda} \sum_{x=0}^{\infty} \frac{e^{\imath t x} \lambda^x}{x!}
+= e^{-\lambda} \sum_{x=0}^{\infty} \frac{\left(\lambda e^{\imath t}\right)^x}{x!}
+= e^{-\lambda} e^{\lambda e^{\imath t}} = e^{\lambda e^{\imath t} - \lambda} \enspace .
+\]
+The second-last equality above is using $e^{\alpha} = \sum_{x=0}^{\infty} \frac{\alpha^x}{x!}$ with $\alpha=\lambda e^{\imath t}$.
+\item~
+To find $V(X)$ using $\phi_X(t)$ we need $E(X)$ and $E(X^2)$.
+\begin{align*}
+E(X) 
+&= \frac{1}{\imath} \left[ \frac{d}{dt} \phi_X(t) \right]_{t=0}
+= \frac{1}{\imath} \left[ \frac{d}{dt} e^{\lambda e^{\imath t} - \lambda} \right]_{t=0}
+= \frac{1}{\imath} \left[ e^{\lambda e^{\imath t} - \lambda} \frac{d}{dt} \left(\lambda e^{\imath t} - \lambda \right) \right]_{t=0}\\
+&= \frac{1}{\imath} \left[ e^{\lambda e^{\imath t} - \lambda} \lambda \imath e^{\imath t} \right]_{t=0}
+= \frac{1}{\imath} \left( e^{\lambda - \lambda} \lambda \imath \right)
+= \frac{1}{\imath} \left( \lambda \imath \right) = \lambda \enspace .
+\end{align*}
+\begin{align*}
+E(X^2) 
+&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2} \phi_X(t) \right]_{t=0}
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \left( e^{\lambda e^{\imath t} - \lambda} \lambda \imath e^{\imath t} \right) \right]_{t=0}
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \left( \lambda \imath e^{\lambda e^{\imath t} - \lambda + \imath t} \right) \right]_{t=0}\\
+&= \frac{1}{\imath^2} \left[ \lambda \imath e^{\lambda e^{\imath t} - \lambda + \imath t} \frac{d}{dt} \left( \lambda e^{\imath t} - \lambda + \imath t \right) \right]_{t=0}
+= \frac{1}{\imath^2} \left[ \lambda \imath e^{\lambda e^{\imath t} - \lambda + \imath t} \left( \lambda \imath e^{\imath t} - 0 + \imath \right) \right]_{t=0}\\
+&= \frac{1}{\imath^2} \left( \lambda \imath e^{\lambda e^{0} - \lambda + 0} \left( \lambda \imath e^{0}  + \imath \right) \right)
+= \frac{1}{\imath^2} \left( \lambda \imath \left( \lambda \imath  + \imath \right) \right)
+= \frac{1}{\imath^2} \left( \lambda \imath^2 \left( \lambda  + 1 \right) \right)
+= \lambda^2 + \lambda \enspace .
+\end{align*}
+Finally,
+\[
+V(X) = E(X^2) - (E(X))^2 = \lambda^2 + \lambda - \lambda^2 = \lambda \enspace .
+\]
+\ee
+
+\Exercise
+Let $X$ be a $\poisson(\lambda)$ RV and $Y$ be another $\poisson(\mu)$ RV.  
+Suppose $X$ and $Y$ are independent.
+Use Eqn.~\eqref{E:LinCombCF} to first find the CF of the RV $W=X+Y$.  
+From the CF of $W$ try to identify what RV it is. 
+
+\Answer
+~\\
+\[
+\phi_{W}(t) = \phi_{X+Y}(t) = \phi_X(t) \times \phi_Y(t) 
+= e^{\lambda e^{\imath t}-\lambda} \times e^{\mu e^{\imath t}-\mu}
+= e^{\lambda e^{\imath t}-\lambda + \mu e^{\imath t}-\mu} 
+= e^{(\lambda+\mu) e^{\imath t} -(\lambda+\mu)} \enspace . 
+\]
+So, $W$ is a $\poisson(\lambda+\mu)$ RV. Thus the sum of two independent Poisson RVs is also a Poisson RV with parameter given by the sum of the parameters of the two RVs being added.  The same idea generalizes to the sum of more than two Poisson RVs. 
+
+\Exercise
+Recall from lecture that if $Y=a+bX$ for some constants $a$ and $b$ with $b\neq 0$ then $\phi_Y(t) = e^{\imath a t} \phi_X(bt)$ and that $\phi_Z(t)=e^{-t^2/2}$ if $Z$ is the $\normal(0,1)$ RV.  
+Using these facts find the CF of $-Z$, the RV obtained from $Z$ by simply switching its sign.
+From the CF of $-Z$ identify what RV it is.
+\Answer
+~\\
+We can use the facts by noting $Y=-Z = 0 + (-1) \times Z$, with $a=0$ and $b=-1$ in $Y=a+bX$ and get
+\[
+\phi_{Y}(t) = e^{\imath \times 0 \times t} \phi_Z(-1 \times t) = \phi_Z(-t) = e^{-((-1 \times t))^2/2} = e^{-t^2/2} = \phi_Z(t)
+\]
+Thus, $\phi_{-Z}(t) = \phi_Z(t)$ and therefore the distributions of $Z$ and $-Z$ are the same. This should make sense because by switching signs of a symmetric (about $0$) RV you have not changed its distribution!  Note: we are not saying $Z=-Z$ but just that their distibutions are the same, i.e., $F_Z(z) = F_{-Z}(z)$ for every $z \in \Rz$.
 
 
 \end{ExerciseList}

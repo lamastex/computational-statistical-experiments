@@ -113,10 +113,10 @@ An experimenter often performs more than one trial.  Repeated trials of an exper
 
 
 
-\begin{Exp}[The Bernoulli Product Experiment; Toss a coin $n$ times]\label{EX:T3X}
+\begin{example}[Toss a coin $n$ times]\label{EX:T3X}
 Suppose our experiment entails tossing a coin $n$ times and recording ${\tt H}$ for Heads and ${\tt T}$ for Tails.  When $n=3$, one possible outcome of this experiment is ${\tt HHT}$, ie.~a Head followed by another Head and then a Tail.  Seven other outcomes are possible.  
 %Below, we refer to this experiment by the symbol $\E{E}_{\theta}^{3}$.  More generally, we refer to the experiment of tossing a coin $n$ times as $\E{E}_{\theta}^{n}$ and sometimes refer to $\E{E}_{\theta}^{1}$ by $\E{E}_{\theta}$ for simplicity.  The reason for the $\theta$ subscrip will become apparent as we develop the theory.
-\end{Exp}
+\end{example}
 
 
 The sample space for ``toss a coin three times" experiment %$\E{E}_{\theta}^{3}$ %\hyperref[EX:T3X]{Experiment \ref*{EX:T3X}} of tossing a coin 3 times 
@@ -130,7 +130,7 @@ A = \{ {\tt HHH}, {\tt HHT}, {\tt HTH}, {\tt THH} \} \ .
 \]
 Another event, say $B$, that `no Heads occur' is:
 \[
-B = {\tt TTT}
+B = \{{\tt TTT}\}
 \]
 Note that the event $B$ is also an outcome or sample point.  Another interesting event is the empty set $\emptyset  \subset \Omega$.  The event that `nothing in the sample space occurs' is $\emptyset$.
 
@@ -444,7 +444,7 @@ If $\Omega = \Rz^d$ for finite $d \in \{1,2,3,\ldots\}$ then the {\bf Borel sigm
 all {\bf half-spaces}, i.e., sets of the form 
 $$\{x=(x_1,x_2,\ldots,x_d) \in \Rz^d: x_1 \leq c_1, x_2 \leq c_2, \ldots, x_d \leq c_d\}, \quad \text{ for any } c=(c_1,c_2,\ldots,c_d)\in\Rz^d \enspace ,
 $$
-When $d=1$ the half-spaces are the half-lines $\{(-\infty,c]: c \in \Rz\}$ and when $d=2$ the half-spaces are the south-west quadrants $\{(-infty,c_1]\times(-\infty,c_2] : (c_1,c_2) \in \Rz^2\}$, etc.  
+When $d=1$ the half-spaces are the half-lines $\{(-\infty,c]: c \in \Rz\}$ and when $d=2$ the half-spaces are the south-west quadrants $\{(-\infty,c_1]\times(-\infty,c_2] : (c_1,c_2) \in \Rz^2\}$, etc.  
 (Equivalently, the Borel sigma-algebra is the smallest sigma-algebra containing all open sets in $\Rz^d$). 
 
 \item

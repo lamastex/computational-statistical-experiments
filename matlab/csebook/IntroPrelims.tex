@@ -1085,12 +1085,20 @@ The plot was saved as an encapsulated postscript file from the File menu of the 
 
 %Continuity
 
+\section{Elementary Real Analysis}
+
+
+
+\subsection{Limits of Real Numbers -- A Review}\label{S:AnalysisRefresher}
+
+%TODO
 %Differentiability
 
 %Riemann Integral
 
+
 Let us first recall some elementary ideas from real analysis.
-\begin{definition}[Convergent sequence of real numbers]
+\begin{definition}[Convergent sequence of real numbers]\label{Dfn:ConvReals}
 A sequence of real numbers  $\langle x_i \rangle_{i=1}^{\infty} := x_1,x_2,\ldots$ is said to converge to a limit $a \in \Rz$ and denoted by:
 \[
 \lim_{i \to \infty} x_i = a \ ,
@@ -1098,7 +1106,9 @@ A sequence of real numbers  $\langle x_i \rangle_{i=1}^{\infty} := x_1,x_2,\ldot
 if for every natural number $m \in \Nz$, a natural number $N_m \in \Nz$ exists such that for every $j \geq N_m$, $|x_j-a| \leq \frac{1}{m}$.
 \end{definition}
 
-\begin{example}[Limit of a sequence of $17$s]
+In words, $\lim_{i \to \infty} x_i = a$ means the following: no matter how small you make $\frac{1}{m}$ by picking as large an $m$ as you wish, I can find an $N_m$, that may depend on $m$, such that every number in the sequence beyond the $N_m$-th element is within distance $\frac{1}{m}$ of the limit $a$.
+
+\begin{example}[Limit of a sequence of $17$s]\label{EX:limOf17s}
 Let $\langle x_i \rangle_{i=1}^{\infty} = 17, 17, 17, \ldots$. Then $\lim_{i \to \infty} x_i = 17$.  This is because for every  $m \in \Nz$, we can take $N_m=1$ and satisfy the definition of the limit, i.e.:
 \[
 \text{for every }  j \geq N_m= 1, \  |x_j-17|=|17-17|=0\leq \frac{1}{m} \ .
@@ -1164,8 +1174,21 @@ However, the following limit does not exist:
 since $\infty \notin \Rz$.
 \end{example}
 
-\begin{example}[Limit of $(1+x)^{\frac{1}{x}}$]
+Let us next look at some limits of functions that exist despite the function itself being undefined at the limit point.  
+
+\begin{example}[Limit of $(1+x)^{\frac{1}{x}}$]\label{EX:LimitToE}
 The limit of $f(x)=(1+x)^{\frac{1}{x}}$ as $x$ approaches $0$ exists and it is the Euler's constant $e$ :
+\begin{eqnarray*}
+\lim_{x \to 0} f(x) 
+&=& \lim_{x \to 0} (1+x)^{\frac{1}{x}}\\ 
+&=& \lim_{x \to 0} (x+1)^{(1/x)} \quad \text{Indeterminate form of type $1^\infty$.}\\
+&=& \exp\left(\lim_{x\to 0} \log((x+1)^{(1/x)})\right) \quad \text{Transformed using $\exp(\lim_{x\to 0} \log((x+1)^{(1/x)}))$} \\
+&=& \exp\left(\lim_{x\to 0} (\log(x+1))/x\right) \quad \text{Indeterminate form of type $0/0$.}\\
+&=& \exp\left( \lim_{x\to 0} \frac{ d\log(x+1)/ dx}{ dx/ dx} \right) \quad \text{Applying L'Hospital's rule} \\
+&=&  \exp\left(\lim_{x\to 0} 1/(x+1)\right) \quad \text{limit of a quotient is the quotient of the limits}\\
+&=&  \exp\left(1/(\lim_{x \to 0} (x+1))\right) \quad \text{The limit of $x+1$ as $x$ approaches $0$ is $1$}\\
+&=& \exp(1)=e \approxeq 2.71828 \enspace .
+\end{eqnarray*}
 \[
 \lim_{x \to 0} f(x) = \lim_{x \to 0} (1+x)^{\frac{1}{x}} = e \approxeq 2.71828 \ .
 \]

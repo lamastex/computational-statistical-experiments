@@ -161,7 +161,7 @@ Suppose we are given a universal set $U$, and three of its subsets, $A$, $B$ and
 \end{tabular*}
 \end{classwork}
 
-\section*{Exercises}
+\section{Exercises}\label{xSets}
 
 \begin{ExerciseList}
 
@@ -795,7 +795,148 @@ An {\bf M-file} is a special text file with a {\tt .m} extension that contains a
 
 By now, you are expected to be familiar with arithmetic operations, simple function evaluations, format control, starting and stopping a diary file and launching and quitting \Matlab.
  
-\section{Permutations, Factorials and Combinations}\label{S:PermsFactsCombs}
+\section{Elementary Combinatorics}\label{S:PermsFactsCombs}
+
+Combinatorics is the branch of mathematics that specialises in counting. 
+We will give a more intuitive treatment with examples and then formally define the most primitive ideas called permutations and combinations. We also use several commonly encountered notations.
+
+The most basic counting rule we use enables us to determine the number of distinct elements in a set that is constructed from taking two or more steps, where each step uses elements of another set. 
+This is a lot easier than it sounds. Let's understand this through the analogy of performing several tasks.
+
+\begin{framed}{\bf The multiplication principle:}
+If a task can be performed in $n_1$ ways, a second task in $n_2$ ways, a
+third task in $n_3$ ways, etc., then the total number of distinct ways
+of performing all tasks together is
+\[n_1\,\times\,n_2\,\times\,n_3\,\times\, \dots  \]
+\end{framed}
+
+\begin{example}\label{EX:unrestrictedPIN}
+Suppose that a Personal Identification Number (PIN) is a six-symbol code word in which the first four entries are letters (lowercase) and the last two entries are digits. 
+How many PINS are there? There are six selections to be made:
+\bcols{2}\bit
+\item[] First letter: 26 possibilities
+\item[] Second letter: 26 possibilities
+\item[] Third letter: 26 possibilities
+\item[] Fourth letter: 26 possibilities
+\item[] First digit: 10 possibilities
+\item[] Second digit: 10 possibilities
+\eit\ecols
+So in total, the total number of possible PINS is:
+\[ 26\,\times\,26 \,\times\,26\,\times\,26\,\times\,10\,\times\,10\;=\;
+26^4\,\times 10^2 \;=\;45,697,600\,.\]
+\end{example}
+
+\begin{example}\label{EX:restrictedPIN}
+Suppose we now put restrictions on the letters and digits we use. For example,
+we might say that the first digit cannot be zero, and  letters cannot be
+repeated.  This time the the total number of possible PINS is:
+\[ 26\,\times\,25 \,\times\,24\,\times\,23\,\times\,9\,\times\,10 \;=\;32,292,000\,.\]
+\end{example}
+
+When does order matter? In English we use the word ``combination'' loosely. 
+If I  say
+\cen{``I have  17 probability  texts on my bottom shelf''} then I don't care (usually) about what order they are in,
+but in the statement
+\cen{``The combination of  my PIN is  math99''}
+I do care about order. A different order gives a different PIN.
+
+So in mathematics, we use more precise language:
+\bit
+\item A selection of objects in which the order  is
+  important is called a {\bf permutation}.
+
+\item A selection of objects in which the order  is
+  \emph{not}
+  important is called a {\bf combination}.
+\eit
+
+{\bf Permutations:} There are basically two types of permutations:
+
+\be
+\item  Repetition is allowed, as in choosing the letters (unrestricted choice) in the PIN of Example~\ref{EX:unrestrictedPIN}. 
+More generally, when you have $n$ objects to choose from, you have $n$ choices each time, so when choosing $r$ of them, the  number of permutations are $n^r$.
+\item  No repetition is allowed, as in the restricted  PIN Example~\ref{EX:restrictedPIN}. Here you have to reduce the number of choices. 
+If we had a 26 letter PIN then the total permutations would be
+\[26\,\times\,25 \,\times\,24\,\times\,23\,\times\,\dots\;\,\times\,3
+\,\times\,2 \,\times\, 1\;=\; 26!\]
+but since we  want four letters only here,  we  have
+\[\frac{26!}{22!}\;=\; 26\,\times\,25 \,\times\,24\,\times\,23\]
+choices.
+\ee
+
+\begin{framed}The number of distinct {\bf permutations}  of $n$ objects taking
+$r$ at a time is given by
+\[^nP_r\;=\; \frac{n!}{(n-r)!}\]
+\end{framed}
+
+\bigskip
+
+{\bf Combinations:} There are also two types of combinations:
+
+
+\be
+\item Repetition is allowed  such as the  coins in your pocket, say, $(10c, 50c,\, 50c, \, \$1,\, \$2, \,\$2)$.
+\item  No repetition is allowed as  in the  lottery numbers $(2,\,9,\,11,\,26,\,29,\,31)$.  The numbers are drawn one at a time, 
+and if you have the lucky numbers (no matter what order) you win!
+\ee
+
+\begin{framed}The number of distinct {\bf combinations}  of $n$ objects taking
+$r$ at a time is given by
+\[^nC_r\;=\;\binom{n}{r} \;=\; \frac{n!}{(n-r)!\,r!}\]
+\end{framed}
+
+\begin{example}
+Let us imagine being in the lower Manhattan in New York city with its perpendicular grid of streets and avenues.  
+If you start at a given intersection and are asked to only proceed in a north-easterly direction then how may ways are there 
+to reach another intersection by walking exactly two blocks or exactly three blocks?
+
+Solution:\\
+Let us answer this question of combinations by drawing Fig.~\ref{F:TwoAndThreeBlocksNorthEast}.
+Let us denote the number of easterly turns you take by $r$ and the total number of blocks you are allowed to walk either easterly or northerly by $n$.  
+From Fig.~\ref{F:TwoAndThreeBlocksNorthEast}(a) it is clear that the number of ways to reach each of the three intersections labeled by $r$ is given by $\binom{n}{r}$, 
+with $n=2$ and $r \in \{0,1,2\}$. 
+Similarly, from Fig.~\ref{F:TwoAndThreeBlocksNorthEast}(b) it is clear that the number of ways to reach each of the four intersections labeled by $r$ is given by $\binom{n}{r}$, with $n=3$ and $r \in \{0,1,2,3\}$.
+\end{example}
+  
+\begin{figure}[htbp]\label{F:TwoAndThreeBlocksNorthEast}
+\centering\subfigure[{\scriptsize Walking two blocks north-easterly.}]{
+\includegraphics[width=7cm]{figures/TwoBlocksNorthEast.eps}}
+\subfigure[{\scriptsize Walking three blocks north-easterly.}]{
+\includegraphics[width=7cm]{figures/ThreeBlocksNorthEast.eps}}
+\end{figure}
+
+
+\begin{Exercise}[title={Choosing Volunteers},label={xChoose3of50}]
+Suppose we need three students to be the class representatives in this course. 
+Assume that everyone wants to be selected to keep it simple. 
+In how many ways can we choose these three people from the class of 50 students? 
+%\ExePart
+%\Question
+%\subQuestion Show that...
+%\subQuestion In this question...
+%\subsubQuestion Show that...
+%\subsubQuestion Conclude...
+%\subQuestion Conclude.
+%\Question Show that if $b > 1$...
+%\ExePart
+%\Question What happens to if $b=1$?
+\end{Exercise}
+\begin{Answer}
+We start by assuming that order does matter, that is, we have a
+permutation, so that the number of ways we can select the three class
+representatives is
+\[^{50}P_3\;=\; \frac{50!}{(50-3)!}\;=\; \frac{50!}{47!}\]
+But, because order doesn't matter,  all we have to do is to adjust our
+permutation formula by a factor representing the number of  ways the objects could be in
+order. Here,  three students can  be placed in order $3!$ ways, so
+the required number of  ways of choosing the class representatives is:
+\[ \frac{50!}{47!\, 3!}\;=\;
+\frac{50\,.\, 49\,.\,48}{3\,.\,2\,.\,1}\;=\; 19,600\]
+\end{Answer}
+
+\medskip
+Now, we give more formal definitions and notations that will help us make precise arguments faster when we study sampling schemes in Inference Theory.
+
 \begin{definition}[Permutations and Factorials]
 A {\bf permutation} of $n$ objects is an arrangement of $n$ distinct objects in a row.  For example, there are $2$ permutations of the two objects $\{1,2\}$:
 \[
@@ -843,6 +984,7 @@ The total number of $k$-combination of $n$ objects, called a {\bf binomial coeff
 \]
 \end{definition}
 Binomial coefficients are often called ``Pascal's Triangle''  and attributed to Blaise Pascal's  {\it Trait\'e du Triangle Arithm\'etique} from 1653, but they have many ``fathers''.  There are earlier treatises of the binomial coefficients including Szu-y\"uan Y\"u-chien (``The Precious Mirror of the Four Elements'') by the Chinese mathematician Chu Shih-Chieh in 1303, and in an ancient Hindu classic, {\it Pi\.ngala's Chanda\d{h}\'s\=astra}, due to Hal\=ayudha (10-th century AD).
+
 
 
 \section{Array, Sequence, Limit, \ldots}\label{S:AnalysisRefresher}
@@ -1276,7 +1418,7 @@ Thus, $f(x)$ is not a continuous function over $\Rz$.
 %\caption{Analysis Symbol Table \label{T:SymbTableAnalysis}}
 %\end{table}
 
-\section{Elementary Number Theory}
+\section{Elementary Number Theory}\label{S:ElemNumTh}
 We introduce basic notions that we need from elementary number theory here.  These notions include integer functions and modular arithmetic as they will be needed later on.
 
 For any real number $x$:

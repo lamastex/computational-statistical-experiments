@@ -156,6 +156,15 @@
 
 \numberwithin{Answer}{chapter}
 \numberwithin{Exercise}{chapter}
+\numberwithin{example}{chapter}
+
+\renewcommand{\ExerciseHeader}{\medskip\textbf{\ExerciseName~\ExerciseHeaderNB\ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+%\par\nopagebreak
+%\medskip
+}
+\renewcommand{\ExerciseHeaderTitle}{~(\ExerciseTitle)}
+
+\renewcommand{\AnswerHeader}{\medskip{\textbf{Answer (\ExerciseName\ \ExerciseHeaderNB)~---~}}}
 
 %\newtheorem{lemma}[theorem]{Lemma}
 %\newtheorem{corollary}[theorem]{Corollary}
@@ -212,6 +221,7 @@ This work is licensed under the Creative Commons Attribution-Noncommercial-Share
 %\include{CSEMotivate.tex}
 
 \chapter*{Course Syllabus and Overview}
+\addcontentsline{toc}{chapter}{Course Syllabus}
 %\input{styles/SyllabusSTAT218_2008_S2.latex}
 %\input{styles/SyllabusSTAT313_2009_S2.tex}
 %\input{styles/SyllabusSTAT459.latex}
@@ -289,6 +299,7 @@ This work is licensed under the Creative Commons Attribution-Noncommercial-Share
 
 \chapter{Answers to Selected Exercises}
 
+%\renewcommand{\ExerciseName}{Ex.}
 
 %Will be provided at tutorial...
 %\remove{

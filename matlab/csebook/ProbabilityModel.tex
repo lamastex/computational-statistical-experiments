@@ -308,10 +308,31 @@ Substituting the first equality above into the second, we get:
 \]
 \end{proof}
 }
+\item From inclusion-exclusion principle we get {\bf Boole's inequality}: for any two events $A, B$
+\[
+\p(A \cup B) \leq \p(A) + \p(B)
+\]
+\item The inclusion-exclusion principle extends similarly to any three events $A_1,A_2,A_3$ as follows:
+\[
+\p(A_1 \cup A_2 \cup A_3) = \p(A_1) + \p(A_2) + \p(A_3) - \p(A_1 \cap A_2) - \p(A_1 \cap A_3) - \p(A_2 \cap A_3) + \p(A_1 \cap A_2 \cap A_3)
+\]
+and generalises to any $n$ events $A_1,A_2,\ldots,A_n$ as folows:
+\[
+\p \left( \bigcup_{i=1}^n A_i \right) = \sum_{i=1}^n \p(A_i) - \sum_{i<j} \p(A_i \cap A_j) + \sum_{i<j<k} \p(A_i \cap A_j \cap A_k) + \cdots + (-1)^{n-1} \sum_{i< \cdots <n} \p \left( \bigcap_{i=1}^n A_i \right)
+\]
+
+{\scriptsize
+\begin{proof} See the counting argument in \url{https://en.wikipedia.org/wiki/Inclusion\%E2\%80\%93exclusion_principle} if you are curious.
+\end{proof}
+}  
+\item Once again by the inclusion-exclusion principle, the Boole's inequality generalises to any $n$ events $A_1,A_2,\ldots,A_n$ as folows:
+\[
+\p \left( \bigcup_{i=1}^n A_i \right) \leq \sum_{i=1}^n \p(A_i)
+\]
 \item For a sequence of mutually disjoint events $A_1, A_2, A_3, \ldots, A_n$: 
 \[
 \boxed{
-A_i \cap A_j = \emptyset \quad \text{for any $i$,$j$} \quad \implies \quad \p(A_1 \cup A_2 \cup \cdots \cup A_n) = \p(A_1)+\p(A_2)+ \cdots + \p(A_n)} .
+A_i \cap A_j = \emptyset \quad \text{for any $i \neq j$} \quad \implies \quad \p(A_1 \cup A_2 \cup \cdots \cup A_n) = \p(A_1)+\p(A_2)+ \cdots + \p(A_n)} .
 \]
 {\scriptsize
 \begin{proof}
@@ -327,13 +348,20 @@ The $n$-event case follows by mathematical induction.
 We have formally defined the {\bf probability model} specified by the {\bf probability triple} $(\Omega, \C{F},\p)$ that can be used to model an {\bf experiment} $\E{E}$.
 
 \begin{example}[First Ball out of NZ Lotto]\label{Eg:NZLottoModel}
-Let us observe the number on {\em the first ball that pops out in a New Zealand Lotto trial}.  There are forty balls labelled $1$ through $40$ for this experiment and so the sample space is \[\Omega\;=\;\{\mathsf{1,2,3,\dots,39,40}\}\,.\]  Because the balls are vigorously whirled around inside the Lotto machine before the first one pops out, we can model each ball to pop out first with the same probability.  So, we assign each outcome $\omega \in \Omega$ the same probability of $\frac{1}{40}$, i.e., our probability model for this experiment is:
+Let us observe the number on {\em the first ball that pops out in a New Zealand Lotto trial}.  
+There are forty balls labelled $1$ through $40$ for this experiment and so the sample space is \[\Omega\;=\;\{\mathsf{1,2,3,\dots,39,40}\}\,.\]  
+Because the balls are vigorously whirled around inside the Lotto machine, modelled as a well-stirrred urn, before the first one pops out, 
+we can model each ball to pop out first with the same probability. 
+So, we assign each outcome $\omega \in \Omega$ the same probability of $\frac{1}{40}$, i.e., our probability model for this experiment is:
 \[
 \p(\omega) = \frac{1}{40}, \ \text{for each \ } \omega \in \Omega = \{\mathsf{1,2,3,\ldots,39,40}\} \enspace .
 \]
-(Note: We sometimes abuse notation and write $\p(\omega)$ instead of the
+Note: We sometimes abuse notation and write $\p(\omega)$ instead of the
 more accurate but cumbersome $\p(\{\omega\})$ when writing down
-probabilities of simple events.)
+probabilities of simple events. 
+
+Crucially, by $\omega=\mathsf{17}$ for example, we mean all the detailed dynamics inside the Lotto machine that lead to the event that the ball labelled by the number $\mathsf{17}$ ends up popping out. 
+So, $\Omega$ here is indeed a more complicated set although it only leads to $40$ possible outcomes.
 
 Figure~\ref{F:LottoDraws}~(a) shows the frequency of the first ball number in 1114 NZ Lotto draws.  
 Figure~\ref{F:LottoDraws}~(b) shows the relative frequency, i.e., the frequency divided by $1114$, the number of draws.  
@@ -428,7 +456,7 @@ Thus, $\C{F}$ and $\C{F}'$ are two distinct sigma algebras over our $\Omega=\{ {
 }
 \end{classwork}
  
-Generally one encounters four types of sigma algebras and they are:
+Generally one encounters four types of sigma algebras (you will understand the last two types after taking more advanced courses in mathematics, so it is fine to understand the ideas intuitively for now!) and they are:
 \be
 \item
 When the sample space $\Omega=\{\omega_1,\omega_2,\ldots,\omega_k\}$ is a finite set with $k$ outcomes and $\p(\omega_i)$, the probability for each outcome $\omega_i \in \Omega$ is known, then one typically takes the sigma-algebra $\C{F}$ to be the set of all subsets of $\Omega$ called the {\bf power set} and denoted by $2^{\Omega}$.  
@@ -454,11 +482,57 @@ A set of the form
 A_1 \times A_2 \times \cdots \times A_n \times \Sz \times \Sz \times \cdots, \quad A_k \subset \Sz \text{ for all } k \in \{1,2,\ldots,n\} \enspace ,
 \]
 is called a {\bf cylinder set}.  
-The set of events in $\Sz^{\infty}$ is the smallest sigma-algebra containing the cylinder sets.
+The set of events in $\Sz^{\infty}$ is the smallest sigma-algebra containing the cylinder sets. 
+
+\begin{itemize}
+\item {\bf A most primitive sigma-algebra for probability theory:} 
+For example if $\Sz=\{0,1\}$, then $\Omega = \{0,1\}^{\infty}$ is the set of all infinite sequences made of $0$'s and $1$'s. 
+To take advantage of arithmetic and analysis, $\Omega$ can be seen as the binary representation of all real numbers in the unit interval $[0,1]$.  
+We can take advantage of combinatorics and algebra if we further represent the dyadic partition of $[0,1]$ by a binary tree (as drawn in lectures). 
+Then, a cylinder set such as $1 \times 1 \times 0 \times \{0,1\} \times \{0,1\} \times \cdots$, an event here, can be interpreted as the finite binary sequence $(1,1,0)$ --- corresponding to the third leaf of a finite binary tree with four leaves obtained by splitting the right-most leaf twice. This cylindrical event $(1,1,0)$ contains all real numbers in the interval $[\frac{3}{4},\frac{7}{8}] \subset [0,1] =: \Omega$.\end{itemize}
 
 \ee
 
-\section*{Exercises}
+\begin{Exercise}[title={intuiting sigma-algebra -- this is optional},label={underMPSA}]
+Try to carefully recollect and understand the most primitive sigma-algebra in the last item above as it was explained in lectures.
+%\ExePart
+%\Question
+%\subQuestion Show that...
+%\subQuestion In this question...
+%\subsubQuestion Show that...
+%\subsubQuestion Conclude...
+%\subQuestion Conclude.
+%\Question Show that if $b > 1$...
+%\ExePart
+%\Question What happens to if $b=1$?
+\end{Exercise}
+\begin{Answer}
+This is an optional exercise. You will understand this as you progress through your mathematics programme. 
+The explanation in the said item was (or will be explained in person again) in the lectures. 
+This exercise was created to answer natural questions that were asked by students who wanted to know.
+\end{Answer}
+
+
+\begin{framed}
+PROBABILITY SUMMARY
+
+\medskip
+
+Axioms:
+\begin{enumerate}
+\item If $A\subseteq \Omega$ then $0\leq \p(A)\leq 1$ and $\p(\Omega)=1$.
+\item If $A$, $B$ are disjoint events, then $\p(A\cup B)=\p(A)+\p(B)$.
+
+[This is true only when $A$ and $B$ are disjoint.]
+\item If $A_1,A_2,\dots$ are disjoint then $\p(A_1\cup A_2
+\cup\dots)=\p(A_1)+\p(A_2)+\dots$
+\end{enumerate}
+Rules:
+$$\p(A^c)\;=\;1-\p(A)$$
+$$\p(A\cup B)\;=\;\p(A)+\p(B)-\p(A\cap B) \qquad [\textrm{always true}]$$
+\end{framed}
+
+\section{Exercises in Probability}\label{S:xsProbability}
 
 \begin{ExerciseList}
 \Exercise
@@ -504,6 +578,7 @@ $\p(\{\mathsf{W,A,Z,U,P}\})+\p(\{\mathsf{A,E,I,O,U}\})-\p(\{\mathsf{A,U}\})
 arbitrary events, rule (3).
 \eit
 }
+
 
 \Exercise
 Find the sample spaces  for the following experiments:
@@ -611,25 +686,6 @@ $$
 
 \end{ExerciseList}
 
-
-\begin{framed}
-PROBABILITY SUMMARY
-
-\medskip
-
-Axioms:
-\begin{enumerate}
-\item If $A\subseteq \Omega$ then $0\leq \p(A)\leq 1$ and $\p(\Omega)=1$.
-\item If $A$, $B$ are disjoint events, then $\p(A\cup B)=\p(A)+\p(B)$.
-
-[This is true only when $A$ and $B$ are disjoint.]
-\item If $A_1,A_2,\dots$ are disjoint then $\p(A_1\cup A_2
-\cup\dots)=\p(A_1)+\p(A_2)+\dots$
-\end{enumerate}
-Rules:
-$$\p(A^c)\;=\;1-\p(A)$$
-$$\p(A\cup B)\;=\;\p(A)+\p(B)-\p(A\cap B) \qquad [\textrm{always true}]$$
-\end{framed}
 
 
 \section{Conditional Probability}\label{S:CondProb}

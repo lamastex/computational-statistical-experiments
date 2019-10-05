@@ -736,7 +736,7 @@ If $A$ and $B$ are events, and if
 \[\p(A\cap B)\;=\;\p(A)\p(B|A)\;=\;\p(B)\p(A|B)\,. \]
 \ee
 
-\begin{example}[Wasserman03, p.~11]
+\begin{example}[Wasserman03, p.~11]\label{EX:Wasserman03p11}
  A medical test for a disease $D$ has outcomes $+$ and $-$.  the probabilities are:
 \begin{center}
  \begin{tabular}{l | c | c}
@@ -763,6 +763,7 @@ Now, suppose you go for a test and and test positive.  What is the probability t
 Most people who are not used to the definition of conditional probability would intuitively associate a number much bigger than $0.08$ for the answer.  Interpret conditional probability in terms of the meaning of the numbers that appear in the numerator and denominator of the above calculations.
 \end{example}
  
+\subsection{Bayes' Theorem}\label{S:BayesTheorem}
  Next we look at one of the most elegant applications of the definition of conditional probability along with the addition rule for a partition of $\Omega$.
  \begin{prop}[Bayes' Theorem, 1763]
  Suppose the events $A_1,A_2,\ldots,A_k \in \C{F}$, with $\p(A_h)>0$ for each $h \in \{1,2,\ldots,k\}$, partition the sample space $\Omega$, ie.~they are mutually exclusive (disjoint) and exhaustive events with positive probability: 
@@ -795,7 +796,7 @@ is also called `the law of total probability' or `the total probability theorem'
 We call $\p(A_h)$ the {\bf prior probability of} $A_h$ and $\p(A_h|B)$ the {\bf posterior probability of} $A_h$.
  \end{prop}
 
-\begin{example}[Wasserman2003~p.12]
+\begin{example}[Wasserman2003~p.12]\label{Wasserman2003p12}
 Suppose Larry divides his email into three categories: $A_1 = \text{``spam''}$, $A_2 =\text{ ``low priority''}$, and $A_3 = \text{ ``high priority''}$.  From previous experience, he finds that $\p(A_1) = 0.7$, $\p(A_2) = 0.2$ and $\p(A_3)=0.1$.  Note that $\p(A_1 \cup A_2 \cup A_3) = \p(\Omega) = 0.7+0.2+0.1 = 1$.  Let $B$ be the event that the email contains the word ``free.''  From previous experience, $\p(B|A_1) = 0.9$, $\p(B|A_2) = 0.01$ and $\p(B|A_3)=0.01$.  Note that $\p(B|A_1) + \p(B|A_2) + \p(B|A_3) = 0.9+0.01+0.01 \neq 1$.  Now, suppose Larry receives an email with the word ``free.''  What is the probability that it is ``spam,'' ``low priority,''  and ``high priority'' ?
 %{\color{Gray}{
 
@@ -826,7 +827,7 @@ Note that $\p(A_1|B) + \p(A_2|B)+\p(A_3|B) = 0.995+0.003+0.002=1$.
 %}}
 \end{example}
 
-\begin{example}[Urn with red and black balls] 
+\begin{example}[Urn with red and black balls]\label{EX:urnRedBlackBalls} 
 A well-mixed urn contains five
 {\sf red} and ten {\sf black} balls. We draw two balls from the urn
 without replacement. What is the probability that the second ball drawn
@@ -975,7 +976,20 @@ but,
 Therefore, inspite of being pairwise independent, the events $A$, $B$ and $C$ are not jointly independent.
 \end{example}
 
-\section*{Exercises}
+\begin{framed}
+CONDITIONAL PROBABILITY SUMMARY\\
+
+$\p(A|B)$ means the probability that $A$ occurs given that $B$ has
+occurred.
+
+$$\p(A|B)\;=\;\frac{\p(A\cap B)}{\p(B)}\;=\;\frac{\p(A)\p(B|A)}{\p(B)}\quad \textrm{if}\quad \p(B)\neq0$$
+
+$$\p(B|A)\;=\;\frac{\p(A\cap B)}{\p(A)}\;=\;\frac{\p(B)\p(A|B)}{\p(A)}\quad \textrm{if}\quad \p(A)\neq 0$$
+
+Conditional probabilities obey the axioms and rules of probability.
+\end{framed}
+
+\section{Exercises in Conditional Probability}\label{S:xsCondProb}
 
 \begin{ExerciseList}
 
@@ -1286,17 +1300,4 @@ When $A$ and $B$ are disjoint, are they also independent?
 Explain clearly why or why not.
 
 \end{ExerciseList}
-
-\begin{framed}
-CONDITIONAL PROBABILITY SUMMARY\\
-
-$\p(A|B)$ means the probability that $A$ occurs given that $B$ has
-occurred.
-
-$$\p(A|B)\;=\;\frac{\p(A\cap B)}{\p(B)}\;=\;\frac{\p(A)\p(B|A)}{\p(B)}\quad \textrm{if}\quad \p(B)\neq0$$
-
-$$\p(B|A)\;=\;\frac{\p(A\cap B)}{\p(A)}\;=\;\frac{\p(B)\p(A|B)}{\p(A)}\quad \textrm{if}\quad \p(A)\neq 0$$
-
-Conditional probabilities obey the axioms and rules of probability.
-\end{framed}
 

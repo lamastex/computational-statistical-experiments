@@ -53,7 +53,29 @@ The {\bf Indicator Function} of an event $A$ denoted $\BB{1}_A$ is defined as fo
 \caption{The Indicator function of event $A \in \C{F}$ is a RV $\BB{1}_A$ with DF $F$ \label{F:RVIndic}}
 \centering   \makebox{\includegraphics{figures/RVIndic}}
 \end{figure}
-\begin{classwork}[Indicator function is a random variable]
+
+\begin{Exercise}[title={Drawing discontinuous functions},label={drawDiscontFuncs}]
+Identify the mistakes in how the  $\BB{1}_A$ is drawn as a discontinous function in Figure~\ref{F:RVIndic}.
+%\ExePart
+%\Question
+%\subQuestion Show that...
+%\subQuestion In this question...
+%\subsubQuestion Show that...
+%\subsubQuestion Conclude...
+%\subQuestion Conclude.
+%\Question Show that if $b > 1$...
+%\ExePart
+%\Question What happens to if $b=1$?
+\end{Exercise}
+\begin{Answer}
+The first mistake is the solid vertical lines (blue) from $0$ in the domain or $x$-axis to $\p( \text{`not A'})$ in the range or $y$-axis and from $1$ in the domain to $1$ in the range. 
+This is ill-defined for any function if we are to interpret that the elements in the domain, namely $0$ and $1$, are to be associated with the uncountably many image values in the range of the function, namely $[0,\p( \text{`not A'})]$ and $[\p( \text{`not A'}),1]$, respectively. 
+So we should first replace them by dotted lines which merely help us track where the function jumped to at $0$ and $1$.
+
+The second mistake is failing to emphasise that the value taken by the function at $0$ and $1$ is not $0$ and $\p( \text{`not A'})$, respectively. So it is best to introduce an empty circle like $\circ$ at $(0,0)$ and $(1,\p( \text{`not A'}))$ to indicate the points of discontinuity. The same mistakes should be fixed in the next Figure~\ref{F:RVABC}.
+\end{Answer}
+
+\begin{classwork}[Indicator function is a random variable]\label{CW:IndicatorIsaRV}
 Let us convince ourselves that $\BB{1}_A$ is really a RV.  For $\BB{1}_A$ to be a RV, we need to verify that 
 for any real number $x \in \Rz$, the inverse image $\BB{1}_A^{[-1]}( \ (- \infty, x] \ )$ is an event, ie :
 \[
@@ -76,11 +98,11 @@ Some useful properties of the Indicator Function are:
 \]
 We slightly abuse notation when $A$ is a single element set by ignoring the curly braces.
 \begin{figure}[htpb]
-\caption{A RV $X$ from a sample space $\Omega$ with $8$ elements to $\Rz$ and its DF $F$ \label{F:RVABC}}
+\caption{A RV $X$ from a sample space $\Omega$ with $8$ elements to $\Rz$ and its DF $F$.\label{F:RVABC}}
 \centering   \makebox{\includegraphics{figures/RV}}
 \end{figure}
-\begin{classwork}[A random variable with three values and eight sample points]
-Consider the RV $X$ of \hyperref[F:RVABC]{Figure \ref*{F:RVABC}}.  Let the events $A = \{\omega_1, \omega_2\}$, $B = \{\omega_3, \omega_4, \omega_5\}$ and $C = \{\omega_6, \omega_7,\omega_8 \}$.  Define the RV $X$ formally.  What sets should $\C{F}$ minimally include?  What do you need to do to make sure that $\C{F}$ is a sigma algebra?
+\begin{classwork}[A random variable with three values and eight sample points]\label{CW:ARVwith3Values}
+Consider the RV $X$ of \hyperref[F:RVABC]{Figure \ref*{F:RVABC}}.  First draw this properly as done in Ex.~\ref{drawDiscontFuncs}. Let the events $A = \{\omega_1, \omega_2\}$, $B = \{\omega_3, \omega_4, \omega_5\}$ and $C = \{\omega_6, \omega_7,\omega_8 \}$.  Define the RV $X$ formally.  What sets should $\C{F}$ minimally include?  What do you need to do to make sure that $\C{F}$ is a sigma algebra?
 \vspace{4cm}
 \end{classwork}
 

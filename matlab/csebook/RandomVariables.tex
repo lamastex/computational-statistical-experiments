@@ -319,38 +319,223 @@ $$
 \end{Answer}
 
 \section{Discrete Random Variables}
-\subsection{An Elementary Discrete Random Variable}\label{S:ElemDiscRV}
 
-When a RV takes at most countably many values from a discrete set $\Dz \subset \Rz$, we call it a {\bf discrete} RV.  Often, $\Dz$ is the set of integers $\Zz$.
+When a RV takes at most countably many values from a discrete set $\Xz$, we call it a {\bf discrete} RV.  
+Recall that a set $\Xz$ is said to be discrete if we can enumerate its elements, i.e., find an enumerating or counting function $\Xz \ni x \mapsto i \in\Nz$ that associates each element $x \in \Xz$ to a natural number $i \in \Nz$. 
+So, $\Xz$ is either finite with $k$ elements in $\Xz = \{x_1,x_2,\ldots,x_k\}$ or countably infinite with the same cardinality as $\Nz$ with $\Xz = \{x_1,x_2,\ldots\}$. 
+When $\Xz \subset \Rz$, we have a real-valued or $\Rz$-valued discrete random variable.
+
 \begin{definition}[probability mass function (PMF)]
-Let $X$ be a discrete RV over a probability triple $(\Omega, \C{F},P)$.  We define the {\bf probability mass function} (PMF) $f$ of $X$ to be the function $f : \Dz \rightarrow [0,1]$ defined as follows:
-\[
-f(x) := \p(X=x) = \p( \ \{\omega: X(\omega) = x\} \ ), \qquad \text{where $x \in \Dz$.} 
-\]
+Let $X$ be a $\Rz$-valued discrete RV over a probability triple $(\Omega, \C{F},\p)$.  
+We define the {\bf probability mass function} (PMF) $f$ of $X$ to be the function 
+$f : \Rz \rightarrow [0,1]$ defined as follows:
+\begin{framed}
+\begin{equation}\label{Eq:DiscretePMF}
+f(x) := \p(X=x) = \p( \ \{\omega: X(\omega) = x\} \ ) = 
+\begin{cases}
+\theta_i \quad \text{if $x=x_i \in \Xz$.}\\
+0 \quad \text{otherwise}. 
+\end{cases}
+\end{equation}
+\end{framed}
 \end{definition}
+
 The DF $F$ and PMF $f$ for a discrete RV $X$ satisfy the following:
 \begin{enumerate}
-\item  For any $x \in \Rz$,
-\[
-\p(X \leq x) = F(x) = \sum_{\Dz \ni y \leq x} f(y) := 
-\sum_{y \ \in \  \Dz \cap (-\infty, x] } f(y) \ .
-\]
-\item For any $a,b \in \Dz$ with $a<b$,
-\[
-\p(a < X \leq b) = F(b) - F(a) = \sum_{y \ \in \  \Dz \cap (a, b] } f(y) \ .
-\]
-In particular, when $\Dz=\Zz$ and $a=b-1$,
-\[
-\p(b-1 < X \leq b) = F(b) - F(b-1) = f(b) = \p( \ \{ \omega : X(\omega) = b\} \ ) \ .
-\]
-\item And of course
-\[
-% \lim_{x \rightarrow \infty} F_X(x) = 1
-\sum_{x \in \Dz} f(x) = 1
-\]
+\item  For any $x \in \Rz$, 
+\begin{equation}\label{Eq:DiscreteDF}
+\boxed{\p(X \leq x) = F(x)  = \sum_{x_i \leq x} f(x_i) = \sum_{x_i \leq x} \theta_i \ .}
+\end{equation}
+\item For any $a,b \in \Rz$ with $a<b$,
+\begin{equation}\label{E:DRVFab}
+\boxed{\p(a < X \leq b) = F(b) - F(a) = \sum_{a < x_i \leq b} \theta_i \ .}
+\end{equation}
+This is just the sum of all probabilities $\theta_i$ for which $x_i$ satisfies $a<x_i \leq b$. 
+\item
+From the fact that $\p(\Omega)=1$, we get that the sum of all the probabilties is $1$:
+\begin{equation}\label{E:DRVsumofP}
+\boxed{\sum_i \theta_i = 1 \ .}
+\end{equation}
+\item
+When $X$ only has finitely many possibilities, say $k$ with $\Xz = \{x_1,x_2,\ldots,x_k\}$, then we may think of the probability $\p$ specified by $(\theta_1,\theta_2,\ldots,\theta_k)$ as a point in the \textbf{unit $(k-1)$ simplex}:
+\begin{equation}\label{E:unitk-1simplex}
+\Delta^{k-1} := \{ (\theta_1,\theta_2,\ldots,\theta_k) \in \Rz^{k-1} : \sum_i \theta_i = 1 \text{ and } \theta_i \geq 0, \text{ for all } i\}
+\end{equation}
+In particular when $X$ has only two possible values with $\Xz = \{x_1,x_2\}$ then $\theta_2=1-\theta_1$, so we can avoid subscripts and take $\theta := \theta_1$ and realize that the probability $\p$ is now specified by the point $(\theta,1-\theta)$ in the \textbf{unit $1$ simplex}:
+\begin{equation}\label{E:unit1simplex}
+\Delta^{1} := \{ (\theta,1-\theta) \in \Rz : \theta \geq 0 \} \enspace .
+\end{equation}
+See \url{https://en.wikipedia.org/wiki/Simplex} for the images scribed on the board.
 \end{enumerate}
 
-The Indicator Function $\BB{1}_A$ of the event that `$A$ occurs' for the $\theta$-specific experiment $\E{E}$ over some probability triple $(\Omega,\C{F},\p_{\theta})$, with $A \in \C{F}$, is the $\bernoulli(\theta)$ RV.  The parameter $\theta$ denotes the probability that `$A$ occurs' (see \hyperref[F:RVt1T]{Figure \ref*{F:RVt1T}} when $A$ is the event that `{\tt H} occurs').  This is our first example of a discrete RV.
+\begin{framed}
+DISCRETE RANDOM VARIABLES - SIMPLIFIED NOTATION\\
+
+Notice that in equations \eqref{Eq:DiscretePMF}, \eqref{Eq:DiscreteDF} and \eqref{E:DRVFab} the use of the ``$\omega \in \Omega$'' notation, where random variables are defined as functions, is
+much reduced. The reason is that in straightforward examples it is
+convenient to associate the possible values $x_1,x_2,\dots$ with the
+outcomes $\omega_1,\omega_2,\dots$ Hence, we can describe a discrete
+random variable by the table:
+
+
+$$\begin{array}{|c||c|c|c|c|}\hline
+\textrm{Possible values: $x_i$} & x_1 & x_2 & x_3 & \ldots \\ \hline
+&&&&\\
+\textrm{Probability: $\p(X=x_i)=\theta_i$}& \theta_1 & \theta_2 & \theta_3 & \ldots \\ \hline
+\end{array}
+$$
+It is customary to use $p_i$ instead of $\theta_i$ for the probabilities. But we try to avoid it as it will hurt us when we start doing Inference Theory soon!
+\quad \\
+Note that this table hides the more complex notation but it is still
+there, under the surface. 
+In Probability Theory I, you should be able to  work with and manipulate discrete random variables using the simplified notation given above. 
+The same comment applies to the continuous random variables discussed later. But you are students of mathematics and should know more about what is ``under the hood''.
+
+\end{framed}
+
+
+Out of the class of discrete random variables we will define specific kinds as they arise often in applications.  We classify discrete random variables into three types for convenience as follows:
+\begin{itemize}
+\item {Discrete uniform random variables with finitely many possibilities}
+\item {Discrete non-uniform random variables with finitely many possibilities}
+\item {Discrete non-uniform random variables with (countably) infinitely many possibilities}
+\end{itemize}
+
+\begin{framed}
+\begin{model}[Discrete Uniform]{\label{Df:DiscreteUniformRV}
+We say that a discrete random variable $X$ is uniformly distributed over $k$ possible values in $\Xz=\{x_1,x_2,\ldots,x_k\}$ if its probability mass function is:
+\begin{equation}\label{E:DiscreteUniformPMF}
+f(x) =
+\begin{cases}
+\theta_i = \frac{1}{k} &  \quad\textrm{if } x=x_i, \quad\textrm{where } i=1,2, \ldots ,k \enspace, \\
+0 & \quad\textrm{otherwise}\enspace.
+\end{cases}
+\end{equation}
+The distribution function for the discrete uniform random variable $X$ is:
+\begin{equation}\label{E:DiscreteUniformDF}
+F(x) = \sum_{x_i\leq x} f(x_i) = \sum_{x_i\leq x} \theta_i =
+\begin{cases}
+0 &\quad \textrm{if }-\infty < x < x_1\enspace ,\\
+\frac{1}{k}  & \quad \textrm{if }x_1 \leq x < x_2\enspace , \\
+\frac{2}{k}  & \quad \textrm{if }x_2 \leq x < x_3\enspace , \\
+\vdots & \\
+\frac{k-1}{k}  & \quad \textrm{if }x_{k-1} \leq x < x_k\enspace , \\
+1 & \quad \textrm{if }x_k \leq x < \infty\enspace .
+\end{cases}
+\end{equation}
+}
+The discrete uniform RV with values in $\Xz = \{1,2,\ldots,k\}$ is called the equi-probable $\demoivre(k)$ RV as we will see in the sequel. 
+\end{model}
+\end{framed}
+
+%\begin{Exercise}[title={Fair coin toss RV},label={xFairCoinRV}]
+\begin{example}
+The {\em fair coin toss experiment} of Exercise~\ref{xFairCoinRV} is an example of a discrete uniform random variable with finitely many possibilities. 
+Its probability mass function is given by 
+\[f(x)\;=\;\p(X=x)\;=\;
+\begin{cases}
+\frac{1}{2} & \text{if } x=0\\
+\frac{1}{2} & \text{if } x=1\\
+0 & \text{otherwise}
+\end{cases}\] 
+and its distribution function is given by
+\[F(x)\; = \;\p(X \leq x) \;=\;
+\begin{cases}
+ 0, & \text{ if } \ -\infty < x < 0\\
+ \frac{1}{2}, & \text{ if } \ 0 \leq x < 1\\
+ 1,
+& \text{ if } \ 1 \leq x < \infty
+\end{cases}
+\]
+Let us sketch the probability mass function and distribution function for $X$ below. 
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{pstricks/faircoinfF}
+\caption{$f(x)$ and $F(x)$ of {\em the fair coin toss} random variable $X$, a discrete uniform RV on $\{0,1\}$.}
+\end{center}
+\end{figure}
+\end{example}
+
+\begin{example}[Fair dice RV]\label{Eg:FairDicerandomVariable}
+Now consider the {\em toss a fair die} experiment and define $X$ to be the number that shows up on the top face. 
+Note that here $\Omega$ is the set of numerical symbols $\{\mathsf{1}, \mathsf{2}, \mathsf{3}, \mathsf{4}, \mathsf{5}, \mathsf{6}\}$ 
+that label each face while each of these symbols are associated with the real number 
+$x \in \{1,2,3,4,5,6\}$. 
+We can describe this random variable by the table 
+$$\begin{array}{|c|cccccc|}\hline
+\textrm{Possible values, $x_i$}&1&2&3&4&5&6 \\ \hline
+&&&&&&\\
+\textrm{Probability, $\theta_i$} &\frac{1}{6}&\frac{1}{6}&\frac{1}{6}&\frac{1}{6}&\frac{1}{6}&\frac{1}{6}\\ \hline
+\end{array}
+$$
+Find the probability mass function and distribution function for this random variable, and sketch their graphs.
+
+Solution:\\[4pt]
+The probability mass function of this random variable is:
+\[f(x)\;=\;\p(X=x)\;=\;
+\begin{cases}
+\frac{1}{6} & \text{if } x=1\\
+\frac{1}{6} & \text{if } x=2\\
+\frac{1}{6} & \text{if } x=3\\
+\frac{1}{6} & \text{if } x=4\\
+\frac{1}{6} & \text{if } x=5\\
+\frac{1}{6} & \text{if } x=6\\
+0 & \text{otherwise}
+\end{cases}\] and the  distribution function is:
+\[F(x)\; = \;\p(X \leq x) \;=\;
+\begin{cases}
+ 0, & \text{ if } \ -\infty < x < 1\\
+ \frac{1}{6}, & \text{ if } \ 1 \leq x < 2\\
+\frac{1}{3}, & \text{ if } \ 2 \leq x < 3\\
+\frac{1}{2}, & \text{ if } \ 3 \leq x < 4\\
+\frac{2}{3}, & \text{ if } \ 4 \leq x < 5\\
+\frac{5}{6}, & \text{ if } \ 5 \leq x < 6\\
+ 1,& \text{ if } \ 6 \leq x < \infty
+\end{cases}
+\]
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{pstricks/fairdiefF}
+\caption{$f(x)$ and $F(x)$ of {\em the fair die toss} random variable $X$, a discrete uniform RV on $\{1,2,3,4,5,6\}$.}
+\end{center}
+\end{figure}
+\end{example}
+
+\begin{example}[Astragali with a Kiwi sheep ankle bone]\label{Eg:Astragali}
+{\bf Astragali.} Board games involving chance
+  were known in Egypt, 3000 years before Christ. The element of chance
+  needed for these games was at first provided by tossing astragali, the
+  ankle bones of sheep. These bones could come to rest on only four
+  sides, the other two sides being rounded. The upper side of the bone,
+  broad and slightly convex counted four; the opposite side broad and
+  slightly concave counted three; the lateral side flat and narrow, one,
+  and the opposite narrow lateral side, which is slightly hollow, six.
+  You may examine an astragali of a kiwi sheep. \\[6pt] This is an example of a discrete
+  non-uniform random variable with finitely many possibilities.  A surmised probability mass function with $f(4)=\frac{4}{10}$,
+  $f(3)=\frac{3}{10}$, $f(1)=\frac{2}{10}$, $f(6)=\frac{1}{10}$ and
+  distribution function are shown below.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{pstricks/astragalifF}
+\caption{$f(x)$ and $F(x)$ of surmised {\em astragali toss} random variable $X$, a discrete (non-uniform) RV on $\{1,2,3,4\}$.}
+\end{center}
+\end{figure}
+\end{example}
+
+\subsection{An Elementary Family of Bernoulli Random Variables}\label{S:ElemDiscRV}
+In many experiments there are only two outcomes. For instance:
+
+\bit
+\item Flip a coin to see whether it is defective.
+\item  Roll a die and determine whether it is a 6 or not.
+\item  Determine whether it will be below $0$ degrees Celsius at 0600 hours in Uppsala tomorrow or not.
+\eit
+
+Performing such an experiment $\E{E}$ once to see if an event of interest $A$ occurs is called a {\bf Bernoulli trial} and its probability model over a triple $(\Omega,\C{F},\p)$, with $A \in \C{F}$, given by  the Indicator Function $\BB{1}_A$ in Model~\ref{M:IndicatorIsaRV} is called the $\bernoulli$ RV. 
+
+If we do not know the probability $\theta$ that `$A$ occurs', i.e., the $\bernoulli$ RV will equal $1$, then we can define a whole family of $\bernoulli$ RVs for each 
+$\theta \in [0,1]$ or more precisely for each $(\theta, 1-\theta) \in \Delta^1$, the unit $1$-Simplex.
 
 \begin{model}[$\bernoulli(\theta)$]
 Given a parameter $\theta \in [0,1]$, the probability mass function (PMF) for the $\bernoulli(\theta)$ RV $X$ is:
@@ -374,9 +559,13 @@ F(x;\theta) =
 We emphasise the dependence of the probabilities on the parameter $\theta$ by specifying it following the semicolon in the argument for $f$ and $F$ and by subscripting the probabilities, i.e.~$\p_{\theta}(X=1)=\theta$ and $\p_{\theta}(X=0)=1-\theta$.
 \end{model}
 \begin{figure}[htpb]
-\caption{The Indicator Function $\BB{1}_{ \ {\tt H} \ }$ of the event `Heads occurs', for the experiment `Toss 1 times,' $\E{E}_{\theta}^{1}$, as the RV $X$ from the sample space $\Omega = \{ {\tt H}, {\tt T}\}$ to $\Rz$ and its DF $F$.  The probability that `Heads occurs' and that `Tails occurs' are $f(1;\theta)=\p_{\theta}(X=1) = \p_{\theta}({\tt H})=\theta$ and $f(0;\theta)=\p_{\theta}(X=0)=\p_{\theta}({\tt T})=1-\theta$, respectively.\label{F:RVt1T}}
-\centering   \makebox{\includegraphics[width=6.5in]{figures/RVToss1}}
+\centering   \makebox{\includegraphics{pstricks/bernouliThetafF}}
+\caption{PMF $f(x;\theta)$ and DF $f(x;\theta)$ with $\theta = 0.33$. You should see how PMF and DF change as $\theta$ goes from $0$ to $1$}
 \end{figure}
+
+\remove{
+?
+}
 
 
 \section{Continuous Random Variables}

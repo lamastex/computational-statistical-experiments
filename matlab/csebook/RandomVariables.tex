@@ -106,7 +106,8 @@ Consider the RV $X$ of \hyperref[F:RVABC]{Figure \ref*{F:RVABC}}.  First draw th
 \vspace{4cm}
 \end{classwork}
 
-\section{An Elementary Discrete Random Variable}\label{S:ElemDiscRV}
+\section{Discrete Random Variables}
+\subsection{An Elementary Discrete Random Variable}\label{S:ElemDiscRV}
 
 When a RV takes at most countably many values from a discrete set $\Dz \subset \Rz$, we call it a {\bf discrete} RV.  Often, $\Dz$ is the set of integers $\Zz$.
 \begin{definition}[probability mass function (PMF)]
@@ -165,7 +166,9 @@ We emphasise the dependence of the probabilities on the parameter $\theta$ by sp
 \centering   \makebox{\includegraphics[width=6.5in]{figures/RVToss1}}
 \end{figure}
 
-\section{An Elementary Continuous Random Variable}\label{S:ElemContRV}
+
+\section{Continuous Random Variables}
+\subsection{An Elementary Continuous Random Variable}\label{S:ElemContRV}
 
 When a RV takes values in the continuum we call it a {\bf continuous} RV.  An example of such a RV is the vertical position (in micro meters) since the original release of a pollen grain on water.  Another example of a continuous RV is the volume of water (in cubic meters) that fell on the southern Alps last year.  
 \begin{definition}[probability density function (PDF)]
@@ -297,6 +300,7 @@ The plot was saved as an encapsulated postscript file from the File menu of the 
 {\bf **universality of the fundamental model}
 
 --- one can obtain any other random variable from the fundamental model!
+
 
 \section{Transformations of random variables}\label{S:TransformationsOFRvs}
 
@@ -1790,430 +1794,6 @@ and the variance is:
 \V_{\lambda}(X) = \left(  \frac{1}{\lambda} \right)^2 \ .
 \]
 
-
-\section{Stochastic Processes}\label{S:StochProc}
-
-\begin{definition}[Stochastic Process]
-A collection of RVs  \[
-\left(X_{\alpha} \right)_{\alpha \in N} := \left( \  X_{\alpha} : \alpha \in \Az \  \right)
-\]
-is called a {\bf stochastic process}.  Thus, for every $\alpha \in  \Az$, the index set of the stochastic process, $X_{\alpha}$ is a RV.  If the index set $ \Az  \subset \Zz$ then we have  a {\bf discrete time stochastic process}, typically denoted by 
-\[
-\left(X_i\right)_{i \in \Zz} := \ldots, X_{-2},X_{-1},X_0, X_1,X_2,\ldots , \  \text{or}
-\]
-\[
-\left( X_i \right)_{i \in \Nz} := X_1,X_2,\ldots , \  \text{or}
-\]
-\[
-\left( X_i \right)_{i \in [n]} := X_1,X_2,\ldots , X_n , \ \text{where, } [n]:= \{1,2,\ldots,n\} \ .
-\]
-If $\Az \subset \Rz$ then we have a {\bf continuous time stochastic process}, typically denoted by $\{X_t\}_{t \in \Rz}$, etc.  
-\end{definition}
-
-Of course the above process is quite general and can allow for arbitrary dependence among the RVs.  
-Generally, we cannot produce useful models without making simplifying assumptions. 
-The absolutely simplest but extremely useful assumption is that of the {\bf Independent and Identically Distributed or IID Process} or merely {\bf IID Sequence of RVs} when the index set is a subset of $\Nz$. 
-
-This is exactly the sequence of RVs associated with our product experiment $\mathcal{E}^{\otimes \infty} := (\Omega, \mathcal{F}_{\mathcal{X}}, P_{\theta})^{\otimes \infty}$.
-    
-\begin{definition}[Independent and Identically Distributed (IID) Process]
-The finite or infinite sequence of RVs or the stochastic process $X_1, X_2,\ldots$ is said to be independent and identically distributed or IID if :
-\begin{itemize}
-\item they are an idependently distributed according to \hyperref[D:IndRVs]{Definition \ref*{D:IndRVs}}, and
-\item $F(X_1) = F(X_2) = \cdots $, ie.~all the $X_i$'s have the same DF $F(X_1)$.
-\end{itemize}
-This is perhaps the most elementary class of stochastic processes and we succinctly denote it by
-\[
-\left(X_i\right)_{i \in [n]} := X_1, X_2,\ldots, X_n \overset{\IID}{\sim} F, \quad \text{or} \quad \left(X_i\right)_{i \in \Nz} := X_1, X_2,\ldots  \overset{\IID}{\sim} F \ .
-\]
-We sometimes replace the DF $F$ above by the name of the RV.
- \end{definition}
- 
-\begin{definition}[Independently Distributed]
-The sequence of RVs or the stochastic process $\left(X_i\right)_{i \in \Nz} := X_1, X_2,\ldots$ is said to be independently distributed if :
-\begin{itemize}
-\item $X_1, X_2,\ldots$ is independently distributed according to \hyperref[D:IndRVs]{Definition \ref*{D:IndRVs}}.
-\end{itemize}
-This is a class of stochastic processes that is more general than the IID class.
-\end{definition}
-
-Let us consider a RV that arises from an IID stochastic process of $\bernoulli(\theta)$ RVs $\{X_i\}_{i \in \Nz}$, ie.~
-\[
- \{X_i\}_{i \in \Nz} := \{X_1, X_2,\ldots\}  \overset{\IID}{\sim} \bernoulli(\theta) \ .
-\]
-When we consider the number of IID $\bernoulli(\theta)$ trials before the first `Head' occurs we get the following discrete RV.
-\begin{model}[$\geometric(\theta)$ RV]
-Given a parameter $\theta \in (0,1)$, the PMF of the $\geometric(\theta)$ RV $X$ is
-\begin{equation}\label{E:Geometricpdf}
-f(x;\theta) =
-\begin{cases}
-\theta(1-\theta)^{x} & \text{if $x \in \Zz_+ := \{0,1,2,\ldots \}$} \\
-0 & \text{otherwise}
-\end{cases}
-\end{equation}
-It is straightforward to verify that $f(x;\theta)$ is indeed a PDF :
-\[
-\sum_{x=0}^{\infty} f(x;\theta) = \sum_{x=0}^{\infty} \theta(1-\theta)^{x}
-= \theta \left( \frac{1}{1-(1-\theta)} \right) =  \theta \left( \frac{1}{\theta} \right) = 1
-\]
-
-{\scriptsize
-The above equality is a consequence of the geometric series identity \eqref{E:GeomSeries} with $a=\theta$ and $\vartheta:=1-\theta$:
-\begin{equation}\label{E:GeomSeries}
- \sum_{ x =0}^{\infty} a \vartheta^x = a \left( \frac{1}{1-\vartheta} \right) , \ \text{provided, } 0 < \vartheta < 1 \ .
-\end{equation}
-\begin{proof}
-\[
-a+a\vartheta+a\vartheta^2+\cdots+a\vartheta^n
-= \sum_{0 \leq x \leq n} a \vartheta^x
-= a+ \sum_{1 \leq x \leq n} a \vartheta^x
-= a +  \vartheta  \sum_{1 \leq x \leq n} a \vartheta^{x-1}
-= a +  \vartheta  \sum_{0 \leq x \leq n-1} a \vartheta^{x}
-= a +  \vartheta  \sum_{0 \leq x \leq n} a \vartheta^{x} - a \vartheta^{n+1}
-\]
-Therefore,
-\begin{eqnarray}
-\sum_{0 \leq x \leq n} a \vartheta^x
-&=&  a +  \vartheta  \sum_{0 \leq x \leq n} a \vartheta^{x} - a \vartheta^{n+1} \notag \\
-\left( \sum_{0 \leq x \leq n} a \vartheta^x \right) - \left( \vartheta  \sum_{0 \leq x \leq n} a \vartheta^{x} \right)
-&=&  a  - a \vartheta^{n+1} \notag \\
-\left( \sum_{0 \leq x \leq n} a \vartheta^x \right) (1-\vartheta)
-&=&  a (1 -  \vartheta^{n+1}) \notag \\
-\sum_{0 \leq x \leq n} a \vartheta^x
-&=&  a \left( \frac{1 -  \vartheta^{n+1}}{1-\vartheta} \right) \notag\\
- \sum_{ x =0}^{\infty} a \vartheta^x  := \lim_{n \rightarrow \infty} \sum_{0 \leq x \leq n} a \vartheta^x
-&=&  a \left( \frac{1}{1-\vartheta} \right) , \ \text{provided, } 0 < \vartheta < 1 \notag
-\end{eqnarray}
-\end{proof}
-}
-The outcome of a $\geometric(\theta)$ RV can be thought of as ``the number of tosses needed before the appearance of the first `Head' when tossing a coin with probability of `Heads' equal to $\theta$ in a independent and identical manner.''
-\end{model}
-
-\begin{figure}[htpb]
-\caption{PDF of $X \sim \geometric(\theta=0.5)$ and the relative frequency histogram based on $100$ and $1000$ samples from $X$ according to Simulation~\ref{SIM:Geometric} and Labwork~\ref{LW:RelFreqHistForGeomSims}.\label{F:PlotPdfSimHistGeomthetaHalf}}
-\centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSimHistGeomthetaHalf}}
-\end{figure}
-
-\begin{example}[Mean and variance of $\geometric(\theta)$ RV]
-Let $X \sim \geometric(\theta)$ RV.  Then,
-\[
-\e(X) = \sum_{x=0}^{\infty} x \theta(1-\theta)^x =  \theta \sum_{x=0}^{\infty} x (1-\theta)^x
-\]
-In order to simplify the RHS above, let us employ differentiation with respect to $\theta$:
-\[
-\frac{-1}{\theta^2}= \frac{d}{d\theta} \left( \frac{1}{\theta} \right)= \frac{d}{d\theta} \sum_{x=0}^{\infty} (1-\theta)^x  =  \sum_{x=0}^{\infty} -x (1-\theta)^{x-1}
-\]
-Multiplying the LHS and RHS above by $-(1-\theta)$ and substituting in $\e(X)=  \theta \sum_{x=0}^{\infty} x (1-\theta)^x$, we get a much simpler expression for $\e(X)$ :
-\[
-\frac{1-\theta}{\theta^2}= \sum_{x=0}^{\infty} x (1-\theta)^{x} \implies \e(X) = \theta \left( \frac{1-\theta}{\theta^2} \right) = \frac{1-\theta}{\theta} \ .
-\]
-Similarly, it can be shown that
-\[
-\V(X) = \frac{1-\theta}{\theta^2} \ .
-\]
-
-\begin{figure}[htpb]
-\caption{Mean and variance of a $\geometric(\theta)$ RV $X$ as a function of the parameter $\theta$.\label{F:MeanVarGeom}}
-\centering   \makebox{\includegraphics[width=5.0in]{figures/PlotMeanVarGeom}}
-\end{figure}
-\end{example}
-
-\begin{example}[Coupon Collectors Problem]
-Recall the Coupon Collector's Probelms from lectures.%TODO
-\vspace{5cm}
-~ 
-\end{example}
-
-The RV $Y$ in \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}} may be generalized to an experiment $\E{E}_{\theta}^{n}$ with $n$ coin tosses.  
-%}% end remove
-Let $X_i$ be the Indicator function of the event `Heads on the $i$-th toss' as before.  Then $Y$ defined by,
- \[
- Y := \sum_{i=1}^n X_i := X_1 + X_2 + \cdots + X_n  \ ,
- \]
-is the number of `Heads' in $n$ tosses.  
-%\remove{
-Akin to the second row of \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}}, for the `Toss $n$ times' experiment $\E{E}_{\theta}^{n}$ the
-%} 
-RV $Y$ as defined above will take values in $\{0,1,2,\ldots,n\}$ and is therefore a discrete RV.  This is called the Binomial RV as defined next.  
-%\remove{
-But, first we remind ourselves of some elementary definitions involving arrangements of objects from a collection (recall \hyperref[S:PermsFactsCombs]{Section~\ref*{S:PermsFactsCombs}}).
-%}%end remove
-
-\begin{model}[$\binomial(n,\theta)$ RV]\label{M:binomial}
-Let the RV $X=\sum_{i=1}^n X_i$ be the sum of $n$ independent and identically distributed $\bernoulli(\theta)$ RVs, i.e.:
-\[
-X=\sum_{i=1}^n X_i, \qquad X_1,X_2,\ldots,X_n \overset{\IID}{\sim} \bernoulli(\theta) \ .
-\]
-Given two parameters $n$ and $\theta$, the PMF of the $\binomial(n,\theta)$ RV $X$ is:
-\begin{equation}
- f(x; n,\theta) =
- \begin{cases}
- \displaystyle\binom{n}{x} \theta^x (1-\theta)^{n-x} & \text{if $x \in \{0,1,2,3,\ldots,n\}$} \ ,\\
- 0 & \text{otherwise}
- \end{cases}
- \end{equation}
-where, $\binom{n}{x}$ is:
-\[
-\binom{n}{x} = \frac{n(n-1)(n-2)\ldots(n-x+1)}{x(x-1)(x-2)\cdots (2)(1)} =  \frac{n !}{x! (n-x)!} \ .
- \]
-$\binom{n}{x}$ is read as ``$n$ choose $x$.''
- \end{model}
- %{\scriptsize
-\begin{proof} This is only a sketch. A formal proof should start with the mathematical induction for the very formula for the binomial coefficient.
-
-Observe that for the $\binomial(n,\theta)$ RV $X$, $\p(X=x) = f(x;n,\theta)$ is the probability that $x$ of the $n$ $\bernoulli(\theta)$ trials result in an outcome of $1$'s.  Next note that if all $n$ $X_i$'s are $0$'s, then $X=0$, and if all $n$ $X_i$'s are $1$'s, then $X=n$.  In general, if some of the $n$ $X_i$'s are $1$'s and the others are $0$, then $X$ can only take values in $\{0,1,2,\ldots,n\}$ and therefore $f(x;n,\theta)=0$ if $x \notin \{0,1,2,\ldots,n\}$.
-
-Now, let us compute $f(x;n,\theta)$ when $x\in\{0,1,2,\ldots,n\}$.  Consider the set of indices $\{1,2,3,\ldots,n\}$ for the $n$ IID $\bernoulli(\theta)$ RVs $\{X_1,X_2,\ldots,X_n\}$.  Now choose $x$ indices from $\{1,2,\ldots,n\}$ to mark those trials in a particular realization of $\{x_1,x_2,\ldots,x_n\}$ with the Bernoulli outcome of $1$.  The probability of each such event is $\theta^x (1-\theta)^{n-x}$ due to the IID assumption.  For each realization $\{x_1,x_2,\ldots,x_n\} \in \{0,1\}^{n} := \{ \text{all binary $(0-1)$ strings of length $n$}\}$, specified by a choice of $x$ trial indices with Bernoulli outcome $1$, the binomial RV $X=\sum_{i=1}^n X_i$ takes the value $x$.  Since there are exactly $\binom{n}{x}$ many ways in which we can choose $x$ trial indices (with outcome $1$) from the set of $n$ trial indices $\{1,2,\ldots,n\}$, we get the desired product for $f(x; n,\theta) = \binom{n}{x} \theta^x (1-\theta)^{n-x}$ when $x \in \{0,1,\ldots,n\}$.
-\end{proof}
-%}
-\paragraph{Mean and variance of $\binomial(n,\theta)$ RV:}
-Let $X \sim \binomial(n,\theta)$.  Based on the definition of expectation:
-\[
-\e(X) = \int x \, dF(x; n,\theta) = \sum_x x f(x;n,\theta) = \sum_{x =0}^n x \binom{n}{x} \theta^x (1-\theta)^{n-x} \ .
-\]
-However, this is a nontrivial sum to evaluate.  Instead, we may use \eqref{E:EofLinCombofRVs} and \eqref{E:VofLinCombofRVs} by noting that $X = \sum_{i=1}^n X_i$, where the $\{X_1,X_2,\ldots,X_n \} \overset{\IID}{\sim} \bernoulli(\theta)$, $\e(X_i) = \theta$ and $\V(X_i)=\theta(1-\theta)$:
-\[
-\e(X) = \e(X_1+X_2, \cdots ,X_n) = \e \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \e(X_i) = n \theta \ ,
-\]
-\[
-\V(X) = \V \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \V(X_i) = \sum_{i=1}^n{\theta(1-\theta)} = n\theta(1-\theta) \ .
-\]
-
-\begin{figure}[htpb]
-\caption{PDF of $X \sim \binomial(n=10,\theta=0.5)$ and the relative frequency histogram based on $100,000$ samples from $X$ obtained according to Simulation~\ref{SIM:BinomialFromGeoms}.\label{F:PlotPdfSim10000HistBinomByGeomsn10thetaHalf}} % TODO check which of two simulation algs is coming from
-\centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSim10000HistBinomByGeomsn10thetaHalf}}
-\end{figure}
-
-The standard normal distribution is the most important continuous
-probability distribution. It was first described by De Moivre in 1733
-and subsequently by the German mathematician C.~F.~Gauss (1777 - 1885).
-Many  random variables  have a normal distribution, or they are
-approximately normal, or can be transformed into normal random variables
-in a relatively simple fashion. Furthermore, the normal distribution is
-a useful approximation of more complicated distributions, and it also
-occurs in the proofs of various statistical tests.
-%%%%Location-scale Gaussian family as a linear transformation of the standard Gaussian RV
-
-\begin{framed}
-\begin{model}[$\normal(0,1)$ or standard normal or Gaussian RV]\label{Df:StandardNormal} 
-A continuous random variable $Z$ is called \textbf{standard normal} or {\bf standard Gaussian} 
-if its probability density function is
-\begin{equation}\label{E:StandardNormalPdf}
-\varphi(z) = \frac{1}{\sqrt{2\pi}} \exp{\left( -\frac{z^2}{2}\right)} \enspace.
-\end{equation}
-\end{model}
-\end{framed}
-
-An exercise in calculus yields the first two derivatives of $\varphi$ as follows:
-\[
-\frac{d \varphi}{dz} = - \frac{1}{\sqrt{2\pi}}z \exp{\left( -\frac{z^2}{2}\right)}=-z\varphi(z), \quad
-\frac{d^2 \varphi}{dz^2} = \frac{1}{\sqrt{2\pi}}(z^2-1) \exp{\left(-\frac{z^2}{2} \right)}=(z^2-1)\varphi(z) \enspace .
-\]
-Thus, $\varphi$ has a global maximum at $0$, it is concave down if $z \in (-1,1)$ and concave up if $z \in (-\infty,-1) \cup (1,\infty)$.  
-This shows that the graph of $\varphi$ is shaped like a smooth symmetric bell centred at the origin over the real line.
-
-
-\begin{classwork}
-From the above exercise in calculus let us draw the graph of $\varphi$ by hand now!
-
-Do it step by step: $z^2$, $-z^2$, $-z^2/2$, $\exp(-z^2/2)$, $\varphi(z) = \frac{1}{\sqrt{2\pi}} \exp(-z^2/2)$ now! 
-\vspace*{20mm}
-\end{classwork}
-
-The distribution function of $Z$ is given by
-\begin{equation}\label{E:StandardNormalDF}
-\Phi(z) \;=\;\frac{1}{\sqrt{2\pi}}\int^z_{-\infty}e^{-v^2/2}\;dv \enspace .
-\end{equation}
-
-NOTE: {This integral cannot be evaluated exactly by standard methods of calculus, but its values can be
-obtained numerically and tabulated.  Values of $\Phi(z)$ are tabulated in the ``Standard Normal Distribution Function Table'' in Sec.~\ref{S:NormalDFTable}.}
-
-\begin{classwork}
-{Note that the curve of $\Phi(z)$ is $S$-shaped, increasing in a strictly monotone way from $0$ at $-\infty$ to $1$ at $\infty$, and intersects the vertical axis at $1/2$. Draw this by hand too.}{}{do it! \vspace*{20mm}}
-\end{classwork}
-
-\begin{example}\label{Eg:UsingNormalTables}
-Find the probabilities, using  normal tables,  that a random variable having the standard
-  normal distribution will take on a value:
-\bcols{2}\begin{itemize}
-\item [(a)] less that 1.72
-\item [(b)]less than -0.88
-\item [(c)]between 1.30 and 1.75
-\item [(d)] between -0.25 and 0.45
-\end{itemize}\ecols
-\begin{itemize}
- \item [(a)]
-$$P(Z<1.72)\;=\;\Phi(1.72) \;=\; 0.9573$$
- \item [(b)] First note that $P(Z<0.88)\;=\;0.8106$, so that
-   \ba{P(Z<-0.88) & \;=\;P(Z>0.88) \\
-     &\;=\;1-P(Z<0.88)\\&\;=\;1-\Phi(0.88)\\ &\;=\;1-0.8106\;=\;0.1894}
- \item [(c)]
-$P(1.30<Z<1.75)\;=\;\Phi(1.75)-\Phi(1.30)\;=\;0.9599-0.9032\;=\;0.0567$
- \item [(d)]
-\ba{P(-0.25<Z<0.45)&\;=\;P(Z<0.45)-P(Z<-0.25)\\&\;=\;P(Z<0.45)-(1-P(Z<0.25))\\&\;=\;\Phi(0.45)-(1-\Phi(0.25)) \\&=\;(0.6736)-(1-0.5987)\\&\;=\;0.2723}
-\end{itemize}
-\end{example}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-\bigskip
-
-
-\remove{
-\begin{framed}
-CONTINUOUS RANDOM VARIABLES: NOTATION\\
-
-$f(x)$: Probability density function (PDF)
-\begin{itemize}
-\item$f(x)\;\geq\;0$
-\item Areas underneath $f(x)$ measure probabilities.
-\end{itemize}
-
-$F(x)$: Distribution function (DF)
-\begin{itemize}
-\item $0\;\leq\;\ F(x)\;\leq \;1$
-\item $F(x)\;= \;P(X\leq x)$ is a probability
-\item $F^{\prime}(x)\;=\;f(x)$ for every $x$ where $f(x)$ is continuous
-\item $F(x)\;=\;\displaystyle\int^x_{-\infty}f(v)dv$
-\item $P(a<X\leq b)\;=\;F(b)-F(a)\;=\;\displaystyle \int^b_af(v)dv$
-\end{itemize}
-\end{framed}
-}
-\bigskip
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%% snipped above into csebook
-The next example yields the {\emph location-scale family} of normal random variables via a family of linear transformations of the standard normal random variable.
-\begin{example}\label{Eg:LinearTransfStdGaussianGaussian}
-Let $Z$ be the standard Gaussian or standard normal random variable with probability density function $\varphi(z)$ given by Equation~\eqref{E:StandardNormalPdf}.  
-For real numbers $\sigma > 0$ and $\mu$ consider the linear transformation of $Z$ given by 
-$$Y = g(Z) = \sigma Z +\mu \enspace .$$
-Some graphs of such linear transformations of $Z$ are shown in Figures~(a) and (b).
-\begin{figure}[htbp]
-\centering\subfigure[{\scriptsize $g(z)=z$, $g(z)=\frac{1}{2}z+5$ and $g(z)=\frac{1}{2}z-5$.}]{
-\includegraphics[width=8cm]{figures/LinearTransOfStdGaussianA.eps}}
-\subfigure[{\scriptsize $g(z)=z$, $g(z)=(z+5)/0.5$ and $g(z)=(z-5)/0.5$.}]{
-\includegraphics[width=8cm]{figures/LinearTransOfStdGaussianB.eps}}
-\end{figure}
-
-We are interested in the density of the tranformed random variable $Y=g(Z)=\sigma Z + \mu$.  
-Once again, since $g$ is a one-to-one monotone function let us follow the four steps and use the change of variable formula to obtain $f_Y$ from $f_Z=\varphi$ and $g$.
-\begin{enumerate}
-\item $y=g(z)=\sigma z + \mu$ is a monotone increasing function over $-\infty < z < \infty$, the range of $Z$.  
-So, we can apply the change of variable formula. 
-\item $z=g^{-1}(y)=(y - \mu) / \sigma$ is a monotone increasing function over the range of $y$ given by, %$(\sigma \times -\infty) + \mu < \sigma z + \mu < (\sigma \times \infty) + \mu$, i.e.,% Ben did not like these manipulaitons with infinities - raaz was doing arithmetic with diverging sequences with limits at infinity only. 
-$-\infty < y < \infty$.  
-\item For $-\infty < y < \infty$,
-\[
- \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
-= \left\vert \frac{d}{dy} \left( \frac{y - \mu}{\sigma} \right) \right\vert 
-= \left\vert \frac{1}{\sigma} \right\vert = \frac{1}{\sigma} \enspace .
-\]
-\item we can use Equation~\eqref{E:f_YFromf_X_Under_one-to-one-g} and Equation~\eqref{E:StandardNormalPdf} which gives
-$$f_Z(z) = \varphi(z) = \frac{1}{\sqrt{2\pi}} \exp{\left( -\frac{z^2}{2}\right)} \enspace,$$
-to find the density of $Y$ as follows:
-\[
-f_Y(y) = f_Z \left( g^{-1}(y) \right) \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
-= \varphi \left( \frac{y - \mu}{\sigma} \right) \frac{1}{\sigma}
-= \frac{1}{\sigma \sqrt{2 \pi}} \exp \left[-\frac{1}{2} \left( \frac{y-\mu}{\sigma} \right)^2 \right] \enspace ,
-\]
-for $-\infty < y < \infty$. 
-\end{enumerate}
-Thus, we have obtained the expression for the probability density function of the linear transformation $\sigma Z + \mu$ of the standard normal random variable $Z$.  This analysis leads to the following definition.
-\end{example}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%Location-scale Gaussian family as a linear transformation of the standard Gaussian RV
-
-\begin{framed}
-
-\begin{model}[$\normal(\mu,\sigma^2)$ RV]
-Given a location parameter $\mu \in (-\infty, +\infty)$ and a scale parameter $\sigma^2 > 0$, the $\normal(\mu,\sigma^2)$ or Gaussian$(\mu,\sigma^2)$ random variable $X$ has probability density function:
-\begin{equation}\label{eqn:norm_pdf}
-f(x; \mu,
-  \sigma^2)=\frac{1}{\sigma\sqrt{2\pi}}\exp\left[-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right]\qquad(\sigma >0) \enspace .
-\end{equation}
-\end{model}
-\end{framed}
-
-This is simpler than it may at first look. $f(x;\mu, \sigma^2)$ has the following features.
-\bit
-\item $\mu$ is the expected value or mean parameter and $\sigma^2$ is the variance parameter. These concepts, mean and variance, are described in more detail in the next section on expectations.
-\item $1/(\sigma\sqrt{2\pi})$ is a constant factor that makes the area under the curve of $f(x)$ from $-\infty$ to $\infty$ equal to 1, as it must be.
-\item The curve of $f(x)$ is symmetric with respect to $x=\mu$ because the exponent is quadratic. Hence for $\mu=0$ it is symmetric with respect to the $y$-axis $x=0$.
-\item The exponential function decays to zero very fast --- the faster the decay, the smaller the value of $\sigma$.
-\eit
-
-%\newpage
-
-\begin{framed}
-The normal distribution has the {\bf distribution function}
-\begin{equation}\label{eqn:norm_int_cdf}F(x; \mu, \sigma^2)=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^x\exp\left[-\frac{1}{2}\left(\frac{v-\mu}{\sigma}\right)^2\right]\;dv\enspace.\end{equation}
-Here we need $x$ as the upper limit of integration and so we write $v$ in the integrand.
-\end{framed}
-
-
-\begin{figure}[ht]
-\cen{
-\includegraphics [scale=.4]{figures/normalpdf.eps}
-\caption{Probability density function of a $\normal(\mu,\sigma^2)$ RV for different values of $\mu$ and $\sigma^2$}
-}
-\end{figure}
-
-Using the direct method's \hyperref[Eqn:DirectMethod]{Equation~\ref*{Eqn:DirectMethod}}, we can obtain the distribution function of the $\normal(\mu,\sigma^2)$ random variable from that of the 
-tabulated distribution function of the $\normal(0,1)$ in the  \hyperref[S:NormalDFTable]{Standard normal distribution function table in Sec.~\ref*{S:NormalDFTable}}. 
-  
-\begin{figure}[htbp]
-\cen{
-\includegraphics[scale=.35]{figures/normaldis.eps}
-\caption{DF  of a $\normal(\mu,\sigma^2)$ RV for different values of $\mu$ and $\sigma^2$}
-}
-\end{figure}
-
-%\newpage
-
-\begin{prop}[One Table to Rule Them All Gaussians]
-The distribution function $F_X(x;\mu,\sigma^2)$ of the $\normal(\mu,\sigma^2)$ random variable $X$ 
-and the distribution function $F_Z(z)=\Phi(z)$  of the standard normal random variable $Z$ are related by:
-$$F_X(x;\mu,\sigma^2)\;=\; F_Z\left(\frac{x -\mu}{\sigma}\right) \;=\; \Phi\left(\frac{x-\mu}{\sigma}\right)\enspace .$$
-
-\begin{proof}
-Let $Z$ be a $\normal(0,1)$ random variable with distribution function $\Phi(z) = P (Z \leq z)$.  
-We know that if $X=g(Z)=\sigma Z+\mu$ then $X$ is the $\normal(\mu,\sigma^2)$ random variable.  
-Therefore, 
-\begin{eqnarray*}
-F_X(x;\mu,\sigma^2) 
-&=& P(X \leq x) = P\left( g(Z) \leq x \right) =  P (\sigma Z+\mu \leq x) = P\left(Z \leq \frac{x -\mu}{\sigma} \right)\\ 
-&=& F_Z \left(\frac{x -\mu}{\sigma}\right) = \Phi \left(\frac{x -\mu}{\sigma}\right) \enspace .
-\end{eqnarray*}
-\end{proof}
-\end{prop}
-
-Hence we often transform a general $\normal(\mu,\sigma^2)$ random
-variable, $X$, to a standardised $\normal(0,1)$ random variable, $Z$, by
-the substitution:
-$$Z\;=\;\frac{X-\mu}{\sigma}\,.$$
-
-
-
-\begin{example}
-Suppose that the amount of cosmic radiation to which a person is exposed 
-when flying by jet across the United States is a random
-variable, $X$, having a normal distribution with a mean of $4.35$ mrem and a
-standard deviation of $0.59$ mrem. What is the probability that a person
-will be exposed to more than $5.20$ mrem of cosmic radiation on such a
-flight?
-
-{\em Solution:}
-\begin{align*}
-P(X> 5.20)\;&=\;1-P(X\leq
-5.20)\\[3pt]&\;=\;1-F(5.20)\\[3pt]&\;=\;1-\Phi\left(\frac{5.20-4.35}{0.59}\right)\\[3pt]&\;=\;1-\Phi(1.44)\\[3pt]&\;=\;1-
-0.9251\\[3pt]&\;=\;0.0749
-\end{align*}
-\end{example}
-
-After some more notions you will see that $\normal(0,1)$ RV can actually be obtained from an IID process of $\bernoulli(\theta)$ RVs. This is an instance of the central limit theorem. To appreciate this we first need to understand what we mean by statistics and then familiarise ourselves with notions of convergence of random variables.
-
 \section{Statistics}\label{S:Statistics}
 
 \subsection{Data and Statistics}\label{S:DataStats}
@@ -2916,6 +2496,430 @@ Sensors called {\em optical encoders} have been attached to the top end of each 
 \subsection{Biological Data}
 \work
 }
+
+
+\section{Stochastic Processes}\label{S:StochProc}
+
+\begin{definition}[Stochastic Process]
+A collection of RVs  \[
+\left(X_{\alpha} \right)_{\alpha \in N} := \left( \  X_{\alpha} : \alpha \in \Az \  \right)
+\]
+is called a {\bf stochastic process}.  Thus, for every $\alpha \in  \Az$, the index set of the stochastic process, $X_{\alpha}$ is a RV.  If the index set $ \Az  \subset \Zz$ then we have  a {\bf discrete time stochastic process}, typically denoted by 
+\[
+\left(X_i\right)_{i \in \Zz} := \ldots, X_{-2},X_{-1},X_0, X_1,X_2,\ldots , \  \text{or}
+\]
+\[
+\left( X_i \right)_{i \in \Nz} := X_1,X_2,\ldots , \  \text{or}
+\]
+\[
+\left( X_i \right)_{i \in [n]} := X_1,X_2,\ldots , X_n , \ \text{where, } [n]:= \{1,2,\ldots,n\} \ .
+\]
+If $\Az \subset \Rz$ then we have a {\bf continuous time stochastic process}, typically denoted by $\{X_t\}_{t \in \Rz}$, etc.  
+\end{definition}
+
+Of course the above process is quite general and can allow for arbitrary dependence among the RVs.  
+Generally, we cannot produce useful models without making simplifying assumptions. 
+The absolutely simplest but extremely useful assumption is that of the {\bf Independent and Identically Distributed or IID Process} or merely {\bf IID Sequence of RVs} when the index set is a subset of $\Nz$. 
+
+This is exactly the sequence of RVs associated with our product experiment $\mathcal{E}^{\otimes \infty} := (\Omega, \mathcal{F}_{\mathcal{X}}, P_{\theta})^{\otimes \infty}$.
+    
+\begin{definition}[Independent and Identically Distributed (IID) Process]
+The finite or infinite sequence of RVs or the stochastic process $X_1, X_2,\ldots$ is said to be independent and identically distributed or IID if :
+\begin{itemize}
+\item they are an idependently distributed according to \hyperref[D:IndRVs]{Definition \ref*{D:IndRVs}}, and
+\item $F(X_1) = F(X_2) = \cdots $, ie.~all the $X_i$'s have the same DF $F(X_1)$.
+\end{itemize}
+This is perhaps the most elementary class of stochastic processes and we succinctly denote it by
+\[
+\left(X_i\right)_{i \in [n]} := X_1, X_2,\ldots, X_n \overset{\IID}{\sim} F, \quad \text{or} \quad \left(X_i\right)_{i \in \Nz} := X_1, X_2,\ldots  \overset{\IID}{\sim} F \ .
+\]
+We sometimes replace the DF $F$ above by the name of the RV.
+ \end{definition}
+ 
+\begin{definition}[Independently Distributed]
+The sequence of RVs or the stochastic process $\left(X_i\right)_{i \in \Nz} := X_1, X_2,\ldots$ is said to be independently distributed if :
+\begin{itemize}
+\item $X_1, X_2,\ldots$ is independently distributed according to \hyperref[D:IndRVs]{Definition \ref*{D:IndRVs}}.
+\end{itemize}
+This is a class of stochastic processes that is more general than the IID class.
+\end{definition}
+
+Let us consider a RV that arises from an IID stochastic process of $\bernoulli(\theta)$ RVs $\{X_i\}_{i \in \Nz}$, ie.~
+\[
+ \{X_i\}_{i \in \Nz} := \{X_1, X_2,\ldots\}  \overset{\IID}{\sim} \bernoulli(\theta) \ .
+\]
+When we consider the number of IID $\bernoulli(\theta)$ trials before the first `Head' occurs we get the following discrete RV.
+\begin{model}[$\geometric(\theta)$ RV]
+Given a parameter $\theta \in (0,1)$, the PMF of the $\geometric(\theta)$ RV $X$ is
+\begin{equation}\label{E:Geometricpdf}
+f(x;\theta) =
+\begin{cases}
+\theta(1-\theta)^{x} & \text{if $x \in \Zz_+ := \{0,1,2,\ldots \}$} \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+It is straightforward to verify that $f(x;\theta)$ is indeed a PDF :
+\[
+\sum_{x=0}^{\infty} f(x;\theta) = \sum_{x=0}^{\infty} \theta(1-\theta)^{x}
+= \theta \left( \frac{1}{1-(1-\theta)} \right) =  \theta \left( \frac{1}{\theta} \right) = 1
+\]
+
+{\scriptsize
+The above equality is a consequence of the geometric series identity \eqref{E:GeomSeries} with $a=\theta$ and $\vartheta:=1-\theta$:
+\begin{equation}\label{E:GeomSeries}
+ \sum_{ x =0}^{\infty} a \vartheta^x = a \left( \frac{1}{1-\vartheta} \right) , \ \text{provided, } 0 < \vartheta < 1 \ .
+\end{equation}
+\begin{proof}
+\[
+a+a\vartheta+a\vartheta^2+\cdots+a\vartheta^n
+= \sum_{0 \leq x \leq n} a \vartheta^x
+= a+ \sum_{1 \leq x \leq n} a \vartheta^x
+= a +  \vartheta  \sum_{1 \leq x \leq n} a \vartheta^{x-1}
+= a +  \vartheta  \sum_{0 \leq x \leq n-1} a \vartheta^{x}
+= a +  \vartheta  \sum_{0 \leq x \leq n} a \vartheta^{x} - a \vartheta^{n+1}
+\]
+Therefore,
+\begin{eqnarray}
+\sum_{0 \leq x \leq n} a \vartheta^x
+&=&  a +  \vartheta  \sum_{0 \leq x \leq n} a \vartheta^{x} - a \vartheta^{n+1} \notag \\
+\left( \sum_{0 \leq x \leq n} a \vartheta^x \right) - \left( \vartheta  \sum_{0 \leq x \leq n} a \vartheta^{x} \right)
+&=&  a  - a \vartheta^{n+1} \notag \\
+\left( \sum_{0 \leq x \leq n} a \vartheta^x \right) (1-\vartheta)
+&=&  a (1 -  \vartheta^{n+1}) \notag \\
+\sum_{0 \leq x \leq n} a \vartheta^x
+&=&  a \left( \frac{1 -  \vartheta^{n+1}}{1-\vartheta} \right) \notag\\
+ \sum_{ x =0}^{\infty} a \vartheta^x  := \lim_{n \rightarrow \infty} \sum_{0 \leq x \leq n} a \vartheta^x
+&=&  a \left( \frac{1}{1-\vartheta} \right) , \ \text{provided, } 0 < \vartheta < 1 \notag
+\end{eqnarray}
+\end{proof}
+}
+The outcome of a $\geometric(\theta)$ RV can be thought of as ``the number of tosses needed before the appearance of the first `Head' when tossing a coin with probability of `Heads' equal to $\theta$ in a independent and identical manner.''
+\end{model}
+
+\begin{figure}[htpb]
+\caption{PDF of $X \sim \geometric(\theta=0.5)$ and the relative frequency histogram based on $100$ and $1000$ samples from $X$ according to Simulation~\ref{SIM:Geometric} and Labwork~\ref{LW:RelFreqHistForGeomSims}.\label{F:PlotPdfSimHistGeomthetaHalf}}
+\centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSimHistGeomthetaHalf}}
+\end{figure}
+
+\begin{example}[Mean and variance of $\geometric(\theta)$ RV]
+Let $X \sim \geometric(\theta)$ RV.  Then,
+\[
+\e(X) = \sum_{x=0}^{\infty} x \theta(1-\theta)^x =  \theta \sum_{x=0}^{\infty} x (1-\theta)^x
+\]
+In order to simplify the RHS above, let us employ differentiation with respect to $\theta$:
+\[
+\frac{-1}{\theta^2}= \frac{d}{d\theta} \left( \frac{1}{\theta} \right)= \frac{d}{d\theta} \sum_{x=0}^{\infty} (1-\theta)^x  =  \sum_{x=0}^{\infty} -x (1-\theta)^{x-1}
+\]
+Multiplying the LHS and RHS above by $-(1-\theta)$ and substituting in $\e(X)=  \theta \sum_{x=0}^{\infty} x (1-\theta)^x$, we get a much simpler expression for $\e(X)$ :
+\[
+\frac{1-\theta}{\theta^2}= \sum_{x=0}^{\infty} x (1-\theta)^{x} \implies \e(X) = \theta \left( \frac{1-\theta}{\theta^2} \right) = \frac{1-\theta}{\theta} \ .
+\]
+Similarly, it can be shown that
+\[
+\V(X) = \frac{1-\theta}{\theta^2} \ .
+\]
+
+\begin{figure}[htpb]
+\caption{Mean and variance of a $\geometric(\theta)$ RV $X$ as a function of the parameter $\theta$.\label{F:MeanVarGeom}}
+\centering   \makebox{\includegraphics[width=5.0in]{figures/PlotMeanVarGeom}}
+\end{figure}
+\end{example}
+
+\begin{example}[Coupon Collectors Problem]
+Recall the Coupon Collector's Probelms from lectures.%TODO
+\vspace{5cm}
+~ 
+\end{example}
+
+The RV $Y$ in \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}} may be generalized to an experiment $\E{E}_{\theta}^{n}$ with $n$ coin tosses.  
+%}% end remove
+Let $X_i$ be the Indicator function of the event `Heads on the $i$-th toss' as before.  Then $Y$ defined by,
+ \[
+ Y := \sum_{i=1}^n X_i := X_1 + X_2 + \cdots + X_n  \ ,
+ \]
+is the number of `Heads' in $n$ tosses.  
+%\remove{
+Akin to the second row of \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}}, for the `Toss $n$ times' experiment $\E{E}_{\theta}^{n}$ the
+%} 
+RV $Y$ as defined above will take values in $\{0,1,2,\ldots,n\}$ and is therefore a discrete RV.  This is called the Binomial RV as defined next.  
+%\remove{
+But, first we remind ourselves of some elementary definitions involving arrangements of objects from a collection (recall \hyperref[S:PermsFactsCombs]{Section~\ref*{S:PermsFactsCombs}}).
+%}%end remove
+
+\begin{model}[$\binomial(n,\theta)$ RV]\label{M:binomial}
+Let the RV $X=\sum_{i=1}^n X_i$ be the sum of $n$ independent and identically distributed $\bernoulli(\theta)$ RVs, i.e.:
+\[
+X=\sum_{i=1}^n X_i, \qquad X_1,X_2,\ldots,X_n \overset{\IID}{\sim} \bernoulli(\theta) \ .
+\]
+Given two parameters $n$ and $\theta$, the PMF of the $\binomial(n,\theta)$ RV $X$ is:
+\begin{equation}
+ f(x; n,\theta) =
+ \begin{cases}
+ \displaystyle\binom{n}{x} \theta^x (1-\theta)^{n-x} & \text{if $x \in \{0,1,2,3,\ldots,n\}$} \ ,\\
+ 0 & \text{otherwise}
+ \end{cases}
+ \end{equation}
+where, $\binom{n}{x}$ is:
+\[
+\binom{n}{x} = \frac{n(n-1)(n-2)\ldots(n-x+1)}{x(x-1)(x-2)\cdots (2)(1)} =  \frac{n !}{x! (n-x)!} \ .
+ \]
+$\binom{n}{x}$ is read as ``$n$ choose $x$.''
+ \end{model}
+ %{\scriptsize
+\begin{proof} This is only a sketch. A formal proof should start with the mathematical induction for the very formula for the binomial coefficient.
+
+Observe that for the $\binomial(n,\theta)$ RV $X$, $\p(X=x) = f(x;n,\theta)$ is the probability that $x$ of the $n$ $\bernoulli(\theta)$ trials result in an outcome of $1$'s.  Next note that if all $n$ $X_i$'s are $0$'s, then $X=0$, and if all $n$ $X_i$'s are $1$'s, then $X=n$.  In general, if some of the $n$ $X_i$'s are $1$'s and the others are $0$, then $X$ can only take values in $\{0,1,2,\ldots,n\}$ and therefore $f(x;n,\theta)=0$ if $x \notin \{0,1,2,\ldots,n\}$.
+
+Now, let us compute $f(x;n,\theta)$ when $x\in\{0,1,2,\ldots,n\}$.  Consider the set of indices $\{1,2,3,\ldots,n\}$ for the $n$ IID $\bernoulli(\theta)$ RVs $\{X_1,X_2,\ldots,X_n\}$.  Now choose $x$ indices from $\{1,2,\ldots,n\}$ to mark those trials in a particular realization of $\{x_1,x_2,\ldots,x_n\}$ with the Bernoulli outcome of $1$.  The probability of each such event is $\theta^x (1-\theta)^{n-x}$ due to the IID assumption.  For each realization $\{x_1,x_2,\ldots,x_n\} \in \{0,1\}^{n} := \{ \text{all binary $(0-1)$ strings of length $n$}\}$, specified by a choice of $x$ trial indices with Bernoulli outcome $1$, the binomial RV $X=\sum_{i=1}^n X_i$ takes the value $x$.  Since there are exactly $\binom{n}{x}$ many ways in which we can choose $x$ trial indices (with outcome $1$) from the set of $n$ trial indices $\{1,2,\ldots,n\}$, we get the desired product for $f(x; n,\theta) = \binom{n}{x} \theta^x (1-\theta)^{n-x}$ when $x \in \{0,1,\ldots,n\}$.
+\end{proof}
+%}
+\paragraph{Mean and variance of $\binomial(n,\theta)$ RV:}
+Let $X \sim \binomial(n,\theta)$.  Based on the definition of expectation:
+\[
+\e(X) = \int x \, dF(x; n,\theta) = \sum_x x f(x;n,\theta) = \sum_{x =0}^n x \binom{n}{x} \theta^x (1-\theta)^{n-x} \ .
+\]
+However, this is a nontrivial sum to evaluate.  Instead, we may use \eqref{E:EofLinCombofRVs} and \eqref{E:VofLinCombofRVs} by noting that $X = \sum_{i=1}^n X_i$, where the $\{X_1,X_2,\ldots,X_n \} \overset{\IID}{\sim} \bernoulli(\theta)$, $\e(X_i) = \theta$ and $\V(X_i)=\theta(1-\theta)$:
+\[
+\e(X) = \e(X_1+X_2, \cdots ,X_n) = \e \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \e(X_i) = n \theta \ ,
+\]
+\[
+\V(X) = \V \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \V(X_i) = \sum_{i=1}^n{\theta(1-\theta)} = n\theta(1-\theta) \ .
+\]
+
+\begin{figure}[htpb]
+\caption{PDF of $X \sim \binomial(n=10,\theta=0.5)$ and the relative frequency histogram based on $100,000$ samples from $X$ obtained according to Simulation~\ref{SIM:BinomialFromGeoms}.\label{F:PlotPdfSim10000HistBinomByGeomsn10thetaHalf}} % TODO check which of two simulation algs is coming from
+\centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSim10000HistBinomByGeomsn10thetaHalf}}
+\end{figure}
+
+The standard normal distribution is the most important continuous
+probability distribution. It was first described by De Moivre in 1733
+and subsequently by the German mathematician C.~F.~Gauss (1777 - 1885).
+Many  random variables  have a normal distribution, or they are
+approximately normal, or can be transformed into normal random variables
+in a relatively simple fashion. Furthermore, the normal distribution is
+a useful approximation of more complicated distributions, and it also
+occurs in the proofs of various statistical tests.
+%%%%Location-scale Gaussian family as a linear transformation of the standard Gaussian RV
+
+\begin{framed}
+\begin{model}[$\normal(0,1)$ or standard normal or Gaussian RV]\label{Df:StandardNormal} 
+A continuous random variable $Z$ is called \textbf{standard normal} or {\bf standard Gaussian} 
+if its probability density function is
+\begin{equation}\label{E:StandardNormalPdf}
+\varphi(z) = \frac{1}{\sqrt{2\pi}} \exp{\left( -\frac{z^2}{2}\right)} \enspace.
+\end{equation}
+\end{model}
+\end{framed}
+
+An exercise in calculus yields the first two derivatives of $\varphi$ as follows:
+\[
+\frac{d \varphi}{dz} = - \frac{1}{\sqrt{2\pi}}z \exp{\left( -\frac{z^2}{2}\right)}=-z\varphi(z), \quad
+\frac{d^2 \varphi}{dz^2} = \frac{1}{\sqrt{2\pi}}(z^2-1) \exp{\left(-\frac{z^2}{2} \right)}=(z^2-1)\varphi(z) \enspace .
+\]
+Thus, $\varphi$ has a global maximum at $0$, it is concave down if $z \in (-1,1)$ and concave up if $z \in (-\infty,-1) \cup (1,\infty)$.  
+This shows that the graph of $\varphi$ is shaped like a smooth symmetric bell centred at the origin over the real line.
+
+
+\begin{classwork}
+From the above exercise in calculus let us draw the graph of $\varphi$ by hand now!
+
+Do it step by step: $z^2$, $-z^2$, $-z^2/2$, $\exp(-z^2/2)$, $\varphi(z) = \frac{1}{\sqrt{2\pi}} \exp(-z^2/2)$ now! 
+\vspace*{20mm}
+\end{classwork}
+
+The distribution function of $Z$ is given by
+\begin{equation}\label{E:StandardNormalDF}
+\Phi(z) \;=\;\frac{1}{\sqrt{2\pi}}\int^z_{-\infty}e^{-v^2/2}\;dv \enspace .
+\end{equation}
+
+NOTE: {This integral cannot be evaluated exactly by standard methods of calculus, but its values can be
+obtained numerically and tabulated.  Values of $\Phi(z)$ are tabulated in the ``Standard Normal Distribution Function Table'' in Sec.~\ref{S:NormalDFTable}.}
+
+\begin{classwork}
+{Note that the curve of $\Phi(z)$ is $S$-shaped, increasing in a strictly monotone way from $0$ at $-\infty$ to $1$ at $\infty$, and intersects the vertical axis at $1/2$. Draw this by hand too.}{}{do it! \vspace*{20mm}}
+\end{classwork}
+
+\begin{example}\label{Eg:UsingNormalTables}
+Find the probabilities, using  normal tables,  that a random variable having the standard
+  normal distribution will take on a value:
+\bcols{2}\begin{itemize}
+\item [(a)] less that 1.72
+\item [(b)]less than -0.88
+\item [(c)]between 1.30 and 1.75
+\item [(d)] between -0.25 and 0.45
+\end{itemize}\ecols
+\begin{itemize}
+ \item [(a)]
+$$P(Z<1.72)\;=\;\Phi(1.72) \;=\; 0.9573$$
+ \item [(b)] First note that $P(Z<0.88)\;=\;0.8106$, so that
+   \ba{P(Z<-0.88) & \;=\;P(Z>0.88) \\
+     &\;=\;1-P(Z<0.88)\\&\;=\;1-\Phi(0.88)\\ &\;=\;1-0.8106\;=\;0.1894}
+ \item [(c)]
+$P(1.30<Z<1.75)\;=\;\Phi(1.75)-\Phi(1.30)\;=\;0.9599-0.9032\;=\;0.0567$
+ \item [(d)]
+\ba{P(-0.25<Z<0.45)&\;=\;P(Z<0.45)-P(Z<-0.25)\\&\;=\;P(Z<0.45)-(1-P(Z<0.25))\\&\;=\;\Phi(0.45)-(1-\Phi(0.25)) \\&=\;(0.6736)-(1-0.5987)\\&\;=\;0.2723}
+\end{itemize}
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\bigskip
+
+
+\remove{
+\begin{framed}
+CONTINUOUS RANDOM VARIABLES: NOTATION\\
+
+$f(x)$: Probability density function (PDF)
+\begin{itemize}
+\item$f(x)\;\geq\;0$
+\item Areas underneath $f(x)$ measure probabilities.
+\end{itemize}
+
+$F(x)$: Distribution function (DF)
+\begin{itemize}
+\item $0\;\leq\;\ F(x)\;\leq \;1$
+\item $F(x)\;= \;P(X\leq x)$ is a probability
+\item $F^{\prime}(x)\;=\;f(x)$ for every $x$ where $f(x)$ is continuous
+\item $F(x)\;=\;\displaystyle\int^x_{-\infty}f(v)dv$
+\item $P(a<X\leq b)\;=\;F(b)-F(a)\;=\;\displaystyle \int^b_af(v)dv$
+\end{itemize}
+\end{framed}
+}
+\bigskip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% snipped above into csebook
+The next example yields the {\emph location-scale family} of normal random variables via a family of linear transformations of the standard normal random variable.
+\begin{example}\label{Eg:LinearTransfStdGaussianGaussian}
+Let $Z$ be the standard Gaussian or standard normal random variable with probability density function $\varphi(z)$ given by Equation~\eqref{E:StandardNormalPdf}.  
+For real numbers $\sigma > 0$ and $\mu$ consider the linear transformation of $Z$ given by 
+$$Y = g(Z) = \sigma Z +\mu \enspace .$$
+Some graphs of such linear transformations of $Z$ are shown in Figures~(a) and (b).
+\begin{figure}[htbp]
+\centering\subfigure[{\scriptsize $g(z)=z$, $g(z)=\frac{1}{2}z+5$ and $g(z)=\frac{1}{2}z-5$.}]{
+\includegraphics[width=8cm]{figures/LinearTransOfStdGaussianA.eps}}
+\subfigure[{\scriptsize $g(z)=z$, $g(z)=(z+5)/0.5$ and $g(z)=(z-5)/0.5$.}]{
+\includegraphics[width=8cm]{figures/LinearTransOfStdGaussianB.eps}}
+\end{figure}
+
+We are interested in the density of the tranformed random variable $Y=g(Z)=\sigma Z + \mu$.  
+Once again, since $g$ is a one-to-one monotone function let us follow the four steps and use the change of variable formula to obtain $f_Y$ from $f_Z=\varphi$ and $g$.
+\begin{enumerate}
+\item $y=g(z)=\sigma z + \mu$ is a monotone increasing function over $-\infty < z < \infty$, the range of $Z$.  
+So, we can apply the change of variable formula. 
+\item $z=g^{-1}(y)=(y - \mu) / \sigma$ is a monotone increasing function over the range of $y$ given by, %$(\sigma \times -\infty) + \mu < \sigma z + \mu < (\sigma \times \infty) + \mu$, i.e.,% Ben did not like these manipulaitons with infinities - raaz was doing arithmetic with diverging sequences with limits at infinity only. 
+$-\infty < y < \infty$.  
+\item For $-\infty < y < \infty$,
+\[
+ \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
+= \left\vert \frac{d}{dy} \left( \frac{y - \mu}{\sigma} \right) \right\vert 
+= \left\vert \frac{1}{\sigma} \right\vert = \frac{1}{\sigma} \enspace .
+\]
+\item we can use Equation~\eqref{E:f_YFromf_X_Under_one-to-one-g} and Equation~\eqref{E:StandardNormalPdf} which gives
+$$f_Z(z) = \varphi(z) = \frac{1}{\sqrt{2\pi}} \exp{\left( -\frac{z^2}{2}\right)} \enspace,$$
+to find the density of $Y$ as follows:
+\[
+f_Y(y) = f_Z \left( g^{-1}(y) \right) \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
+= \varphi \left( \frac{y - \mu}{\sigma} \right) \frac{1}{\sigma}
+= \frac{1}{\sigma \sqrt{2 \pi}} \exp \left[-\frac{1}{2} \left( \frac{y-\mu}{\sigma} \right)^2 \right] \enspace ,
+\]
+for $-\infty < y < \infty$. 
+\end{enumerate}
+Thus, we have obtained the expression for the probability density function of the linear transformation $\sigma Z + \mu$ of the standard normal random variable $Z$.  This analysis leads to the following definition.
+\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%Location-scale Gaussian family as a linear transformation of the standard Gaussian RV
+
+\begin{framed}
+
+\begin{model}[$\normal(\mu,\sigma^2)$ RV]
+Given a location parameter $\mu \in (-\infty, +\infty)$ and a scale parameter $\sigma^2 > 0$, the $\normal(\mu,\sigma^2)$ or Gaussian$(\mu,\sigma^2)$ random variable $X$ has probability density function:
+\begin{equation}\label{eqn:norm_pdf}
+f(x; \mu,
+  \sigma^2)=\frac{1}{\sigma\sqrt{2\pi}}\exp\left[-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right]\qquad(\sigma >0) \enspace .
+\end{equation}
+\end{model}
+\end{framed}
+
+This is simpler than it may at first look. $f(x;\mu, \sigma^2)$ has the following features.
+\bit
+\item $\mu$ is the expected value or mean parameter and $\sigma^2$ is the variance parameter. These concepts, mean and variance, are described in more detail in the next section on expectations.
+\item $1/(\sigma\sqrt{2\pi})$ is a constant factor that makes the area under the curve of $f(x)$ from $-\infty$ to $\infty$ equal to 1, as it must be.
+\item The curve of $f(x)$ is symmetric with respect to $x=\mu$ because the exponent is quadratic. Hence for $\mu=0$ it is symmetric with respect to the $y$-axis $x=0$.
+\item The exponential function decays to zero very fast --- the faster the decay, the smaller the value of $\sigma$.
+\eit
+
+%\newpage
+
+\begin{framed}
+The normal distribution has the {\bf distribution function}
+\begin{equation}\label{eqn:norm_int_cdf}F(x; \mu, \sigma^2)=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^x\exp\left[-\frac{1}{2}\left(\frac{v-\mu}{\sigma}\right)^2\right]\;dv\enspace.\end{equation}
+Here we need $x$ as the upper limit of integration and so we write $v$ in the integrand.
+\end{framed}
+
+
+\begin{figure}[ht]
+\cen{
+\includegraphics [scale=.4]{figures/normalpdf.eps}
+\caption{Probability density function of a $\normal(\mu,\sigma^2)$ RV for different values of $\mu$ and $\sigma^2$}
+}
+\end{figure}
+
+Using the direct method's \hyperref[Eqn:DirectMethod]{Equation~\ref*{Eqn:DirectMethod}}, we can obtain the distribution function of the $\normal(\mu,\sigma^2)$ random variable from that of the 
+tabulated distribution function of the $\normal(0,1)$ in the  \hyperref[S:NormalDFTable]{Standard normal distribution function table in Sec.~\ref*{S:NormalDFTable}}. 
+  
+\begin{figure}[htbp]
+\cen{
+\includegraphics[scale=.35]{figures/normaldis.eps}
+\caption{DF  of a $\normal(\mu,\sigma^2)$ RV for different values of $\mu$ and $\sigma^2$}
+}
+\end{figure}
+
+%\newpage
+
+\begin{prop}[One Table to Rule Them All Gaussians]
+The distribution function $F_X(x;\mu,\sigma^2)$ of the $\normal(\mu,\sigma^2)$ random variable $X$ 
+and the distribution function $F_Z(z)=\Phi(z)$  of the standard normal random variable $Z$ are related by:
+$$F_X(x;\mu,\sigma^2)\;=\; F_Z\left(\frac{x -\mu}{\sigma}\right) \;=\; \Phi\left(\frac{x-\mu}{\sigma}\right)\enspace .$$
+
+\begin{proof}
+Let $Z$ be a $\normal(0,1)$ random variable with distribution function $\Phi(z) = P (Z \leq z)$.  
+We know that if $X=g(Z)=\sigma Z+\mu$ then $X$ is the $\normal(\mu,\sigma^2)$ random variable.  
+Therefore, 
+\begin{eqnarray*}
+F_X(x;\mu,\sigma^2) 
+&=& P(X \leq x) = P\left( g(Z) \leq x \right) =  P (\sigma Z+\mu \leq x) = P\left(Z \leq \frac{x -\mu}{\sigma} \right)\\ 
+&=& F_Z \left(\frac{x -\mu}{\sigma}\right) = \Phi \left(\frac{x -\mu}{\sigma}\right) \enspace .
+\end{eqnarray*}
+\end{proof}
+\end{prop}
+
+Hence we often transform a general $\normal(\mu,\sigma^2)$ random
+variable, $X$, to a standardised $\normal(0,1)$ random variable, $Z$, by
+the substitution:
+$$Z\;=\;\frac{X-\mu}{\sigma}\,.$$
+
+
+
+\begin{example}
+Suppose that the amount of cosmic radiation to which a person is exposed 
+when flying by jet across the United States is a random
+variable, $X$, having a normal distribution with a mean of $4.35$ mrem and a
+standard deviation of $0.59$ mrem. What is the probability that a person
+will be exposed to more than $5.20$ mrem of cosmic radiation on such a
+flight?
+
+{\em Solution:}
+\begin{align*}
+P(X> 5.20)\;&=\;1-P(X\leq
+5.20)\\[3pt]&\;=\;1-F(5.20)\\[3pt]&\;=\;1-\Phi\left(\frac{5.20-4.35}{0.59}\right)\\[3pt]&\;=\;1-\Phi(1.44)\\[3pt]&\;=\;1-
+0.9251\\[3pt]&\;=\;0.0749
+\end{align*}
+\end{example}
+
+After some more notions you will see that $\normal(0,1)$ RV can actually be obtained from an IID process of $\bernoulli(\theta)$ RVs. This is an instance of the central limit theorem. To appreciate this we first need to understand what we mean by statistics and then familiarise ourselves with notions of convergence of random variables.
 
 \section{Convergence of Random Variables}\label{S:ConvOfRVs}
 

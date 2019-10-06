@@ -689,6 +689,18 @@ $$
 
 
 \section{Conditional Probability}\label{S:CondProb}
+
+Conditional probabilities arise when we have partial information about
+the result of an  experiment which restricts the sample space to a range
+of outcomes.  For example, if there has been a lot of recent seismic activity
+in Christchurch, then the probability that an already damaged building will
+collapse tomorrow is clearly higher than if there had been no recent seismic activity.
+
+Conditional probabilities are  often
+expressed in English by phrases such as:\cen{ ``If $A$ happens, what is the probability that
+$B$ happens?''} or \cen{``What is the probability that  $A$ happens if
+$B$ happens?''} or \cen{``  What is the probability that  $A$ occurs given that $B$ occurs?''}
+
 Next, we define conditional probability and the notion of independence of events.  We use the LTRF idea to motivate the definition.
 \begin{idea}[LTRF intuition for conditional probability]
 Let $A$ and $B$ be any two events associated with our experiment $\E{E}$ with $\p(A) \neq 0$.  The `conditional probability that $B$ occurs given that $A$ occurs' denoted by $\p(B|A)$ is again intuitively underpinned by the super-experiment $\E{E}^{\infty}$ which is the `independent' repitition of our original experiment $\E{E}$ `infinitely' often.  The LTRF idea is that $\p(B|A)$ is the long-term proportion of those experiments on which $A$ occurs that $B$ also occurs.
@@ -704,37 +716,43 @@ Suppose we are given an experiment $\E{E}$ with a triple $(\Omega, \C{F}, \p)$. 
  \begin{equation}\label{E:CPD}
  \p(B|A) := \frac{\p(A \cap B)}{\p(A)} \ .
  \end{equation}
- Note that for a {\bf fixed} event $A \in \C{F}$ with $\p(A)>0$ and {\bf any} event $B \in \C{F}$, the conditional  probability $\p(B | A)$ is a probability as in \hyperref[D:Prob]{Definition \ref*{D:Prob}}, ie.~a function:
+Note that $A$ serves as the new reduced sample space so that conditional probabilities given $A$ \emph{are} indeed  probabilities.
+Thus, for a {\bf fixed} event $A \in \C{F}$ with $\p(A)>0$ and {\bf any} event $B \in \C{F}$, the conditional  probability $\p(B | A)$ is a probability as in \hyperref[D:Prob]{Definition \ref*{D:Prob}}, ie.~a function:
  \[
  \p(B | A) : \C{F} \rightarrow [0,1]
  \]
- that assigns to each $B \in \C{F}$ a number in the interval $[0,1]$, such that,
- \begin{enumerate}
- \item $\p(\Omega | A) = 1$ \qquad Meaning `Something Happens given the event A happens'
- \item The `Addition Rule' axiom holds, ie.~for events $B_1, B_2 \in \C{F}$,
+ that assigns to each $B \in \C{F}$ a number in the interval $[0,1]$, such that, the axioms of probability are satisfied:
+\begin{itemize}
+\item[]{Axiom~(1): For any event $B$, $0\leq P(B|A)\leq 1$.}
+\item[]{Axiom~(2): $\p(\Omega | A) = 1$ \qquad Meaning `Something Happens given the event A happens'}
+\item[]{Axiom~(3): The `Addition Rule' axiom holds, ie.~for events $B_1, B_2 \in \C{F}$,
  \[
  B_1 \cap B_2 = \emptyset \quad \text{implies} \quad \p(B_1 \cup B_2 | A) = \p(B_1 | A) + \p(B_2 |  A)  \ .
- \]
-
-\item For mutually exclusive or pairwise-disjoint events, $B_1,B_2, \ldots$,
+ \]}
+\item[]{Axiom~(4): For mutually exclusive events, $B_1,B_2, \ldots$,
 \[
 \p(B_1 \cup B_2 \cup \cdots | A) = \p(B_1|A)+\p(B_2|A)+\cdots \enspace .
-\]
-\end{enumerate} 
+\]}
+\end{itemize} 
 \end{definition}
 
-From the definition of conditional probability we get the following rules:
-\be
-\item Complementation rule: $\p(B | A)\, = \,1 - \p(B^c | A)$ .
-
-\item Addition rule for two arbitrary events $B_1$ and $B_2$: \[{\p(B_1 \cup B_2 | A) \;= \;\p(B_1 | A) + \p(B_2 | A) - \p(B_1\cap B_2|A)}\,.\]
-
-\item Multiplication rule for two likely events: 
+From the definition of conditional probability we get the following properties or rules:
+\begin{itemize}
+\item[]{{\bf Complementation rule:} $\p(B | A)\, = \,1 - \p(B^c | A)$ .}
+\item[]{{\bf Addition rule for two arbitrary events $B_1$ and $B_2$:} \[{\p(B_1 \cup B_2 | A) \;= \;\p(B_1 | A) + \p(B_2 | A) - \p(B_1\cap B_2|A)}\,.\]}
+\item[]{Solving for $P(A\cap B)$ with  these definitions of conditional probability
+gives another rule:
+\begin{framed}
+{\bf Multiplication rule for two likely events:} 
 
 If $A$ and $B$ are events, and if
   $\p(A)\neq 0$ and  $\p(B)\neq 0$, then
 \[\p(A\cap B)\;=\;\p(A)\p(B|A)\;=\;\p(B)\p(A|B)\,. \]
-\ee
+\end{framed}
+}
+\end{itemize}
+
+%%%%%%%
 
 \begin{example}[Wasserman03, p.~11]\label{EX:Wasserman03p11}
  A medical test for a disease $D$ has outcomes $+$ and $-$.  the probabilities are:
@@ -764,68 +782,111 @@ Most people who are not used to the definition of conditional probability would 
 \end{example}
  
 \subsection{Bayes' Theorem}\label{S:BayesTheorem}
- Next we look at one of the most elegant applications of the definition of conditional probability along with the addition rule for a partition of $\Omega$.
- \begin{prop}[Bayes' Theorem, 1763]
- Suppose the events $A_1,A_2,\ldots,A_k \in \C{F}$, with $\p(A_h)>0$ for each $h \in \{1,2,\ldots,k\}$, partition the sample space $\Omega$, ie.~they are mutually exclusive (disjoint) and exhaustive events with positive probability: 
- \[
- A_i \cap A_j = \emptyset, \ \text{for any distinct $i,j \in \{1,2,\ldots,k\}$}, \qquad \bigcup_{h=1}^k A_h = \Omega, \qquad \p(A_h) > 0
- \]
- Thus, precisely one of the $A_h$'s will occur on any performance of our experiment $\E{E}$.  
- 
- Let $B \in \C{F}$ be some event with $\p(B) > 0$, then 
- \begin{equation}\label{E:BayesThm}
- \p(A_h|B) = \frac{\p(B|A_h) \p(A_h)}{\sum_{h=1}^k \p(B|A_h) \p(A_h)}
- \end{equation}
- {\scriptsize
- \begin{proof}
- We apply elementary set theory, the definition of conditional probability $k+2$ times and the addition rule once:
- \begin{eqnarray}
- \p(A_h | B) &=& \frac{\p(A_h \cap B)}{\p(B)} = \frac{\p( B \cap A_h)}{\p(B)} = 
- \frac{\p( B | A_h) \p(A_h)}{\p(B)}  \notag \\
- &=& \frac{\p( B | A_h) \p(A_h)}{\p \left( \bigcup_{h=1}^k (B \cap A_h) \right)} =
- \frac{\p( B | A_h) \p(A_h)}{\sum_{h=1}^k \p \left( B \cap A_h \right)} \notag \\
- &=& \frac{\p( B | A_h) \p(A_h)}{\sum_{h=1}^k \p(B | A_h) \p(A_h)} \notag
- \end{eqnarray}
- \end{proof}
-}
-The operations done to the denominator in the proof above:
-\begin{equation}\label{E:LTP}
-\p( B) = \sum_{h=1}^k \p(B | A_h) \p(A_h)
+ Next we look at one of the most elegant applications of the definition of conditional probability along with the addition rule for a partition of $\Omega$ called \emph{Bayes' Theorem}. 
+We will present a two event case first called \emph{Bayes' Rule} and then present the more general case of the Theorem.
+
+This is useful because many problems involve reversing the order of conditional
+probabilities. Suppose we want to investigate  some phenomenon $A$  and
+have an observation $B$ that is evidence about $A$: for example, $A$ may
+be breast cancer and $B$  may be a positive mammogram. Then  Bayes'
+Theorem tells us how we should update our probability of $A$, given the
+new evidence $B$.
+
+Or, put more simply, Bayes' Rule is useful when you know $P(B | A)$ but
+want $P(A | B )$!
+
+\begin{framed}
+\begin{prop}[Bayes' Rule]\label{P:BayesRule}
+\begin{equation}
+P(A|B)\;=\;\frac{P(A)P(B|A)}{P(B)} \enspace .
 \end{equation}
-is also called `the law of total probability' or `the total probability theorem'.  
-We call $\p(A_h)$ the {\bf prior probability of} $A_h$ and $\p(A_h|B)$ the {\bf posterior probability of} $A_h$.
- \end{prop}
+\end{prop}
+\end{framed}
+\begin{proof}
+From the  definition of conditional probability and the multiplication rule for two likely events $A$ and $B$ we get:
+$$
+P(A|B)\;=\;\frac{P(A \cap B)}{P(B)} \; = \;\frac{P(B \cap A)}{P(B)}\;= \; \frac{P(B|A)P(A)}{P(B)}\;  =\; \frac{P(A)P(B|A)}{P(B)} \enspace .
+$$
+\end{proof}
 
-\begin{example}[Wasserman2003~p.12]\label{Wasserman2003p12}
-Suppose Larry divides his email into three categories: $A_1 = \text{``spam''}$, $A_2 =\text{ ``low priority''}$, and $A_3 = \text{ ``high priority''}$.  From previous experience, he finds that $\p(A_1) = 0.7$, $\p(A_2) = 0.2$ and $\p(A_3)=0.1$.  Note that $\p(A_1 \cup A_2 \cup A_3) = \p(\Omega) = 0.7+0.2+0.1 = 1$.  Let $B$ be the event that the email contains the word ``free.''  From previous experience, $\p(B|A_1) = 0.9$, $\p(B|A_2) = 0.01$ and $\p(B|A_3)=0.01$.  Note that $\p(B|A_1) + \p(B|A_2) + \p(B|A_3) = 0.9+0.01+0.01 \neq 1$.  Now, suppose Larry receives an email with the word ``free.''  What is the probability that it is ``spam,'' ``low priority,''  and ``high priority'' ?
-%{\color{Gray}{
+\begin{example}[Mammogram]\label{EXmammogram}
+Approximately 1\% of women aged 40--50 have breast cancer. 
+A woman with breast cancer has a 90\% chance of a positive test from a mammogram, while a woman without breast cancer has a 10\% chance of a false positive result from the test. 
+What is the probability that a woman indeed has breast cancer given that she just had a positive test?\\[3pt]
+Solution:\\[3pt]
+{Let $A=$``the woman has breast cancer'', and $B=$``a positive
+test.''
 
-{\scriptsize{
-\[
-\begin{array}{l l l l l}
-\p(A_1 | B) 
-&= \frac{\p(B|A_1)\p(A_1)}{\p(B|A_1)\p(A_1)+\p(B|A_2)\p(A_2)+\p(B|A_3)\p(A_3)} 
-&= \frac{0.9 \times 0.7}{(0.9 \times 0.7)+ (0.01 \times 0.2) + (0.01 \times 0.1)}
-&= \frac{0.63}{0.633}
-&\approxeq 0.995 \\
-\\
-\p(A_2 | B) 
-&= \frac{\p(B|A_2)\p(A_2)}{\p(B|A_1)\p(A_1)+\p(B|A_2)\p(A_2)+\p(B|A_3)\p(A_3)} 
-&= \frac{0.01 \times 0.2}{(0.9 \times 0.7)+ (0.01 \times 0.2) + (0.01 \times 0.1)}
-&= \frac{0.002}{0.633}
-&\approxeq 0.003 \\
-\\
-\p(A_3 | B) 
-&= \frac{\p(B|A_3)\p(A_3)}{\p(B|A_1)\p(A_1)+\p(B|A_2)\p(A_2)+\p(B|A_3)\p(A_3)} 
-&= \frac{0.01 \times 0.1}{(0.9 \times 0.7)+ (0.01 \times 0.2) + (0.01 \times 0.1)}
-&= \frac{0.001}{0.633}
-&\approxeq 0.002 \\
-\end{array}
-\]
-Note that $\p(A_1|B) + \p(A_2|B)+\p(A_3|B) = 0.995+0.003+0.002=1$.
-}}
-%}}
+\medskip
+
+ We want  $P(A|B)$ but what we are given is $P(B|A)= 0.9$.
+\medskip
+
+By the definition of conditional probability,
+$$P(A|B)\;=\;P(A\cap B)/P(B)$$
+
+To evaluate the numerator we use the multiplication rule
+$$P(A\cap B)\;=\;P(A)P(B|A)\;=\;0.01\times 0.9\;=\;0.009$$
+
+Similarly,
+$$P(A^c\cap B)\;=\;P(A^c)P(B|A^c)\;=\;0.99 \times 0.1\;=\;0.099$$
+
+Now $P(B)\,=\,P(A\cap B)+P(A^c\cap B)$ so
+
+$$P(A|B)\;=\;\frac{P(A\cap B)}{P(B)}\;=\;\frac{0.009}{0.009+0.099}\;=\;\frac{9}{108}$$
+or a little less than 9\%. This situation comes about because it is much easier to have a false positive for a healthy woman, which has probability $0.099$, than to find a woman with breast cancer having a positive test, which has probability $0.009$.
+
+\medskip
+
+This answer is somewhat surprising. Indeed when ninety-five physicians were asked this question their average answer was 75\%. The two statisticians who carried out this survey indicated that physicians were better able to see the answer when the data was presented in frequency format. 10 out of 1000 women have breast cancer. Of these 9 will have a positive mammogram. However of the remaining 990 women without breast cancer 99 will have a positive reaction, and again we arrive the answer $9/(9+99)$.
+
+\bigskip
+
+\emph{Alternative solution using a tree diagram:}
+
+\begin{center}
+\begin{picture}(100,140)(75,30)\drawline(0,90)(75,120)(125,140)
+\drawline(75,120)(125,100)\drawline(0,90)(75,60)(125,40)
+\drawline(75,60)(125,80)
+\put(60,120){$A$}\put(60,50){$A^c$}
+\put(130,140){$\mathsf{B}$ \;\;$P(A\cap B)=0.009$}\put(130,100){$\mathsf{B^c}$ \;\;$0.001$}
+\put(130,80){$\mathsf{B}$ \;\; $P(A^c\cap B)=0.099$}\put(130,40){$\mathsf{B^c}$ \;\;$ 0.891$}
+\put(95,140){$0.9$}\put(95,95){$0.1$}
+\put(95,75){$0.1$}\put(95,35){$0.9$}
+\put(30,110){$0.01$}\put(30,60){$0.99$}
+\put(20,160){\text{\small Breast Cancer}}
+\put(100,160){\text{\small Positive Test}}
+\end{picture}
+\end{center}
+
+So the probability that a woman has breast cancer given that
+she has just had a positive test is  $$P(A|B)\;=\;\frac{P(A\cap B)}{P(B)}\;=\;\frac{0.009}{0.009+0.099}\;=\;\frac{9}{108}$$
+
+\emph{$^*$In the exam, there won't be any need for electronic calculators and you may leave the answer in either of the last two numerical forms for full credit, provided you show the steps in your reasoning.}
+}
 \end{example}
+
+Before we see the more general form of Bayes' Rule, let us make a simple observation called the \emph {total probaility theorem}.
+
+\begin{framed}
+\begin{prop}[Total probability theorem]\label{Thm:TotalProb}
+Suppose $A_1 \cup A_2 \ldots \cup A_k$ is a sequence of events with positive probability that partition the sample space, that is, $A_1\cup A_2 \cdots \cup A_k=\Omega$ and  $A_i \cap A_j = \emptyset$ for any $i \neq j$, then for some arbitrary event $B$.
+\begin{equation}\label{E:TotalProb}
+P(B) \;= \;\sum_{h=1}^k P(B \cap A_h) \;= \;\sum_{h=1}^k P(B|A_h)P(A_h)
+\end{equation}
+\end{prop}
+\end{framed}
+\begin{proof}
+The first equality is due to the addition rule for mutually exclusive events, \[B \cap A_1, B \cap A_2, \ldots, B \cap A_k\] and the second equality is due to the multiplication rule for two likely events.
+\end{proof}
+Reference to the Venn digram (you should draw below as done in lectures) will help you understand this idea for the four event case.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{pstricks/totProbThmVennDiagram.eps}
+\caption{Reference to the Venn digram will help you understand this idea behind the proof of the total probability theorem in Proposition~\ref{Thm:TotalProb} for the four event case.}
+\end{center}
+\end{figure}
 
 \begin{example}[Urn with red and black balls]\label{EX:urnRedBlackBalls} 
 A well-mixed urn contains five
@@ -874,8 +935,85 @@ P(R_2)
 \end{eqnarray*}
 \end{example}
 
- \subsection{Independence and Dependence}\label{S:IndepDep}
- \begin{definition}[Independence of two events]\label{D:IndOf2Events}
+\begin{framed}
+\begin{prop}[Bayes' Theorem, 1763]
+ Suppose the events $A_1,A_2,\ldots,A_k \in \C{F}$, with $\p(A_h)>0$ for each $h \in \{1,2,\ldots,k\}$, partition the sample space $\Omega$, ie.~they are mutually exclusive (disjoint) and exhaustive events with positive probability: 
+ \[
+ A_i \cap A_j = \emptyset, \ \text{for any distinct $i,j \in \{1,2,\ldots,k\}$}, \qquad \bigcup_{h=1}^k A_h = \Omega, \qquad \p(A_h) > 0
+ \]
+ Thus, precisely one of the $A_h$'s will occur on any performance of our experiment $\E{E}$.  
+ 
+ Let $B \in \C{F}$ be some event with $\p(B) > 0$, then 
+ \begin{equation}\label{E:BayesThm}
+ \p(A_h|B) = \frac{\p(B|A_h) \p(A_h)}{\sum_{h=1}^k \p(B|A_h) \p(A_h)}
+ \end{equation}
+ \end{prop}
+\end{framed}
+ {\scriptsize
+ \begin{proof}
+ We apply elementary set theory, the definition of conditional probability $k+2$ times and the addition rule once:
+ \begin{eqnarray}
+ \p(A_h | B) &=& \frac{\p(A_h \cap B)}{\p(B)} = \frac{\p( B \cap A_h)}{\p(B)} = 
+ \frac{\p( B | A_h) \p(A_h)}{\p(B)}  \notag \\
+ &=& \frac{\p( B | A_h) \p(A_h)}{\p \left( \bigcup_{h=1}^k (B \cap A_h) \right)} =
+ \frac{\p( B | A_h) \p(A_h)}{\sum_{h=1}^k \p \left( B \cap A_h \right)} \notag \\
+ &=& \frac{\p( B | A_h) \p(A_h)}{\sum_{h=1}^k \p(B | A_h) \p(A_h)} \notag
+ \end{eqnarray}
+The operations done to the denominator in the proof above is merely the total probability theorem:
+\begin{equation*}
+\p( B) = \sum_{h=1}^k \p(B | A_h) \p(A_h)
+\end{equation*}
+ \end{proof}
+}
+
+We call $\p(A_h)$ the {\bf prior probability of} $A_h$, i.e., before observing $B$ or \emph{a priori}, and $\p(A_h|B)$ the {\bf posterior probability of} $A_h$, i.e., after observing $B$ or \emph{a posteriori}. 
+
+This theorem is at the heart of solving Bayesian \emph{Decision Problems} which fall into several sub-problems called \emph{inference}, \emph{learning} and \emph{control} problems.
+Let's see one of the simplest such \emph{learning problems} called \emph{prediction}, more specifically \emph{classification}, where we need to choose between finitely many possible choices based on past information next.
+
+\begin{example}[Wasserman2003~p.12]\label{Wasserman2003p12}
+Suppose Larry divides his email into three categories: $A_1 = \text{``spam''}$, $A_2 =\text{ ``low priority''}$, and $A_3 = \text{ ``high priority''}$.  From previous experience, he finds that $\p(A_1) = 0.7$, $\p(A_2) = 0.2$ and $\p(A_3)=0.1$.  Note that $\p(A_1 \cup A_2 \cup A_3) = \p(\Omega) = 0.7+0.2+0.1 = 1$.  Let $B$ be the event that the email contains the word ``free.''  From previous experience, $\p(B|A_1) = 0.9$, $\p(B|A_2) = 0.01$ and $\p(B|A_3)=0.01$.  Note that $\p(B|A_1) + \p(B|A_2) + \p(B|A_3) = 0.9+0.01+0.01 \neq 1$.  Now, suppose Larry receives an email with the word ``free.''  What is the probability that it is ``spam,'' ``low priority,''  and ``high priority'' ?
+%{\color{Gray}{
+
+Solution:\\[4pt]
+{\scriptsize{
+\[
+\begin{array}{l l l l l}
+\p(A_1 | B) 
+&= \frac{\p(B|A_1)\p(A_1)}{\p(B|A_1)\p(A_1)+\p(B|A_2)\p(A_2)+\p(B|A_3)\p(A_3)} 
+&= \frac{0.9 \times 0.7}{(0.9 \times 0.7)+ (0.01 \times 0.2) + (0.01 \times 0.1)}
+&= \frac{0.63}{0.633}
+&\approxeq 0.995 \\
+\\
+\p(A_2 | B) 
+&= \frac{\p(B|A_2)\p(A_2)}{\p(B|A_1)\p(A_1)+\p(B|A_2)\p(A_2)+\p(B|A_3)\p(A_3)} 
+&= \frac{0.01 \times 0.2}{(0.9 \times 0.7)+ (0.01 \times 0.2) + (0.01 \times 0.1)}
+&= \frac{0.002}{0.633}
+&\approxeq 0.003 \\
+\\
+\p(A_3 | B) 
+&= \frac{\p(B|A_3)\p(A_3)}{\p(B|A_1)\p(A_1)+\p(B|A_2)\p(A_2)+\p(B|A_3)\p(A_3)} 
+&= \frac{0.01 \times 0.1}{(0.9 \times 0.7)+ (0.01 \times 0.2) + (0.01 \times 0.1)}
+&= \frac{0.001}{0.633}
+&\approxeq 0.002 \\
+\end{array}
+\]
+Note that $\p(A_1|B) + \p(A_2|B)+\p(A_3|B) = 0.995+0.003+0.002=1$.
+}}
+%}}
+
+This is essentially the idea behind \emph{Bayes classifiers}, that are used to solve such \emph{prediction} problems across different problem domains in \emph{statistical machine learning}, where solutions are given from computer programs.
+\end{example}
+
+\subsection{Independence and Dependence}\label{S:IndepDep}
+
+In general, $P(A | B)$ and $P(A)$ are different, but sometimes the
+occurrence of $B$ makes no difference, and gives no new information about the
+chances of $A$ occurring.  This is the idea behind independence. Events
+like ``having blue eyes'' and ``having blond hair'' are
+associated due to common genetic ancestry, but  events like ``my neighbour wins Lotto'' and ``I win Lotto'' are not due to the Lotto machine being chaotically whirled around before ejection (as modelled by a well-stirred urn).
+
+\begin{definition}[Independence of two events]\label{D:IndOf2Events}
  Any two events $A$ and $B$ are said to be {\bf independent} if and only if
  \begin{equation}\label{E:PofAB=PAPB}
  \p(A \cap B) = \p(A) \p(B) \ .

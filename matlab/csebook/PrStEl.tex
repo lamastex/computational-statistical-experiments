@@ -1,5 +1,10 @@
 %%&latex
 \documentclass[html,11pt,oneside,a4paper,notitlepage,openany]{book}
+%\usepackage{pdftricks}
+%\begin{psinputs}
+%   \usepackage{pstricks}
+%   \usepackage{multido}
+%\end{psinputs}
 \usepackage[lastexercise,answerdelayed]{exercise}
 \usepackage[pdftex]{hyperref}
 
@@ -23,34 +28,8 @@
 %\usepackage{amssymb,amsmath,amsthm,stmaryrd,booktabs}
 \usepackage[mathscr]{eucal}
 \usepackage{url,subfigure}
-% begin: to autmatically convert eps to pdf while typesetting
-\usepackage{graphicx}% needs Ghostscript installed
-\usepackage{epstopdf}% uncomment this for autoconverting to EPS to PDF
-%\usepackage{styles/ps4pdf} % comment this for Dominic if needed
-%\usepackage{ps4pdf}
-%\PSforPDF{\usepackage{pstricks,pst-plot}}
-% end 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% http://tex.stackexchange.com/questions/1072/which-graphics-formats-can-be-included-in-documents-processed-by-latex-or-pdflate
-%Which one it chooses is even customisable: there's a list of extensions for each output type and it goes through the list until it finds a file that exists. Redefining that list changes the priorities. The list is stored in a comma-separated macro called \Gin@extensions so redefining that will change the order. Here's a simple way to ensure that .pdf is selected first when producing PDF output (since, oddly, the list for PDF output starts with .png):
-%\usepackage{ifpdf}
-%\ifpdf
-%\PassOptionsToPackage{pdftex}{graphicx}
-%\fi
-%\ifpdf
-%\makeatletter
-%\let\orig@Gin@extensions\Gin@extensions 
-%%\def\Gin@extensions{.pdf,\orig@Gin@extensions} %prepend .pdf before .png
-%\def\Gin@extensions{.png,\orig@Gin@extensions} %prepend .png before .pdf
-%\makeatother
-%\fi
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{algorithm}
-\usepackage{algorithmic}
-%\usepackage{styles/algorithmic}
-%\usepackage{styles/algorithm}
-%WORK change all algorithms in 2e
-%\usepackage[lined,algonl,boxed]{algorithm2e}
+
+
 \usepackage[usenames]{color}
 \usepackage{fancyvrb}
 \definecolor{Gray}{rgb}{0.75,0.75,0.75}
@@ -86,6 +65,36 @@
 %\VerbatimInput[frame=lines,framerule=1pt,fontshape=n,fontfamily=tt,rulecolor=\color{Gray},fontsize=\small,label=hi]{ExpInvCDF.m}
 %\lstinputlisting[float,frame=lines,caption={[ExpInvCDF.m]ExpInvCDF.m -- Inverse DF for $Exponential(\lambda)$ RV},label=ExpInvCDF.m]{ExpInvCDF.m}
 
+
+% begin: to autmatically convert eps to pdf while typesetting
+\usepackage{graphicx}% needs Ghostscript installed
+%\usepackage[dvipsnames,svgnames,xcdraw, table]{xcolor}
+\usepackage{epstopdf}% uncomment this for autoconverting to EPS to PDF
+%\usepackage{styles/ps4pdf} % comment this for Dominic if needed
+%\usepackage{ps4pdf}
+%\PSforPDF{\usepackage{pstricks,pst-plot}}
+% end 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% http://tex.stackexchange.com/questions/1072/which-graphics-formats-can-be-included-in-documents-processed-by-latex-or-pdflate
+%Which one it chooses is even customisable: there's a list of extensions for each output type and it goes through the list until it finds a file that exists. Redefining that list changes the priorities. The list is stored in a comma-separated macro called \Gin@extensions so redefining that will change the order. Here's a simple way to ensure that .pdf is selected first when producing PDF output (since, oddly, the list for PDF output starts with .png):
+%\usepackage{ifpdf}
+%\ifpdf
+%\PassOptionsToPackage{pdftex}{graphicx}
+%\fi
+%\ifpdf
+%\makeatletter
+%\let\orig@Gin@extensions\Gin@extensions 
+%%\def\Gin@extensions{.pdf,\orig@Gin@extensions} %prepend .pdf before .png
+%\def\Gin@extensions{.png,\orig@Gin@extensions} %prepend .png before .pdf
+%\makeatother
+%\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%\usepackage{styles/algorithmic}
+%\usepackage{styles/algorithm}
+%WORK change all algorithms in 2e
+%\usepackage[lined,algonl,boxed]{algorithm2e}
 % Alter some LaTeX defaults for better treatment of figures:
     % See p.105 of "TeX Unbound" for suggested values.
     % See pp. 199-200 of Lamport's "LaTeX" book for details.
@@ -136,6 +145,11 @@
 
 \newcommand{\bcols}[1]{\begin{multicols}{#1}}
 \newcommand{\ecols}{\end{multicols}}
+
+% for pstricks mainly pspicture - needs to be loaded like this after fancyvrb as it otherwise causes color clash
+%\usepackage[dvipsnames]{pst-pdf}
+%\usepackage{pst-pdf}
+%pspicture is still not working due to some color clash with fancyvrv!!!
 
 %http://www.math.uh.edu/~torok/math_6298/latex/fancy-stuff.html#theorem-fonts
 {\theorembodyfont{\rmfamily}

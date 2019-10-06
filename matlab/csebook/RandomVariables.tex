@@ -1,5 +1,29 @@
 \chapter{Random Variables}\label{S:RandomVariable}
-It can be be inconvenient to work with a set of outcomes $\Omega$ upon which arithmetic is not possible.  We are often measuring our outcomes with subsets of real numbers.  Some examples include:
+
+We are used to classical variables such as $x$ as an ``unknown'' in
+the equation: $x+3\;=\;7 \enspace$.
+
+We also  use classical variables to represent geometric objects such as a line:
+\[
+y\;=\;3x-2 \enspace ,
+\]
+where the variable $y$ for the $y$-axis is determined by the value taken
+by the variable $x$, as $x$ varies over the real line $\mathbb{R} =
+(-\infty,\infty)$.
+
+Yet another example is the use  of variables  to represent sequences such as:
+\[
+\{a_n\}_{n=1}^{\infty}\; = \;a_1,a_2,a_3,\ldots \enspace.
+\]
+
+What these \emph{classical variables} have in common is that they \emph{take a} fixed or \emph{deterministic value} when we can solve for them.
+
+We need a different kind of variable to deal with real-world situations where the same variable may take 
+different values in a non-deterministic manner.  {\bf Random variables} do this job for us.  
+Random variables, unlike classical deterministic variables, can take a bunch of different values.
+
+Crucially, it can become inconvenient to work with a set of outcomes $\Omega$ upon which arithmetic is not possible. 
+We are often measuring our outcomes with subsets of real numbers.  Some examples include:
 
 \begin{table}[ht]
 \begin{tabular}{c c} \hline
@@ -10,6 +34,97 @@ Waiting time in minutes for the next Orbiter bus to arrive & $\Rz_+:=[0,\infty) 
 Vertical displacement from current position of a pollen on water & $\Rz$ \\ \hline
 \end{tabular}
 \end{table}
+
+Thus, we want a \textbf{random variable} to be a function from the sample space $\Omega$ to the set of real numbers $\mathbb{R}$, that is,  $X : \Omega \to \mathbb{R}$ that should satisfy certain conditions to keep the meaning of the underlying probability space $(\Omega, \mathcal{F},\p)$. 
+Let us go through some examples before giving the formal definition of such a real-valued or $\Rz$-valued random variable.
+
+
+\begin{example}[Rain or Shine]\label{Exmp:RainOrShine}
+Suppose our experiment is to observe whether it will $\mathsf{rain}$ or $\mathsf{not~rain}$ tomorrow. 
+The sample space of this experiment is $\Omega= \{ \mathsf{rain},\mathsf{not~rain} \}$. 
+We can associate a random variable $X$ with this experiment as follows:
+\[X(\omega)=
+\begin{cases}
+1, & \text{if } \omega = \mathsf{rain}\\
+0, &  \text{if } \omega = \mathsf{not~rain}
+\end{cases}
+\]
+Thus, $X$ will take the value $1$ if it will rain tomorrow and $0$ otherwise.  
+Note that another equally valid (though possibly not so useful) random variable, say $Y$, for this experiment is:
+\[Y(\omega)=
+\begin{cases}
+\pi, & \text{if } \ \omega = \mathsf{rain}\\
+\sqrt{2}, &  \text{if } \ \omega = \mathsf{not~rain}
+\end{cases}
+\]
+\end{example}
+
+\begin{example}[Rain Fall on Angstrom]\label{Exmp:RainInmms}
+Suppose our experiment instead is to measure the volume of rain that falls into a large funnel stuck on top of a graduated cylinder that is placed on top of the middle of House 1 of Angstrom Laboratory. 
+Suppose the cylinder is graduated in millimeters then our random variable $X(\omega)$ can report a non-negative real number given by the lower miniscus of the water column, if any, in the cylinder tomorrow.  
+Thus, $X(\omega)$ will measure the volume of rain in millilitres that will fall into our funnel tomorrow. 
+\end{example}
+
+\begin{example}[Counting Seedlings]\label{Exmp:SeedPlanting}
+Suppose ten seeds are planted. Perhaps fewer than ten will actually germinate. 
+The number which do germinate, say $X$, must be one of the integer numbers in $\Rz$ given by the set:
+\[ \Xz := \{0,1,2,3,4,5,6,7,8,9,10\} \enspace .\]
+But until the seeds are actually planted and allowed to germinate it is
+impossible to say which number $X(\omega): \Omega \to \Xz$ will take. 
+The number of seeds which germinate is a variable, but it is not necessarily the same for each group of ten
+seeds planted, but takes values from the same set $\Xz$.  
+As $X$ is not known in advance it is called a {\bf random variable}. 
+Its value cannot be known until we actually perform the experiment, i.e.,
+plant the seeds.\\[6pt]Certain things can be said about the value a
+random variable might take. In the case of these ten seeds we can be
+sure the number that germinate  is less than eleven, and not less than
+zero! It may also be known that that the probability of seven seeds
+germinating is greater than the probability of one seed; or perhaps that
+the number of seeds germinating averages eight. These statements are
+based on probabilities unlike the sort of statements made about
+deterministic variables.
+\end{example}
+
+\bigskip
+
+{\bf \large Discrete  versus continuous random variables.}
+
+
+\medskip
+
+A {\bf discrete}  random variable is one in which the set of possible values of the random variable 
+is  finite or  at most  countably infinite,  whereas a {\bf continuous} random variable may take on 
+any value in some range, and its value may be any real value in that range (Think: uncountably infinite).  
+Examples~\ref{Exmp:RainOrShine} and \ref{Exmp:SeedPlanting} are about discrete random variables and 
+Example~\ref{Exmp:RainInmms} is about a continuous random variable.
+
+Discrete random variables are usually generated from experiments where
+things are ``counted'' rather than ``measured''  such
+as  the seed planting experiment in Example~\ref{Exmp:SeedPlanting}.  
+Continuous random variables appear in
+experiments in which we measure, such as the amount of rain, in 
+millilitres in Example~\ref{Exmp:RainInmms}.
+
+
+{\large \bf{Random variables as functions.}}
+
+
+In fact, random variables are actually functions, more formally measurable maps from $\mathcal{F}$ to certain subsets of $\mathbb{R}$ that you will learn carefully in more advanced courses.  They take you from
+the ``world of random processes and phenomena'' to the world of real
+numbers.  In other words, a random variable is a numerical value
+determined by the outcome of the experiment.
+
+We said that a random variable can take one of many values, but we
+cannot be certain of which value it will take.  However, {\em we can
+  make probabilistic statements about the value $x$ the random variable
+  $X$ will take}.   A question like,
+\cen{``What  is the probability  of it raining tomorrow?''} in the
+rain/not experiment of Example~\ref{Exmp:RainOrShine} becomes  
+\cen{``What is $P\left( \{ \omega: X(\omega) = 1 \} \right) $?''}
+or, more simply,
+\cen{``What is $P(X=1)$?''}
+
+With this motivation we are ready to formally define such a random variable.
 
 \section{Basic Definitions}\label{S:RVBasicDefs}
 
@@ -32,15 +147,46 @@ We assign probability to the RV $X$ as follows:
 
 \begin{definition}[Distribution Function]\label{D:DF}
 The {\bf Distribution Function (DF)} or {\bf Cumulative Distribution Function (CDF)} of any RV $X$, over a  probability triple $(\Omega, \C{F},P)$, denoted by $F$ is:
+\begin{framed}
 \begin{equation}\label{E:DF}
 F(x) := \p(X \leq x) = \p( \ \{\omega: X(\omega) \leq x\} \ ), \qquad \text{for any }\quad x \in \Rz \ .
 \end{equation}
+\end{framed}
 Thus, $F(x)$ or simply $F$ is a non-decreasing, right continuous, $[0,1]$-valued function over $\Rz$.  When a RV $X$ has DF $F$ we write $X \sim F$.
 \end{definition}
 
+\begin{rem}[Notation] 
+It is enough to understand the idea of random variables as explained above, and work with 
+random variables using simplified notation  like \[P(2\leq X\leq 3)\] rather than \[P(\{\omega: 2\leq  X(\omega) \leq 3\})\]
+but note that when learning or doing more advanced work this sample space notation is usually needed to clarify the true meaning of the simplified notation at least to yourself! But in the exam you can use the simpler notation as done in the solutions to exercises.
+\end{rem}
+
+From the idea of a distribution function, we get:
+
+\begin{framed}
+\begin{prop}
+The probability that the random variable $X$ takes a value $x$ in the half-open interval $(a,b]$, i.e., $a < x \leq b$, is:
+\begin{equation}\label{E:Fb-a}
+P(a < X \leq b)\; = \;F(b) - F(a)\enspace .
+\end{equation}
+\end{prop}
+\end{framed}
+
+{\scriptsize
+\begin{proof}
+Since  $(X \leq a)$ and $(a < X \leq b)$ are disjoint events whose union is the event $(X \leq b)$,
+\[
+F(b)  = P(X \leq b) = P(X \leq a) + P(a < X \leq b) = F(a) + P (a < X \leq b) \enspace .
+\]
+Subtraction of $F(a)$ from both sides of the above equation yields
+Equation~\ref{E:Fb-a}.
+\end{proof}
+}
+
+
 A special RV that often plays the role of `building-block' in Probability and Statistics is the indicator function of an event $A$ that tells us whether the event $A$ has occurred or not.  Recall that an event belongs to the collection of possible events $\C{F}$ for our experiment.
 \begin{definition}[Indicator Function]
-The {\bf Indicator Function} of an event $A$ denoted $\BB{1}_A$ is defined as follows:
+Given a probability triple $(\Omega,\C{F},\p)$, the {\bf Indicator Function} of an event $A \in \C{f}$ which is denoted $\BB{1}_A$ is defined as follows:
 \begin{equation}
 \BB{1}_A(\omega) := 
 \begin{cases}
@@ -49,6 +195,35 @@ The {\bf Indicator Function} of an event $A$ denoted $\BB{1}_A$ is defined as fo
 \end{cases}
 \end{equation}
 \end{definition}
+
+
+\begin{model}[Indicator of an event as $\bernoulli$ RV]\label{M:IndicatorIsaRV}
+This is the most primitive RV from which all others are obtained. 
+Let us convince ourselves that $\BB{1}_A$ is really a RV.  For $\BB{1}_A$ to be a RV, we need to verify that 
+for any real number $x \in \Rz$, the inverse image $\BB{1}_A^{[-1]}( \ (- \infty, x] \ )$ is an event, ie :
+\[
+\BB{1}_A^{[-1]}( \ (- \infty, x] \ ) := \{\omega: \BB{1}_A(\omega) \leq x\} \in \C{F} \ .
+\] 
+All we can assume about the collection of events $\C{F}$ is that it contains the event $A$ and that it is a sigma algebra.  A careful look at the \hyperref[F:RVIndic]{Figure \ref*{F:RVIndic}} yields:
+\begin{equation}
+\BB{1}_A^{[-1]}( \ (- \infty, x] \ ) := \{\omega: \BB{1}_A(\omega) \leq x\} =
+\begin{cases}
+\emptyset & \text{if} \quad x < 0 \notag \\
+A^c       & \text{if} \quad 0 \leq x < 1 \notag \\
+A \cup A^c  = \Omega   & \text{if} \quad 1 \leq x  \notag 
+\end{cases}
+\end{equation}
+Thus, $\BB{1}_A^{[-1]}( \ (- \infty, x] \ )$ is one of the following three sets that belong to $\C{F}$; (1) $\emptyset$, (2) $A^c$ and (3) $\Omega$ depending on the value taken by $x$ relative to the interval $[0,1]$.  We have proved that $\BB{1}_A$ is indeed a RV.
+
+Model~\ref{M:IndicatorIsaRV} is called the $\bernoulli$ RV for event $A$ with a known probability $\p(A)$. We will define as our next model the $\bernoulli(\theta)$ RV by introducing a paramater $\theta \in [0,1]$ for the typically unknown probability $\p(A)$. 
+\end{model}
+
+Some useful properties of the Indicator Function are:
+\[
+\BB{1}_{A^c} = 1 - \BB{1}_A, \qquad \BB{1}_{A \cap B} = \BB{1}_A \BB{1}_B, \qquad \BB{1}_{A \cup B} = \BB{1}_A + \BB{1}_B - \BB{1}_A \BB{1}_B
+\]
+We slightly abuse notation when $A$ is a single element set by ignoring the curly braces.
+
 \begin{figure}[htpb]
 \caption{The Indicator function of event $A \in \C{F}$ is a RV $\BB{1}_A$ with DF $F$ \label{F:RVIndic}}
 \centering   \makebox{\includegraphics{figures/RVIndic}}
@@ -75,36 +250,73 @@ So we should first replace them by dotted lines which merely help us track where
 The second mistake is failing to emphasise that the value taken by the function at $0$ and $1$ is not $0$ and $\p( \text{`not A'})$, respectively. So it is best to introduce an empty circle like $\circ$ at $(0,0)$ and $(1,\p( \text{`not A'}))$ to indicate the points of discontinuity. The same mistakes should be fixed in the next Figure~\ref{F:RVABC}.
 \end{Answer}
 
-\begin{classwork}[Indicator function is a random variable]\label{CW:IndicatorIsaRV}
-Let us convince ourselves that $\BB{1}_A$ is really a RV.  For $\BB{1}_A$ to be a RV, we need to verify that 
-for any real number $x \in \Rz$, the inverse image $\BB{1}_A^{[-1]}( \ (- \infty, x] \ )$ is an event, ie :
-\[
-\BB{1}_A^{[-1]}( \ (- \infty, x] \ ) := \{\omega: \BB{1}_A(\omega) \leq x\} \in \C{F} \ .
-\] 
-All we can assume about the collection of events $\C{F}$ is that it contains the event $A$ and that it is a sigma algebra.  A careful look at the \hyperref[F:RVIndic]{Figure \ref*{F:RVIndic}} yields:
-\begin{equation}
-\BB{1}_A^{[-1]}( \ (- \infty, x] \ ) := \{\omega: \BB{1}_A(\omega) \leq x\} =
-\begin{cases}
-\emptyset & \text{if} \quad x < 0 \notag \\
-A^c       & \text{if} \quad 0 \leq x < 1 \notag \\
-A \cup A^c  = \Omega   & \text{if} \quad 1 \leq x  \notag 
-\end{cases}
-\end{equation}
-Thus, $\BB{1}_A^{[-1]}( \ (- \infty, x] \ )$ is one of the following three sets that belong to $\C{F}$; (1) $\emptyset$, (2) $A^c$ and (3) $\Omega$ depending on the value taken by $x$ relative to the interval $[0,1]$.  We have proved that $\BB{1}_A$ is indeed a RV.
+\begin{classwork}[A random variable with three values and eight sample points]\label{CW:ARVwith3Values}
+Consider the RV $X$ of \hyperref[F:RVABC]{Figure \ref*{F:RVABC}}.  First draw this properly as done in Ex.~\ref{drawDiscontFuncs}. Let the events $A = \{\omega_1, \omega_2\}$, $B = \{\omega_3, \omega_4, \omega_5\}$ and $C = \{\omega_6, \omega_7,\omega_8 \}$.  Define the RV $X$ formally.  What sets should $\C{F}$ minimally include?  What do you need to do to make sure that $\C{F}$ is a sigma algebra?
 \end{classwork}
-Some useful properties of the Indicator Function are:
-\[
-\BB{1}_{A^c} = 1 - \BB{1}_A, \qquad \BB{1}_{A \cap B} = \BB{1}_A \BB{1}_B, \qquad \BB{1}_{A \cup B} = \BB{1}_A + \BB{1}_B - \BB{1}_A \BB{1}_B
-\]
-We slightly abuse notation when $A$ is a single element set by ignoring the curly braces.
 \begin{figure}[htpb]
 \caption{A RV $X$ from a sample space $\Omega$ with $8$ elements to $\Rz$ and its DF $F$.\label{F:RVABC}}
 \centering   \makebox{\includegraphics{figures/RV}}
 \end{figure}
-\begin{classwork}[A random variable with three values and eight sample points]\label{CW:ARVwith3Values}
-Consider the RV $X$ of \hyperref[F:RVABC]{Figure \ref*{F:RVABC}}.  First draw this properly as done in Ex.~\ref{drawDiscontFuncs}. Let the events $A = \{\omega_1, \omega_2\}$, $B = \{\omega_3, \omega_4, \omega_5\}$ and $C = \{\omega_6, \omega_7,\omega_8 \}$.  Define the RV $X$ formally.  What sets should $\C{F}$ minimally include?  What do you need to do to make sure that $\C{F}$ is a sigma algebra?
-\vspace{4cm}
-\end{classwork}
+
+\begin{Exercise}[title={Fair coin toss RV},label={xFairCoinRV}]
+Consider the {\em fair coin toss experiment}  with $\Omega= \{ \mathsf{H},\mathsf{T} \}$ and $P(\mathsf{H}) = P(\mathsf{T})=1/2$. \\[6pt] We can associate a $\bernoulli$ random variable $X$ (in Model~\ref{M:IndicatorIsaRV}) for the event that the coin lands as $\mathsf{H}$, with this experiment as follows:
+\[X(\omega)=
+\begin{cases}
+1, & \text{if } \ \omega = \mathsf{H}\\
+0, & \text{if } \ \omega = \mathsf{T}
+\end{cases}
+\]
+Find the distribution function for $X$.
+%\ExePart
+%\Question
+%\subQuestion Show that...
+%\subQuestion In this question...
+%\subsubQuestion Show that...
+%\subsubQuestion Conclude...
+%\subQuestion Conclude.
+%\Question Show that if $b > 1$...
+%\ExePart
+%\Question What happens to if $b=1$?
+\end{Exercise}
+\begin{Answer}
+The probability that $X$ takes on a specific value $x$ is:
+$$
+P(X = x) = P(\{\omega: X(\omega) = x \}) =
+\begin{cases}
+P(\emptyset) = 0, & \text{ if } \  x \notin \{0,1\} \\
+P(\{\mathsf{T} \}) =  \frac{1}{2}, & \text{ if } \  x = 0\\
+P(\{ \mathsf{H}\}) = \frac{1}{2}, & \text{ if } \  x = 1
+\end{cases}
+$$
+or more simply,
+\[
+P(X=x)=
+\begin{cases}
+\frac{1}{2} & \text{if } x=0\\
+\frac{1}{2} & \text{if } x=1\\
+0 & \text{otherwise}
+\end{cases}
+\]
+The distribution function for $X$ is:
+$$
+F(x) \;=\; P(X \leq x) \;=\; P(\{\omega: X(\omega) \leq x \})\; =\;
+\begin{cases}
+P(\emptyset) = 0, & \text{ if } \ -\infty < x < 0\\
+P(\{\mathsf{T} \}) =  \frac{1}{2}, & \text{ if } \ 0 \leq x < 1\\
+P(\{ \mathsf{H} , \mathsf{T} \}) = P(\Omega)  = 1,
+& \text{ if } \ 1 \leq x < \infty
+\end{cases}
+$$
+or more simply, $$
+F(x)\; = \;P(X \leq x) \;=\;
+\begin{cases}
+ 0, & \text{ if } \ -\infty < x < 0\\
+ \frac{1}{2}, & \text{ if } \ 0 \leq x < 1\\
+ 1,
+& \text{ if } \ 1 \leq x < \infty
+\end{cases}
+$$
+\end{Answer}
 
 \section{Discrete Random Variables}
 \subsection{An Elementary Discrete Random Variable}\label{S:ElemDiscRV}

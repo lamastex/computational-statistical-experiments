@@ -428,8 +428,7 @@ The discrete uniform RV with values in $\Xz = \{1,2,\ldots,k\}$ is called the eq
 \end{model}
 \end{framed}
 
-%\begin{Exercise}[title={Fair coin toss RV},label={xFairCoinRV}]
-\begin{example}
+\begin{example}\label{ExFairCoinRV}
 The {\em fair coin toss experiment} of Exercise~\ref{xFairCoinRV} is an example of a discrete uniform random variable with finitely many possibilities. 
 Its probability mass function is given by 
 \[f(x)\;=\;\p(X=x)\;=\;
@@ -536,8 +535,9 @@ Performing such an experiment $\E{E}$ once to see if an event of interest $A$ oc
 
 If we do not know the probability $\theta$ that `$A$ occurs', i.e., the $\bernoulli$ RV will equal $1$, then we can define a whole family of $\bernoulli$ RVs for each 
 $\theta \in [0,1]$ or more precisely for each $(\theta, 1-\theta) \in \Delta^1$, the unit $1$-Simplex.
+Note that this family includes the fair Bernoulli trial of Example~\ref{ExFairCoinRV} when $\theta=0.5$. Let us formalise this as the $\bernoulli(\theta)$ RV for each $\theta \in [0,1]$ next.
 
-\begin{model}[$\bernoulli(\theta)$]
+\begin{model}[$\bernoulli(\theta)$ RV]
 Given a parameter $\theta \in [0,1]$, the probability mass function (PMF) for the $\bernoulli(\theta)$ RV $X$ is:
 \begin{equation}\label{E:Bernoullipdf}
 f(x;\theta)= \theta^x (1-\theta)^{1-x} \BB{1}_{\{0,1\}}(x) =
@@ -563,8 +563,436 @@ We emphasise the dependence of the probabilities on the parameter $\theta$ by sp
 \caption{PMF $f(x;\theta)$ and DF $f(x;\theta)$ with $\theta = 0.33$. You should see how PMF and DF change as $\theta$ goes from $0$ to $1$}
 \end{figure}
 
+\subsection{Independent $\bernoulli$ Trials}
+
+Random variables make sense for a series of trials as well as just a single trial of an experiment.  
+We now look at  what happens when we perform a sequence of independent Bernoulli trials.  
+For instance:
+\bit
+\item Flip a coin 10 times; count the  number of heads 
+\bit
+\item by possibly allowing for the coin's $\p(\mathsf{H})$ to change each time because each of them are manufactured in a terrible mint.
+\eit
+\item Test 50 randomly selected circuits from an assembly line; count
+  the  number of defective circuits.
+\item  Roll a die 100 times; count the  number of sixes you throw.
+\item Provide a property near a particular bridge in our archipelago with flood insurance
+  for 20 years; count the number of years, during the 20-year period,
+  during which the property is flooded. Note: we assume that flooding is
+  independent from year to year, and that the probability of flooding is the same
+  each year.
+\eit
+
+Since the $\bernoulli(\theta)$ RV has only two outcomes, i.e., simple events, we know how to obtain the probability of each of the two outcomes in a given $\bernoulli$ trial with the probability given by the deterministic variable or parameter $\theta$. 
+Now consider doing more than one trial so we have sequence of $\bernoulli(\theta_i)$ trials, say,
+\[
+X_i \sim \bernoulli(\theta_i) \text{ with } i \in \mathbb{N} \enspace ,
+\] 
+with each $\theta_i \in [0,1]$ being possibly unkown but fixed as a parameter. 
+Now, if we assume independence across trials, so one trial's outcome does not affect the outcome of any of the other trials, in the sense of Definition~\ref{D:IndOfSeqOfEvents} 
+about \emph{independence of a sequence of events}, then we can obtain the probability of the entire sequence of outcomes for this sequence of \textbf{independently distributed} $\bernoulli(\theta_i)$ \textbf{trails} which can be any infinite sequence of $0$'s and $1$'s, i.e., any element of $\{0,1\}^{\infty}$, by simply multiplying the corresponding probabilities given by $\theta_i$'s in $(\theta_1,\theta_2,\ldots) \in [0,1]^{\infty}$, an infinite dimensional parameter space, as follows:
+\begin{eqnarray}\label{Eq:probofindependentBernoullithetaiTrials}
+\p(x; (\theta_1,\theta_2,\ldots)) &=& \prod_i f(x_i;\theta_i)= \prod_i \theta_i^{x_i} (1-\theta_i)^{1-x_i} \BB{1}_{\{0,1\}}(x_i), \\
+&~& \qquad \qquad \text{ where } x:= (x_1,x_2,\ldots) \in \mathbb{X}_{\infty} = \{0,1\}^{\infty} := \{0,1\} \times \{0,1\} \times \cdots \notag
+\end{eqnarray}
+By further assuming that all the $\theta_i$'s are identical, say $\theta = \theta_1 = \theta_2 = \cdots$, with $\theta \in [0,1]$, a one-dimensional parameter space, we get the much simpler expression for the \textbf{independent and identically distributed (IID)} $\bernoulli(\theta)$ \textbf{trails} as follows:
+\begin{eqnarray}\label{Eq:probofindependentIdenticalBernoullithetaTrials}
+\p(x; \theta) &=& \prod_i f(x_i;\theta)= \prod_i \theta^{x_i} (1-\theta)^{1-x_i} \BB{1}_{\{0,1\}}(x_i) =  \BB{1}_{\{0,1\}^{\infty}}(x) \, \theta^{\sum_i x_i} (1-\theta)^{\sum_i(1-x_i)} \notag\\
+&=&  
+\begin{cases}
+\theta^{\sum_i x_i} (1-\theta)^{n-\sum_i x_i} & \text{if $x:= (x_1,x_2,\ldots) \in \mathbb{X}_{\infty} = \{0,1\}^{\infty}$}\\ 
+0 & \text{otherwise}\enspace .
+\end{cases}
+\end{eqnarray}
+
+Remembering that all other RVs can be derived from such IID $\bernoulli(\theta)$ trials using $\theta=1/2$, as we will see in the sequel, 
+we are ready to take a tour through some common discrete and continuous random variables that are useful in many applications.
+ 
+\subsection{Some Common Discrete Random Variables}\label{S:SomeCommonDiscreteRVs}
+
+Let us start with the simplest example to fix ideas carefully.
+\begin{example}[Waiting For the First Heads]\label{Ex:WaitinfFor1stHeads}
+Suppose our experiment is to toss a fair coin independently and
+  identically (that is, the same coin is tossed in essentially the same
+  manner independent of the other tosses in each trial) as often as
+  necessary until we have a head, $\mathsf{H}$.  Let the random
+  variable
+  $X$ denote the \emph{Number of trials until the first $\mathsf{H}$ appears}.\\[4pt]
+Let's first find the probability mass function of $X$.
+
+Now $X$ can take on the values
+$\{1,\,2,\,3,\,\ldots\}$, so we  have a  non-uniform random
+variable with infinitely many possibilities.  Since
+\ba{
+&f(1)\; =\; \p(X=1)\;=\;P(\mathsf{H})\;=\;\frac{1}{2}\enspace , & \\
+&f(2)\; =\; \p(X=2)\;=\;P(\mathsf{TH})\;=\;\frac{1}{2}\cdot \frac{1}{2}\;= \;\left(\frac{1}{2}\right)^2 \enspace , \\
+&f(3)\; = \; \p(X=3)\;=\;P(\mathsf{TTH})\;=\;\frac{1}{2}\cdot \frac{1}{2}\cdot \frac{1}{2}\;= \;\left(\frac{1}{2}\right)^3 \enspace, \qquad \textrm{etc.}
+}the  probability mass function of $X$ is:
+$$f(x)\; =\; \p(X=x)\;=\;\left(\frac{1}{2}\right)^x, \quad x=1,2,\dots \enspace.$$
+\end{example}
+
+\bigskip
+
+In the previous Example, % \ref{Ex:WaitinfFor1stHeads},  %%cross-referencing needs fixing as the counters are clashing need change in new_base macro file
+noting that we have independent trials, we get:
+
+\[f(x)\; = \;\p(X=x)\;=\;\p(\mathsf{\underbrace{\mathsf{TT}\ldots\mathsf{T}}_{n-1}\mathsf{H}})\;=\; \p(\mathsf{T})^{x-1}\,\p(\mathsf{H})\;=\;
+\left(\frac{1}{2}\right)^{x-1}\,\frac{1}{2}\,.\]
+More generally, let there be two possibilities, success ($\mathsf{S}$) or failure
+($\mathsf{F}$), with  $\p(\mathsf{S})=  \theta$  and \newline $\p(\mathsf{F})=1-\theta$ so that:
+\[\p(X=x)\;=\;\p(\underbrace{\mathsf{F F} \ldots \mathsf{F}}_{x-1}\mathsf{S})\;=\; (1 - \theta)^{x-1}\, \theta\,.\]
+
+ This is called a {\bf geometric random variable} with ``success
+ probability'' parameter $\theta$. We can spot a geometric distribution
+ because there will be  {\em a sequence of independent  trials with a constant
+   probability  of success. We are counting the number of trials until
+   the first success appears.} Let us define this random variable formally next.
+
+\begin{model}[$\geometric(\theta)$ RV]
+Given a parameter $\theta \in (0,1)$, the PMF of the $\geometric(\theta)$ RV $X$ is
+\begin{equation}\label{E:Geometricpdf}
+f(x;\theta) =
+\begin{cases}
+\theta(1-\theta)^{x} & \text{if $x \in \Zz_+ := \{0,1,2,\ldots \}$} \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+It is straightforward to verify that $f(x;\theta)$ is indeed a PMF :
+\[
+\sum_{x=0}^{\infty} f(x;\theta) = \sum_{x=0}^{\infty} \theta(1-\theta)^{x}
+= \theta \left( \frac{1}{1-(1-\theta)} \right) =  \theta \left( \frac{1}{\theta} \right) = 1
+\]
+
+{\scriptsize
+The above equality is a consequence of the geometric series identity \eqref{E:GeomSeries} with $a=\theta$ and $\vartheta:=1-\theta$:
+\begin{equation}\label{E:GeomSeries}
+ \sum_{ x =0}^{\infty} a \vartheta^x = a \left( \frac{1}{1-\vartheta} \right) , \ \text{provided, } 0 < \vartheta < 1 \ .
+\end{equation}
+\begin{proof}
+\[
+a+a\vartheta+a\vartheta^2+\cdots+a\vartheta^n
+= \sum_{0 \leq x \leq n} a \vartheta^x
+= a+ \sum_{1 \leq x \leq n} a \vartheta^x
+= a +  \vartheta  \sum_{1 \leq x \leq n} a \vartheta^{x-1}
+= a +  \vartheta  \sum_{0 \leq x \leq n-1} a \vartheta^{x}
+= a +  \vartheta  \sum_{0 \leq x \leq n} a \vartheta^{x} - a \vartheta^{n+1}
+\]
+Therefore,
+\begin{eqnarray}
+\sum_{0 \leq x \leq n} a \vartheta^x
+&=&  a +  \vartheta  \sum_{0 \leq x \leq n} a \vartheta^{x} - a \vartheta^{n+1} \notag \\
+\left( \sum_{0 \leq x \leq n} a \vartheta^x \right) - \left( \vartheta  \sum_{0 \leq x \leq n} a \vartheta^{x} \right)
+&=&  a  - a \vartheta^{n+1} \notag \\
+\left( \sum_{0 \leq x \leq n} a \vartheta^x \right) (1-\vartheta)
+&=&  a (1 -  \vartheta^{n+1}) \notag \\
+\sum_{0 \leq x \leq n} a \vartheta^x
+&=&  a \left( \frac{1 -  \vartheta^{n+1}}{1-\vartheta} \right) \notag\\
+ \sum_{ x =0}^{\infty} a \vartheta^x  := \lim_{n \rightarrow \infty} \sum_{0 \leq x \leq n} a \vartheta^x
+&=&  a \left( \frac{1}{1-\vartheta} \right) , \ \text{provided, } 0 < \vartheta < 1 \notag
+\end{eqnarray}
+\end{proof}
+}
+The outcome of a $\geometric(\theta)$ RV can be thought of as ``the number of tosses needed before the appearance of the first `Head' when tossing a coin with probability of `Heads' equal to $\theta$ in a independent and identical manner.''
+\end{model}
+
+\begin{figure}[htpb]
+\caption{PMF of $X \sim \geometric(\theta=0.5)$ and the relative frequency histogram based on $100$ and $1000$ samples from $X$ according to Simulation~\ref{SIM:Geometric} and Labwork~\ref{LW:RelFreqHistForGeomSims} you will see in the sequel.\label{F:PlotPdfSimHistGeomthetaHalf}}
+\centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSimHistGeomthetaHalf}}
+\end{figure}
+
+
+\begin{Exercise}[title={Coupon Collector's Probem},label={xCouponCollPr}]
+Recall the Coupon Collector's Problem from lectures.%TODO
+\end{Exercise}
+\begin{Answer}
+This was done in week 1. Get notes from your mates or wait until Raaz scribes for virtual convenience.
+\end{Answer}
+
+\begin{example}\label{Exmp:Flip10times}
+Suppose we flip a coin 10 times and count the number of heads.  Let's consider the probability of getting three  heads, say. 
+The probability that the first three flips are heads and the last  seven  flips are tails, \emph{in order},  is \[ \underbrace{\frac{1}{2} \frac{1}{2}
+    \frac{1}{2}}_{3 \text{ successes}}
+  \,\underbrace{\frac{1}{2} \frac{1}{2} \dots \frac{1}{2}}_{7
+    \text{ failures}} \, .\]
+But there are \[\binom{10}{3} \;=\; \frac{10!}{7!\, 3!}\;=\;120 \] ways
+of ordering three heads and seven tails,  so the
+  probability  of getting three  heads and seven  tails \emph{in any order},  is\[\p( \text{`} 3 \text{ heads'}) \;=\; \binom{10}{3}  \left(\frac{1}{2}\right)^3
+  \;\left(\frac{1}{2}\right)^7 \;\approx\; 0.117\]
+\end{example}
+
+We can describe  this sort of situation by considering a random variable $X$ which counts the number of successes, as follows:
+
 \remove{
-?
+The RV $Y$ in \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}} may be generalized to an experiment $\E{E}_{\theta}^{n}$ with $n$ coin tosses.  
+%}% end remove
+Let $X_i$ be the Indicator function of the event `Heads on the $i$-th toss' as before.  Then $Y$ defined by,
+ \[
+ Y := \sum_{i=1}^n X_i := X_1 + X_2 + \cdots + X_n  \ ,
+ \]
+is the number of `Heads' in $n$ tosses.  
+%\remove{
+Akin to the second row of \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}}, for the `Toss $n$ times' experiment $\E{E}_{\theta}^{n}$ the
+%} 
+RV $Y$ as defined above will take values in $\{0,1,2,\ldots,n\}$ and is therefore a discrete RV.  This is called the Binomial RV as defined next.  
+%\remove{
+But, first we remind ourselves of some elementary definitions involving arrangements of objects from a collection (recall \hyperref[S:PermsFactsCombs]{Section~\ref*{S:PermsFactsCombs}}).
+%}%end remove
+}
+
+\begin{model}[$\binomial(n,\theta)$ RV]\label{M:binomial}
+Let the RV $X=\sum_{i=1}^n X_i$ be the sum of $n$ independent and identically distributed $\bernoulli(\theta)$ RVs, i.e.:
+\[
+X=\sum_{i=1}^n X_i, \qquad X_1,X_2,\ldots,X_n \overset{\IID}{\sim} \bernoulli(\theta) \ .
+\]
+Given two parameters $n$ and $\theta$, the PMF of the $\binomial(n,\theta)$ RV $X$ is:
+\begin{equation}
+ f(x; n,\theta) =
+ \begin{cases}
+ \displaystyle\binom{n}{x} \theta^x (1-\theta)^{n-x} & \text{if $x \in \{0,1,2,3,\ldots,n\}$} \ ,\\
+ 0 & \text{otherwise}
+ \end{cases}
+ \end{equation}
+where, $\binom{n}{x}$ is:
+\[
+\binom{n}{x} = \frac{n(n-1)(n-2)\ldots(n-x+1)}{x(x-1)(x-2)\cdots (2)(1)} =  \frac{n !}{x! (n-x)!} \ .
+ \]
+$\binom{n}{x}$ is read as ``$n$ choose $x$.''
+ \end{model}
+{\bf A Quick Justification:}  The argument from Example~\ref{Exmp:Flip10times} generalises as follows.  
+Since the trials are independent and identical, the probability of $x$ successes followed by $n-x$ failures,
+\emph{in order},  is
+given by
+\[\underbrace{\mathsf{SS} \dots \mathsf{S}}_{x}\underbrace{\mathsf{FF} \dots \mathsf{F}}_{n-x}\;=\;\theta^x (1-\theta)^{n-x} \,.\]
+
+
+Since the $n$ symbols $\mathsf{S S} \dots \mathsf{S} \,\mathsf{F F} \dots \mathsf{F}$ may be arranged in
+\[\displaystyle\binom{n}{x} \;=\; \frac{n!}{(n-x)! x!}\]
+ways, the probability of  $x$ successes and  $n-x$ failures,
+\emph{in any order},  is
+given by
+\[\displaystyle\binom{n}{x}\;\theta^x (1-\theta)^{n-x}\,.\]
+
+{\scriptsize
+\begin{proof} This is only a sketch. A formal proof should start with the mathematical induction for the very formula for the binomial coefficient.
+
+Observe that for the $\binomial(n,\theta)$ RV $X$, $\p(X=x) = f(x;n,\theta)$ is the probability that $x$ of the $n$ $\bernoulli(\theta)$ trials result in an outcome of $1$'s.  Next note that if all $n$ $X_i$'s are $0$'s, then $X=0$, and if all $n$ $X_i$'s are $1$'s, then $X=n$.  In general, if some of the $n$ $X_i$'s are $1$'s and the others are $0$, then $X$ can only take values in $\{0,1,2,\ldots,n\}$ and therefore $f(x;n,\theta)=0$ if $x \notin \{0,1,2,\ldots,n\}$.
+
+Now, let us compute $f(x;n,\theta)$ when $x\in\{0,1,2,\ldots,n\}$.  Consider the set of indices $\{1,2,3,\ldots,n\}$ for the $n$ IID $\bernoulli(\theta)$ RVs $\{X_1,X_2,\ldots,X_n\}$.  Now choose $x$ indices from $\{1,2,\ldots,n\}$ to mark those trials in a particular realization of $\{x_1,x_2,\ldots,x_n\}$ with the Bernoulli outcome of $1$.  The probability of each such event is $\theta^x (1-\theta)^{n-x}$ due to the IID assumption.  For each realization $\{x_1,x_2,\ldots,x_n\} \in \{0,1\}^{n} := \{ \text{all binary $(0-1)$ strings of length $n$}\}$, specified by a choice of $x$ trial indices with Bernoulli outcome $1$, the binomial RV $X=\sum_{i=1}^n X_i$ takes the value $x$.  Since there are exactly $\binom{n}{x}$ many ways in which we can choose $x$ trial indices (with outcome $1$) from the set of $n$ trial indices $\{1,2,\ldots,n\}$, we get the desired product for $f(x; n,\theta) = \binom{n}{x} \theta^x (1-\theta)^{n-x}$ when $x \in \{0,1,\ldots,n\}$.
+\end{proof}
+}
+\begin{figure}[htpb]
+\caption{PDF of $X \sim \binomial(n=10,\theta=0.5)$ and the relative frequency histogram based on $100,000$ samples from $X$ obtained according to Simulation~\ref{SIM:BinomialFromGeoms}.\label{F:PlotPdfSim10000HistBinomByGeomsn10thetaHalf}} % TODO check which of two simulation algs is coming from
+\centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSim10000HistBinomByGeomsn10thetaHalf}}
+\end{figure}
+
+\begin{example}
+Find the probability that seven of ten persons will recover from a
+  tropical disease where the probability is
+  identically $0.80$ that any one of them will recover from the
+  disease.
+
+{Solution:}\\[4pt]
+We can assume independence here, so we have a binomial
+situation with  $x=7$, $n=10$, and $\theta=0.8$. Substituting these into the formula for the probability mass function for $\binomial(10,0.8)$ random variable, we get:
+\ba{f(7;10,0.8)&\;=\;\binom{10}{7} \times (0.8)^7 \times
+  (1-0.8)^{10-7}\\[6pt]
+& \;= \frac{10!}{(10-7)! 7!} \times (0.8)^7 \times (1-0.8)^{10-7}\\[6pt]
+&=\; 120 \times (0.8)^7 \times (1-0.8)^{10-7} \qquad ^*\text{{\scriptsize In the exam you can give your answer as such an expression.}}\\[6pt]
+& \approx \; 0.20
+}
+\end{example}
+
+\begin{example}
+{Compute the probability of obtaining {\em at least two
+    $\mathsf{6}$'s} in rolling a fair die independently and identically
+  four times.}
+
+{Solution:}\\[4pt]
+{In any given toss let $\theta=\p(\{\mathsf{6}\})=1/6$,
+$1-\theta=5/6$, $n=4$.
+
+The event {\em at least two $\mathsf{6}$'s} occurs if we obtain two or
+three or four $\mathsf{6}$'s.  Hence the answer is:
+\ba{
+\p(\text{{\em at least two $\mathsf{6}$'s}})&\;=\; f\left(2;4,\frac{1}{6}\right)\;+\;f\left(3;4,\frac{1}{6}\right)\;+\;f\left(4;4,\frac{1}{6}\right) \\[6pt]
+&=\; \binom{4}{2}\left(\frac{1}{6}\right)^2\left(\frac{5}{6}\right)^{4-2}\;+\;
+\binom{4}{3}\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^{4-3}\;+\;
+\binom{4}{4}\left(\frac{1}{6}\right)^{4}\left(\frac{5}{6}\right)^{4-4}\\[6pt]
+&=\;\frac{1}{6^4}\,\left(6\cdot25+4\cdot5+1\right)\\[6pt]
+&\approx \;0.132
+}
+}
+\end{example}
+
+We now consider the last of our common discrete random variables for now, the {\bf Poisson} case.  
+A Poisson random variable counts the number of times an event occurs.
+
+We might, for example, ask:
+\bit
+\item How many customers visit Cafe Angstrom each day?
+\item How many sixes  are scored  in a cricket season? {\scriptsize Cricket is a game played in the English-speaking worlds.}
+\item How many bombs hit a city block in south London during World War II?
+\eit
+
+A Poisson experiment has the following characteristics:
+
+\bit
+\item The average  rate of an event occurring is known. This rate is constant.
+\item  The probability that an event  will occur during a short continuum is proportional to the size of the continuum.
+\item  Events occur independently.
+\eit
+
+The number of events occurring  in a Poisson experiment is referred to as a
+{\bf Poisson random variable}.
+
+\begin{model}[$\poisson(\lambda)$ RV]\label{M:Poisson}
+Given a real parameter $\lambda>0$, the discrete RV $X$ is said to be $\poisson(\lambda)$ distributed if $X$ has PDF:
+\begin{equation}\label{E:Poissonpdf}
+f(x;\lambda) =
+\begin{cases}
+ \frac{ e^{-\lambda} \lambda^x}{x!} & \text{if $x \in \Zz_+ := \{0,1,2,\ldots\}$} \ , \\
+0 & \text{otherwise} \ .
+\end{cases}
+\end{equation}
+
+Note that the PDF integrates to $1$:
+\[
+\sum_{x=0}^{\infty} f(x;\lambda)
+= \sum_{x=0}^{\infty}  \frac{ e^{-\lambda} \lambda^x}{x!}
+=  e^{-\lambda} \sum_{x=0}^{\infty}  \frac{\lambda^x}{x!}
+=  e^{-\lambda} e^{\lambda}
+= 1 \ ,
+\]
+where we exploit the Taylor series of $e^{\lambda}$ to obtain the second-last equality above.
+
+We interpret $X$ as the number of times an event occurs during a
+specified continuum given that the average value in the continuum is
+$\lambda$. 
+\end{model}
+
+
+
+\begin{example}{\label{eqn:poi_cars}}
+If on the average, 2 cars enter a certain parking lot per minute,
+  what is the probability that during any given minute three cars or
+  fewer
+  will enter the lot?
+
+Think: Why are the assumptions for a Poisson random variable likely to
+be correct here?
+
+Note: Use calculators, or Excel or Maple, etc. In an exam you may be given needed values from Poisson tables.
+
+
+Let the random variable $X$ denote the number of cars
+  arriving per minute. Note that the continuum is 1 minute here. Then  $X$ can be considered to have  a Poisson distribution
+  with $\lambda=2$ because 2 cars enter on
+average.
+
+\medskip
+
+The probability that three cars or fewer enter the lot is:
+\ba{\p(X\leq 3)&\;=\;
+f(0;2)+f(1;2)+f(2;2)+f(3;2)\\
+&\;=\;e^{-2}\left(\frac{2^0}{0!}+\frac{2^1}{1!}+\frac{2^2}{2!}+\frac{2^3}{3!}\right) \qquad ^*\text{\scriptsize{This is a perfectly fine answer in the exam.}}\\
+&\;=\;0.857 \quad 
+\quad (\text{3 sig. fig.})
+}
+\end{example}
+
+
+\begin{example}
+The proprietor of a service station finds that, on average, $8$
+  cars arrive \emph{per hour} on Saturdays. What is the probability
+  that during a randomly chosen $15$ \emph{minute period} on a Saturday:
+\be
+\item[(a)] No cars arrive?
+\item[(b)]  At least three cars arrive?
+\ee
+
+Solution:\\[4pt]
+Let the random variable $X$ denote the number of cars
+  arriving in a 15 minute interval. The continuum is 15 minutes here so
+  we need the average number of cars that arrive in a 15 minute
+  period, or $\frac{1}{4}$ of an hour.  We know that 8 cars arrive per
+  hour, so  $X$ has a Poisson distribution
+  with
+\[\lambda \;=\; \frac{8}{4}\;=\; 2\,.\]
+
+\be
+\item[(a)]
+
+\[\p(X=0)\;=\;  f(0; 2)\;=\;  \frac{ e^{-2} 2^0}{0!}\;=\; 0.135 \quad (\text{3 sig. fig})\]
+
+\item[(b)]
+ \ba{\p(X\geq  3 )&\;=\;  1\,-\, \p(X <  3)\\
+&\;=\;  1\,-\, \p(X = 0)\,-\, \p(X = 1)\,-\, \p(X = 2)\\
+&\;=\;  1\,-\, f(0; 2) \,-\, f(1; 2) \,-\, f(2; 2) \\
+&\;=\;1-  0.1353 \,-\, 0.2707\,-\, 0.2707\\
+&\;=\; 0.323 \quad (\text{3 sig. fig.})}
+\ee
+\end{example}
+
+\begin{rem}
+In the binomial case where $\theta$ is small and $n$ is large, it can be shown that the
+binomial distribution with parameters $n$ and $\theta$ is closely
+approximated by the Poisson distribution having $\lambda = n \theta$. The
+smaller the value of $\theta$ and larger the value of $n$, the better the approximation.
+
+In the sequel we will see more formally, after understanding notions of convergence of RVs, that the sum of a sequence of $n$ IID $\bernoulli(\theta)$ RVs with $\lambda = n \theta$ converges to the $\poisson(\lambda)$ RV as $n \to \infty$ and $\theta \to 0$ in a specific sense.
+\end{rem}
+
+\begin{example}
+{ About 0.01\% of babies are stillborn in a certain hospital. We find the probability that of
+  the next 5000 babies born, there will be no more than 1 stillborn baby.
+
+  Let the random variable $X$ denote the number of
+stillborn babies. Then $X$ has a binomial distribution with parameters
+$n=5000$ and $\theta = 0.0001$.  Since $\theta$ is so small and $n$ is
+large, this
+binomial distribution may be approximated by a Poisson distribution
+  with parameter
+\[\lambda\;=\; n\,\theta\;=\; 5000 \times 0.0001 \;=\; 0.5\,. \]
+Hence
+ \[\p(X\leq 1)\;=\; \p(X=0)\,+\, \p(X=1)\,=\, f(0;0.5) \,+\, f(1;0.5)\;=\; 0.910 \quad (\text{3 sig. fig.})\]
+}
+\end{example}
+
+\bigskip
+
+\begin{framed}
+THINKING POISSON\\
+
+The Poisson distribution has been described as a limiting version of the
+Binomial. In particular, Exercise~\ref{eqn:poi_cars} thinks of a Poisson distribution as a model for the number of events (cars) that occur in a period of time (1 minute) when in each little chunk of time one car arrives with constant probability, independently of the other time intervals. This leads to the general view of the Poisson distribution as a good model when:
+
+
+\cen{You count the number of events in a continuum when the events occur
+  \\ at constant rate, one at a time and are independent of one another.}
+
+\end{framed}
+
+
+DISCRETE RANDOM VARIABLE SUMMARY\\
+
+Probability mass function $$f(x)=\p(X=x_i)$$
+Distribution function $$F(x)=\sum_{x_i\leq x}f(x_i)$$
+
+\begin{center}
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|p{3.2cm}|p{6.2cm}|}
+\multicolumn{1}{c}{\bf Random  Variable} & \multicolumn{1}{c}{\bf Possible  Values}
+&\multicolumn{1}{c}{\bf Probabilities} &\multicolumn{1}{c}{\bf Modelled situations} \\\hline
+Discrete  uniform&$\{x_1,x_2,\dots,x_k\}$&$\p(X=x_i)=\displaystyle\frac{1}{k}$&Situations with $k$ equally likely values.  Parameter: $k$.\\\hline
+$\bernoulli(\theta)$&$\{0,1\}$&$\p(X=0)=1-\theta$\newline$\p(X=1)=\theta$&Situations with only 2 outcomes, coded 1 for success and 0 for failure.\newline Parameter: $\theta=\p(\textrm{success}) \in (0, 1)$.\\\hline
+Geometric($\theta$)&$\{1,2,3,\dots\}$&$\p(X=x)\newline=(1-\theta)^{x-1}\theta$& Situations where you count the number of trials until the first success in a sequence of independent trails with a constant probability of success. \newline Parameter: $\theta=\p(\textrm{success}) \in (0, 1)$.\\\hline
+Binomial($n,\theta$)&$\{0,1,2,\dots,n\}$&$\p(X=x)$\newline $=\displaystyle\binom{n}{x}\theta^x(1-\theta)^{n-x}$&Situations where you count the number of success in $n$ trials where each trial is independent and there is a constant probability of success.\newline Parameters: $n \in \{1,2,\ldots\}$; $\theta=\p(\textrm{success}) \in (0, 1)$.\\\hline
+Poisson($\lambda$)&$\{0,1,2,\dots\}$&$\p(X=x)\newline=\displaystyle \frac{\lambda^xe^{-\lambda}}{x!}$&Situations where you count the number of events in a continuum where the events occur one at a time and are independent of one another.\newline Parameter: $\lambda$= rate $\in (0,\infty)$.\\\hline
+\end{tabular}}
+\end{center}
+
+\remove{
+
 }
 
 
@@ -2950,58 +3378,8 @@ Let us consider a RV that arises from an IID stochastic process of $\bernoulli(\
  \{X_i\}_{i \in \Nz} := \{X_1, X_2,\ldots\}  \overset{\IID}{\sim} \bernoulli(\theta) \ .
 \]
 When we consider the number of IID $\bernoulli(\theta)$ trials before the first `Head' occurs we get the following discrete RV.
-\begin{model}[$\geometric(\theta)$ RV]
-Given a parameter $\theta \in (0,1)$, the PMF of the $\geometric(\theta)$ RV $X$ is
-\begin{equation}\label{E:Geometricpdf}
-f(x;\theta) =
-\begin{cases}
-\theta(1-\theta)^{x} & \text{if $x \in \Zz_+ := \{0,1,2,\ldots \}$} \\
-0 & \text{otherwise}
-\end{cases}
-\end{equation}
-It is straightforward to verify that $f(x;\theta)$ is indeed a PDF :
-\[
-\sum_{x=0}^{\infty} f(x;\theta) = \sum_{x=0}^{\infty} \theta(1-\theta)^{x}
-= \theta \left( \frac{1}{1-(1-\theta)} \right) =  \theta \left( \frac{1}{\theta} \right) = 1
-\]
 
-{\scriptsize
-The above equality is a consequence of the geometric series identity \eqref{E:GeomSeries} with $a=\theta$ and $\vartheta:=1-\theta$:
-\begin{equation}\label{E:GeomSeries}
- \sum_{ x =0}^{\infty} a \vartheta^x = a \left( \frac{1}{1-\vartheta} \right) , \ \text{provided, } 0 < \vartheta < 1 \ .
-\end{equation}
-\begin{proof}
-\[
-a+a\vartheta+a\vartheta^2+\cdots+a\vartheta^n
-= \sum_{0 \leq x \leq n} a \vartheta^x
-= a+ \sum_{1 \leq x \leq n} a \vartheta^x
-= a +  \vartheta  \sum_{1 \leq x \leq n} a \vartheta^{x-1}
-= a +  \vartheta  \sum_{0 \leq x \leq n-1} a \vartheta^{x}
-= a +  \vartheta  \sum_{0 \leq x \leq n} a \vartheta^{x} - a \vartheta^{n+1}
-\]
-Therefore,
-\begin{eqnarray}
-\sum_{0 \leq x \leq n} a \vartheta^x
-&=&  a +  \vartheta  \sum_{0 \leq x \leq n} a \vartheta^{x} - a \vartheta^{n+1} \notag \\
-\left( \sum_{0 \leq x \leq n} a \vartheta^x \right) - \left( \vartheta  \sum_{0 \leq x \leq n} a \vartheta^{x} \right)
-&=&  a  - a \vartheta^{n+1} \notag \\
-\left( \sum_{0 \leq x \leq n} a \vartheta^x \right) (1-\vartheta)
-&=&  a (1 -  \vartheta^{n+1}) \notag \\
-\sum_{0 \leq x \leq n} a \vartheta^x
-&=&  a \left( \frac{1 -  \vartheta^{n+1}}{1-\vartheta} \right) \notag\\
- \sum_{ x =0}^{\infty} a \vartheta^x  := \lim_{n \rightarrow \infty} \sum_{0 \leq x \leq n} a \vartheta^x
-&=&  a \left( \frac{1}{1-\vartheta} \right) , \ \text{provided, } 0 < \vartheta < 1 \notag
-\end{eqnarray}
-\end{proof}
-}
-The outcome of a $\geometric(\theta)$ RV can be thought of as ``the number of tosses needed before the appearance of the first `Head' when tossing a coin with probability of `Heads' equal to $\theta$ in a independent and identical manner.''
-\end{model}
-
-\begin{figure}[htpb]
-\caption{PDF of $X \sim \geometric(\theta=0.5)$ and the relative frequency histogram based on $100$ and $1000$ samples from $X$ according to Simulation~\ref{SIM:Geometric} and Labwork~\ref{LW:RelFreqHistForGeomSims}.\label{F:PlotPdfSimHistGeomthetaHalf}}
-\centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSimHistGeomthetaHalf}}
-\end{figure}
-
+% geometric model in "Some discrete RVs now
 \begin{example}[Mean and variance of $\geometric(\theta)$ RV]
 Let $X \sim \geometric(\theta)$ RV.  Then,
 \[
@@ -3026,54 +3404,7 @@ Similarly, it can be shown that
 \end{figure}
 \end{example}
 
-\begin{example}[Coupon Collectors Problem]
-Recall the Coupon Collector's Probelms from lectures.%TODO
-\vspace{5cm}
-~ 
-\end{example}
-
-The RV $Y$ in \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}} may be generalized to an experiment $\E{E}_{\theta}^{n}$ with $n$ coin tosses.  
-%}% end remove
-Let $X_i$ be the Indicator function of the event `Heads on the $i$-th toss' as before.  Then $Y$ defined by,
- \[
- Y := \sum_{i=1}^n X_i := X_1 + X_2 + \cdots + X_n  \ ,
- \]
-is the number of `Heads' in $n$ tosses.  
-%\remove{
-Akin to the second row of \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}}, for the `Toss $n$ times' experiment $\E{E}_{\theta}^{n}$ the
-%} 
-RV $Y$ as defined above will take values in $\{0,1,2,\ldots,n\}$ and is therefore a discrete RV.  This is called the Binomial RV as defined next.  
-%\remove{
-But, first we remind ourselves of some elementary definitions involving arrangements of objects from a collection (recall \hyperref[S:PermsFactsCombs]{Section~\ref*{S:PermsFactsCombs}}).
-%}%end remove
-
-\begin{model}[$\binomial(n,\theta)$ RV]\label{M:binomial}
-Let the RV $X=\sum_{i=1}^n X_i$ be the sum of $n$ independent and identically distributed $\bernoulli(\theta)$ RVs, i.e.:
-\[
-X=\sum_{i=1}^n X_i, \qquad X_1,X_2,\ldots,X_n \overset{\IID}{\sim} \bernoulli(\theta) \ .
-\]
-Given two parameters $n$ and $\theta$, the PMF of the $\binomial(n,\theta)$ RV $X$ is:
-\begin{equation}
- f(x; n,\theta) =
- \begin{cases}
- \displaystyle\binom{n}{x} \theta^x (1-\theta)^{n-x} & \text{if $x \in \{0,1,2,3,\ldots,n\}$} \ ,\\
- 0 & \text{otherwise}
- \end{cases}
- \end{equation}
-where, $\binom{n}{x}$ is:
-\[
-\binom{n}{x} = \frac{n(n-1)(n-2)\ldots(n-x+1)}{x(x-1)(x-2)\cdots (2)(1)} =  \frac{n !}{x! (n-x)!} \ .
- \]
-$\binom{n}{x}$ is read as ``$n$ choose $x$.''
- \end{model}
- %{\scriptsize
-\begin{proof} This is only a sketch. A formal proof should start with the mathematical induction for the very formula for the binomial coefficient.
-
-Observe that for the $\binomial(n,\theta)$ RV $X$, $\p(X=x) = f(x;n,\theta)$ is the probability that $x$ of the $n$ $\bernoulli(\theta)$ trials result in an outcome of $1$'s.  Next note that if all $n$ $X_i$'s are $0$'s, then $X=0$, and if all $n$ $X_i$'s are $1$'s, then $X=n$.  In general, if some of the $n$ $X_i$'s are $1$'s and the others are $0$, then $X$ can only take values in $\{0,1,2,\ldots,n\}$ and therefore $f(x;n,\theta)=0$ if $x \notin \{0,1,2,\ldots,n\}$.
-
-Now, let us compute $f(x;n,\theta)$ when $x\in\{0,1,2,\ldots,n\}$.  Consider the set of indices $\{1,2,3,\ldots,n\}$ for the $n$ IID $\bernoulli(\theta)$ RVs $\{X_1,X_2,\ldots,X_n\}$.  Now choose $x$ indices from $\{1,2,\ldots,n\}$ to mark those trials in a particular realization of $\{x_1,x_2,\ldots,x_n\}$ with the Bernoulli outcome of $1$.  The probability of each such event is $\theta^x (1-\theta)^{n-x}$ due to the IID assumption.  For each realization $\{x_1,x_2,\ldots,x_n\} \in \{0,1\}^{n} := \{ \text{all binary $(0-1)$ strings of length $n$}\}$, specified by a choice of $x$ trial indices with Bernoulli outcome $1$, the binomial RV $X=\sum_{i=1}^n X_i$ takes the value $x$.  Since there are exactly $\binom{n}{x}$ many ways in which we can choose $x$ trial indices (with outcome $1$) from the set of $n$ trial indices $\{1,2,\ldots,n\}$, we get the desired product for $f(x; n,\theta) = \binom{n}{x} \theta^x (1-\theta)^{n-x}$ when $x \in \{0,1,\ldots,n\}$.
-\end{proof}
-%}
+% binomial model above
 \paragraph{Mean and variance of $\binomial(n,\theta)$ RV:}
 Let $X \sim \binomial(n,\theta)$.  Based on the definition of expectation:
 \[
@@ -3086,11 +3417,6 @@ However, this is a nontrivial sum to evaluate.  Instead, we may use \eqref{E:Eof
 \[
 \V(X) = \V \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \V(X_i) = \sum_{i=1}^n{\theta(1-\theta)} = n\theta(1-\theta) \ .
 \]
-
-\begin{figure}[htpb]
-\caption{PDF of $X \sim \binomial(n=10,\theta=0.5)$ and the relative frequency histogram based on $100,000$ samples from $X$ obtained according to Simulation~\ref{SIM:BinomialFromGeoms}.\label{F:PlotPdfSim10000HistBinomByGeomsn10thetaHalf}} % TODO check which of two simulation algs is coming from
-\centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSim10000HistBinomByGeomsn10thetaHalf}}
-\end{figure}
 
 The standard normal distribution is the most important continuous
 probability distribution. It was first described by De Moivre in 1733
@@ -3605,26 +3931,6 @@ As $n \to \infty$, the expression below the first overbrace $\to 1$, while that 
 = \frac{ e^{-\lambda} \lambda^x}{x!}  \ .
 \]
 %}
-\begin{model}[$\poisson(\lambda)$ RV]\label{M:Poisson}
-Given a real parameter $\lambda>0$, the discrete RV $X$ is said to be $\poisson(\lambda)$ distributed if $X$ has PDF:
-\begin{equation}\label{E:Poissonpdf}
-f(x;\lambda) =
-\begin{cases}
- \frac{ e^{-\lambda} \lambda^x}{x!} & \text{if $x \in \Zz_+ := \{0,1,2,\ldots\}$} \ , \\
-0 & \text{otherwise} \ .
-\end{cases}
-\end{equation}
-
-Note that the PDF integrates to $1$:
-\[
-\sum_{x=0}^{\infty} f(x;\lambda)
-= \sum_{x=0}^{\infty}  \frac{ e^{-\lambda} \lambda^x}{x!}
-=  e^{-\lambda} \sum_{x=0}^{\infty}  \frac{\lambda^x}{x!}
-=  e^{-\lambda} e^{\lambda}
-= 1 \ ,
-\]
-where we exploit the Taylor series of $e^{\lambda}$ to obtain the second-last equality above.
-\end{model}
 
 \paragraph{Mean and variance of $\poisson(\lambda)$ RV:}
 Let $X \sim \poisson(\lambda)$.  Then:

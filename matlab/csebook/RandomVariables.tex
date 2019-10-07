@@ -648,7 +648,7 @@ More generally, let there be two possibilities, success ($\mathsf{S}$) or failur
    probability  of success. We are counting the number of trials until
    the first success appears.} Let us define this random variable formally next.
 
-\begin{model}[$\geometric(\theta)$ RV]
+\begin{model}[$\geometric(\theta)$ RV]\label{M:GeomRV}
 Given a parameter $\theta \in (0,1)$, the PMF of the $\geometric(\theta)$ RV $X$ is
 \begin{equation}\label{E:Geometricpdf}
 f(x;\theta) =
@@ -699,7 +699,6 @@ The outcome of a $\geometric(\theta)$ RV can be thought of as ``the number of to
 \caption{PMF of $X \sim \geometric(\theta=0.5)$ and the relative frequency histogram based on $100$ and $1000$ samples from $X$ according to Simulation~\ref{SIM:Geometric} and Labwork~\ref{LW:RelFreqHistForGeomSims} you will see in the sequel.\label{F:PlotPdfSimHistGeomthetaHalf}}
 \centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSimHistGeomthetaHalf}}
 \end{figure}
-
 
 \begin{Exercise}[title={Coupon Collector's Probem},label={xCouponCollPr}]
 Recall the Coupon Collector's Problem from lectures.%TODO
@@ -785,7 +784,7 @@ Now, let us compute $f(x;n,\theta)$ when $x\in\{0,1,2,\ldots,n\}$.  Consider the
 \centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSim10000HistBinomByGeomsn10thetaHalf}}
 \end{figure}
 
-\begin{example}
+\begin{example}\label{Eg:70f10recover}
 Find the probability that seven of ten persons will recover from a
   tropical disease where the probability is
   identically $0.80$ that any one of them will recover from the
@@ -802,7 +801,7 @@ situation with  $x=7$, $n=10$, and $\theta=0.8$. Substituting these into the for
 }
 \end{example}
 
-\begin{example}
+\begin{example}\label{Eg:alteast2_6s}
 {Compute the probability of obtaining {\em at least two
     $\mathsf{6}$'s} in rolling a fair die independently and identically
   four times.}
@@ -871,7 +870,6 @@ $\lambda$.
 \end{model}
 
 
-
 \begin{example}{\label{eqn:poi_cars}}
 If on the average, 2 cars enter a certain parking lot per minute,
   what is the probability that during any given minute three cars or
@@ -901,7 +899,7 @@ f(0;2)+f(1;2)+f(2;2)+f(3;2)\\
 \end{example}
 
 
-\begin{example}
+\begin{example}[Arrivals at a Service Station]\label{Eg:serviceStation}
 The proprietor of a service station finds that, on average, $8$
   cars arrive \emph{per hour} on Saturdays. What is the probability
   that during a randomly chosen $15$ \emph{minute period} on a Saturday:
@@ -942,7 +940,7 @@ smaller the value of $\theta$ and larger the value of $n$, the better the approx
 In the sequel we will see more formally, after understanding notions of convergence of RVs, that the sum of a sequence of $n$ IID $\bernoulli(\theta)$ RVs with $\lambda = n \theta$ converges to the $\poisson(\lambda)$ RV as $n \to \infty$ and $\theta \to 0$ in a specific sense.
 \end{rem}
 
-\begin{example}
+\begin{example}[Still-born Babies]\label{Eg:still-born}
 { About 0.01\% of babies are stillborn in a certain hospital. We find the probability that of
   the next 5000 babies born, there will be no more than 1 stillborn baby.
 
@@ -4359,7 +4357,7 @@ $2Z_1$ has a bigger variance from multiplying the standard normal RV by $2$ whil
 
 \newpage
 
-\section{Exercises}
+\section{Exercises}\label{Exs:onRV}
 
 \begin{ExerciseList}
 \Exercise[label={xRV1}]

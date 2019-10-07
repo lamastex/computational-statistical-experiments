@@ -956,6 +956,38 @@ Hence
 }
 \end{example}
 
+\begin{Exercise}[title={Nazi Bombs on London},label={xbombsOnLondon}]
+Feller discusses the probability and statistics of flying bomb hits in an area of southern London during II world war.  
+The area in question was partitioned into $24 \times 24 = 576$ small squares.  
+The total number of hits was $537$.  
+There were $229$ squares with $0$ hits, $211$ with $1$ hit, $93$ with $2$ hits, $35$ with $3$ hits, $7$ with $4$ hits and $1$ with $5$ or more hits.  
+Assuming the hits were purely random, use the Poisson approximation to find the probability that a particular square would have exactly $k$ hits.  Compute the expected number of squares that would have $0$, $1$, $2$, $3$, $4$, and $5$ or more hits and compare this with the observed results (Snell 9.2.14).  
+\end{Exercise}
+
+\begin{Answer}
+We are given that $537$ flying bombs hit an area $A$ of south London made up of $24 \times 24=576$ small equal-sized areas, say $A_1,A_2,\ldots,A_{576}$.  
+Assuming the hits were purely random over $A$ the probability that a particular bomb will hit a given small area, say $A_i$, is $\frac{1}{576}$.  
+Let $X$ denote the number of hits that a small area $A_i$ receives in this German raid.  
+Since $537$ bombs fell over $A$, we can model $X$ as $\binomial(n=537,\theta=\frac{1}{576})$ that is counting the number of `successes' (for German bombers) with probability $\theta$ in a sequence of $n=537$ independent $\bernoulli(\theta)$ trials.  
+Finally, we can approximate this $\binomial(n=537,\theta=\frac{1}{576})$ random variable by $\poisson(\lambda)$ random variable with $\lambda=n\theta=\frac{537}{576} \approxeq 0.933$.
+Using the probability mass function formula for $\poisson(\lambda=0.933)$ random variable $X$ we can obtain the probabilities and compare them with the relative frequencies from the data as follows:
+
+\begin{center}
+{\small
+\begin{tabular}{|c|c|c|c|}
+\hline
+$x$ & observed frequency & observed relative frequency & Prob of $x$ hits\\\hline
+$0$ & $229$ & $229/576=0.398$ & $f(0;0.933) = 0.394$\\
+$1$ & $211$ & $211/576=0.366$ & $f(1;0.933) = 0.367$\\
+$2$ & $93$ & $93/576=0.161$ & $f(2;0.933) = 0.171$\\
+$3$ & $35$ & $35/576=0.0608$ & $f(3;0.933) = 0.0532$\\
+$4$ & $7$ & $7/576=0.0122$ & $f(4;0.933) = 0.0124$\\
+$\geq 5$ & $1$ & $1/576=0.00174$ & $1-\sum_{x=0}^4f(x;0.933) = 0.00275$\\\hline
+\end{tabular}
+}
+\end{center}
+\end{Answer}
+
 \bigskip
 
 \begin{framed}
@@ -4798,35 +4830,6 @@ Hint: Use the distribution function for an $\exponential(\lambda)$ random variab
 \item Set  \[\p(t>\tau)\;=\;e^{-0.01\tau}\;=\;\frac{1}{2}\]
 and solve for $\tau$ to get  then $\tau\,=\,-100\times \log(0.5)\,=\,69.3\quad (\text{3 sig. fig.})$\,.
 \ee
-
-\Exercise
-Feller discusses the probability and statistics of flying bomb hits in an area of southern London during II world war.  
-The area in question was partitioned into $24 \times 24 = 576$ small squares.  
-The total number of hits was $537$.  
-There were $229$ squares with $0$ hits, $211$ with $1$ hit, $93$ with $2$ hits, $35$ with $3$ hits, $7$ with $4$ hits and $1$ with $5$ or more hits.  
-Assuming the hits were purely random, use the Poisson approximation to find the probability that a particular square would have exactly $k$ hits.  Compute the expected number of squares that would have $0$, $1$, $2$, $3$, $4$, and $5$ or more hits and compare this with the observed results (Snell 9.2.14).  
-\Answer
-We are given that $537$ flying bombs hit an area $A$ of south London made up of $24 \times 24=576$ small equal-sized areas, say $A_1,A_2,\ldots,A_{576}$.  
-Assuming the hits were purely random over $A$ the probability that a particular bomb will hit a given small area, say $A_i$, is $\frac{1}{576}$.  
-Let $X$ denote the number of hits that a small area $A_i$ receives in this German raid.  
-Since $537$ bombs fell over $A$, we can model $X$ as $\binomial(n=537,\theta=\frac{1}{576})$ that is counting the number of `successes' (for German bombers) with probability $\theta$ in a sequence of $n=537$ independent $\bernoulli(\theta)$ trials.  
-Finally, we can approximate this $\binomial(n=537,\theta=\frac{1}{576})$ random variable by $\poisson(\lambda)$ random variable with $\lambda=n\theta=\frac{537}{576} \approxeq 0.933$.
-Using the probability mass function formula for $\poisson(\lambda=0.933)$ random variable $X$ we can obtain the probabilities and compare them with the relative frequencies from the data as follows:
-
-\begin{center}
-{\small
-\begin{tabular}{|c|c|c|c|}
-\hline
-$x$ & observed frequency & observed relative frequency & Prob of $x$ hits\\\hline
-$0$ & $229$ & $229/576=0.398$ & $f(0;0.933) = 0.394$\\
-$1$ & $211$ & $211/576=0.366$ & $f(1;0.933) = 0.367$\\
-$2$ & $93$ & $93/576=0.161$ & $f(2;0.933) = 0.171$\\
-$3$ & $35$ & $35/576=0.0608$ & $f(3;0.933) = 0.0532$\\
-$4$ & $7$ & $7/576=0.0122$ & $f(4;0.933) = 0.0124$\\
-$\geq 5$ & $1$ & $1/576=0.00174$ & $1-\sum_{x=0}^4f(x;0.933) = 0.00275$\\\hline
-\end{tabular}
-}
-\end{center}
 
 %question  (poisson)
 \Exercise 

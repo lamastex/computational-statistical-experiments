@@ -997,8 +997,7 @@ The Poisson distribution has been described as a limiting version of the
 Binomial. In particular, Exercise~\ref{eqn:poi_cars} thinks of a Poisson distribution as a model for the number of events (cars) that occur in a period of time (1 minute) when in each little chunk of time one car arrives with constant probability, independently of the other time intervals. This leads to the general view of the Poisson distribution as a good model when:
 
 
-\cen{{\emph You count the number of events in a continuum when the events occur
-  \\ at constant rate, one at a time and are independent of one another.}}
+\cen{{\emph{You count the number of events in a continuum when the events occur at constant rate, one at a time and independent of each other.}}}
 
 \end{framed}
 
@@ -1021,7 +1020,7 @@ Poisson($\lambda$)&$\{0,1,2,\dots\}$&$\p(X=x)\newline=\displaystyle \frac{\lambd
 \end{tabular}}
 \end{center}
 
-\section{Continuous Random Variables}
+\section{Continuous Random Variables}\label{S:ContRVs}
 
 If $X$ is a measurement of a continuous quantity, such as,
 \begin{itemize}
@@ -1034,7 +1033,7 @@ If $X$ is a measurement of a continuous quantity, such as,
 \end{itemize}
 then $X$ is a continuous random variable. Continuous random variables are based on measurements in a continuous scale of a given precision as opposed to discrete random variables that are based on counting.
 
-\begin{example}
+\begin{example}\label{EgTimeStudentLeaves}
 Suppose that  $X$ is  the time, in minutes, before the next student
   leaves the lecture room. This is an example of a  continuous random
   variable that takes one of (uncountably)  infinitely many values.
@@ -1057,7 +1056,7 @@ Finding $\p(X=2)$, for example,  doesn't make sense because
       that the value is between two endpoints of an interval, or a set of intervals, including half-lines in $\Rz$.
 \eit
 
-\begin{definition}[probability density function (PDF)]
+\begin{definition}[probability density function (PDF)]\label{D:PDF}
 A RV $X$ with distribution function (DF) given by $F$ is said to be {\bf continuous} if there exists a piecewise-continuous function $f$, called the {\bf probability density function (PDF)} of $X$, such that 
 \begin{equation}\label{eqn:cdf_integral}
 F(x)\;=\; \p(X\leq x)\;=\;\int_{-\infty}^x f(v) \;dv
@@ -1089,7 +1088,7 @@ for every $x$ at which $f(x)$ is continuous.
 
 The next set of examples illustrate notation and typical applications of the formulae above.
 
-\begin{example}
+\begin{example}\label{EgPdf3xsqon01}
 {Consider the continuous random variable, $X$, whose  probability density function is:
 $$f(x)\;=\;\begin{cases}3x^2&0<x<1\\0&\textrm{otherwise}\end{cases}$$
  \be
@@ -1124,7 +1123,7 @@ P\left(\frac{1}{3} \leq X\leq\frac{2}{3}\right )
 %}
 \end{example}
 
-\begin{example}
+\begin{example}\label{EgPdfSinxon0piover2}
 {Consider the continuous random variable, $X$, whose distribution function is:
 $$F(x)\;=\;\begin{cases}0&x\leq0\\\sin(x)& 0<x<\frac{\pi}{2}\\1&x\geq
   \frac{\pi}{2}\end{cases}\,.$$
@@ -1278,12 +1277,12 @@ The plot was saved as an encapsulated postscript file from the File menu of the 
 
 --- one can obtain any other random variable from the fundamental model whose unique DF is its own inverse, i.e., $F(x)=F^{[-1]}(x)$, as you will See from von Neumann's Fundamental Theorem of Simulation in Chapter~\ref{S:RNG}.
 
-\subsection{Some Common Continuous Random Variables}
+\subsection{Some Common Continuous Random Variables}\label{S:CommonContRV}
 
 Let us warm-up with an example.
 
 
-\begin{example}
+\begin{example}\label{EgPdfeToTheminusx}
 {Let $X$ have  density function $f(x)\,=\,e^{-x}$, if $x\geq0$,  and
   zero otherwise.
   \be
@@ -1350,7 +1349,7 @@ F(x; \lambda) = \int_{-\infty}^{x} \BB{1}_{(0,\infty)} \lambda e^{-\lambda v} dv
 \end{multline*}
 \[\p(X > x) = 1- \p(X \leq x) = 1- F(x; \lambda) = 1 - \left( 1-e^{-\lambda x}\right) = e^{-\lambda x}\].
 
-This distribution is fundamental because of its property of {\bf memorylessness}, i.e., $\p(X>x+y) | X > y) = e^{-\lambda x}$, and plays a fundamental role in modeling continuous time processes, such as time between occurrence of events of interest, as we will see in the sequel.
+This distribution is unique because of its property of {\bf memorylessness}, i.e., $\p(X>x+y | X > y) = e^{-\lambda x}$, and plays a fundamental role in modeling continuous time processes, such as time between occurrence of events of interest, as we will see in the sequel.
 \end{model}
 
 \begin{figure}[htbp]
@@ -1369,7 +1368,7 @@ We encode the PDF and DF of the $\exponential(\lambda)$ RV as \Matlab functions 
 \centering   \makebox{\includegraphics[width=6.5in]{figures/plotPdfCdfExponentials}}
 \end{figure}
 
-\begin{example}[On a dark desert highway]
+\begin{example}[On a dark desert highway]\label{darkDesHWWaitingTime}
 {At a certain location on a dark desert highway, the time in minutes between arrival of cars that exceed the speed limit is an $\exponential(\lambda=1/60)$ random variable. 
 If you just saw a car that exceeded the speed limit then what is the probability of waiting less than 5 minutes before seeing another car that will exceed the speed limit?}
 
@@ -1391,6 +1390,17 @@ Note: We could use the distribution function directly:
 F\left(5;\frac{1}{60}\right) \;=\; 1-e^{-\frac{1}{60}5} \;=\; 1--e^{-\frac{1}{12}} \;\approx\; 0.07996\]
 }
 \end{example}
+
+\begin{Exercise}[title={Memorylessness of $\exponential(\lambda)$ RV},label={memorylessnessOfExponentialLambdaRV}]
+[This exercise is optional.]\\[4pt] Try to prove that if $X \sim \exponential(\lambda)$, then it has the property of {\bf memorylessness}, i.e., prove that $\p(X>x+y  | X > y) = e^{-\lambda x}$. 
+\end{Exercise}
+\begin{Answer}
+This exercise is optional.\\[4pt]
+{\tiny ... Try it if you want to and communicate face-to-face your understanding or misunderstanding with Raaz.}
+\vspace{5cm}
+\end{Answer}
+
+\bigskip
 
 Let us introduce parameters for the lower and upper bounds of the interval upon which a continuous RV is uniformly distributed using the following probability model.
  
@@ -1422,7 +1432,8 @@ Recall that we emphasise the dependence of the probabilities on the two paramete
 \end{center}
 \end{figure}
 
-\begin{Exercise}
+
+\begin{Exercise}\label{xPDFHeightOfUniformOn2_6}
 {Consider  a random variable with a probability density function
 \[f(x)\;=\;\begin{cases}\displaystyle k & \textrm{if} \qquad  2\leq
   x\leq 6 \enspace,\\0& \text{otherwise}
@@ -1498,7 +1509,7 @@ Thus, $\varphi$ has a global maximum at $0$, it is concave down if $z \in (-1,1)
 This shows that the graph of $\varphi$ is shaped like a smooth symmetric bell centred at the origin over the real line.
 
 
-\begin{classwork}
+\begin{classwork}\label{xDrawPDFOfStdNormal}
 From the above exercise in calculus let us draw the graph of $\varphi$ by hand now!
 
 Do it step by step: $z^2$, $-z^2$, $-z^2/2$, $\exp(-z^2/2)$, $\varphi(z) = \frac{1}{\sqrt{2\pi}} \exp(-z^2/2)$ now! 
@@ -1515,7 +1526,7 @@ The distribution function of $Z$ is given by
 obtained numerically and tabulated.  Values of $\Phi(z)$ are tabulated in the ``Standard Normal Distribution Function Table'' in Sec.~\ref{S:NormalDFTable}.}
 \end{rem}
 
-\begin{classwork}
+\begin{classwork}\label{xDrawDFOfStdNormal}
 {Note that the curve of $\Phi(z)$ is $S$-shaped, increasing in a strictly monotone way from $0$ at $-\infty$ to $1$ at $\infty$, and intersects the vertical axis at $1/2$. Draw this by hand too.}\\[4pt]
 just do it! \vspace*{20mm}
 \end{classwork}
@@ -1576,20 +1587,22 @@ $F(x)$: Distribution function (DF)
 Suppose we know the distribution of a random variable $X$.  How do we find the distribution of a transformation of $X$, say $g(X)$?
 Before we answer this question let us ask a motivational question.  Why are we interested in functions of random variables?
 
-\begin{example}
+\begin{example}\label{EgProfitOn5With500cost}
 Consider a simple financial example where an individual sells $X$ items per day, the profit per item is $\$ 5$ and the overhead costs are $\$ 500$ per day.  The original random variable is $X$, but the random variable $Y$ which gives the daily profit is of more interest, where
 \[
 Y = 5X - 500 \enspace . 
 \]
 \end{example}
 
-\begin{example}
+
+\begin{example}\label{EgSignal2NoiseInDecibels10TimeslogBase10OfX}
 In a cell-phone system a mobile signal may have a signal-to-noise-ratio of $X$, but engineers prefer to express such ratios in decibels, i.e.,
 \[
 Y = 10 \log_{10}(X) \enspace .
 \]
 \end{example}
 
+\subsection{A Review of Inverse Images}\label{S:RWInverseImages}
 Hence in a great many situations we are more interested in functions of random variables. 
 Let us return to our original question of determining the distribution of a transformation or function of $X$.  
 First note that this transformation of $X$ is itself another random variable, say $Y = g(X)$, 
@@ -1674,7 +1687,7 @@ P \left( \{\omega \in \Omega: g(X(\omega)) \in A\} \right)
 \]
 Because we have more than one random variable to consider, namely, $X$ and its transformation $Y=g(X)$ we will subscript the probability density or mass function and the distribution function by the random varaible itself.  For example we denote the distribution function of $X$ by $F_X(x)$ and that of $Y$ by $F_Y(y)$.
 
-\subsection{Transformation of discrete random variables}
+\subsection{Transformations of discrete random variables}\label{TransformationsOFDiscreteRvs}
 For a discrete random variable $X$ with probability mass function $f_X$ we can obtain the probability mass function $f_Y$ of $Y=g(X)$ using Equation~\eqref{E:ProbOfgOfX} as follows:
 \begin{eqnarray*}
 f_Y(y) 
@@ -1727,7 +1740,7 @@ $f_Y(y)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$
 
 In fact, obtaining the probability of a one-to-one transformation of a discrete random variable as in Examples~\ref{EXMP:Discrete1to1TransYis2X} and \ref{EXMP:Discrete1to1TransYis2Xplus1} is merely a matter of looking up the probability at the image of the inverse function.  This is because there is only one term in the sum that appears in Equation~\eqref{E:PMFOfgOfX}.  When the transformation is not one-to-one the number of terms in the sum can be more than one as shown in the next Example.
 
-\begin{example}
+\begin{example}\label{Eg:DiscreteManyTo1TransYisXSquared}
 Reconsider the random variable $X$ of the last two Examples and let $Y=X^2$.  
 Recall that $g(x)=x^2$ does not have an inverse function unless the domain is restricted to the positive or the negative parts of the real line.  
 Since our random variable $X$ takes values on both sides of the real line, namely $\{-1,0,1\}$, let us note that the transformation $g(X)=X^2$ is no longer a one-to-one function.  
@@ -1750,9 +1763,7 @@ $f_Y(y)$ & $\frac{1}{2}$ & \quad & $\frac{1}{2}$
 \end{center}
 \end{example}
 
-
-
-\subsection{Transformation of continuous random variables}
+\subsection{Transformations of continuous random variables}\label{S:TransformationsOFContinuousRvs}
 Suppose we know $F_X$ and/or $f_X$ of a continuous random variable $X$.  
 Let $Y=g(X)$ be a transformation of $X$.  
 Our objective is to obtain $F_Y$ and/or $f_Y$ of $Y$ from $F_X$ and/or $f_X$.  
@@ -1832,7 +1843,7 @@ for $0 \leq y \leq 1$
 Thus, we have shown that if $X$ is a $\uniform(0,1)$ random variable then $Y=1-X$ is also a $\uniform(0,1)$ random variable.
 \end{example}
 
-\begin{example}
+\begin{example}\label{Eg:Expontial1IsMinusLogOfUniform01}
 Let $X$ be a $\uniform(0,1)$ random variable and let $Y=g(X)=-\log(X)$.  
 We are interested in the density of the tranformed random variable $Y$.  
 Once again, since $g$ is a one-to-one monotone function let us follow the four steps and use the change of variable formula to obtain $f_Y$ from $f_X$ and $g$.
@@ -1962,9 +1973,7 @@ variable, $X$, to a standardised $\normal(0,1)$ random variable, $Z$, by
 the substitution:
 $$Z\;=\;\frac{X-\mu}{\sigma}\,.$$
 
-
-
-\begin{example}
+\begin{example}\label{EgGaussianProbLocScaleFromTableMremsInFlight}
 Suppose that the amount of cosmic radiation to which a person is exposed 
 when flying by jet across the United States is a random
 variable, $X$, having a normal distribution with a mean of $4.35$ mrem and a
@@ -2040,7 +2049,7 @@ f_Y(y) =
 \end{equation}
 \end{example} 
 
-\begin{example}
+\begin{example}\label{Eg:SquaredStdNormalIsChiSquared}
 {If $X$ is the standard normal random variable with density 
 $$f_X(x) = \varphi(x) = \frac{1}{\sqrt{2 \pi}} \exp{(-x^2/2)}$$ 
 then by Equation~\eqref{E:f_YofX^2} the density of $Y=X^2$ is:
@@ -2561,7 +2570,6 @@ done in lectures...
 
 \subsection{Conditional Random Variables}
 
-% TODO prove memorylessness of Exponential RVs
 Often we will have a condition where one of the two random variables that make up a random vector $(X_1,X_2)$ already occurs and takes a value. 
 And we might want to compute the probability of the occurrence of the other random variable given this conditional information.
 For this all we need to do is extend the idea of conditional probabiliies to $\Rz^2$-valued random variables as defined below.

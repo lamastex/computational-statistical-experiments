@@ -1021,39 +1021,147 @@ Poisson($\lambda$)&$\{0,1,2,\dots\}$&$\p(X=x)\newline=\displaystyle \frac{\lambd
 \end{tabular}}
 \end{center}
 
-\remove{
-
-}
-
-
 \section{Continuous Random Variables}
-\subsection{An Elementary Continuous Random Variable}\label{S:ElemContRV}
 
-When a RV takes values in the continuum we call it a {\bf continuous} RV.  An example of such a RV is the vertical position (in micro meters) since the original release of a pollen grain on water.  Another example of a continuous RV is the volume of water (in cubic meters) that fell on the southern Alps last year.  
+If $X$ is a measurement of a continuous quantity, such as,
+\begin{itemize}
+\item the maximum diameter in millimeters of a venus shell I picked up at New Brighton beach, 
+\item the distance you transported yourself to lectures today in meters, 
+\item the volume of rain that fell on the roof of this building over the past 365 days in litres,
+\item the vertical position (in micro meters above sea-level) since the release of a pollen grain at a location in Lake Rogen in H\"arjedalen, as it traces through G\"ota~\"alv—Klar\"alven, the longest river of Sweden before discharging in a delta into V\"anern at Karlstad. 
+\item the volume of water (in cubic meters) that fell on the southern Alps of the South Island of New Zealand throughout last year.  
+\item etc.,
+\end{itemize}
+then $X$ is a continuous random variable. Continuous random variables are based on measurements in a continuous scale of a given precision as opposed to discrete random variables that are based on counting.
+
+\begin{example}
+Suppose that  $X$ is  the time, in minutes, before the next student
+  leaves the lecture room. This is an example of a  continuous random
+  variable that takes one of (uncountably)  infinitely many values.
+  When a student leaves, $X$ will take on the value $x$ and this $x$
+  could be $2.1$ minutes, or $2.1000000001$ minutes,  or $2.9999999$
+  minutes, etc., depending the measurement precision of the clock being used to measure time.  
+
+Finding $\p(X=2)$, for example,  doesn't make sense because
+  how can it ever be {\em exactly} $2.00000 \cdots$ minutes? It is more
+  sensible to consider  probabilities like  $\p(X>x)$ or $\p(X<x)$ or $\p(a < X < b)$ with $a < b$, up to measurement precision of the time-measuring clock rather
+  than the discrete approach of trying to compute $\p(X=x)$.
+\end{example}
+
+ The characteristics of continuous random variables are:
+\bit
+\item  The outcomes are measured, not counted.
+\item  Geometrically, {\em the probability of an outcome is equal to an area}
+  under a mathematical curve.
+\item  Each individual value has zero probability of occurring. So we find the probability
+      that the value is between two endpoints of an interval, or a set of intervals, including half-lines in $\Rz$.
+\eit
+
 \begin{definition}[probability density function (PDF)]
-A RV $X$ is said to be `continuous' if there exists a piecewise-continuous function $f$, called the probability density function (PDF) of $X$, such that for any $a, b \in \Rz$ with $a < b$,
-\[
-\p(a < X \leq b) = F(b)-F(a) = \int_a^b f(x) \ dx \ .
-\]
+A RV $X$ with distribution function (DF) given by $F$ is said to be {\bf continuous} if there exists a piecewise-continuous function $f$, called the {\bf probability density function (PDF)} of $X$, such that 
+\begin{equation}\label{eqn:cdf_integral}
+F(x)\;=\; \p(X\leq x)\;=\;\int_{-\infty}^x f(v) \;dv
+\end{equation}
+where $f: \Rz \to \Rz$ is a non-negative function, i.e., $f(x)\geq 0$. 
+We write $v$ because $x$ is needed as the upper limit of the integral.
+Piecewise-continuity of $f$ means $f$ is continuous, perhaps possibly at the $x$-values where $f$ is discontinuous between the continuous pieces (see \url{https://en.wikipedia.org/wiki/Piecewise}). 
 \end{definition}
+
 The following hold for a continuous RV $X$ with PDF $f$:
 \begin{enumerate}
-\item For any $x \in \Rz$, $\p(X=x)=0$.
-\item Consequentially, for any $a,b \in \Rz$ with $a \leq b$,
-\[
-\p(a < X < b ) = \p(a < X \leq b) = \p(a \leq X \leq b) = \p(a \leq X < b) \ .
-\]
-\item By the fundamental theorem of calculus, except possibly at finitely many points (where the continuous pieces come together in the piecewise-continuous $f$):
-\[
-f(x) = \frac{d}{dx} F(x)
-\]
-\item And of course $f$ must satisfy:
+\item For any $x \in \Rz$, $\p(X=x)=\p(X \in [x,x]) = \int_x^x f(v)dv = 0$.
+\item By the fundamental theorem of calculus:
+\begin{equation}\label{eqn:density_dev_cdf}
+f(x) = \frac{d}{dx} F(x) =: F'(x), 
+\end{equation}
+for every $x$ at which $f(x)$ is continuous.
+\item Consequentially, for any $a,b \in \Rz$ with $a<b$,
+\begin{eqnarray}\label{eqn:con_intval_prob}
+\p(a < X < b ) &=& \p(a < X \leq b) = \p(a \leq X \leq b) = \p(a \leq X < b)\\
+               &=& F(b)-F(a)\;=\;\int^b_a f(v)dv\enspace.
+\end{eqnarray}
+\item And $P(\Omega)=1$ implies that:
 \[
 \int_{-\infty}^{\infty} f(x) \ dx = \p(-\infty < X < \infty) = 1 \ .
 \] 
 \end{enumerate}
 
-An elementary and fundamental example of a continuous RV is the $\uniform(0,1)$ RV of \hyperref[M:Uniform01]{Model \ref*{M:Uniform01}}.  It forms the foundation for random variate generation and simulation.  In fact, it is appropriate to call this the fundamental model since every other experiment can be obtained from this one.
+
+The next set of examples illustrate notation and typical applications of the formulae above.
+
+\begin{example}
+{Consider the continuous random variable, $X$, whose  probability density function is:
+$$f(x)\;=\;\begin{cases}3x^2&0<x<1\\0&\textrm{otherwise}\end{cases}$$
+ \be
+\item[(a)]Find the distribution function, $F(x)$.
+\item[(b)] Find $P(\frac{1}{3}\leq X\leq \frac{2}{3})$.
+\ee
+}
+
+%{\scriptsize
+{\em Solution}\\[4pt]
+\be
+
+\item[(a)]First note that if $x\leq 0$, then  $$F(x)\;=\;\int^x_{-\infty}0dv\;=\;0\,.$$
+If $0<x<1$, then
+\begin{align*}F(x)&=\;\int^0_{-\infty}0dv\;+\;\int^x_03v^2dv\\[3pt]
+&=\;0\;+\;\left[v^3\right]^x_0\\[3pt]
+&=\;x^3\end{align*}
+If $x\geq 1$, then
+\begin{align*}F(x)&=\int^0_{-\infty}0dv\;+\;\int^1_03v^2dv+\int^x_10dv\\[3pt]
+&=0\;+\;\left[v^3\right]^1_0\;+\;0\\[3pt]
+&=\;1\end{align*}
+Hence  $$F(x)\;=\;\begin{cases}0&x\leq 0\\x^3&0<x<1\\1&x\geq 1\end{cases}$$
+
+\item[(b)]
+\begin{align*}
+P\left(\frac{1}{3} \leq X\leq\frac{2}{3}\right )
+&=\; F\left(\frac{2}{3}\right) \,-\, F\left(\frac{1}{3}\right) \\[3pt]
+&=\; \left(\frac{2}{3}\right)^3\,-\, \left(\frac{1}{3}\right)^3\\[3pt]
+&=\;\frac{7}{27}
+\end{align*}
+\ee
+%}
+\end{example}
+
+\begin{example}
+{Consider the continuous random variable, $X$, whose distribution function is:
+$$F(x)\;=\;\begin{cases}0&x\leq0\\\sin(x)& 0<x<\frac{\pi}{2}\\1&x\geq
+  \frac{\pi}{2}\end{cases}\,.$$
+\begin{enumerate}
+\item[(a)] Find the probability density function, $f(x)$.
+\item[(b)] Find $P\left(X>\frac{\pi}{4}\right)$
+\end{enumerate}
+
+%{\scriptsize
+{\em Solution}
+
+\begin{enumerate}
+\item[(a)] The probability density function, $f(x)$ is given by
+$$f(x)\;=\;F^\prime(x)\;=\;\begin{cases}0&x < 0\\\cos x&
+  0<x<\frac{\pi}{2}\\0&x\geq \frac{\pi}{2}\end{cases}$$
+\item[(b)]
+$$P\left(X>\frac{\pi}{4}\right)\;=\;1-P\left(X\leq
+  \frac{\pi}{4}\right)\;=\;1\,-\,F\left(\frac{\pi}{4}\right)\;=\;1-\sin\left(\frac{\pi}{4}\right)\;=  \; 0.293 \;(\text{3 sig. fig.})$$
+\end{enumerate}
+
+$^*$ You may stop at $1-\sin\left(\frac{\pi}{4}\right)$ for full credit in the exam.
+
+Note: $f(x)$  is not defined at $x=0$ as $F(x)$ is not
+differentiable at $x=0$. There is a ``kink'' in the distribution
+function at $x=0$ causing this problem. It is standard to define
+$f(0)=0$ in such situations,  as $f(x)=0$ for $x<0$. This choice is arbitrary but it simplifies things
+and makes no difference to the calculated probability.
+%}
+}
+\end{example}
+
+Now that we have warmed-up with two examples of continuous RVs, let us define the most elementary continuous RV next.
+
+\subsection{An Elementary Continuous Random Variable}\label{S:ElemContRV}
+
+An elementary and fundamental example of a continuous RV is the $\uniform(0,1)$ RV of \hyperref[M:Uniform01]{Model \ref*{M:Uniform01}}.  It forms the foundation for all non-uniform random variate generation and simulation as we will see in Chapter~\ref{S:RNG}.  
+In fact, it is appropriate to call this the fundamental model since every other probability model can be obtained from this one!
 
 \begin{model}[The Fundamental Model]\label{M:Uniform01}
 The probability density function (PDF) of the fundamental model or the $\uniform(0,1)$ RV is
@@ -1074,11 +1182,21 @@ x & \text{if $0 \leq x \leq 1$,}\\
 \end{cases}
 \end{equation}
 Note that the DF is the identity map in $[0,1]$.  The PDF and DF are depicted in \hyperref[F:unif01]{Figure~\ref*{F:unif01}}.
-\begin{figure}[htpb]
-\caption{A plot of the PDF and DF or CDF of the $\uniform(0,1)$ continuous RV $X$.\label{F:unif01}}
-\centering   \makebox{\includegraphics[width=6.5in]{figures/Unif01pdfcdf}}
-\end{figure}
 \end{model}
+
+Let us draw the PDF and DF for $\uniform(0,1)$ RV next by hand.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{pstricks/unif01fF}
+\caption{$f(x)$ and $F(x)$ of the $\uniform(0,1)$ random variable $X$.}
+\end{center}
+\end{figure}
+
+\begin{figure}[htpb]
+\caption{A convenient but mathematically imprecise Matlab plot from a polyline interpolation for the PDF and DF or CDF of the $\uniform(0,1)$ continuous RV $X$.\label{F:unif01}}
+\centering   \makebox{\includegraphics[width=4.5in]{figures/Unif01pdfcdf}}
+\end{figure}
 
 \remove{
 \begin{labwork}[PDF of $\uniform(0,1)$ RV]\label{LW:Unif01Pdf}
@@ -1147,19 +1265,311 @@ The plot was saved as an encapsulated postscript file from the File menu of the 
  \end{labwork}
 }
 
-{\bf **tossing a fair coin infinitely often and the fundamental model}
+{\bf **tossing a fair coin infinitely often, i.e., IID sequence of $\bernoulli(1/2)$ trials, and the fundamental model}
 
 %TODO\input{figures/UnifsInUnif.tex}
 
---- The fundamental model is equivalent to infinite tosses of a fair coin (see using binary expansion of any $x \in (0,1)$)
+--- The fundamental model is equivalent to infinite tosses of a fair coin (see using binary expansion of any $x \in (0,1)$ if you want as suggested in optional Exercise~\ref{underMPSA} on intuiting a most primitive sigma-algebra)
 
---- The fundamental model has infinitely many copies of itself within it!
+--- The fundamental model has infinitely many copies of itself within it! You can see this since its DF $F$ is the identity function on $[0,1]$ or equivalently how the dyadic binary tree is identical below a given node in the tree no matter which node in the tree you choose.
 
 
 {\bf **universality of the fundamental model}
 
---- one can obtain any other random variable from the fundamental model!
+--- one can obtain any other random variable from the fundamental model whose unique DF is its own inverse, i.e., $F(x)=F^{[-1]}(x)$, as you will See from von Neumann's Fundamental Theorem of Simulation in Chapter~\ref{S:RNG}.
 
+\subsection{Some Common Continuous Random Variables}
+
+Let us warm-up with an example.
+
+
+\begin{example}
+{Let $X$ have  density function $f(x)\,=\,e^{-x}$, if $x\geq0$,  and
+  zero otherwise.
+  \be
+\item[(a)]Find the distribution function.
+\item[(b)] Find the probabilities, $P(\frac{1}{4}\leq X \leq 2)$ and
+  $P\left(-\frac{1}{2}\leq X\leq \frac{1}{2}\right)$.
+\item[(c)]Find $x$ such that $P(X\leq x) =0.95$.
+\ee
+}
+
+Solution:\\[4pt]
+{\be
+\item[(a)] 
+$$
+F(x)\;=\;\int_0^{x}e^{-v}dv
+\;=\;\left.-e^{-v}\right]^x_0 
+\;=\;-e^{-x}+1\;=\;1-e^{-x}\qquad \textrm{if }x \geq 0
+$$
+Therefore, 
+$$
+F(x)\;=\;
+\begin{cases}
+1-e^{-x}& \textrm{if }x \geq 0\enspace , \\
+0&\textrm{otherwise}\enspace.
+\end{cases}
+$$
+\item[(b)]
+$$
+P\left(\frac{1}{4}\leq X\leq 2\right) 
+\;=\;F(2)-\,F\left(\frac{1}{4}\right)
+\;=\;0.634\;\;(\text{3 sig. fig.})
+$$
+$$
+P\left(-\frac{1}{2}\leq X\leq \frac{1}{2}\right) 
+\;=\;
+F\left(\frac{1}{2}\right)\,-\,F\left(-\frac{1}{2}\right)
+\;=\;0.394 \;\;(\text{3 sig. fig.})
+$$
+\item[(c)] $$P(X\leq x)\;=\;F(x)\;=\;1-e^{-x}\;=\;0.95$$
+Therefore, $$x\;=\;-\log(1-0.95)\;=\;3.00\;\;(\text{3 sig. fig.})\enspace.$$
+\ee
+}
+\end{example}
+
+The previous example is a special case of the following parametric
+family of random variables.
+
+\begin{model}[$\exponential(\lambda)$]\label{M:exponential}
+For a given $\lambda > 0$, an $\exponential(\lambda)$ RV has the following PDF $f$ and DF $F$ and its complementary distribution function denoted by $\overline{F}(x; \lambda) := \p(X > x) = 1-F(x;\lambda)$:
+\begin{eqnarray}\label{E:Exponentialpdfcdf}
+f(x; \lambda) &=& \BB{1}_{(0,\infty)} \lambda e^{-\lambda x} =
+\begin{cases}
+\lambda \exp(-\lambda x) & x>0 \enspace ,\\
+0&\textrm{otherwise} \enspace ,
+\end{cases}\\
+F(x; \lambda) &=& 1-e^{-\lambda x} \enspace ,\\ 
+\overline{F}(x; \lambda) = e^{-\lambda x} \enspace .
+\end{eqnarray}
+
+The last two equations are derived from definitions as follows:
+\begin{multline*}
+F(x; \lambda) = \int_{-\infty}^{x} \BB{1}_{(0,\infty)} \lambda e^{-\lambda v} dv = \lambda \int_0^x e^{-\lambda v} dv = \lambda \left( -\frac{1}{\lambda} e^{-\lambda v} \right]_0^x =  \left( - e^{-\lambda v} \right]_0^x \\ \notag
+= -e^{-\lambda x} - (-e^{-0}) = -e^{-\lambda x} - (-1/e^0) = -e^{-\lambda x} - (-1/1) = -e^{-\lambda x} - (-1) = -e^{-\lambda x} + 1 \\ \notag
+\end{multline*}
+\[\p(X > x) = 1- \p(X \leq x) = 1- F(x; \lambda) = 1 - \left( 1-e^{-\lambda x}\right) = e^{-\lambda x}\].
+
+This distribution is fundamental because of its property of {\bf memorylessness}, i.e., $\p(X>x+y) | X > y) = e^{-\lambda x}$, and plays a fundamental role in modeling continuous time processes, such as time between occurrence of events of interest, as we will see in the sequel.
+\end{model}
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{pstricks/exponentialLambdafF}
+\caption{$f(x;\lambda)$ and $F(x;\lambda)$ of an exponential random variable where $\lambda=1$ (dotted) and $\lambda=2$ (dashed).}
+\end{center}
+\end{figure}
+
+\remove{%%%%%%%%%%%%%%% SIMUL
+We encode the PDF and DF of the $\exponential(\lambda)$ RV as \Matlab functions {\tt ExponentialPdf} and {\tt ExponentialCdf} and use them to produce \hyperref[F:plotPdfCdfExponentials]{Figure~\ref*{F:plotPdfCdfExponentials}} in \hyperref[Mf:ExponentialPdfCdf]{Labwork~\ref*{Mf:ExponentialPdfCdf}}.
+}%end remove%%%%%%%%%%%%%%%% SIMUL?
+
+\begin{figure}[htpb]
+\caption{Density and distribution functions of $\exponential(\lambda)$ RVs, for $\lambda=1, 10, 10^{-1}$, in four different axes scales.\label{F:plotPdfCdfExponentials}}
+\centering   \makebox{\includegraphics[width=6.5in]{figures/plotPdfCdfExponentials}}
+\end{figure}
+
+\begin{example}[On a dark desert highway]
+{At a certain location on a dark desert highway, the time in minutes between arrival of cars that exceed the speed limit is an $\exponential(\lambda=1/60)$ random variable. 
+If you just saw a car that exceeded the speed limit then what is the probability of waiting less than 5 minutes before seeing another car that will exceed the speed limit?}
+
+{\em Solution:}\\[4pt]
+{
+The waiting time in minutes is simply given by the $\exponential(\lambda=1/60)$ random variable.  
+Thus, the desired probability is 
+\[
+P(0 \leq X < 5)
+\;=\;\int_0^5\frac{1}{60}e^{-\frac{1}{60}x}dx
+\;=\;\left.-e^{-\frac{1}{60}x}\right]_0^5
+\;=\;-e^{-\frac{1}{12}}\,+\,1\;\approx\; 0.07996.
+\]
+In exam you can stop at the expression $-e^{-\frac{1}{12}}+1$ for full credit.  
+You may need a calculator for the last step (with answer $0.07996$).
+
+Note: We could use the distribution function directly:
+\[P(0 \leq X < 5)\;=\;  F\left(5; \frac{1}{60}\right) \,-\, F\left(0;\frac{1}{60}\right) \;=\;
+F\left(5;\frac{1}{60}\right) \;=\; 1-e^{-\frac{1}{60}5} \;=\; 1--e^{-\frac{1}{12}} \;\approx\; 0.07996\]
+}
+\end{example}
+
+Let us introduce parameters for the lower and upper bounds of the interval upon which a continuous RV is uniformly distributed using the following probability model.
+ 
+\begin{model}[$\uniform(\theta_1,\theta_2)$]\label{M:Uniformab}
+Given two real parameters $\theta_1,\theta_2 \in \Rz$, such that $\theta_1 < \theta_2$, the PDF of the $Uniform(\theta_1,\theta_2)$ RV $X$ is:
+\begin{equation}\label{E:Uniformabpdf}
+f(x;\theta_1,\theta_2) =
+\begin{cases}
+\frac{1}{\theta_2 - \theta_1} & \text{if $\theta_1 \leq x \leq \theta_2$,}\\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+and its DF given by $F(x;\theta_1,\theta_2) = \int_{- \infty}^x f(y; \theta_1,\theta_2) \, dy$ is:
+\begin{equation}\label{E:Uniformabcdf}
+F(x; \theta_1,\theta_2) =
+\begin{cases}
+0 & \text{if $x < \theta_1$} \\
+\frac{x-\theta_1}{\theta_2-\theta_1} & if~\theta_1 \leq x \leq \theta_2,\\
+1 & \text{if $x > \theta_2$}
+\end{cases}
+\end{equation}
+Recall that we emphasise the dependence of the probabilities on the two parameters $\theta_1$ and $\theta_2$ by specifying them following the semicolon in the argument for $f$ and $F$.
+\end{model}
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{pstricks/uniftheta1theta2fF}
+\caption{$f(x)$ and $F(x)$ of the $\uniform(\theta_1,\theta_2)$ random variable $X$.}
+\end{center}
+\end{figure}
+
+\begin{Exercise}
+{Consider  a random variable with a probability density function
+\[f(x)\;=\;\begin{cases}\displaystyle k & \textrm{if} \qquad  2\leq
+  x\leq 6 \enspace,\\0& \text{otherwise}
+\end{cases}
+\]
+\be
+\item[(a)] Find the value of $k$.
+\item[(b)] Sketch the graphs of $f(x)$ and $F(x)$.
+\ee
+}
+\end{Exercise}
+
+\begin{Answer}
+{\be
+\item[(a)] Since $f(x)$ is a density function which integrates to one,
+\ba{\int^6_2  f(x) \,dx &\;=\; \int^6_2  k \, dx\\[3pt]
+1  &\;=\;\left.  kx \right]^6_2\\[3pt]
+1  &\;=\;6k \,-\, 2k\\[3pt]
+1  &\;=\;4k\\[3pt]
+k&\;=\; \frac{1}{4}
+}
+as expected!
+
+\medskip
+
+\item[(b)] Now $$F(x)\;=\;\begin{cases}0& x< 2 \\
+\frac{1}{4} \,( x-2)  & 2\leq x<6\\
+1& x\geq 6\enspace.
+\end{cases}
+$$
+so the graphs are:
+
+\cen{Graphs of $f(x)$ and $F(x)$.}
+\begin{center}
+\includegraphics{pstricks/unif26fF}
+\end{center}
+
+\ee
+}
+\end{Answer}
+%\remove{%%%%%%%%%%%%%%%% drawn by hand
+%\begin{figure}[htpb]
+%\caption{A plot of the PDF, DF and inverse DF of the $\uniform(-1,1)$ RV $X$.\label{F:unifpm1}}
+%\centering   \makebox{\includegraphics[width=6.5in]{figures/Unifpm1pdfcdf}}
+%\end{figure}
+%}%%%%%%%%%%%%% SHOULD go with Simulation?
+
+The standard normal distribution is the most important continuous
+probability distribution. It was first described by De Moivre in 1733
+and subsequently by C.~F.~Gauss (1777 - 1885).
+Many  random variables  have a normal distribution, or they are
+approximately normal, or can be transformed into normal random variables
+in a relatively simple fashion. Furthermore, the normal distribution is
+a useful approximation of more complicated distributions.
+%%%%Location-scale Gaussian family as a linear transformation of the standard Gaussian RV
+
+\begin{framed}
+\begin{model}[$\normal(0,1)$ or standard normal or Gaussian RV]\label{Df:StandardNormal} 
+A continuous random variable $Z$ is called \textbf{standard normal} or {\bf standard Gaussian} 
+if its probability density function is
+\begin{equation}\label{E:StandardNormalPdf}
+\varphi(z) = \frac{1}{\sqrt{2\pi}} \exp{\left( -\frac{z^2}{2}\right)} \enspace.
+\end{equation}
+\end{model}
+\end{framed}
+
+An exercise in calculus yields the first two derivatives of $\varphi$ as follows:
+\[
+\frac{d \varphi}{dz} = - \frac{1}{\sqrt{2\pi}}z \exp{\left( -\frac{z^2}{2}\right)}=-z\varphi(z), \quad
+\frac{d^2 \varphi}{dz^2} = \frac{1}{\sqrt{2\pi}}(z^2-1) \exp{\left(-\frac{z^2}{2} \right)}=(z^2-1)\varphi(z) \enspace .
+\]
+Thus, $\varphi$ has a global maximum at $0$, it is concave down if $z \in (-1,1)$ and concave up if $z \in (-\infty,-1) \cup (1,\infty)$.  
+This shows that the graph of $\varphi$ is shaped like a smooth symmetric bell centred at the origin over the real line.
+
+
+\begin{classwork}
+From the above exercise in calculus let us draw the graph of $\varphi$ by hand now!
+
+Do it step by step: $z^2$, $-z^2$, $-z^2/2$, $\exp(-z^2/2)$, $\varphi(z) = \frac{1}{\sqrt{2\pi}} \exp(-z^2/2)$ now! 
+\vspace*{20mm}
+\end{classwork}
+
+The distribution function of $Z$ is given by
+\begin{equation}\label{E:StandardNormalDF}
+\Phi(z) \;=\;\frac{1}{\sqrt{2\pi}}\int^z_{-\infty}e^{-v^2/2}\;dv \enspace .
+\end{equation}
+
+\begin{rem}
+{This integral cannot be evaluated exactly by standard methods of calculus, but its values can be
+obtained numerically and tabulated.  Values of $\Phi(z)$ are tabulated in the ``Standard Normal Distribution Function Table'' in Sec.~\ref{S:NormalDFTable}.}
+\end{rem}
+
+\begin{classwork}
+{Note that the curve of $\Phi(z)$ is $S$-shaped, increasing in a strictly monotone way from $0$ at $-\infty$ to $1$ at $\infty$, and intersects the vertical axis at $1/2$. Draw this by hand too.}\\[4pt]
+just do it! \vspace*{20mm}
+\end{classwork}
+
+\begin{example}\label{Eg:UsingNormalTables}
+Find the probabilities, using  normal tables,  that a random variable having the standard
+  normal distribution will take on a value:
+\bcols{2}\begin{itemize}
+\item [(a)] less that 1.72
+\item [(b)]less than -0.88
+\item [(c)]between 1.30 and 1.75
+\item [(d)] between -0.25 and 0.45
+\end{itemize}\ecols
+\begin{itemize}
+ \item [(a)]
+$$P(Z<1.72)\;=\;\Phi(1.72) \;=\; 0.9573$$
+ \item [(b)] First note that $P(Z<0.88)\;=\;0.8106$, so that
+   \ba{P(Z<-0.88) & \;=\;P(Z>0.88) \\
+     &\;=\;1-P(Z<0.88)\\&\;=\;1-\Phi(0.88)\\ &\;=\;1-0.8106\;=\;0.1894}
+ \item [(c)]
+$P(1.30<Z<1.75)\;=\;\Phi(1.75)-\Phi(1.30)\;=\;0.9599-0.9032\;=\;0.0567$
+ \item [(d)]
+\ba{P(-0.25<Z<0.45)&\;=\;P(Z<0.45)-P(Z<-0.25)\\&\;=\;P(Z<0.45)-(1-P(Z<0.25))\\&\;=\;\Phi(0.45)-(1-\Phi(0.25)) \\&=\;(0.6736)-(1-0.5987)\\&\;=\;0.2723}
+\end{itemize}
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bigskip
+{
+\begin{framed}
+CONTINUOUS RANDOM VARIABLES: NOTATION\\
+
+$f(x)$: Probability density function (PDF)
+\begin{itemize}
+\item$f(x)\;\geq\;0$
+\item Areas underneath $f(x)$ measure probabilities.
+\end{itemize}
+
+$F(x)$: Distribution function (DF)
+\begin{itemize}
+\item $0\;\leq\;\ F(x)\;\leq \;1$
+\item $F(x)\;= \;P(X\leq x)$ is a probability
+\item $F^{\prime}(x)\;=\;f(x)$ for every $x$ where $f(x)$ is continuous
+\item $F(x)\;=\;\displaystyle\int^x_{-\infty}f(v)dv$
+\item $P(a<X\leq b)\;=\;F(b)-F(a)\;=\;\displaystyle \int^b_af(v)dv$
+\end{itemize}
+\end{framed}
+}
+
+
+\remove{
+%The $\exponential(\lambda)$ random variable gives  the waiting times\emph{ between} successive events of a process where the number of events in unit time is a $\poisson(\lambda)$  random variable.
+%Ben wants this justified - will do in MATH103 next year...
+\Exmp
+}
 
 \section{Transformations of random variables}\label{S:TransformationsOFRvs}
 
@@ -1446,28 +1856,131 @@ f_Y(y) = f_X \left( g^{-1}(y) \right) \left\vert \frac{d}{dy} g^{-1}(y) \right\v
 Note that $0 < \exp(-y) < 1$ for $0 < y < \infty$.
 \end{enumerate}
 Thus, we have shown that if $X$ is a $\uniform(0,1)$ random variable then $Y=-\log(X)$ is an random variable with PDF $f_Y(y)=\BB{1}_{(0,\infty)}(y)\exp(-y)$. 
-We can similarly show that for a parameter $\lambda>0$, if $X \sim \uniform(0,1)$ then $Y=-\lambda^{-1} \log(X)$ yields a probability model of RVs that are parameterized by $\lambda$ and extremely useful in applications. We introduce it next.
+We can similarly show that for a parameter $\lambda>0$, if $X \sim \uniform(0,1)$ then $Y=-\lambda^{-1} \log(X)$ yields a probability model of RVs that are parameterized by $\lambda$ and extremely useful in applications. This is noting but our $\exponential(\lambda)$ RV.
 \end{example}
 
-\begin{model}[$\exponential(\lambda)$]\label{M:exponential}
-For a given $\lambda > 0$, an $\exponential(\lambda)$ RV has the following PDF $f$ and DF $F$:
-\begin{eqnarray}\label{E:Exponentialpdfcdf}
-f(x; \lambda) = \lambda e^{-\lambda x} \qquad &
-F(x; \lambda)= 1-e^{-\lambda x}  \ .
-\end{eqnarray}
-This distribution is fundamental because of its property of {\bf memorylessness} and plays a fundamental role in continuous time
-%Markov
-processes as we will see later.
-\end{model}
-
-\remove{
-We encode the PDF and DF of the $\exponential(\lambda)$ RV as \Matlab functions {\tt ExponentialPdf} and {\tt ExponentialCdf} and use them to produce \hyperref[F:plotPdfCdfExponentials]{Figure~\ref*{F:plotPdfCdfExponentials}} in \hyperref[Mf:ExponentialPdfCdf]{Labwork~\ref*{Mf:ExponentialPdfCdf}}.
-}%end remove
-
-\begin{figure}[htpb]
-\caption{Density and distribution functions of $\exponential(\lambda)$ RVs, for $\lambda=1, 10, 10^{-1}$, in four different axes scales.\label{F:plotPdfCdfExponentials}}
-\centering   \makebox{\includegraphics[width=6.5in]{figures/plotPdfCdfExponentials}}
+The next example yields the {\emph location-scale family} of normal random variables via a family of linear transformations of the standard normal random variable.
+\begin{example}\label{Eg:LinearTransfStdGaussianGaussian}
+Let $Z$ be the standard Gaussian or standard normal random variable with probability density function $\varphi(z)$ given by Equation~\eqref{E:StandardNormalPdf}.  
+For real numbers $\sigma > 0$ and $\mu$ consider the linear transformation of $Z$ given by 
+$$Y = g(Z) = \sigma Z +\mu \enspace .$$
+Some graphs of such linear transformations of $Z$ are shown in Figures~(a) and (b).
+\begin{figure}[htbp]
+\centering\subfigure[{\scriptsize $g(z)=z$, $g(z)=\frac{1}{2}z+5$ and $g(z)=\frac{1}{2}z-5$.}]{
+\includegraphics[width=8cm]{figures/LinearTransOfStdGaussianA.eps}}
+\subfigure[{\scriptsize $g(z)=z$, $g(z)=(z+5)/0.5$ and $g(z)=(z-5)/0.5$.}]{
+\includegraphics[width=8cm]{figures/LinearTransOfStdGaussianB.eps}}
 \end{figure}
+
+We are interested in the density of the tranformed random variable $Y=g(Z)=\sigma Z + \mu$.  
+Once again, since $g$ is a one-to-one monotone function let us follow the four steps and use the change of variable formula to obtain $f_Y$ from $f_Z=\varphi$ and $g$.
+\begin{enumerate}
+\item $y=g(z)=\sigma z + \mu$ is a monotone increasing function over $-\infty < z < \infty$, the range of $Z$.  
+So, we can apply the change of variable formula. 
+\item $z=g^{-1}(y)=(y - \mu) / \sigma$ is a monotone increasing function over the range of $y$ given by, %$(\sigma \times -\infty) + \mu < \sigma z + \mu < (\sigma \times \infty) + \mu$, i.e.,% Ben did not like these manipulaitons with infinities - raaz was doing arithmetic with diverging sequences with limits at infinity only. 
+$-\infty < y < \infty$.  
+\item For $-\infty < y < \infty$,
+\[
+ \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
+= \left\vert \frac{d}{dy} \left( \frac{y - \mu}{\sigma} \right) \right\vert 
+= \left\vert \frac{1}{\sigma} \right\vert = \frac{1}{\sigma} \enspace .
+\]
+\item we can use Equation~\eqref{E:f_YFromf_X_Under_one-to-one-g} and Equation~\eqref{E:StandardNormalPdf} which gives
+$$f_Z(z) = \varphi(z) = \frac{1}{\sqrt{2\pi}} \exp{\left( -\frac{z^2}{2}\right)} \enspace,$$
+to find the density of $Y$ as follows:
+\[
+f_Y(y) = f_Z \left( g^{-1}(y) \right) \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
+= \varphi \left( \frac{y - \mu}{\sigma} \right) \frac{1}{\sigma}
+= \frac{1}{\sigma \sqrt{2 \pi}} \exp \left[-\frac{1}{2} \left( \frac{y-\mu}{\sigma} \right)^2 \right] \enspace ,
+\]
+for $-\infty < y < \infty$. 
+\end{enumerate}
+Thus, we have obtained the expression for the probability density function of the linear transformation $\sigma Z + \mu$ of the standard normal random variable $Z$.  This analysis leads to the following definition.
+\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%Location-scale Gaussian family as a linear transformation of the standard Gaussian RV
+
+\begin{framed}
+
+\begin{model}[$\normal(\mu,\sigma^2)$ RV]
+Given a location parameter $\mu \in (-\infty, +\infty)$ and a scale parameter $\sigma^2 > 0$, the $\normal(\mu,\sigma^2)$ or Gaussian$(\mu,\sigma^2)$ random variable $X$ has probability density function:
+\begin{equation}\label{eqn:norm_pdf}
+f(x; \mu,
+  \sigma^2)=\frac{1}{\sigma\sqrt{2\pi}}\exp\left[-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right]\qquad(\sigma >0) \enspace .
+\end{equation}
+\end{model}
+\end{framed}
+
+This is simpler than it may at first look. $f(x;\mu, \sigma^2)$ has the following features.
+\bit
+\item $\mu$ is the expected value or mean parameter and $\sigma^2$ is the variance parameter. These concepts, mean and variance, are described in more detail in the next section on expectations.
+\item $1/(\sigma\sqrt{2\pi})$ is a constant factor that makes the area under the curve of $f(x)$ from $-\infty$ to $\infty$ equal to 1, as it must be.
+\item The curve of $f(x)$ is symmetric with respect to $x=\mu$ because the exponent is quadratic. Hence for $\mu=0$ it is symmetric with respect to the $y$-axis $x=0$.
+\item The exponential function decays to zero very fast --- the faster the decay, the smaller the value of $\sigma$.
+\eit
+
+%\newpage
+
+\begin{framed}
+The normal distribution has the {\bf distribution function}
+\begin{equation}\label{eqn:norm_int_cdf}F(x; \mu, \sigma^2)=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^x\exp\left[-\frac{1}{2}\left(\frac{v-\mu}{\sigma}\right)^2\right]\;dv\enspace.\end{equation}
+Here we need $x$ as the upper limit of integration and so we write $v$ in the integrand.
+\end{framed}
+
+
+\begin{figure}[ht]
+\cen{
+\includegraphics[scale=.3]{figures/normalpdf.eps}
+\includegraphics[scale=.3]{figures/normaldis.eps}
+\caption{PDF and DF of a $\normal(\mu,\sigma^2)$ RV for different values of $\mu$ and $\sigma^2$}
+}
+\end{figure}
+
+Using the direct method's \hyperref[Eqn:DirectMethod]{Equation~\ref*{Eqn:DirectMethod}}, we can obtain the distribution function of the $\normal(\mu,\sigma^2)$ random variable from that of the 
+tabulated distribution function of the $\normal(0,1)$ in the  \hyperref[S:NormalDFTable]{Standard normal distribution function table in Sec.~\ref*{S:NormalDFTable}}. 
+  
+\begin{prop}[One Table to Rule Them All Gaussians]
+The distribution function $F_X(x;\mu,\sigma^2)$ of the $\normal(\mu,\sigma^2)$ random variable $X$ 
+and the distribution function $F_Z(z)=\Phi(z)$  of the standard normal random variable $Z$ are related by:
+$$F_X(x;\mu,\sigma^2)\;=\; F_Z\left(\frac{x -\mu}{\sigma}\right) \;=\; \Phi\left(\frac{x-\mu}{\sigma}\right)\enspace .$$
+
+\begin{proof}
+Let $Z$ be a $\normal(0,1)$ random variable with distribution function $\Phi(z) = P (Z \leq z)$.  
+We know that if $X=g(Z)=\sigma Z+\mu$ then $X$ is the $\normal(\mu,\sigma^2)$ random variable.  
+Therefore, 
+\begin{eqnarray*}
+F_X(x;\mu,\sigma^2) 
+&=& P(X \leq x) = P\left( g(Z) \leq x \right) =  P (\sigma Z+\mu \leq x) = P\left(Z \leq \frac{x -\mu}{\sigma} \right)\\ 
+&=& F_Z \left(\frac{x -\mu}{\sigma}\right) = \Phi \left(\frac{x -\mu}{\sigma}\right) \enspace .
+\end{eqnarray*}
+\end{proof}
+\end{prop}
+
+Hence we often transform a general $\normal(\mu,\sigma^2)$ random
+variable, $X$, to a standardised $\normal(0,1)$ random variable, $Z$, by
+the substitution:
+$$Z\;=\;\frac{X-\mu}{\sigma}\,.$$
+
+
+
+\begin{example}
+Suppose that the amount of cosmic radiation to which a person is exposed 
+when flying by jet across the United States is a random
+variable, $X$, having a normal distribution with a mean of $4.35$ mrem and a
+standard deviation of $0.59$ mrem. What is the probability that a person
+will be exposed to more than $5.20$ mrem of cosmic radiation on such a
+flight?
+
+{\em Solution:}
+\begin{align*}
+P(X> 5.20)\;&=\;1-P(X\leq
+5.20)\\[3pt]&\;=\;1-F(5.20)\\[3pt]&\;=\;1-\Phi\left(\frac{5.20-4.35}{0.59}\right)\\[3pt]&\;=\;1-\Phi(1.44)\\[3pt]&\;=\;1-
+0.9251\\[3pt]&\;=\;0.0749
+\end{align*}
+\end{example}
+
+After some more notions you will see that $\normal(0,1)$ RV can actually be obtained from an IID process of $\bernoulli(\theta)$ RVs. This is an instance of the central limit theorem. To appreciate this we first need to understand what we mean by statistics and then familiarise ourselves with notions of convergence of random variables.
 
 
 \subsubsection{Direct method}\label{S:DirectMethod}
@@ -1527,6 +2040,24 @@ f_Y(y) =
 \end{equation}
 \end{example} 
 
+\begin{example}
+{If $X$ is the standard normal random variable with density 
+$$f_X(x) = \varphi(x) = \frac{1}{\sqrt{2 \pi}} \exp{(-x^2/2)}$$ 
+then by Equation~\eqref{E:f_YofX^2} the density of $Y=X^2$ is:
+\[
+f_Y(y) = 
+\begin{cases}
+0 
+& \text{ if } y < 0 \\
+\frac{1}{2 \sqrt{y}} \left( f_X(\sqrt{y}) + f_X( - \sqrt{y}) \right)
+=
+\frac{1}{\sqrt{2 \pi y}} \exp\left(-\frac{y}{2}\right) 
+& \text{ if } y \geq 0 \enspace .
+\end{cases}
+\]
+$Y$ is called the {\bf chi-square} random variable with one degree of freedom. This distribution plays a fundamental role in hypothesis testing as we will see in Inference Theory and was derived at the beginning of last century to settle ``supposedly evidence-based disputes'' among scientists using mathematics.
+}
+\end{example}
 \newpage
 
 \section{$\Rz^m$-valued Random Variables}\label{S:RVecs}
@@ -2020,32 +2551,6 @@ done in lectures...
 
 \end{example}
 
-Let us introduce parameters for the lower and upper bounds of the interval upon which a continuous RV is uniformly distributed using the following probability model.
- 
-\begin{model}[$\uniform(\theta_1,\theta_2)$]\label{M:Uniformab}
-Given two real parameters $\theta_1,\theta_2 \in \Rz$, such that $\theta_1 < \theta_2$, the PDF of the $Uniform(\theta_1,\theta_2)$ RV $X$ is:
-\begin{equation}\label{E:Uniformabpdf}
-f(x;\theta_1,\theta_2) =
-\begin{cases}
-\frac{1}{\theta_2 - \theta_1} & \text{if $\theta_1 \leq x \leq \theta_2$,}\\
-0 & \text{otherwise}
-\end{cases}
-\end{equation}
-and its DF given by $F(x;\theta_1,\theta_2) = \int_{- \infty}^x f(y; \theta_1,\theta_2) \, dy$ is:
-\begin{equation}\label{E:Uniformabcdf}
-F(x; \theta_1,\theta_2) =
-\begin{cases}
-0 & \text{if $x < \theta_1$} \\
-\frac{x-\theta_1}{\theta_2-\theta_1} & if~\theta_1 \leq x \leq \theta_2,\\
-1 & \text{if $x > \theta_2$}
-\end{cases}
-\end{equation}
-Recall that we emphasise the dependence of the probabilities on the two parameters $\theta_1$ and $\theta_2$ by specifying them following the semicolon in the argument for $f$ and $F$.
-\end{model}
-\begin{figure}[htpb]
-\caption{A plot of the PDF, DF or CDF and inverse DF of the $\uniform(-1,1)$ RV $X$.\label{F:unifpm1}}
-\centering   \makebox{\includegraphics[width=6.5in]{figures/Unifpm1pdfcdf}}
-\end{figure}
 \begin{example}[Buffon's Needle Experiment to Physically Estimate $\pi$]
 ~
 
@@ -2056,6 +2561,7 @@ done in lectures...
 
 \subsection{Conditional Random Variables}
 
+% TODO prove memorylessness of Exponential RVs
 Often we will have a condition where one of the two random variables that make up a random vector $(X_1,X_2)$ already occurs and takes a value. 
 And we might want to compute the probability of the occurrence of the other random variable given this conditional information.
 For this all we need to do is extend the idea of conditional probabiliies to $\Rz^2$-valued random variables as defined below.
@@ -3448,236 +3954,8 @@ However, this is a nontrivial sum to evaluate.  Instead, we may use \eqref{E:Eof
 \V(X) = \V \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \V(X_i) = \sum_{i=1}^n{\theta(1-\theta)} = n\theta(1-\theta) \ .
 \]
 
-The standard normal distribution is the most important continuous
-probability distribution. It was first described by De Moivre in 1733
-and subsequently by the German mathematician C.~F.~Gauss (1777 - 1885).
-Many  random variables  have a normal distribution, or they are
-approximately normal, or can be transformed into normal random variables
-in a relatively simple fashion. Furthermore, the normal distribution is
-a useful approximation of more complicated distributions, and it also
-occurs in the proofs of various statistical tests.
-%%%%Location-scale Gaussian family as a linear transformation of the standard Gaussian RV
-
-\begin{framed}
-\begin{model}[$\normal(0,1)$ or standard normal or Gaussian RV]\label{Df:StandardNormal} 
-A continuous random variable $Z$ is called \textbf{standard normal} or {\bf standard Gaussian} 
-if its probability density function is
-\begin{equation}\label{E:StandardNormalPdf}
-\varphi(z) = \frac{1}{\sqrt{2\pi}} \exp{\left( -\frac{z^2}{2}\right)} \enspace.
-\end{equation}
-\end{model}
-\end{framed}
-
-An exercise in calculus yields the first two derivatives of $\varphi$ as follows:
-\[
-\frac{d \varphi}{dz} = - \frac{1}{\sqrt{2\pi}}z \exp{\left( -\frac{z^2}{2}\right)}=-z\varphi(z), \quad
-\frac{d^2 \varphi}{dz^2} = \frac{1}{\sqrt{2\pi}}(z^2-1) \exp{\left(-\frac{z^2}{2} \right)}=(z^2-1)\varphi(z) \enspace .
-\]
-Thus, $\varphi$ has a global maximum at $0$, it is concave down if $z \in (-1,1)$ and concave up if $z \in (-\infty,-1) \cup (1,\infty)$.  
-This shows that the graph of $\varphi$ is shaped like a smooth symmetric bell centred at the origin over the real line.
-
-
-\begin{classwork}
-From the above exercise in calculus let us draw the graph of $\varphi$ by hand now!
-
-Do it step by step: $z^2$, $-z^2$, $-z^2/2$, $\exp(-z^2/2)$, $\varphi(z) = \frac{1}{\sqrt{2\pi}} \exp(-z^2/2)$ now! 
-\vspace*{20mm}
-\end{classwork}
-
-The distribution function of $Z$ is given by
-\begin{equation}\label{E:StandardNormalDF}
-\Phi(z) \;=\;\frac{1}{\sqrt{2\pi}}\int^z_{-\infty}e^{-v^2/2}\;dv \enspace .
-\end{equation}
-
-NOTE: {This integral cannot be evaluated exactly by standard methods of calculus, but its values can be
-obtained numerically and tabulated.  Values of $\Phi(z)$ are tabulated in the ``Standard Normal Distribution Function Table'' in Sec.~\ref{S:NormalDFTable}.}
-
-\begin{classwork}
-{Note that the curve of $\Phi(z)$ is $S$-shaped, increasing in a strictly monotone way from $0$ at $-\infty$ to $1$ at $\infty$, and intersects the vertical axis at $1/2$. Draw this by hand too.}{}{do it! \vspace*{20mm}}
-\end{classwork}
-
-\begin{example}\label{Eg:UsingNormalTables}
-Find the probabilities, using  normal tables,  that a random variable having the standard
-  normal distribution will take on a value:
-\bcols{2}\begin{itemize}
-\item [(a)] less that 1.72
-\item [(b)]less than -0.88
-\item [(c)]between 1.30 and 1.75
-\item [(d)] between -0.25 and 0.45
-\end{itemize}\ecols
-\begin{itemize}
- \item [(a)]
-$$P(Z<1.72)\;=\;\Phi(1.72) \;=\; 0.9573$$
- \item [(b)] First note that $P(Z<0.88)\;=\;0.8106$, so that
-   \ba{P(Z<-0.88) & \;=\;P(Z>0.88) \\
-     &\;=\;1-P(Z<0.88)\\&\;=\;1-\Phi(0.88)\\ &\;=\;1-0.8106\;=\;0.1894}
- \item [(c)]
-$P(1.30<Z<1.75)\;=\;\Phi(1.75)-\Phi(1.30)\;=\;0.9599-0.9032\;=\;0.0567$
- \item [(d)]
-\ba{P(-0.25<Z<0.45)&\;=\;P(Z<0.45)-P(Z<-0.25)\\&\;=\;P(Z<0.45)-(1-P(Z<0.25))\\&\;=\;\Phi(0.45)-(1-\Phi(0.25)) \\&=\;(0.6736)-(1-0.5987)\\&\;=\;0.2723}
-\end{itemize}
-\end{example}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-\bigskip
-
-
-\remove{
-\begin{framed}
-CONTINUOUS RANDOM VARIABLES: NOTATION\\
-
-$f(x)$: Probability density function (PDF)
-\begin{itemize}
-\item$f(x)\;\geq\;0$
-\item Areas underneath $f(x)$ measure probabilities.
-\end{itemize}
-
-$F(x)$: Distribution function (DF)
-\begin{itemize}
-\item $0\;\leq\;\ F(x)\;\leq \;1$
-\item $F(x)\;= \;P(X\leq x)$ is a probability
-\item $F^{\prime}(x)\;=\;f(x)$ for every $x$ where $f(x)$ is continuous
-\item $F(x)\;=\;\displaystyle\int^x_{-\infty}f(v)dv$
-\item $P(a<X\leq b)\;=\;F(b)-F(a)\;=\;\displaystyle \int^b_af(v)dv$
-\end{itemize}
-\end{framed}
-}
-\bigskip
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% snipped above into csebook
-The next example yields the {\emph location-scale family} of normal random variables via a family of linear transformations of the standard normal random variable.
-\begin{example}\label{Eg:LinearTransfStdGaussianGaussian}
-Let $Z$ be the standard Gaussian or standard normal random variable with probability density function $\varphi(z)$ given by Equation~\eqref{E:StandardNormalPdf}.  
-For real numbers $\sigma > 0$ and $\mu$ consider the linear transformation of $Z$ given by 
-$$Y = g(Z) = \sigma Z +\mu \enspace .$$
-Some graphs of such linear transformations of $Z$ are shown in Figures~(a) and (b).
-\begin{figure}[htbp]
-\centering\subfigure[{\scriptsize $g(z)=z$, $g(z)=\frac{1}{2}z+5$ and $g(z)=\frac{1}{2}z-5$.}]{
-\includegraphics[width=8cm]{figures/LinearTransOfStdGaussianA.eps}}
-\subfigure[{\scriptsize $g(z)=z$, $g(z)=(z+5)/0.5$ and $g(z)=(z-5)/0.5$.}]{
-\includegraphics[width=8cm]{figures/LinearTransOfStdGaussianB.eps}}
-\end{figure}
-
-We are interested in the density of the tranformed random variable $Y=g(Z)=\sigma Z + \mu$.  
-Once again, since $g$ is a one-to-one monotone function let us follow the four steps and use the change of variable formula to obtain $f_Y$ from $f_Z=\varphi$ and $g$.
-\begin{enumerate}
-\item $y=g(z)=\sigma z + \mu$ is a monotone increasing function over $-\infty < z < \infty$, the range of $Z$.  
-So, we can apply the change of variable formula. 
-\item $z=g^{-1}(y)=(y - \mu) / \sigma$ is a monotone increasing function over the range of $y$ given by, %$(\sigma \times -\infty) + \mu < \sigma z + \mu < (\sigma \times \infty) + \mu$, i.e.,% Ben did not like these manipulaitons with infinities - raaz was doing arithmetic with diverging sequences with limits at infinity only. 
-$-\infty < y < \infty$.  
-\item For $-\infty < y < \infty$,
-\[
- \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
-= \left\vert \frac{d}{dy} \left( \frac{y - \mu}{\sigma} \right) \right\vert 
-= \left\vert \frac{1}{\sigma} \right\vert = \frac{1}{\sigma} \enspace .
-\]
-\item we can use Equation~\eqref{E:f_YFromf_X_Under_one-to-one-g} and Equation~\eqref{E:StandardNormalPdf} which gives
-$$f_Z(z) = \varphi(z) = \frac{1}{\sqrt{2\pi}} \exp{\left( -\frac{z^2}{2}\right)} \enspace,$$
-to find the density of $Y$ as follows:
-\[
-f_Y(y) = f_Z \left( g^{-1}(y) \right) \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
-= \varphi \left( \frac{y - \mu}{\sigma} \right) \frac{1}{\sigma}
-= \frac{1}{\sigma \sqrt{2 \pi}} \exp \left[-\frac{1}{2} \left( \frac{y-\mu}{\sigma} \right)^2 \right] \enspace ,
-\]
-for $-\infty < y < \infty$. 
-\end{enumerate}
-Thus, we have obtained the expression for the probability density function of the linear transformation $\sigma Z + \mu$ of the standard normal random variable $Z$.  This analysis leads to the following definition.
-\end{example}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%Location-scale Gaussian family as a linear transformation of the standard Gaussian RV
-
-\begin{framed}
-
-\begin{model}[$\normal(\mu,\sigma^2)$ RV]
-Given a location parameter $\mu \in (-\infty, +\infty)$ and a scale parameter $\sigma^2 > 0$, the $\normal(\mu,\sigma^2)$ or Gaussian$(\mu,\sigma^2)$ random variable $X$ has probability density function:
-\begin{equation}\label{eqn:norm_pdf}
-f(x; \mu,
-  \sigma^2)=\frac{1}{\sigma\sqrt{2\pi}}\exp\left[-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2\right]\qquad(\sigma >0) \enspace .
-\end{equation}
-\end{model}
-\end{framed}
-
-This is simpler than it may at first look. $f(x;\mu, \sigma^2)$ has the following features.
-\bit
-\item $\mu$ is the expected value or mean parameter and $\sigma^2$ is the variance parameter. These concepts, mean and variance, are described in more detail in the next section on expectations.
-\item $1/(\sigma\sqrt{2\pi})$ is a constant factor that makes the area under the curve of $f(x)$ from $-\infty$ to $\infty$ equal to 1, as it must be.
-\item The curve of $f(x)$ is symmetric with respect to $x=\mu$ because the exponent is quadratic. Hence for $\mu=0$ it is symmetric with respect to the $y$-axis $x=0$.
-\item The exponential function decays to zero very fast --- the faster the decay, the smaller the value of $\sigma$.
-\eit
-
-%\newpage
-
-\begin{framed}
-The normal distribution has the {\bf distribution function}
-\begin{equation}\label{eqn:norm_int_cdf}F(x; \mu, \sigma^2)=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^x\exp\left[-\frac{1}{2}\left(\frac{v-\mu}{\sigma}\right)^2\right]\;dv\enspace.\end{equation}
-Here we need $x$ as the upper limit of integration and so we write $v$ in the integrand.
-\end{framed}
-
-
-\begin{figure}[ht]
-\cen{
-\includegraphics [scale=.4]{figures/normalpdf.eps}
-\caption{Probability density function of a $\normal(\mu,\sigma^2)$ RV for different values of $\mu$ and $\sigma^2$}
-}
-\end{figure}
-
-Using the direct method's \hyperref[Eqn:DirectMethod]{Equation~\ref*{Eqn:DirectMethod}}, we can obtain the distribution function of the $\normal(\mu,\sigma^2)$ random variable from that of the 
-tabulated distribution function of the $\normal(0,1)$ in the  \hyperref[S:NormalDFTable]{Standard normal distribution function table in Sec.~\ref*{S:NormalDFTable}}. 
-  
-\begin{figure}[htbp]
-\cen{
-\includegraphics[scale=.35]{figures/normaldis.eps}
-\caption{DF  of a $\normal(\mu,\sigma^2)$ RV for different values of $\mu$ and $\sigma^2$}
-}
-\end{figure}
-
-%\newpage
-
-\begin{prop}[One Table to Rule Them All Gaussians]
-The distribution function $F_X(x;\mu,\sigma^2)$ of the $\normal(\mu,\sigma^2)$ random variable $X$ 
-and the distribution function $F_Z(z)=\Phi(z)$  of the standard normal random variable $Z$ are related by:
-$$F_X(x;\mu,\sigma^2)\;=\; F_Z\left(\frac{x -\mu}{\sigma}\right) \;=\; \Phi\left(\frac{x-\mu}{\sigma}\right)\enspace .$$
-
-\begin{proof}
-Let $Z$ be a $\normal(0,1)$ random variable with distribution function $\Phi(z) = P (Z \leq z)$.  
-We know that if $X=g(Z)=\sigma Z+\mu$ then $X$ is the $\normal(\mu,\sigma^2)$ random variable.  
-Therefore, 
-\begin{eqnarray*}
-F_X(x;\mu,\sigma^2) 
-&=& P(X \leq x) = P\left( g(Z) \leq x \right) =  P (\sigma Z+\mu \leq x) = P\left(Z \leq \frac{x -\mu}{\sigma} \right)\\ 
-&=& F_Z \left(\frac{x -\mu}{\sigma}\right) = \Phi \left(\frac{x -\mu}{\sigma}\right) \enspace .
-\end{eqnarray*}
-\end{proof}
-\end{prop}
-
-Hence we often transform a general $\normal(\mu,\sigma^2)$ random
-variable, $X$, to a standardised $\normal(0,1)$ random variable, $Z$, by
-the substitution:
-$$Z\;=\;\frac{X-\mu}{\sigma}\,.$$
-
-
-
-\begin{example}
-Suppose that the amount of cosmic radiation to which a person is exposed 
-when flying by jet across the United States is a random
-variable, $X$, having a normal distribution with a mean of $4.35$ mrem and a
-standard deviation of $0.59$ mrem. What is the probability that a person
-will be exposed to more than $5.20$ mrem of cosmic radiation on such a
-flight?
-
-{\em Solution:}
-\begin{align*}
-P(X> 5.20)\;&=\;1-P(X\leq
-5.20)\\[3pt]&\;=\;1-F(5.20)\\[3pt]&\;=\;1-\Phi\left(\frac{5.20-4.35}{0.59}\right)\\[3pt]&\;=\;1-\Phi(1.44)\\[3pt]&\;=\;1-
-0.9251\\[3pt]&\;=\;0.0749
-\end{align*}
-\end{example}
-
-After some more notions you will see that $\normal(0,1)$ RV can actually be obtained from an IID process of $\bernoulli(\theta)$ RVs. This is an instance of the central limit theorem. To appreciate this we first need to understand what we mean by statistics and then familiarise ourselves with notions of convergence of random variables.
-
 \section{Convergence of Random Variables}\label{S:ConvOfRVs}
 
 This important topic is concerned with the limiting behavior of sequences of RVs. 

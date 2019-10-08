@@ -997,8 +997,8 @@ The Poisson distribution has been described as a limiting version of the
 Binomial. In particular, Exercise~\ref{eqn:poi_cars} thinks of a Poisson distribution as a model for the number of events (cars) that occur in a period of time (1 minute) when in each little chunk of time one car arrives with constant probability, independently of the other time intervals. This leads to the general view of the Poisson distribution as a good model when:
 
 
-\cen{You count the number of events in a continuum when the events occur
-  \\ at constant rate, one at a time and are independent of one another.}
+\cen{{\emph You count the number of events in a continuum when the events occur
+  \\ at constant rate, one at a time and are independent of one another.}}
 
 \end{framed}
 
@@ -5133,13 +5133,14 @@ $$\p(X\geq 2)\;=\; 1- 0.9098\;= \;0.0902\enspace.$$
 
 %question  (poisson)
 \Exercise 
-The number of lacunae (surface pits) on specimens of steel, polished and examined in a metallurgical laboratory, is known to have Poisson distribution.
+The number of lacunae (surface pits) on specimens of steel, polished and examined in a metallurgical laboratory, is thought to have a Poisson distribution.
 \be
 \item Write down the formula for the probability that a specimen has $x$
   defects, explaining the meanings of the symbols you use.
 \item Simplify the formula in the case $x=0$.
 \item In a large homogeneous collection of specimens, 10\% have one or more lacunae. Find (approximately) the percentage having exactly two.
-\item Why might the Poisson distribution not apply in this situation?
+\item Why might the Poisson distribution not apply in this situation?\\[4pt]
+[{\scriptsize HINT: Recall the {\em emphasised sentence} in THINKING POISSON and what the continuum on which the number of events occur is for the problem, and what could possibly go wrong in your imagination of the manufacturing process of the steel specimens (normally you need to melt and manipulate iron with other elements and cast them in moulds and this needs energy and raw materials of possibly varying quality and the machines used in the process could break down, etc.) to violate the Poisson assumption about the occurrence of pits on the surface of the specimens.}]
 \ee
 \Answer
 \be
@@ -5177,12 +5178,14 @@ Since $X$ is a $\poisson(\lambda)$ random variable (by suppressing the `$;\lambd
 \end{cases}
 \]
 
-If $Y=(X+1)^{-2}$ then  \[Y \,\in\, \left\{1, \frac{1}{4}, \frac{1}{9}, \dots \right\} \]
-and since $y=g(x)=(x+1)^{-2}$ has $g^{-1}(y)=y^{-1/2}-1$ as its inverse function, we get:
+If $Y=(X+1)^{-2}=1/(X+1)^2$ then  \[ \{\ldots,2,1,0\} \ni x \xmapsto{(x+1)^{-2}} y \,\in\, \left\{1, \frac{1}{4}, \frac{1}{9}, \dots \right\} \]
+and since $y=g(x)=(x+1)^{-2}$ {\scriptsize as it maps or associates each $y \in \left\{1, \frac{1}{4}, \frac{1}{9}, \dots \right\}$ to exactly one $x \in \{0,1,2,\ldots\}$ given by $g^{-1}(y)=y^{-1/2}-1 = \frac{1}{\sqrt{y}}-1= x$, its inverse function, this is because $g$ is {\em injective} or {\em one-to-one} as explained here if you want to recall quickly \url{https://en.wikipedia.org/wiki/Injective_function} again}, so we get:
 \[
 f_Y(y)\;=\; \p(Y=y)\;=\; \sum_{\{ x: g(x)=y\}}f_X(x)  \;=\; f_X\left( \frac{1}{\sqrt y}-1\right) \;=\; \frac{\lambda^{(\frac{1}{\sqrt y} -1)} \, e^{-\lambda}}{(\frac{1}{\sqrt y} -1)!}
 \]
-for $y = 1, \frac{1}{4}, \frac{1}{9}, \dots $, and $0$ otherwise.
+for $y = 1, \frac{1}{4}, \frac{1}{9}, \dots $, and $0$ otherwise.\\[4pt]
+{\scriptsize CAUTION: This is a discrete RV and so don't just blindly apply the change of variable formula that only applies to continuous RV with a monotone and one-to-one function 
+$g$ with inverse $g^{-1}$; it's just that in this discrete RV setting the inverse iamge also happens to satisfy these properties. But Poisson is discrete.}
 
 %question 9 (cts )
 \Exercise

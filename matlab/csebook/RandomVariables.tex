@@ -823,6 +823,25 @@ three or four $\mathsf{6}$'s.  Hence the answer is:
 }
 \end{example}
 
+To make concrete sense of the $\binomial(n,\theta)$ and other more sophisticated concepts in the sequel, let us take a historical detour into some origins of statistical thinking in 19th century England.
+
+\subsubsection{Sir Francis Galton's Quincunx}\label{S:Quincunx}
+This section is introduced to provide some forms for a kinesthetic (hands-on) and visual understanding of some elementary statistical distributions and laws.  The following words are from Sir Francis Galton, F.R.S., {\em Natural Inheritance}, pp.~62-65, Macmillan, 1889.  In here you will already find the kernels behind the construction of $\binomial(\theta)$ RV as sum of IID $\bernoulli(\theta)$ RVs, Weak Law of Large Numbers, Central Limit Theorem, and more.  We will mathematically present these concepts in the sequel as a way of giving precise meanings to Galton's observations with his Quincunx.
+{\it ``{\em The Charms of Statistics}.--It is difficult to understand why statisticians commonly limit their inquiries to Averages, and do not revel in more comprehensive views.  Their souls seem as dull to the charm of variety as that of the native of one of our flat English counties, whose retrospect of Switzerland was that, it its mountains could be thrown into its lakes, two nuances would be got rid of at once.  An Average is but a solitary fact, whereas if a single other fact be added to it, an entire Normal Scheme, which nearly corresponds to the observed one, starts potentially into existence.
+
+Some people hate the very name of statistics, but I find them full of beauty and interest.  Whenever they are not brutalised, but delicately handled by the higher methods, and are warily interpreted, their power of dealing with complicated phenomenon is extraordinary.  They are the only tools by which an opening can be cut through the formidable thicket of difficulties that bars the path of those who pursue the Science of man.}
+
+\begin{figure}[htpb]
+\caption{Figures from Sir Francis Galton, F.R.S., {\em Natural Inheritance}, , Macmillan, 1889.\label{F:GaltonFigure78923}}
+\mbox{\subfigure[FIG.~7, FIG.~8, and FIG.~ 9 (p.~63)]{\hspace{-0.15cm} \includegraphics[width=3.250in,clip=,angle=0]{figures/GaltonsFigs789}} \hspace{-0.5cm} \subfigure[FIG.~2 and FIG.~3 (p.~38)]{\includegraphics[width=3.40in,clip=,angle=0]{figures/GaltonsFigs23}} }
+\end{figure}
+
+{\it {\em Mechanical Illustration of the Cause of the Curve of Frequency}.--The Curve of Frequency, and that of Distribution, are convertible : therefore if the genesis of either of them can be made clear, that of the other also becomes intelligible.  I shall now illustrate the origin of the Curve of Frequency, by means of an apparatus shown in Fig.~7, that mimics in a very pretty way the conditions
+on which Deviation depends.  It is a frame glazed in front, leaving a depth of about a quarter of an inch behind the glass.  Strips are placed in the upper part to act as a funnel.  Below the outlet of the funnel stand a succession of rows of pins stuck squarely into the backboard, and below these again are a series of vertical compartments.  A charge of small shot is inclosed.  When the frame is held topsy-turvy, all the shot runs to the upper end; then, when it is turned back into its working position, the desired action commences.  Lateral strips, shown in the diagram, have the effect of directing all the shot that had collected at the upper end of the frame to run into the wide moutn of the funnel.  The shot passes through the funnel and issuing from its narrow end, scampers deviously down through the pins in a curious and interesting way; each of them darting a step to the right or left, as the case may be, every time it strikes a pin.  The pins are disposed in a quincunx fashion, so that every descending shot strikes against a pin in each successive row.  The cascade issuing from the funnel broadens as it descends, and, at length, every shot finds itself caught in a compartment immediately after freeing itself from the last row of pins.  The outline of the columns of shot that accumulate in the successive compartments approximates to the Curve of Frequency (Fig.~3, p.~38), and is closely of the same shape however often the experiment is repeated.  The outline of the columns would become more nearly identical with the Normal Curve of Frequency, if the rows of pins were much more numerous, the shot smaller, and the compartments narrower; also if a larger quantity of shot was used.}
+
+{\it The principle on which the action of the apparatus depends is, that a number of small and independent accidents befall each shot in its career.  In rare cases, a long run of luck continues to favour the course of a particular shot towards either outside place, but in the large majority of instances the number of accidents that cause Deviation to the right, balance in a greater or less degree those that cause Deviation to the left.  Therefore most of the shot finds its way into the compartments that are situated near to a perpendicular line drawn from the outlet of the funnel, and the Frequency with which shots stray to different distances to the right or left of that line diminishes in a much faster ratio than those distances increase.  This illustrates and explains the reason why mediocrity is so common.'' }
+
+
 We now consider the last of our common discrete random variables for now, the {\bf Poisson} case.  
 A Poisson random variable counts the number of times an event occurs.
 
@@ -2069,7 +2088,423 @@ $Y$ is called the {\bf chi-square} random variable with one degree of freedom. T
 \end{example}
 \newpage
 
-\section{$\Rz^m$-valued Random Variables}\label{S:RVecs}
+\section{Expectations}\label{S:Expectations}
+
+Expectation is perhaps the most fundamental concept in probability theory. In fact, probability is itself an expectation as you will soon see!
+
+Expectation is one of the fundamental concepts in probability.  The
+expected value of a real-valued random variable gives the population mean, a measure of the
+centre of the distribution of the variable in some sense.  
+Its variance measures its spread and so on.
+
+\begin{definition}[Expectation of a RV]
+The {\bf expectation}, or {\bf expected value}, or {\bf mean}, or {\bf first moment}, of a random variable $X$, with distribution function $F$ and density $f$, is defined to be
+\begin{equation}\label{E:Mean}
+\e(X) := \int x\,dF(x) = 
+\begin{cases}
+\sum_x x f(x) & \qquad \text{if $X$ is discrete} \\
+\int x f(x)\,dx  & \qquad \text{if $X$ is continuous} \  ,
+\end{cases}
+\end{equation}
+provided the sum or integral is well-defined.  We say the expectation exists if
+\begin{equation}\label{E:ExpectationExists}
+\int \left|x\right|\,dF(x) < \infty \ .
+\end{equation}
+Sometimes, we denote $\e(X)$ by $\e X$ for brevity.  Thus, the expectation is a single-number summary of the RV $X$ and may be thought of  as the average.
+We subscript $E$ to specify the parameter $\theta \in \BB{\Theta}$ with respect to which the integration is undertaken. 
+\[
+\e_{\theta} X := \int x\,dF(x;\theta)
+\]
+\end{definition}
+
+\begin{definition}[Variance of a RV]\label{D:VarianceofX}
+Let $X$ be a RV with mean or expectation $\e(X)$.  Variance of $X$ denoted by $\V(X)$ or $VX$ is
+\[
+\V(X) := \e \left((X-\e(X))^2\right) = \int (x-\e(X))^2 \,d F(x) \ ,
+\]
+provided this expectation exists.  The {\bf standard deviation} denoted by $\sd(X) := \sqrt{\V(X)}$.
+Thus variance is a measure of ``spread'' of a distribution.
+\end{definition}
+
+\begin{definition}[$k$-th moment of a RV]
+We call 
+\[
+\e(X^k) = \int x^k\,dF(x)
+\]
+as the $k$-th moment of the RV $X$ and say that the $k$-th moment exists when $\e(|X|^k) < \infty$.  We call the following expectation as the $k$-th central moment:
+\[
+\e \left((X- \e(X))^k\right) \ .
+\]
+\end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% fromPrsStEng
+
+\subsection{Expectations of functions of random variables}\label{S:ExpectationsOfFunsOfRVs}
+
+More generally, by taking the expected value of various functions of a random variable, we can measure many interesting features of its distribution, including spread and correlation.
+
+\begin{definition}[Expectation of a function of a RV]\label{Df:expectation}
+The \textbf{Expectation} of a function $g(X)$ of a random variable $X$ is defined as:
+\[
+\e(g(X))\; :=\; \int g(x) dF(x) = 
+\begin{cases}
+\displaystyle \sum_x g(x) f(x) & \text{if $X$ is a discrete RV}\\[12pt]
+\displaystyle \int_{-\infty}^{\infty} g(x) f(x) dx & \text{if $X$ is a continuous RV}
+\end{cases}
+\]
+provided $\e(g(X))$ exists, i.e., $\int |g(x)| dF(x) < \infty$.
+\end{definition}
+
+The {\bf mean} which characterises the central location of the random variable $X$ is merely the expectation of the identity function $g(x)=x$:
+\[
+\e(X)\; =\;
+\begin{cases}
+\displaystyle \sum_x x f(x) & \text{if $X$ is a discrete RV}\\[12pt]
+\displaystyle\int_{-\infty}^{\infty} x f(x) dx & \text{if $X$ is a
+  continuous RV}
+\end{cases}
+\]
+Often, mean is denoted by $\mu$.
+
+The \textbf{variance} which characterises the spread or the
+  variability of the random variable $X$ is also the expectation of the
+  function $g(x)=(x-\e(X))^2$:
+\[
+\V(X)\; =\; \e \left( (X-\e(X))^2 \right)\; =\;
+\begin{cases}
+\displaystyle\sum_x (x-\e(X))^2 f(x) & \text{if $X$ is a discrete RV}\\[12pt]
+\displaystyle\int_{-\infty}^{\infty} (x-\e(X))^2 f(x) dx & \text{if $X$ is a continuous RV}
+\end{cases}
+\] 
+Often, variance is denoted by $\sigma^2$. 
+
+%\begin{framed}
+INTUITIVELY, WHAT IS EXPECTATION?\\
+
+Definition \ref{Df:expectation} gives expectation as a ``weighted average'' of the possible values. This is true but some intuitive idea of expectation is also helpful.
+\begin{itemize}
+\item Expectation is what you expect. \\[6pt]
+Consider tossing a fair coin. If it is heads you lose \$10. If it is tails you win \$10. 
+What do you expect to win? Nothing. 
+If $X$ is the amount you win then $$\e(X)\;=\;-10\times \frac{1}{2}+10\times \frac{1}{2}\;=\;0\,.$$
+
+So what you expect (nothing) and the weighted average ($\e(X)=0$) agree.
+
+
+\item Expectation is a long run average.\\[6pt]
+Suppose you are able to repeat an experiment independently, over and over again. 
+Each experiment produces one value $x$ of a random variable $X$.  
+If you take the average of the $x$ values for a large number of trials, then this average converges to $\e(X)$ as the number of trials grows.  In fact, this is called the {\bf law of large numbers}.
+\end{itemize}
+%\end{framed}
+
+We can concretize the above two intuitive insights by the following two examples.
+
+\begin{example}[Winnings on Average]\label{EgWinningsOnAverage}
+Let $Y = r(X)$.  Then
+\[
+\e(Y) = \e(r(X)) = \int r(x)\, d F(x) \ .
+\]
+Think of playing a game where we draw $x \sim X$ and then I pay you $y=r(x)$.  Then your average income is $r(x)$ times the chance that $X=x$, summed (or integrated) over all values of $x$.
+\end{example}
+
+\begin{example}[Probability is an Expectation]\label{EgProbIsAnExpectation}
+Let $A$ be an event and let $r(X)=\BB{1}_{A}(x)$.  Recall $\BB{1}_A(x)$ is $1$ if $x \in A$ and $\BB{1}_A(x)=0$ if $x \notin A$.  Then
+\begin{equation}\label{E:ExpectationofIndicator}
+\e(\BB{1}_A(X)) = \int \BB{1}_A(x)\, dF(x) = \int_A dF(x) = \p(X \in A) = \p(A)
+\end{equation}
+Thus, probability is a special case of expectation.  Recall our LTRF motivation for the definition of probability and make the connection.
+\end{example}
+
+\subsection*{Expectations of functions of $\Rz^2$-valued random variables}\label{S:ExpectationsOfFunsOf2RVs}
+
+In the case of a single random variable we saw that its expectation gives the population mean, 
+a measure of the center of the distribution of the variable in some sense.  
+Similarly, by taking the expected value of various functions of a $\Rz^2$-valued random variable, we can measure many interesting features of its joint distribution.
+
+\begin{definition}\label{Df:2expectation}
+The \textbf{Expectation} of a function $g(X,Y)$ of the $\Rz^2$-valued RV $(X,Y)$ is defined as:
+\[
+\e(g(X,Y))\; =\;
+\begin{cases}
+\displaystyle \sum_{(x,y)} g(x,y) f_{X,Y}(x,y) & \text{if $(X,Y)$ is a discrete \rv}\\[12pt]
+\displaystyle \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x,y) f_{X,Y}(x,y) dx dy & \text{if $(X,Y)$ is a continuous \rv}
+\end{cases}
+\]
+\end{definition}
+
+Some typical expectations for $\Rz^2$-valued random variables are:
+
+\be
+\item Joint Moments
+\[
+\e(X^r Y^s)
+\]
+When $r=s=1$, we have $\e(XY)$, the expectation of the product of two RVs.
+\item 
+We need a new notion for the variance of two RVs.
+
+If $\e(X^2) < \infty$ and $\e(Y^2) < \infty$ then $\e(|X Y|) < \infty$ and $\e(|(X-\e(X))(Y-\e(Y))|) < \infty$.  This allows the definition of {\bf covariance} of $X$ and $Y$ as
+\[
+\cv(X,Y) := \e \left((X-\e(X))(Y-\e(Y))\right) = \e(X Y) - \e(X) \e(Y)
+\]
+\ee
+
+The same ideas naturally extend, via multiple sums and integrals, to define the expectation of functions of $\Rz^k$-valued random variables with $k>2$.
+
+
+\subsection*{Viewing a deterministic real variable as a random variable}
+
+Consider the class of discrete RVs with distributions that place all probability mass on a single real number.  
+This is the probability model for the deterministic real variable, which is often thought of as an unknown constant $\theta \in \Rz$.
+\begin{model}[$\pointmass(\theta)$]
+Given a specific point $\theta \in \Rz$, we say an RV $X$ has point mass at $\theta$ or is $\pointmass(\theta)$ distributed if the DF is:
+\begin{equation}\label{E:PointMasscdf}
+F(x;\theta) =
+\begin{cases}
+0 & \text{if $x < \theta$} \\
+1 & \text{if $x \geq \theta$}
+\end{cases}
+\end{equation}
+and the PMF is:
+\begin{equation}
+f(x;\theta) =
+\begin{cases}
+0 & \text{if  $x \neq \theta$} \\
+1 & \text{if $x = \theta$}
+\end{cases}
+\end{equation}
+\end{model}
+Thus, $\pointmass(\theta)$ RV $X$ is deterministic in the sense that every realisation of $X$ is exactly equal to $\theta \in \Rz$.  We will see that this distribution plays a central limiting role in asymptotic statistics.
+
+\begin{example}[Mean and variance of $\pointmass(\theta)$ RV]
+Let $X \sim \pointmass(\theta)$.  Then:
+\[
+\e(X) = \sum_{x} x f(x) = \theta \times 1 = \theta \ , \qquad
+\V(X) = \e(X^2) - (\e(X))^2 = \theta^2 - \theta^2 = 0 \ .
+\]
+\end{example}
+
+\subsection{Properties of expectations}\label{S:PropOfEs}
+The following results, where $a$ is a  constant, may easily be
+proved using the properties of summations and integrals:
+
+\bit
+\item[] $\boxed{\e(a ) \,=\, a}$
+
+\item[] $\boxed{\e(a \,g(X)) \,=\, a\, \e(g(X))}$
+
+\item[] $\boxed{\e(g(X)+h(X))  \,=\, \e(g(X)) \,+\, \e(h(X))}$
+\eit
+Note that here  $g(X)$ and $h(X)$ are functions of the random variable
+$X$: e.g.  $g(X)=X^2$.
+
+Using these results we can obtain the following useful formula for variance:
+\begin{eqnarray*}
+V(X)
+&=& E\left((X-\e(X))^2\right)\\[3pt]
+& =& E \left( X^2 - 2 X \e(X) + (\e(X))^2 \right) \\[3pt]
+&=& E ( X^2) - E \left( 2 X \e(X) \right) + E \left( (\e(X))^2
+\right)\\[3pt]
+& =& E ( X^2) - 2 \e(X) E \left( X \right) + (\e(X))^2 \\[3pt]
+&=& E ( X^2) - 2 (\e(X))^2 + (\e(X))^2\\[3pt]
+&=& \e(X^2) - (\e(X))^2 \enspace .
+\end{eqnarray*}
+That is, \[
+\boxed{
+V(X) \;=\; \e(X^2) \,- \,(\e(X))^2
+}.
+\]
+
+The above properties of expectations imply that for constants $a$ and $b$,
+%V(aX+b) = a^2 V(X) \enspace .
+\begin{equation}\label{E:VofAffineofRVs}
+\boxed{
+\V(aX+b) = a^2\V(X) \ . 
+}
+\end{equation}
+
+More generally, for random variables $X_1,X_2,\ldots,X_n$ and constants $a_1,a_2,\ldots,a_n$
+\begin{itemize}
+\item
+\begin{equation}\label{E:EofLinCombofRVs}
+\e \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i \e(X_i) \ .
+\end{equation}
+%E \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i \e(X_i)}$
+%\smallskip
+\item
+%$\boxed{V \left(  \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 V(X_i)}$, provided $X_1,X_2,\ldots,X_n$ are independent
+\begin{equation}\label{E:VofLinCombofRVs}
+\V \left(  \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 \V(X_i) , \text{ provided $X_1,X_2,\ldots,X_n$ are independent}\ .
+\end{equation}
+\item Let $X_1,X_2,\ldots,X_n$ be independent RVs, then
+\begin{equation}\label{E:EofProdIndRVs}
+\e \left(  \prod_{i=1}^n X_i \right) = \prod_{i=1}^{n} \e(X_i) , \text{ provided $X_1,X_2,\ldots,X_n$ are independent}\ .
+\end{equation}
+\end{itemize}
+
+%\item If the $k$-th moment exists and if $j<k$ then the $j$-th moment exists.
+
+%\item $\V(X) = \e(X^2) - (\e(X))^2$ \ . [prove by completing the square and applying \eqref{E:EofLinCombofRVs}]
+%\item If $a$ and $b$ are constants then:
+%\item If $X_1,X_2,\ldots,X_n$ are independent and $a_1,a_2,\ldots,a_n$ are constants, then:
+%\end{enumerate}
+
+\subsection{Expectation of Common Random Variables}
+
+Let us compute the mean and variance of our familiar RVs.
+
+\begin{example}[Mean and variance of $\bernoulli(\theta)$ RV]\label{EgMeanAndVarOfBernoulli}
+Let $X \sim \bernoulli(\theta)$.  Then, 
+\[
+\e(X) = \sum_{x=0}^1 x f(x) = (0 \times (1-\theta)) + (1 \times \theta) = 0+\theta=\theta \ ,
+\]
+\[
+\e(X^2) =  \sum_{x=0}^1 x^2 f(x) =  (0^2 \times (1-\theta) ) + (1^2 \times \theta) = 0+\theta= \theta \ ,
+\]
+\[
+\V(X) = \e(X^2) - (\e(X))^2 = \theta - \theta^2 = \theta(1-\theta) \ .
+\]
+Parameter specifically,
+\[
+\e_{\theta}(X)=\theta \qquad \text{and} \qquad \V_{\theta}(X)=\theta(1-\theta) \ .
+\]
+\begin{figure}[htpb]
+\caption{Mean ($\e_{\theta}(X)$), variance ($\V_{\theta}(X)$) and the rate of change of variance ($\frac{d}{d \theta} \V_{\theta}(X)$) of a $\bernoulli(\theta)$ RV $X$ as a function of the parameter $\theta$.\label{F:MeanVarBernoulli}}
+\centering   \makebox{\includegraphics[width=5.0in]{figures/PlotMeanVarBernoulli}}
+\end{figure}
+
+Maximum of the variance $\V_{\theta}(X)$ is found by setting the derivative to zero, solving for $\theta$ and showing the second derivative is locally negative, i.e.~$\V_{\theta}(X)$ is concave down:
+\[
+\V_{\theta}'(X) := \frac{d}{d \theta} \V_{\theta}(X) = 1-2 \theta = 0  \iff \theta = \frac{1}{2} \ , 
+\qquad \V_{\theta}''(X) := \frac{d}{d \theta} \left( \frac{d}{d \theta} \V_{\theta}(X) \right) = -2 < 0 \ ,
+\]
+\[
+\max_{\theta \in [0,1]} \V_{\theta}(X) = \frac{1}{2} \left(1-\frac{1}{2} \right) = \frac{1}{4} \ , 
+\text{since $\V_{\theta}(X)$ is maximized at $\theta = \frac{1}{2}$}
+\]
+The plot depicting these expectations as well as the rate of change of the variance are depicted in \hyperref[F:MeanVarBernoulli]{Figure \ref*{F:MeanVarBernoulli}}.  Note from this Figure that $\V_{\theta}(X)$ attains its maximum  value of $1/4$ at $\theta=0.5$ where $\frac{d}{d\theta}\V_{\theta}(X)=0$.  Furthermore, we know that we don't have a minimum at $\theta=0.5$ since the second derivative $\V_{\theta}''(X) = -2$ is negative for any $\theta \in [0,1]$.  This confirms that $\V_{\theta}(X)$ is concave down and therefore we have a maximum of $\V_{\theta}(X)$ at $\theta=0.5$.  We will revisit this example when we employ a numerical approach called Newton-Raphson method to solve for the maximum of a differentiable function by setting its derivative equal to zero.
+\end{example}
+
+\begin{example}[Mean and variance of $\uniform(0,1)$ RV]\label{EgMeanAndVarOfUnif01}
+Let $X \sim \uniform(0,1)$.  Then, 
+\[
+\e(X) = \int_{x=0}^1 x f(x)\, dx = \int_{x=0}^1 x \ 1 \, dx = \frac{1}{2} \left( x^2 \right]_{x=0}^{x=1} = \frac{1}{2} \left( 1-0 \right) = \frac{1}{2} \ ,
+\]
+\[
+\e(X^2) = \int_{x=0}^1 x^2 f(x)\, dx = \int_{x=0}^1 x^2 \ 1 \, dx =  \frac{1}{3} \left( x^3 \right]_{x=0}^{x=1} = \frac{1}{3} \left( 1-0 \right) = \frac{1}{3} \ ,
+\]
+\[
+\V(X) = \e(X^2) - (\e(X))^2 = \frac{1}{3}  - \left( \frac{1}{2} \right)^2  = \frac{1}{3}  - \frac{1}{4} = \frac{1}{12} \ .
+\]
+\end{example}
+
+\begin{example}[Expected Exponential of the $\uniform(0,1)$ RV]\label{EgExpectedExponentialOfUniform01}
+Let $X \sim \uniform(0,1)$ and $Y=r(X)=e^X$.  Compute $\e(Y)$. 
+
+We can simply apply the definition of $\e(r(X))$, since $Y=r(X)$, is just a function of $X$, as follows: 
+\[
+\e(Y) = \int_0^1 e^x f(x) dx = \int_0^1 e^x 1 \ dx = e-1 \ .
+\]
+%You could have also found out that the density $f(y)=1/y$ for the RV $Y$, provided $1<y<e$, and $0$ otherwise.  Again,
+%\[
+%\e(Y) = \int_1^e y f(y) dy = \int_1^e y \frac{1}{y} dy = \int_1^e 1 \ dy = e-1 \ .
+%\]
+\end{example}
+
+\begin{example}[Mean and Variance of $\exponential(\lambda)$]\label{EgmeanAndVarOfExponential}
+Show that the mean of an $\exponential(\lambda)$ RV $X$ is:
+\[
+\e_{\lambda}(X) = \int_{0}^{\infty} x f(x;\lambda)\,dx
+=   \int_{0}^{\infty} x \lambda e^{-\lambda x}\,dx
+= \frac{1}{\lambda} \ ,
+\]
+and the variance is:
+\[
+\V_{\lambda}(X) = \left(  \frac{1}{\lambda} \right)^2 \ .
+\]
+\end{example}
+
+\begin{example}[Mean and variance of $\geometric(\theta)$ RV]\label{EgmeanAndVarOfGeometric}
+Let $X \sim \geometric(\theta)$ RV.  Then,
+\[
+\e(X) = \sum_{x=0}^{\infty} x \theta(1-\theta)^x =  \theta \sum_{x=0}^{\infty} x (1-\theta)^x
+\]
+In order to simplify the RHS above, let us employ differentiation with respect to $\theta$:
+\[
+\frac{-1}{\theta^2}= \frac{d}{d\theta} \left( \frac{1}{\theta} \right)= \frac{d}{d\theta} \sum_{x=0}^{\infty} (1-\theta)^x  =  \sum_{x=0}^{\infty} -x (1-\theta)^{x-1}
+\]
+Multiplying the LHS and RHS above by $-(1-\theta)$ and substituting in $\e(X)=  \theta \sum_{x=0}^{\infty} x (1-\theta)^x$, we get a much simpler expression for $\e(X)$ :
+\[
+\frac{1-\theta}{\theta^2}= \sum_{x=0}^{\infty} x (1-\theta)^{x} \implies \e(X) = \theta \left( \frac{1-\theta}{\theta^2} \right) = \frac{1-\theta}{\theta} \ .
+\]
+Similarly, it can be shown that
+\[
+\V(X) = \frac{1-\theta}{\theta^2} \ .
+\]
+
+\begin{figure}[htpb]
+\caption{Mean and variance of a $\geometric(\theta)$ RV $X$ as a function of the parameter $\theta$.\label{F:MeanVarGeom}}
+\centering   \makebox{\includegraphics[width=5.0in]{figures/PlotMeanVarGeom}}
+\end{figure}
+\end{example}
+
+% binomial model above
+\begin{example}[Mean and variance of $\binomial(n,\theta)$ RV]\label{EgMeanAndVarOfBinomial}
+Let $X \sim \binomial(n,\theta)$.  Based on the definition of expectation:
+\[
+\e(X) = \int x \, dF(x; n,\theta) = \sum_x x f(x;n,\theta) = \sum_{x =0}^n x \binom{n}{x} \theta^x (1-\theta)^{n-x} \ .
+\]
+However, this is a nontrivial sum to evaluate.  Instead, we may use \eqref{E:EofLinCombofRVs} and \eqref{E:VofLinCombofRVs} by noting that $X = \sum_{i=1}^n X_i$, where the $\{X_1,X_2,\ldots,X_n \} \overset{\IID}{\sim} \bernoulli(\theta)$, $\e(X_i) = \theta$ and $\V(X_i)=\theta(1-\theta)$:
+\[
+\e(X) = \e(X_1+X_2, \cdots ,X_n) = \e \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \e(X_i) = n \theta \ ,
+\]
+\[
+\V(X) = \V \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \V(X_i) = \sum_{i=1}^n{\theta(1-\theta)} = n\theta(1-\theta) \ .
+\]
+\end{example}
+
+\begin{example}[Mean and variance of $\poisson(\lambda)$ RV]\label{EgMeanAndVarOfPoisson}
+Let $X \sim \poisson(\lambda)$.  Then:
+\[
+\e(X) = \sum_{x=0}^{\infty} x f(x;\lambda)
+= \sum_{x =0}^{\infty} x \frac{ e^{-\lambda} \lambda^x}{x!}
+= e^{-\lambda} \sum_{x =0}^{\infty} x \frac{  \lambda^x}{x!}
+= e^{-\lambda} \sum_{x -1 =0}^{\infty} \frac{ \lambda \lambda^{x-1}}{(x-1)!}
+= e^{-\lambda} \lambda e^{\lambda}
+= \lambda
+\ .
+\]
+Similarly,
+\[
+\V(X) = \e(X^2)-(\e(X))^2 = \lambda + \lambda^2 - \lambda^2 = \lambda \ .
+\]
+since
+\begin{align*}
+\e(X^2)& = \sum_{x=0}^{\infty} x^2 \frac{e^{-\lambda} \lambda^x}{x!} = \lambda \, e^{-\lambda} \sum_{x=1}^{\infty} \frac{x \, \lambda^{x-1}}{(x-1)!}
+= \lambda \, e^{-\lambda} \left( 1 + \frac{2 \lambda}{1} + \frac{3 \lambda^2}{2!} + \frac{4 \lambda^3}{3!} + ... \right)\\
+&= \lambda \, e^{-\lambda} \left( \left( 1 + \frac{\lambda}{1} + \frac{\lambda^2}{2!} + \frac{\lambda^3}{3!} + ... \right) + \left[ \frac{\lambda}{1} + \frac{2 \lambda^2}{2!} + \frac{3 \lambda^3}{3!} + ... \right] \right)\\
+&= \lambda \, e^{-\lambda} \left( \left( e^{\lambda} \right) + \lambda \left( 1 + \frac{2 \lambda}{2!} + \frac{3 \lambda^2}{3!} + ... \right) \right)
+= \lambda \, e^{-\lambda} \left( e^{\lambda} + \lambda \left( 1 + \lambda + \frac{\lambda^2}{2!} + ... \right) \right)\\
+&= \lambda \, e^{-\lambda} \left( e^{\lambda} + \lambda \left( e^{\lambda} \right) \right)
+= \lambda \, e^{-\lambda} \left( e^{\lambda} + \lambda\, e^{\lambda}\right) = \lambda (1 + \lambda) = \lambda + \lambda^2
+\end{align*}
+
+Note that $\poisson(\lambda)$ distribution is one whose mean and variance are the same, namely $\lambda$.
+\end{example}
+
+%\remove{
+\begin{figure}[htpb]
+\caption{PDF of $X \sim \poisson(\lambda=10)$ and the relative frequency histogram based on 1000 samples from $X$ according to Simulation~\ref{SIM:Poisson}.\label{F:PlotPdfSim1000HistPoiss10}}
+\centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSim1000HistPoiss10}}
+\end{figure}
+%}%end remove
+
+The $\poisson(\lambda)$ RV $X$ is also related to the IID $\exponential(\lambda)$ RV $Y_1,Y_2,\ldots$: $X$ is the number of occurrences, per unit time, of an instantaneous event whose inter-occurrence time is the IID $\exponential(\lambda)$ RV.  For example, the number of buses arriving at our bus-stop in the next minute, with exponentially distributed inter-arrival times, has a Poisson distribution.
+
+
+
+\section{Multivariate Random Variables}\label{S:RVecs}
 
 Often, in experiments we are measuring two or more aspects simultaneously.  
 For example, we may be measuring the diameters and lengths of cylindrical shafts manufactured in a plant or heights, weights and blood-sugar levels of individuals in a clinical trial.  
@@ -2361,7 +2796,7 @@ f_{Y}(y) =
 \]
 \end{definition}
 
-\begin{example}
+\begin{example}\label{EgGetMarginalFromJointDiscrete}
 Obtain the marginal PMFs $f_Y(y)$ and $f_X(x)$ from the joint PMF $f_{X,Y}(x,y)$ of the discrete \rv~in \hyperref[Eg:Discrete2DPMF]{Example~\ref*{Eg:Discrete2DPMF}}.
 Just sum $f_{X,Y}(x,y)$ over $x$'s and $y$'s (reported in a tabular form):
 \begin{center}
@@ -2400,7 +2835,7 @@ Just report the marginal probabilities as row and column sums of the JPDF table.
 Thus marginal PMF gives us the probability of a specific RV, within a \rv, taking a value irrespective of the value taken by the other RV in this \rv. 
 \end{example}
 
-\begin{example}
+\begin{example}\label{EgGetMarginalFromJointContUnif2DPDFandCDF}
 Obtain the marginal PDFs $f_Y(y)$ and $f_X(x)$ from the joint PDF $f_{X,Y}(x,y)$ of the continuous \rv~in \hyperref[Eg:Unif2DPDFandCDF]{Example~\ref*{Eg:Unif2DPDFandCDF}} (the bivariate uniform \rv~on $[0,1]^2$).
 
 \begin{center}
@@ -2423,7 +2858,7 @@ We are seeing a histogram of the {\bf marginal samples} and their marginal PDFs 
 
 Thus marginal PDF gives us the probability density of a specific RV in a \rv, irrespective of the value taken by the other RV in this \rv. 
 
-\begin{example}
+\begin{example}\label{EgGetMarginalFromJointContServerTimes}
 Obtain the marginal PDF $f_Y(y)$ from the joint PDF $f_{X,Y}(x,y)$ of the continuous \rv~in \hyperref[Eg:PlotPDF2ServerTimes]{Example~\ref*{Eg:PlotPDF2ServerTimes}} that gave the response times of a web server.
 \[
 f_{X,Y}(x,y) = 
@@ -2510,7 +2945,8 @@ F_{X,Y}(x,y) = F_X(x) \times F_Y(y) \qquad \text{ or } f_{X,Y}(x,y) = f_X(x) \ti
 \]
 
 Let us confirm that our familiar experiment of tossing a fair coin twice independently when encoded by a pair of independent $\bernoulli(1/2)$ RVs satisfies the above definition.
-\begin{example}[Pair of independent $\bernoulli(1/2)$ RVs]
+
+\begin{example}[Pair of independent $\bernoulli(1/2)$ RVs]\label{EgIndepPairOfBernoulis}
 Let $X_1$ and $X_2$ be a pair of independent $\bernoulli(1/2)$ RVs each taking values in the set $\{0,1\}$ with the following tabulated probabilities. Verify that the JPMF $f_{X_1,X_2}(x_1,x_2)=1/4$ for each $(x_1,x_2) \in \{0,1\}^2$ is indeed given by the marginal PMF $f_{X_i}(x_i)=1/2$ for each $i \in \{1,2\}$ and each $x_i \in \{0,1\}$.
 
 \begin{center}
@@ -2529,12 +2965,13 @@ i.e., $\p(X_1=0)=1/2$.
 Clearly, $1/4=1/2 \times 1/2$, and so our familiar experiment when seen as an $\Rz^2$-valued RV is indeed composed of two independent$\Rz$-valued $\bernoulli(1/2)$ RVs. 
 \end{example}
 
-\begin{example}
+\begin{example}\label{EgShowIndepUnifDensityOnUnitSquare}
 Recall the $\Rz^2$-valued continuous RV $(X,Y)$ of \hyperref[Eg:Unif2DPDFandCDF]{Example~\ref*{Eg:Unif2DPDFandCDF}} 
 that is uniformly distributed on the unit square $[0,1]^2$. 
 First show that $X$ and $Y$ independent. 
 Then show that both $X$ and $Y$ are identically distributed according to the $\uniform(0,1)$ RV. 
 
+{\em Solution:}\\[4pt]
 This can be shown by checking that the joint PDF is indeed equal to the product of the marginal PDFs of $\uniform(0,1)$ RVs as follows:
 \[
 \begin{cases}
@@ -2551,7 +2988,7 @@ Also the JPDF has zero density when $x>y$, but the product of the marginal densi
 
 Now, let us take advantage of independent random variables and solve some problems.
 
-\begin{example}[distance between random faults in a manufactured line]
+\begin{example}[distance between random faults in a manufactured line]\label{EgDistBetweenFaultsOnLine}
 Suppose two points are tossed independently and uniformly at random onto a line segment of unit length.  
 What is the probability that the distance between the two points does not exceed a given length $l$? 
 
@@ -2560,7 +2997,7 @@ done in lectures...
 
 \end{example}
 
-\begin{example}[Buffon's Needle Experiment to Physically Estimate $\pi$]
+\begin{example}[Buffon's Needle Experiment to Physically Estimate $\pi$]\label{EgBuffonsNeedle}
 ~
 
 done in lectures...
@@ -2568,7 +3005,7 @@ done in lectures...
 
 \end{example}
 
-\subsection{Conditional Random Variables}
+\subsection{Conditional Random Variables}\label{S:CondRVs}
 
 Often we will have a condition where one of the two random variables that make up a random vector $(X_1,X_2)$ already occurs and takes a value. 
 And we might want to compute the probability of the occurrence of the other random variable given this conditional information.
@@ -2665,7 +3102,7 @@ Describe the probability of the RV $Y$ and $Y'$ of \hyperref[T:T3XRVs]{Table \re
  \end{enumerate}
  \end{classwork}
 
-\subsection{$\Rz^m$-valued Random Variables}
+\subsection{$\Rz^m$-valued Random Variables}\label{S:Rm-valuedRVs}
 
 %Extension to multivariate random vectors that are made of more than two RVs is straightforward.  
 Consider the \rv~ $X$ whose components are the RVs $X_1,X_2,\ldots,X_m$, i.e., $X := (X_1,X_2,\ldots,X_m)$, where $m \geq 2$.  
@@ -2748,10 +3185,27 @@ for any distinct subset of indices $\{i_1,i_2,\ldots,i_m\}$ of $\{1,2,\ldots\}$,
 
 By the above definition, the sequence of {\bf discrete} RVs $X_1,X_2,\ldots$ taking values in an at most countable set $\Dz$ are said to be independently distributed if for any distinct subset of indices $\{i_1,i_2,\ldots,i_k\}$ such that the corresponding RVs $X_{i_1},X_{i_2},\ldots,X_{i_k}$ exists as a distinct subset of our original sequence of RVs $X_1,X_2,\ldots$ and for any elements $x_{i_1}, x_{i_2},\ldots,x_{i_k}$ in $\Dz$, the following equality is satisfied:
 \[
-\p(X_{i_1}= x_{i_1}, X_{i_2} = x_{i_2}, \ldots,  X_{i_k} = x_{i_k} ) = \p(X_{i_1} = x_{i_1}) \p(X_{i_2} = x_{i_2}) \cdots  \p(X_{i_k} = x_{i_k})
+\p(X_{i_1}= x_{i_1}, X_{i_2} = x_{i_2}, \ldots,  X_{i_k} = x_{i_k} ) = \p(X_{i_1} = x_{i_1}) \p(X_{i_2} = x_{i_2}) \cdots  \p(X_{i_k} = x_{i_k}) \enspace ,
+\]
+or equivalently,
+\[
+f_{X_{i_1}, X_{i_2},\ldots,X_{i_k}} (x_{i_1}, x_{i_2}, \ldots,  x_{i_k} ) = f_{X_{i_1}} (x_{i_1}) f_{X_{i_2}}(x_{i_2}) \cdots  f_{X_{i_k}} (x_{i_k}) \enspace .
 \]
 \end{definition}
+
+From Definition~\ref{D:IndRVs}, we say $m$ random variables $X_1,X_2,\ldots,X_m$ are jointly independent or mutually independent if and only if for every $(x_1,x_2,\ldots,x_m) \in \Rz^m$
+\begin{eqnarray}
+F_{X_{1},X_{2},\ldots,X_{m}}(x_{1},x_{2},\ldots,x_{m}) &=& F_{X_{1}}(x_{1}) F_{X_{2}}(x_{2}) \cdots F_{X_{m}}(x_{m}) \enspace ,\\
+f_{X_{1},X_{2},\ldots,X_{m}}(x_{1},x_{2},\ldots,x_{m}) &=& f_{X_{1}}(x_{1}) f_{X_{2}}(x_{2}) \cdots f_{X_{m}}(x_{m}) \enspace .
+\end{eqnarray}
+
+\begin{prop}[Conditional probability of independent sequence of RVs]
 For an independent sequence of RVs $\{X_1,X_2,\ldots\}$, we have
+\begin{equation}\label{Eqn:CndProbOfIndepSeqOfRVs}
+\p(X_{i+1} \leq x_{i+1} | X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1) =  \p(X_{i+1} \leq x_{i+1}) 
+\end{equation}
+\end{prop}
+\begin{proof}
 \begin{eqnarray}
 &&\p(X_{i+1} \leq x_{i+1} | X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1) \notag\\
 \notag \\
@@ -2761,412 +3215,764 @@ For an independent sequence of RVs $\{X_1,X_2,\ldots\}$, we have
 \notag \\
 &=& \p(X_{i+1} \leq x_{i+1}) \notag 
 \end{eqnarray}
-The above equality that 
-\[
-\p(X_{i+1} \leq x_{i+1} | X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1) =  \p(X_{i+1} \leq x_{i+1}) 
-\]
-simply says that the conditional distribution of the RV $X_{i+1}$ given all previous RVs $X_i,X_{i-1},\ldots,X_1$ is simply determined by the distribution of $X_{i+1}$.
+\end{proof}
+Equation~\eqref{Eqn:CndProbOfIndepSeqOfRVs} simply says that the conditional distribution of the RV $X_{i+1}$ given all previous RVs $X_i,X_{i-1},\ldots,X_1$ is simply determined by the distribution of $X_{i+1}$.
 
-When a sequence of RVs are not independent they are said to be {\bf dependent}.  
+\begin{example}\label{EgCovOf2IndepRVs}
+If $X_1$ and $X_2$ are independent random variables then what is their covariance $\cv(X_1,X_2)$?
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% this is from old CSE book and should be banished....
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\comment{
-Let us try to relate some discrete probability models to the Quincunx.  First, we need to introduce simple random vectors, i.e.~ordered pairs, ordered triples, or more generally ordered $m$-tuples of random variables $X := (X_1,X_2,\ldots,X_m)$ as $\Rz^m$-valued random variables.  
-
-\begin{definition}[Joint PDF, PMF, CDF]
-A function $f_{X_1,X_2}(x_1,x_2)$ or more simply $f(x_1,x_2)$ is called a {\bf joint PDF (or PMF)} for the ordered pair of random variables or $\Rz^2$-valued RV or \rv  $X := (X_1,X_2)$ if:
-\begin{enumerate}
-\item $f(x_1,x_2) \geq 0$ for all $(x_1,x_2) \in \Rz^2$
-\item
-$$
-1= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} dF(x_1,x_2) =
-\begin{cases}
-\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x_1,x_2) dx_1 dx_2 & \text{if $(X_1,X_2)$ are continuous}  \\
-\sum_{x_1} \sum_{x_2} f(x_1,x_2) & \text{if $(X_1,X_2)$ are discrete} \\
-\end{cases}
-$$
-\item for any event $A \subset \Rz^2$,
-$$
-\p(A) =  \int \int_{A} dF(x_1,x_2) =
-\begin{cases}
-\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \BB{1}_A((x_2,x_2)) f(x_1,x_2) dx_1 dx_2 & \text{if $(X_1,X_2)$ are continuous}  \\
-\sum_{x_1} \sum_{x_2}  \BB{1}_A((x_2,x_2)) f(x_1,x_2) & \text{if $(X_1,X_2)$ are discrete} \\
-\end{cases}
-$$
-\end{enumerate}
-where, $F_{X_1,X_2}(x_1,x_2)$ of simply $F(x_1,x_2)$ is the {\bf joint CDF or joint DF} for discrete or continuous $\Rz^2$-valued RV $(X_1,X_2)$ gives the probability of the ``south-west corner'' of $(x_1,x_2)$ as follows:
+{\em Solution:}\\[4pt]
+We know for independent RVs from the properties of expectations that
 \[
-F(x_1,x_2) := \p(X_1 \leq x_1, X_2 \leq x_2) \ .
+E(X_1X_2) = E(X_1)E(X_2)
 \]
-\end{definition}
-
-\begin{definition}[Marginal PDF or PMF]
-If the \rv~$(X_1,X_2)$ has $f(x_1,x_2)$ as its joint density, i.e.~joint PDF or joint PMF, then the {\bf marginal PDF or PMF} of $X_1$ is defined by:
-\[
-f(x_1) = \p(X_1=x_1) =
-\begin{cases}
-\int_{-\infty}^{\infty} f(x_1,x_2) dx_2 & \text{if $(X_1,X_2)$ are continuous}  \\
-\sum_{x_2} f(x_1,x_2) & \text{if $(X_1,X_2)$ are discrete} \\
-\end{cases}
-\]
-and the  {\bf marginal PDF or PMF} of $X_2$ is defined by:
-\[
-f(x_2) = \p(X_2=x_2) =
-\begin{cases}
-\int_{-\infty}^{\infty} f(x_1,x_2) dx_1 & \text{if $(X_1,X_2)$ are continuous}  \\
-\sum_{x_1} f(x_1,x_2) & \text{if $(X_1,X_2)$ are discrete} \\
-\end{cases}
-\]
-\end{definition}
-
-\begin{example}[Bivariate Uniform]  Let $(X_1,X_2)$ be uniformly distributed on the square $[0,1]^2 := [0,1] \times [0,1]$.  Then,
-\[
-f(x_1,x_2) = \BB{1}_{[0,1]^2}(x_1,x_2) \ .
-\]
-Let the rectangular event $A=\{X_1 < 1/3, Y < 1/2 \} \subset [0,1]^2$.  By integrating the joint PDF over $A$, which amounts here to finding the area of $A$, we compute $\p(A) = (1/3) (1/2) = 1/6$.  Note that the marginal PDF of $X_1$ or $X_2$ is the PDF of the $\uniform(0,1)$ RV.
+From the formula for covariance
+\begin{align*}
+\cv (X_1,X_2) 
+&= E(X_1 X_2)-E(X_1)E(X_2)\\
+&= E(X_1) E(X_2)-E(X_1)E(X_2) \qquad \text{due to independence}\\
+&= 0
+\end{align*}
 \end{example}
 
-}% this is from old CSE book and should be banished....
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{rem}
+The converse is not true: two random variables that have zero covariance are not necessarily independent.
+\end{rem}
 
+\subsubsection{Linear Combination of Independent Normal RVs is a Normal RV}
+
+We can get the following special property of normal RVs using Eqn.~\eqref{E:LinCombCF}. 
+If $X_1,X_2,\ldots,X_m$ be jointly independent RVs, where $X_i$ is $\normal(\mu_i,\sigma_i^2)$, for $i=1,2,\ldots,m$ 
+then $Y=c+\sum_{i=1}^m a_i X_i$ for some constants $c,a_1,a_2,\ldots,a_m$ 
+is the $\normal\left( c+\sum_{i=1}^m a_i \mu_i, \sum_{i=1}^m a_i^2 \sigma_i^2 \right)$ RV.
+
+\begin{example}\label{EgLinCombOfNormals}
+Let $X$ be $\normal(2,4)$, $Y$ be $\normal(-1,2)$ and $Z$ be $\normal(0,1)$ RVs that are jointly independent.  
+Obtain the following:
+\be
+\item $E(3X-2Y+4Z)$
+\item $V(2Y-3Z)$
+\item the distribution of $6-2Z+X-Y$
+\item the probability that $6-2Z+X-Y>0$
+\item $\cv(X,W)$, where $W=X-Y$.
+\ee
+
+{\em Solution}\\[4pt]
+\be
+\item
+\[
+E(3X-2Y+4Z) = 3E(X)-2E(Y)+4(Z) = (3 \times 2) + (-2 \times (-1)) + 4 \times 0 = 6 +2 +0 = 8
+\]
+\item
+\[
+V(2Y-3Z) = 2^2V(Y) + (-3)^2V(Z) = (4 \times 2) + (9 \times 1) = 8 + 9 = 17 
+\]
+\item
+From the special property of normal RVs, the distribution of $6-2Z+X-Y$ is
+\begin{align*}
+&~ \normal\left( 6+(-2 \times 0)+(1 \times 2)+(-1 \times -1), ((-2)^2 \times 1) + (1^2 \times 4) + ((-1)^2 \times 2)  \right)\\
+&= \normal\left( 6+0+2+1, 4 + 4 +  2  \right)\\
+&= \normal(9,10)
+\end{align*}
+\item 
+Let $U=6-2Z+X-Y$ and we know $U$ is $\normal(9,10)$ RV.
+\begin{align*}
+P(6-2Z+X-Y>0) 
+&= P(U>0) = P(U-9>0-9) = P\left( \frac{U-9}{\sqrt{10}} > \frac{-9}{\sqrt{10}} \right)\\
+&= P\left( Z > \frac{-9}{\sqrt{10}} \right)\\ 
+&= P\left( Z < \frac{9}{\sqrt{10}} \right) \\
+&\approxeq P(Z < 2.85) = 0.9978
+\end{align*}
+\item
+\begin{align*}
+\cv(X,W) 
+&= E(XW)-E(X)E(W) = E(X(X-Y))-E(X)E(X-Y)\\
+&= E(X^2-XY)-E(X)(E(X)-E(Y)) = E(X^2)-E(XY)-2\times(2-(-1)) \\
+&= E(X^2)-E(X)E(Y)-6 = E(X^2)-(2 \times (-1))-6\\
+&= (V(X)+(E(X))^2) +2-6 = (4+2^2)-4=4
+\end{align*}
+\ee
+\end{example}
+
+
+\subsection{Some Common $\Rz^m$-valued RVs}\label{S:SomeCommonRmValuedRVs} 
+
+
+So far, we have treated our random vectors as random points in $\Rz^m$ and not been explicit about whether they are row or column vectors.  
+We need to be more explicit now in order to perform arithmetic operations and transformations with them.
+
+Let $X=(X_1,X_2,\ldots,X_{m_X})$ be a \rv~in $\Rz^{1 \times m_X}$, i.e., $X$ is a random row vector with $1$ row and $m_X$ columns, with JCDF $F_{X_1,X_2,\ldots,X_{m_X}}$ and JPDF $f_{X_1,X_2,\ldots,X_{m_X}}$.  
+Similarly, let $Y=(Y_1,Y_2,\ldots,Y_{m_Y})$ be a \rv~in $\Rz^{1 \times m_Y}$, i.e., $Y$ is a random row vector with $1$ row and $m_Y$ columns, with JCDF $F_{Y_1,Y_2,\ldots,Y_{m_Y}}$ and JPDF $f_{Y_1,Y_2,\ldots,Y_{m_Y}}$.
+Let the JCDF of the random vectors $X$ and $Y$ together be $F_{X_1,X_2,\ldots,X_{m_X},Y_1,Y_2,\ldots,Y_{m_Y}}$ and JPDF be $f_{X_1,X_2,\ldots,X_{m_X},Y_1,Y_2,\ldots,Y_{m_Y}}$.  
+
+\subsubsection{Independent Random Vectors and their sums}
+The notion of mutual independence or joint independence of $n$ random vectors is obtained similarly from ensuring the independence of any subset of the $n$ vectors in terms of their JCDFs (JPMFs or JPDFs) being equal to the product of their marginal CDFs (PMFs or PDFs). 
+
+Thus, for a given $m_X <\infty$ and $m_Y < \infty$, two {\bf random vectors are independent} if and only if for any $(x_1,x_2,\ldots,x_{m_X}) \in \Rz^{1 \times m_X}$ and any $(y_1,y_2,\ldots,y_{m_Y}) \in \Rz^{1 \times m_Y}$
+\begin{multline*}
+F_{X_1,X_2,\ldots,X_{m_X},Y_1,Y_2,\ldots,Y_{m_Y}}(x_1,x_2,\ldots,x_{m_X},y_1,y_2,\ldots,y_{m_Y})\\
+= F_{X_1,X_2,\ldots,X_{m_X}}(x_1,x_2,\ldots,x_{m_X}) \times F_{Y_1,Y_2,\ldots,Y_{m_Y}}(y_1,y_2,\ldots,y_{m_Y})
+\end{multline*}
+or, equivalently
+\begin{multline*}
+f_{X_1,X_2,\ldots,X_{m_X},Y_1,Y_2,\ldots,Y_{m_Y}}(x_1,x_2,\ldots,x_{m_X},y_1,y_2,\ldots,y_{m_Y})\\
+= f_{X_1,X_2,\ldots,X_{m_X}}(x_1,x_2,\ldots,x_{m_X}) \times f_{Y_1,Y_2,\ldots,Y_{m_Y}}(y_1,y_2,\ldots,y_{m_Y})
+\end{multline*}
+
+Let us consider the natural two-dimensional analogue of the $\bernoulli(\theta)$ RV in the real plane $\Rz^2 := (-\infty,\infty)^2 := (-\infty,\infty) \times (-\infty,\infty)$.  A natural possibility is to use the {\bf ortho-normal basis vectors} in $\Rz^2$:
+$$ \boxed{
+e_1 := (1,0), \qquad e_2 := (0,1)
+} \ .$$
+Recall that vector addition and subtraction are done component-wise, i.e.~$(x_1,x_2) \pm (y_1,y_2) = (x_1 \pm y_1,x_2 \pm y_2)$.
+We introduce a useful function called the indicator function of a set, say $A$.
+\[
+\BB{1}_A(x) = 
+\begin{cases}
+1 & \text{ if } x \in A\\
+0 & \text{ otherwise}.
+\end{cases}
+\]
+$\BB{1}_A(x)$ returns $1$ if $x$ belongs to $A$ and $0$ otherwise.
+
+\begin{example}\label{EgVectorArithmetic}
+Let us recall the geometry and arithmetic of vector addition in the plane.  
+\be
+\item What is $(1,0)+(1,0)$, $(1,0)+(0,1)$, $(0,1)+(0,1)$?  
+\item What is the relationship between $(1,0)$, $(0,1)$ and $(1,1)$ geometrically? 
+\item How does the diagonal of the parallelogram relate the its two sides in the geometry of addition in the plane?  
+\item What is  $(1,0)+(0,1)+(1,0)$?
+\ee
+
+{\em Solution:}\\[4pt]
+\be
+\item addition is component-wise
+\begin{align*}
+(1,0)+(1,0) &= (1+1,0+0) = (2,0)\\
+(1,0)+(0,1) &= (1+0,0+1) = (1,1)\\
+(0,1)+(0,1) &= (0+0,1+1)=(0,2)
+\end{align*}
+\item $(1,0)$ and $(0,1)$ are vectors for the two sides of unit square and $(1,1)$ is its diagonal.
+\vspace{3cm}
+\item Generally, the diagonal of the parallelogram is the resultant or sum of the vectors representing its two sides
+\vspace{3cm}
+\item
+\[
+(1,0)+(0,1)+(1,0)=(1+0+1,0+1+0) = (2,1)
+\] 
+\ee
+\end{example}
+
+
+\begin{model}[$\bernoulli(\theta)$ \rv]\label{M:BernoulliTheraRandomVector}
+Given a parameter $(\theta, 1-\theta) \in \Delta^1$, the unit 1-Simplex, we say that $X := (X_1,X_2)$ is a $\bernoulli(\theta)$ random vector (\rv) if it has only two possible outcomes in the set $\{e_1,e_2\} \subset \Rz^2$, i.e.~$x:=(x_1,x_2) \in \{(1,0),(0,1)\}$.  The PMF of the \rv~$X:= (X_1,X_2)$ with realization $x:=(x_1,x_2)$ is:
+\[
+f(x;\theta) := P(X=x) = \theta \, \BB{1}_{\{e_1\}}(x) + (1-\theta) \, \BB{1}_{\{e_2\}}(x) =
+\begin{cases}
+\theta & \text{if } \quad x=e_1:=(1,0) \\
+1- \theta & \text{if } \quad x=e_2:=(0,1) \\
+0 & \text{otherwise}
+\end{cases}
+\]
+\end{model}
+
+
+\begin{example}\label{EgExpectationOfBernoulliRVector}
+Let us find the Expectation of $\bernoulli(\theta)$ \rv in Model~\ref{M:BernoulliTheraRandomVector}.
+\[
+\e_{\theta}(X) = \e_{\theta}((X_1,X_2)) = \sum_{(x_1,x_2) \in \{e_1,e_2\}} (x_1,x_2) f((x_1,x_2);\theta) = (1,0) \theta + (0,1) (1-\theta) = (\theta,1-\theta) \ .
+\]
+\end{example}
+%How about the variance ? [Hint: Use the definitions of $\e(X)$ and $\V(X)$ for the \rv~$X$.  $\e(X^2)$ is not a single number and you may need new words such as covariance to deal with terms like $\e(X_1 X_2)$.]
+
+
+\begin{rem}
+We can write the $\binomial(n,\theta)$ RV $Y$ as a $\binomial(n,\theta)$ \rv~$X:=(Y,n-Y)$.  In fact, this is the underlying model and the {\bf bi} in the $\binomial(n,\theta)$ does refer to two in Latin.  In the coin-tossing context this can be thought of keeping track of the number of Heads and Tails out of an IID sequence of $n$ tosses of a coin with probability $\theta$ of observing Heads.  In the Quincunx context, this amounts to keeping track of the number of right and left turns made by the ball as it drops through $n$ levels of pegs where the probability of a right turn at each peg is independently and identically $\theta$.  In other words, the $\binomial(n,\theta)$ \rv~$(Y,n-Y)$ is the sum of $n$ IID $\bernoulli(\theta)$ {\rv}s $X_1:=(X_{1,1},X_{1,2}), X_2:=(X_{2,1},X_{2,2}), \ldots, X_n:=(X_{n,1},X_{n,2})$:
+\[
+(Y,n-Y) = X_1+X_2+\cdots + X_n = (X_{1,1},X_{1,2}) + (X_{2,1},X_{2,2}) + \cdots + (X_{n,1},X_{n,2})
+\]
+\end{rem}
+
+\begin{Exercise}[title={Random walk in the first Quadrant},label={xRWsinIQ}]
+Consider an independent and identical random walk starting from $(0,0)$ in the first quadrant where you go east, 
+i.e., add $(1,0)$ to your current position with probability $\theta$, and go north, i.e., add $(0,1)$ to your current position with probability $1-\theta$. 
+Suppose you take $n$ such IID steps according to the $\bernoulli(\theta)$ \rv.  
+Answer the following questions:
+\begin{enumerate}
+\item How does the number of paths that lead to a $(x_1,x_2)$ with $x_1+x_2=n$ relate to the binomial coefficient $\binom{n}{x_1}$? 
+\item What is the probability of taking $x_1$ steps east and $x_2$ steps north?
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}
+\bit
+\item The number of paths that lead to a $(x_1,x_2)$ with $x_1+x_2=n$ is equal to $\binom{n}{x_1}$. We have already seen this as random walks in Manhatta. 
+\item $\binom{n}{x_1} \theta^{x_1}(1-\theta)^{x_2}$
+\eit
+\end{Answer}
+
+\begin{Exercise}[title={Random walks in  the first Quadrant and Galton's Quincunx},label={xRWsinIQAndQunicux}]
+Compare the probability models for the Random walk in the first quadrant and Galton's Quincunx and explain how they are related.
+\end{Exercise}
+\begin{Answer}
+The probability of going east or north in the first quadrant (idealized Manhattan with streets and avenues) is the same as a ball falling left or right in the Galton's Quincunx. 
+The buckets that collect the balls after dropping through $n$ levels of nails are labelled by the number of right turns as $0, 1, \ldots, n$ when modelled by a $\binomial(n,\theta)$, and this is analogous to the number of steps taken north in the random walk case.
+\end{Answer}
+
+\begin{labwork}[Quincunx Sampler Demo -- Sum of $n$ IID $\bernoulli(1/2)$ \rv{s}]\label{LW:QuincunxSampler}
+{\rm Let us understand the Quincunx construction of the $\binomial(n,1/2)$ \rv $X$ as the sum of $n$ independent and identical $\bernoulli(1/2)$ \rv{s} by calling the interactive visual cognitive tool as follows:
+\begin{VrbM}
+>> guiMultinomial
+\end{VrbM}
+}
+\end{labwork}
+
+\begin{figure}[htpb]
+\caption{Visual Cognitive Tool GUI: Quincunx \& Septcunx.\label{F:guiMultinomialQuincunx}}
+\centering   \makebox{\includegraphics[width=3.00in]{figures/guiMultinomialQuincunx}}
+\centering   \makebox{\includegraphics[width=3.00in]{figures/guiMultinomialSeptcunx}}
+\end{figure}
+%}%end remove
+
+\begin{figure}[htpb]
+\caption{Quincunx on the Cartesian plane.  Simulations of $\binomial(n=10,\theta=0.5)$ RV as the x-coordinate of the ordered pair resulting from the culmination of sample trajectories formed by the accumulating sum of $n=10$ IID $\bernoulli(\theta=0.5)$ random vectors over $\{(1,0),(0,1)\}$ with probabilities $\{\theta,1-\theta\}$, respectively.  The blue lines and black asterisks perpendicular to and above the diagonal line, i.e.~the line connecting $(0,10)$ and $(10,0)$, are the density histogram of the samples and the PMF of our $\binomial(n=10,\theta=0.5)$ RV, respectively.\label{F:BinomQuincunxn10r10r1000}}
+\centering
+\mbox{\subfigure[Ten samples]{\hspace{-2cm} \includegraphics[width=3.250in]{figures/BinomQuincunxn10r10}} \hspace{-2cm}
+	   \subfigure[Thousand samples]{\includegraphics[width=3.250in]{figures/BinomQuincunxn10r1000}} }
+\end{figure}
+
+
+We are now ready to extend the $\binomial(n,\theta)$ RV or \rv~to its multivariate version called the $\multinomial(n,\theta_1,\theta_2,\ldots,\theta_k)$ \rv.  We develop this \rv~as the sum of $n$ IID $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv~that is defined next.
+
+\begin{model}[$\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv]\label{M:deMoivreRVec}
+The PMF of the $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv~$X := (X_1,X_2,\ldots,X_k)$ taking value $x := (x_1,x_2,\ldots,x_k) \in \{e_1,e_2,\ldots,e_k\}$, where the $e_i$'s are ortho-normal basis vectors in $\Rz^k$ is:
+\[
+f(x;\theta_1,\theta_2,\ldots,\theta_k) := P(X=x) = \sum_{i=1}^k \theta_i \BB{1}_{\{e_i\}}(x) =
+\begin{cases}
+\theta_1 & \text{if} \quad x=e_1:=(1,0,\ldots,0) \in \Rz^k \\
+\theta_2 & \text{if} \quad x=e_2:=(0,1,\ldots,0) \in  \Rz^k \\
+\vdots \\
+\theta_k & \text{if} \quad x=e_k:=(0,0,\ldots,1) \in  \Rz^k \\
+0 & \text{otherwise}
+\end{cases}
+\]
+Of course, $\sum_{i=1}^k \theta_i = 1$.
+\end{model}
+
+When we add $n$ IID $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv~together, we get the $\multinomial(n,\theta_1,\theta_2,\ldots,\theta_k)$ \rv~as defined below.
+
+\begin{model}[$\multinomial(n,\theta_1,\theta_2,\ldots,\theta_k)$ \rv]\label{M:Multinomial}
+We say that a \rv~$Y:=(Y_1,Y_2,\ldots,Y_k)$ obtained from the sum of $n$ IID $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv{s} with realizations
+$$y:=(y_1,y_2,\ldots,y_k) \in \Yz:= \{(y_1,y_2,\ldots,y_k) \in \Zz_+^k : \sum_{i=1}^k y_i = n\}$$ has the PMF given by:
+\[
+f(y;n,\theta) := f(y;n,\theta_1,\theta_2,\ldots,\theta_k) := P(Y=y;n,\theta_1,\theta_2,\ldots,\theta_k) = \binom{n}{y_1,y_2,\ldots,y_k} \prod_{i=1}^k \theta_i^{y_i} \ ,
+\]
+where, the multinomial coefficient:
+\[
+ \binom{n}{y_1,y_2,\ldots,y_k} := \frac{n!}{y_1! y_2! \cdots y_k!} \ .
+\]
+Note that the marginal PMF of $Y_j$ is $\binomial(n,\theta_j)$ for any $j=1,2,\ldots,k$.
+\end{model}
+
+We can visualize the $\multinomial(n,\theta_1,\theta_2,\theta_3)$ process as a sum of $n$ IID $\demoivre(\theta_1,\theta_2,\theta_3)$ \rv{s} via a three dimensional extension of the Quincunx called the ``Septcunx'' and relate the number of paths that lead to a given trivariate sum $(y_1,y_2,y_3)$ with $\sum_{i=1}^3 y_i = n$ as the multinomial coefficient $\frac{n!}{y_1! y_2! y_3!}$.  In the Septcunx, balls choose from one of three paths along $e_1$, $e_2$ and $e_3$ with probabilities $\theta_1$, $\theta_2$ and $\theta_3$, respectively, in an IID manner at each of the $n$ levels, before they collect at buckets placed at the integral points in the $3$-simplex, $\Yz = \{(y_1,y_2,y_3) \in \Zz_+^3 : \sum_{i=1}^3 y_i=n \}$.  Once again, we can visualize that the sum of $n$ IID $\demoivre(\theta_1,\theta_2,\theta_3)$ \rv{s} constitute the $\multinomial(n,\theta_1,\theta_2,\theta_3)$ \rv.%~as depicted in \hyperref[F:MultinomSeptcunxn2n10r1000]{Figure \ref*{F:MultinomSeptcunxn2n10r1000}}.
+
+\begin{labwork}[Septcunx Sampler Demo -- Sum of n IID $\demoivre(1/3,1/3,1/3)$ \rv{s}]\label{LW:SeptcunxSampler}
+{\rm
+Let us understand the Septcunx construction of the $\multinomial(n,1/3,1/3,1/3)$ \rv $X$ as the sum of $n$ independent and identical $\demoivre(1/3,1/3,13/)$ \rv{s} by calling the interactive visual cognitive tool as follows:
+\begin{VrbM}
+>> guiMultinomial
+\end{VrbM}
+}
+\end{labwork}
+
+Multinomial distributions are at the very foundations of various machine learning algorithms, including, filtering junk email, learning from large knowledge-based resources like www, Wikipedia, word-net, etc.
+
+
+\begin{model}[$\normal(\mu,\Sigma)$ \rv]\label{M:MultivariateNormal}
+The univariate $\normal(\mu,\sigma^2)$ RV has two parameters, $\mu \in \Rz$ and $\sigma^2 \in (0,\infty)$.  
+In the multivariate version $\mu \in \Rz^{m \times 1}$ is a column vector and $\sigma^2$ is replaced by a matrix $\Sigma$.  To begin, let
+\[
+Z = 
+\left( 
+\begin{array}{c}
+Z_1 \\
+Z_2 \\
+\vdots \\
+Z_m 
+\end{array} 
+\right)
+\]
+where, $Z_1,Z_2,\ldots,Z_m$ are jointly independent $\normal(0,1)$ RVs.  Then the JPDF of $Z$ is
+\[
+f_Z(z) = f_{Z_1,Z_2,\ldots,Z_m}(z_1,z_2,\ldots,z_m) = \frac{1}{(2 \pi)^{m/2}} \exp \left( -\frac{1}{2} \sum_{j=1}^m z_j^2 \right) = \frac{1}{(2 \pi)^{m/2}} \exp \left( -\frac{1}{2} z^T z \right)
+\]
+We say that $Z$ has a standard multivariate normal distribution and write $Z \sim \normal(0,I)$, where it is understood that $0$ represents the vector of $m$ zeros and $I$ is the $m \times m$ identity matrix (with $1$ along the diagonal entries and $0$ on all off-diagonal entries).
+
+More generally, a vector $X$ has a multivariate normal distribution denoted by $X \sim \normal(\mu,\Sigma)$, if it has joint probability density function
+\[
+f_X(x;\mu,\Sigma) = f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m; \mu,\Sigma) 
+= \frac{1}{(2 \pi)^{m/2} |(\Sigma)|^{1/2}} \exp \left( -\frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu )\right) 
+\]
+where $|\Sigma|$ denotes the determinant of $\Sigma$, $\mu$ is a vector of length $m$ and $\Sigma$ is a $m \times m$ symmetric, positive definite matrix.  Setting $\mu=0$ and $\Sigma=I$ gives back the standard multivariate normal \rv.
+\end{model}
+
+
+
+%bivariate Normal
+
+\begin{figure}[htpb]
+\caption{JPDF, Marginal PDFs and Frequency Histogram of Bivariate Standard Normal \rv.\label{F:BivariateStdNormalJPDFMPDFsFreHist}}
+\centering   \makebox{\includegraphics[width=6.50in]{figures/BivariateStdNormalJPDFMPDFsFreHist.eps}}
+\end{figure}
+
+When we have a non-zero mean vector 
+$$\mu=\begin{pmatrix} \mu_X\\ \mu_Y \end{pmatrix} =\begin{pmatrix} 6.49\\ 5.07 \end{pmatrix}$$ 
+for the mean lengths and girths of cylindrical shafts from a manufacturing process with  
+variance-covariance matrix 
+$$\Sigma = \begin{pmatrix} \cv(X,X) & \cv(X,Y)\\ \cv(Y,X) & \cv(Y,Y)\end{pmatrix} = \begin{pmatrix} V(X) & \cv(X,Y)\\ \cv(X,Y) & V(Y)\end{pmatrix} = \begin{pmatrix} 0.59 & 0.24\\ 0.24 & 0.26 \end{pmatrix}$$
+then the $\normal(\mu,\Sigma)$ \rv~has JPDF, marginal PDFs and samples with frequency histograms as shown in Figure~\ref{F:BivariateShaftsNormalJPDFMPDFsFreHist}.
+
+We can use \Matlab to compute for instance the probability that a cylinder has length and girth below $6.0$ cms as follows:
+\begin{VrbM}
+>> mvncdf([6.0 6.0],[6.49 5.07],[0.59  0.24; 0.24 0.26])
+ans =    0.2615
+\end{VrbM}
+Or find the probability (with numerical error tolerance) that the cylinders are within the rectangular specifications of $6\pm1.0$ along $x$ and $y$ as follows:
+\begin{VrbM}
+>> [F err] = mvncdf([5.0 5.0], [7.0 7.0], [6.49 5.07],[0.59  0.24; 0.24 0.26])
+
+F =    0.3352
+
+err =   1.0000e-08
+\end{VrbM}
+
+
+\begin{figure}[htpb]
+\caption{JPDF, Marginal PDFs and Frequency Histogram of a Bivariate Normal \rv~for lengths of girths of cylindrical shafts in a manufacturing process (in cm).\label{F:BivariateShaftsNormalJPDFMPDFsFreHist}}
+\centering   \makebox{\includegraphics[width=6.50in]{figures/BivariateShaftsNormalJPDFMPDFsFreHist.eps}}
+\end{figure}
+
+\remove{
+\iftoggle{PlaceTutsHere}{%
+\subsection{Tutorial Exercises}
+\input{Tutorials/Tut_RandVecs_preps.tex}
+~\\
+\input{Tutorials/Tut_RandVecs_inTut.tex}
+}{%
+  % don't do anything otherwise
+}
+
+}%remove
+
+
+\subsection{Dependent Random Variables}
+When a sequence of RVs are not independent they are said to be {\bf dependent}.  
+
+% The simplest form of dependence is Markov dependence ... 2-state Markov chain
 
 
 \newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Characteristic Functions}\label{S:CF}
+The characteristic function (CF) of a random variable gives another way to specify its distribution. 
+Thus CF is a powerful tool for analytical results involving random variables
+(\href{http://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)}{more}).
 
-\section{Expectations}\label{S:Expectations}
-
-Expectation is perhaps the most fundamental concept in probability theory. In fact, probability is itself an expectation as you will soon see!
-
-Expectation is one of the fundamental concepts in probability.  The
-expected value of a real-valued random variable gives the population mean, a measure of the
-centre of the distribution of the variable in some sense.  
-Its variance measures its spread and so on.
-
-\begin{definition}[Expectation of a RV]
-The {\bf expectation}, or {\bf expected value}, or {\bf mean}, or {\bf first moment}, of a random variable $X$, with distribution function $F$ and density $f$, is defined to be
-\begin{equation}\label{E:Mean}
-\e(X) := \int x\,dF(x) = 
+\begin{definition}[Characteristic Function (CF)]
+Let $X$ be a RV and $\imath=\sqrt{-1}$. The function $\phi_X(t) : \Rz \to \Cz$ defined by
+\begin{equation}\label{E:CF}
+\boxed{
+\phi_X(t) := E \left( \exp \left( \imath t X\right) \right) = 
 \begin{cases}
-\sum_x x f(x) & \qquad \text{if $X$ is discrete} \\
-\int x f(x)\,dx  & \qquad \text{if $X$ is continuous} \  ,
+\sum_{x} \exp \left( \imath t x\right) f_X(x) & \text{ if $X$ is discrete RV}\\
+\int_{-\infty}^{\infty} \exp \left( \imath t x\right) f_X(x) dx & \text{ if $X$ is continuous RV}
 \end{cases}
+}
 \end{equation}
-provided the sum or integral is well-defined.  We say the expectation exists if
-\begin{equation}\label{E:ExpectationExists}
-\int \left|x\right|\,dF(x) < \infty \ .
-\end{equation}
-Sometimes, we denote $\e(X)$ by $\e X$ for brevity.  Thus, the expectation is a single-number summary of the RV $X$ and may be thought of  as the average.
-We subscript $E$ to specify the parameter $\theta \in \BB{\Theta}$ with respect to which the integration is undertaken. 
-\[
-\e_{\theta} X := \int x\,dF(x;\theta)
-\]
+is called the {\bf characteristic function} of $X$.
 \end{definition}
 
-\begin{definition}[Variance of a RV]\label{D:VarianceofX}
-Let $X$ be a RV with mean or expectation $\e(X)$.  Variance of $X$ denoted by $\V(X)$ or $VX$ is
+NOTE: 
+$\phi_X(t)$ exists for any $t \in \Rz$, because
+\begin{align*}
+\phi_X(t) 
+&= E \left( \exp \left( \imath t X\right) \right) \\
+&= E \left( \cos(tX)+ \imath \sin(tX) \right)\\
+&= E \left( \cos(tX) \right) + \imath E \left(\sin(tX) \right)
+\end{align*}
+and the last two expected values are well-defined, because the sine and cosine functions are bounded by $[-1,1]$.
+
+For a continuous RV, $\int_{-\infty}^{\infty} \exp \left(- \imath t x\right) f_X(x) dx$ is called the {\em Fourier transform} of $f_X$.  
+This is the CF but with $t$ replaced by $-t$.  
+You will also encounter Fourier transforms when solving differential equations.
+
+\subsection{Obtaining Moments from Characteristic Function}
+
+Recall that the $k$-th moment of $X$ is $E(X^k)$ for any $k \in \Nz:=\{1,2,3,\ldots\}$ is
+\begin{framed}
+%\Df{\label{Df:KthMoment} % TODO make this a definition proper
 \[
-\V(X) := \e \left((X-\e(X))^2\right) = \int (x-\e(X))^2 \,d F(x) \ ,
-\]
-provided this expectation exists.  The {\bf standard deviation} denoted by $\sd(X) := \sqrt{\V(X)}$.
-Thus variance is a measure of ``spread'' of a distribution.
-\end{definition}
-
-\begin{definition}[$k$-th moment of a RV]
-We call 
-\[
-\e(X^k) = \int x^k\,dF(x)
-\]
-as the $k$-th moment of the RV $X$ and say that the $k$-th moment exists when $\e(|X|^k) < \infty$.  We call the following expectation as the $k$-th central moment:
-\[
-\e \left((X- \e(X))^k\right) \ .
-\]
-\end{definition}
-
-%%%%%%%%%%%%%%%%%%%%%%%%% fromPrsStEng
-
-\subsection{Expectations of functions of random variables}\label{S:ExpectationsOfFunsOfRVs}
-
-More generally, by taking the expected value of various functions of a random variable, we can measure many interesting features of its distribution, including spread and correlation.
-
-\begin{definition}[Expectation of a function of a RV]\label{Df:expectation}
-The \textbf{Expectation} of a function $g(X)$ of a random variable $X$ is defined as:
-\[
-\e(g(X))\; :=\; \int g(x) dF(x) = 
+E(X^k)\; =\;
 \begin{cases}
-\displaystyle \sum_x g(x) f(x) & \text{if $X$ is a discrete RV}\\[12pt]
-\displaystyle \int_{-\infty}^{\infty} g(x) f(x) dx & \text{if $X$ is a continuous RV}
+\displaystyle \sum_x x^k f_X(x) & \text{if $X$ is a discrete RV}\\[12pt]
+\displaystyle \int_{-\infty}^{\infty} x^2 f_X(x) dx & \text{if $X$ is a continuous RV}
 \end{cases}
 \]
-provided $\e(g(X))$ exists, i.e., $\int |g(x)| dF(x) < \infty$.
-\end{definition}
+%}
+\end{framed}
 
-The {\bf mean} which characterises the central location of the random variable $X$ is merely the expectation of the identity function $g(x)=x$:
+The characteristic function can be used to derive the moments of $X$ due to the following nice relationship between the the $k$-th moment of $X$ and the $k$-th derivative of the CF of $X$.
+
+\begin{framed}
+\begin{prop}[Moment \& CF.]
+Let $X$ be a random variable and $\phi_X(t)$ be its CF.  
+If $E(X^k)$ exists and is finite, then $\phi_X(t)$ is $k$ times continuously differentiable and
+\begin{equation*}
+E(X^k) = \frac{1}{\imath^k} \left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0} \enspace .
+\end{equation*}
+where $\left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0}$ is the $k$-th derivative of $\phi_X(t)$ with respect to $t$, evaluated at the point $t=0$.
+\end{prop}
+\end{framed}
+
+\begin{proof}
+The proper proof is very messy so we just give a sketch of the ideas in the proof.  
+Due to the linearity of the expectation (integral) and the derivative operators, we can change the order of operations:
+\begin{align*}
+\frac{d^k \phi_X(t)}{dt^k}
+&= \frac{d^k}{dt^k} E(\exp(\imath t X))
+= E \left( \frac{d^k}{dt^k} \exp(\imath t X) \right)
+= E \left( (\imath X)^k \exp(\imath t X) \right)
+= \imath^k E \left( X^k \exp(\imath t X) \right)
+\end{align*}
+The RHS evaluated at $t=0$ is
 \[
-\e(X)\; =\;
-\begin{cases}
-\displaystyle \sum_x x f(x) & \text{if $X$ is a discrete RV}\\[12pt]
-\displaystyle\int_{-\infty}^{\infty} x f(x) dx & \text{if $X$ is a
-  continuous RV}
-\end{cases}
+\left[ \frac{d^k \phi_X(t)}{dt^k} \right]_{t=0}
+= \left[ \imath^k E \left( X^k \exp(\imath t X) \right) \right]_{t=0} 
+= \imath^k E \left( X^k \right)
 \]
-Often, mean is denoted by $\mu$.
+This completes the sketch of the proof.
+\end{proof}
 
-The \textbf{variance} which characterises the spread or the
-  variability of the random variable $X$ is also the expectation of the
-  function $g(x)=(x-\e(X))^2$:
-\[
-\V(X)\; =\; \e \left( (X-\e(X))^2 \right)\; =\;
-\begin{cases}
-\displaystyle\sum_x (x-\e(X))^2 f(x) & \text{if $X$ is a discrete RV}\\[12pt]
-\displaystyle\int_{-\infty}^{\infty} (x-\e(X))^2 f(x) dx & \text{if $X$ is a continuous RV}
-\end{cases}
-\] 
-Often, variance is denoted by $\sigma^2$. 
+The above Theorem gives us the relationship between the moments and the derivatives of the CF if we already know that the moment exists.  
+When one wants to compute a moment of a random variable, what we need is the following Theorem.
 
-%\begin{framed}
-INTUITIVELY, WHAT IS EXPECTATION?\\
-
-Definition \ref{Df:expectation} gives expectation as a ``weighted average'' of the possible values. This is true but some intuitive idea of expectation is also helpful.
-\begin{itemize}
-\item Expectation is what you expect. \\[6pt]
-Consider tossing a fair coin. If it is heads you lose \$10. If it is tails you win \$10. 
-What do you expect to win? Nothing. 
-If $X$ is the amount you win then $$\e(X)\;=\;-10\times \frac{1}{2}+10\times \frac{1}{2}\;=\;0\,.$$
-
-So what you expect (nothing) and the weighted average ($\e(X)=0$) agree.
-
-
-\item Expectation is a long run average.\\[6pt]
-Suppose you are able to repeat an experiment independently, over and over again. 
-Each experiment produces one value $x$ of a random variable $X$.  
-If you take the average of the $x$ values for a large number of trials, then this average converges to $\e(X)$ as the number of trials grows.  In fact, this is called the {\bf law of large numbers}.
-\end{itemize}
-%\end{framed}
-
-We can concretize the above two intuitive insights by the following two examples.
-
-\begin{example}[Winnings on Average]
-Let $Y = r(X)$.  Then
-\[
-\e(Y) = \e(r(X)) = \int r(x)\, d F(x) \ .
-\]
-Think of playing a game where we draw $x \sim X$ and then I pay you $y=r(x)$.  Then your average income is $r(x)$ times the chance that $X=x$, summed (or integrated) over all values of $x$.
-\end{example}
-
-\begin{example}[Probability is an Expectation]
-Let $A$ be an event and let $r(X)=\BB{1}_{A}(x)$.  Recall $\BB{1}_A(x)$ is $1$ if $x \in A$ and $\BB{1}_A(x)=0$ if $x \notin A$.  Then
-\begin{equation}\label{E:ExpectationofIndicator}
-\e(\BB{1}_A(X)) = \int \BB{1}_A(x)\, dF(x) = \int_A dF(x) = \p(X \in A) = \p(A)
-\end{equation}
-Thus, probability is a special case of expectation.  Recall our LTRF motivation for the definition of probability and make the connection.
-\end{example}
-
-\subsection*{Expectations of functions of $\Rz^2$-valued random variables}\label{S:ExpectationsOfFunsOf2RVs}
-
-In the case of a single random variable we saw that its expectation gives the population mean, 
-a measure of the center of the distribution of the variable in some sense.  
-Similarly, by taking the expected value of various functions of a $\Rz^2$-valued random variable, we can measure many interesting features of its joint distribution.
-
-\begin{definition}\label{Df:2expectation}
-The \textbf{Expectation} of a function $g(X,Y)$ of the $\Rz^2$-valued RV $(X,Y)$ is defined as:
-\[
-\e(g(X,Y))\; =\;
-\begin{cases}
-\displaystyle \sum_{(x,y)} g(x,y) f_{X,Y}(x,y) & \text{if $(X,Y)$ is a discrete \rv}\\[12pt]
-\displaystyle \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x,y) f_{X,Y}(x,y) dx dy & \text{if $(X,Y)$ is a continuous \rv}
-\end{cases}
-\]
-\end{definition}
-
-Some typical expectations for $\Rz^2$-valued random variables are:
-
+\begin{framed}
+\begin{prop}[{\bf Moments from CF.}]
+Let $X$ be a random variable and $\phi_X(t)$ be its CF.  
+If $\phi_X(t)$ is $k$ times differentiable at the point $t=0$, then
 \be
-\item Joint Moments
-\[
-\e(X^r Y^s)
-\]
-When $r=s=1$, we have $\e(XY)$, the expectation of the product of two RVs.
-\item 
-We need a new notion for the variance of two RVs.
-
-If $\e(X^2) < \infty$ and $\e(Y^2) < \infty$ then $\e(|X Y|) < \infty$ and $\e(|(X-\e(X))(Y-\e(Y))|) < \infty$.  This allows the definition of {\bf covariance} of $X$ and $Y$ as
-\[
-\cv(X,Y) := \e \left((X-\e(X))(Y-\e(Y))\right) = \e(X Y) - \e(X) \e(Y)
-\]
+\item if $k$ is even, the $n$-th moment of $X$ exists and is finite for any $0 \leq n \leq k$;
+\item if $k$ is odd, the $n$-th moment of $X$ exists and is finite for any $0 \leq n \leq k-1$.
 \ee
-
-The same ideas naturally extend, via multiple sums and integrals, to define the expectation of functions of $\Rz^k$-valued random variables with $k>2$.
-
-\subsection*{Viewing a deterministic real variable as a random variable}
-
-Consider the class of discrete RVs with distributions that place all probability mass on a single real number.  
-This is the probability model for the deterministic real variable, which is often thought of as an unknown constant $\theta \in \Rz$.
-\begin{model}[$\pointmass(\theta)$]
-Given a specific point $\theta \in \Rz$, we say an RV $X$ has point mass at $\theta$ or is $\pointmass(\theta)$ distributed if the DF is:
-\begin{equation}\label{E:PointMasscdf}
-F(x;\theta) =
-\begin{cases}
-0 & \text{if $x < \theta$} \\
-1 & \text{if $x \geq \theta$}
-\end{cases}
+In both cases,
+\begin{equation}\label{E:CFToMoments}
+E(X^k) = \frac{1}{\imath^k} \left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0} \enspace .
 \end{equation}
-and the PMF is:
-\begin{equation}
-f(x;\theta) =
-\begin{cases}
-0 & \text{if  $x \neq \theta$} \\
-1 & \text{if $x = \theta$}
-\end{cases}
-\end{equation}
-\end{model}
-Thus, $\pointmass(\theta)$ RV $X$ is deterministic in the sense that every realisation of $X$ is exactly equal to $\theta \in \Rz$.  We will see that this distribution plays a central limiting role in asymptotic statistics.
+where $\left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0}$ is the $k$-th derivative of $\phi_X(t)$ with respect to $t$, evaluated at the point $t=0$.
+\end{prop}
+\end{framed}
 
-\begin{example}[Mean and variance of $\pointmass(\theta)$ RV]
-Let $X \sim \pointmass(\theta)$.  Then:
+\begin{proof}
+For proof see e.g., Ushakov, N. G. (1999) Selected topics in characteristic functions, VSP (p.~39).
+\end{proof}
+
+
+\begin{example}\label{EgCFOfBernoulli}
+Let $X$ be the $\bernoulli(\theta)$ RV.  
+Find the CF of $X$.   
+Then use CF to find $E(X)$, $E(X^2)$ and from this obtain the variance $V(X) = E(X^2)-(E(X))^2$.
+
+Solution: 
+
+{\bf Part 1}
+
+Recall the PMF for this discrete RV with parameter $\theta \in (0,1)$ is
 \[
-\e(X) = \sum_{x} x f(x) = \theta \times 1 = \theta \ , \qquad
-\V(X) = \e(X^2) - (\e(X))^2 = \theta^2 - \theta^2 = 0 \ .
+f_X(x;\theta) = 
+\begin{cases}
+\theta & \text{ if } x = 1\\
+1-\theta & \text{ if } x = 0\\
+0 & \text{ otherwise}.
+\end{cases}
 \]
+Let's first find the CF of $X$
+\begin{align*}
+\phi_X(t)
+&= E \left( \exp(\imath t X) \right) 
+= \sum_x  \exp(\imath t x) f_X(x;\theta) \qquad \text{By Defn.~in Equation~\eqref{E:CF}}\\
+&= \exp(\imath t \times 0) (1-\theta) + \exp(\imath t \times 1) \theta 
+= \exp(0) (1-\theta) + \exp(\imath t) \theta 
+=  1-\theta + \theta \exp(\imath t)  
+\end{align*}
+
+{\bf Part 2:}
+
+Let's differentiate CF 
+\begin{align*}
+\frac{d}{dt}\phi_X(t)
+&= \frac{d}{dt}\left(1-\theta + \theta e^{\imath t} \right) 
+=  \theta \imath \exp(\imath t)
+\end{align*}
+
+We get $E(X)$ by evaluating $\frac{d}{dt}\phi_X(t)$ at $t=0$ and dividing by $\imath$ according to Equation~\eqref{E:CFToMoments} as follows:
+\begin{align*}
+E(X)
+&= \frac{1}{\imath} \left[ \frac{d}{dt}\phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath} \left[ \theta \imath \exp(\imath t) \right]_{t=0} 
+= \frac{1}{\imath} \left( \theta \imath \exp(\imath 0) \right) 
+=  \theta \enspace.
+\end{align*}
+Similarly from Equation~\eqref{E:CFToMoments} we can get $E(X^2)$ as follows:
+\begin{align*}
+E(X^2)
+&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{d}{dt} \phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \theta \imath \exp(\imath t) \right]_{t=0}\\ 
+&= \frac{1}{\imath^2} \left[ \theta \imath^2 \exp(\imath t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left( \theta \imath^2 \exp(\imath 0) \right) 
+=  \theta \enspace.
+\end{align*}
+Finally, from the first and second moments we can get the variance as follows:
+\[
+V(X) = E(X^2) - (E(X))^2 = \theta - \theta^2 = \theta(1-\theta) \enspace .
+\]
+Let's check that this is what we have as variance for the $\bernoulli(\theta)$ RV if we directly computed it using weighted sums in the definition of expectations: $E(X)=1 \times \theta + 0 \times (1-\theta)=\theta$, $E(X^2) = 1^2 \times \theta + 0^2 \times (1-\theta)=\theta$and thus giving the same $V(X) = E(X^2) - (E(X))^2 = \theta - \theta^2 = \theta(1-\theta)$.
 \end{example}
 
-\subsection{Properties of expectations}\label{S:PropOfEs}
-The following results, where $a$ is a  constant, may easily be
-proved using the properties of summations and integrals:
+\begin{example}\label{EgCFOfExponential}
+Let $X$ be an $\exponential(\lambda)$ RV. 
+First show that its CF is $\lambda/(\lambda- \imath t)$.  
+Then use CF to find $E(X)$, $E(X^2)$ and from this obtain the variance $V(X) = E(X^2)-(E(X))^2$.
 
-\bit
-\item[] $\boxed{\e(a ) \,=\, a}$
+Solution:
 
-\item[] $\boxed{\e(a \,g(X)) \,=\, a\, \e(g(X))}$
+Recall that the PDF of an $\exponential(\lambda)$ RV for a given parameter $\lambda \in (0,\infty)$ is $\lambda e^{-\lambda x}$ if $x \in [0, \infty)$ and $0$ if $x \notin [0, \infty)$.
 
-\item[] $\boxed{\e(g(X)+h(X))  \,=\, \e(g(X)) \,+\, \e(h(X))}$
-\eit
-Note that here  $g(X)$ and $h(X)$ are functions of the random variable
-$X$: e.g.  $g(X)=X^2$.
+{\bf Part 1:} Find the CF.
 
-Using these results we can obtain the following useful formula for variance:
-\begin{eqnarray*}
-V(X)
-&=& E\left((X-\e(X))^2\right)\\[3pt]
-& =& E \left( X^2 - 2 X \e(X) + (\e(X))^2 \right) \\[3pt]
-&=& E ( X^2) - E \left( 2 X \e(X) \right) + E \left( (\e(X))^2
-\right)\\[3pt]
-& =& E ( X^2) - 2 \e(X) E \left( X \right) + (\e(X))^2 \\[3pt]
-&=& E ( X^2) - 2 (\e(X))^2 + (\e(X))^2\\[3pt]
-&=& \e(X^2) - (\e(X))^2 \enspace .
-\end{eqnarray*}
-That is, \[
-\boxed{
-V(X) \;=\; \e(X^2) \,- \,(\e(X))^2
-}.
+We will use the fact that 
+$$\int_0^{\infty} \alpha e^{-\alpha x} dx = \left[ -e^{-\alpha x} \right]_0^{\infty} = 1$$
+
+\begin{align*}
+\phi_X(t)
+&= E(\exp(\imath X t))
+= E\left( e^{\imath X t} \right)
+= \int_{-\infty}^{\infty} e^{\imath x t} \lambda e^{-\lambda x} dx
+= \lambda  \int_{0}^{\infty} e^{-(\lambda-\imath t) x} dx\\
+&= \frac{\lambda}{\lambda-\imath t}  \int_{0}^{\infty} (\lambda-\imath t) e^{-(\lambda-\imath t) x} dx
+= \frac{\lambda}{\lambda-\imath t}  \int_{0}^{\infty} \alpha e^{-\alpha x} dx
+= \frac{\lambda}{\lambda-\imath t} \enspace, 
+\end{align*}
+where $\alpha = \lambda-\imath t$ with $\lambda > 0$.
+
+Alternatively, you can use $e^{\imath t x} = \cos(tx)+\imath \sin(tx)$ and do integration by parts to arrive at the same answer starting from:
+\begin{align*}
+\phi_X(t)
+&= \int_{-\infty}^{\infty} e^{\imath x t} \lambda e^{-\lambda x} dx
+= \int_{-\infty}^{\infty} \cos(t x) e^{-\lambda x} dx + \imath \int_{-\infty}^{\infty} \sin(t x) e^{-\lambda x} dx
+\vdots 
+= \frac{\lambda}{\lambda-\imath t} \enspace .
+\end{align*}
+
+{\bf Part 2:}
+
+Let us differentiate the CF to get moments using Equation~\eqref{E:CFToMoments} (CF has to be once and twice differentiable at $t=0$ to get the first and second moments).
+\begin{align*}
+\frac{d}{dt}\phi_X(t)
+&= \frac{d}{dt}\left( \frac{\lambda}{\lambda-\imath t} \right) 
+= \lambda \left( -1 \times (\lambda-\imath t)^{-2} \times \frac{d}{dt} (\lambda-\imath t) \right) \\
+&= \lambda \left( \frac{-1}{(\lambda-\imath t)^{2}} \times (-\imath ) \right) 
+= \frac{\lambda \imath}{(\lambda-\imath t)^{2}} 
+\end{align*}
+
+We get $E(X)$ by evaluating $\frac{d}{dt}\phi_X(t)$ at $t=0$ and dividing by $\imath$ according to Equation~\eqref{E:CFToMoments} as follows:
+\begin{align*}
+E(X)
+&= \frac{1}{\imath} \left[ \frac{d}{dt}\phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath} \left[ \frac{\lambda \imath}{(\lambda-\imath t)^{2}} \right]_{t=0} 
+= \frac{1}{\imath} \left( \frac{\lambda \imath}{\lambda^{2}} \right) 
+= \frac{1}{\imath} \left( \frac{\imath}{\lambda} \right) 
+=  \frac{1}{\lambda} 
+\end{align*}
+
+Let's pause and see if this makes sense.... Yes, because the expected value of $\exponential(\lambda)$ RV is indeed $1/\lambda$ (recall from when we introduced this RV).
+
+Similarly from Equation~\eqref{E:CFToMoments} we can get $E(X^2)$ as follows:
+\begin{align*}
+E(X^2)
+&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{d}{dt} \phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{\lambda \imath}{(\lambda-\imath t)^{2}} \right]_{t=0} \\
+&= \frac{1}{\imath^2} \left[ \lambda \imath \times \frac{d}{dt} {(\lambda-\imath t)^{-2}} \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \lambda \imath \left( -2(\lambda-\imath t)^{-3} \frac{d}{dt} {(\lambda-\imath t)} \right) \right]_{t=0}\\ 
+&= \frac{1}{\imath^2} \left[ \lambda \imath \left( -2(\lambda-\imath t)^{-3} \times (-\imath ) \right) \right]_{t=0}
+= \frac{1}{\imath^2} \left[ \frac{2 \lambda \imath^2}{(\lambda-\imath t)^{3}} \right]_{t=0}
+= \frac{1}{\imath^2} \left( \frac{2 \lambda \imath^2}{\lambda^{3}} \right) 
+=  \frac{2}{\lambda^{2}}\enspace.
+\end{align*}
+Finally, from the first and second moments we can get the variance as follows:
+\[
+V(X) = E(X^2) - (E(X))^2 = \frac{2}{\lambda^2} - \left(\frac{1}{\lambda}\right)^2  = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{2-1}{\lambda^2} = \frac{1}{\lambda^2}   \enspace .
 \]
+%\vspace{3cm}
 
-The above properties of expectations imply that for constants $a$ and $b$,
-%V(aX+b) = a^2 V(X) \enspace .
-\begin{equation}\label{E:VofAffineofRVs}
+Let's check that this is what we had as variance for the $\exponential(\lambda)$ RV when we first introduced it and directly computed using integrals for definition of expectation.
+\end{example}
+
+Characteristic functions can be used to characterize the distribution of a random variable.
+
+Two RVs $X$ and $Y$ have the same DFs , i.e., $F_X(x) = F_Y(x)$ for all $x \in \Rz$, if and only if they have the same characteristic functions, i.e. $\phi_X(t) = \phi_Y(t)$ for all $t \in \Rz$ (for proof see Resnick, S. I. (1999) A Probability Path, Birkhauser). 
+
+Thus, if we can show that two RVs have the same CF then we know they are the same.  This can be much more challenging or impossible to do directly with their DFs.
+
+Let $Z$ be $\normal(0,1)$, the standard normal RV.
+We can find the CF for $Z$ using couple of tricks as follows
+\begin{align*}
+\phi_Z(t)
+&= E\left(e^{\imath t Z} \right)\\
+&= \int_{-\infty}^{\infty} e^{\imath t z} f_Z(z) dz = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{\imath t z} e^{-z^2/2} dz = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{\imath t z -z^2/2} dz \\
+&= \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{-(t^2 + (z - \imath t)^2)/2} dz = e^{-t^2/2} \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{ -(z - \imath t)^2/2} dz \\
+&= e^{-t^2/2} \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{ -y^2/2} dy  \qquad \text{substituting $y=z-\imath t, dy=dz$}\\
+&= e^{-t^2/2} \frac{1}{\sqrt{2 \pi}} \sqrt{2 \pi}  \qquad \text{using the normalizing constant in PDF of $\normal(0,1)$ RV}\\
+&= e^{-t^2/2}
+\end{align*}
+
+Thus the CF of the standard normal RV $Z$ is
+\begin{equation}\label{E:cfStandardNormal}
 \boxed{
-\V(aX+b) = a^2\V(X) \ . 
+\phi_Z(t) = e^{-t^2/2}
 }
 \end{equation}
 
-More generally, for random variables $X_1,X_2,\ldots,X_n$ and constants $a_1,a_2,\ldots,a_n$
-\begin{itemize}
-\item
-\begin{equation}\label{E:EofLinCombofRVs}
-\e \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i \e(X_i) \ .
+
+Let $X$ be a RV with CF $\phi_X(t)$.  Let $Y$ be a linear transformation of $X$
+\[
+Y= a + bX
+\]
+where $a$ and $b$ are two constant real numbers and $b \neq 0$.  
+Then the CF of $Y$ is
+\begin{equation}\label{E:cfofLinearTransformation}
+\boxed{
+\phi_Y(t) = \exp(\imath a t) \phi_X(b t)
+}
 \end{equation}
-%E \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i \e(X_i)}$
-%\smallskip
-\item
-%$\boxed{V \left(  \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 V(X_i)}$, provided $X_1,X_2,\ldots,X_n$ are independent
-\begin{equation}\label{E:VofLinCombofRVs}
-\V \left(  \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 \V(X_i) , \text{ provided $X_1,X_2,\ldots,X_n$ are independent}\ .
-\end{equation}
-\item Let $X_1,X_2,\ldots,X_n$ be independent RVs, then
-\begin{equation}\label{E:EofProdIndRVs}
-\e \left(  \prod_{i=1}^n X_i \right) = \prod_{i=1}^{n} \e(X_i) , \text{ provided $X_1,X_2,\ldots,X_n$ are independent}\ .
-\end{equation}
-\end{itemize}
 
-%\item If the $k$-th moment exists and if $j<k$ then the $j$-th moment exists.
+\begin{proof}
+This is easy to prove using the definition of CF as follows:
+\begin{align*}
+\phi_Y(t)
+&= E\left(\exp(\imath t Y) \right)
+= E\left(\exp(\imath t (a + bX) ) \right)
+= E\left(\exp(\imath t a + \imath t b X) \right)\\
+&= E\left(\exp(\imath t a) \exp(\imath t b X) \right)
+= \exp(\imath t a) E\left( \exp(\imath t b X) \right)
+= \exp(\imath t a) \phi_X(b t)
+\end{align*}
+\end{proof}
 
-%\item $\V(X) = \e(X^2) - (\e(X))^2$ \ . [prove by completing the square and applying \eqref{E:EofLinCombofRVs}]
-%\item If $a$ and $b$ are constants then:
-%\item If $X_1,X_2,\ldots,X_n$ are independent and $a_1,a_2,\ldots,a_n$ are constants, then:
-%\end{enumerate}
-Next, let us compute the mean and variance of our familiar RVs.
+\begin{example}\label{EgCFOfNormalMuSigma}
+Let $Y$ be a $\normal(\mu,\sigma^2)$ RV.  
+Recall that $Y$ is a linear transformation of $Z$, i.e., $Y = \mu + \sigma Z$ where $Z$ is a $\normal(0,1)$ RV.  
+Using Equations~\eqref{E:cfStandardNormal} and \eqref{E:cfofLinearTransformation} find the CF of $Y$.
 
-\begin{example}[Mean and variance of $\bernoulli(\theta)$ RV]
-Let $X \sim \bernoulli(\theta)$.  Then, 
-\[
-\e(X) = \sum_{x=0}^1 x f(x) = (0 \times (1-\theta)) + (1 \times \theta) = 0+\theta=\theta \ ,
-\]
-\[
-\e(X^2) =  \sum_{x=0}^1 x^2 f(x) =  (0^2 \times (1-\theta) ) + (1^2 \times \theta) = 0+\theta= \theta \ ,
-\]
-\[
-\V(X) = \e(X^2) - (\e(X))^2 = \theta - \theta^2 = \theta(1-\theta) \ .
-\]
-Parameter specifically,
-\[
-\e_{\theta}(X)=\theta \qquad \text{and} \qquad \V_{\theta}(X)=\theta(1-\theta) \ .
-\]
-\begin{figure}[htpb]
-\caption{Mean ($\e_{\theta}(X)$), variance ($\V_{\theta}(X)$) and the rate of change of variance ($\frac{d}{d \theta} \V_{\theta}(X)$) of a $\bernoulli(\theta)$ RV $X$ as a function of the parameter $\theta$.\label{F:MeanVarBernoulli}}
-\centering   \makebox{\includegraphics[width=5.0in]{figures/PlotMeanVarBernoulli}}
-\end{figure}
+Solution:
 
-Maximum of the variance $\V_{\theta}(X)$ is found by setting the derivative to zero, solving for $\theta$ and showing the second derivative is locally negative, i.e.~$\V_{\theta}(X)$ is concave down:
-\[
-\V_{\theta}'(X) := \frac{d}{d \theta} \V_{\theta}(X) = 1-2 \theta = 0  \iff \theta = \frac{1}{2} \ , 
-\qquad \V_{\theta}''(X) := \frac{d}{d \theta} \left( \frac{d}{d \theta} \V_{\theta}(X) \right) = -2 < 0 \ ,
-\]
-\[
-\max_{\theta \in [0,1]} \V_{\theta}(X) = \frac{1}{2} \left(1-\frac{1}{2} \right) = \frac{1}{4} \ , 
-\text{since $\V_{\theta}(X)$ is maximized at $\theta = \frac{1}{2}$}
-\]
-The plot depicting these expectations as well as the rate of change of the variance are depicted in \hyperref[F:MeanVarBernoulli]{Figure \ref*{F:MeanVarBernoulli}}.  Note from this Figure that $\V_{\theta}(X)$ attains its maximum  value of $1/4$ at $\theta=0.5$ where $\frac{d}{d\theta}\V_{\theta}(X)=0$.  Furthermore, we know that we don't have a minimum at $\theta=0.5$ since the second derivative $\V_{\theta}''(X) = -2$ is negative for any $\theta \in [0,1]$.  This confirms that $\V_{\theta}(X)$ is concave down and therefore we have a maximum of $\V_{\theta}(X)$ at $\theta=0.5$.  We will revisit this example when we employ a numerical approach called Newton-Raphson method to solve for the maximum of a differentiable function by setting its derivative equal to zero.
+\begin{align*}
+\phi_Y(t) 
+& = \exp(\imath \mu t) \phi_Z(\sigma t), \qquad \text{ since $Y = \mu + \sigma Z$}\\
+& = e^{\imath \mu t} e^{(-\sigma^2 t^2)/2}, \qquad \text{ since $\phi_Z(t)=e^{-t^2/2}$}\\
+& = e^{\imath \mu t - (\sigma^2 t^2)/2}
+\end{align*}
 \end{example}
 
-\begin{example}[Mean and variance of $\uniform(0,1)$ RV]
-Let $X \sim \uniform(0,1)$.  Then, 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A generalization of \eqref{E:cfofLinearTransformation} is the following.  
+If $X_1,X_2,\ldots,X_n$ are independent RVs and $a_1,a_2,\ldots,a_n$ are some constants, then the CF of the linear combination $Y=\sum_{i=1}^n a_i X_i$ is
+\begin{equation}\label{E:LinCombCF} 
+\boxed{
+\phi_Y (t) = \phi_{X_1} (a_1 t) \times \phi_{X_2} (a_2 t) \times \cdots \times \phi_{X_n} (a_n t) = \prod_{i=1}^n \phi_{X_i} (a_i t) \enspace .
+}
+\end{equation}
+%In other symbols: $$\phi_{\sum_{i=1}^n a_i X_i}(t) = \prod_{i=1}^n \phi_{X_i} (a_i t) \enspace .$o$ 
+\begin{example}\label{EgCFOfBinomial}
+Using the following three facts:
+\bit 
+\item~~~ Eqn.~\eqref{E:LinCombCF} 
+\item~~~ the $\binomial(n,\theta)$ RV $Y$ is the sum of $n$ independent $\bernoulli(\theta)$ RVs (from Probability Course)  
+\item~~~ the CF of $\bernoulli(\theta)$ RV (from lecture notes for Inference Course)
+\eit
+find the CF of the $\binomial(n,\theta)$ RV $Y$.
+
+Solution:
+
+Let $X_1,X_2,\ldots,X_n$ be independent $\bernoulli(\theta)$ RVs with CF $\left( 1-\theta + \theta e^{\imath t} \right)$ then $Y=\sum_{i=1}^n  X_i$ is the $\binomial(n,\theta)$ RV and by Eqn.~\eqref{E:LinCombCF} 
+with $a_1=a_2=\cdots=1$, we get
 \[
-\e(X) = \int_{x=0}^1 x f(x)\, dx = \int_{x=0}^1 x \ 1 \, dx = \frac{1}{2} \left( x^2 \right]_{x=0}^{x=1} = \frac{1}{2} \left( 1-0 \right) = \frac{1}{2} \ ,
-\]
-\[
-\e(X^2) = \int_{x=0}^1 x^2 f(x)\, dx = \int_{x=0}^1 x^2 \ 1 \, dx =  \frac{1}{3} \left( x^3 \right]_{x=0}^{x=1} = \frac{1}{3} \left( 1-0 \right) = \frac{1}{3} \ ,
-\]
-\[
-\V(X) = \e(X^2) - (\e(X))^2 = \frac{1}{3}  - \left( \frac{1}{2} \right)^2  = \frac{1}{3}  - \frac{1}{4} = \frac{1}{12} \ .
+\phi_Y (t) = \phi_{X_1} ( t) \times \phi_{X_2} (t) \cdots \phi_{X_n} ( t)
+= \prod_{i=1}^n \phi_{X_i} ( t) = \prod_{i=1}^n \left( 1-\theta + \theta e^{\imath t} \right)
+= \left( 1-\theta + \theta e^{\imath t} \right)^n \enspace . 
 \]
 \end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{example}[Expected Exponential of the $\uniform(0,1)$ RV]
-Let $X \sim \uniform(0,1)$ and $Y=r(X)=e^X$.  Compute $\e(Y)$. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{example}\label{EgCFOfSumOf2IndepNormals}
+Let $Z_1$ and $Z_2$ be independent $\normal(0,1)$ RVs.  
+\be
+\item~
+Use Eqn.~\eqref{E:LinCombCF} 
+to find the CF of $Z_1+Z_2$.  
+\item~
+From the CF of $Z_1+Z_2$ identify what RV it is.
+\item~
+Use Eqn.~\eqref{E:LinCombCF} 
+to find the CF of $2Z_1$.
+\item~
+From the CF of $2Z_1$ identify what RV it is.
+\item~
+Try to understand the difference between the distributions of $Z_1+Z_2$ and $2 Z_1$ inspite of $Z_1$ and $Z_2$ having the same distibution.
+\ee
+{Hint: from lectures we know that $\phi_X(t) = e^{\imath \mu t - (\sigma^2 t^2)/2}$ for a $\normal(\mu,\sigma^2)$ RV $X$.}
 
-We can simply apply the definition of $\e(r(X))$, since $Y=r(X)$, is just a function of $X$, as follows: 
+Solution:
+
+\be
+\item~
+By Eqn.~\eqref{E:LinCombCF} 
+we just multiply the characteristic functions of $Z_1$ and $Z_2$, both of which are $e^{-t^2/2}$,
 \[
-\e(Y) = \int_0^1 e^x f(x) dx = \int_0^1 e^x 1 \ dx = e-1 \ .
+\phi_{Z_1+Z_2}(t)= \phi_{Z_1}(t) \times \phi_{Z_2}(t) = e^{-t^2/2} \times e^{-t^2/2} = e^{-2t^2/2} = e^{-t^2} \enspace . 
+\]  
+\item~
+The CF of $Z_1+Z_2$ is that of the $\normal(\mu,\sigma^2)$ RV with $\mu=0$ and $\sigma^2=2$.  
+Thus $Z_1+Z_2$ is the $\normal(0,2)$ RV with mean parameter $\mu=0$ and variance paramter $\sigma^2=2$.
+\item~
+We can again use Eqn.~\eqref{E:LinCombCF} 
+to find the CF of $2Z_1$ as follows
+\[
+\phi_{2Z_1} = \phi_{Z_1}(2 t) = e^{-2^2t^2/2} \enspace .
 \]
-%You could have also found out that the density $f(y)=1/y$ for the RV $Y$, provided $1<y<e$, and $0$ otherwise.  Again,
-%\[
-%\e(Y) = \int_1^e y f(y) dy = \int_1^e y \frac{1}{y} dy = \int_1^e 1 \ dy = e-1 \ .
-%\]
+\item~
+The CF of $2Z_1$ is that of the $\normal(\mu,\sigma^2)$ RV with $\mu=0$ and $\sigma^2=2^2=4$.
+Thus $2Z_1$ is the $\normal(0,4)$ RV with mean parameter $\mu=0$ and variance paramter $\sigma^2=4$.
+\item~
+$2Z_1$ has a bigger variance from multiplying the standard normal RV by $2$ while $Z_1+Z_2$ has a smaller variance from adding two independent standard normal RVs.  Thus, the result of adding the same RV twice does not have the same distribution as that of multiplying it by $2$.  In other words $2 \times Z$ is not equal to $Z+Z$ in terms of its probability distribution! 
+\ee
 \end{example}
 
-\paragraph{Mean and Variance of $\exponential(\lambda)$:}
-Show that the mean of an $\exponential(\lambda)$ RV $X$ is:
-\[
-\e_{\lambda}(X) = \int_{0}^{\infty} x f(x;\lambda)\,dx
-=   \int_{0}^{\infty} x \lambda e^{-\lambda x}\,dx
-= \frac{1}{\lambda} \ ,
-\]
-and the variance is:
-\[
-\V_{\lambda}(X) = \left(  \frac{1}{\lambda} \right)^2 \ .
-\]
 
+\subsection{Moment Generating Function}
+
+Moment generating functions are special cases of characteristic functions and we won't be explicitly using them here as it is more convenient to work in the complex plane.
+\remove{
+\begin{definition}[MGF]
+MGF is ...
+\end{definition}
+
+\vspace{10cm}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Statistics}\label{S:Statistics}
 
 \subsection{Data and Statistics}\label{S:DataStats}
@@ -3468,7 +4274,7 @@ Use the implementation of \hyperref[A:qthSampleQuantile]{Algorithm \ref*{A:qthSa
 \end{VrbM}
 \end{labwork}
 
-\subsection{Exploring Data and Statistics}\label{S:ExploringData}
+%\subsection{Exploring Data and Statistics}\label{S:ExploringData}
 
 \subsection{Univariate Data}
 A {\bf histogram} is a graphical representation of the frequency with which elements of a data array:
@@ -3871,6 +4677,7 @@ Sensors called {\em optical encoders} have been attached to the top end of each 
 }
 
 
+\remove{
 \section{Stochastic Processes}\label{S:StochProc}
 
 \begin{definition}[Stochastic Process]
@@ -3922,756 +4729,10 @@ Let us consider a RV that arises from an IID stochastic process of $\bernoulli(\
  \{X_i\}_{i \in \Nz} := \{X_1, X_2,\ldots\}  \overset{\IID}{\sim} \bernoulli(\theta) \ .
 \]
 When we consider the number of IID $\bernoulli(\theta)$ trials before the first `Head' occurs we get the following discrete RV.
-
-% geometric model in "Some discrete RVs now
-\begin{example}[Mean and variance of $\geometric(\theta)$ RV]
-Let $X \sim \geometric(\theta)$ RV.  Then,
-\[
-\e(X) = \sum_{x=0}^{\infty} x \theta(1-\theta)^x =  \theta \sum_{x=0}^{\infty} x (1-\theta)^x
-\]
-In order to simplify the RHS above, let us employ differentiation with respect to $\theta$:
-\[
-\frac{-1}{\theta^2}= \frac{d}{d\theta} \left( \frac{1}{\theta} \right)= \frac{d}{d\theta} \sum_{x=0}^{\infty} (1-\theta)^x  =  \sum_{x=0}^{\infty} -x (1-\theta)^{x-1}
-\]
-Multiplying the LHS and RHS above by $-(1-\theta)$ and substituting in $\e(X)=  \theta \sum_{x=0}^{\infty} x (1-\theta)^x$, we get a much simpler expression for $\e(X)$ :
-\[
-\frac{1-\theta}{\theta^2}= \sum_{x=0}^{\infty} x (1-\theta)^{x} \implies \e(X) = \theta \left( \frac{1-\theta}{\theta^2} \right) = \frac{1-\theta}{\theta} \ .
-\]
-Similarly, it can be shown that
-\[
-\V(X) = \frac{1-\theta}{\theta^2} \ .
-\]
-
-\begin{figure}[htpb]
-\caption{Mean and variance of a $\geometric(\theta)$ RV $X$ as a function of the parameter $\theta$.\label{F:MeanVarGeom}}
-\centering   \makebox{\includegraphics[width=5.0in]{figures/PlotMeanVarGeom}}
-\end{figure}
-\end{example}
-
-% binomial model above
-\paragraph{Mean and variance of $\binomial(n,\theta)$ RV:}
-Let $X \sim \binomial(n,\theta)$.  Based on the definition of expectation:
-\[
-\e(X) = \int x \, dF(x; n,\theta) = \sum_x x f(x;n,\theta) = \sum_{x =0}^n x \binom{n}{x} \theta^x (1-\theta)^{n-x} \ .
-\]
-However, this is a nontrivial sum to evaluate.  Instead, we may use \eqref{E:EofLinCombofRVs} and \eqref{E:VofLinCombofRVs} by noting that $X = \sum_{i=1}^n X_i$, where the $\{X_1,X_2,\ldots,X_n \} \overset{\IID}{\sim} \bernoulli(\theta)$, $\e(X_i) = \theta$ and $\V(X_i)=\theta(1-\theta)$:
-\[
-\e(X) = \e(X_1+X_2, \cdots ,X_n) = \e \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \e(X_i) = n \theta \ ,
-\]
-\[
-\V(X) = \V \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \V(X_i) = \sum_{i=1}^n{\theta(1-\theta)} = n\theta(1-\theta) \ .
-\]
-
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% snipped above into csebook
-\section{Convergence of Random Variables}\label{S:ConvOfRVs}
 
-This important topic is concerned with the limiting behavior of sequences of RVs. 
-We want to understand what it means for a sequence of random variables $\{X_n\}_{n=1}^{\infty} := X_1,X_2,\ldots$ to converge to another random variable $X$, when all RVs are defined on the same probability space $(\Omega,\mathcal{F},\p)$.
-\[
-\{X_i \}_{i=1}^n := X_1,X_2,X_3, \ldots X_{n-1}, X_n \qquad \text{as  $n \rightarrow \infty$ .}
-\]
-From a statistical or decision-making viewpoint, as you will see in Inference Theory I course, $n \rightarrow \infty$ is associated with the amount of data or information $\rightarrow \infty$.  
-More abstractly, we are interested in what happens to the limiting RV $X := \lim_{n\to \infty} X_n$ when given the DFs $F_n(x)$ for each $X_n$. 
-
-We need different notions of convergence to characterize such a behavior: two simplest behaviors are that the sequence eventually takes a constant value $\theta$, 
-i.e. $X_n$ approaches $X \sim \pointmass(\theta)$ RV, or that values in the sequence continue to change but can be described by an unchanging probability distribution, i.e., $X_n$ approaches $X \sim F(x)$. See \url{https://en.wikipedia.org/wiki/Convergence_of_random_variables}.
-
-Let us first refresh ourselves with notions of convergence, limits and continuity in the real line (\hyperref[S:AnalysisRefresher]{Sec.~\ref*{S:AnalysisRefresher}}) before proceeding further.
-
-Can the sequences of $\{\pointmass(\theta_i=17)\}_{i=1}^{\infty}$ and $\{\pointmass(\theta_i=1/i)\}_{i=1}^{\infty}$ RVs be the same as the two sequences of real numbers $\{ x_i \}_{i=1}^{\infty} = 17, 17, 17, \ldots$ and $\{ x_i \}_{i=1}^{\infty} = \frac{1}{1},\frac{1}{2},\frac{1}{3}, \ldots$ we saw in Examples~\ref{EX:limOf17s} and \ref{EX:limin1overi}?
-
-
-Yes why not -- just move to space of distributions over the reals! See Figure~\ref{F:SequenceOfPointMassRVS17And1Byi}.
-
-\begin{figure}[htpb]
-\caption{Sequence of $\{\pointmass(17)\}_{i=1}^{\infty}$ RVs (left panel) and $\{\pointmass(1/i)\}_{i=1}^{\infty}$ RVs (only the first seven are shown on right panel) and their limiting RVs in red.\label{F:SequenceOfPointMassRVS17And1Byi}}
-\centering   \makebox{\includegraphics[width=6.5in]{figures/SequenceOfPointMassRVS17And1Byi}}
-\end{figure}
-
-\begin{classwork}[Convergence of $X_i \sim \normal(0,1/i)$]\label{CW:Normal01bynConvToPointMass0}
-Suppose you are given an independent sequence of RVs $\{X_i \}_{i=1}^n$, where $X_i \sim \normal(0,1/i)$.  How would you talk about the convergence of $X_n \sim \normal(0,1/n)$ as $n$ approaches $\infty$ ?  Take a look at \hyperref[F:PlotNormal01bynConvToPointMass0]{Figure \ref*{F:PlotNormal01bynConvToPointMass0}} for insight.  The probability mass of $X_n$ increasingly concentrates about $0$ as $n$ approaches $\infty$ and the variance $1/n$ approaches $0$, as depicted in \hyperref[F:PlotNormal01bynConvToPointMass0]{Figure \ref*{F:PlotNormal01bynConvToPointMass0}}.  Based on this observation, can we expect $\lim_{n \rightarrow \infty} X_n = X$, where the limiting RV $X \sim \pointmass(0)$ ?
-
-The answer is {\bf no}.  This is because $\p(X_n=X)=0$ for any $n$, since $X \sim \pointmass(0)$ is a discrete RV with exactly one outcome $0$ and $X_n \sim \normal(0,1/n)$ is a continuous RV for every $n$, however large.  In other words, a continuous RV, such as $X_n$, has $0$ probability of realizing any single real number in its support, such as $0$.    
-\begin{figure}[htpb]
-\caption{Distribution functions of several $\normal(\mu,\sigma^2)$ RVs for $\sigma^2 = 1,\frac{1}{10},\frac{1}{100},\frac{1}{1000}$.\label{F:PlotNormal01bynConvToPointMass0}}
-\centering   \makebox{\includegraphics[width=6.5in]{figures/PlotNormal01bynConvToPointMass0}}
-\end{figure}
-\end{classwork}
-
-Thus, we need more sophisticated notions of convergence for sequences of RVs.  Two such notions are formalized next as they are minimal prerequisites for a clear understanding of two basic propositions in Statistics :
-\begin{enumerate} 
-\item Law of Large Numbers,
-\item Central Limit Theorem,
-%\item Gilvenko-Cantelli Theorem.
-\end{enumerate}
-
-\begin{definition}[Convergence in Distribution (or Weakly, or in Law)]\label{D:ConvInDist}
-Let $X_1,X_2,\ldots,$ be a sequence of RVs and let $X$ be another RV.  Let $F_n$ denote the DF of $X_n$ and $F$ denote the DF of $X$.  The we say that $X_n$ converges to $X$ in distribution, and write:
-\[
-X_n \rightsquigarrow X
-\]
-if for any real number $t$ at which $F$ is continuous,
-\[
-\lim_{n \rightarrow \infty} F_n(t) = F(t) \qquad \text{[in the sense of \hyperref[D:LimitofRealFunction]{Definition \ref*{D:LimitofRealFunction}}].}
-\]
-The above limit, by \eqref{E:DF} in our \hyperref[D:DF]{Definition \ref*{D:DF}} of a DF, can be equivalently expressed as follows: 
-\begin{eqnarray}
-& & \lim_{n \rightarrow \infty} \p( \ \{\omega: X_n(\omega) \leq  t \} \ )= 
-\p( \ \{\omega: X(\omega) \leq  t \} \ ), \notag \\
-&\text{i.e.~} & \p( \ \{\omega: X_n(\omega) \leq t \} \ ) \rightarrow \p( \ \{\omega: X(\omega) \leq  t \} \ ), \quad \text{as} \quad n \rightarrow \infty \notag \ .
-\end{eqnarray}
-\end{definition}
-
-Let us revisit the problem of convergence in \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} armed with our new notions of convergence.
-\begin{example}[Convergence in distribution]\label{EX:Normal01bynConvinDistToPointMass0}
-Suppose you are given an independent sequence of RVs $\{X_i \}_{i=1}^n$, where $X_i \sim \normal(0,1/i)$ with DF $F_n$ and let $X \sim \pointmass(0)$ with DF $F$.  We can formalize our observation in \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} that $X_n$ is concentrating about $0$ as $n \to \infty$ by the statement:
-\[
-\text{$X_n$ is converging in distribution to $X$, ie,} \qquad X_n \rightsquigarrow X \ .
-\]
-{\scriptsize
-\begin{proof}
-To check that the above statement is true we need to verify that the definition of convergence in distribution is satisfied for our sequence of RVs $X_1,X_2,\ldots$ and the limiting RV $X$.  Thus, we need to verify that for any continuity point $t$ of the $\pointmass(0)$ DF $F$, $\lim_{n \to \infty} F_n(t)=F(t)$.  First note that 
-\[
-X_n \sim \normal(0,1/n) \implies Z := \sqrt{n} X_n \sim \normal(0,1) \ ,
-\]
-and thus
-\[
-F_n(t) = \p(X_n < t) = \p(\sqrt{n} X_n < \sqrt{n} t) = \p(Z < \sqrt{n} t) \ .
-\]
-The only discontinuous point of $F$ is $0$ where $F$ jump from $0$ to $1$.  
-
-When $t < 0$, $F(t)$, being the constant $0$ function over the interval $(-\infty,0)$, is continuous at $t$.  Since $\sqrt{n} t \to -\infty$, as $n \to \infty$,
-\[
-\lim_{n \to \infty} F_n(t)  = \lim_{n \to \infty} \p(Z < \sqrt{n} t) = 0 = F(t) \ .
-\]
-And, when $t >0$, $F(t)$, being the constant $1$ function over the interval $(0,\infty)$, is again continuous at $t$.  Since $\sqrt{n} t \to \infty$, as $n \to \infty$,
-\[
-\lim_{n \to \infty} F_n(t)  = \lim_{n \to \infty} \p(Z < \sqrt{n} t) = 1 = F(t) \ .
-\]
-Thus, we have proved that $X_n \rightsquigarrow X$ by verifying that for any $t$ at which the $\pointmass(0)$ DF $F$ is continuous, we also have the desired equality: $\lim_{n \to \infty} F_n(t)=F(t)$.
-\end{proof}
-However, note that 
-\[
-F_n(0)=\frac{1}{2} \neq F(0)=1 \ ,
-\]
-and so convergence fails at $0$, i.e.~$\lim_{n \to \infty}F_n(t) \neq F(t)$ at $t=0$.  But, $t=0$ is not a continuity point of $F$ and the definition of convergence in distribution only requires the convergence to hold at continuity points of $F$.
-}
-\end{example}
-
-\begin{Exercise}[title={Example Classwork},label={xExample}]
-After reading Sec.~\ref{S:ConvOfRVs} up to now, think carefully about what you need to be able to show that $Z_n := 1/\sqrt{n}\sum_{i=1}^n X_i$ converges in distribution to the $\normal(0,1/3)$ RV, where $X_i \overset{IID}{\sim} \uniform(-1,1)$.
-%\ExePart
-%\Question
-%\subQuestion Show that...
-%\subQuestion In this question...
-%\subsubQuestion Show that...
-%\subsubQuestion Conclude...
-%\subQuestion Conclude.
-%\Question Show that if $b > 1$...
-%\ExePart
-%\Question What happens to if $b=1$?
-\end{Exercise}
-
-
-The second notion of convergence of RVs is convergence in probability.
-
-\begin{definition}[Convergence in Probability]\label{D:ConvInProb}
-Let $X_1,X_2,\ldots,$ be a sequence of RVs and let $X$ be another RV.  Let $F_n$ denote the DF of $X_n$ and $F$ denote the DF of $X$.  The we say that $X_n$ converges to $X$ in probability, and write:
-\[
-X_n \overset{P}{\longrightarrow} X
-\]
-if for every real number $\epsilon > 0$,
-\[
-\lim_{n \rightarrow \infty} \p(|X_n-X|> \epsilon) = 0 \qquad \text{[in the sense of \hyperref[D:LimitofRealFunction]{Definition \ref*{D:LimitofRealFunction}}].}
-\]
-Once again, the above limit, by \eqref{E:ProbOfRV} in our \hyperref[D:RV]{Definition \ref*{D:RV}} of a RV, can be equivalently expressed as follows: 
-\[
-\lim_{n \rightarrow \infty} \p( \ \{\omega: |X_n(\omega) - X(\omega)| > \epsilon\} \ )=0, \qquad \text{ie,} \qquad \p( \ \{\omega: |X_n(\omega) - X(\omega)| > \epsilon\} \ ) \rightarrow 0, \quad \text{as} \quad n \rightarrow \infty \ .
-\]
-\end{definition}
- 
-For the same sequence of RVs in  \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} and \hyperref[EX:Normal01bynConvinDistToPointMass0]{Example \ref*{EX:Normal01bynConvinDistToPointMass0}} we are tempted to ask whether $X_n \sim \normal(0,1/n)$ converges in probability to $X \sim \pointmass(0)$, i.e.~whether $X_n \overset{P}{\longrightarrow} X$.  We need some elementary inequalities in Probability to help us answer this question.  We visit these inequalities next.
-
-
-\begin{prop}[Markov's Inequality]
-Let $(\Omega,\C{F},P)$ be a probability triple and let $X=X(\omega)$ be a non-negative RV.  Then,
-\begin{equation}\label{E:MarkovNeq}
-\p(X \geq \epsilon) \leq \frac{\e(X)}{\epsilon}, \qquad \text{for any} \quad \epsilon > 0 \ .
-\end{equation}
-{\scriptsize
-\begin{proof}
-\begin{eqnarray}
-X &=& X \BB{1}_{ \{y: y \geq \epsilon \} } (x) + X \BB{1}_{ \{y: y < \epsilon \} } (x) \notag \\
-&\geq& X \BB{1}_{ \{y: y \geq \epsilon \} } (x) \notag \\
-&\geq& \epsilon  \BB{1}_{ \{y: y \geq \epsilon \} } (x) \notag \\
-\end{eqnarray}
-Finally, taking expectations on both sides of the above inequality and then using the fact that the expectation of an indicator function of an event is simply the probability of that event \eqref{E:ExpectationofIndicator}, we get the desired result:
-\[
-\e(X) \geq \epsilon \e( \BB{1}_{ \{y: y \geq \epsilon \} } (x)) = \epsilon \p(X \geq \epsilon) \ .
-\]
-\end{proof}
-}
-\end{prop}
-Let us look at some immediate consequences of Markov's inequality.
-\begin{prop}[Chebychev's Inequality]
-For {\bf any} RV $X$ and any $\epsilon > 0$,
-\begin{eqnarray}
-\p(|X| > \epsilon) &\leq& \frac{\e(|X|)}{\epsilon} \label{E:ChebychevNeq1} \\
-\p(|X| > \epsilon) = \p(X^2 \geq \epsilon^2) &\leq& \frac{\e(X^2)}{\epsilon^2} \label{E:ChebychevNeq2} \\
-\p(|X-\e(X)| \geq \epsilon) = \p((X-\e(X))^2 \geq \epsilon^2) &\leq& \frac{\e(X-\e(X))^2}{\epsilon^2}  = \frac{\V(X)}{\epsilon^2}  \label{E:ChebychevNeq3} 
-\end{eqnarray}
-{\scriptsize
-\begin{proof}
-All three forms of Chebychev's inequality are mere corollaries (careful reapplications) of Markov's inequality.
-\end{proof}
-}
-\end{prop}
-
-Armed with Markov's inequality we next enquire the convergence in probability for the sequence of RVs in \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} and \hyperref[EX:Normal01bynConvinDistToPointMass0]{Example \ref*{EX:Normal01bynConvinDistToPointMass0}}.
-
-\begin{example}[Convergence in probability]\label{EX:Normal01bynConvinProbToPointMass0}
-Does the the sequence of RVs $\{X_n\}_{n=1}^{\infty}$, where $X_n \sim \normal(0,1/n)$, converge in probability to $X \sim \pointmass(0)$, i.e.~does $X_n \overset{P}{\longrightarrow} X$ ?
-
-To find out if $X_n \overset{P}{\longrightarrow} X$, we need to show that for any $\epsilon >0$, $\lim_{n \to \infty} \p(|X_n-X|>\epsilon)=0$.
-
-Let $\epsilon$ be any real number greater than $0$, then
-\begin{eqnarray}
-\p(|X_n|>\epsilon) &=& \p(|X_n|^2 > \epsilon^2) \notag \\
-&\leq& \frac{\e(X_n^2)}{\epsilon^2} \qquad \text{[by Markov's Inequality \eqref{E:MarkovNeq}]} \notag \\
-&=& \frac{\frac{1}{n}}{\epsilon^2} \to 0, \quad \text{as} \quad n \to \infty \qquad \text{[in the sense of \hyperref[D:LimitofRealFunction]{Definition \ref*{D:LimitofRealFunction}}].} \notag
-\end{eqnarray}
-Hence, we have shown that for any $\epsilon >0$, $\lim_{n \to \infty} \p(|X_n-X|>\epsilon)=0$ and therefore by \hyperref[D:ConvInProb]{Definition \ref*{D:ConvInProb}}, $X_n \overset{P}{\longrightarrow} X$ or $X_n \overset{P}{\longrightarrow} 0$.  
-
-{\scriptsize
-{\bf Convention:} When $X$ has a $\pointmass(\theta)$ distribution and $X_n \overset{P}{\longrightarrow} X$, we simply write $X_n \overset{P}{\longrightarrow} \theta$.
-}
-\end{example}
-
-\begin{definition}[Convergence Almost Surely (or with Probability $1$)]
-To say that the sequence of RVs $\{X_n\}_{n=1}^{\infty}$ converges almost surely (or with probability $1$ or strongly) towards another RV $X$ on the same probability space $(\Omega,\mathcal{F},\p)$, as denoted by
-\[
-X_n \overset{a.s.}{\to} X
-\]
-means that
-\[
-\p \left( \{ \lim_{n \to \infty} X_n = X \} \right) = 1 \quad \iff \quad \p \left( \{\omega \in \Omega : \lim_{n \to \infty} X_n(\omega) = X(\omega)\} \right) = 1.
-\]
-This means that the values of $X_n$ approach the value of $X$, in the sense that events for which $X_n$ does not converge to $X$ have probability $0$.
-\end{definition}
-
-Other notions of convergence are termed sure convergence or pointwise convergence, such as convergence in mean. 
-But the above three types of convergence are elementary. % and enough to appreciate the subtle issues with convergence of random variables.
-
-\begin{prop}[Weak Law of Large Numbers (WLLN)]
-If we are given a sequence if independent and identically distributed RVs, $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and if $\e(X_1)$ exists, as per \eqref{E:ExpectationExists}, then the sample mean $\overline{X}_n$ converges in probability to the expectation of any one of the IID RVs, say $\e(X_1)$ by convention.  More formally, we write:
-\[
-\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \e(X_1) \ \text{exists, then } \ \overline{X}_n \overset{P}{\longrightarrow} \e(X_1) \ .
-\]
-{\scriptsize
-\begin{proof}
-For simplicity, we will prove a slightly weaker result by assuming finite variance of $X_1$.  Suppose $\V(X_1) < \infty$, then:
-\begin{eqnarray}
-\p(| \overline{X}_n - \e(\overline{X}_n) | \geq \epsilon)
-&=& \frac{\V(\overline{X}_n)}{\epsilon^2} \qquad \text{{\scriptsize [by applying Chebychev's inequality \eqref{E:ChebychevNeq3} to the RV $\overline{X}_n$]}} \notag \\
-&=& \frac{\frac{1}{n}\V(X_1)}{\epsilon^2} \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$ we can apply \eqref{E:VarOfSampleMeanOfIIDSeq}]}} \notag 
-\end{eqnarray}
-Therefore, for any given $\epsilon>0$,
-\begin{eqnarray}
-\p(| \overline{X}_n - \e(X_1) | \geq \epsilon)
-&=&  \p(| \overline{X}_n - \e(\overline{X}_n) | \geq \epsilon) \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$,  $\e(\overline{X}_n)=\e(X_1)$, as per \eqref{E:ExpOfSampleMeanOfIDSeq}]}} \notag \\
-&=&  \frac{\frac{1}{n}\V(X_1)}{\epsilon^2} \to 0, \quad \text{as} \quad n \to \infty \ , \notag
-\end{eqnarray}
-or equivalently, $\lim_{n \to \infty} \p(| \overline{X}_n - \e(X_1) | \geq \epsilon) = 0$.  And the last statement is the definition of the claim made by the weak law of large numbers (WLLN), namely that $\overline{X}_n \overset{P}{\longrightarrow} \e(X_1)$ .
-\end{proof}
-}
-{\bf Heuristic Interpretation of WLLN:}  
-The distribution of the sample mean RV $\overline{X}_n$ obtained from an independent and identically distributed sequence of RVs $X_1,X_2,\ldots$ {\scriptsize [i.e.~all the RVs $X_i$'s are independent of one another and have the same distribution function, and thereby the same expectation, variance and higher moments]}, concentrates around the expectation of any one of the RVs in the sequence, say that of the first one $\e(X_1)$ {\scriptsize [without loss of generality]}, as $n$ approaches infinity.  See Figure~\ref{F:RunningMeansFairDieFairCoinUnif01Exp1By10} for examples of 20 replicates of the sample mean of IID sequences from four RVs.  All the sample mean trajectories converge to the corresponding population mean. 
-
-\begin{figure}[htpb]
-\caption{Sample mean $\ol{X}_n$ as a function of sample size $n$ for 20 replications from independent realizations of a fair die (blue), fair coin (magenta), $\uniform(0,30)$ RV (green) and $\exponential(0.1)$ RV (red) with population means $(1+2+3+4+5+6)/6=21/6=3.5$, $(0+1)/2=0.5$, $(30-0)/2=15$ and $1/0.1=10$, respectively.\label{F:RunningMeansFairDieFairCoinUnif01Exp1By10}}
-\centering   \makebox{\includegraphics[width=6.5in]{figures/RunningMeansFairDieFairCoinUnif01Exp1By10}}
-\end{figure}
-
-\end{prop}
-\begin{example}[Bernoulli WLLN and Galton's Quincunx]
-We can appreciate the WLLN for $\overline{X}_n = n^{-1} S_n = \sum_{i=1}^{n} X_i$, where $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} Bernoulli(p)$ using the paths of balls dropped into a device built by Galton called the Quincunx.
-\end{example}
-
-
-
-\subsubsection{Properties of Convergence of RVs}
-
-We will merely state some properties (without proofs as they are advanced for this course) and relations between the three notions of convergence with some examples to better appreciate the subtleties among them.
-
-%L\'evy's Continuity Theorem on CFs before proof og CLT via CFs
-
-Now that we have been introduced to three notions of convergence for sequences of RVs we can begin to appreciate the  construction of limiting random variables from existing ones. % We will see a limiting sum of $n$ independent $\bernoulli(\theta)$ RVs as $n \to \infty$ and $\theta \to 0$ such that $n \theta = \lambda$. %  statements of the basic limit theorems of Statistics.  
-But first we need some analytic tools.
-
-\section{Moment Generating Function}
-
-\begin{definition}[MGF]
-MGF is ...
-\end{definition}
-
-\vspace{10cm}
-
-%But first we formally define a statistic.
-In several situations it becomes cumbersome to model the events using the $\binomial(n,\theta)$ RV, especially when when the parameter $\theta \propto 1/n$ and the events become rare.  However, for some real parameter $\lambda>0$, the $\binomial(n,\lambda/n)$ RV with probability of the number of successes in $n$ trials, with per-trial success probability $\lambda/n$, approaches the Poisson distribution with expectation $\lambda$, as $n$ approaches $\infty$ (actually, it converges in distribution as defined later).  The $\poisson(\lambda)$ RV is much simpler to work with than the combinatorially laden $\binomial(n,\theta=\lambda/n)$ RV.  We sketch the details of this next.
-
-%{\scriptsize
-Let $X \sim \binomial(n,\theta=\lambda/n)$, then for any $x \in \{0,1,2,3,\ldots,n\}$,
-\begin{eqnarray}
-\p(X=x)
-&=&
-\binom{n}{x} \left( \frac{\lambda}{n} \right)^x \left( 1- \frac{\lambda}{n} \right)^{n-x} \notag \\
-&=& \frac{n(n-1)(n-2)\cdots(n-x+1)}{x(x-1)(x-2)\cdots (2)(1)}
-\left( \frac{\lambda^x}{n^x} \right)
-\left( 1- \frac{\lambda}{n} \right)^n
-\left( 1- \frac{\lambda}{n} \right)^{-x} \notag \\
-&=&
-\overbrace{\left( \frac{n}{n} \right) \left( \frac{n-1}{n} \right) \left( \frac{n-2}{n} \right) \cdots \left( \frac{n-x+1}{n} \right)}
-\overbrace{\left( \frac{\lambda^x}{x!} \right)}
-\underbrace{\left( 1- \frac{\lambda}{n} \right)^n}
-\underbrace{\left( 1- \frac{\lambda}{n} \right)^{-x}}  \notag \\
-\end{eqnarray}
-
-As $n \to \infty$, the expression below the first overbrace $\to 1$, while that below the second overbrace, being independent of $n$ remains the same.  By the elementary examples of limits
-%\remove{
-\ref*{EX:LimitExpofLambda} and \ref*{EX:Limit1MinusLambdaOverNToMinusK}%}
-, as $n \to \infty$, the expression over the first underbrace approaches $e^{-\lambda}$ while that over the second underbrace approaches $1$.  Finally, we get the desired limit:
-
-\[
-\lim_{n \to \infty} \p(X=x)
-= \frac{ e^{-\lambda} \lambda^x}{x!}  \ .
-\]
-%}
-
-\paragraph{Mean and variance of $\poisson(\lambda)$ RV:}
-Let $X \sim \poisson(\lambda)$.  Then:
-\[
-\e(X) = \sum_{x=0}^{\infty} x f(x;\lambda)
-= \sum_{x =0}^{\infty} x \frac{ e^{-\lambda} \lambda^x}{x!}
-= e^{-\lambda} \sum_{x =0}^{\infty} x \frac{  \lambda^x}{x!}
-= e^{-\lambda} \sum_{x -1 =0}^{\infty} \frac{ \lambda \lambda^{x-1}}{(x-1)!}
-= e^{-\lambda} \lambda e^{\lambda}
-= \lambda
-\ .
-\]
-Similarly,
-\[
-\V(X) = \e(X^2)-(\e(X))^2 = \lambda + \lambda^2 - \lambda^2 = \lambda \ .
-\]
-since
-\begin{align*}
-\e(X^2)& = \sum_{x=0}^{\infty} x^2 \frac{e^{-\lambda} \lambda^x}{x!} = \lambda \, e^{-\lambda} \sum_{x=1}^{\infty} \frac{x \, \lambda^{x-1}}{(x-1)!}
-= \lambda \, e^{-\lambda} \left( 1 + \frac{2 \lambda}{1} + \frac{3 \lambda^2}{2!} + \frac{4 \lambda^3}{3!} + ... \right)\\
-&= \lambda \, e^{-\lambda} \left( \left( 1 + \frac{\lambda}{1} + \frac{\lambda^2}{2!} + \frac{\lambda^3}{3!} + ... \right) + \left[ \frac{\lambda}{1} + \frac{2 \lambda^2}{2!} + \frac{3 \lambda^3}{3!} + ... \right] \right)\\
-&= \lambda \, e^{-\lambda} \left( \left( e^{\lambda} \right) + \lambda \left( 1 + \frac{2 \lambda}{2!} + \frac{3 \lambda^2}{3!} + ... \right) \right)
-= \lambda \, e^{-\lambda} \left( e^{\lambda} + \lambda \left( 1 + \lambda + \frac{\lambda^2}{2!} + ... \right) \right)\\
-&= \lambda \, e^{-\lambda} \left( e^{\lambda} + \lambda \left( e^{\lambda} \right) \right)
-= \lambda \, e^{-\lambda} \left( e^{\lambda} + \lambda\, e^{\lambda}\right) = \lambda (1 + \lambda) = \lambda + \lambda^2
-\end{align*}
-
-Note that $\poisson(\lambda)$ distribution is one whose mean and variance are the same, namely $\lambda$.
-
-%\remove{
-\begin{figure}[htpb]
-\caption{PDF of $X \sim \poisson(\lambda=10)$ and the relative frequency histogram based on 1000 samples from $X$ according to Simulation~\ref{SIM:Poisson}.\label{F:PlotPdfSim1000HistPoiss10}}
-\centering   \makebox{\includegraphics[width=6.50in]{figures/PlotPdfSim1000HistPoiss10}}
-\end{figure}
-%}%end remove
-
-The $\poisson(\lambda)$ RV $X$ is also related to the IID $\exponential(\lambda)$ RV $Y_1,Y_2,\ldots$: $X$ is the number of occurrences, per unit time, of an instantaneous event whose inter-occurrence time is the IID $\exponential(\lambda)$ RV.  For example, the number of buses arriving at our bus-stop in the next minute, with exponentially distributed inter-arrival times, has a Poisson distribution.
-
-\section{Characteristic Functions}
-The characteristic function (CF) of a random variable gives another way to specify its distribution. 
-Thus CF is a powerful tool for analytical results involving random variables
-(\href{http://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)}{more}).
-
-\begin{definition}[Characteristic Function (CF)]
-Let $X$ be a RV and $\imath=\sqrt{-1}$. The function $\phi_X(t) : \Rz \to \Cz$ defined by
-\begin{equation}\label{E:CF}
-\boxed{
-\phi_X(t) := E \left( \exp \left( \imath t X\right) \right) = 
-\begin{cases}
-\sum_{x} \exp \left( \imath t x\right) f_X(x) & \text{ if $X$ is discrete RV}\\
-\int_{-\infty}^{\infty} \exp \left( \imath t x\right) f_X(x) dx & \text{ if $X$ is continuous RV}
-\end{cases}
-}
-\end{equation}
-is called the {\bf characteristic function} of $X$.
-\end{definition}
-
-NOTE: 
-$\phi_X(t)$ exists for any $t \in \Rz$, because
-\begin{align*}
-\phi_X(t) 
-&= E \left( \exp \left( \imath t X\right) \right) \\
-&= E \left( \cos(tX)+ \imath \sin(tX) \right)\\
-&= E \left( \cos(tX) \right) + \imath E \left(\sin(tX) \right)
-\end{align*}
-and the last two expected values are well-defined, because the sine and cosine functions are bounded by $[-1,1]$.
-
-For a continuous RV, $\int_{-\infty}^{\infty} \exp \left(- \imath t x\right) f_X(x) dx$ is called the {\em Fourier transform} of $f_X$.  
-This is the CF but with $t$ replaced by $-t$.  
-You will also encounter Fourier transforms when solving differential equations.
-
-
-\subsection{Obtaining Moments from Characteristic Function}
-
-Recall that the $k$-th moment of $X$ is $E(X^k)$ for any $k \in \Nz:=\{1,2,3,\ldots\}$ is
-\begin{framed}
-%\Df{\label{Df:KthMoment} % TODO make this a definition proper
-\[
-E(X^k)\; =\;
-\begin{cases}
-\displaystyle \sum_x x^k f_X(x) & \text{if $X$ is a discrete RV}\\[12pt]
-\displaystyle \int_{-\infty}^{\infty} x^2 f_X(x) dx & \text{if $X$ is a continuous RV}
-\end{cases}
-\]
-%}
-\end{framed}
-
-The characteristic function can be used to derive the moments of $X$ due to the following nice relationship between the the $k$-th moment of $X$ and the $k$-th derivative of the CF of $X$.
-
-\begin{framed}
-\begin{prop}[Moment \& CF.]
-Let $X$ be a random variable and $\phi_X(t)$ be its CF.  
-If $E(X^k)$ exists and is finite, then $\phi_X(t)$ is $k$ times continuously differentiable and
-\begin{equation*}
-E(X^k) = \frac{1}{\imath^k} \left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0} \enspace .
-\end{equation*}
-where $\left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0}$ is the $k$-th derivative of $\phi_X(t)$ with respect to $t$, evaluated at the point $t=0$.
-\end{prop}
-\end{framed}
-
-\begin{proof}
-The proper proof is very messy so we just give a sketch of the ideas in the proof.  
-Due to the linearity of the expectation (integral) and the derivative operators, we can change the order of operations:
-\begin{align*}
-\frac{d^k \phi_X(t)}{dt^k}
-&= \frac{d^k}{dt^k} E(\exp(\imath t X))
-= E \left( \frac{d^k}{dt^k} \exp(\imath t X) \right)
-= E \left( (\imath X)^k \exp(\imath t X) \right)
-= \imath^k E \left( X^k \exp(\imath t X) \right)
-\end{align*}
-The RHS evaluated at $t=0$ is
-\[
-\left[ \frac{d^k \phi_X(t)}{dt^k} \right]_{t=0}
-= \left[ \imath^k E \left( X^k \exp(\imath t X) \right) \right]_{t=0} 
-= \imath^k E \left( X^k \right)
-\]
-This completes the sketch of the proof.
-\end{proof}
-
-The above Theorem gives us the relationship between the moments and the derivatives of the CF if we already know that the moment exists.  
-When one wants to compute a moment of a random variable, what we need is the following Theorem.
-
-\begin{framed}
-\begin{prop}[{\bf Moments from CF.}]
-Let $X$ be a random variable and $\phi_X(t)$ be its CF.  
-If $\phi_X(t)$ is $k$ times differentiable at the point $t=0$, then
-\be
-\item if $k$ is even, the $n$-th moment of $X$ exists and is finite for any $0 \leq n \leq k$;
-\item if $k$ is odd, the $n$-th moment of $X$ exists and is finite for any $0 \leq n \leq k-1$.
-\ee
-In both cases,
-\begin{equation}\label{E:CFToMoments}
-E(X^k) = \frac{1}{\imath^k} \left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0} \enspace .
-\end{equation}
-where $\left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0}$ is the $k$-th derivative of $\phi_X(t)$ with respect to $t$, evaluated at the point $t=0$.
-\end{prop}
-\end{framed}
-
-\begin{proof}
-For proof see e.g., Ushakov, N. G. (1999) Selected topics in characteristic functions, VSP (p.~39).
-\end{proof}
-
-
-\begin{example}
-Let $X$ be the $\bernoulli(\theta)$ RV.  
-Find the CF of $X$.   
-Then use CF to find $E(X)$, $E(X^2)$ and from this obtain the variance $V(X) = E(X^2)-(E(X))^2$.
-
-Solution: 
-
-{\bf Part 1}
-
-Recall the PMF for this discrete RV with parameter $\theta \in (0,1)$ is
-\[
-f_X(x;\theta) = 
-\begin{cases}
-\theta & \text{ if } x = 1\\
-1-\theta & \text{ if } x = 0\\
-0 & \text{ otherwise}.
-\end{cases}
-\]
-Let's first find the CF of $X$
-\begin{align*}
-\phi_X(t)
-&= E \left( \exp(\imath t X) \right) 
-= \sum_x  \exp(\imath t x) f_X(x;\theta) \qquad \text{By Defn.~in Equation~\eqref{E:CF}}\\
-&= \exp(\imath t \times 0) (1-\theta) + \exp(\imath t \times 1) \theta 
-= \exp(0) (1-\theta) + \exp(\imath t) \theta 
-=  1-\theta + \theta \exp(\imath t)  
-\end{align*}
-
-{\bf Part 2:}
-
-Let's differentiate CF 
-\begin{align*}
-\frac{d}{dt}\phi_X(t)
-&= \frac{d}{dt}\left(1-\theta + \theta e^{\imath t} \right) 
-=  \theta \imath \exp(\imath t)
-\end{align*}
-
-We get $E(X)$ by evaluating $\frac{d}{dt}\phi_X(t)$ at $t=0$ and dividing by $\imath$ according to Equation~\eqref{E:CFToMoments} as follows:
-\begin{align*}
-E(X)
-&= \frac{1}{\imath} \left[ \frac{d}{dt}\phi_X(t) \right]_{t=0} 
-= \frac{1}{\imath} \left[ \theta \imath \exp(\imath t) \right]_{t=0} 
-= \frac{1}{\imath} \left( \theta \imath \exp(\imath 0) \right) 
-=  \theta \enspace.
-\end{align*}
-Similarly from Equation~\eqref{E:CFToMoments} we can get $E(X^2)$ as follows:
-\begin{align*}
-E(X^2)
-&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\phi_X(t) \right]_{t=0} 
-= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{d}{dt} \phi_X(t) \right]_{t=0} 
-= \frac{1}{\imath^2} \left[ \frac{d}{dt} \theta \imath \exp(\imath t) \right]_{t=0}\\ 
-&= \frac{1}{\imath^2} \left[ \theta \imath^2 \exp(\imath t) \right]_{t=0} 
-= \frac{1}{\imath^2} \left( \theta \imath^2 \exp(\imath 0) \right) 
-=  \theta \enspace.
-\end{align*}
-Finally, from the first and second moments we can get the variance as follows:
-\[
-V(X) = E(X^2) - (E(X))^2 = \theta - \theta^2 = \theta(1-\theta) \enspace .
-\]
-Let's check that this is what we have as variance for the $\bernoulli(\theta)$ RV if we directly computed it using weighted sums in the definition of expectations: $E(X)=1 \times \theta + 0 \times (1-\theta)=\theta$, $E(X^2) = 1^2 \times \theta + 0^2 \times (1-\theta)=\theta$and thus giving the same $V(X) = E(X^2) - (E(X))^2 = \theta - \theta^2 = \theta(1-\theta)$.
-\end{example}
-
-\begin{example}
-Let $X$ be an $\exponential(\lambda)$ RV. 
-First show that its CF is $\lambda/(\lambda- \imath t)$.  
-Then use CF to find $E(X)$, $E(X^2)$ and from this obtain the variance $V(X) = E(X^2)-(E(X))^2$.
-
-Solution:
-
-Recall that the PDF of an $\exponential(\lambda)$ RV for a given parameter $\lambda \in (0,\infty)$ is $\lambda e^{-\lambda x}$ if $x \in [0, \infty)$ and $0$ if $x \notin [0, \infty)$.
-
-{\bf Part 1:} Find the CF.
-
-We will use the fact that 
-$$\int_0^{\infty} \alpha e^{-\alpha x} dx = \left[ -e^{-\alpha x} \right]_0^{\infty} = 1$$
-
-\begin{align*}
-\phi_X(t)
-&= E(\exp(\imath X t))
-= E\left( e^{\imath X t} \right)
-= \int_{-\infty}^{\infty} e^{\imath x t} \lambda e^{-\lambda x} dx
-= \lambda  \int_{0}^{\infty} e^{-(\lambda-\imath t) x} dx\\
-&= \frac{\lambda}{\lambda-\imath t}  \int_{0}^{\infty} (\lambda-\imath t) e^{-(\lambda-\imath t) x} dx
-= \frac{\lambda}{\lambda-\imath t}  \int_{0}^{\infty} \alpha e^{-\alpha x} dx
-= \frac{\lambda}{\lambda-\imath t} \enspace, 
-\end{align*}
-where $\alpha = \lambda-\imath t$ with $\lambda > 0$.
-
-Alternatively, you can use $e^{\imath t x} = \cos(tx)+\imath \sin(tx)$ and do integration by parts to arrive at the same answer starting from:
-\begin{align*}
-\phi_X(t)
-&= \int_{-\infty}^{\infty} e^{\imath x t} \lambda e^{-\lambda x} dx
-= \int_{-\infty}^{\infty} \cos(t x) e^{-\lambda x} dx + \imath \int_{-\infty}^{\infty} \sin(t x) e^{-\lambda x} dx
-\vdots 
-= \frac{\lambda}{\lambda-\imath t} \enspace .
-\end{align*}
-
-{\bf Part 2:}
-
-Let us differentiate the CF to get moments using Equation~\eqref{E:CFToMoments} (CF has to be once and twice differentiable at $t=0$ to get the first and second moments).
-\begin{align*}
-\frac{d}{dt}\phi_X(t)
-&= \frac{d}{dt}\left( \frac{\lambda}{\lambda-\imath t} \right) 
-= \lambda \left( -1 \times (\lambda-\imath t)^{-2} \times \frac{d}{dt} (\lambda-\imath t) \right) \\
-&= \lambda \left( \frac{-1}{(\lambda-\imath t)^{2}} \times (-\imath ) \right) 
-= \frac{\lambda \imath}{(\lambda-\imath t)^{2}} 
-\end{align*}
-
-We get $E(X)$ by evaluating $\frac{d}{dt}\phi_X(t)$ at $t=0$ and dividing by $\imath$ according to Equation~\eqref{E:CFToMoments} as follows:
-\begin{align*}
-E(X)
-&= \frac{1}{\imath} \left[ \frac{d}{dt}\phi_X(t) \right]_{t=0} 
-= \frac{1}{\imath} \left[ \frac{\lambda \imath}{(\lambda-\imath t)^{2}} \right]_{t=0} 
-= \frac{1}{\imath} \left( \frac{\lambda \imath}{\lambda^{2}} \right) 
-= \frac{1}{\imath} \left( \frac{\imath}{\lambda} \right) 
-=  \frac{1}{\lambda} 
-\end{align*}
-
-Let's pause and see if this makes sense.... Yes, because the expected value of $\exponential(\lambda)$ RV is indeed $1/\lambda$ (recall from when we introduced this RV).
-
-Similarly from Equation~\eqref{E:CFToMoments} we can get $E(X^2)$ as follows:
-\begin{align*}
-E(X^2)
-&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\phi_X(t) \right]_{t=0} 
-= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{d}{dt} \phi_X(t) \right]_{t=0} 
-= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{\lambda \imath}{(\lambda-\imath t)^{2}} \right]_{t=0} \\
-&= \frac{1}{\imath^2} \left[ \lambda \imath \times \frac{d}{dt} {(\lambda-\imath t)^{-2}} \right]_{t=0} 
-= \frac{1}{\imath^2} \left[ \lambda \imath \left( -2(\lambda-\imath t)^{-3} \frac{d}{dt} {(\lambda-\imath t)} \right) \right]_{t=0}\\ 
-&= \frac{1}{\imath^2} \left[ \lambda \imath \left( -2(\lambda-\imath t)^{-3} \times (-\imath ) \right) \right]_{t=0}
-= \frac{1}{\imath^2} \left[ \frac{2 \lambda \imath^2}{(\lambda-\imath t)^{3}} \right]_{t=0}
-= \frac{1}{\imath^2} \left( \frac{2 \lambda \imath^2}{\lambda^{3}} \right) 
-=  \frac{2}{\lambda^{2}}\enspace.
-\end{align*}
-Finally, from the first and second moments we can get the variance as follows:
-\[
-V(X) = E(X^2) - (E(X))^2 = \frac{2}{\lambda^2} - \left(\frac{1}{\lambda}\right)^2  = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{2-1}{\lambda^2} = \frac{1}{\lambda^2}   \enspace .
-\]
-%\vspace{3cm}
-
-Let's check that this is what we had as variance for the $\exponential(\lambda)$ RV when we first introduced it and directly computed using integrals for definition of expectation.
-\end{example}
-
-Characteristic functions can be used to characterize the distribution of a random variable.
-
-Two RVs $X$ and $Y$ have the same DFs , i.e., $F_X(x) = F_Y(x)$ for all $x \in \Rz$, if and only if they have the same characteristic functions, i.e. $\phi_X(t) = \phi_Y(t)$ for all $t \in \Rz$ (for proof see Resnick, S. I. (1999) A Probability Path, Birkhauser). 
-
-Thus, if we can show that two RVs have the same CF then we know they are the same.  This can be much more challenging or impossible to do directly with their DFs.
-
-Let $Z$ be $\normal(0,1)$, the standard normal RV.
-We can find the CF for $Z$ using couple of tricks as follows
-\begin{align*}
-\phi_Z(t)
-&= E\left(e^{\imath t Z} \right)\\
-&= \int_{-\infty}^{\infty} e^{\imath t z} f_Z(z) dz = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{\imath t z} e^{-z^2/2} dz = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{\imath t z -z^2/2} dz \\
-&= \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{-(t^2 + (z - \imath t)^2)/2} dz = e^{-t^2/2} \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{ -(z - \imath t)^2/2} dz \\
-&= e^{-t^2/2} \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{ -y^2/2} dy  \qquad \text{substituting $y=z-\imath t, dy=dz$}\\
-&= e^{-t^2/2} \frac{1}{\sqrt{2 \pi}} \sqrt{2 \pi}  \qquad \text{using the normalizing constant in PDF of $\normal(0,1)$ RV}\\
-&= e^{-t^2/2}
-\end{align*}
-
-Thus the CF of the standard normal RV $Z$ is
-\begin{equation}\label{E:cfStandardNormal}
-\boxed{
-\phi_Z(t) = e^{-t^2/2}
-}
-\end{equation}
-
-
-Let $X$ be a RV with CF $\phi_X(t)$.  Let $Y$ be a linear transformation of $X$
-\[
-Y= a + bX
-\]
-where $a$ and $b$ are two constant real numbers and $b \neq 0$.  
-Then the CF of $Y$ is
-\begin{equation}\label{E:cfofLinearTransformation}
-\boxed{
-\phi_Y(t) = \exp(\imath a t) \phi_X(b t)
-}
-\end{equation}
-
-\begin{proof}
-This is easy to prove using the definition of CF as follows:
-\begin{align*}
-\phi_Y(t)
-&= E\left(\exp(\imath t Y) \right)
-= E\left(\exp(\imath t (a + bX) ) \right)
-= E\left(\exp(\imath t a + \imath t b X) \right)\\
-&= E\left(\exp(\imath t a) \exp(\imath t b X) \right)
-= \exp(\imath t a) E\left( \exp(\imath t b X) \right)
-= \exp(\imath t a) \phi_X(b t)
-\end{align*}
-\end{proof}
-
-\begin{example}
-Let $Y$ be a $\normal(\mu,\sigma^2)$ RV.  
-Recall that $Y$ is a linear transformation of $Z$, i.e., $Y = \mu + \sigma Z$ where $Z$ is a $\normal(0,1)$ RV.  
-Using Equations~\eqref{E:cfStandardNormal} and \eqref{E:cfofLinearTransformation} find the CF of $Y$.
-
-Solution:
-
-\begin{align*}
-\phi_Y(t) 
-& = \exp(\imath \mu t) \phi_Z(\sigma t), \qquad \text{ since $Y = \mu + \sigma Z$}\\
-& = e^{\imath \mu t} e^{(-\sigma^2 t^2)/2}, \qquad \text{ since $\phi_Z(t)=e^{-t^2/2}$}\\
-& = e^{\imath \mu t - (\sigma^2 t^2)/2}
-\end{align*}
-\end{example}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-A generalization of \eqref{E:cfofLinearTransformation} is the following.  
-If $X_1,X_2,\ldots,X_n$ are independent RVs and $a_1,a_2,\ldots,a_n$ are some constants, then the CF of the linear combination $Y=\sum_{i=1}^n a_i X_i$ is
-\begin{equation}\label{E:LinCombCF} 
-\boxed{
-\phi_Y (t) = \phi_{X_1} (a_1 t) \times \phi_{X_2} (a_2 t) \times \cdots \times \phi_{X_n} (a_n t) = \prod_{i=1}^n \phi_{X_i} (a_i t) \enspace .
-}
-\end{equation}
-%In other symbols: $$\phi_{\sum_{i=1}^n a_i X_i}(t) = \prod_{i=1}^n \phi_{X_i} (a_i t) \enspace .$$ 
-\begin{example}
-Using the following three facts:
-\bit 
-\item~~~ Eqn.~\eqref{E:LinCombCF} 
-\item~~~ the $\binomial(n,\theta)$ RV $Y$ is the sum of $n$ independent $\bernoulli(\theta)$ RVs (from Probability Course)  
-\item~~~ the CF of $\bernoulli(\theta)$ RV (from lecture notes for Inference Course)
-\eit
-find the CF of the $\binomial(n,\theta)$ RV $Y$.
-
-Solution:
-
-Let $X_1,X_2,\ldots,X_n$ be independent $\bernoulli(\theta)$ RVs with CF $\left( 1-\theta + \theta e^{\imath t} \right)$ then $Y=\sum_{i=1}^n  X_i$ is the $\binomial(n,\theta)$ RV and by Eqn.~\eqref{E:LinCombCF} 
-with $a_1=a_2=\cdots=1$, we get
-\[
-\phi_Y (t) = \phi_{X_1} ( t) \times \phi_{X_2} (t) \cdots \phi_{X_n} ( t)
-= \prod_{i=1}^n \phi_{X_i} ( t) = \prod_{i=1}^n \left( 1-\theta + \theta e^{\imath t} \right)
-= \left( 1-\theta + \theta e^{\imath t} \right)^n \enspace . 
-\]
-\end{example}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{example}
-Let $Z_1$ and $Z_2$ be independent $\normal(0,1)$ RVs.  
-\be
-\item~
-Use Eqn.~\eqref{E:LinCombCF} 
-to find the CF of $Z_1+Z_2$.  
-\item~
-From the CF of $Z_1+Z_2$ identify what RV it is.
-\item~
-Use Eqn.~\eqref{E:LinCombCF} 
-to find the CF of $2Z_1$.
-\item~
-From the CF of $2Z_1$ identify what RV it is.
-\item~
-Try to understand the difference between the distributions of $Z_1+Z_2$ and $2 Z_1$ inspite of $Z_1$ and $Z_2$ having the same distibution.
-\ee
-{Hint: from lectures we know that $\phi_X(t) = e^{\imath \mu t - (\sigma^2 t^2)/2}$ for a $\normal(\mu,\sigma^2)$ RV $X$.}
-
-Solution:
-
-\be
-\item~
-By Eqn.~\eqref{E:LinCombCF} 
-we just multiply the characteristic functions of $Z_1$ and $Z_2$, both of which are $e^{-t^2/2}$,
-\[
-\phi_{Z_1+Z_2}(t)= \phi_{Z_1}(t) \times \phi_{Z_2}(t) = e^{-t^2/2} \times e^{-t^2/2} = e^{-2t^2/2} = e^{-t^2} \enspace . 
-\]  
-\item~
-The CF of $Z_1+Z_2$ is that of the $\normal(\mu,\sigma^2)$ RV with $\mu=0$ and $\sigma^2=2$.  
-Thus $Z_1+Z_2$ is the $\normal(0,2)$ RV with mean parameter $\mu=0$ and variance paramter $\sigma^2=2$.
-\item~
-We can again use Eqn.~\eqref{E:LinCombCF} 
-to find the CF of $2Z_1$ as follows
-\[
-\phi_{2Z_1} = \phi_{Z_1}(2 t) = e^{-2^2t^2/2} \enspace .
-\]
-\item~
-The CF of $2Z_1$ is that of the $\normal(\mu,\sigma^2)$ RV with $\mu=0$ and $\sigma^2=2^2=4$.
-Thus $2Z_1$ is the $\normal(0,4)$ RV with mean parameter $\mu=0$ and variance paramter $\sigma^2=4$.
-\item~
-$2Z_1$ has a bigger variance from multiplying the standard normal RV by $2$ while $Z_1+Z_2$ has a smaller variance from adding two independent standard normal RVs.  Thus, the result of adding the same RV twice does not have the same distribution as that of multiplying it by $2$.  In other words $2 \times Z$ is not equal to $Z+Z$ in terms of its probability distribution! 
-\ee
-\end{example}
 
 \newpage
 
@@ -5193,7 +5254,7 @@ f_Y(y)\;=\; \p(Y=y)\;=\; \sum_{\{ x: g(x)=y\}}f_X(x)  \;=\; f_X\left( \frac{1}{\
 \]
 for $y = 1, \frac{1}{4}, \frac{1}{9}, \dots $, and $0$ otherwise.\\[4pt]
 {\scriptsize CAUTION: This is a discrete RV and so don't just blindly apply the change of variable formula that only applies to continuous RV with a monotone and one-to-one function 
-$g$ with inverse $g^{-1}$; it's just that in this discrete RV setting the inverse iamge also happens to satisfy these properties. But Poisson is discrete.}
+$g$ with inverse $g^{-1}$; it's just that in this discrete RV setting the inverse image also happens to satisfy these properties. But Poisson is discrete and `change of variable formula'' is hence inapplicable.}
 
 %question 9 (cts )
 \Exercise

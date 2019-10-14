@@ -495,23 +495,7 @@ We can draw $n$ IID samples from the $\cauchy$ RV $X$ by transforming $n$ IID sa
    -1.2272   -1.7470   -0.1892   -0.2575    1.0634
 \end{VrbM}
 \end{simulation}
- Recall that the mean of the $\cauchy$ RV $X$ does not exist since $\int \left|x\right|\,dF(x) = \infty$ \eqref{E:CauchyMeanDoesNotExist}.  We will investigate this in \hyperref[LW:RunningMeanCauchy]{Labwork~\ref*{LW:RunningMeanCauchy}}.
 
- \begin{labwork}[Running mean of the Standard Cauchy RV]\label{LW:RunningMeanCauchy}
-Let us see what happens when we plot the running sample mean for an increasing sequence of IID samples from the Standard Cauchy RV $X$ by implementing the following script file:
- \VrbMf[label=PlotStandardCauchyRunningMean.m]{scripts/PlotStandardCauchyRunningMean.m}
-
-%}%end remove
-
-\begin{figure}[htpb]
-\caption{Unending fluctuations of  the running means based on $n$ IID samples from the Standard $\cauchy$ RV $X$ in each of five replicate simulations (blue lines).  The running means, based on $n$ IID samples from the $\uniform(0,10)$ RV, for each of five replicate simulations (magenta lines). \label{F:plot5RunningMeansStandardcauchyUnif010}}
-\centering   \makebox{\includegraphics[width=5.5in]{figures/plot5RunningMeansStandardcauchyUnif010}}
-\end{figure}
-
-The resulting plot is shown in \hyperref[F:plot5RunningMeansStandardcauchyUnif010]{Figure~\ref*{F:plot5RunningMeansStandardcauchyUnif010}}.  Notice that the running means or the sample mean of $n$ samples as  a function of $n$, for each of the five replicate simulations, never settles down to a particular value.  This is because of the ``thick tails'' of the density function for this RV which produces extreme observations.  Compare them with the running means, based on $n$ IID samples from the $\uniform(0,10)$ RV, for each of five replicate simulations (magenta lines).  The latter sample means have settled down stably to the mean value of $5$ after about $700$ samples.
-%\remove{
-\end{labwork}
-%}%end remove
 
 \subsection{Inversion Sampler for Discrete Random Variables}\label{S:InvSDiscrete}
 Next, consider the problem of {\bf sampling from a random variable $X$ with a discontinuous or discrete DF} using the inversion sampler.  We need to define the inverse more carefully here.
@@ -1116,7 +1100,7 @@ Now, the expected number of iterations to get an $x$ is no longer $\tilde{a}$ bu
 %Implement the inversion sampler to draw samples from the $Cauchy(\nu)$ RV.
 %\end{labwork}
 
-The {\bf Ziggurat Method} [G.~Marsaglia and W.~W.~Tsang, SIAM Journal of Scientific and Statistical Programming, volume 5, 1984] is a rejection sampler that can efficiently draw samples from the $Z \sim \normal(0,1)$ RV.  The \Matlab function {\tt randn} uses this method to produce samples from $Z$.  See  \href{http://www.mathworks.com/company/newsletters/news_notes/clevescorner/spring01_cleve.html}{\url{http://www.mathworks.com/company/newsletters/news_notes/clevescorner/spring01_cleve.html}} or \href{http://en.wikipedia.org/wiki/Ziggurat_algorithm}{\url{http://en.wikipedia.org/wiki/Ziggurat_algorithm}} for more details.
+The {\bf Ziggurat Method} [G.~Marsaglia and W.~W.~Tsang, SIAM Journal of Scientific and Statistical Programming, volume 5, 1984] is a rejection sampler that can efficiently draw samples from the $Z \sim \normal(0,1)$ RV.  The \Matlab function {\tt randn} uses this method to produce samples from $Z$.\footnote{{\tiny See \href{http://en.wikipedia.org/wiki/Ziggurat_algorithm}{\url{http://en.wikipedia.org/wiki/Ziggurat_algorithm}} for more details.}
 
 \begin{labwork}[Gaussian Sampling with {\tt randn}]\label{LW:randn}
 We can use \Matlab function {\tt randn} that implements the Ziggurat method to draw samples from an RV $Z \sim \normal(0,1)$ as follows:
@@ -1168,3 +1152,4 @@ $$\lambda=\frac{\tau+\sqrt{\tau^2+4}}{2}$$
 \end{enumerate}
 \end{labwork}
 
+\input{ExsInSimulation.tex}

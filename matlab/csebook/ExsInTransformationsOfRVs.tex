@@ -1,0 +1,162 @@
+\section{Exercises in Transformations of Random Variables}\label{S:xsTransformationsOfRVs}
+\begin{ExerciseList}
+%transformation of RVs
+\Exercise
+Let $X$ be the outcome of a fair die roll with probability mass function given by
+\[
+f_X(x) = 
+\begin{cases}
+\frac{1}{6} & \text{ if } x \in \{1,2,3,4,5,6\}\\
+0 & \text{ otherwise} \, .
+\end{cases}
+\]
+If $Y = (X-3)^2$ then find the probability mass function of $Y$,  $f_Y (y)$.
+\Answer
+Using Equation~\eqref{E:PMFOfgOfX}, we can tabulate as follows:
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$y$ & $0$ & $1$ & $4$ & $9$\\\hline
+$f_Y(y)$ & $f_X(3)=\frac{1}{6}$ & $f_X(2)+f_X(4)=\frac{2}{6}$ & $f_X(1)+f_X(5)=\frac{2}{6}$ & $f_X(6)=\frac{1}{6}$\\\hline
+\end{tabular}
+
+\Exercise
+Given a natural number $n$ as a parameter, i.e., given a parameter $n \in \{1,2,3,\ldots\}$, let $X$ be a discrete uniform random variable on the finite set
+$$\mathbb{X}=\{-n,-n+1,\ldots,-1,0,1,\ldots,n-1,n\}$$
+i.e.~the probability mass function of $X$ is:
+\[
+f_X(x;n) = 
+\begin{cases}
+\frac{1}{2n+1} & \text{ if } x \in \mathbb{X} \\
+0 & \text{ otherwise}\, .
+\end{cases}
+\]
+Find the probability mass function $f_Y(y;n)$ for $Y=|X|$, the absolute value of $X$.
+\Answer
+The probability mass function $f_Y(y;n)$ for $Y=|X|$, the absolute value of $X$, comes from applying the formula:
+\[
+f_Y(y;n) = \sum_{x \in \{ x: g(x)=y\}} f_X(x;n) \enspace ,
+\]
+as follows:
+\[
+f_Y(y) = 
+\begin{cases}
+\sum_{x \in \{ x: |x|=0\}} f_X(x;n) = f_X(0;n) = \frac{1}{2n+1} & \text{ if } y =0 \\
+ \sum_{x \in \{ x: |x|=y\}} f_X(x;n) = \left( f_X(y;n)+f_X(-y;n) \right) = \frac{2}{2n+1} & \text{ if } y \in \{1,2,\ldots,n\} \\
+0 & \text{otherwise}
+\end{cases}
+\]
+
+\Exercise
+If $X$ is a $\geometric(\theta)$ random variable and $Y=\left(\frac{1}{2}\right)^X$ then find an expression for $f_Y(y)$.
+\Answer
+We are given that $Y=2^{-X}$. Define the function
+$$g: \{1,2,3,\ldots\} \to \{2^{-1},2^{-2},2^{-3},\ldots\}$$
+by $y=g(x)=2^{-x}$.  Then $g$ is one-to-one and onto and so by Equation~\eqref{E:PMFOfgOfX},
+\[
+f_Y(y) = \sum_{x \in g^{[-1]}(y)} f_X(x) = \sum_{x \in g^{-1}(y)} f_X(x) = \sum_{x \in \{ -\log_2(y) \} } f_X(x) = f_X(-\log_2(y))\, .
+\]
+Note that the second equality above is emphasizing that the inverse image $g{[-1]}(y)$ is indeed the inverse function $g^{-1}(y)$ for this $g:\{1,2,3,\ldots\} \to \{2^{-1},2^{-2},2^{-3},\ldots\}$.  Therefore,
+\[
+f_Y(y) = 
+\begin{cases}
+f_X(-\log_2(y)) = \theta (1-\theta)^{-\log_2(y)-1} & \text{ if } y \in \{2^{-1},2^{-2},2^{-3},\ldots\}\\
+0 & \text{ otherwise} \, .
+\end{cases}
+\]
+
+
+\Exercise
+If $X$ is a $\poisson(\lambda)$ random variable find the probability mass function,  $f_Y (y)$, of
+\[
+Y\,=\,\frac{1}{(X+1)^{2}} \enspace .
+\]
+\Answer
+Since $X$ is a $\poisson(\lambda)$ random variable (by suppressing the `$;\lambda$' in the argument to $f_X(\cdot)$ for notational ease), we get
+\[ f_X(x) \,=\, \p(X=x)\,=\, 
+\begin{cases}
+\frac{\lambda^x \, e^{-\lambda} }{ x!} & \text{ for }  x= 0, 1, 2, \dots \\
+0 & \text{ otherwise} \,.
+\end{cases}
+\]
+
+If $Y=(X+1)^{-2}=1/(X+1)^2$ then  \[ \{\ldots,2,1,0\} \ni x \xmapsto{(x+1)^{-2}} y \,\in\, \left\{1, \frac{1}{4}, \frac{1}{9}, \dots \right\} \]
+and since $y=g(x)=(x+1)^{-2}$ {\scriptsize as it maps or associates each $y \in \left\{1, \frac{1}{4}, \frac{1}{9}, \dots \right\}$ to exactly one $x \in \{0,1,2,\ldots\}$ given by $g^{-1}(y)=y^{-1/2}-1 = \frac{1}{\sqrt{y}}-1= x$, its inverse function, this is because $g$ is {\em injective} or {\em one-to-one} as explained here if you want to recall quickly \url{https://en.wikipedia.org/wiki/Injective_function} again}, so we get:
+\[
+f_Y(y)\;=\; \p(Y=y)\;=\; \sum_{\{ x: g(x)=y\}}f_X(x)  \;=\; f_X\left( \frac{1}{\sqrt y}-1\right) \;=\; \frac{\lambda^{(\frac{1}{\sqrt y} -1)} \, e^{-\lambda}}{(\frac{1}{\sqrt y} -1)!}
+\]
+for $y = 1, \frac{1}{4}, \frac{1}{9}, \dots $, and $0$ otherwise.\\[4pt]
+{\scriptsize CAUTION: This is a discrete RV and so don't just blindly apply the change of variable formula that only applies to continuous RV with a monotone and one-to-one function 
+$g$ with inverse $g^{-1}$; it's just that in this discrete RV setting the inverse image also happens to satisfy these properties. But Poisson is discrete and `change of variable formula'' is hence inapplicable.}
+
+\Exercise
+If $X$ is a continuous random variable with probability density function
+\[
+f_X(x)\;=\;\begin{cases} x e^{- x} &  x\geqslant 0\\ 0 & x< 0\end{cases},
+\]
+find the probability density function of $Y\,=\, e^X$.
+\Answer
+Since  $y=g(x) = e^x$ is a monotone increasing function for $x \geqslant 0$,  we can apply the change of variable formula.
+
+Now $x= g^{-1}(y) = \log_e(y)$ is a monotone increasing function for $y$ in $[1,\infty)$
+\[\left|  \frac{d}{dy}\left(g^{-1}(y)\right)\right|\;=\; \left|  \frac{d}{dy}\left(\log_e(y)\right)\right|\;=\; \frac{1}{y}\,.\]
+
+Therefore
+\[
+  f_Y(y) \;=\; f_X\left( \log_e(y)\right) \times  \left| \frac{1}{y} \right|\;=\;  \log_e(y) \,e^{-\log_e(y)} \times  \frac{1}{y} \;=\; \log_e(y) \, \frac{1}{y^2}
+\]
+since $e^{-\log_e(y)} = e^{\log_e(y^{-1})}  = y^{-1}$.
+
+So the  probability density
+  function  of $Y$ is given by
+\[f_Y(y)\;=\;\begin{cases} \displaystyle  \frac{\log_e(y)}{y^2} &   \text{ if } x \geqslant 1 \\ 0 &
+  \text{otherwise}
+\end{cases} \,.
+\]
+
+\Exercise
+If $X$, the received power at an antenna is an $\exponential(\lambda)$ random variable then find the probability density function of the amplitude $Y\,=\, \sqrt X$.
+\Answer
+Since $y=g(x) = \sqrt{x}$ is a monotone increasing function for $x \geqslant 0$,  we can apply the change of variable formula.
+
+Now $x= g^{-1}(y) = y^2$ is a monotone increasing function for $y\geqslant 0$ so on this interval
+\[
+\left|  \frac{d}{dy}\left(g^{-1}(y)\right)\right|\;=\; \left|  \frac{d}{dy}\left( y^2\right)\right|\;=\; 2y\,.\]
+Therefore
+\[
+f_Y(y) 
+\;=\; f_X\left(  y^2\right) \times  \left| 2y \right|
+\;=\;  \lambda e ^{-\lambda y^2} \times  2y  \;=\;   2 \lambda y e ^{-\lambda y^2}\,.
+\]
+So the  probability density function  of $Y$ is given by
+\[
+f_Y(y)\;=\;\begin{cases} \displaystyle  2 \lambda y e ^{-\lambda y^2}   &    y\geqslant 0 \\ 0 & y <0
+\end{cases} \,.
+\]
+
+
+\Exercise
+If $X$ is a $\uniform(a,b)$ random variable where $0 < a < b$, find  the probability density function, $f_Y (y)$, of \[ Y\,=\, \log_e(X) \, .\]
+\Answer
+First note that $y=g(x) = \log_e(x)$ is a monotone increasing function over  $a \leqslant x \leqslant b$, so we can apply the change of variable formula.
+
+ $x= g^{-1}(y) = e^y$ is a monotone increasing function over $\log_e(a) \leqslant   \log_e(x) \leqslant \log_e(b)$, that is, over $\log_e(a) \leqslant   y \leqslant   \log_e(b)$.
+
+For $\log_e(a) \leqslant   y \leqslant   \log_e(b)$,
+
+\[\left|  \frac{d}{dy}\left(g^{-1}(y)\right)\right|\;=\; \left|  \frac{d}{dy}\left(e^y)\right)\right|\;=\; e^y\,.\]
+
+Therefore 
+\[
+  f_Y(y) \;=\; f_X\left(g^{-1}(y)\right) \times  \left|  \frac{d}{dy} \left(g^{-1}(y)\right)\right|\;=\; \frac{1}{b-a} \times e^y\,.
+\]
+So the  probability density
+  function  of $Y$ is given by  
+\[f_Y(y)\;=\;\begin{cases} \displaystyle  \frac{e^y}{b-a}  &   \log_e(a)\leqslant x \leqslant \log_e(b)\\ 0 &
+  \text{otherwise}
+\end{cases} \,.
+\]
+
+
+\end{ExerciseList}
+

@@ -1,0 +1,96 @@
+\section{Exercises in Continuous Random Variables}\label{S:xsContinuousRVs}
+\begin{ExerciseList}
+\Exercise
+Consider the probability density function
+$$f(x)\;=\;\begin{cases} k &-4 \leq x\leq4\\0&\textrm{otherwise}\end{cases}\,.$$
+
+\be
+\item Find  the value of $k$.
+\item Find the distribution function, $F$.
+\item   Graph $f$ and  $F$.
+\ee
+\Answer
+\be
+\item Since $f(x)$ is a (continuous) probability density function which integrates to one,
+$$\int_{-4}^4kdx\;=\;1\,.$$
+That is, 
+\ba{k \,x\bigg]^4_{-4}&=\;1\\[3pt]k(4-(-4))&=\;1\\[3pt]8k&=\;1\\[3pt]k&=\;\frac{1}{8}}
+
+\item First note that if $x <  -4$, then  $$F(x)\;=\;\int^x_{-\infty}0\,dv\;=\;0\,.$$
+If $-4 \leq x \leq 4$, then
+\begin{align*}F(x)&=\;\int^{-4}_{-\infty}0\,dv\;+\;\int^x_{-4} \frac{1}{8}\,dv\\[3pt]
+&=\;0\;+\;\left[ \frac{1}{8}\, v \right]^x_{-4}\\[3pt]
+&=\;  \frac{1}{8} (x +4)\end{align*}
+If $x\geq 4$, then
+\begin{align*}F(x)&=\int^{-4}_{-\infty}0\,dv\;+\;\int^{4}_{-4}
+  \frac{1}{8} \,dv\;+\;\int^x_{4} 0 \,dv\\[3pt]
+&=0\;+\;\left[\frac{1}{8} v \right]^4_{-4}\;+\;0\\[3pt]
+&=\; 1\end{align*}
+Hence  $$F(x)\;=\;\begin{cases}0&x <  -4\\ \frac{1}{8} (x+4) &-4 \leq
+  x\leq 4\\1&x\geq 4\end{cases}$$
+
+\item  The graphs of $f(x)$ and $F(x)$ for  random variable $X$ are as follows:
+%TODO\centering   \makebox{\includegraphics[width=6.5in]{figures/fandFforConstantDensity.png}}
+
+\ee
+
+\Exercise
+Assume that a new light bulb will burn out at time $t$ hours according to the probability density function given by 
+$$
+f(t)\;=\;
+\begin{cases}
+\lambda e^{-\lambda t} & \text{ if } t >0 \enspace,\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+$$
+In this context, $\lambda$ is often called the failure rate of the bulb.
+
+\be
+\item[(a)]Assume that $\lambda=0.01$, and find the probability that the
+  bulb will not burn out before $\tau$ hours. This $\tau$-specific probability is often
+  called the reliability of the bulb.
+
+Hint: Use the distribution function for an $\exponential(\lambda)$ random variable (recall, $F(\tau;\lambda)=\int_{-\infty}^{\tau} f(t) dt$)!
+
+\item[(b)]For what  value of $\tau$ is the reliability of the bulb exactly $\frac{1}{2}$?
+\ee
+\Answer
+\be
+\item Since the distribution function is $F(t; \lambda) \,=\,
+  1 - \exp( - \lambda t)$,
+ \[\p(t>\tau)\;=\;1-\p(t<\tau)\;=\; 1 - F(\tau;\lambda=0.01) \;=\;1-(1-e^{-0.01\tau})\;=\;e^{-0.01\tau}\,.\]
+
+\item Set  \[\p(t>\tau)\;=\;e^{-0.01\tau}\;=\;\frac{1}{2}\]
+and solve for $\tau$ to get  then $\tau\,=\,-100\times \log(0.5)\,=\,69.3\quad (\text{3 sig. fig.})$\,.
+\ee
+
+\Exercise 
+Let the random variable $X$ be the time  after which certain ball bearings wear out, with density
+$$f(x)\;=\;\begin{cases} ke^{-x}&0\leq x\leq 2\\0&\textrm{otherwise}\end{cases}\enspace.$$
+Note: $X$ is measured in  years.
+\be
+\item Find $k$.
+\item Find the probability that a bearing will last at least 1 year.
+\ee
+\Answer
+\be
+\item
+
+\ba{\int^2_0 k\,e^{-x}\,dx &=\;1\\[3pt]
+\left[ -k\,e^{-x}\right]^2_0&=\;1\\[3pt]
+k\,(-e^{-2}+1)&=\;1\\[3pt]
+k&=\;\frac{1}{1-e^{-2}} \quad (\approx 1.1565)
+}
+
+\item
+\ba{\p(X\geq1)&=1\,-\,\p(X<1)\\[3pt]
+&=\;1\;-\;\int^1_0 k e^{-x}\,dx\\[3pt]
+&=\;1\;+\;k\left(e^{-x}\right]^1_0\\[3pt]
+&=\;1\;+\;\frac{e^{-1}-1}{1-e^{-2}}\\[3pt]
+&\approx\;0.2689}
+
+\ee
+
+
+\end{ExerciseList}
+

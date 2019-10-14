@@ -1,0 +1,155 @@
+\section{Exercises in Probability}\label{S:xsProbability}
+\begin{ExerciseList}
+\Exercise
+{In English language text, the twenty six letters in the alphabet occur with the following frequencies:
+{\footnotesize $$
+\mathsf{
+\begin{array}{cccccccccccccccccc}
+\sf E   &       13      \%&     \sf R   &       7.7     \%&     \sf A   &       7.3     \%&     \sf H   &       3.5     \%&     \sf F   &       2.8     \%&     \sf M    &      2.5     \%&     \sf W   &       1.6     \%&     \sf X   &       0.5     \%&     \sf J   &       0.2     \%\\
+\sf T   &       9.3     \%&     \sf O   &       7.4     \%&     \sf S   &       6.3     \%&     \sf L   &       3.5     \%&     \sf P   &       2.7     \%&     \sf Y    &      1.9     \%&     \sf V   &       1.3     \%&     \sf K   &       0.3     \%&     \sf Z   &       0.1     \%\\
+\sf N   &       7.8     \%&     \sf I   &       7.4     \%&     \sf D   &       4.4     \%&     \sf C   &       3       \%&     \sf U   &       2.7     \%&     \sf G    &      1.6     \%&     \sf B   &       0.9     \%&     \sf Q   &       0.3     \%&             &               \\
+\end{array}
+}
+$$}
+Suppose you pick one letter at random from a randomly chosen English
+book from our central library with
+$\Omega=\{\mathsf{A,B,C,\ldots,Z}\}$ (ignoring upper/lower cases),
+then what is the probability of these events?
+\begin{itemize}
+\item[(a)]$\p(\{\mathsf{Z}\})$
+\item[(b)]$\p(\textrm{`picking any letter'})$
+\item[(c)] $\p(\{\mathsf{E},\mathsf{Z}\})$
+\item[(d)]$\p(\textrm{`picking a vowel'})$
+\item[(e)]$\p(\textrm{`picking any letter in the word WAZZZUP'})$
+\item[(f)]$\p(\textrm{`picking any letter in the word WAZZZUP or a vowel'})$.
+\end{itemize}
+}
+\label{Ex:RandomEnglishLetter}
+\Answer
+{\bit
+\item[(a)] $\p(\{\mathsf{Z}\})=0.1\%=\frac{0.1}{100}=0.001$
+\item[(b)] $\p(\textrm{`picking any letter'})= \p(\Omega) = 1$
+\item[(c)] $\p(\{\mathsf{E},\mathsf{Z}\}) =\p(\{\mathsf{E}\} \cup
+    \{\mathsf{Z}\} ) =  \p(\{\mathsf{E}\})+\p(\{\mathsf{Z}\}) =
+    0.13+0.001=0.131$, by Axiom~(3)
+\item[(d)] $\p(\textrm{`picking a
+    vowel'})=\p(\{\mathsf{A,E,I,O,U}\})=(7.3\%+13.0\%+7.4\%+7.4\%+2.7\%)=37.8\%$,  by the addition rule for mutually exclusive events, rule (2).
+\item[(e)] $\p(\textrm{`picking any letter in the word
+    WAZZZUP'})=\p(\{\mathsf{W,A,Z,U,P}\})=14.4\%$,  by the
+  addition rule for mutually exclusive events, rule (2).
+\item[(f)] $\p(\textrm{`picking any letter in the word WAZZZUP or a vowel'})=$\\
+$\p(\{\mathsf{W,A,Z,U,P}\})+\p(\{\mathsf{A,E,I,O,U}\})-\p(\{\mathsf{A,U}\})
+  = 14.4\% + 37.8\% - 10\% = 42.2\%$,  by the addition rule for two
+arbitrary events, rule (3).
+\eit
+}
+
+
+\Exercise
+Find the sample spaces  for the following experiments:
+\begin{enumerate}
+\item Tossing 2 coins whose faces are sprayed with black paint denoted by $\mathsf{B}$ and white paint denoted by $\mathsf{W}$.
+\item Drawing 4 screws from a bucket  of left-handed and right-handed screws
+  denoted by $\mathsf{L}$ and $\mathsf{R}$, respectively.
+\item Rolling a die and recording the number on the upturned face  until the first $\mathsf{6}$ appears.
+\end{enumerate}
+\Answer
+\be
+\item $\{\mathsf{BB},\mathsf{BW},\mathsf{WB},\mathsf{WW}\}$
+
+\item $\begin{aligned}\{\mathsf{ RRRR,RRRL,RRLR,RLRR,LRRR,RLRL,RRLL,LLRR,}
+    \\ \mathsf{LRLR,LRRL,RLLR,LLLL, LLLR,LLRL,LRLL,RLLL}\}\end{aligned}$
+\item $\{6,16,26,36,46,56,116, 126,136, 146, 156,
+      216, 226, 236, 246, 256, \,\ldots\}$
+\ee
+
+
+\Exercise
+Suppose we pick a letter at random from the word WAIMAKARIRI. 
+\begin{enumerate}
+\item What is the sample space $\Omega$?
+\item  What probabilities should be assigned to the outcomes?
+\item What is the probability of {\emph not} choosing the letter  R?
+\end{enumerate}
+\Answer
+
+\be
+\item The sample space $\Omega=\{\mathsf{W},\mathsf{A},\mathsf{I},\mathsf{M},\mathsf{K},\mathsf{R}\}$.
+\item   Since there are eleven letters in WAIMAKARIRI the probabilities are:
+\cen{ $\p(\sf\{W\})=\frac{1}{11}$, $\p(\sf\{ A\})=\frac{3}{11}$, $\p( \sf\{ I\})
+=\frac{3}{11}$,
+    $\p(\sf\{ M\})=\frac{1}{11}$, $\p(\sf\{ K\})=\frac{1}{11}$, $\p(\sf\{
+    R\})=\frac{2}{11}$\,.}
+
+\item By the complementation rule, the probability of not choosing
+    the letter R is:  \[1\,-\,\p(\text{choosing the letter R})\,=\,1\,-\, \frac{2}{11}\,=\,\frac{9}{11}\,.\]
+
+\ee
+
+
+\Exercise
+There are seventy five balls in total inside the Bingo Machine.  
+Each ball is labelled by one of the following five letters: 
+$\mathsf{B}$, $\mathsf{I}$, $\mathsf{N}$, $\mathsf{G}$, and $\mathsf{O}$.  
+There are fifteen balls labelled by each letter.  
+The letter on the first ball that comes out of a BINGO machine after it has been well-mixed is the outcome of our experiment. 
+\begin{itemize}
+\item[(a)] Write down the sample space of this experiment.
+\item[(b)] Find the probabilities of each simple event.
+\item[(c)] Show that $\p(\Omega)$ is indeed $1$.
+\item[(d)] Check that the addition rule for mutually exclusive events holds for the simple events $\{B\}$ and $\{I\}$. 
+\item[(e)]Consider the following events: 
+$C = \{\mathsf{B},\mathsf{I},\mathsf{G}\}$ and $D = \{\mathsf{G},\mathsf{I},\mathsf{N}\}$.  
+Using the addition rule for two arbitrary events, find  $\p(C \cup D)$.
+\end{itemize}
+
+\Answer
+\be
+\item
+First, the sample space is: $\Omega=\{ {\mathsf{B}, \mathsf{I},
+  \mathsf{N}, \mathsf{G}, \mathsf{O} } \} \enspace . $
+\medskip
+
+\item The probabilities of simple events are:
+$$
+\p(\mathsf{B} )\;=\;\p(\mathsf{I})\;=\;\p(\mathsf{N})\;=\;\p(\mathsf{G})\;=\;\p(\mathsf{O})\;=\;{\frac{15}{75}\;=\;\frac{1}{5}} \enspace .
+$$
+
+\item 
+
+%Axiom~(1):
+%$${0\leq \p(\mathsf{B})\;=\;\p(\mathsf{I})\;=\;\p(\mathsf{N})\;=\;\p(\mathsf{G})\;=\;\p(\mathsf{O})\;=\;\frac{1}{5} \leq 1 \enspace .}
+%$$
+
+%Axiom~(2): 
+Using the addition rule for mutually exclusive events,
+\begin{eqnarray*}
+\p(\Omega)
+&=& \p(\mathsf{\{B,I,N,G,O\}})\\
+&=& \p(\{\sf{B}\} \cup\{\sf{I}\}\cup \{\sf{N}\} \cup \{\sf{G}\} \cup \{\sf{O}\})\\
+&=& \p(\sf B)+\p(\sf I)+\p(\sf N)+\p(\sf G)+\p(\sf O) \quad \text{simplifying notation} \\
+&=& \frac{1}{5}+\frac{1}{5}+\frac{1}{5}+\frac{1}{5}+\frac{1}{5}\\
+&=& 1
+\end{eqnarray*}
+
+\item Since the   events $\{\sf B\}$ and $\{\sf I\}$ are disjoint,
+$$
+\p(\{\sf{B}\} \cup \{\sf{I}\})\;=\;\p(\sf B)+\p(\sf I)\;=\;\frac{1}{5}+\frac{1}{5}\;=\;\frac{2}{5}\,.
+$$
+
+
+\medskip
+
+
+\item  Using the addition rule for two arbitrary events we get,
+\begin{eqnarray*}
+\p(C \cup D) &=& \p(C)+\p(D)-\p(C\cap D)\\& =& \p(\{\sf{B},\sf{I},\sf{G}\}) + \p(\{\sf{G},\sf{I},\sf{N}\}) - \p(\{\sf{G},\sf{I}\})\\
+& =& \frac{3}{5} +\frac{3}{5} - \frac{2}{5}\\& = &\frac{4}{5} \enspace .
+\end{eqnarray*}
+\ee
+
+
+\end{ExerciseList}
+
+
+

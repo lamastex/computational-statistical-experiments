@@ -1,0 +1,343 @@
+\section{Exercises in Discrete Random Variables}\label{S:xsDiscreteRVs}
+\begin{ExerciseList}
+\Exercise[label={xRV1}]
+One number in the following table for the probability function of a random variable $X$ is incorrect.  
+Which is it, and what should the correct value be?
+$$
+\begin{array}{c|ccccc}
+x&1&2&3&4&5\\\hline
+\p(X=x)&0.07&0.10&1.10&0.32&0.40
+\end{array}
+$$
+\Answer
+$\p(X=3)$ does not satisfy the condition that $0\leq \p(A)\leq1$ for any event $A$.  
+If $\Omega$ is the sample space, then $\p(\Omega)=1$ and so  the correct probability is 
+\[
+\p(X=3)\;=\;1-0.07-0.10-0.32-0.40\;=\;0.11 \enspace .
+\]
+
+\Exercise
+Let $X$ be the number of years before a particular type of machine will need replacement.  
+Assume that $X$ has the probability function $f(1)=0.1$, $f(2)=0.2$, $f(3)=0.2$, $f(4)=0.2$, $f(5)=0.3$.
+\be
+\item Find the distribution
+  function, $F$,  for $X$, and graph both $f$ and $F$.
+
+\item  Find the probability that the machine needs to be
+  replaced during the first 3 years.
+
+\item  Find the probability that the machine needs no
+  replacement during the first 3 years.
+\ee
+\Answer
+\be
+\item  Tabulate the values for the probability mass function  as follows: $$
+\begin{array}{c|ccccc}
+x&1&2&3&4&5\\\hline
+\p(X=x)&0.1&0.2&0.2&0.2&0.3
+\end{array}
+$$so the  distribution function is:
+\[F(x)\; = \;\p(X \leq x) \;=\;
+\begin{cases}
+ 0 & \text{ if }  0 \leq   x < 1\\
+ 0.1 & \text{ if } 1 \leq  x < 2\\
+0.3 & \text{ if } 2 \leq x < 3\\
+ 0.5 & \text{ if } 3 \leq x < 4\\
+0.7 & \text{ if }  4 \leq x < 5\\
+ 1& \text{ if }    x \geq 5
+\end{cases}
+\]
+
+%The graphs of $f(x)$ and $F(x)$ for random variable $X$ are shown below:
+
+%TODO\centering   \makebox{\includegraphics[width=6.5in]{figures/fandFfor5YearMachine.png}}
+
+
+
+\item The probability that the machine needs to be replaced during the
+  first 3 years is:
+$$\p(X \leq  3)\;=\;\p(X=1)+\p(X=2)+\p(X=3)\;=\;0.1+0.2+0.2\;=\;0.5\,.$$
+(This answer is easily seen  from the distribution function of $X$.)
+\item The probability that the machine needs no replacement during the
+first three years is
+\[ \p(X >  3)\;=\;\, 1-\p(X \leq  3)\,=\, 0.5 \,.\]
+\ee
+
+\Exercise
+Of 200 adults, 176 own one TV set, 22 own two TV sets, and 2 own three TV sets.  
+A person is chosen at random. What is the probability mass function of $X$,  the number of TV sets owned by that person?
+\Answer
+Assuming that the probability model is being built from the observed relative frequencies, the probability mass function is:
+$$
+f(x)\;=\;\begin{cases}\frac{176}{200}&x=1\\\frac{22}{200}&x=2\\\frac{2}{200}&x=3\end{cases}$$
+
+\Exercise
+Suppose a discrete random variable $X$ has probability function give by
+$$\begin{array}{c|cccccccccccc}
+x&3&4&5&6&7&8&9&10&11&12&13\\\hline
+ \p(X=x)&0.07&0.01&0.09&0.01&0.16&0.25&0.20&0.03&0.02&0.11&0.05
+\end{array}
+$$
+\be
+\item[(a)] Construct a row of cumulative probabilities for this table, that
+  is, find the distribution function of $X$.
+\item[(b)] Find  the following  probabilities.
+\bcols{3}
+\be
+\item[(i)]$\p(X\leq 5)$
+\item[(ii)] $\p(X<12)$
+\item[(iii)] $\p(X>9)$
+\item[(iv)] $\p(X\geq 9)$
+\item[(v)] $\p(4 <  X\leq 9)$
+\item[(vi)] $\p(4<X<11)$
+\ee
+\ecols
+\ee
+
+\Answer
+\begin{itemize}
+\item[(a)]  $$\begin{array}{c|cccccccccccc}
+x&3&4&5&6&7&8&9&10&11&12&13\\\hline
+F(x) =\p(X\leq x)&0.07&0.08&0.17&0.18&0.34&0.59&0.79&0.82&0.84&0.95&1.00
+\end{array}
+$$
+
+\medskip
+\item[(b)]
+\be
+\item[(i)]$\p(X\leq 5)= F(5) = 0.17$ \\[3pt]
+\item[(ii)]$\p(X<12)=\p(X\leq11) = F(11) =0.84$\\[3pt]
+\item[(iii)] $\p(X>9)= 1 - \p(X\leq 9) = 1- F(9) =1-0.79=0.21$ \\[3pt]
+\item[(iv)] $\p(X\geq 9)=1-\p(X <  9)=1-\p(X\leq 8)=1-0.59=0.41$ \\[3pt]
+\item[(v)] $\p(4 <  X\leq 9)= F(9) - F(4) =0.79-0.08=0.71$ \\[3pt]
+\item[(vi)] $\p(4<X<11)=\p(4 <  X\leq 10)= F(10) -F(4) =0.82- 0.08=0.74$ \\[3pt]
+\ee
+\end{itemize}
+
+
+\Exercise
+A box contains 4 right-handed and 6 left-handed screws.  
+Two screws are drawn at random without replacement. Let $X$ be the number of left-handed screws drawn.  
+Find the probability mass function for $X$, and then calculate  the following probabilities:
+\be
+\item $\p(X\leq 1)$
+\item $\p(X\geq 1)$
+\item $\p(X>1)$
+\ee
+\Answer
+Since  we are sampling without replacement,
+\begin{eqnarray*}
+\p(X=0) &=& \frac{4}{10}\cdot\frac{3}{9} = \frac{2}{15}\quad (\text{one way of drawing two right screws}), \\
+\p(X=1) &=& \frac{6}{10}\cdot\frac{4}{9}+\frac{4}{10}\cdot\frac{6}{9} = \frac{8}{15}\quad(\text{two ways of drawing one left and one  right screw}),\\
+\p(X=2) &=& \frac{6}{10}\cdot\frac{5}{9} = \frac{1}{3}\quad(\text{one way of drawing two left screws}).
+\end{eqnarray*}
+So the probability mass function of $X$ is:
+\[f(x)\;=\;\p(X=x)\;=\;
+\begin{cases}
+\frac{2}{15}  & \text{if } x=0\\[3pt]
+\frac{8}{15} & \text{if } x=1\\[3pt]
+\frac{1}{3}  & \text{if } x=2
+\end{cases}\]
+
+The required probabilities are:
+\be
+\item
+$$\p(X\leq1)\;=\;\p(X=0)+\p(X=1)\;=\;\frac{2}{15}+\frac{8}{15}\;=\;\frac{2}{3}$$
+\item
+$$\p(X\geq 1)\;=\;\p(X=1)+\p(X=2)\;=\;\frac{8}{15}+\frac{1}{3}\;=\;\frac{13}{15}$$
+\item
+$$\p(X>1)\;=\;\p(X=2)\;=\;\frac{1}{3}$$
+\ee
+
+
+\Exercise
+Suppose that  a random variable $X$ has geometric  probability mass function,
+  \[f(x)\;=\;\frac{k}{2^x}\quad (x=0,1,2,\dots)\,.\]
+\be
+\item Find the value of  $k$.
+\item  What is  $\p(X\geq 4)$?
+\ee
+\Answer
+\be
+\item
+Since $f$ is a probability mass function,  $$\sum_{x=0}^\infty\frac{k}{2^x}\;=\;1\,, 
+\qquad \text{that is,}\qquad k\,\sum_{x=0}^\infty\frac{1}{2^x}\;=\;1\ \enspace.$$
+Now $\displaystyle \sum_{x=0}^\infty\frac{1}{2^x}$ is a geometric series with common ratio $r= \frac{1}{2}$ and first term $a=1$,
+and so has  sum
+\[ S\;=\; \frac{a}{1-r} \;=\;\frac{1}{1-\frac{1}{2} } \;=\; 2\]
+Therefore, \[  2 k\;=\; 1 \,, \quad \text{that
+  is,}\quad k\;=\; \frac{1}{2}\,.\]
+
+\item From (a), the probability mass function of $f$ is
+  $$f(x)\;=\;\frac{\frac{1}{2}}{2^{x}}\;=\;\frac{1}{2^{x+1}}\,.\quad
+  (x=0,1,2,\dots)$$ Now
+\[\p(X\geq 4)\;=\;1-\p(X<4)\;=\;1-\p(X\leq3)\] where
+\ba{\p(X\leq3)&=\;\sum^3_{x=0}\frac{1}{2^{x+1}}\\[3pt]
+&=\;\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\frac{1}{16}\\[3pt]
+&=\;\frac{8}{16}+\frac{4}{16}+\frac{2}{16}+\frac{1}{16}\\[3pt]
+&=\;\frac{15}{16}\enspace.
+}
+That is,  $\p(X\geq4)\,=\,\displaystyle \frac{1}{16}$.
+\ee
+
+\Exercise
+Four fair coins are tossed simultaneously.  
+If we count the number of heads that appear then we have a  binomial random variable,  $X=$ {\it the number of heads}.
+\be
+\item Find the probability mass
+  function of  $X$.
+\item  Compute the probabilities of obtaining no heads, precisely 1
+  head, at least 1 head, not more than 3 heads.
+\ee
+\Answer
+Note that  $\theta=\frac{1}{2}$ here.
+\be
+\item $X$ has probability mass function
+\[f(x)\;=\;\begin{cases}
+\displaystyle\displaystyle \binom{4}{0}\frac{1}{2}^0\frac{1}{2}^4=\frac{1}{16}&x=0\\[16pt]
+\displaystyle\displaystyle\binom{4}{1}\frac{1}{2}^1\frac{1}{2}^3=\frac{4}{16}&x=1\\[16pt]
+\displaystyle\displaystyle\binom{4}{2}\frac{1}{2}^2\frac{1}{2}^2=\frac{6}{16}&x=2\\[16pt]
+\displaystyle\binom{4}{3}\frac{1}{2}^3\frac{1}{2}^1=\frac{4}{16}&x=3\\[16pt]
+\displaystyle\binom{4}{4}\frac{1}{2}^4\frac{1}{2}^0=\frac{1}{16}&x=4
+\displaystyle\end{cases}
+\]
+
+\item The required probabilities are:
+
+$\displaystyle \p(X=0)=f(0)=\frac{1}{16}$\\[3pt]
+$\displaystyle \p(X=1)=f(1)=\frac{4}{16}$\\[3pt]
+$\displaystyle \p(X\geq1)=1-\p(X=0)=1-f(0)=\frac{15}{16}$\\[3pt]
+$\displaystyle \p(X\leq3)=f(0)+f(1)+f(2)+f(3)=\frac{15}{16}$
+\ee
+
+\Exercise
+The distribution of blood types in a certain  population is as follows:
+$$
+\begin{array}{c|cccc}
+\text{Blood type}&\text{Type } O&\text{Type } A&\text{Type } B& \text{Type }AB\\\hline
+\text{Proportion}&0.45&0.40&0.10&0.05
+\end{array}
+$$
+A random sample of 15 blood donors is observed from this
+population. Find the probabilities of the following events.
+
+\be
+\item Only one type $AB$ donor is included.
+\item At least three of the donors are type $B$.
+\item More than ten of the donors are \emph{either} type $O$ \emph{or} type $A$.
+\item Fewer that five of the donors are \emph{not} type $A$.
+\ee
+\Answer
+\be
+\item  If the random variable $X$ denotes the number of type $AB$ blood donors
+  in the sample of 15, then $X$ has a binomial distribution with $n=15$
+  and $\theta=0.05$.  Therefore
+\[\p(X=1) \;=\;\binom{15}{1} (0.05)^1  (0.95)^{14}\;=\;0.366 \quad (\text{3 sig. fig.}) \,.\]
+
+\medskip
+\item  If the random variable $X$ denotes the number of type $B$  blood donors
+  in the sample of 15, then $X$ has a binomial distribution with $n=15$
+  and $\theta=0.10$.  Therefore
+\ba{\p(X\geq 3) &\;=\;  1\, - \,\p(X=0)\, -\, \p(X=1)\, -\, \p(X=2) \\[3pt]
+ &\;=\;  1\; - \; \binom{15}{0} (0.1)^0  (0.9)^{15}\;-\; \binom{15}{1}
+ (0.1)^1  (0.9)^{14}\;-\; \binom{15}{2} (0.1)^2  (0.9)^{13}\\[3pt]
+&\;=\;  1\,-\, 0.2059 \,-\, 0.3432 \,-\, 0.2669\\[3pt]
+&\;=  \;0.184 \quad (\text{to 3 sig. fig.})
+}
+
+\medskip
+\item If the random variable $X$ denotes the number of type  $O$ or type $A$ blood donors
+  in the sample of 15, then $X$ has a binomial distribution with $n=15$
+  and $\theta=0.85$.  Therefore
+\ba{\p(X > 10 ) &\;=\;  \p(X=11)\, + \, \p(X=12)\, +\,  \p(X=13) \, + \, \p(X=14)\, + \, \p(X=15)  \\[3pt]
+ &\;=\;   \binom{15}{11} (0.85)^{11}  (0.15)^{4}\;+\; \binom{15}{12}
+ (0.85)^{12}  (0.15)^{3}\\[3pt]
+&\;+\; \binom{15}{13} (0.85)^{13}  (0.15)^{2}\;+\; \binom{15}{14} (0.85)^{14}  (0.15)^{1}\;+\; \binom{15}{15} (0.85)^{15}  (0.15)^{0}\\[3pt]
+&\;=\;  0.1156 \,+\,0.2184 \,+\,0.2856 \,+\, 0.2312\,+\,0.0874\\[3pt]
+&\;=\;0.938 \quad (\text{to 3 sig. fig.})
+}
+
+\medskip
+\item If the random variable $X$ denotes the number of blood donors that
+  are \emph{not} of type $A$ blood donors
+  in the sample of 15, then $X$ has a binomial distribution with $n=15$
+  and $\theta=0.6$.  Therefore
+\ba{\p(X <  5) &\;=\;  \p(X=0)\, +\, \p(X=1)\, + \, \p(X=2)\, + \, \p(X=3)\, + \, \p(X=4) \\[3pt]
+ &\;=\;   \binom{15}{0} (0.6)^0  (0.4)^{15}\;+\; \binom{15}{1}
+ (0.6)^1  (0.4)^{14}\;+\; \binom{15}{2} (0.6)^2  (0.4)^{13}\\[3pt]
+&\;+\; \binom{15}{3} (0.6)^3  (0.4)^{12}\;+\; \binom{15}{4} (0.6)^4  (0.4)^{11}\\[3pt]
+&\;=\;  0.0000 \,+\,  0.0000\,+\, 0.0003\,+\, 0.0016\,+\,0.0074\\[3pt]
+&\;=\;0.009 \quad (\text{to 3 DP.})
+}
+\ee
+
+
+
+\Exercise
+If the probability of hitting a target in a single shot is $10\%$ and 10 shots are fired independently, what is the probability that the target will be hit at least once?
+\Answer
+This is a Binomial experiment with parameters $\theta=0.1$ and $n=10$, and so 
+\[\p(X\geq 1) = 1-\p(X<1) = 1-\p(X=0) \enspace ,\] 
+where
+\[\p(X=0) = \binom{10}{0}0.1^0 0.9^{10} \approxeq 0.3487 \enspace .\]
+
+ Therefore, the probability that the target will be hit at least once is
+ \[1- 0.3487 \approxeq 0.6513 \enspace .\]
+
+%question  (poisson)
+\Exercise 
+Suppose that a certain type of magnetic tape contains, on the average, 2 defects per 100 meters.  
+What is the probability that a roll of tape 300 meters long will contain  no defects?
+\Answer
+Since 2 defects exist on every 100 meters, we would expect 6 defects on a 300 meter tape.  
+If $X$ is the number of defects on a 300 meter tape, then $X$ is Poisson with $\lambda = 6$ and so the probability of zero defects is
+$$\p(X=0;6)\;=\;\frac{6^0}{0!}e^{-6}\;=\;0.0025\enspace.$$
+
+%question  (poisson)
+\Exercise
+In 1910, E.~Rutherford and H.~Geiger showed experimentally that the number of alpha particles emitted per second in a radioactive process is a random variable $X$ having a Poisson distribution. If the average number of particles emitted per second is  0.5, what is the probability of observing two or more particles during any given second?
+\Answer
+Since $X$ is $\poisson(\lambda)$ random variable with $\lambda=0.5$, $\p(X\geq2)$ 
+is the probability of observing two or more particles during any
+given second. $$\p(X\geq 2)\;=\;1-\p(X<2)\;=\;1-\p(X=1)-\p(X=0)\enspace,$$
+where $\p(X=1)$ and $\p(X=0)$ can be carried out by the Poisson
+probability mass function $$\p(X=x)\;=\; f(x)\;=\;\frac{\lambda^x}{x!}e^{-\lambda}\enspace.$$
+Now \[\p(X=0)\;=\;\frac{0.5^0}{0!}\,\times \,e^{-0.5} \;=\; 0.6065\] and
+\[ \p(X=1)\;=\;\frac{0.5^1}{1!}\,\times \, e^{-0.5}\;=\; 0.3033\] and so
+$$\p(X\geq 2)\;=\; 1- 0.9098\;= \;0.0902\enspace.$$
+
+%question  (poisson)
+\Exercise 
+The number of lacunae (surface pits) on specimens of steel, polished and examined in a metallurgical laboratory, is thought to have a Poisson distribution.
+\be
+\item Write down the formula for the probability that a specimen has $x$
+  defects, explaining the meanings of the symbols you use.
+\item Simplify the formula in the case $x=0$.
+\item In a large homogeneous collection of specimens, 10\% have one or more lacunae. Find (approximately) the percentage having exactly two.
+\item Why might the Poisson distribution not apply in this situation?\\[4pt]
+[{\scriptsize HINT: Recall the {\em emphasised sentence} in THINKING POISSON and what the continuum on which the number of events occur is for the problem, and what could possibly go wrong in your imagination of the manufacturing process of the steel specimens (normally you need to melt and manipulate iron with other elements and cast them in moulds and this needs energy and raw materials of possibly varying quality and the machines used in the process could break down, etc.) to violate the Poisson assumption about the occurrence of pits on the surface of the specimens.}]
+\ee
+\Answer
+\be
+\item The Probability mass function for $\poisson(\lambda)$ random variable $X$ is 
+\[\p(X=x)\;=\;f(x;\lambda)\;=\; \frac{e^{-\lambda}\lambda^x}{x!}\]
+where $\lambda$ is the mean number of lacunae per specimen and $X$ is
+the random variable ``number of lacunae on a specimen''.
+
+\item If $x=0$ then $x!=0!=1$ and $\lambda^x=\lambda^0=1$, and the formula becomes  
+$\displaystyle \p(X=0) \,=\, e^{-\lambda}$.
+
+\item Since $\p(X \geq 1) = 0.1$, \[\p( X=0)\;=\; 1 -  \p(X \geq 1)\;=\; 0.9\,.\]
+
+Using (b) and solving for $\lambda$ gives:
+\[ e^{-\lambda}\;=\; 0.9 \quad \text{that is,}\quad \lambda \;=\; -\ln(0.9) \;=\; 0.1\;
+(\text{approximately}\,.)\]
+
+Hence \[\p( X=2 )\;=\;   \frac{e^{-0.1} (0.1)^2}{2!}  \;=\;0.45\% \;
+(\text{approximately}\,.) \]
+
+\item Occurrence of lacunae may not always be independent. For example, a machine malfunction may cause them to be clumped.
+\ee
+
+
+\end{ExerciseList}

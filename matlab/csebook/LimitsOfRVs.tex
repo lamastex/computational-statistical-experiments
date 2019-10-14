@@ -68,7 +68,7 @@ Suppose you are given an independent sequence of RVs $\{X_i \}_{i=1}^n$, where $
 \[
 \text{$X_n$ is converging in distribution to $X$, ie,} \qquad X_n \rightsquigarrow X \ .
 \]
-{\scriptsize
+{\normalsize
 \begin{proof}
 To check that the above statement is true we need to verify that the definition of convergence in distribution is satisfied for our sequence of RVs $X_1,X_2,\ldots$ and the limiting RV $X$.  Thus, we need to verify that for any continuity point $t$ of the $\pointmass(0)$ DF $F$, $\lim_{n \to \infty} F_n(t)=F(t)$.  First note that 
 \[
@@ -103,14 +103,21 @@ Since $F(x) = \p(X \leq x)$, convergence in distribution means that the probabil
 For a discrete sequence of RVs $X_n$`n to converge in distribution to another discrete RV $X$ taking values in $\mathbb{Z}_+ = \{0,1,2,\ldots\}$, it is sufficient to show that $\lim_{n \to \infty}\p(X_n = x) = \p(X=x)$ for each $x \in \mathbb{Z_+}$.  
 We will use this fact to prove why we can approximate $\binomial$ RVs by a $\poisson$ under some limiting conditions.
 
-\subsubsection{$\binomial(n,\lambda/n)$ convergence in distribution to $\poisson(\lambda)$ as $n \to \infty$, $\theta=\lambda/n \to 0$}
+\begin{example}[$\binomial(n,\lambda/n) {\rightsquigarrow} \poisson(\lambda)$]\label{EgBinomialConvergesInDistToPoisson}
 In several situations, as we saw already, it becomes cumbersome to model the events using the $\binomial(n,\theta)$ RV, especially when when the parameter $\theta \propto 1/n$ and the events become rare.  
+
+\begin{center}
+\begin{frame}
+{$\binomial(n,\lambda/n)$ converges in distribution to $\poisson(\lambda)$ as $n \to \infty$, $\theta=\lambda/n \to 0$}
+\end{frame}
+\end{center}
+
 However, for some real parameter $\lambda>0$, the $\binomial(n,\lambda/n)$ RV with probability of the number of successes in $n$ trials, with per-trial success probability $\lambda/n$, approaches the Poisson distribution with expectation $\lambda$, as $n$ approaches $\infty$ (actually, it converges in distribution).  
 The $\poisson(\lambda)$ RV is much simpler to work with than the combinatorially laden $\binomial(n,\theta=\lambda/n)$ RV.  We sketch the details of this next.
 
 Let $X_n \sim \binomial(n,\theta=\lambda/n)$ and $Y \sim \poisson(\lambda)$ and let $\lambda=n\theta$ remain constant as  $n \to \infty$, $\theta \to 0$.  
 We need to show that $\lim_{n \to \infty} \p(X_n=x) = \p(Y=x) = e^{-\lambda}\lambda^x/x!$ for any $x \in \{0,1,2,3,\ldots,n\}$. 
-%{\scriptsize
+%{\normalsize
 \begin{eqnarray}
 \p(X=x)
 &=&
@@ -136,6 +143,7 @@ As $n \to \infty$, the expression below the first overbrace $\to 1$, while that 
 = \frac{ e^{-\lambda} \lambda^x}{x!}  \ .
 \]
 %}
+\end{example}
 
 \begin{rem}[Scheff\'e's Theorem]
 Convergence in distribution does not in general imply that the sequence of corresponsing probability density functions will also converge. 
@@ -150,7 +158,7 @@ The second notion of convergence of RVs is convergence in probability.
 \begin{definition}[Convergence in Probability]\label{D:ConvInProb}
 Let $X_1,X_2,\ldots,$ be a sequence of RVs and let $X$ be another RV.  Let $F_n$ denote the DF of $X_n$ and $F$ denote the DF of $X$.  The we say that $X_n$ converges to $X$ in probability, and write:
 \[
-X_n \overset{P}{\longrightarrow} X
+X_n \overset{\p}{\longrightarrow} X
 \]
 if for every real number $\epsilon > 0$,
 \[
@@ -162,7 +170,7 @@ Once again, the above limit, by \eqref{E:ProbOfRV} in our \hyperref[D:RV]{Defini
 \]
 \end{definition}
  
-For the same sequence of RVs in  \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} and \hyperref[EX:Normal01bynConvinDistToPointMass0]{Example \ref*{EX:Normal01bynConvinDistToPointMass0}} we are tempted to ask whether $X_n \sim \normal(0,1/n)$ converges in probability to $X \sim \pointmass(0)$, i.e.~whether $X_n \overset{P}{\longrightarrow} X$.  We need some elementary inequalities in Probability to help us answer this question.  We visit these inequalities next.
+For the same sequence of RVs in  \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} and \hyperref[EX:Normal01bynConvinDistToPointMass0]{Example \ref*{EX:Normal01bynConvinDistToPointMass0}} we are tempted to ask whether $X_n \sim \normal(0,1/n)$ converges in probability to $X \sim \pointmass(0)$, i.e.~whether $X_n \overset{\p}{\longrightarrow} X$.  We need some elementary inequalities in Probability to help us answer this question.  We visit these inequalities next.
 
 
 \begin{prop}[Markov's Inequality]
@@ -170,7 +178,7 @@ Let $(\Omega,\C{F},P)$ be a probability triple and let $X=X(\omega)$ be a non-ne
 \begin{equation}\label{E:MarkovNeq}
 \p(X \geq \epsilon) \leq \frac{\e(X)}{\epsilon}, \qquad \text{for any} \quad \epsilon > 0 \ .
 \end{equation}
-{\scriptsize
+{\normalsize
 \begin{proof}
 \begin{eqnarray}
 X &=& X \BB{1}_{ \{y: y \geq \epsilon \} } (x) + X \BB{1}_{ \{y: y < \epsilon \} } (x) \notag \\
@@ -192,7 +200,7 @@ For {\bf any} RV $X$ and any $\epsilon > 0$,
 \p(|X| > \epsilon) = \p(X^2 \geq \epsilon^2) &\leq& \frac{\e(X^2)}{\epsilon^2} \label{E:ChebychevNeq2} \\
 \p(|X-\e(X)| \geq \epsilon) = \p((X-\e(X))^2 \geq \epsilon^2) &\leq& \frac{\e(X-\e(X))^2}{\epsilon^2}  = \frac{\V(X)}{\epsilon^2}  \label{E:ChebychevNeq3} 
 \end{eqnarray}
-{\scriptsize
+{\normalsize
 \begin{proof}
 All three forms of Chebychev's inequality are mere corollaries (careful reapplications) of Markov's inequality.
 \end{proof}
@@ -202,9 +210,9 @@ All three forms of Chebychev's inequality are mere corollaries (careful reapplic
 Armed with Markov's inequality we next enquire the convergence in probability for the sequence of RVs in \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} and \hyperref[EX:Normal01bynConvinDistToPointMass0]{Example \ref*{EX:Normal01bynConvinDistToPointMass0}}.
 
 \begin{example}[Convergence in probability]\label{EX:Normal01bynConvinProbToPointMass0}
-Does the the sequence of RVs $\{X_n\}_{n=1}^{\infty}$, where $X_n \sim \normal(0,1/n)$, converge in probability to $X \sim \pointmass(0)$, i.e.~does $X_n \overset{P}{\longrightarrow} X$ ?
+Does the the sequence of RVs $\{X_n\}_{n=1}^{\infty}$, where $X_n \sim \normal(0,1/n)$, converge in probability to $X \sim \pointmass(0)$, i.e.~does $X_n \overset{\p}{\longrightarrow} X$ ?
 
-To find out if $X_n \overset{P}{\longrightarrow} X$, we need to show that for any $\epsilon >0$, $\lim_{n \to \infty} \p(|X_n-X|>\epsilon)=0$.
+To find out if $X_n \overset{\p}{\longrightarrow} X$, we need to show that for any $\epsilon >0$, $\lim_{n \to \infty} \p(|X_n-X|>\epsilon)=0$.
 
 Let $\epsilon$ be any real number greater than $0$, then
 \begin{eqnarray}
@@ -212,10 +220,10 @@ Let $\epsilon$ be any real number greater than $0$, then
 &\leq& \frac{\e(X_n^2)}{\epsilon^2} \qquad \text{[by Markov's Inequality \eqref{E:MarkovNeq}]} \notag \\
 &=& \frac{\frac{1}{n}}{\epsilon^2} \to 0, \quad \text{as} \quad n \to \infty \qquad \text{[in the sense of \hyperref[D:LimitofRealFunction]{Definition \ref*{D:LimitofRealFunction}}].} \notag
 \end{eqnarray}
-Hence, we have shown that for any $\epsilon >0$, $\lim_{n \to \infty} \p(|X_n-X|>\epsilon)=0$ and therefore by \hyperref[D:ConvInProb]{Definition \ref*{D:ConvInProb}}, $X_n \overset{P}{\longrightarrow} X$ or $X_n \overset{P}{\longrightarrow} 0$.  
+Hence, we have shown that for any $\epsilon >0$, $\lim_{n \to \infty} \p(|X_n-X|>\epsilon)=0$ and therefore by \hyperref[D:ConvInProb]{Definition \ref*{D:ConvInProb}}, $X_n \overset{\p}{\longrightarrow} X$ or $X_n \overset{\p}{\longrightarrow} 0$.  
 
-{\scriptsize
-{\bf Convention:} When $X$ has a $\pointmass(\theta)$ distribution and $X_n \overset{P}{\longrightarrow} X$, we simply write $X_n \overset{P}{\longrightarrow} \theta$.
+{\normalsize
+{\bf Convention:} When $X$ has a $\pointmass(\theta)$ distribution and $X_n \overset{\p}{\longrightarrow} X$, we simply write $X_n \overset{\p}{\longrightarrow} \theta$.
 }
 \end{example}
 
@@ -234,7 +242,238 @@ This means that the values of $X_n$ approach the value of $X$, in the sense that
 Other notions of convergence are termed sure convergence or pointwise convergence, such as convergence in mean. 
 But the above three types of convergence are elementary. % and enough to appreciate the subtle issues with convergence of random variables.
 
-\begin{Exercise}[title={Example Classwork},label={xExample}]
+\subsection{Properties of Convergence of RVs$^{**}$}
+
+We will merely state some properties (without proofs that are hyper-linked for the curious student as they are advanced for this course) and relations between the three notions of convergence with some examples to better appreciate the subtleties among them. 
+You will study the proofs of these statements in Probability Theory II. 
+Just remember that subtle implication relations exist between the three notions.
+
+
+%Now that we have been introduced to three notions of convergence for sequences of RVs we can begin to appreciate the  construction of limiting random variables from existing ones. % We will see a limiting sum of $n$ independent $\bernoulli(\theta)$ RVs as $n \to \infty$ and $\theta \to 0$ such that $n \theta = \lambda$. %  statements of the basic limit theorems of Statistics.  
+%But first we need some analytic tools.
+
+%But first we formally define a statistic.
+
+
+\bit
+\item Convergence almost surely implies convergence in probability\footnote{{\tiny \url{https://en.wikipedia.org/wiki/Proofs\_of\_convergence\_of\_random\_variables\#Convergence\_almost\_surely\_implies\_convergence\_in\_probability}}}
+\[
+\boxed{X_n \overset{a.s.}{\to} X \implies X_n \overset{\p}{\to} X \enspace .}
+\]
+\item By the Borel-Cantelli Lemma \footnote{{\tiny \url{https://en.wikipedia.org/wiki/Borel\%E2\%80\%93Cantelli\_lemma}}}, convergence in probability does not imply almost sure convergence in the discrete case \footnote{{\tiny \url{https://en.wikipedia.org/wiki/Proofs_of_convergence_of_random_variables\#Convergence_in_probability_does_not_imply_almost_sure_convergence_in_the_discrete_case}}}
+\item Convergence in probability implies convergence in distribution \footnote{{\tiny \url{https://en.wikipedia.org/wiki/Proofs_of_convergence_of_random_variables\#Convergence_in_probability_implies_convergence_in_distribution}}} 
+\[
+\boxed{X_n \overset{\p}{\to} X \implies X_n \rightsquigarrow X \enspace .}
+\]
+\item Convergence in distribution to a constant $\theta$ implies convergence in probability to $\theta$: \footnote{{\tiny \url{https://en.wikipedia.org/wiki/Proofs_of_convergence_of_random_variables\#Convergence_in_distribution_to_a_constant_implies_convergence_in_probability}}}
+\[
+X_n \rightsquigarrow \pointmass(\theta) \implies X_n \overset{\p}{\to} \pointmass(\theta) \enspace . 
+\] 
+\item In general, convergence in distribution does not imply convergence in probability.  %\footnote{{\tiny \url{}}} 
+\eit
+
+
+\section{Law of Large Numbers}
+
+\begin{prop}[Law of Large Numbers (LLN): $\overline{X}_n \overset{\p}{\longrightarrow} \e(X_1)$]
+If we are given a sequence if independent and identically distributed RVs, $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and if $\e(X_1)$ exists, as per \eqref{E:ExpectationExists}, i.e., $\e(\abs(X_1))< \infty$, and the variance is finite, i.e., $\V(X_1) < \infty$, then the sample mean $\overline{X}_n$ converges in probability to the expectation of any one of the IID RVs, say $\e(X_1)$ by convention.  More formally, we write:
+\[
+\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \e(X_1) \ \text{exists, then } \ \overline{X}_n \overset{\p}{\longrightarrow} \e(X_1) \ .
+\]
+{\normalsize
+\begin{proof}
+Because $\V(X_1) < \infty$, we have:
+\begin{eqnarray}
+\p(| \overline{X}_n - \e(\overline{X}_n) | \geq \epsilon)
+&=& \frac{\V(\overline{X}_n)}{\epsilon^2} \qquad \text{{\scriptsize [by applying Chebychev's inequality \eqref{E:ChebychevNeq3} to the RV $\overline{X}_n$]}} \notag \\
+&=& \frac{\frac{1}{n}\V(X_1)}{\epsilon^2} \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$ we can apply \eqref{E:VarOfSampleMeanOfIIDSeq}]}} \notag 
+\end{eqnarray}
+Therefore, for any given $\epsilon>0$,
+\begin{eqnarray}
+\p(| \overline{X}_n - \e(X_1) | \geq \epsilon)
+&=&  \p(| \overline{X}_n - \e(\overline{X}_n) | \geq \epsilon) \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$,  $\e(\overline{X}_n)=\e(X_1)$, as per \eqref{E:ExpOfSampleMeanOfIDSeq}]}} \notag \\
+&=&  \frac{\frac{1}{n}\V(X_1)}{\epsilon^2} \to 0, \quad \text{as} \quad n \to \infty \ , \notag
+\end{eqnarray}
+or equivalently, $\lim_{n \to \infty} \p(| \overline{X}_n - \e(X_1) | \geq \epsilon) = 0$.  And the last statement is the definition of the claim made by the law of large numbers (LLN), namely that $\overline{X}_n \overset{\p}{\longrightarrow} \e(X_1)$ .
+\end{proof}
+}
+
+\begin{prop}[Weak Law of Large Numbers (WLLN): $\overline{X}_n \rightsquigarrow \pointmass(\e(X_1))$]
+If we are given a sequence of independently and identically distributed (IID) RVs, $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and if $\e(X_1)$ exists, i.e.~$\e(\abs(X)) < \infty$, then the sample mean $\overline{X}_n$ converges in distribution to the expectation of any one of the IID RVs, say $\pointmass(\e(X_1))$ by convention.  More formally, we write:
+\[
+\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \e(X_1) \ \text{exists, then } \ \overline{X}_n \rightsquigarrow \pointmass(\e(X_1)) \ \text{ as } n\to\infty \enspace .
+\]
+\end{prop}
+
+{\normalsize
+\begin{proof}
+Our proof now is based on the convergence of characteristic functions (CFs) pointwise to the CF of the limiting RV, as this implies, by L\'evy's Continuity Theorem on CFs \footnote{\url{https://en.wikipedia.org/wiki/L\%C3\%A9vy\%27s_continuity_theorem}}, the convergence of the corresponding distribution functions (DFs).  
+
+First, the CF of $\pointmass(\e(X_1))$ is 
+\[
+\e(e^{\imath t \e(X_1)})=e^{\imath t \e(X_1)} \enspace,
+\]
+since $\e(X_1)$ is just a constant, i.e., a $\pointmass$ RV that puts all of its probability mass at $\e(X_1)$.  
+
+Second, the CF of $\ol{X}_n$ is 
+\begin{align*}
+\e \left( e^{\imath t \ol{X}_n}\right)
+&= \e \left( e^{\imath t \frac{1}{n} \sum_{k=1}^n X_k} \right) = \e \left( \prod_{k=1}^n e^{\imath t X_k/n} \right) = \prod_{k=1}^n \e \left( e^{\imath t X_k/n} \right) = \prod_{k=1}^n \phi_{X_k}(t/n)\\ 
+&= \prod_{k=1}^n \phi_{X_1}(t/n) =\left(\phi_{X_1}(t/n)\right)^n \enspace .
+\end{align*}
+
+Let us recall Landau's ``small o'' notation for the relation between two functions.  
+We say,  $f(x)$ is {\bf small o} of $g(x)$ if $f$ is dominated by $g$ as $x \to \infty$, i.e., $\frac{|f(x)|}{|g(x)|} \to 0$ as $x \to \infty$.  
+More formally, for every $\epsilon > 0$, there exists an $x_{\epsilon}$ such that for all $x > x_{\epsilon}$ $|f(x)| < \epsilon |g(x)|$.  
+For example, $\log(x)$ is $o(x)$, $x^2$ is $o(x^3)$ and $x^m$ is $o(x^{m+1})$ for $m\geq 1$.  
+
+Third, we can expand any CF whose expectation exists as a Taylor series with a remainder term that is $o(t)$ as follows:
+\[
+\phi_X(t) = 1 + \imath t \e(X) + o(t) \enspace .
+\]
+Hence,
+\[
+\phi_{X_1}(t/n) = 1 + \imath \frac{t}{n} \e(X_1) + o\left(\frac{t}{n}\right) 
+\]
+and
+\[
+E \left( e^{\imath t \ol{X}_n}\right) = \left( 1 + \imath \frac{t}{n} \e(X_1) + o\left(\frac{t}{n}\right) \right)^n
+\to e^{\imath t \e(X_1)} \text{ as } n \to \infty \enspace .
+\]
+For the last limit we have used $\left( 1+\frac{x}{n}\right)^n \to e^x$ as $n \to \infty$.
+
+Finally, we have shown that $E \left( e^{\imath t \ol{X}_n}\right)$, the CF of the $n$-sample mean RV $\ol{X}_n$, converges to $\e(e^{\imath t \e(X_1)})=e^{\imath t \e(X_1)}$, the CF of the $\pointmass(\e(X_1))$ RV, as the sample size $n$ tends to infinity.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--too heavy for Inference Course - not introduced to conv in prob, Markov ineq or Chebychev ineq
+%\begin{proof}
+%For simplicity, we will prove a slightly weaker result by assuming finite variance of $X_1$.  Suppose $\V(X_1) < \infty$, then:
+%\begin{eqnarray}
+%\p(| \overline{X}_n - \e(\overline{X}_n) | \geq \epsilon)
+%&=& \frac{\V(\overline{X}_n)}{\epsilon^2} \qquad \text{{\scriptsize [by applying Chebychev's inequality \eqref{E:ChebychevNeq3} to the RV $\overline{X}_n$]}} \notag \\
+%&=& \frac{\frac{1}{n}\V(X_1)}{\epsilon^2} \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$ we can apply \eqref{E:VarOfSampleMeanOfIIDSeq}]}} \notag 
+%\end{eqnarray}
+%Therefore, for any given $\epsilon>0$,
+%\begin{eqnarray}
+%\p(| \overline{X}_n - \e(X_1) | \geq \epsilon)
+%&=&  \p(| \overline{X}_n - \e(\overline{X}_n) | \geq \epsilon) \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$,  $\e(\overline{X}_n)=\e(X_1)$, as per \eqref{E:ExpOfSampleMeanOfIDSeq}]}} \notag \\
+%&=&  \frac{\frac{1}{n}\V(X_1)}{\epsilon^2} \to 0, \quad \text{as} \quad n \to \infty \ , \notag
+%\end{eqnarray}
+%or equivalently, $\lim_{n \to \infty} \p(| \overline{X}_n - \e(X_1) | \geq \epsilon) = 0$.  And the last statement is the Definition of the claim made by the weak law of large numbers (LLN), namely that $\overline{X}_n \overset{\p}{\longrightarrow} \e(X_1)$ .
+%\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}
+\end{prop}
+
+
+\subsubsection{Heuristic Interpretation of LLN}  
+The distribution of the sample mean RV $\overline{X}_n$ obtained from an independent and identically distributed sequence of RVs $X_1,X_2,\ldots$ {\scriptsize [i.e.~all the RVs $X_i$'s are independent of one another and have the same distribution function, and thereby the same expectation, variance and higher moments]}, concentrates around the expectation of any one of the RVs in the sequence, say that of the first one $\e(X_1)$ {\scriptsize [without loss of generality]}, as $n$ approaches infinity.  See Figure~\ref{F:RunningMeansFairDieFairCoinUnif01Exp1By10} for examples of 20 replicates of the sample mean of IID sequences from four RVs.  All the sample mean trajectories converge to the corresponding population mean. 
+
+\begin{figure}[htpb]
+\caption{Sample mean $\ol{X}_n$ as a function of sample size $n$ for 20 replications from independent realizations of a fair die (blue), fair coin (magenta), $\uniform(0,30)$ RV (green) and $\exponential(0.1)$ RV (red) with population means $(1+2+3+4+5+6)/6=21/6=3.5$, $(0+1)/2=0.5$, $(30-0)/2=15$ and $1/0.1=10$, respectively.\label{F:RunningMeansFairDieFairCoinUnif01Exp1By10}}
+\centering   \makebox{\includegraphics[width=6.5in]{figures/RunningMeansFairDieFairCoinUnif01Exp1By10}}
+\end{figure}
+
+\begin{example}[Bernoulli WLLN and Galton's Quincunx]\label{EgBernoulliWLLN}
+We can appreciate the WLLN for $\overline{X}_n = n^{-1} S_n = \sum_{i=1}^{n} X_i$, where $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} Bernoulli(p)$ using the paths of balls dropped into Galton's Quincunx of Sec.~\ref{S:Quincunx}.
+\end{example}
+
+\subsubsection{$\cauchy$ whose expectations does not exist has no Law of Large Numbers}
+
+ Recall that the mean of the $\cauchy$ RV $X$ does not exist since $\int \left|x\right|\,dF(x) = \infty$ \eqref{E:CauchyMeanDoesNotExist}.  We will investigate this in \hyperref[LW:RunningMeanCauchy]{Labwork~\ref*{LW:RunningMeanCauchy}}.
+
+ \begin{labwork}[Running mean of the Standard Cauchy RV]\label{LW:RunningMeanCauchy}
+Let us see what happens when we plot the running sample mean for an increasing sequence of IID samples from the Standard Cauchy RV $X$ by implementing the following script file:
+ \VrbMf[label=PlotStandardCauchyRunningMean.m]{scripts/PlotStandardCauchyRunningMean.m}
+
+%}%end remove
+
+\begin{figure}[htpb]
+\caption{Unending fluctuations of  the running means based on $n$ IID samples from the Standard $\cauchy$ RV $X$ in each of five replicate simulations (blue lines).  The running means, based on $n$ IID samples from the $\uniform(0,10)$ RV, for each of five replicate simulations (magenta lines). \label{F:plot5RunningMeansStandardcauchyUnif010}}
+\centering   \makebox{\includegraphics[width=5.5in]{figures/plot5RunningMeansStandardcauchyUnif010}}
+\end{figure}
+
+The resulting plot is shown in \hyperref[F:plot5RunningMeansStandardcauchyUnif010]{Figure~\ref*{F:plot5RunningMeansStandardcauchyUnif010}}.  Notice that the running means or the sample mean of $n$ samples as  a function of $n$, for each of the five replicate simulations, never settles down to a particular value.  This is because of the ``thick tails'' of the density function for this RV which produces extreme observations.  Compare them with the running means, based on $n$ IID samples from the $\uniform(0,10)$ RV, for each of five replicate simulations (magenta lines).  The latter sample means have settled down stably to the mean value of $5$ after about $700$ samples.
+%\remove{
+\end{labwork}
+%}%end remove
+
+
+\subsection{Application: Point Estimation of $E(X_1)$}
+LLN gives us a method to obtain a {\bf point estimator} that gives ``the single best guess'' for the possibly unknown population mean $E(X_1)$ based on $\ol{X}_n$, the sample mean, of a simple random sequence (SRS) or independent and identically distributed (IID) sequence of $n$ RVs $X_1,X_2,\ldots, X_n \overset{IID}{\sim} X_1$.
+
+\begin{example}\label{Eg:LLNExponential}
+Let $X_1,X_2,\ldots, X_n \overset{IID}{\sim} X_1$, where $X_1$ is an $\exponential(\lambda^*)$ RV, i.e., let
+\[
+X_1,X_2,\ldots, X_n \overset{IID}{\sim} \exponential(\lambda^*) \enspace .
+\]
+Typically, we do not know the ``true'' parameter $\lambda^* \in \BB{\Lambda} = (0,\infty)$ or the population mean $E(X_1) = 1/\lambda^*$.  
+But by LLN, we know that
+\[
+\ol{X}_n \rightsquigarrow \pointmass(E(X_1)) \enspace ,
+\]
+and therefore, we can use the sample mean $\ol{X}_n$ as a point estimator of $E(X_1)= 1/\lambda^*$.  
+
+Now, suppose you model seven waiting times in nearest minutes between Orbiter buses at Balgay street as follows:
+\[
+X_1,X_2,\ldots, X_7 \overset{IID}{\sim} \exponential(\lambda^*) \enspace ,
+\]
+and have the following realization as your observed data:
+\[
+(x_1,x_2,\ldots,x_7) = (2,12,8,9,14,15,11) \enspace .
+\]
+Then you can use the observed sample mean $\ol{x}_7=(2+12+8+9+14+15+11)/7=71/7 \approxeq 10.14$ as a {\bf point estimate} of the population mean $E(X_1)=1/\lambda^*$.  
+By the rearrangement $\lambda^*=1/E(X_1)$, we can also obtain a point estimate of the ``true'' parameter $\lambda^*$ from $1/\ol{x}_7=7/71 \approxeq 0.0986$. 
+\end{example}
+
+\begin{rem}[Point estimates are realizations of the Point Estimator]
+We say the statistic $\ol{X}_n$, which is a random variable that depends on the data \rv~$(X_1,X_2,\ldots,X_n)$, is a {\bf point estimator} of $E(X_1)$.  
+But once we have a realization of the data \rv~, i.e., our observed data vector $(x_1,x_2,\ldots,x_n)$ and its corresponding realization as observed sample mean $\ol{x}_n$, we say $\ol{x}_n$ is a {\bf point estimate} of $E(X_1)$.  In other words, the point estimate $\ol{x}_n$ is a realization of the the random variable $\ol{X}_n$ called the point estimator of $E(X_1)$.  
+Therefore, when we observe a new data vector $(x'_1,x'_2,\ldots,x'_n)$  that is different from our first data vector $(x_1,x_2,\ldots,x_n)$, our point estimator of $E(X_1)$ is still $\ol{X}_n$ but the point estimate $n^{-1}\sum_{i=1}^nx'_i$ may be different from the first point estimate $n^{-1}\sum_{i=1}^nx_i$.  The sample means from $n$ samples for 20 replications (repeats of the experiment) are typically distinct especially for small $n$ as shown in Figure~\ref{F:RunningMeansFairDieFairCoinUnif01Exp1By10}.
+\end{rem}
+
+\begin{example}\label{Eg:LLNBernoulli}
+Let $X_1,X_2,\ldots, X_n \overset{IID}{\sim} X_1$, where $X_1$ is an $\bernoulli(\theta^*)$ RV, i.e., let
+\[
+X_1,X_2,\ldots, X_n \overset{IID}{\sim} \bernoulli(\theta^*) \enspace .
+\]
+Typically, we do not know the ``true'' parameter $\theta^* \in \BB{\Theta} = [0,1]$, which is the same as the population mean $E(X_1) = \theta^*$.  
+But by LLN, we know that
+\[
+\ol{X}_n \rightsquigarrow \pointmass(E(X_1)) \enspace ,
+\]
+and therefore, we can use the sample mean $\ol{X}_n$ as a point estimator of $E(X_1)= \theta^*$.  
+
+Now, suppose you model seven coin tosses (encoding {\sf Heads} as $1$ with probability $\theta^*$ and {\sf Tails} as $0$ with probability $1-\theta^*$) as follows:
+\[
+X_1,X_2,\ldots, X_7 \overset{IID}{\sim} \bernoulli(\theta^*) \enspace ,
+\]
+and have the following realization as your observed data:
+\[
+(x_1,x_2,\ldots,x_7) = (0,1,1,0,0,1,0) \enspace .
+\]
+Then you can use the observed sample mean $\ol{x}_7=(0+1+1+0+0+1+0)/7=3/7 \approxeq 0.4286$ as a {\bf point estimate} of the population mean $E(X_1)=\theta^*$.  
+Thus, our ``single best guess'' for $E(X_1)$ which is the same as the probability of {\sf Heads} is $\ol{x}_7=3/7$.  
+\end{example}
+
+Of course, if we tossed the same coin in the same IID manner another seven times or if we observed another seven waiting times of orbiter buses at a different bus-stop or on a different day we may get a different point estimate for $E(X_1)$.  
+See the intersection of the twenty magenta sample mean trajectories for simulated tosses of a fair coin from IID $\bernoulli(\theta^*=1/2)$ RVs and the twenty red sample mean trajectories for simulated waiting times from IID $\exponential(\lambda^*=1/10)$ RVs in Figure~\ref{F:RunningMeansFairDieFairCoinUnif01Exp1By10} with $n=7$.  
+Clearly, the point estimates for such a small sample size are fluctuating wildly!  
+However, the fluctuations in the point estimates settles down for larger sample sizes.  
+
+
+The {\em next natural question is how large should the sample size be} in order to have a small interval of width, say $2 \epsilon$, ``contain'' $E(X_1)$, the quantity of interest, with a high probability, say $1-\alpha$?  If we can answer this then we can make probability statements like the following:
+\[
+P( \mathsf{error} < \mathsf{tolerance}) = P( |\ol{X}_n - E(X_1)| < \epsilon ) = P(-\epsilon < \ol{X}_n - E(X_1) < \epsilon) = 1-\alpha \enspace .
+\]
+
+In order to ensure the $\mathsf{error}=|\ol{X}_n - E(X_1)|$ in our estimate of $E(X_1)$ is within a required $\mathsf{tolerance}=\epsilon$ we need to know the full distribution of $\ol{X}_n - E(X_1)$ itself.  The Central Limit Theorem (CLT) helps us here.
+
+
+\section{Central Limit Theorem}
+
+What if we scale the sum of $X_i$`s by $\sqrt{n}$ instead of $n$?
+
+\begin{Exercise}[title={What if we scale by $\sqrt{n}$},label={xSumOFUnifminu1To1DividedBySqrtn}]
 After reading Sec.~\ref{S:ConvOfRVs} up to now, think carefully about what you need to be able to show that $Z_n := 1/\sqrt{n}\sum_{i=1}^n X_i$ converges in distribution to the $\normal(0,1/3)$ RV, where $X_i \overset{IID}{\sim} \uniform(-1,1)$. {Hint: Characteristic functions}
 %\ExePart
 %\Question
@@ -248,55 +487,7 @@ After reading Sec.~\ref{S:ConvOfRVs} up to now, think carefully about what you n
 %\Question What happens to if $b=1$?
 \end{Exercise}
 
-\begin{prop}[Weak Law of Large Numbers (WLLN)]
-If we are given a sequence if independent and identically distributed RVs, $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and if $\e(X_1)$ exists, as per \eqref{E:ExpectationExists}, then the sample mean $\overline{X}_n$ converges in probability to the expectation of any one of the IID RVs, say $\e(X_1)$ by convention.  More formally, we write:
-\[
-\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \e(X_1) \ \text{exists, then } \ \overline{X}_n \overset{P}{\longrightarrow} \e(X_1) \ .
-\]
-{\scriptsize
-\begin{proof}
-For simplicity, we will prove a slightly weaker result by assuming finite variance of $X_1$.  Suppose $\V(X_1) < \infty$, then:
-\begin{eqnarray}
-\p(| \overline{X}_n - \e(\overline{X}_n) | \geq \epsilon)
-&=& \frac{\V(\overline{X}_n)}{\epsilon^2} \qquad \text{{\scriptsize [by applying Chebychev's inequality \eqref{E:ChebychevNeq3} to the RV $\overline{X}_n$]}} \notag \\
-&=& \frac{\frac{1}{n}\V(X_1)}{\epsilon^2} \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$ we can apply \eqref{E:VarOfSampleMeanOfIIDSeq}]}} \notag 
-\end{eqnarray}
-Therefore, for any given $\epsilon>0$,
-\begin{eqnarray}
-\p(| \overline{X}_n - \e(X_1) | \geq \epsilon)
-&=&  \p(| \overline{X}_n - \e(\overline{X}_n) | \geq \epsilon) \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$,  $\e(\overline{X}_n)=\e(X_1)$, as per \eqref{E:ExpOfSampleMeanOfIDSeq}]}} \notag \\
-&=&  \frac{\frac{1}{n}\V(X_1)}{\epsilon^2} \to 0, \quad \text{as} \quad n \to \infty \ , \notag
-\end{eqnarray}
-or equivalently, $\lim_{n \to \infty} \p(| \overline{X}_n - \e(X_1) | \geq \epsilon) = 0$.  And the last statement is the definition of the claim made by the weak law of large numbers (WLLN), namely that $\overline{X}_n \overset{P}{\longrightarrow} \e(X_1)$ .
-\end{proof}
-}
-{\bf Heuristic Interpretation of WLLN:}  
-The distribution of the sample mean RV $\overline{X}_n$ obtained from an independent and identically distributed sequence of RVs $X_1,X_2,\ldots$ {\scriptsize [i.e.~all the RVs $X_i$'s are independent of one another and have the same distribution function, and thereby the same expectation, variance and higher moments]}, concentrates around the expectation of any one of the RVs in the sequence, say that of the first one $\e(X_1)$ {\scriptsize [without loss of generality]}, as $n$ approaches infinity.  See Figure~\ref{F:RunningMeansFairDieFairCoinUnif01Exp1By10} for examples of 20 replicates of the sample mean of IID sequences from four RVs.  All the sample mean trajectories converge to the corresponding population mean. 
-
-\begin{figure}[htpb]
-\caption{Sample mean $\ol{X}_n$ as a function of sample size $n$ for 20 replications from independent realizations of a fair die (blue), fair coin (magenta), $\uniform(0,30)$ RV (green) and $\exponential(0.1)$ RV (red) with population means $(1+2+3+4+5+6)/6=21/6=3.5$, $(0+1)/2=0.5$, $(30-0)/2=15$ and $1/0.1=10$, respectively.\label{F:RunningMeansFairDieFairCoinUnif01Exp1By10}}
-\centering   \makebox{\includegraphics[width=6.5in]{figures/RunningMeansFairDieFairCoinUnif01Exp1By10}}
-\end{figure}
-
-\end{prop}
-\begin{example}[Bernoulli WLLN and Galton's Quincunx]
-We can appreciate the WLLN for $\overline{X}_n = n^{-1} S_n = \sum_{i=1}^{n} X_i$, where $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} Bernoulli(p)$ using the paths of balls dropped into a device built by Galton called the Quincunx.
-\end{example}
-
-
-
-\subsubsection{Properties of Convergence of RVs}
-
-We will merely state some properties (without proofs as they are advanced for this course) and relations between the three notions of convergence with some examples to better appreciate the subtleties among them.
-
-%L\'evy's Continuity Theorem on CFs before proof og CLT via CFs
-
-Now that we have been introduced to three notions of convergence for sequences of RVs we can begin to appreciate the  construction of limiting random variables from existing ones. % We will see a limiting sum of $n$ independent $\bernoulli(\theta)$ RVs as $n \to \infty$ and $\theta \to 0$ such that $n \theta = \lambda$. %  statements of the basic limit theorems of Statistics.  
-But first we need some analytic tools.
-
-%But first we formally define a statistic.
-
-
+\remove{ % removing CSE book CLT without proof
 \begin{prop}[Central Limit Theorem (CLT)]
 Let $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and suppose $\e(X_1)$ and $\V(X_1)$ exists, then 
 {\small
@@ -383,12 +574,13 @@ Let $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and suppose $\e(X_1)$ and $\V(X_1)
 \end{prop}
 
 We will use \eqref{E:CLTApproxSn} for statistical estimation in the sequel.
+}% end remove
 
 %The next proposition is often referred to as the fundamental theorem of statistics and is at the heart of non-parametric inference, empirical processes, and computationally-intensive bootstrap techniques.
 %\begin{prop}[Gilvenko-Cantelli Theorem]\label{P:Gilvenko-Cantelli}
 %Let $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} F$.  Then,
 %\[
-%\sup_x { | \widehat{F}_n(x) - F(x) | } \overset{P}{\longrightarrow} 0 \ .
+%\sup_x { | \widehat{F}_n(x) - F(x) | } \overset{\p}{\longrightarrow} 0 \ .
 %\]
 %{\scriptsize
 %\begin{proof}
@@ -409,3 +601,237 @@ We will use \eqref{E:CLTApproxSn} for statistical estimation in the sequel.
 %P \left( \sup_x | \widehat{F}_n(x) - F(x) | > \epsilon  \right) \leq 2 \exp {(-2 n \epsilon^2)}
 %\end{equation}
 %\end{prop}
+
+
+
+\begin{prop}[Central Limit Theorem (CLT)]\label{P:CLT}
+
+If we are given a sequence of independently and identically distributed (IID) RVs, $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and if $E(X) < \infty$ and $V(X_1)<\infty$, then the sample mean $\overline{X}_n$ converges in 
+%probability 
+distribution to the Normal RV with mean given by any one of the IID RVs, say $\e(X_1)$ by convention, and variance given by $\frac{1}{n}$ times the variance of any one of the IID RVs, say $V(X_1)$ by convention.  More formally, we write:
+\begin{multline}\label{E:CLT}
+\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \e(X_1)<\infty, V(X_1) < \infty \\ \text{ then } \ \overline{X}_n \rightsquigarrow \normal\left(E(X_1), \frac{V(X_1)}{n}\right) \ \text{ as } n\to\infty \enspace ,
+\end{multline}
+or equivalently after standardization:
+\begin{multline}\label{E:CLTStd}
+\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \e(X_1)<\infty, V(X_1) < \infty \\ \text{ then } \ \frac{\overline{X}_n - E(X_1)}{\sqrt{V(X_1)/n}} \rightsquigarrow Z \sim \normal\left(0,1 \right) \ \text{ as } n\to\infty \enspace .
+\end{multline}
+
+{\normalsize
+\begin{proof}
+{
+Our proof is based on the convergence of characteristic functions (CFs).  
+We will prove the standardized form of the CLT in Equation~\eqref{E:CLTStd} by showing that the CF of
+\[
+U_n := \frac{\ol{X}_n-E(X_1)}{\sqrt{V(X_1)/n}}
+\]
+converges to the CF of $Z$, the $\normal(0,1)$ RV.  
+First, note from Equation~\eqref{E:cfStandardNormal} that the CF of $Z \sim \normal(0,1)$ is:
+\[
+\phi_Z(t) = E \left( e^{\imath t Z}\right) = e^{-t^2/2} \enspace .
+\]
+Second, 
+\[
+U_n := \frac{\ol{X}_n-E(X_1)}{\sqrt{V(X_1)/n}} 
+= \frac{\sum_{k=1}^n X_k - n E(X_1)}{\sqrt{nV(X_1)}}
+= \frac{1}{\sqrt{n}} \sum_{k=1}^n \left(\frac{X_k - E(X_1)}{\sqrt{V(X_1)}}\right)\enspace .
+\]
+Therefore, the CF of $U_n$ is
+\begin{align*}
+\phi_{U_n}(t) 
+&= E\left( \exp\left({\imath t U_n}\right)\right)
+= E \left( \exp\left({\imath \frac{t}{\sqrt{n}}\sum_{k=1}^n \frac{X_k - E(X_1)}{\sqrt{V(X_1)}} }\right)\right)
+= \prod_{k=1}^n E \left( \exp \left( \imath \frac{t}{\sqrt{n}} \frac{X_k - E(X_1)}{\sqrt{V(X_1)}} \right) \right)\\
+&= \left( E \left( \exp \left( \imath \frac{t}{\sqrt{n}} \frac{X_1 - E(X_1)}{\sqrt{V(X_1)}} \right) \right)\right)^n \enspace .
+\end{align*}
+Now, if we let
+\[
+Y = \frac{X_1 - E(X_1)}{\sqrt{V(X_1)}}
+\]
+then 
+\[
+E(Y) = 0 \, , \quad E(Y^2)=1 \, , \text{and} \quad V(Y)=1 \enspace . 
+\]
+So, the CF of $U_n$ is
+\[
+\phi_{U_n}(t) = \left( \phi_Y\left(\frac{t}{\sqrt{n}}\right)\right)^n \enspace ,
+\]
+and since we can Taylor expand $\phi_Y(t)$ as follows: 
+\[
+\phi_Y(t) = 1 + \imath t E(Y) + \imath^2 \frac{t^2}{2} E(Y^2) + o(t^2) \enspace,
+\]
+which implies
+\[
+\phi_Y\left(\frac{t}{\sqrt{n}}\right) = 1 + \frac{\imath t}{\sqrt{n}} E(Y) + \frac{\imath^2 t^2}{2n}  E(Y^2) + o\left(\frac{t^2}{n}\right) \enspace,
+\]
+we finally get
+\[
+\phi_{U_n}(t) 
+= \left( \phi_Y \left(\frac{t}{\sqrt{n}}\right) \right)^n
+= \left( 1 +  \frac{\imath t}{\sqrt{n}} \times 0 + \frac{\imath^2 t^2}{2n}  \times 1 + o\left(\frac{t^2}{n}\right) \right)^n
+= \left( 1 - \frac{t^2}{2n} + o\left(\frac{t^2}{n}\right) \right)^n
+\to e^{-t^2/2} = \phi_Z(t) \enspace .
+\]
+For the last limit we have used $\left( 1+\frac{x}{n}\right)^n \to e^x$ as $n \to \infty$.  
+Thus, we have proved Equation~\eqref{E:CLTStd} which is equivalent to Equation~\eqref{E:CLT} by a standardization argument that if $W \sim \normal(\mu,\sigma^2)$ then $Z=\frac{W-\mu}{\sigma} \sim \normal(0,1)$ through the linear transformation $W=\sigma Z + \mu$ of Example~\ref{Eg:LinearTransfStdGaussianGaussian}.
+}
+\end{proof}
+}
+\end{prop}
+
+
+\subsection{Application: Tolerating Errors in our estimate of $E(X_1)$}
+Recall that we wanted to ensure the $\mathsf{error}=|\ol{X}_n - E(X_1)|$ in our estimate of $E(X_1)$ is within a required $\mathsf{tolerance}=\epsilon$ and make the following probability statement: 
+\[
+P( \mathsf{error} < \mathsf{tolerance}) = P( |\ol{X}_n - E(X_1)| < \epsilon ) = P(-\epsilon < \ol{X}_n - E(X_1) < \epsilon) = 1-\alpha \enspace .
+\]
+To be able to do this we needed to know the full distribution of $\ol{X}_n - E(X_1)$ itself.  
+
+Due to the Central Limit Theorem (CLT) we now know that (assuming $n$ is large)
+\begin{align*}
+P(-\epsilon < \ol{X}_n - E(X_1) < \epsilon) 
+&\approxeq P\left(-\frac{\epsilon}{\sqrt{V(X_1)/n}} < \frac{\ol{X}_n - E(X_1)}{\sqrt{V(X_1)/n}} < \frac{\epsilon}{\sqrt{V(X_1)/n}}\right)\\
+&= P\left(-\frac{\epsilon}{\sqrt{V(X_1)/n}} < Z < \frac{\epsilon}{\sqrt{V(X_1)/n}} \right) \enspace ,
+\end{align*}
+where $Z \sim \normal(0,1)$.
+
+\begin{example}\label{EgProbOfErrorInMeanEstimateFromKnownVar}
+Suppose an IID sequence of observations $(x_1,x_2,\ldots,x_{80})$ was drawn from a distribution with variance $V(X_1)=4$.  
+What is the probability that the error in $\ol{x}_n$ used to estimate $E(X_1)$ is less than $0.1$?
+
+By CLT,
+\[
+P (\mathsf{error} < 0.1) \approxeq P \left( -\frac{0.1}{\sqrt{4/80}} < Z < \frac{0.1}{\sqrt{4/80}} \right) 
+= P(-0.447 < Z < 0.447)= 0.345 \enspace .
+\] 
+\end{example}
+
+Suppose you want the $\mathsf{error}$ to be less than $\mathsf{tolerance}=\epsilon$ with a certain probability $1-\alpha$.  
+Then we can use CLT to do such {\bf sample size calculations}.
+Recall the DF $\Phi(z) = P(Z < z)$ is tabulated in the standard normal table and now we want
+\[
+P \left(-\frac{\epsilon}{\sqrt{V(X_1)/n}} < Z < \frac{\epsilon}{\sqrt{V(X_1)/n}} \right) = 1 -\alpha \enspace .
+\]
+We know,
+\[
+P \left(-z_{\alpha/2} < Z < z_{\alpha/2} \right) = 1 -\alpha \enspace ,
+\]
+
+\vspace{1.5cm}
+
+{\tiny make the picture here of $f_Z(z) = \Phi'(z)$ to recall what $z_{\alpha/2}$, $z_{-\alpha/2}$, and the various areas below $f_Z(\cdot)$ in terms of $\Phi(\cdot)$ from the table really mean... (See Example~\ref{Eg:UsingNormalTables}).}
+
+\vspace{1.5cm}
+
+where, $\Phi(z_{\alpha/2}) = 1-\alpha/2$ and $\Phi(z_{-\alpha/2}) = 1- \Phi(z_{\alpha/2}) = \alpha/2$.  
+So, we set
+\[
+\frac{\epsilon}{\sqrt{V(X_1)/n}} = z_{\alpha/2}
+\]
+and rearrange to get
+\begin{equation}\label{E:SampleSizeCalcForPopMean}
+n = \left( \frac{\sqrt{V(X_1)} z_{\alpha/2}}{\epsilon}\right)^2
+\end{equation}
+for the needed sample size that will ensure that our $\mathsf{error}$ is less than our $\mathsf{tolerance}=\epsilon$ with probability $1-\alpha$.  Of course, if $n$ given by Equation~\eqref{E:SampleSizeCalcForPopMean} is not a natural number then we naturally round up to make it one!
+
+A useful $z_{\alpha/2}$ value to remember: If $\alpha=0.05$ when the probability of interest $1-\alpha=0.95$ then $z_{\alpha/2} = z_{0.025} = 1.96$.
+
+\begin{example}\label{EgHowLargeASampleSizeToEstimateMeanWithinTOL}
+How large a sample size is needed to make the $\mathsf{error}$ in our estimate of the population mean $E(X_1)$ to be less than $0.1$ with probability $1-\alpha=0.95$ if we are observing IID samples from a distribution with a population variance $V(X_1)$ of $4$?
+
+Using Equation~\eqref{E:SampleSizeCalcForPopMean} we see that the needed sample size is
+\[
+n =  \left( \frac{\sqrt{4} \times 1.96}{0.1} \right)^2 \approxeq 1537
+\]
+Thus, it pays to check the sample size needed in advance of experimentation, provided you already know the population variance of the distribution whose population mean you are interested in estimating within a given $\mathsf{tolerance}$ and with a high probability. 
+\end{example}
+
+\subsection{Application: Set Estimation of $E(X_1)$}
+
+A useful byproduct of the CLT is the $\mathbf{(1-\alpha)}$ {\bf confidence interval}, a random interval (or bivariate \rv) that contains $E(X_1)$, the quantity of interest, with probability $1-\alpha$: 
+\begin{equation}\label{E:ConfIntForPopMean}
+\left( \ol{X}_n \pm z_{\alpha/2} \sqrt{V(X_1)/n} \right) :=
+\left( \ol{X}_n - z_{\alpha/2} \sqrt{V(X_1)/n} \, , \, \ol{X}_n + z_{\alpha/2} \sqrt{V(X_1)/n} \right) \enspace .
+\end{equation}
+
+{\scriptsize
+We can easily see how Equation~\eqref{E:ConfIntForPopMean} is derived from CLT as follows:
+\begin{align*}
+P \left( -z_{\alpha/2} < Z < z_{\alpha/2} \right) 
+&= 1-\alpha \\
+P \left( -z_{\alpha/2} < \frac{\ol{X}_n-E(X_1)}{\sqrt{V(X_1)/n}} < z_{\alpha/2} \right) 
+&= 1-\alpha \\
+P \left( -\ol{X}_n - z_{\alpha/2}\sqrt{V(X_1)/n}  < -E(X_1) < -\ol{X}_n + z_{\alpha/2} \sqrt{V(X_1)/n} \right) 
+&= 1-\alpha \\
+P \left( \ol{X}_n + z_{\alpha/2}\sqrt{V(X_1)/n}  > E(X_1) > \ol{X}_n - z_{\alpha/2} \sqrt{V(X_1)/n} \right) 
+&= 1-\alpha \\
+P \left( \ol{X}_n - z_{\alpha/2}\sqrt{V(X_1)/n}  < E(X_1) < \ol{X}_n + z_{\alpha/2} \sqrt{V(X_1)/n} \right) 
+&= 1-\alpha \\
+P \left( E(X_1) \in \left(\ol{X}_n - z_{\alpha/2}\sqrt{V(X_1)/n} , \ol{X}_n + z_{\alpha/2} \sqrt{V(X_1)/n} \right) \right) 
+&= 1-\alpha \enspace .
+\end{align*}
+}
+
+\begin{rem}[Heuristic interpretation of the $(1-\alpha)$ confidence interval]  
+If we repeatedly produced samples of size $n$ to contain $E(X_1)$ within a $\left( \ol{X}_n \pm z_{\alpha/2} \sqrt{V(X_1)/n} \right)$, say $100$ times, then on average, $(1-\alpha) \times 100$ repetitions will actually contain $E(X_1)$ within the random interval and $\alpha \times 100$ repetitions will fail to contain $E(X_1)$.
+\end{rem}
+
+So far, we have assumed we know the population variance $V(X_1)$ in an IID experiment with $n$ samples and tried to estimate the population mean $E(X_1)$.  
+But in general, we will not know $V(X_1)$.  We can still get a point estimate of $E(X_1)$ from the sample mean due to LLN but we won't be able to get a confidence interval for $E(X_1)$.  
+Fortunately, a more elaborate form of the CLT tells us that even when we substitute the sample variance $S_n^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i-\ol{X}_n)^2$ for the population variance $V(X_1)$ the following $1-\alpha$ confidence interval for $E(X_1)$ works!
+\begin{equation}\label{E:ConfIntForPopMeanUsingSampleVariance}
+\left( \ol{X}_n \pm z_{\alpha/2} S_n/\sqrt{n} \right) :=
+\left( \ol{X}_n - z_{\alpha/2} S_n/\sqrt{n} \, , \, \ol{X}_n + z_{\alpha/2} S_n/\sqrt{n} \right) \enspace ,
+\end{equation}
+where, $S_n=\sqrt{S_n^2}$ is the sample standard deviation.
+
+Let's return to our two examples again.
+
+\begin{example}\label{EgExponentialCIOfMeanWaitingTimesWithSampleMeanAndVar}
+We model the waiting times between Orbiter buses with unknown $E(X_1)=1/\lambda^*$ as
+\[
+X_1,X_2,\ldots,X_n \overset{IID}{\sim} \exponential(\lambda^*)
+\]
+and observed the following data, sample mean, sample variance and sample standard deviation:
+\[
+(x_1,x_2,\ldots,x_7) = (2,12,8,9,14,15,11), \, \ol{x}_7=10.143, \,  s^2_7 = 19.143, \, s_7 = 4.375 \enspace ,
+\] 
+respectively.  
+Our point estimate and $1-\alpha=95\%$ confidence interval for $E(X_1)$ are:
+\[
+\ol{x}_7 = 10.143 \quad \text{ and } \quad (\ol{x}_7 \pm z_{\alpha/2} s_7/\sqrt{7}) = (10.143 \pm 1.96 \times 4.375/\sqrt{7}) = (6.9016,13.3841) \enspace ,
+\]
+respectively.  So with $95\%$ probability the true population mean $E(X_1)=1/\lambda^*$ is contained in $(6.9016,13.3841)$ and since the mean waiting time of $10$ minutes promised by the Orbiter bus company is also within $(6.9016,13.3841)$ we can be fairly certain that the company sticks to its promise.
+\end{example}
+
+\begin{example}\label{EgBernoulliCIWithSampleMeanAndVar}
+We model the tosses of a coin with unknown $E(X_1)=\theta^*$ as
+\[
+X_1,X_2,\ldots,X_n \overset{IID}{\sim} \bernoulli(\theta^*)
+\]
+and observed the following data, sample mean, sample variance and sample standard deviation:
+\[
+(x_1,x_2,\ldots,x_7) = (0,1,1,0,0,1,0), \, \ol{x}_7=0.4286, \,  s^2_7 = 0.2857, \, s_7 = 0.5345 \enspace ,
+\] 
+respectively.  
+Our point estimate and $1-\alpha=95\%$ confidence interval for $E(X_1)$ are:
+\[
+\ol{x}_7 = 0.4286 \quad \text{ and } \quad (\ol{x}_7 \pm z_{\alpha/2} s_7/\sqrt{7}) = (0.4286 \pm 1.96 \times 0.5345/\sqrt{7}) = (0.0326,0.8246) \enspace ,
+\]
+respectively.  So with $95\%$ probability the true population mean $E(X_1)=\theta^*$ is contained in $(0.0326,0.8246)$ and since $1/2$ is contained in this interval of width $0.792$ we cannot rule out that the flipped coin is not fair with $\theta^*=1/2$.
+\end{example}
+
+\begin{rem}
+The normal-based confidence interval for $\theta^*$ (as well as $\lambda^*$ in the previous example) may not be a valid approximation here with just $n=7$ samples.  After all, the CLT only tells us that the point estimator $\widehat{\Theta}_n$ can be approximated by a normal distribution for large sample sizes. 
+When the sample size $n$ was increased from $7$ to $100$ by tossing the same coin another $93$ times, a total of $57$ trials landed as Heads.  Thus the point estimate and confidence interval for $E(X_1)=\theta^*$ based on the sample mean and sample standard deviations are:
+\[
+\widehat{\theta}_{100} = \frac{57}{100} = 0.57 \qquad \text{and} \qquad
+ (0.57 \pm 1.96 \times 0.4975/\sqrt{100})
+ =(0.4725, 0.6675) \enspace .
+\]
+Thus our confidence interval shrank considerably from a width of $0.792$ to $0.195$ after an additional $93$ Bernoulli trials.  Thus, we can make the width of the confidence interval as small as we want by making the number of observations or sample size $n$ as large as we can.
+\end{rem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{ExsInLimitsOfRVs.tex}

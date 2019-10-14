@@ -98,9 +98,27 @@ and so convergence fails at $0$, i.e.~$\lim_{n \to \infty}F_n(t) \neq F(t)$ at $
 }
 \end{example}
 
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=10cm]{figures/PDFOf1minusCos2PinxOn01OscillatesIndefinitely.png}
+\includegraphics[width=5cm]{figures/DFOf1minusCos2PinxOn01To1ApproachesDFOfUniform01.png}
+\caption{PDF $f_{X_n}(x) := \BB{1}_{(0,1)}(x)(1-\cos(2\pi n x))$ of the RV $X_n$ [the left sub-figure] and its DF $F_n(x) := \int_{-\infty}^x\BB{1}_{(0,1)}(v)(1-\cos(2\pi n v))dv$ [the right sub-figure], for $n =1$ [red '- -'], $n=10$ [blue '-.'], and $n=100$ [green '-'], respectively. One can see clear convergence of the DFs $F_n$ to $\BB{1}_{(0,1)}(x)x$, the DF of the $\uniform(0,1)$ RV, while the corresponding PDFs $f_n(x)$ keep oscillating wildly with $n$ across $[0,2]$ about $\BB{1}_{(0,1)}(x)$, the PDF of the $\uniform(0,1)$ RV $X$. Thus giving a counter-example to the claim that convergence in DFs does not imply convergence in PDFs.\label{F:ScheffesThmCounterExample}}
+\end{center}
+\end{figure}
+Convergence in distribution does not in general imply that the sequence of corresponsing probability density functions will also converge. 
+Consider for example RV $X_n$ with density $\BB{1}_{(0,1)}(x)(1-\cos(2\pi n x))$. 
+These RVs converge in distribution to $X \sim \uniform(0,1)$, but their densities (PDFs) do not converge at all as evident in Figure~\ref{F:ScheffesThmCounterExample}. 
+
+\begin{prop}[Scheff\'e's Theorem]
+According to {\bf Scheff\'e's Theorem} convergence of the probability density function (for a continuous RV) or probability mass function (for a discrete RV) implies convergence in distribution.
+\begin{proof}
+We will state this without a Proof here as Proof of the Theorem requires measure theory in generality \footnote{See \url{https://en.wikipedia.org/wiki/Scheff\%C3\%A9\%27s_lemma}.}. However, you should be able to see why convergence of PMFs $f_n(x)$ for discrete RVs $X_n$, to $f(x)$, the PMF of another discrete RV $X$, implies convergence in their corresponding DFs, i.e., $F_n(x) \to F(x)$ for each $x$ as $n \to \infty$. 
+\end{proof}
+\end{prop}
+
 Since $F(x) = \p(X \leq x)$, convergence in distribution means that the probability for $X_n$ to be in a given range is approximately equal to the probability that the value of the limiting RV $X$ is in that range, provided $n$ is sufficiently large. 
 
-For a discrete sequence of RVs $X_n$`n to converge in distribution to another discrete RV $X$ taking values in $\mathbb{Z}_+ = \{0,1,2,\ldots\}$, it is sufficient to show that $\lim_{n \to \infty}\p(X_n = x) = \p(X=x)$ for each $x \in \mathbb{Z_+}$.  
+Thus, for a discrete sequence of RVs $X_n$`n to converge in distribution to another discrete RV $X$ taking values in $\mathbb{Z}_+ = \{0,1,2,\ldots\}$, it is sufficient to show that $\lim_{n \to \infty}\p(X_n = x) = \p(X=x)$ for each $x \in \mathbb{Z_+}$.  
 We will use this fact to prove why we can approximate $\binomial$ RVs by a $\poisson$ under some limiting conditions.
 
 \begin{example}[$\binomial(n,\lambda/n) {\rightsquigarrow} \poisson(\lambda)$]\label{EgBinomialConvergesInDistToPoisson}
@@ -144,14 +162,6 @@ As $n \to \infty$, the expression below the first overbrace $\to 1$, while that 
 \]
 %}
 \end{example}
-
-\begin{rem}[Scheff\'e's Theorem]
-Convergence in distribution does not in general imply that the sequence of corresponsing probability density functions will also converge. 
-Consider for example RV $X_n$ with density $\BB{1}_{(0,1)}(x)(1-\cos(2\pi n x))$. 
-These RVs converge in distribution to $X \sim \uniform(0,1)$, but their densities do not converge at all.
-
-However, according to {\bf Scheff\'e's Theorem} convergence of the probability density function implies convergence in distribution.
-\end{rem}
 
 The second notion of convergence of RVs is convergence in probability.
 

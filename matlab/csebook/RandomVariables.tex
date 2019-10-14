@@ -2418,7 +2418,7 @@ We can simply apply the definition of $\e(r(X))$, since $Y=r(X)$, is just a func
 %\]
 \end{example}
 
-\begin{example}[Mean and Variance of $\exponential(\lambda)$]\label{EgmeanAndVarOfExponential}
+\begin{example}[Mean and variance of $\exponential(\lambda)$]\label{EgmeanAndVarOfExponential}
 Show that the mean of an $\exponential(\lambda)$ RV $X$ is:
 \[
 \e_{\lambda}(X) = \int_{0}^{\infty} x f(x;\lambda)\,dx
@@ -2507,6 +2507,108 @@ Note that $\poisson(\lambda)$ distribution is one whose mean and variance are th
 %}%end remove
 
 The $\poisson(\lambda)$ RV $X$ is also related to the IID $\exponential(\lambda)$ RV $Y_1,Y_2,\ldots$: $X$ is the number of occurrences, per unit time, of an instantaneous event whose inter-occurrence time is the IID $\exponential(\lambda)$ RV.  For example, the number of buses arriving at our bus-stop in the next minute, with exponentially distributed inter-arrival times, has a Poisson distribution.
+
+\begin{example}[Mean and variance of $\normal(\mu,\sigma^2)$ RV]\label{EgMeanAndVarOfNormalMuSigmaSquareRV}
+The location-scale family of RVs is indeed parameterised by its mean and variance, i.e., if  $X \sim \normal(\mu,\sigma^2)$ where $X=g(Z)= \sigma Z+\mu$ and $Z \sim \normal(0,1)$ then $\e(X) = \mu$ and $\V(X) = \sigma^2$ follows directly from the properties of Expectations, provided $\e(Z)=0$ and $\V(Z)=\e(Z^2)-\left(\e(Z)\right)^2=\e(Z^2)=1$.
+
+The mean of a $\normal(0,1)$ RV $Z$ is:
+\[
+\e(Z) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} z \exp{\left( - \frac{1}{2} z^2 \right)}\,dz
+ = \frac{1}{\sqrt{2 \pi}} \left(  -\exp{\left( - \frac{1}{2} z^2 \right)} \right]_{-\infty}^{\infty} 
+= 0 \ ,
+\]
+and the variance is:
+\[
+\V(Z) =\e(Z^2)-\left(\e(Z)\right)^2=\e(Z^2)-0=\e(Z^2) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} z^2 e^{-z^2/2} dz .
+\]
+Using integration by parts with $u = z, dv=ze^{-z^2/2} \implies du=1, v=-e^{-z^2/2}, \, \int u dv = uv - \int v du$
+\[
+\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} z^2 e^{-z^2/2} dz =  \frac{1}{\sqrt{2 \pi}} \left( -z e^{-z^2/2} \right]_{-\infty}^{\infty} + \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{-z^2/2} dz = 0 + 1 = 1
+\]
+The first term after the first equality above equals $0$ because the exponential goes to $0$ much faster than $z$ grows to $\pm \infty$. 
+The second term equals $1$ because it is exactly the total probability integral of the PDF of the $\normal(0,1)$ RV.
+\end{example}
+
+Next, let us become familiar with an RV for which the expectation does not exist.  %This will help us appreciate the phrase ``none of which is dominant'' in the informal statement of the CLT later.
+\begin{model}[$\cauchy$]\label{M:Cauchy}
+The density of the $\cauchy$ RV $Y$ is:
+\begin{equation}\label{E:StandardCauchypdf}
+f(y) = \frac{1}{\pi (1+y^2)}, \qquad -\infty < y < \infty \enspace ,
+\end{equation}
+and its DF is:
+\begin{equation}\label{E:StandardCauchycdf}
+F(y) = \frac{1}{\pi} \tan^{-1} (y) + \frac{1}{2} \ .
+\end{equation}
+Randomly spinning a LASER emitting improvisation of ``Darth Maul's double edged lightsaber'' that is centered at $(1,0)$ in the plane $\Rz^2$ and recording its intersection with the $y$-axis, in terms of the $y$ coordinates of the point $(0,y)$, gives rise to the $Standard~Cauchy$ RV.
+
+The Cauchy RV $Y$ can be derived from a RV $X \sim \uniform(-\pi/2,\pi/2)$ by the simple transformation $Y = \tan(X)$ for the above construction. 
+Since $\tan(x)$ is one-to-one and monotone on the range of $X$ given by $(-\pi/2,\pi/2)$, 
+we can use the change of variable formula in \hyperref[E:f_YFromf_X_Under_one-to-one-g]{Equation \ref*{E:f_YFromf_X_Under_one-to-one-g}} to obtain the PDF $f_Y(y)$ from the PDF $f_X(x)=\frac{1}{\pi}\BB{1}_{(-\pi/2,\pi/2)}(x)$ as follows:
+\[
+f_Y(y) = f_X(g^{-1}(y)) \left| \frac{d}{dy} g^{-1}(y) \right| = f_X(\tan^{-1}(y)) \left| \frac{d}{dy} \tan^{-1}(y) \right| = \frac{1}{\pi} \left| \frac{1}{1+y^2} \right|
+\]
+Note that the construction is valid even if we sample $X$ uniformly from $(0,\pi)$ and take its $\tan(X)$.
+\end{model}
+
+\begin{example}[Mean of $\cauchy$ RV]
+The expectation of the $\cauchy$ RV $X$, obtained via integration by parts (set $u=x$ and $v=\tan^{-1}(x)$) does not exist  %\eqref{E:ExpectationExists}
+, since:
+\begin{equation}\label{E:CauchyMeanDoesNotExist}
+\int \left|x\right|\,dF(x) = \frac{2}{\pi} \int_0^{\infty} \frac{x}{1+x^2}\,dx = \left(x \tan^{-1}(x) \right]_0^{\infty} - \int_0^{\infty} \tan^{-1}(x)\, dx = \infty \ .
+\end{equation}
+Note that we consider symmetry of integral about the origin and take twice the integral over $(0,\infty)$ above. 
+Variance and higher moments cannot be defined when the expectation itself is undefined.
+\end{example}
+
+Next let us consider a natural generalization of the $\bernoulli(\theta)$ RV with more than two outcomes but in the set $\{1,2,\ldots,k\}$.
+\begin{model}[{$\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$}]\label{M:demoivre}
+Given a specific point $(\theta_1,\theta_2,\ldots,\theta_k)$ in the unit $k-1$-Simplex:
+\[
+\bigtriangleup^{k-1} :=  \{ \,  ( \theta_1,\theta_2,\ldots,\theta_k) :  \theta_1 \geq 0, \theta_2 \geq 0, \ldots, \theta_k \geq 0, \sum_{i=1}^k \theta_i = 1 \, \}  \ ,
+\]
+we say that an RV $X$ is $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ distributed if its PMF is:
+\[
+f(x;\theta_1,\theta_2,\ldots,\theta_k) =
+\begin{cases}
+0 & \quad \text{if $x \notin [k] := \{1,2,\ldots,k\}$,} \\
+\theta_x & \quad \text{if $x \in [k]$}   .
+\end{cases}
+\]
+The DF for $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ RV $X$ is:
+\begin{equation}\label{E:deMoivreDF}
+F(x;\theta_1,\theta_2,\ldots,\theta_k) =
+\begin{cases}
+0 & \quad  \text{if $-\infty < x < 1$}\\
+\theta_1 & \quad \text{if $1 \leq x < 2$} \\
+\theta_1+\theta_2 & \quad \text{if $2 \leq x < 3$} \\
+\vdots & \\
+\theta_1+\theta_2+\cdots+\theta_{k-1} & \quad \text{if $k-1 \leq x < k$} \\
+\theta_1+\theta_2+\cdots+\theta_{k-1}+\theta_k=1 & \quad \text{if $k \leq x < \infty$} \\
+\end{cases}
+\end{equation}
+The $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ RV can be thought of as a probability model for ``the outcome  of rolling a polygonal cylindrical die with $k$ rectangular faces that are marked with $1, 2, \ldots, k$''.  The parameters $\theta_1,\theta_2,\ldots,\theta_k$ specify how the die is loaded and may be idealised as specifying the cylinder's centre of mass with respect to the respective faces.  Thus, when $\theta_1=\theta_2=\cdots=\theta_k=1/k$, we have a probability model for the outcomes of a fair die.
+\end{model}
+
+\paragraph{Mean and variance of $\demoivre (\theta_1,\theta_2,\ldots,\theta_k)$ RV:}
+The not too useful expressions for the first two moments of $X \sim \demoivre (\theta_1,\theta_2,\ldots,\theta_k)$ are,
+\[
+\e(X) = \sum_{x=1}^k x \theta(x) =  \theta_1 + 2 \theta_2 + \cdots + k \theta_k \ , \text{ and }
+\]
+\[
+\V(X) = \e(X^2) - (\e(X))^2 =   \left(\theta_1 + 2^2 \theta_2 + \cdots + k^2 \theta_k \right) - \left( \theta_1 + 2 \theta_2 + \cdots + k \theta_k \right)^2 \ .
+\]
+However, if $X\sim \demoivre(1/k,1/k,\ldots,1/k)$, then the mean and variance for the fair $k$-faced die based on Faulhaber's formula for $\sum_{i=1}^k i^m$, with $m\in\{1,2\}$, are,
+\[
+\e(X) = \frac{1}{k} \left( 1+2+\cdots+k \right)= \frac{1}{k} \frac{k(k+1)}{2} = \frac{k+1}{2}  \ ,
+\]
+\[
+\e(X^2) = \frac{1}{k} \left( 1^2+2^2+\cdots+k^2 \right)  = \frac{1}{k} \frac{k(k+1)(2k+1)}{6} =  \frac{2k^2+3k+1}{6} \ ,
+\]
+\begin{align}
+\V(X) = \e(X^2) - (\e(X))^2
+&= \frac{2k^2+3k+1}{6} -  \left( \frac{k+1}{2} \right)^2 = \frac{2k^2+3k+1}{6} -  \left( \frac{k^2+2k+1}{4} \right) \notag \\
+&=  \frac{8k^2+12k+4 - 6k^2-12k-6}{24} =  \frac{2k^2-2}{24} = \frac{k^2-1}{12} \notag \ .
+\end{align}
 
 
 \input{ExsInExpectations.tex}
@@ -3005,12 +3107,47 @@ done in lectures...
 \end{example}
 
 \begin{example}[Buffon's Needle Experiment to Physically Estimate $\pi$]\label{EgBuffonsNeedle}
-~
+Suppose a needle is tossed at random onto a plane ruled with parallel lines a distance $L$ apart. 
+By a ``needle'' we mean a line segment of length $ l \leq L$.
 
-done in lectures...
-\vspace{5cm}
+What is the probability that the needle intersects one of the parallel lines? Can you use repeated trials of this experiment to find an approximation to $\pi$?
 
+{\em Solution:}\\[4pt]
+Let $X_1$ be the angle between the needle and the direction of the rulings, and let $X_2$ be the distance between the bottom point of the needle and the nearest line above this point (see left sub-figure of Figure~\ref{F:BuffonsNeedle}). 
+Then the conditions of the ``needle tossing at random'' experiment are such that the RV $X_1$ is uniformly distributed in the interval $[0,\pi]$, while the RV $X_2$ is uniformly distributed in the interval $[0,L]$. 
+Hence {\em assuming that the RVs $X_1$ and $X_2$ are independent}, we find that their joint probability density function (JPDF) is:
+\[
+f_{X_1,X_2}(x_1,x_2) = \frac{1}{\pi}\BB{1}_{[0,\pi]}(x_1) \times \frac{1}{L}\BB{1}_{[0,L]}(x_2) = \frac{1}{\pi L} \BB{1}_{[0,\pi]}(x_1) \BB{1}_{[0,L]}(x_2) = \frac{1}{\pi L} \BB{1}_{[0,\pi] \times [0,L] }(x_1,x_2) \enspace . 
+\]
+The event $A$ that the needle intersects one of the parallel ruled lines occurs if and only if
+\[
+X_2 \leq l \sin(X_1) \enspace,
+\]
+i.e., if and only if the corresponding point $X := (X_1,X_2)$ falls in the region $B$, where $B$ is part of the rectangle $[0,\pi] \times [0,L]$ lying between the $x_1$-axis and the curve $x_2=\sin(x_1)$ (area under the curve in right-subfigure of Figure~\ref{F:BuffonsNeedle}). 
+Hence, we can integrate the JPDF to get the probability of the event $A$ of interest:
+\[
+\p(A) = \p \left( (X_1,X_2) \in B \right) = \underset{B}{\int \int} \frac{dx_1 dx_2}{\pi L} = \frac{2l}{\pi L}
+\]
+where,
+\[
+l \int_0{\pi} \sin(x_1) dx_1 = l \left( - \cos(x_1)\right]_0^{\pi} = l(1-(-1))=l(1+1)=2l \enspace,
+\]
+is the area of $B$. 
+
+Thus, if the needle is repeatedly tossed onto the ruled plane and $n(A)$ is the number of times $A$ occurs out of $n$ trials, then the relative frequency of the event $A$ should approach $\p(A)$ as $n \to \infty$ (we will see this as the Law of Large Numbers in the sequel, but recall that this is also how we motivated the LTRF or long-term relative frequency idea of probability):
+\[
+\frac{n(A)}{n} \to \frac{2l}{\pi L}
+\]
+Hence, for large $n$,
+\[
+\frac{2 l}{L}\frac{n}{n(A)}
+\]
+should be a good approximation to $\pi=3.14\ldots$. This is indeed the case.
 \end{example}
+\begin{figure}
+\vspace{3cm}
+\caption{Diagrams done on the board! \label{F:BuffonsNeedle}}
+\end{figure}
 
 \subsection{Conditional Random Variables}\label{S:CondRVs}
 
@@ -3448,7 +3585,7 @@ The buckets that collect the balls after dropping through $n$ levels of nails ar
 \end{figure}
 
 
-We are now ready to extend the $\binomial(n,\theta)$ RV or \rv~to its multivariate version called the $\multinomial(n,\theta_1,\theta_2,\ldots,\theta_k)$ \rv.  We develop this \rv~as the sum of $n$ IID $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv~that is defined next.
+We are now ready to extend the $\binomial(n,\theta)$ RV or \rv~to its multivariate version called the $\multinomial(n,\theta_1,\theta_2,\ldots,\theta_k)$ \rv.  We develop this \rv~as the sum of $n$ IID $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv~that is defined next by extending $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ RV taking values in $\{1,2,\ldots,k\}$ of Model~\ref{M:demoivre} to its vector-valued cousin taking values in $\{e_1, e_2,\ldots,e_k\}$, the ortho-normal basis vectors in $\Rz^k$.
 
 \begin{model}[$\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv]\label{M:deMoivreRVec}
 The PMF of the $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv~$X := (X_1,X_2,\ldots,X_k)$ taking value $x := (x_1,x_2,\ldots,x_k) \in \{e_1,e_2,\ldots,e_k\}$, where the $e_i$'s are ortho-normal basis vectors in $\Rz^k$ is:
@@ -4033,7 +4170,7 @@ For brevity, we write $$\overline{X}_n( \ (X_1,X_2,\ldots,X_n) \ ) \quad \text{a
 Note that the expectation and variance of $\overline{X}_n$ are:
 \begin{eqnarray}
 \e(\overline{X}_n) &=& \e \left(  \frac{1}{n} \sum_{i=1}^n X_i \right) \qquad \text{{\scriptsize[by \hyperref[E:SampleMeanRV]{definition \eqref{E:SampleMeanRV}}]}} \notag \\
-&=&  \frac{1}{n} \sum_{i=1}^n \e \left( X_i \right) \qquad \text{{\scriptsize [by \hyperref[E;EofLinCombofRVs]{property \eqref{E:EofLinCombofRVs}}]}} \notag
+&=&  \frac{1}{n} \sum_{i=1}^n \e \left( X_i \right) \qquad \text{{\scriptsize [by \hyperref[E:EofLinCombofRVs]{property \eqref{E:EofLinCombofRVs}}]}} \notag
 \end{eqnarray}
 Furthermore, if every $X_i$ in the original sequence of RVs $X_1,X_2,\ldots$ is {\bf identically} distributed with the same expectation, by convention $\e(X_1)$, then:
 \begin{equation}\label{E:ExpOfSampleMeanOfIDSeq}
@@ -4210,7 +4347,8 @@ Suppose we have $n$ IID RVs, $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} F$, where 
 \end{definition}
 
 \begin{labwork}[Plot of empirical CDF]\label{LW:ECDF}
-Let us plot the ECDF for the five samples drawn from the $Uniform(0,1)$ RV in \hyperref[LW:XsFromUni01Twstr101mean]{Labwork \ref*{LW:XsFromUni01Twstr101mean}} using the {\sc Matlab} function {\tt ECDF} (given in \hyperref[Mf:ECDF]{Labwork \ref*{Mf:ECDF}}).  Let us super-impose the samples and the true DF as depicted in \hyperref[F:plotUniform01ECDF5]{Figure \ref*{F:plotUniform01ECDF5}} with the following script:
+Let us plot the ECDF for the five samples drawn from the $Uniform(0,1)$ RV in \hyperref[LW:XsFromUni01Twstr101mean]{Labwork \ref*{LW:XsFromUni01Twstr101mean}} using the {\sc Matlab} function {\tt ECDF}. %(given in \hyperref[Mf:ECDF]{Labwork \ref*{Mf:ECDF}}).  
+Let us super-impose the samples and the true DF as depicted in \hyperref[F:plotUniform01ECDF5]{Figure \ref*{F:plotUniform01ECDF5}} with the following script:
 {\VrbMf[label=plotunifecdf.m]{scripts/plotunifecdf.m}}
 
 \begin{figure}[htpb]
@@ -4259,7 +4397,8 @@ The $q^{\text{th}}$ sample quantile, $ \widehat{F}_n^{[-1]}(q)$, is found by int
 \]
 Thus, the {\bf sample minimum} of the data points $(x_1,x_2,\ldots,x_n)$ is given by $ \widehat{F}_n^{[-1]}(0)$, the {\bf sample maximum} is given by $ \widehat{F}_n^{[-1]}(1)$ and the {\bf sample median} is given by $ \widehat{F}_n^{[-1]}(0.5)$, etc.
 \begin{labwork}[The $q^{\text{th}}$ sample quantile]\label{LW:qthSampleQuantile}
-Use the implementation of \hyperref[A:qthSampleQuantile]{Algorithm \ref*{A:qthSampleQuantile}} in \hyperref[Mf:qthSampleQuantile]{Labwork \ref*{Mf:qthSampleQuantile}} as the {\sc Matlab} function {\tt qthSampleQuantile} to find the $q^{\text{th}}$ sample quantile of two simulated data arrays:
+Use the implementation of \hyperref[A:qthSampleQuantile]{Algorithm \ref*{A:qthSampleQuantile}} %in \hyperref[Mf:qthSampleQuantile]{Labwork \ref*{Mf:qthSampleQuantile}} 
+as the {\sc Matlab} function {\tt qthSampleQuantile} to find the $q^{\text{th}}$ sample quantile of two simulated data arrays:
 \begin{enumerate}
 \item {\tt SortedXsFromUni01Twstr101}, the order statistics that was constructed in \hyperref[LW:SortedXsFromUni01Twstr101]{Labwork \ref*{LW:SortedXsFromUni01Twstr101}} and
 \item Another sorted array of $7$ samples called {\tt SortedXs}
@@ -4514,7 +4653,8 @@ ans =   124    14
 >> plotmatrix([LatData,LonData,MagData,DepData], 'r.');
 \end{VrbM}
 \end{enumerate}
-All of these commands have been put in a script M-file {\tt NZEQChCch20110222.m} in \hyperref[Mf:NZEQChCch20110222]{Labwork~\ref*{Mf:NZEQChCch20110222}} and you can simply call it from the command window to automatically load the data and assign it to the variables {\tt EQAll} {\tt EQ}, {\tt LatData}, {\tt LonData}, {\tt MagData} and {\tt DepData}, instead of retyping each command above every time you need these matrices in \Matlab, as follows:
+All of these commands have been put in a script M-file {\tt NZEQChCch20110222.m} %in \hyperref[Mf:NZEQChCch20110222]{Labwork~\ref*{Mf:NZEQChCch20110222}} 
+and you can simply call it from the command window to automatically load the data and assign it to the variables {\tt EQAll} {\tt EQ}, {\tt LatData}, {\tt LonData}, {\tt MagData} and {\tt DepData}, instead of retyping each command above every time you need these matrices in \Matlab, as follows:
 \begin{VrbM}
 >> NZEQChCch20110222
 ans =   145    14

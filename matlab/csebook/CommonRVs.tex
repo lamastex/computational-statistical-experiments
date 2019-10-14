@@ -48,22 +48,7 @@ produce plots for various $\normal(\mu,\sigma^2)$ RVs, shown in \hyperref[F:plot
 \centering   \makebox{\includegraphics[width=6.5in]{figures/plotPdfCdfNormals}}
 \end{figure}
 
-\paragraph{Mean and Variance of $\normal(\mu,\sigma^2)$:}
-The mean of a $\normal(\mu,\sigma^2)$ RV $X$ is:
-\[
-\e(X) = \int_{-\infty}^{\infty} x f(x;\mu,\sigma^2)\,dx
-=   \frac{1}{\sigma \sqrt{2 \pi}} \int_{-\infty}^{\infty} x
- \exp{\left( - \frac{1}{2 \sigma^2} (x-\mu)^2 \right)}\,dx
-= \mu \ ,
-\]
-and the variance is:
-\[
-\V(X) = \int_{-\infty}^{\infty} (x-\mu)^2 f(x;\mu,\sigma^2)\,dx
-=   \frac{1}{\sigma \sqrt{2 \pi}} \int_{-\infty}^{\infty} (x-\mu)^2
- \exp{\left( - \frac{1}{2 \sigma^2} (x-\mu)^2 \right)}\,dx
-= \sigma^2 \ .
-\]
-
+% cse snipped
 %\remove{
 \begin{labwork}[Compute the  the $\p(X \in (a,b))$ for the $\normal(0,1)$ RV $X$]\label{LW:NormalIntervalProb}
 Write a function to evaluate the $\p(X \in (a,b))$ for the $\normal(0,1)$ RV $X$ for user-specified values of $a$ and $b$. [Hint: one option is by making two calls to {\tt NormalCdf} and doing one arithmetic operation.]

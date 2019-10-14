@@ -1,12 +1,6 @@
 Probability Theory I, Uppsala University, Fall 2019
 ========================================
 
-- See [PrStEl.pdf](https://github.com/lamastex/computational-statistical-experiments/raw/master/matlab/csebook/PrStEl.pdf)
-
-- Or use [PrStEl-book.pdf](https://github.com/lamastex/computational-statistical-experiments/raw/master/matlab/csebook/PrStEl-book.pdf) to print double-sided as a booklet.
-
-Probability Theory 1
-
 Raazesh Sainudiin* and Dominic Lee†,
 
 ∗Laboratory for Mathematical Statistical Experiments, Uppsala Centre, and
@@ -23,6 +17,10 @@ This work is licensed under the Creative Commons Attribution-Noncommercial-Share
 International License. To view a copy of this license, visit
 [https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
+
+- See [PrStEl.pdf](https://github.com/lamastex/computational-statistical-experiments/raw/master/matlab/csebook/PrStEl.pdf)
+
+- Or use [PrStEl-book.pdf](https://github.com/lamastex/computational-statistical-experiments/raw/master/matlab/csebook/PrStEl-book.pdf) to print double-sided as a booklet.
 
 
 Computational Statistical Experiments in Matlab

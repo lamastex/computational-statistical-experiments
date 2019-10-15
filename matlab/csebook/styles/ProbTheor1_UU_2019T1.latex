@@ -93,7 +93,7 @@ UD~\ref{EgWinningsOnAverage}, \ref{EgProbIsAnExpectation}, \ref{EgMeanAndVarOfBe
     & &  & Common $\Rz^m$-valued RVs & RD~\ref{S:SomeCommonRmValuedRVs}; UD~\ref{EgVectorArithmetic}, \ref{EgExpectationOfBernoulliRVector};\\
     & &  &                           & EX~\ref{xRWsinIQ}, \ref{xRWsinIQAndQunicux}, EXs~\ref{S:xsMultivariateRVs}\\
 14  & &  & Characteristic Functions & RD~\ref{S:CF}; UD~\ref{EgCFOfBernoulli}, \ref{EgCFOfExponential}, \ref{EgCFOfNormalMuSigma}, \ref{EgCFOfBinomial}, \ref{EgCFOfSumOf2IndepNormals};\\
-    & &  &  & EXs~\ref{S:xsCFs}\\
+    & &  &  & EXs~\ref{S:xsCFs}; [non-examinable] UD~\ref{EX:FlippantFreddy}, \ref{EX:DryWetChain}\\
 \hline
 15  & & 41& Statistics \& Random Number Generation &  RD~\ref{S:Statistics}, \ref{S:RNGIntro}, \ref{S:nonUniformRVG}\\
 16  & &   & Statistics                             & EXs~\ref{S:xsStatistics} \\

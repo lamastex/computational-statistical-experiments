@@ -3753,8 +3753,7 @@ err =   1.0000e-08
 
 \subsection{Dependent Random Variables}
 When a sequence of RVs are not independent they are said to be {\bf dependent}.  
-
-% The simplest form of dependence is Markov dependence ... 2-state Markov chain
+The simplest form of dependence is {\em Markov dependence} that we will briefly see via a couple examples in Chapter~\ref{C:FiniteMarkovChains}.
 
 \input{ExsInMultivariateRVs.tex}
 
@@ -4870,59 +4869,7 @@ Sensors called {\em optical encoders} have been attached to the top end of each 
 
 \input{ExsInStatistics.tex}
 
-\remove{
-\section{Stochastic Processes}\label{S:StochProc}
-
-\begin{definition}[Stochastic Process]
-A collection of RVs  \[
-\left(X_{\alpha} \right)_{\alpha \in N} := \left( \  X_{\alpha} : \alpha \in \Az \  \right)
-\]
-is called a {\bf stochastic process}.  Thus, for every $\alpha \in  \Az$, the index set of the stochastic process, $X_{\alpha}$ is a RV.  If the index set $ \Az  \subset \Zz$ then we have  a {\bf discrete time stochastic process}, typically denoted by 
-\[
-\left(X_i\right)_{i \in \Zz} := \ldots, X_{-2},X_{-1},X_0, X_1,X_2,\ldots , \  \text{or}
-\]
-\[
-\left( X_i \right)_{i \in \Nz} := X_1,X_2,\ldots , \  \text{or}
-\]
-\[
-\left( X_i \right)_{i \in [n]} := X_1,X_2,\ldots , X_n , \ \text{where, } [n]:= \{1,2,\ldots,n\} \ .
-\]
-If $\Az \subset \Rz$ then we have a {\bf continuous time stochastic process}, typically denoted by $\{X_t\}_{t \in \Rz}$, etc.  
-\end{definition}
-
-Of course the above process is quite general and can allow for arbitrary dependence among the RVs.  
-Generally, we cannot produce useful models without making simplifying assumptions. 
-The absolutely simplest but extremely useful assumption is that of the {\bf Independent and Identically Distributed or IID Process} or merely {\bf IID Sequence of RVs} when the index set is a subset of $\Nz$. 
-
-This is exactly the sequence of RVs associated with our product experiment $\mathcal{E}^{\otimes \infty} := (\Omega, \mathcal{F}_{\mathcal{X}}, P_{\theta})^{\otimes \infty}$.
-    
-\begin{definition}[Independent and Identically Distributed (IID) Process]
-The finite or infinite sequence of RVs or the stochastic process $X_1, X_2,\ldots$ is said to be independent and identically distributed or IID if :
-\begin{itemize}
-\item they are an idependently distributed according to \hyperref[D:IndRVs]{Definition \ref*{D:IndRVs}}, and
-\item $F(X_1) = F(X_2) = \cdots $, ie.~all the $X_i$'s have the same DF $F(X_1)$.
-\end{itemize}
-This is perhaps the most elementary class of stochastic processes and we succinctly denote it by
-\[
-\left(X_i\right)_{i \in [n]} := X_1, X_2,\ldots, X_n \overset{\IID}{\sim} F, \quad \text{or} \quad \left(X_i\right)_{i \in \Nz} := X_1, X_2,\ldots  \overset{\IID}{\sim} F \ .
-\]
-We sometimes replace the DF $F$ above by the name of the RV.
- \end{definition}
- 
-\begin{definition}[Independently Distributed]
-The sequence of RVs or the stochastic process $\left(X_i\right)_{i \in \Nz} := X_1, X_2,\ldots$ is said to be independently distributed if :
-\begin{itemize}
-\item $X_1, X_2,\ldots$ is independently distributed according to \hyperref[D:IndRVs]{Definition \ref*{D:IndRVs}}.
-\end{itemize}
-This is a class of stochastic processes that is more general than the IID class.
-\end{definition}
-
-Let us consider a RV that arises from an IID stochastic process of $\bernoulli(\theta)$ RVs $\{X_i\}_{i \in \Nz}$, ie.~
-\[
- \{X_i\}_{i \in \Nz} := \{X_1, X_2,\ldots\}  \overset{\IID}{\sim} \bernoulli(\theta) \ .
-\]
-When we consider the number of IID $\bernoulli(\theta)$ trials before the first `Head' occurs we get the following discrete RV.
-}
+%\remove
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% snipped above into csebook
 

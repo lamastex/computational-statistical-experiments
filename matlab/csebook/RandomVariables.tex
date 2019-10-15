@@ -1348,6 +1348,14 @@ Therefore, $$x\;=\;-\log(1-0.95)\;=\;3.00\;\;(\text{3 sig. fig.})\enspace.$$
 }
 \end{example}
 
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=5.0in]{pstricks/exponentialLambdafF}
+\caption{$f(x;\lambda)$ and $F(x;\lambda)$ of an exponential random variable where $\lambda=1$ (dotted) and $\lambda=2$ (dashed).}
+\end{center}
+\end{figure}
+
+
 The previous example is a special case of the following parametric
 family of random variables.
 
@@ -1372,13 +1380,6 @@ F(x; \lambda) = \int_{-\infty}^{x} \BB{1}_{(0,\infty)} \lambda e^{-\lambda v} dv
 
 This distribution is unique because of its property of {\bf memorylessness}, i.e., $\p(X>x+y | X > y) = e^{-\lambda x}$, and plays a fundamental role in modeling continuous time processes, such as time between occurrence of events of interest, as we will see in the sequel.
 \end{model}
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics{pstricks/exponentialLambdafF}
-\caption{$f(x;\lambda)$ and $F(x;\lambda)$ of an exponential random variable where $\lambda=1$ (dotted) and $\lambda=2$ (dashed).}
-\end{center}
-\end{figure}
 
 \remove{%%%%%%%%%%%%%%% SIMUL
 We encode the PDF and DF of the $\exponential(\lambda)$ RV as \Matlab functions {\tt ExponentialPdf} and {\tt ExponentialCdf} and use them to produce \hyperref[F:plotPdfCdfExponentials]{Figure~\ref*{F:plotPdfCdfExponentials}} in \hyperref[Mf:ExponentialPdfCdf]{Labwork~\ref*{Mf:ExponentialPdfCdf}}.
@@ -1412,13 +1413,39 @@ F\left(5;\frac{1}{60}\right) \;=\; 1-e^{-\frac{1}{60}5} \;=\; 1--e^{-\frac{1}{12
 }
 \end{example}
 
-\begin{Exercise}[title={Memorylessness of $\exponential(\lambda)$ RV},label={memorylessnessOfExponentialLambdaRV}]
-[This exercise is optional.]\\[4pt] Try to prove that if $X \sim \exponential(\lambda)$, then it has the property of {\bf memorylessness}, i.e., prove that $\p(X>x+y  | X > y) = e^{-\lambda x}$. 
+\begin{prop}[Memorylessness of $\exponential(\lambda)$ RV]\label{P:memorylessnessOfExponentialLambdaRV}
+If $X \sim \exponential(\lambda)$, then $X$ has the property of {\bf memorylessness}, i.e., 
+\begin{equation}
+\boxed
+{
+\p(X>x+y  | X > y) = \p (X > x) \enspace .
+} 
+\end{equation}
+\end{prop}
+\begin{proof}
+By the definition of conditional probability,
+\[
+\p(X > x+y | X > y) =\p( \{X>x+y\} |  \{X > y \}) = \frac{\p( \{X>x+y\} \cap \{X > y \})}{\p( \{X>y\} )}
+\]
+Due to redundancy, i.e., $\{X>x+y\} \subset \{X > y \} \implies \{X>x+y\} \cap \{X > y \}=\{X>x+y\}$, so
+\begin{align*}
+\p(X > x+y | X > y) 
+&=  \frac{\p( \{X>x+y\}}{\p( \{X>y\} )} = \frac{\overline{F}(x+y; \lambda)}{\overline{F}(y; \lambda)} = \frac{e^{-\lambda(x+y)}}{e^{-\lambda y}} 
+= \frac{e^{-\lambda x} e^{-\lambda y}}{e^{-\lambda y}}
+= e^{-\lambda x} = \overline{F}(x; \lambda) \\
+&= \p(X > x)
+\end{align*}
+\end{proof}
+
+\begin{Exercise}[title={Memoryless Server Times},label={xmemorylessnessOfExponentialLambdaRV}]
+Suppose customers in a Queue are served one at a time by a server whose service time is an independent and identical $\exponential(\lambda)$ RV, with $\lambda=1/10$. The server is immediately free to serve the next customer once the current customer being served is done.
+Suppose you just arrive and are the first in the queue and know that the server is busy serving another customer. You do not know how long the customer has already been in service. 
+What is the probability that the server will be free after $2$ units of time?
 \end{Exercise}
 \begin{Answer}
-This exercise is optional.\\[4pt]
-{\tiny ... Try it if you want to and communicate face-to-face your understanding or misunderstanding with Raaz.}
-\vspace{5cm}
+Let $X \sim \exponential(\lambda=0.1)$ denote the time taken to serve any given customer in an IID manner.
+Let $y$ denote the unknown time that the current customer being served has already been served before your arrival.
+By memorylessness of $\exponential(\lambda=0.1)$ RV $X$, we know $\p(X > 2 + y | X > y) = \p(X > 2) = e^{-\lambda 2} = e^{-2/10}$.
 \end{Answer}
 
 \bigskip
@@ -1543,8 +1570,16 @@ The distribution function of $Z$ is given by
 \end{equation}
 
 \begin{rem}
-{This integral cannot be evaluated exactly by standard methods of calculus, but its values can be
+{The integral for $\Phi(z)$ has no closed form expression and cannot be evaluated exactly by standard methods of calculus, but its values can be
 obtained numerically and tabulated.  Values of $\Phi(z)$ are tabulated in the ``Standard Normal Distribution Function Table'' in Sec.~\ref{S:NormalDFTable}.}
+
+We can express $\Phi(z)$ %$F(x;\mu,\sigma^2)$ 
+in terms of the error function ($\erf$) as follows:
+\begin{equation}\label{E:DFStandardNormalviaErf}
+%F(x;\mu,\sigma^2) = \frac{1}{2} \ \erf \left(  \frac{x-\mu}{\sqrt{2 \sigma^2}} \right)+ \frac{1}{2}
+\Phi(z) = \frac{1}{2} \ \erf \left(  \frac{z}{\sqrt{2}} \right)+ \frac{1}{2}
+\end{equation}
+And use \Matlab's \texttt{erf} function to get $\Phi(z)$ numerically instead of looking up the Table.
 \end{rem}
 
 \begin{classwork}\label{xDrawDFOfStdNormal}
@@ -2404,6 +2439,14 @@ Let $X \sim \uniform(0,1)$.  Then,
 \V(X) = \e(X^2) - (\e(X))^2 = \frac{1}{3}  - \left( \frac{1}{2} \right)^2  = \frac{1}{3}  - \frac{1}{4} = \frac{1}{12} \ .
 \]
 \end{example}
+
+\begin{Exercise}[title={Mean and variance of $\uniform(\theta_1,\theta_2)$ RV},label={xMeanAndVarOfUniformab}]
+Let $X \sim \uniform(\theta_1,\theta_2)$ of Model~\ref{M:Uniformab}. Derive expressions for $\e(X)$ and $\V(X)$ in terms of the parameters $\theta_1$ and $\theta_2$. Make sure that when $\theta_2=1$ and $\theta_1=0$ you recover the expectation and variance of the $\uniform(0,1)$ RV in Example~\ref{EgMeanAndVarOfUnif01}.
+\end{Exercise}
+\begin{Answer}
+Derive the answers from the definition of $\e(X)$ and $\V(X) = \e(X^2) - (\e(X))^2$ when $X \sim \uniform(\theta_1,\theta_2)$ with PDF given in Model~\ref{M:Uniformab}.
+\[\e(X) = \frac{\theta_1+\theta_2}{2} \quad \V(\X) = \frac{(\theta_2-\theta_1)^2}{12}\]
+\end{Answer}
 
 \begin{example}[Expected Exponential of the $\uniform(0,1)$ RV]\label{EgExpectedExponentialOfUniform01}
 Let $X \sim \uniform(0,1)$ and $Y=r(X)=e^X$.  Compute $\e(Y)$. 

@@ -1516,24 +1516,24 @@ a useful approximation of more complicated distributions.
 A continuous random variable $Z$ is called \textbf{standard normal} or {\bf standard Gaussian} 
 if its probability density function is
 \begin{equation}\label{E:StandardNormalPdf}
-\varphi(z) = \frac{1}{\sqrt{2\pi}} \exp{\left( -\frac{z^2}{2}\right)} \enspace.
+\phi(z) = \frac{1}{\sqrt{2\pi}} \exp{\left( -\frac{z^2}{2}\right)} \enspace.
 \end{equation}
 \end{model}
 \end{framed}
 
-An exercise in calculus yields the first two derivatives of $\varphi$ as follows:
+An exercise in calculus yields the first two derivatives of $\phi$ as follows:
 \[
-\frac{d \varphi}{dz} = - \frac{1}{\sqrt{2\pi}}z \exp{\left( -\frac{z^2}{2}\right)}=-z\varphi(z), \quad
-\frac{d^2 \varphi}{dz^2} = \frac{1}{\sqrt{2\pi}}(z^2-1) \exp{\left(-\frac{z^2}{2} \right)}=(z^2-1)\varphi(z) \enspace .
+\frac{d \phi}{dz} = - \frac{1}{\sqrt{2\pi}}z \exp{\left( -\frac{z^2}{2}\right)}=-z\phi(z), \quad
+\frac{d^2 \phi}{dz^2} = \frac{1}{\sqrt{2\pi}}(z^2-1) \exp{\left(-\frac{z^2}{2} \right)}=(z^2-1)\phi(z) \enspace .
 \]
-Thus, $\varphi$ has a global maximum at $0$, it is concave down if $z \in (-1,1)$ and concave up if $z \in (-\infty,-1) \cup (1,\infty)$.  
-This shows that the graph of $\varphi$ is shaped like a smooth symmetric bell centred at the origin over the real line.
+Thus, $\phi$ has a global maximum at $0$, it is concave down if $z \in (-1,1)$ and concave up if $z \in (-\infty,-1) \cup (1,\infty)$.  
+This shows that the graph of $\phi$ is shaped like a smooth symmetric bell centred at the origin over the real line.
 
 
 \begin{classwork}\label{xDrawPDFOfStdNormal}
-From the above exercise in calculus let us draw the graph of $\varphi$ by hand now!
+From the above exercise in calculus let us draw the graph of $\phi$ by hand now!
 
-Do it step by step: $z^2$, $-z^2$, $-z^2/2$, $\exp(-z^2/2)$, $\varphi(z) = \frac{1}{\sqrt{2\pi}} \exp(-z^2/2)$ now! 
+Do it step by step: $z^2$, $-z^2$, $-z^2/2$, $\exp(-z^2/2)$, $\phi(z) = \frac{1}{\sqrt{2\pi}} \exp(-z^2/2)$ now! 
 \vspace*{20mm}
 \end{classwork}
 
@@ -1895,7 +1895,7 @@ We can similarly show that for a parameter $\lambda>0$, if $X \sim \uniform(0,1)
 
 The next example yields the {\emph location-scale family} of normal random variables via a family of linear transformations of the standard normal random variable.
 \begin{example}\label{Eg:LinearTransfStdGaussianGaussian}
-Let $Z$ be the standard Gaussian or standard normal random variable with probability density function $\varphi(z)$ given by Equation~\eqref{E:StandardNormalPdf}.  
+Let $Z$ be the standard Gaussian or standard normal random variable with probability density function $\phi(z)$ given by Equation~\eqref{E:StandardNormalPdf}.  
 For real numbers $\sigma > 0$ and $\mu$ consider the linear transformation of $Z$ given by 
 $$Y = g(Z) = \sigma Z +\mu \enspace .$$
 Some graphs of such linear transformations of $Z$ are shown in Figures~(a) and (b).
@@ -1907,7 +1907,7 @@ Some graphs of such linear transformations of $Z$ are shown in Figures~(a) and (
 \end{figure}
 
 We are interested in the density of the tranformed random variable $Y=g(Z)=\sigma Z + \mu$.  
-Once again, since $g$ is a one-to-one monotone function let us follow the four steps and use the change of variable formula to obtain $f_Y$ from $f_Z=\varphi$ and $g$.
+Once again, since $g$ is a one-to-one monotone function let us follow the four steps and use the change of variable formula to obtain $f_Y$ from $f_Z=\phi$ and $g$.
 \begin{enumerate}
 \item $y=g(z)=\sigma z + \mu$ is a monotone increasing function over $-\infty < z < \infty$, the range of $Z$.  
 So, we can apply the change of variable formula. 
@@ -1920,11 +1920,11 @@ $-\infty < y < \infty$.
 = \left\vert \frac{1}{\sigma} \right\vert = \frac{1}{\sigma} \enspace .
 \]
 \item we can use Equation~\eqref{E:f_YFromf_X_Under_one-to-one-g} and Equation~\eqref{E:StandardNormalPdf} which gives
-$$f_Z(z) = \varphi(z) = \frac{1}{\sqrt{2\pi}} \exp{\left( -\frac{z^2}{2}\right)} \enspace,$$
+$$f_Z(z) = \phi(z) = \frac{1}{\sqrt{2\pi}} \exp{\left( -\frac{z^2}{2}\right)} \enspace,$$
 to find the density of $Y$ as follows:
 \[
 f_Y(y) = f_Z \left( g^{-1}(y) \right) \left\vert \frac{d}{dy} g^{-1}(y) \right\vert 
-= \varphi \left( \frac{y - \mu}{\sigma} \right) \frac{1}{\sigma}
+= \phi \left( \frac{y - \mu}{\sigma} \right) \frac{1}{\sigma}
 = \frac{1}{\sigma \sqrt{2 \pi}} \exp \left[-\frac{1}{2} \left( \frac{y-\mu}{\sigma} \right)^2 \right] \enspace ,
 \]
 for $-\infty < y < \infty$. 
@@ -2074,7 +2074,7 @@ f_Y(y) =
 
 \begin{example}\label{Eg:SquaredStdNormalIsChiSquared}
 {If $X$ is the standard normal random variable with density 
-$$f_X(x) = \varphi(x) = \frac{1}{\sqrt{2 \pi}} \exp{(-x^2/2)}$$ 
+$$f_X(x) = \phi(x) = \frac{1}{\sqrt{2 \pi}} \exp{(-x^2/2)}$$ 
 then by Equation~\eqref{E:f_YofX^2} the density of $Y=X^2$ is:
 \[
 f_Y(y) = 
@@ -3723,10 +3723,10 @@ Thus CF is a powerful tool for analytical results involving random variables
 (\href{http://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)}{more}).
 
 \begin{definition}[Characteristic Function (CF)]
-Let $X$ be a RV and $\imath=\sqrt{-1}$. The function $\phi_X(t) : \Rz \to \Cz$ defined by
+Let $X$ be a RV and $\imath=\sqrt{-1}$. The function $\cf_X(t) : \Rz \to \Cz$ defined by
 \begin{equation}\label{E:CF}
 \boxed{
-\phi_X(t) := E \left( \exp \left( \imath t X\right) \right) = 
+\cf_X(t) := E \left( \exp \left( \imath t X\right) \right) = 
 \begin{cases}
 \sum_{x} \exp \left( \imath t x\right) f_X(x) & \text{ if $X$ is discrete RV}\\
 \int_{-\infty}^{\infty} \exp \left( \imath t x\right) f_X(x) dx & \text{ if $X$ is continuous RV}
@@ -3737,9 +3737,9 @@ is called the {\bf characteristic function} of $X$.
 \end{definition}
 
 NOTE: 
-$\phi_X(t)$ exists for any $t \in \Rz$, because
+$\cf_X(t)$ exists for any $t \in \Rz$, because
 \begin{align*}
-\phi_X(t) 
+\cf_X(t) 
 &= E \left( \exp \left( \imath t X\right) \right) \\
 &= E \left( \cos(tX)+ \imath \sin(tX) \right)\\
 &= E \left( \cos(tX) \right) + \imath E \left(\sin(tX) \right)
@@ -3769,12 +3769,12 @@ The characteristic function can be used to derive the moments of $X$ due to the 
 
 \begin{framed}
 \begin{prop}[Moment \& CF.]
-Let $X$ be a random variable and $\phi_X(t)$ be its CF.  
-If $E(X^k)$ exists and is finite, then $\phi_X(t)$ is $k$ times continuously differentiable and
+Let $X$ be a random variable and $\cf_X(t)$ be its CF.  
+If $E(X^k)$ exists and is finite, then $\cf_X(t)$ is $k$ times continuously differentiable and
 \begin{equation*}
-E(X^k) = \frac{1}{\imath^k} \left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0} \enspace .
+E(X^k) = \frac{1}{\imath^k} \left[\frac{d^k \cf_X(t)}{dt^k}\right]_{t=0} \enspace .
 \end{equation*}
-where $\left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0}$ is the $k$-th derivative of $\phi_X(t)$ with respect to $t$, evaluated at the point $t=0$.
+where $\left[\frac{d^k \cf_X(t)}{dt^k}\right]_{t=0}$ is the $k$-th derivative of $\cf_X(t)$ with respect to $t$, evaluated at the point $t=0$.
 \end{prop}
 \end{framed}
 
@@ -3782,7 +3782,7 @@ where $\left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0}$ is the $k$-th derivative o
 The proper proof is very messy so we just give a sketch of the ideas in the proof.  
 Due to the linearity of the expectation (integral) and the derivative operators, we can change the order of operations:
 \begin{align*}
-\frac{d^k \phi_X(t)}{dt^k}
+\frac{d^k \cf_X(t)}{dt^k}
 &= \frac{d^k}{dt^k} E(\exp(\imath t X))
 = E \left( \frac{d^k}{dt^k} \exp(\imath t X) \right)
 = E \left( (\imath X)^k \exp(\imath t X) \right)
@@ -3790,7 +3790,7 @@ Due to the linearity of the expectation (integral) and the derivative operators,
 \end{align*}
 The RHS evaluated at $t=0$ is
 \[
-\left[ \frac{d^k \phi_X(t)}{dt^k} \right]_{t=0}
+\left[ \frac{d^k \cf_X(t)}{dt^k} \right]_{t=0}
 = \left[ \imath^k E \left( X^k \exp(\imath t X) \right) \right]_{t=0} 
 = \imath^k E \left( X^k \right)
 \]
@@ -3802,17 +3802,17 @@ When one wants to compute a moment of a random variable, what we need is the fol
 
 \begin{framed}
 \begin{prop}[{\bf Moments from CF.}]
-Let $X$ be a random variable and $\phi_X(t)$ be its CF.  
-If $\phi_X(t)$ is $k$ times differentiable at the point $t=0$, then
+Let $X$ be a random variable and $\cf_X(t)$ be its CF.  
+If $\cf_X(t)$ is $k$ times differentiable at the point $t=0$, then
 \be
 \item if $k$ is even, the $n$-th moment of $X$ exists and is finite for any $0 \leq n \leq k$;
 \item if $k$ is odd, the $n$-th moment of $X$ exists and is finite for any $0 \leq n \leq k-1$.
 \ee
 In both cases,
 \begin{equation}\label{E:CFToMoments}
-E(X^k) = \frac{1}{\imath^k} \left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0} \enspace .
+E(X^k) = \frac{1}{\imath^k} \left[\frac{d^k \cf_X(t)}{dt^k}\right]_{t=0} \enspace .
 \end{equation}
-where $\left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0}$ is the $k$-th derivative of $\phi_X(t)$ with respect to $t$, evaluated at the point $t=0$.
+where $\left[\frac{d^k \cf_X(t)}{dt^k}\right]_{t=0}$ is the $k$-th derivative of $\cf_X(t)$ with respect to $t$, evaluated at the point $t=0$.
 \end{prop}
 \end{framed}
 
@@ -3841,7 +3841,7 @@ f_X(x;\theta) =
 \]
 Let's first find the CF of $X$
 \begin{align*}
-\phi_X(t)
+\cf_X(t)
 &= E \left( \exp(\imath t X) \right) 
 = \sum_x  \exp(\imath t x) f_X(x;\theta) \qquad \text{By Defn.~in Equation~\eqref{E:CF}}\\
 &= \exp(\imath t \times 0) (1-\theta) + \exp(\imath t \times 1) \theta 
@@ -3853,15 +3853,15 @@ Let's first find the CF of $X$
 
 Let's differentiate CF 
 \begin{align*}
-\frac{d}{dt}\phi_X(t)
+\frac{d}{dt}\cf_X(t)
 &= \frac{d}{dt}\left(1-\theta + \theta e^{\imath t} \right) 
 =  \theta \imath \exp(\imath t)
 \end{align*}
 
-We get $E(X)$ by evaluating $\frac{d}{dt}\phi_X(t)$ at $t=0$ and dividing by $\imath$ according to Equation~\eqref{E:CFToMoments} as follows:
+We get $E(X)$ by evaluating $\frac{d}{dt}\cf_X(t)$ at $t=0$ and dividing by $\imath$ according to Equation~\eqref{E:CFToMoments} as follows:
 \begin{align*}
 E(X)
-&= \frac{1}{\imath} \left[ \frac{d}{dt}\phi_X(t) \right]_{t=0} 
+&= \frac{1}{\imath} \left[ \frac{d}{dt}\cf_X(t) \right]_{t=0} 
 = \frac{1}{\imath} \left[ \theta \imath \exp(\imath t) \right]_{t=0} 
 = \frac{1}{\imath} \left( \theta \imath \exp(\imath 0) \right) 
 =  \theta \enspace.
@@ -3869,8 +3869,8 @@ E(X)
 Similarly from Equation~\eqref{E:CFToMoments} we can get $E(X^2)$ as follows:
 \begin{align*}
 E(X^2)
-&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\phi_X(t) \right]_{t=0} 
-= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{d}{dt} \phi_X(t) \right]_{t=0} 
+&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\cf_X(t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{d}{dt} \cf_X(t) \right]_{t=0} 
 = \frac{1}{\imath^2} \left[ \frac{d}{dt} \theta \imath \exp(\imath t) \right]_{t=0}\\ 
 &= \frac{1}{\imath^2} \left[ \theta \imath^2 \exp(\imath t) \right]_{t=0} 
 = \frac{1}{\imath^2} \left( \theta \imath^2 \exp(\imath 0) \right) 
@@ -3898,7 +3898,7 @@ We will use the fact that
 $$\int_0^{\infty} \alpha e^{-\alpha x} dx = \left[ -e^{-\alpha x} \right]_0^{\infty} = 1$$
 
 \begin{align*}
-\phi_X(t)
+\cf_X(t)
 &= E(\exp(\imath X t))
 = E\left( e^{\imath X t} \right)
 = \int_{-\infty}^{\infty} e^{\imath x t} \lambda e^{-\lambda x} dx
@@ -3911,7 +3911,7 @@ where $\alpha = \lambda-\imath t$ with $\lambda > 0$.
 
 Alternatively, you can use $e^{\imath t x} = \cos(tx)+\imath \sin(tx)$ and do integration by parts to arrive at the same answer starting from:
 \begin{align*}
-\phi_X(t)
+\cf_X(t)
 &= \int_{-\infty}^{\infty} e^{\imath x t} \lambda e^{-\lambda x} dx
 = \int_{-\infty}^{\infty} \cos(t x) e^{-\lambda x} dx + \imath \int_{-\infty}^{\infty} \sin(t x) e^{-\lambda x} dx
 \vdots 
@@ -3922,17 +3922,17 @@ Alternatively, you can use $e^{\imath t x} = \cos(tx)+\imath \sin(tx)$ and do in
 
 Let us differentiate the CF to get moments using Equation~\eqref{E:CFToMoments} (CF has to be once and twice differentiable at $t=0$ to get the first and second moments).
 \begin{align*}
-\frac{d}{dt}\phi_X(t)
+\frac{d}{dt}\cf_X(t)
 &= \frac{d}{dt}\left( \frac{\lambda}{\lambda-\imath t} \right) 
 = \lambda \left( -1 \times (\lambda-\imath t)^{-2} \times \frac{d}{dt} (\lambda-\imath t) \right) \\
 &= \lambda \left( \frac{-1}{(\lambda-\imath t)^{2}} \times (-\imath ) \right) 
 = \frac{\lambda \imath}{(\lambda-\imath t)^{2}} 
 \end{align*}
 
-We get $E(X)$ by evaluating $\frac{d}{dt}\phi_X(t)$ at $t=0$ and dividing by $\imath$ according to Equation~\eqref{E:CFToMoments} as follows:
+We get $E(X)$ by evaluating $\frac{d}{dt}\cf_X(t)$ at $t=0$ and dividing by $\imath$ according to Equation~\eqref{E:CFToMoments} as follows:
 \begin{align*}
 E(X)
-&= \frac{1}{\imath} \left[ \frac{d}{dt}\phi_X(t) \right]_{t=0} 
+&= \frac{1}{\imath} \left[ \frac{d}{dt}\cf_X(t) \right]_{t=0} 
 = \frac{1}{\imath} \left[ \frac{\lambda \imath}{(\lambda-\imath t)^{2}} \right]_{t=0} 
 = \frac{1}{\imath} \left( \frac{\lambda \imath}{\lambda^{2}} \right) 
 = \frac{1}{\imath} \left( \frac{\imath}{\lambda} \right) 
@@ -3944,8 +3944,8 @@ Let's pause and see if this makes sense.... Yes, because the expected value of $
 Similarly from Equation~\eqref{E:CFToMoments} we can get $E(X^2)$ as follows:
 \begin{align*}
 E(X^2)
-&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\phi_X(t) \right]_{t=0} 
-= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{d}{dt} \phi_X(t) \right]_{t=0} 
+&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\cf_X(t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{d}{dt} \cf_X(t) \right]_{t=0} 
 = \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{\lambda \imath}{(\lambda-\imath t)^{2}} \right]_{t=0} \\
 &= \frac{1}{\imath^2} \left[ \lambda \imath \times \frac{d}{dt} {(\lambda-\imath t)^{-2}} \right]_{t=0} 
 = \frac{1}{\imath^2} \left[ \lambda \imath \left( -2(\lambda-\imath t)^{-3} \frac{d}{dt} {(\lambda-\imath t)} \right) \right]_{t=0}\\ 
@@ -3965,14 +3965,14 @@ Let's check that this is what we had as variance for the $\exponential(\lambda)$
 
 Characteristic functions can be used to characterize the distribution of a random variable.
 
-Two RVs $X$ and $Y$ have the same DFs , i.e., $F_X(x) = F_Y(x)$ for all $x \in \Rz$, if and only if they have the same characteristic functions, i.e. $\phi_X(t) = \phi_Y(t)$ for all $t \in \Rz$ (for proof see Resnick, S. I. (1999) A Probability Path, Birkhauser). 
+Two RVs $X$ and $Y$ have the same DFs , i.e., $F_X(x) = F_Y(x)$ for all $x \in \Rz$, if and only if they have the same characteristic functions, i.e. $\cf_X(t) = \cf_Y(t)$ for all $t \in \Rz$ (for proof see Resnick, S. I. (1999) A Probability Path, Birkhauser). 
 
 Thus, if we can show that two RVs have the same CF then we know they are the same.  This can be much more challenging or impossible to do directly with their DFs.
 
 Let $Z$ be $\normal(0,1)$, the standard normal RV.
 We can find the CF for $Z$ using couple of tricks as follows
 \begin{align*}
-\phi_Z(t)
+\cf_Z(t)
 &= E\left(e^{\imath t Z} \right)\\
 &= \int_{-\infty}^{\infty} e^{\imath t z} f_Z(z) dz = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{\imath t z} e^{-z^2/2} dz = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{\imath t z -z^2/2} dz \\
 &= \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{-(t^2 + (z - \imath t)^2)/2} dz = e^{-t^2/2} \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{ -(z - \imath t)^2/2} dz \\
@@ -3984,12 +3984,12 @@ We can find the CF for $Z$ using couple of tricks as follows
 Thus the CF of the standard normal RV $Z$ is
 \begin{equation}\label{E:cfStandardNormal}
 \boxed{
-\phi_Z(t) = e^{-t^2/2}
+\cf_Z(t) = e^{-t^2/2}
 }
 \end{equation}
 
 
-Let $X$ be a RV with CF $\phi_X(t)$.  Let $Y$ be a linear transformation of $X$
+Let $X$ be a RV with CF $\cf_X(t)$.  Let $Y$ be a linear transformation of $X$
 \[
 Y= a + bX
 \]
@@ -3997,20 +3997,20 @@ where $a$ and $b$ are two constant real numbers and $b \neq 0$.
 Then the CF of $Y$ is
 \begin{equation}\label{E:cfofLinearTransformation}
 \boxed{
-\phi_Y(t) = \exp(\imath a t) \phi_X(b t)
+\cf_Y(t) = \exp(\imath a t) \cf_X(b t)
 }
 \end{equation}
 
 \begin{proof}
 This is easy to prove using the definition of CF as follows:
 \begin{align*}
-\phi_Y(t)
+\cf_Y(t)
 &= E\left(\exp(\imath t Y) \right)
 = E\left(\exp(\imath t (a + bX) ) \right)
 = E\left(\exp(\imath t a + \imath t b X) \right)\\
 &= E\left(\exp(\imath t a) \exp(\imath t b X) \right)
 = \exp(\imath t a) E\left( \exp(\imath t b X) \right)
-= \exp(\imath t a) \phi_X(b t)
+= \exp(\imath t a) \cf_X(b t)
 \end{align*}
 \end{proof}
 
@@ -4022,9 +4022,9 @@ Using Equations~\eqref{E:cfStandardNormal} and \eqref{E:cfofLinearTransformation
 Solution:
 
 \begin{align*}
-\phi_Y(t) 
-& = \exp(\imath \mu t) \phi_Z(\sigma t), \qquad \text{ since $Y = \mu + \sigma Z$}\\
-& = e^{\imath \mu t} e^{(-\sigma^2 t^2)/2}, \qquad \text{ since $\phi_Z(t)=e^{-t^2/2}$}\\
+\cf_Y(t) 
+& = \exp(\imath \mu t) \cf_Z(\sigma t), \qquad \text{ since $Y = \mu + \sigma Z$}\\
+& = e^{\imath \mu t} e^{(-\sigma^2 t^2)/2}, \qquad \text{ since $\cf_Z(t)=e^{-t^2/2}$}\\
 & = e^{\imath \mu t - (\sigma^2 t^2)/2}
 \end{align*}
 \end{example}
@@ -4034,10 +4034,10 @@ A generalization of \eqref{E:cfofLinearTransformation} is the following.
 If $X_1,X_2,\ldots,X_n$ are independent RVs and $a_1,a_2,\ldots,a_n$ are some constants, then the CF of the linear combination $Y=\sum_{i=1}^n a_i X_i$ is
 \begin{equation}\label{E:LinCombCF} 
 \boxed{
-\phi_Y (t) = \phi_{X_1} (a_1 t) \times \phi_{X_2} (a_2 t) \times \cdots \times \phi_{X_n} (a_n t) = \prod_{i=1}^n \phi_{X_i} (a_i t) \enspace .
+\cf_Y (t) = \cf_{X_1} (a_1 t) \times \cf_{X_2} (a_2 t) \times \cdots \times \cf_{X_n} (a_n t) = \prod_{i=1}^n \cf_{X_i} (a_i t) \enspace .
 }
 \end{equation}
-%In other symbols: $$\phi_{\sum_{i=1}^n a_i X_i}(t) = \prod_{i=1}^n \phi_{X_i} (a_i t) \enspace .$o$ 
+%In other symbols: $$\cf_{\sum_{i=1}^n a_i X_i}(t) = \prod_{i=1}^n \cf_{X_i} (a_i t) \enspace .$o$ 
 \begin{example}\label{EgCFOfBinomial}
 Using the following three facts:
 \bit 
@@ -4052,8 +4052,8 @@ Solution:
 Let $X_1,X_2,\ldots,X_n$ be independent $\bernoulli(\theta)$ RVs with CF $\left( 1-\theta + \theta e^{\imath t} \right)$ then $Y=\sum_{i=1}^n  X_i$ is the $\binomial(n,\theta)$ RV and by Eqn.~\eqref{E:LinCombCF} 
 with $a_1=a_2=\cdots=1$, we get
 \[
-\phi_Y (t) = \phi_{X_1} ( t) \times \phi_{X_2} (t) \cdots \phi_{X_n} ( t)
-= \prod_{i=1}^n \phi_{X_i} ( t) = \prod_{i=1}^n \left( 1-\theta + \theta e^{\imath t} \right)
+\cf_Y (t) = \cf_{X_1} ( t) \times \cf_{X_2} (t) \cdots \cf_{X_n} ( t)
+= \prod_{i=1}^n \cf_{X_i} ( t) = \prod_{i=1}^n \left( 1-\theta + \theta e^{\imath t} \right)
 = \left( 1-\theta + \theta e^{\imath t} \right)^n \enspace . 
 \]
 \end{example}
@@ -4076,7 +4076,7 @@ From the CF of $2Z_1$ identify what RV it is.
 \item~
 Try to understand the difference between the distributions of $Z_1+Z_2$ and $2 Z_1$ inspite of $Z_1$ and $Z_2$ having the same distibution.
 \ee
-{Hint: from lectures we know that $\phi_X(t) = e^{\imath \mu t - (\sigma^2 t^2)/2}$ for a $\normal(\mu,\sigma^2)$ RV $X$.}
+{Hint: from lectures we know that $\cf_X(t) = e^{\imath \mu t - (\sigma^2 t^2)/2}$ for a $\normal(\mu,\sigma^2)$ RV $X$.}
 
 Solution:
 
@@ -4085,7 +4085,7 @@ Solution:
 By Eqn.~\eqref{E:LinCombCF} 
 we just multiply the characteristic functions of $Z_1$ and $Z_2$, both of which are $e^{-t^2/2}$,
 \[
-\phi_{Z_1+Z_2}(t)= \phi_{Z_1}(t) \times \phi_{Z_2}(t) = e^{-t^2/2} \times e^{-t^2/2} = e^{-2t^2/2} = e^{-t^2} \enspace . 
+\cf_{Z_1+Z_2}(t)= \cf_{Z_1}(t) \times \cf_{Z_2}(t) = e^{-t^2/2} \times e^{-t^2/2} = e^{-2t^2/2} = e^{-t^2} \enspace . 
 \]  
 \item~
 The CF of $Z_1+Z_2$ is that of the $\normal(\mu,\sigma^2)$ RV with $\mu=0$ and $\sigma^2=2$.  
@@ -4094,7 +4094,7 @@ Thus $Z_1+Z_2$ is the $\normal(0,2)$ RV with mean parameter $\mu=0$ and variance
 We can again use Eqn.~\eqref{E:LinCombCF} 
 to find the CF of $2Z_1$ as follows
 \[
-\phi_{2Z_1} = \phi_{Z_1}(2 t) = e^{-2^2t^2/2} \enspace .
+\cf_{2Z_1} = \cf_{Z_1}(2 t) = e^{-2^2t^2/2} \enspace .
 \]
 \item~
 The CF of $2Z_1$ is that of the $\normal(\mu,\sigma^2)$ RV with $\mu=0$ and $\sigma^2=2^2=4$.

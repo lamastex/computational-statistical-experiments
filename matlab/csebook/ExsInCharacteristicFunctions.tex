@@ -22,29 +22,29 @@ f_X(x) =
 \be
 \item~The CF of the discrete RV $X$ is
 \begin{align*}
-\phi_X(t) 
+\cf_X(t) 
 &= E(e^{\imath t X}) = \sum_{x\in\{0,1,2\}} e^{\imath t x} f_X(x)
 = e^{\imath t \times 0} \times \frac{1}{3} + e^{\imath t \times 1} \times \frac{1}{3}+e^{\imath t \times 2} \times \frac{1}{3}\\
 &= \frac{1}{3} \left(1+e^{\imath t} + e^{\imath 2 t}\right) \enspace .
 \end{align*}
 
-\item~To find $V(X)$ using $V(X)=E(X^2)-(E(X))^2$ we need the first two moments of $X$.  First, differentiate $\phi_X(t)$ w.r.t.~$t$
+\item~To find $V(X)$ using $V(X)=E(X^2)-(E(X))^2$ we need the first two moments of $X$.  First, differentiate $\cf_X(t)$ w.r.t.~$t$
 \begin{align*}
-\frac{d}{dt}\phi_X(t)
+\frac{d}{dt}\cf_X(t)
 = \frac{d}{dt} \left( \frac{1}{3} \left(1+e^{\imath t} + e^{\imath 2 t}\right) \right)
 = \frac{1}{3} \left(0+ \imath e^{\imath t} + 2 \imath e^{\imath 2 t} \right)
 = \frac{\imath}{3} \left(e^{\imath t} + 2 e^{\imath 2 t} \right)
 \end{align*}
-We get the $k$-th moment $E(X^k)$ by multiplying the $k$-th derivative of $\phi_X(t)$ evaluated at $t=0$ by $\frac{1}{\imath^k}$ as follows:
+We get the $k$-th moment $E(X^k)$ by multiplying the $k$-th derivative of $\cf_X(t)$ evaluated at $t=0$ by $\frac{1}{\imath^k}$ as follows:
 \begin{align*}
 E(X) 
-= \frac{1}{\imath} \left[ \frac{d}{dt}\phi_X(t) \right]_{t=0} 
+= \frac{1}{\imath} \left[ \frac{d}{dt}\cf_X(t) \right]_{t=0} 
 = \frac{1}{\imath} \left[ \frac{\imath}{3} \left(e^{\imath t} + 2 e^{\imath 2 t} \right)\right]_{t=0} 
 = \frac{1}{\imath} \frac{\imath}{3} \left(e^0+2e^0\right) = \frac{1}{3}(1+2)=1 \enspace .
 \end{align*}
 \begin{align*}
 E(X^2) 
-&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\phi_X(t) \right]_{t=0} 
+&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\cf_X(t) \right]_{t=0} 
 = \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{\imath}{3} \left(e^{\imath t} + 2 e^{\imath 2 t} \right) \right]_{t=0}
 = \frac{1}{\imath^2} \left[ \frac{\imath}{3} \left(\imath e^{\imath t} + 4 \imath e^{\imath 2 t} \right) \right]_{t=0}\\
 & = \frac{1}{3} \left(e^0 + 4 e^0\right) = \frac{5}{3} \enspace .
@@ -73,7 +73,7 @@ f_X(x;\theta) =
 \be
 \item~
 \[
-\phi_X(t) = E \left(e^{\imath t X}\right) = \sum_{x=0}^{\infty} e^{\imath t x}\theta(1-\theta)^x
+\cf_X(t) = E \left(e^{\imath t X}\right) = \sum_{x=0}^{\infty} e^{\imath t x}\theta(1-\theta)^x
 = \sum_{x=0}^{\infty} \theta \left(e^{\imath t} (1-\theta)\right)^x = \frac{\theta}{1-e^{\imath t} (1-\theta)} \enspace .
 \]
 The last equality is due to $\sum_{x=0}^{\infty} a r^x = \frac{a}{1-r}$ with $a=\theta$ and $r=e^{\imath t} (1-\theta)$.
@@ -103,7 +103,7 @@ Find the CF of $X$.
 \Answer
 ~\\
 \begin{align*}
-\phi_X(t) 
+\cf_X(t) 
 &= E\left( e^{\imath t X} \right) 
 = \int_{-\infty}^{\infty} e^{\imath t x} f_X(x;a,b) dx
 = \int_{a}^{b} e^{\imath t x} \frac{1}{b-a} dx
@@ -117,7 +117,7 @@ Find the CF of $X$.
 
 %A nice property of CFs we will use for some of the exercises below is the following.  If $X_1,X_2,\ldots,X_n$ are independent RVs and $a_1,a_2,\ldots,a_n$ are some constants, then the CF of the linear combination $Y=\sum_{i=1}^n a_i X_i$ is
 %\begin{equation}\label{E:LinCombCFtut}
-%\phi_Y (t) = \phi_{X_1} (a_1 t) \times \phi_{X_2} (a_2 t) \times \cdots \times \phi_{X_n} (a_n t) = \prod_{i=1}^n \phi_{X_i} (a_i t) \enspace .
+%\cf_Y (t) = \cf_{X_1} (a_1 t) \times \cf_{X_2} (a_2 t) \times \cdots \times \cf_{X_n} (a_n t) = \prod_{i=1}^n \cf_{X_i} (a_i t) \enspace .
 %\end{equation}
 
 Recall that the $\poisson(\lambda)$ RV has the following PMF
@@ -140,7 +140,7 @@ Find the variance of $X$ using its CF.
 \be
 \item~
 \[
-\phi_X(t) = E\left(e^{\imath t X}\right)
+\cf_X(t) = E\left(e^{\imath t X}\right)
 = \sum_{x=0}^{\infty} e^{\imath t x} \frac{\lambda^x}{x!}e^{-\lambda}
 = e^{-\lambda} \sum_{x=0}^{\infty} \frac{e^{\imath t x} \lambda^x}{x!}
 = e^{-\lambda} \sum_{x=0}^{\infty} \frac{\left(\lambda e^{\imath t}\right)^x}{x!}
@@ -148,10 +148,10 @@ Find the variance of $X$ using its CF.
 \]
 The second-last equality above is using $e^{\alpha} = \sum_{x=0}^{\infty} \frac{\alpha^x}{x!}$ with $\alpha=\lambda e^{\imath t}$.
 \item~
-To find $V(X)$ using $\phi_X(t)$ we need $E(X)$ and $E(X^2)$.
+To find $V(X)$ using $\cf_X(t)$ we need $E(X)$ and $E(X^2)$.
 \begin{align*}
 E(X) 
-&= \frac{1}{\imath} \left[ \frac{d}{dt} \phi_X(t) \right]_{t=0}
+&= \frac{1}{\imath} \left[ \frac{d}{dt} \cf_X(t) \right]_{t=0}
 = \frac{1}{\imath} \left[ \frac{d}{dt} e^{\lambda e^{\imath t} - \lambda} \right]_{t=0}
 = \frac{1}{\imath} \left[ e^{\lambda e^{\imath t} - \lambda} \frac{d}{dt} \left(\lambda e^{\imath t} - \lambda \right) \right]_{t=0}\\
 &= \frac{1}{\imath} \left[ e^{\lambda e^{\imath t} - \lambda} \lambda \imath e^{\imath t} \right]_{t=0}
@@ -160,7 +160,7 @@ E(X)
 \end{align*}
 \begin{align*}
 E(X^2) 
-&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2} \phi_X(t) \right]_{t=0}
+&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2} \cf_X(t) \right]_{t=0}
 = \frac{1}{\imath^2} \left[ \frac{d}{dt} \left( e^{\lambda e^{\imath t} - \lambda} \lambda \imath e^{\imath t} \right) \right]_{t=0}
 = \frac{1}{\imath^2} \left[ \frac{d}{dt} \left( \lambda \imath e^{\lambda e^{\imath t} - \lambda + \imath t} \right) \right]_{t=0}\\
 &= \frac{1}{\imath^2} \left[ \lambda \imath e^{\lambda e^{\imath t} - \lambda + \imath t} \frac{d}{dt} \left( \lambda e^{\imath t} - \lambda + \imath t \right) \right]_{t=0}
@@ -185,7 +185,7 @@ From the CF of $W$ try to identify what RV it is.
 \Answer
 ~\\
 \[
-\phi_{W}(t) = \phi_{X+Y}(t) = \phi_X(t) \times \phi_Y(t) 
+\cf_{W}(t) = \cf_{X+Y}(t) = \cf_X(t) \times \cf_Y(t) 
 = e^{\lambda e^{\imath t}-\lambda} \times e^{\mu e^{\imath t}-\mu}
 = e^{\lambda e^{\imath t}-\lambda + \mu e^{\imath t}-\mu} 
 = e^{(\lambda+\mu) e^{\imath t} -(\lambda+\mu)} \enspace . 
@@ -193,16 +193,16 @@ From the CF of $W$ try to identify what RV it is.
 So, $W$ is a $\poisson(\lambda+\mu)$ RV. Thus the sum of two independent Poisson RVs is also a Poisson RV with parameter given by the sum of the parameters of the two RVs being added.  The same idea generalizes to the sum of more than two Poisson RVs. 
 
 \Exercise
-Recall from lecture that if $Y=a+bX$ for some constants $a$ and $b$ with $b\neq 0$ then $\phi_Y(t) = e^{\imath a t} \phi_X(bt)$ and that $\phi_Z(t)=e^{-t^2/2}$ if $Z$ is the $\normal(0,1)$ RV.  
+Recall from lecture that if $Y=a+bX$ for some constants $a$ and $b$ with $b\neq 0$ then $\cf_Y(t) = e^{\imath a t} \cf_X(bt)$ and that $\cf_Z(t)=e^{-t^2/2}$ if $Z$ is the $\normal(0,1)$ RV.  
 Using these facts find the CF of $-Z$, the RV obtained from $Z$ by simply switching its sign.
 From the CF of $-Z$ identify what RV it is.
 \Answer
 ~\\
 We can use the facts by noting $Y=-Z = 0 + (-1) \times Z$, with $a=0$ and $b=-1$ in $Y=a+bX$ and get
 \[
-\phi_{Y}(t) = e^{\imath \times 0 \times t} \phi_Z(-1 \times t) = \phi_Z(-t) = e^{-((-1 \times t))^2/2} = e^{-t^2/2} = \phi_Z(t)
+\cf_{Y}(t) = e^{\imath \times 0 \times t} \cf_Z(-1 \times t) = \cf_Z(-t) = e^{-((-1 \times t))^2/2} = e^{-t^2/2} = \cf_Z(t)
 \]
-Thus, $\phi_{-Z}(t) = \phi_Z(t)$ and therefore the distributions of $Z$ and $-Z$ are the same. This should make sense because by switching signs of a symmetric (about $0$) RV you have not changed its distribution!  Note: we are not saying $Z=-Z$ but just that their distibutions are the same, i.e., $F_Z(z) = F_{-Z}(z)$ for every $z \in \Rz$.
+Thus, $\cf_{-Z}(t) = \cf_Z(t)$ and therefore the distributions of $Z$ and $-Z$ are the same. This should make sense because by switching signs of a symmetric (about $0$) RV you have not changed its distribution!  Note: we are not saying $Z=-Z$ but just that their distibutions are the same, i.e., $F_Z(z) = F_{-Z}(z)$ for every $z \in \Rz$.
 
 \end{ExerciseList}
 

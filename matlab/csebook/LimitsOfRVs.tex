@@ -328,8 +328,8 @@ since $\e(X_1)$ is just a constant, i.e., a $\pointmass$ RV that puts all of its
 Second, the CF of $\ol{X}_n$ is 
 \begin{align*}
 \e \left( e^{\imath t \ol{X}_n}\right)
-&= \e \left( e^{\imath t \frac{1}{n} \sum_{k=1}^n X_k} \right) = \e \left( \prod_{k=1}^n e^{\imath t X_k/n} \right) = \prod_{k=1}^n \e \left( e^{\imath t X_k/n} \right) = \prod_{k=1}^n \phi_{X_k}(t/n)\\ 
-&= \prod_{k=1}^n \phi_{X_1}(t/n) =\left(\phi_{X_1}(t/n)\right)^n \enspace .
+&= \e \left( e^{\imath t \frac{1}{n} \sum_{k=1}^n X_k} \right) = \e \left( \prod_{k=1}^n e^{\imath t X_k/n} \right) = \prod_{k=1}^n \e \left( e^{\imath t X_k/n} \right) = \prod_{k=1}^n \cf_{X_k}(t/n)\\ 
+&= \prod_{k=1}^n \cf_{X_1}(t/n) =\left(\cf_{X_1}(t/n)\right)^n \enspace .
 \end{align*}
 
 Let us recall Landau's ``small o'' notation for the relation between two functions.  
@@ -339,11 +339,11 @@ For example, $\log(x)$ is $o(x)$, $x^2$ is $o(x^3)$ and $x^m$ is $o(x^{m+1})$ fo
 
 Third, we can expand any CF whose expectation exists as a Taylor series with a remainder term that is $o(t)$ as follows:
 \[
-\phi_X(t) = 1 + \imath t \e(X) + o(t) \enspace .
+\cf_X(t) = 1 + \imath t \e(X) + o(t) \enspace .
 \]
 Hence,
 \[
-\phi_{X_1}(t/n) = 1 + \imath \frac{t}{n} \e(X_1) + o\left(\frac{t}{n}\right) 
+\cf_{X_1}(t/n) = 1 + \imath \frac{t}{n} \e(X_1) + o\left(\frac{t}{n}\right) 
 \]
 and
 \[
@@ -638,7 +638,7 @@ U_n := \frac{\ol{X}_n-E(X_1)}{\sqrt{V(X_1)/n}}
 converges to the CF of $Z$, the $\normal(0,1)$ RV.  
 First, note from Equation~\eqref{E:cfStandardNormal} that the CF of $Z \sim \normal(0,1)$ is:
 \[
-\phi_Z(t) = E \left( e^{\imath t Z}\right) = e^{-t^2/2} \enspace .
+\cf_Z(t) = E \left( e^{\imath t Z}\right) = e^{-t^2/2} \enspace .
 \]
 Second, 
 \[
@@ -648,7 +648,7 @@ U_n := \frac{\ol{X}_n-E(X_1)}{\sqrt{V(X_1)/n}}
 \]
 Therefore, the CF of $U_n$ is
 \begin{align*}
-\phi_{U_n}(t) 
+\cf_{U_n}(t) 
 &= E\left( \exp\left({\imath t U_n}\right)\right)
 = E \left( \exp\left({\imath \frac{t}{\sqrt{n}}\sum_{k=1}^n \frac{X_k - E(X_1)}{\sqrt{V(X_1)}} }\right)\right)
 = \prod_{k=1}^n E \left( \exp \left( \imath \frac{t}{\sqrt{n}} \frac{X_k - E(X_1)}{\sqrt{V(X_1)}} \right) \right)\\
@@ -664,23 +664,23 @@ E(Y) = 0 \, , \quad E(Y^2)=1 \, , \text{and} \quad V(Y)=1 \enspace .
 \]
 So, the CF of $U_n$ is
 \[
-\phi_{U_n}(t) = \left( \phi_Y\left(\frac{t}{\sqrt{n}}\right)\right)^n \enspace ,
+\cf_{U_n}(t) = \left( \cf_Y\left(\frac{t}{\sqrt{n}}\right)\right)^n \enspace ,
 \]
-and since we can Taylor expand $\phi_Y(t)$ as follows: 
+and since we can Taylor expand $\cf_Y(t)$ as follows: 
 \[
-\phi_Y(t) = 1 + \imath t E(Y) + \imath^2 \frac{t^2}{2} E(Y^2) + o(t^2) \enspace,
+\cf_Y(t) = 1 + \imath t E(Y) + \imath^2 \frac{t^2}{2} E(Y^2) + o(t^2) \enspace,
 \]
 which implies
 \[
-\phi_Y\left(\frac{t}{\sqrt{n}}\right) = 1 + \frac{\imath t}{\sqrt{n}} E(Y) + \frac{\imath^2 t^2}{2n}  E(Y^2) + o\left(\frac{t^2}{n}\right) \enspace,
+\cf_Y\left(\frac{t}{\sqrt{n}}\right) = 1 + \frac{\imath t}{\sqrt{n}} E(Y) + \frac{\imath^2 t^2}{2n}  E(Y^2) + o\left(\frac{t^2}{n}\right) \enspace,
 \]
 we finally get
 \[
-\phi_{U_n}(t) 
-= \left( \phi_Y \left(\frac{t}{\sqrt{n}}\right) \right)^n
+\cf_{U_n}(t) 
+= \left( \cf_Y \left(\frac{t}{\sqrt{n}}\right) \right)^n
 = \left( 1 +  \frac{\imath t}{\sqrt{n}} \times 0 + \frac{\imath^2 t^2}{2n}  \times 1 + o\left(\frac{t^2}{n}\right) \right)^n
 = \left( 1 - \frac{t^2}{2n} + o\left(\frac{t^2}{n}\right) \right)^n
-\to e^{-t^2/2} = \phi_Z(t) \enspace .
+\to e^{-t^2/2} = \cf_Z(t) \enspace .
 \]
 For the last limit we have used $\left( 1+\frac{x}{n}\right)^n \to e^x$ as $n \to \infty$.  
 Thus, we have proved Equation~\eqref{E:CLTStd} which is equivalent to Equation~\eqref{E:CLT} by a standardization argument that if $W \sim \normal(\mu,\sigma^2)$ then $Z=\frac{W-\mu}{\sigma} \sim \normal(0,1)$ through the linear transformation $W=\sigma Z + \mu$ of Example~\ref{Eg:LinearTransfStdGaussianGaussian}.

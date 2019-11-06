@@ -48,9 +48,9 @@ Written examination at the end of the course combined with written assignments d
 
 \clearpage
 
-\section*{Time Table \& Course Overview -- In Progress}
+\section*{Time Table -- Prob.~Theor.~I}
 \begin{table}[hbt]
-\addcontentsline{toc}{chapter}{Time Table}
+\addcontentsline{toc}{chapter}{1MS034 Time Table}
 \centering
 (KEY,VALUE): (EX, Exercise), (RD, Read), (RW, Review), (UD, Understand), (PM, Program)
 \caption{Time Table for Virtual Student of Probability Theory I} \label{T:TTCB}
@@ -134,14 +134,26 @@ EXs~\ref{Exs:onRV}
  } \\
 \end{table}
 
+\clearpage
+
+\section*{Time Table -- Inf.~Theor.~I}
 \begin{table}[hbt]
+\addcontentsline{toc}{chapter}{1MS035 Time Table}
 \centering
+(KEY,VALUE): (EX, Exercise), (RD, Read), (RW, Review), (UD, Understand), (PM, Program)
 \caption{Time Table for Inference Theory I} \label{T:TTCBInfTheorI}
 {\scriptsize
 \begin{tabular}{|ll|l|l|l|}%|l|l|l|l|}
  \hline
 Lec.& Lab.& Week & Topics & Section/Labworks/Simulations \\
  \hline
+01 &    & 45 & Overview of Inference \& Decisions & RD~\ref{S:StatExps}\\ 
+02 &    &    & Review of LLN, CLT \& Inference for proportions & \\ 
+03 &    &    & Inference for proportions and Estimators & \\
+   & 04 &    & Set up \Matlab scripts directory & download \& unzip {\tt scripts.zip} on your computer$^{\downarrow}$ \\
+   &    &    & Introduction to {\sc Matlab}  & PM~\ref{LW:IntroMatlab},\ref{LW:Seqs},\ref{LW:VecsMats},\ref{LW:2Dplot},\ref{LW:FloorCeil} \\
+   &    &    & Familiarise yourself with {\sc Matlab}  & Try Labworks covered in Prob.~Theor.~I\\
+\hline
 \remove{
  15 &  & & Point Estimation \& Confidence Sets & \ref{S:PointEstimation}, \ref{S:PropPointEstim}, \ref{S:ConfidenceSets} \\
  16 &  & & Confidence Intervals \& Likelihoods & \ref{S:ConfidenceSets} , \ref{S:Likelihood} \\ 
@@ -167,5 +179,6 @@ Lec.& Lab.& Week & Topics & Section/Labworks/Simulations \\
 }% end remove
 \end{tabular}
 } \\
+$^{\downarrow}${\scriptsize {\tt scripts.zip} is at \url{https://github.com/lamastex/computational-statistical-experiments/tree/master/matlab/csebook}}
 \end{table}
 

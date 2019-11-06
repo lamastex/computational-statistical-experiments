@@ -359,11 +359,11 @@ From the fact that $\p(\Omega)=1$, we get that the sum of all the probabilties i
 \item
 When $X$ only has finitely many possibilities, say $k$ with $\Xz = \{x_1,x_2,\ldots,x_k\}$, then we may think of the probability $\p$ specified by $(\theta_1,\theta_2,\ldots,\theta_k)$ as a point in the \textbf{unit $(k-1)$ simplex}:
 \begin{equation}\label{E:unitk-1simplex}
-\Delta^{k-1} := \{ (\theta_1,\theta_2,\ldots,\theta_k) \in \Rz^{k-1} : \sum_i \theta_i = 1 \text{ and } \theta_i \geq 0, \text{ for all } i\}
+\Delta^{k-1} := \{ (\theta_1,\theta_2,\ldots,\theta_k) \in \Rz^{k} : \sum_i \theta_i = 1 \text{ and } \theta_i \geq 0, \text{ for all } i\}
 \end{equation}
 In particular when $X$ has only two possible values with $\Xz = \{x_1,x_2\}$ then $\theta_2=1-\theta_1$, so we can avoid subscripts and take $\theta := \theta_1$ and realize that the probability $\p$ is now specified by the point $(\theta,1-\theta)$ in the \textbf{unit $1$ simplex}:
 \begin{equation}\label{E:unit1simplex}
-\Delta^{1} := \{ (\theta,1-\theta) \in \Rz : \theta \geq 0 \} \enspace .
+\Delta^{1} := \{ (\theta,1-\theta) \in \Rz^2 : 0 \leq \theta \leq 1 \} \enspace .
 \end{equation}
 See \url{https://en.wikipedia.org/wiki/Simplex} for the images scribed on the board.
 \end{enumerate}

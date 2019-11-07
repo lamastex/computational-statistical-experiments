@@ -1,0 +1,1011 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2019 by Antoine Missier <antoine.missier@ac-toulouse.fr>
+%
+% This file may be distributed and/or modified under the conditions of
+% the LaTeX Project Public License, either version 1.3 of this license
+% or (at your option) any later version.  The latest version of this
+% license is in:
+%
+%   http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX version
+% 2005/12/01 or later.
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{mismath.dtx}
+%</driver>
+%<*package> 
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesPackage{mismath}   
+    [2019/09/06 v1.6 .dtx mismath file]
+%</package>
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{mismath}
+\usepackage{amssymb}
+\usepackage{multicol}
+%\enumber
+\inumber
+\pinumber
+% for an example in this doc we substitute [ and ] by \OB and \CB
+\DeclareMathSymbol{\OB}\mathclose{UpSh}{093}
+\DeclareMathSymbol{\CB}\mathopen{UpSh}{091}
+
+\DisableCrossrefs         
+%\CodelineIndex
+%\RecordChanges
+\usepackage{hyperref}
+\hypersetup{%
+    colorlinks, 
+    linkcolor=blue,
+    citecolor=blue,   
+    pdftitle={mismath}, 
+    pdfsubject={LaTeX package}, 
+    pdfauthor={Antoine Missier}
+}
+\begin{document}
+  \DocInput{mismath.dtx}
+  %\PrintChanges
+  %\PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{1897}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \changes{v0.1}{2011/12/27}{First personal version}
+% \changes{v1.0}{2019/04/11}{Initial published version, creating dtx and ins files}
+% \changes{v1.1}{2019/04/20}{Some forgotten french 'et' -> 'and', citecolor=blue}
+% \changes{v1.1}{2019/04/20}{Changing the default font for pinumber Euler -> Symbol}
+% \changes{v1.2}{2019/04/26}{Works fine with beamer now, 
+% AtBeginDocument for enumber, inumber, jnumber, 
+% creating general @moperator macro, using mathup instead of mathrm}
+% \changes{v1.2}{2019/04/27}{Added mathtools package, font definition Roman -> up, 
+% changes in documentation, removing the PEroman macro}
+% \changes{v1.3}{2019/05/05}{Using bslash in the internal @mwarning macro, loading of mathfixs package}
+% \changes{v1.3}{2019/05/08}{Many corrections in documentation}
+% \changes{v1.4}{2019/05/22}{Changing font definition up -> UpSh, 
+% due to incompatibility with unicode-math}
+% \changes{v1.5}{2019/05/30}{A solution for using mul with frac, addition of paren macro}
+% \changes{v1.5}{2019/06/22}{small corrections in documentation}
+% \changes{v1.6}{2019/09/06}{Removing mathfixs package}
+%
+% \GetFileInfo{mismath.sty}
+%
+% \title{\textsf{mismath}\\ Miscellaneous mathematical macros\thanks{This document
+% corresponds to \textsf{mismath}~\fileversion, dated \filedate. 
+% Thanks to François Bastouil for help in English translation.}}
+% \author{Antoine Missier \\ \texttt{antoine.missier@ac-toulouse.fr}}
+% \date{September 6, 2019}
+% \maketitle
+%
+% \section{Introduction}
+%
+% According to the International Standards ISO~31-0:1992 to ISO~31-13:1992, 
+% superseded by ISO~80000-2:2009, mathematical constants $\e$, $\i$, $\pi$ 
+% sould be typeset in upright shape and not in italic (sloping shape) like
+% variables (see~\cite{TYPMA}~\cite{NIST}~\cite{ICTNS}~\cite{ISO}).
+% This package provides some tools to achieve this (automatically).
+%
+% \medskip
+% Even if it is recommended to typeset vectors names 
+% in bold italic style~\cite{NIST}~\cite{ICTNS}, 
+% they are often represented with arrows 
+% (particularly in school documents or in physics). 
+% To draw pretty arrows above vectors, we use the \textsf{esvect} package 
+% by Eddie Saudrais~\cite{VECT} 
+% and we provide a few more macros related to vectors with arrows, 
+% in particular to improve the typesetting of the norm: $\norm{\vect{AB}}$ 
+% instead of \LaTeX\ version $\lVert\vect{AB}\rVert$ which is not adjusted,
+% or worse $\left\Vert \vect{AB} \right\Vert$.
+% 
+% \smallskip
+% The package also provides other macros for:
+% \begin{itemize}
+% \item some standard operator names,
+% \item a few useful aliases,
+% \item improving some spacings in mathematical formulas,
+% \item systems of equations and small matrices,
+% \item displaymath in double columns for long calculation.
+% \end{itemize}
+%
+% To avoid incompatibility,
+% a large majority of our macros will be defined only 
+% if there is not another command with the same name in the packages loaded 
+% before \textsf{mismath}. If a macro is already defined,
+% compilation will produce a warning message and \textsf{mismath} definition 
+% will simply be ignored. To keep \textsf{mismath} command, 
+% either load \textsf{mismath} before the other package 
+% with which it is in conflict for the name of the command 
+% (assuming the other package supports it), or use 
+% |\let\|\meta{command}|\relax| before loading \textsf{mismath}.
+%
+% \medskip
+% \DescribeEnv{\oarg{options}\{mismath\}}
+% The \textsf{amsmath} package is loaded by \textsf{mismath} without option.
+% For using \textsf{amsmath} with options (see~\cite{AMS}),
+% these options can be added when calling \textsf{mismath}, or 
+% \textsf{amsmath} has to be loaded 
+% with the required options before \textsf{mismath}.
+%
+% Another package, 
+% \textsf{mathtools} by Morten Høgholm and Lars Madsen~\cite{TOOL}
+% is also loaded. It provides many usefull macros.
+%
+% \medskip
+% A recommendation, seldom observed, is to typeset uppercase Greek letters in italic shape 
+% like other variables~\cite{ICTNS}. This is automatically done with the \textsf{fixmath} package 
+% by Walter Schmidt~\cite{FIXM},
+% but this feature is not implemented in \textsf{mismath} because this rule is conflicting 
+% to the one used for instance in France where all mathematics capitals 
+% have to be typeset in upright shape\footnote{The \textsf{frenchmath} package~\cite{FR} 
+% takes this rule into account.}.
+% The choice of loading or not one of these packages remains thus to the user.
+%
+% \section{Usage}
+%
+% \subsection{Mathematical constants}
+%
+% \DescribeMacro{\mathup} 
+% As for classic functions identifiers, \emph{predefined} mathematical constants
+% should be typeset in upright shape (generally in roman family), 
+% even if this practice is not really common and tedious
+% to respect. To avoid to stuff a document with |\mathrm{e}| or |\mathrm{i}|
+% (or better |\mathup{e}| and |\mathup{i}|\footnote{\texttt{\bslash mathup}
+% is based on \texttt{\bslash operatorfont} 
+% (from \textsf{amsopn} package, automatically loaded by \textsf{amsmath}).
+% The \textsf{beamer} 
+% package uses a default sans serif math font, but \texttt{\bslash mathrm}
+% produces a font with serif in \textsf{beamer}. This problem is solved by
+% using \texttt{\bslash mathup} instead 
+% of \texttt{\bslash mathrm}.}),
+% \DescribeMacro{\e} \DescribeMacro{\i}  \DescribeMacro{\j} 
+% the package provides |\e| command for the base of the natural logarithm
+% and |\i| or |\j| for imaginary numbers. 
+% One can notice that |\i| and |\j| already exist in \LaTeX: 
+% using in LR mode, they produce ``\i'' and ``\j'' without the point 
+% so one can place accents on them, and in mathematical mode they produce 
+% ``Latex warning: Command invalid in math mode''. 
+% Redefining |\i| and |\j| only concerns mathematical mode.
+%
+% \medskip
+% \DescribeMacro{\enumber} \DescribeMacro{\inumber} \DescribeMacro{\jnumber}
+% Nevertheless, it can be tiresome to type a lot of backslashes in a document with many formulas 
+% containing $\e$ or $\i$.
+% So a way is proposed here to free of it by placing |\enumber|, |\inumber| or |\jnumber|
+% in the preamble: 
+% $\e$, $i$ or $\j$ will then automatically be set in upright shape
+% in the whole document, no need to type |\e|, |\i| or |\j|,
+% let's hope that there are not many other $\mathit{e}$, $\mathit{i}$ or $j$ as variables.
+% However, one can still get italicized
+% $\mathit{e}$, $\mathit{i}$ or $\mathit{j}$ with \LaTeX\ command
+% |\mathit| or |\mathnormal|. Of course, this does not fully comply with \LaTeX\ philosophy:
+% in the document body, objects should be pointed out 
+% by their nature rather than their typographical characteristics, 
+% defined in the preamble. But these macros are really handy and 
+% thanks to them it is possible to bring a document up to the standards 
+% afterwards; besides anyone is free to use them or not.
+%
+% \medskip
+% \DescribeMacro{\pinumber\oarg{font}}
+% Mathematical constant $\pi$  should also be typeset in upright shape 
+% (see~\cite{ICTNS} and~\cite{ISO}), which differs from italicized $\itpi$. 
+% This recommendation is even less observed than the one concerning  $\e$ and $\i$~\cite{TYPMA}.
+% The \textsf{upgreek} package by Walter Schmidt~\cite{GREEK} makes it possible to typeset 
+% greek letters in upright font by using commands such as |\upalpha|, |\upbeta|,\ldots\@
+% To avoid typing a lot of |\uppi|, we provide the |\pinumber| macro, 
+% which has to be put in the preamble. This command loads the \textsf{upgreek} package 
+% with an optional \meta{font} argument: \texttt{Symbol} (by default), \texttt{Euler} 
+% or \texttt{Symbolsmallscale} (see~\cite{GREEK}). It also redefines the |\pi| 
+% command to typeset all |\pi| in the selected upright font.
+
+% By activating |\enumer|, |\inumber| and |\pinumber| 
+% in the preamble, you can get for instance:
+% \begin{center}
+% |$e^{i\pi} = -1$| \hspace{6em} $\e^{i\pi}=-1$
+% \end{center}
+%
+% \DescribeMacro{\itpi}
+% When |\pinumber| is activated, the original italic $\itpi$ is still available with |\itpi|.
+%
+% \subsection{Vectors}
+%
+% \DescribeMacro{\vect}
+% By default, the |\vect| command\footnote{As for many macros of this package, 
+% the definition will take effect only if this macro is not defined before 
+% by another package.},
+% produces vectors with arrows
+% (thanks to the \textsf{esvect} package by Eddie Saudrais\footnote{\textsf{esvect} 
+% provides \texttt{\bslash vv} macro used by \texttt{\bslash vect}.})
+% which are much more elegant than those produced by \LaTeX\ |\overrightarrow| command 
+% (giving $\overrightarrow{AB}$).
+% The \textsf{esvect} package has an optional argument 
+% (one letter between \texttt{a} and \texttt{h}) defining 
+% the required type of arrow (see~\cite{VECT}).
+% In \textsf{mismath}, \textsf{esvect} is loaded with the option \texttt{b}:
+% |\vect{AB}| gives $\vect{AB}$.
+% To choose another type of arrow, \textsf{esvect} must be called 
+% with the required option \emph{before} \textsf{mismath}, for instance |\usepackage[d]{esvect}|
+% will give the arrows produced by default in~\cite{VECT}.
+%
+% \medskip 
+% \DescribeMacro{\boldvect}
+% |\vect| makes also possible to typeset vector's names using bold italic
+% (according to ISO recommendation~\cite{ISO}) rather than arrows. 
+% For this, calling |\boldvect| will modify the behavior of |\vect|:\\[1ex]
+% \begin{minipage}{8cm}
+% \begin{verbatim} 
+%\[ \boldvect \vect{v}
+%   =\lambda\vect{e}_x+\mu\vect{e}_y. \]
+% \end{verbatim}
+% \end{minipage} 
+% \begin{minipage}{6cm}
+% $\boldvect \vect{v}=\lambda\vect{e}_x +\mu\vect{e}_y$.
+% \end{minipage}
+%
+% \DescribeMacro{\boldvectcommand}
+% By default |\boldvect| uses the |\boldsymbol| 
+% command\footnote{\texttt{\bslash mathbf} gives upright bold font, 
+% even if used in combination with \texttt{\bslash mathit}.}
+% from \textsf{amsbsy} package, loaded by \textsf{amsmath}.
+% But other packages producing bold italic can be preferred, e.g.\@
+% \texttt{\bslash bm} from \textsf{bm} package or |\mathbold| from \textsf{fixmath}
+% package or |\mathbfit| from \textsf{isomath}.
+% For that, redefine |\boldvectcommand|:
+% for instance |\renewcommand\boldvectcommand{\mathbold}|.
+%
+% By setting |\boldvectcommand| to |\mathbf|, |\vect| produces vectors 
+% in bold \emph{upright} shape, 
+% which tends to be used instead of bold \emph{italic}
+% (but probably for bad reasons).
+%
+% \medskip
+% \DescribeMacro{\arrowvect}
+% At any moment, you can get back to the default behavior with the inverse switch
+% |\arrowvect|. These switches can be placed anywhere: 
+% inside mathematical mode or inside an environment (with local effect) or outside 
+% (with global effect).
+%
+% \medskip
+% \DescribeMacro{\hvect}
+% When vectors with arrows are typeset side by side,
+% arrows can be set up a bit higher (with a vertical phantom box containing $h$) 
+% to avoid inelegants effects:
+% \begin{itemize}
+% \item $\vect{AB}=\vect{u}+ \vect{AC}$ is less than  $\vect{AB}=\hvect{u}+ \vect{AC}$,
+% obtained with |\hvect{u}|;
+% \item $\vect{a} \cdot \vect{b}=0$ is less than $\hvect{a} \cdot \vect{b}=0$,
+% obtained with |\hvect{a}|.
+% \end{itemize}
+% The |\boldvect| switch has no effect on the |\hvect| macro which always typesets 
+% arrows on vectors (with the |\vv| command from the \textsf{esvect} package).
+%
+% \medskip 
+% \DescribeMacro{\hvec}
+% In a similar way, |\hvec| raises the little arrow produced by
+% the \LaTeX\ command |\vec| (but only from height of $t$ letter):
+% \begin{itemize}
+% \item $\mathcal{P}=\vec{f}\cdot\vec{v}$ is less than
+% $\mathcal{P}=\vec{f}\cdot\hvec{v}$, obtained with |\hvec{v}|;
+% \item $\vec{f} =m \vec{a}$ is less than $\vec{f} =m \hvec{a}$,
+% obtained with |\hvec{a}|.
+% \end{itemize}
+%
+% \DescribeMacro{\norm}
+% The norm of a vector is classically produced by the delimiters |\lVert| and |\rVert|
+% (rather than \texttt{\bslash}$\mid$) or |\left\Vert| and |\right\Vert| 
+% for delimiters adapting to the content. Unfortunately, these delimiters 
+% are always vertically centred, relatively to the middle of the base line, 
+% whereas vectors with arrows are asymetrics objects, the height above the middle of the base line
+% being superior to the depth under it.
+% The code |$\norm{\vec{h}}$| raises the double bar to produce $\norm{\vec{h}}$.
+% Let's notice that the height of the bars don't adjust to content, 
+% but however to context: main text, subscripts or exponents.
+%
+% \subsection{Standard operator names}
+%
+% \DescribeMacro{\di}
+% The \emph{differential} operator should be typeset in upright shape and not in
+% italic, to make it different from variables 
+% (as mentioned in \cite{TYPMA}~\cite{NIST}~\cite{ICTNS}~\cite{LSHORT}).
+% For this, we provide the |\di| command.
+% See the following examples (notice the thin spaces before the d, 
+% as for classic function's names): \\
+% \begin{minipage}[t]{7cm}
+% \begin{verbatim} 
+%\[ \iint xy\di x\di y \]
+% \end{verbatim}
+% \end{minipage}
+% \begin{minipage}{6cm}
+% \[ \iint xy\di x\di y \]
+% \end{minipage}
+% \\
+% \begin{minipage}[t]{7cm}
+% \begin{verbatim} 
+%\[ m\frac{\di^2x}{\di t^2}
+%   + h\frac{\di x}{\di t} + kx = 0 \]
+% \end{verbatim}
+% \end{minipage}
+% \begin{minipage}[t]{6cm}
+% \[m\frac{\di^2x}{\di t^2}+h\frac{\di x}{\di t}+kx=0\]
+% \end{minipage}
+%
+% This command can also stand for \emph{distance} (hence its name):
+% \[\lambda\di(A,\mathcal{F})+\mu\di(B,\mathcal{H}).\]
+%
+% \DescribeMacro{\P} \DescribeMacro{\E} \DescribeMacro{\V}
+% To refer to probability\footnote{\LaTeX\ provides 
+% also \texttt{\bslash Pr} which gives $\Pr$.}
+% and expectation the proper use is to typeset capital letters $\P$, $\E$ 
+% in upright shape as for any standard function identifier.
+% This is obtained with |\P| and |\E|.
+% Variance is normally denoted by $\Var$ (see further),
+% but in some countries we can find $\V$ produced by |\V|.
+%
+% \medskip
+% \DescribeMacro{\Par}
+% The |\P| command already existed to refer to the end of paragraph symbol \Par\ 
+% and has been redefined, but this symbol can still be obtained with |\Par|.
+%
+% \medskip
+% \DescribeMacro{\probastyle}
+% Some authors use ``blackboard bold'' font
+% to represent probability, expectation and variance: $\mathbb{P}, \mathbb{E}, \mathbb{V}$.
+% The |\probastyle| macro sets the appearance of |\P|, |\E| and |\V|:
+% for instance |\renewcommand\probastyle{\mathbb}|\footnote{As for
+% \texttt{\bslash boldvect} and \texttt{\bslash arrowvect},
+% effect is local to the container environment.}
+% brings the previous ``openwork'' letters.
+% |\mathbb| comes from \textsf{amsfonts} package
+% (loaded by \textsf{amssymb} 
+% but also available standalone)
+% which has to be called in the preamble.
+%
+% \medskip
+% The following operator names are also defined in \textsf{mismath}:
+% \begin{center}
+% \begin{tabular}{rlrlrl}
+% |\adj| & $\adj$ \qquad\mbox{} & |\erf| & $\erf$ \qquad\mbox{} & |\rank| & $\rank$ \\
+% |\Aut| & $\Aut$ & |\grad| & $\grad$ & |\Re| & $\Re$ \\
+% |\Conv| & $\Conv$ & |\id| & $\id$ & |\rot| & $\rot$ \\
+% |\cov| & $\cov$ & |\Id| & $\Id$ & |\sgn| & $\sgn$ \\
+% |\Cov| & $\Cov$ & |\im| & $\im$ & |\spa| & $\spa$ \\
+% |\curl| & $\curl$ & |\Im| & $\Im$ & |\tr| & $\tr$ \\
+% |\divg| & $\divg$ & |\lb| & $\lb$ & |\Var| & $\Var$ \\
+% |\End| & $\End$ & |\lcm| & $ \lcm$ & |\Zu| & $\Zu$ 
+% \end{tabular}
+% \end{center}
+%
+% By default, operators returning vectors,  |\grad| and |\curl| (or its synonym |\rot|
+% rather used in Europe), are written with an arrow on the top.
+% When |\boldvect| is activated, they are typeset in bold style:
+% $\boldvect \grad, \curl, \rot$.
+% For the covariance and the identity function, 
+% two notations are proposed, with or without a first capital letter, 
+% because they are both very common.
+% On the other hand, ``$\im$'' stands for the image of a linear transformation 
+% (like ``$\ker$'' for the kernel)
+% but ``$\Im$'' is the imaginary part of a complex number.
+% Notice that |\div| and |\span| already exist
+% and haven't been redefined, therefore the |\divg| and |\spa| macros;
+% |\Z| is used otherwise (see further), therefore |\Zu|,
+% to designate the center of a group: $\Zu(G)$ (from German Zentrum).
+%
+%\medskip
+% \DescribeMacro{\oldRe} \DescribeMacro{\oldIm}
+% The |\Re| and |\Im| macros already existed, to refer to real and imaginary part 
+% of a complex number, producing outdated symbols $\oldRe$ and $\oldIm$.
+% They have been redefined according to actual use, as mentionned in the above table, 
+% but it's still possible to get the old symbols with |\oldRe| and |\oldIm|.
+%
+% \medskip
+% Some (inverse) circular or hyperbolic functions, missing
+% in \LaTeX, are also provided by \textsf{mismath}:
+% \begin{center}
+% \begin{tabular}{rlrlrl}
+% |\arccot| & $\arccot$\qquad\mbox{} & |\arsinh| & $\arsinh$\qquad\mbox{} & |\arcoth| & $\arcoth$\\
+% |\sech| & $\sech$ & |\arcosh| & $\arcosh$ & |\arsech| & $\arsech$ \\
+% |\csch| & $\csch$ & |\artanh| & $\artanh$ & |\arcsch| & $\arcsch$
+% \end{tabular}
+% \end{center} 
+%
+% \DescribeMacro{\bigO} \DescribeMacro{\bigo} \DescribeMacro{\lito}
+% Asymptotic comparison operators (in Landau notation) are obtained with
+% |\bigO| or |\bigo| and |\lito| commands: 
+% \[ n^2+\bigO(n\log n) \txt{or} n^2+\bigo(n\log n)\txt{and} \e^x=1+x+\lito(x^2).\]
+%
+% \subsection{A few useful aliases}
+% 
+% In the tradition of Bourbaki and D.~Knuth, proper use requires 
+% that classics sets of numbers are typeset in bold roman:
+% $\R, \C, \Z, \N, \Q$, 
+% ``openwork'' letters ($\mathbb{R}, \mathbb{Z}, \ldots$) 
+% being restricted to writing at blakboard~\cite{LSHORT};
+% and likewise to designate a field: $\F$ or $\K$ (Körper in German).
+% We get these symbols with the following macros:
+% \begin{center}
+% |\R|, |\C|, |\Z|, |\N|, |\Q|, |\F|, |\K|.
+% \end{center}
+%
+% \DescribeMacro{\mathset}
+% The |\mathset| command enables to change in a global way the behavior of all these macros: 
+% by default, |\mathset| is an alias for |\mathbf|, but if one prefer openwork letters, 
+% just place |\renewcommand\mathset{\mathbb}| in the preamble,
+% after loading \textsf{amsfonts} package (which provides the ``blackboard bold'' typeface,
+% also loaded by \textsf{amssymb}).
+%
+% \medskip
+% \DescribeMacro{\ds}
+% The |\displaystyle| command being very common, alias |\ds| is provided.
+% Not only it eases typing but also  it makes source code more readable.
+%
+% \medskip
+% Symbols with limits behave differently for in-line formulas or for displayed equations. 
+% In the latter case, ``limits'' are put under or above whereas for in-line math mode, 
+% they are placed on the right, as subscript or exponent. Compare:
+% $\upzeta(s)=\sum_{n=1}^{\infty    }\frac{1}{n^s}$ with
+% \[\upzeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^s}.\]
+% \DescribeMacro{\dlim} \DescribeMacro{\dsum} \DescribeMacro{\dprod}
+% \DescribeMacro{\dcup} \DescribeMacro{\dcap}
+% With in-line math mode, displaymath behavior can be forced with |\displaystyle|
+% or its alias |\ds|, but then, all the rest of the current mathematical 
+% environment will be set in displaymath mode too (in the previous example, 
+% the fraction will be expanded).
+% Just like the \textsf{amsmath} command |\dfrac|
+% only transforms the required fraction in display style, we can limit 
+% display style effect to the affected symbol, by using the following macros:
+% |\dlim|, |\dsum|, |\dprod|, |\dcup|, |\dcap|.
+% So |$\dlim_{x\to +\infty}\frac{1}{x}$| gives $\dlim_{x \to +\infty}\frac{1}{x}$.
+%
+% \medskip 
+% \DescribeMacro{\lbar} \DescribeMacro{\hlbar}
+% Large bars over expressions are obtained with |\overline|
+% or, shorter, its alias |\lbar|, to get for instance $\lbar{z_1z_2}$.
+% Such as for vectors, one can raise the bar (from the height of $h$) with
+% the |\hlbar| command, in order to correct uneven bars heights.
+% \begin{center}
+% $\lbar{z+z'}=\lbar{z}+\lbar{z'}$ is less than $\lbar{z+z'}=\hlbar{z}+\lbar{z'}$,
+% obtained with |\hlbar{z}|.
+% \end{center}
+%
+% \DescribeMacro{\eqdef}
+% The |\eqdef| macro writes equality symbol topped with ``def''
+% (thanks to the \LaTeX\ command |\stackrel|):\\
+% \begin{minipage}[t]{8cm}
+% \begin{verbatim} 
+% $ \e^{\i\theta} \eqdef 
+%   \cos\theta + \i\sin\theta $
+% \end{verbatim}
+% \end{minipage}
+% \begin{minipage}{6cm}
+% $\e^{\i\theta}\eqdef\cos\theta + \i\sin\theta$
+% \end{minipage}
+%
+% \DescribeMacro{\unbr}
+% |\unbr| is an alias for |\underbrace|\footnote{The \textsf{mathtools} 
+% package by Morten Høgholm and Lars Madsen~\cite{TOOL} 
+% provides a new improved version of \texttt{\bslash underbrace} command
+% (as many other usefull macros);
+% it is loaded by \textsf{mismath}.}, making source code more compact.\\[2ex]
+% \begin{minipage}{6.75cm}
+% \begin{verbatim}
+%$ (QAP)^n = \unbr{QAP\mul QAP\mul
+%  \cdots\mul QAP}_{n\text{ times}} $
+% \end{verbatim}
+% \end{minipage}
+% \begin{minipage}{6.5cm}
+% $ (QAP)^n = \unbr{QAP\mul QAP\mul\cdots\mul QAP}_{n\text{ times}} $
+% \end{minipage}
+%
+% \pagebreak
+% \DescribeMacro{\iif}
+% |\iif| is an alias for ``\iif'', to be used in text mode.
+%
+% \subsection{Improving some spacings in mathematical formulas}
+%
+% \DescribeMacro{\mul}
+% The multiplication symbol obtained with |\times| produces the same spacing than addition
+% or substraction operators, whereas division obtained with $/$ is closer to its arguments.
+% This actually hides the priority of the multiplication on $+$ and $-$.
+% This is why we provide the |\mul| macro, behaving like $/$ 
+% (ordinary symbol) and leaving less space around than |\times|:
+% \begin{center}
+% $\lambda+\alpha \times b-\beta \times c$
+% is less than $\lambda+\alpha \mul b-\beta \mul c$, obtained with |\mul|.
+% \end{center}
+%
+% When using |\mul| before an operator name 
+% or a |\left...\right| structure, additionnal spacing occur on the right side of |\mul|.
+% A solution to get the same amount of space on the two sides of |\mul|, is to
+% enclose the operator name (or the structure) with brackets:
+% \begin{center}
+% Compare $x\mul\sin x$ with $x\mul{\sin x}$
+% obtained with |x\mul{\sin x}|.
+% \end{center}
+%
+% \DescribeMacro{\then} 
+% The |\then| macro produces the symbol $\Longrightarrow$ surrounded by large spaces
+% as the standard macro |\iff| does it with $\Longleftrightarrow$.
+% In a similar way, |\txt| \DescribeMacro{\txt}
+% based on the |\text| macro (from the \textsf{amstext} package,
+% automatically loaded by \textsf{amsmath}),
+% leaves em quad spaces (|\quad|) around the text. See the following example:
+% \begin{center}
+% |\ln x=a\then x=\e^a \txt{rather than} \ln x=a\Longrightarrow x=\e^a| \\[1ex]
+% $ \ln x=a \then x=\e^a \txt{rather than}    \ln x=a \Longrightarrow x=\e^a$
+% \end{center}
+
+% \DescribeMacro{\paren}
+% Spaces around parenthesis produced by |\left(...\right)| may be too large, for example
+% after a function name or a point name with coordinates.
+% A solution is to add a thin negative space |\!| before the opening (or after the closing)
+% parenthesis, or to enclose the 
+% |\left(...\right)| structure by brackets, or to use the |\paren| macro:
+% \begin{center}
+% $\sin\left(\frac{\pi}{3}\right)\mul 2$ is less than $\sin\paren{\frac{\pi}{3}}\mul 2$
+% obtained with \\[1ex] |\sin\paren{\frac{\pi}{3}}\mul 2|.
+% \end{center}
+%
+% \DescribeMacro{\pow}
+% When typesetting an exponent after a closing \emph{big} parenthesis produced by |\right)|,
+% the exponent is little to far from the parenthesis.
+% The command |\pow|\marg{expr}\marg{pow} sets
+% \meta{expr} between parentheses and puts the exponent \meta{pow}
+% slightly closer to the right parenthesis\footnote{This macro gives bad
+% results with normal sized parenthesis.}. Compare:
+% \[ \e^a \sim\left(1+\frac{a}{n}\right)^n \txt{and} \e^a \sim\pow{1+\frac{a}{n}}{n}.\]
+%
+% \DescribeMacro{\abs}
+% Absolute value (or modular for a complex number) should be typeset with
+% |\lvert| \ldots |\rvert| rather than $\mid$ which doesn't respect correct 
+% spaces for delimiters; for bars whose height has to adapt to content, 
+% we use |\left\vert| \ldots |\right\vert| or, more simply, 
+% the |\abs|\{\ldots\} command which is equivalent\footnote{Another 
+% solution is to define \texttt{\bslash abs} with the 
+% \texttt{\bslash DeclarePairedDelimiter} command 
+% from the \textsf{mathtool} package~\cite{TOOL}.}.
+%
+% \pagebreak
+% \DescribeMacro{\lfrac}
+% This macro behaves like |\frac|
+% but with medium spaces around the arguments,
+% so the corresponding fraction bar is perceptibly a little bit longer:\\
+% \begin{minipage}[t]{8cm}
+% \begin{verbatim}
+%\[ \lbar{Z} = 
+%   \lfrac{\lbar{z_1-z_2}}{\lbar{z_1+z_2}} \]
+% \end{verbatim}
+% \end{minipage}
+% \begin{minipage}[t]{4cm}
+% \[ \lbar{Z} = \lfrac{\lbar{z_1-z_2}}{\lbar{z_1+z_2}} \]
+% \end{minipage}
+%
+% \DescribeMacro{[ ]}
+% Brackets symbols $[$ and $]$ have been redefined for mathematical mode because, 
+% in standard \LaTeX, the space before them can be unsuitable\footnote{The
+% \textsf{interval} package~\cite{INT} gives another solution, less direct, 
+% based on an \texttt{\bslash interval} macro.}:
+% \begin{center}
+% |$x\in ]0,\pi[ \cup ]2\pi,3\pi[$| \hspace{0.5em}
+% $\begin{cases}
+% x\in \OB 0,\pi \CB \cup \OB2\pi, 3\pi \CB &\text{ without \textsf{mismath}}\\
+% x\in ]0, \pi[ \cup ]2\pi, 3\pi[ &\text{ with \textsf{mismath}}
+% \end{cases}$
+% \end{center}
+% In our code, $[$ and $]$  symbols are not defined anymore as delimiters. 
+% One can regret it because a line break could occur between the two, 
+% but in addition to the fact that it works very well like that for spaces 
+% (because these symbols are most of the time preceded or followed by relational, 
+% binary or punctuation symbols), it is always possible to transform them 
+% into delimiters with |\left| and |\right|\footnote{Is \LaTeX\ definition
+% of [ as |mathopen| really appropriate
+% where this symbol could almost also logically have been defined as |mathclose|?}.
+%
+% \subsection{Environments for systems of equations and small matrices}
+%
+% \DescribeEnv{system}
+% The \texttt{system} environment produces a system of equations:\\
+% \begin{minipage}[t]{6.5cm}
+% \begin{verbatim}
+%$\begin{system} 
+%    x=1+2t \\ y=2-t \\ z=-3-t 
+%\end{system}$
+% \end{verbatim}
+% \end{minipage}
+% \begin{minipage}[t]{5cm} 
+% \[ \begin{system} x=1+2t \\ y=2-t \\z=-3-t \end{system} \]
+% \end{minipage}
+%
+% \medskip
+% \DescribeMacro{\systemsep}
+% This first example could also have been produced with \texttt{cases} environment
+% from \textsf{amsmath} package, although \texttt{cases} places mathematical expressions 
+% closer to the bracket (which makes sense considering it's use).
+% |\systemsep| enables to set the gap between the bracket and the expressions, 
+% set by default to |\medspace|. This gap may be reduce, for instance:
+% |\renewcommand{\systemsep}{\thinspace}|,
+% or enlarged with |\thickspace| (and with |\renewcommand\systemsep}{}|
+% we get back to what \texttt{cases} do).
+%
+% \medskip
+% \DescribeEnv{system\oarg{coldef}}
+% By default, a system is written like an \texttt{array} environment with only one column, 
+% left aligned. The environment has an optional argument to create several columns,
+% specifying their alignment, with the same syntax than the \texttt{array} environment of
+% \LaTeX : |\begin{system}[cl]| produces a two-column system, the first one being centred, 
+% the second being left aligned, such as in the following example:\\
+% \begin{minipage}[t]{7cm}
+% \begin{verbatim}
+%$\begin{system}[cl] 
+%    y & =\dfrac{1}{2}x-2 \\[1ex] 
+%    (x,y) & \neq (0,-2) 
+%\end{system}$
+% \end{verbatim}
+% \end{minipage}
+% \begin{minipage}[t]{5cm}
+% \[ \begin{system}[cl] y&=\dfrac{1}{2}x-2 \\[1ex] (x,y)&\neq (0,-2) \end{system}\]
+% \end{minipage}
+%
+% \DescribeMacro{\systemstretch}
+% Default spacing between the lines of a \texttt{system} environment has been slightly 
+% enlarged compared to the one from \texttt{array} environments (from 1.2 factor). 
+% This spacing may be changed by typing |\renewcommand{\systemstretch}|\marg{stretch},
+% inside the current mathematical environment (for a local change) or outside 
+% (for a global change). By default, stretch's value is 1.2.
+% In addition we can use a carriage return with a spacing option such 
+% as it has been done above with |\\[1ex]|.
+%
+% Another example with |\begin{system}[rl@{\quad}l]|\footnote{\texttt{@\{\ldots\}}
+% sets inter-column space.}:
+% \begin{equation*}
+%    \begin{system}[rl@{\quad}l]
+%        x+3y+5z&=0 & R_1\\ 2x+2y-z&=3 & R_2\\ 3x-y+z&=2 & R_3
+%    \end{system}
+%    \iff
+%    \begin{system}[rl@{\quad}l]
+%        x+3y+5z&=0 & R_1\\
+%        4y+11z&=3 & R_2 \gets 2R_1-R_2 \\
+%        5y+7z&=-1 & R_3 \gets \frac{1}{2}\left(3R_1-R_3\right)
+%    \end{system}
+% \end{equation*}
+% 
+% Let's mention the \textsf{systeme} package~\cite{SYST} which deals with linear systems
+% with a lighter syntax and automatic alignments on $+$, $-$, $=$,
+% and also the \textsf{spalign} package~\cite{SPAL} which moreover produces nice alignments 
+% for matrices (with spaces and semi­colons as de­lim­iters).
+%
+% \medskip
+% \DescribeEnv{spmatrix}
+% The \textsf{amsmath} package provides various environments to typeset matrices: 
+% for instance \texttt{pmatrix} surrounds the matrix with parenthesis
+% or \texttt{smallmatrix} typesets a small matrix that can even be inserted 
+% in a text line. We provide a combination of the two with \texttt{spmatrix}:\\
+% |$\vec{u}\begin{spmatrix}-1\\2\end{spmatrix}$| yielding
+% $\vec{u}\begin{spmatrix}-1\\2\end{spmatrix}$.
+%
+% The \textsf{mathtools} package enhance \textsf{amsmath} matrices environments
+% and provides also a small matrix environment with parenthesis.
+% Furthermore, with starred version |\begin{psmallmatrix*}|\oarg{col},
+% you can choose the alignment inside the columns (\texttt{c}, \texttt{l} or \texttt{r}).
+% But sadly, the space before the left parenthesis is too narrow
+% regarding to the space inside the parenthesis.
+% Compare previous $\vec{u}\begin{spmatrix}-1\\2\end{spmatrix}$
+% with $\vec{u}\begin{psmallmatrix}-1\\2\end{psmallmatrix}$.
+%
+% \subsection{Displaymath in double columns}
+%
+% \DescribeEnv{mathcols}
+% The \texttt{mathcols} environment activates mathematical mode and enables to arrange ``long''
+% calculation in double columns, separated with a central rule, 
+% as shown in the following example.
+% But you have to load the \textsf{multicol} package in the preamble.
+% \begin{mathcols}
+%           & \frac{1}{2 \mul {\pow{\frac{1}{4}}{n}} + 1} \geq 0.999 \\
+%     \iff\ & 1 \geq 1.998  \pow{\frac{1}{4}}{n} + 0.999 \\
+%     \iff\ & 0.001 \geq \frac{1.998}{4^n} \\
+% \changecol
+%     & \iff 4^n \geq 1998 \\
+%     & \iff n \ln 4 \geq \ln(1998) \\
+%     & \iff n \geq \frac{\ln(1998)}{\ln 4} \approx 5.4 \\
+%     & \iff n \geq 6
+% \end{mathcols}
+%
+% \DescribeMacro{\changecol}
+% The |\changecol| macro causes a change of column;
+% aligment is produced using the classic delimiters |&| and |\\|.
+% 
+% \begin{verbatim}
+%\begin{mathcols}
+%          & \frac{1}{2 \mul \pow{\frac{1}{4}}{n} + 1} \geq 0.999 \\
+%    \iff\ & 1 \geq 1.998  \pow{\frac{1}{4}}{n} + 0.999 \\
+%    \iff\ & 0.001 \geq \frac{1.998}{4^n} \\
+%\changecol
+%    & \iff 4^n \geq 1998 \\
+%    & \iff n \ln 4 \geq \ln(1998) \\
+%    & \iff n \geq \frac{\ln(1998)}{\ln 4} \approx 5.4 \\
+%    & \iff n \geq 6
+%\end{mathcols}
+% \end{verbatim}
+%
+% \vspace{-4ex}
+% \section{Implementation}
+%
+%    \begin{macrocode}
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{amsmath}}
+\ProcessOptions \relax
+\@ifpackageloaded{amsmath}{}{\RequirePackage{amsmath}}
+\@ifpackageloaded{esvect}{}{\RequirePackage[b]{esvect}}
+\RequirePackage{ifthen}
+\RequirePackage{xspace}
+\RequirePackage{mathtools}
+%    \end{macrocode}
+% The above conditional packages loading avoids ``option clash'' errors if the packages 
+% have been previously loaded with (other) options.
+%
+% \medskip
+% The three following internal commands are meta commands for a
+% conditional macro definition with warning message if the macro already exists.
+% \DescribeMacro{\bslash}
+% The |\bslash| macro used inside |\@mwarning| comes from \textsf{doc.sty} package 
+% by Frank Mittelbach. It can also be used in other documents instead of |\textbackslash|
+% (which doesn't work here).
+%    \begin{macrocode}
+{\catcode`\|=\z@ \catcode`\\=12 |gdef|bslash{\}} % the \bslash command
+\newcommand\@mwarning[1]{
+    \PackageWarning{mismath}{
+        Command \bslash #1 already exist and will not be redefined
+    }
+}
+\newcommand\@mmacro[2]{
+    \@ifundefined{#1}{
+        \expandafter\def\csname #1\endcsname{#2}
+    }{\@mwarning{#1}}
+}
+\newcommand\@moperator[3][]{% this macro is ugly, TODO: by default #1=#3
+    \ifthenelse{\equal{#1}{}}{
+        \@ifundefined{#3}{
+            \DeclareMathOperator{#2}{#3}
+        }{\@mwarning{#3}}
+    }{
+        \@ifundefined{#1}{
+            \DeclareMathOperator{#2}{#3}
+        }{\@mwarning{#1}}
+    }
+}
+
+%    \end{macrocode}
+%
+% To work correctly with the \textsf{beamer} package, we did not use |\mathrm|
+% but |\mathup| (based on |\operatorfont| from the \textsf{mathopn} package)
+% to produce the correct upright shape font.
+% This command works also fine with other sans serif fonts like \textsf{cmbright}.
+% Moreover for \textsf{beamer}, |\enumber| must use
+% the family default font defined by the \textsf{beamer} package (sans serif),
+% therefore the |\AtBeginDocument| inside the macro (otherwise it has no effect).
+% The same holds for |\inumber| and |\jnumber|.
+%
+% |\AtBeginDocument| is also necessary to redefine |\i| when calling 
+% the \textsf{hyperref} package which overwrites the |\i| definition.
+%
+% \medskip
+%    \begin{macrocode}
+\providecommand{\mathup}[1]{{\operatorfont #1}}
+\@mmacro{e}{\mathup{e}}
+\AtBeginDocument{\let\oldi\i \let\oldj\j
+    \renewcommand{\i}{\TextOrMath{\oldi}{\mathup{i}}}
+    \renewcommand{\j}{\TextOrMath{\oldj}{\mathup{j}}}
+}
+
+\DeclareSymbolFont{UpSh}{\encodingdefault}{\familydefault}{m}{n}
+\newcommand{\enumber}{
+    \AtBeginDocument{\DeclareMathSymbol{e}\mathalpha{UpSh}{`e}}
+}
+\newcommand{\inumber}{
+    \AtBeginDocument{\DeclareMathSymbol{i}\mathalpha{UpSh}{`i}}
+}
+\newcommand{\jnumber}{
+    \AtBeginDocument{\DeclareMathSymbol{j}\mathalpha{UpSh}{`j}}
+}
+\newcommand*{\pinumber}[1][Symbol]{
+    \@ifpackageloaded{upgreek}{}{\usepackage[#1]{upgreek}}
+    \let\itpi\pi
+    \renewcommand{\pi}{\uppi}
+}
+
+\newboolean{arrowvect}
+\setboolean{arrowvect}{true}
+\newcommand{\arrowvect}{\setboolean{arrowvect}{true}} 
+\newcommand{\boldvect}{\setboolean{arrowvect}{false}}
+\newcommand{\boldvectcommand}{\boldsymbol} % needs bm package
+\@mmacro{vect}{\ifthenelse{\boolean{arrowvect}}{\vv}{\boldvectcommand}}
+\newcommand*{\hvect}[1]{\vv{\vphantom{h}#1}}
+\newcommand*{\hvec}[1]{\vec{\vphantom{t}#1}}
+
+\newcommand*{\@norm}[1]{
+    \mbox{\raisebox{1.75pt}{$\bigl\Vert$}} #1
+    \mbox{\raisebox{1.75pt}{$\bigr\Vert$}} }
+% works better than with relative length
+\newcommand*{\@@norm}[1]{
+    \mbox{\footnotesize\raisebox{1pt}{$\Vert$}} #1
+    \mbox{\footnotesize\raisebox{1pt}{$\Vert$}} }
+\newcommand*{\@@@norm}[1]{
+    \mbox{\tiny\raisebox{1pt}{$\Vert$}} #1
+    \mbox{\tiny\raisebox{1pt}{$\Vert$}} }
+\providecommand*{\norm}[1]{
+    \mathchoice{\@norm{#1}}{\@norm{#1}}{\@@norm{#1}}{\@@@norm{#1}} }
+
+\newcommand{\di}{\mathop{}\!\mathup{d}}
+\newcommand\probastyle{}
+\let\Par\P % end of paragraph symbol
+\renewcommand{\P}{\operatorname{\probastyle{P}}}
+\@mmacro{E}{\operatorname{\probastyle{E}}}
+\@mmacro{V}{\operatorname{\probastyle{V}}}
+\newcommand{\PEupright}{
+    \AtBeginDocument{% necessary for working with beamer
+        \DeclareMathSymbol{P}\mathalpha{UpSh}{`P}
+        \DeclareMathSymbol{E}\mathalpha{UpSh}{`E}
+    }
+}
+
+\@moperator{\adj}{adj}
+\@moperator{\Aut}{Aut}
+\@moperator{\Conv}{Conv}
+\@moperator{\cov}{cov}
+\@moperator{\Cov}{Cov}
+\@mmacro{curl}{\operatorname{\vect{\mathup{curl}}}}
+\@moperator[divg]{\divg}{div}
+\@moperator{\End}{End}
+
+\@moperator{\erf}{erf}
+\@mmacro{grad}{\operatorname{\vect{\mathup{grad}}}}
+\@moperator{\id}{id} % mathop or mathord ?
+\@moperator{\Id}{Id}
+\@moperator{\im}{im}
+\let\oldIm\Im \renewcommand{\Im}{\operatorname{Im}}
+\@moperator{\lb}{lb}
+\@moperator{\lcm}{lcm}
+
+\@moperator{\rank}{rank}
+\let\oldRe\Re \renewcommand{\Re}{\operatorname{Re}}
+\@mmacro{rot}{\operatorname{\vect{\mathup{rot}}}}
+\@moperator{\sgn}{sgn}
+\@moperator[spa]{\spa}{span}
+\@moperator{\tr}{tr}
+\@moperator{\Var}{Var}
+\@moperator[Zu]{\Zu}{Z}
+
+\@moperator{\arccot}{arccot}
+\@moperator{\sech}{sech}
+\@moperator{\csch}{csch}
+\@moperator{\arsinh}{arsinh}
+\@moperator{\arcosh}{arcosh}
+\@moperator{\artanh}{artanh}
+\@moperator{\arcoth}{arcoth}
+\@moperator{\arsech}{arsech}
+\@moperator{\arcsch}{arcsch}
+
+\@moperator[bigO]{\bigO}{\mathcal{O}}
+\@moperator[bigo]{\bigo}{O}
+\@moperator[lito]{\lito}{o}
+
+\newcommand{\mathset}{\mathbf}
+\@mmacro{R}{\ensuremath{\mathset{R}}\xspace} 
+\@mmacro{C}{\ensuremath{\mathset{C}}\xspace}
+\@mmacro{N}{\ensuremath{\mathset{N}}\xspace}
+\@mmacro{Z}{\ensuremath{\mathset{Z}}\xspace}
+\@mmacro{Q}{\ensuremath{\mathset{Q}}\xspace}
+\@mmacro{F}{\ensuremath{\mathset{F}}\xspace}
+\@mmacro{K}{\ensuremath{\mathset{K}}\xspace}
+
+\@mmacro{ds}{\displaystyle}
+\@mmacro{dlim}{\lim\limits}
+\@mmacro{dsum}{\sum\limits}
+\@mmacro{dprod}{\prod\limits}
+\@mmacro{dcup}{\bigcup\limits}
+\@mmacro{dcap}{\bigcap\limits}
+\@mmacro{lbar}{\overline}
+\providecommand*{\hlbar}[1]{\overline{\vphantom{h}#1}}
+\@mmacro{eqdef}{\stackrel{\mathup{def}}{=}}
+\@mmacro{unbr}{\underbrace}
+\@mmacro{iif}{if and only if\xspace}
+
+\@mmacro{mul}{\mathord{\times}}
+\@mmacro{then}{\ \Longrightarrow \ \mbox{} } 
+%    \end{macrocode}
+% Without |\mbox{}|, the space produced by |\| would be suppressed in tables.
+% \medskip
+%    \begin{macrocode}
+\providecommand*{\txt}[1]{\quad\text{#1}\quad}
+\providecommand*{\paren}[1]{\mathopen{\left(#1\right)}}
+\providecommand*{\pow}[2]{\left( #1 \right)^{\!#2}}
+\providecommand*{\abs}[1]{\left\vert#1\right\vert}
+\providecommand*{\lfrac}[2]{\frac{\:#1\:}{\:#2\:}}
+\DeclareMathSymbol{]}\mathord{UpSh}{093} % originally \mathclose
+\DeclareMathSymbol{[}\mathord{UpSh}{091} % originally \mathopen
+
+\newcommand{\systemstretch}{1.2}
+\newcommand{\systemsep}{\medspace}
+\newenvironment{system}[1][l]{
+    \renewcommand{\arraystretch}{\systemstretch}
+    \setlength{\arraycolsep}{0.15em}
+    \left\{\begin{array}{@{\systemsep}#1@{}} %
+}{\end{array}\right.}
+
+\newenvironment{spmatrix}{
+    \left(\begin{smallmatrix}
+}{\end{smallmatrix}\right)}
+
+\newenvironment{mathcols}{% needs multicol package
+    \renewcommand{\columnseprule}{0.1pt}
+    \begin{multicols}{2}
+        \par\noindent\hfill
+        \begin{math}\begin{aligned}\displaystyle
+}{%
+        \end{aligned}\end{math} \hfill\mbox{}
+    \end{multicols}
+}
+\newcommand{\changecol}{%
+    \end{aligned}\end{math} \hfill\mbox{}
+    \par\noindent\hfill
+    \begin{math}\begin{aligned}\displaystyle 
+}   
+%    \end{macrocode}
+%
+% \begin{thebibliography}{17}
+% \bibitem{TYPMA} \emph{Typesetting mathematics for science and technology according 
+% to ISO 31/XI}, Claudio Beccari, TUGboat Volume 18 (1997), No.~1.
+% \bibitem{NIST} \emph{Typefaces for Symbols in Scientific Manuscripts}.\\
+% https://www.physics.nist.gov/cuu/pdf/typefaces.pdf.
+% \bibitem{ICTNS} \emph{On the Use of Italic and up Fonts for Symbols in Scientific Text},
+% I.M.~Mills and W.V.~Metanomski, ICTNS (Interdivisional Committee on Nomenclature and Symbols), 
+% dec 1999.
+% \bibitem{ISO} \emph{ISO 80000-2}. https://en.wikipedia.org/wiki/ISO\_80000-2
+% \bibitem{AMS} \emph{The \textsf{amsmath} package}. Frank Mittelbach, Rainer Schöpf, 
+% Michael Downes, Davis M.~Jones, David Carlisle, CTAN, v2.17b 2018/12/01.
+% \bibitem{TOOL} \emph{The \textsf{mathtool} package}. Morten Høgholm, Lars Madsen, CTAN,
+% v1.21 2018/01/08.
+% \bibitem{VECT} \emph{Typesetting vectors with beautiful arrow with \LaTeXe}.
+% \textsf{esvect} package by Eddie Saudrais, CTAN, v1.3 2013/07/11.
+% \bibitem{GREEK} \emph{The \textsf{upgreek} package for \LaTeXe}, Walter Schmidt,
+% CTAN, v2.0 2003/02/12.
+% \bibitem{FIXM} \emph{The \textsf{fixmath} package for \LaTeXe}, Walter Schmidt, 
+% CTAN, v0.9 2000/04/11.
+% \bibitem{ISOM} \emph{\textsf{isomath}. Mathematical style for science and technology}.
+% Günter Milde, CTAN, v0.6.1 04/06/2012.
+% \bibitem{INT} \emph{The \textsf{interval} package}. Lars Madsen, CTAN,
+% v0.3 2014/08/04.
+% \bibitem{SYST} \emph{L'extension pour \TeX\ et \LaTeX\ \textsf{systeme}}. Christian Tellechea,
+% CTAN v0.32 2019/01/13.
+% \bibitem{SPAL} \emph{The \textsf{spalign} package}. Joseph Rabinoff, CTAN, 2016/10/05.
+% \bibitem{FR} \emph{L'extension \textsf{frenchmath}}. Antoine Missier, CTAN, v1.4 2019/05/22.
+% \bibitem{LSHORT} \emph{The Not So Short Introduction to \LaTeXe}. \texttt{lshort} package by
+% Tobias Oetiker, Hubert Partl, Irene Hyna and Elisabeth Schlegl, CTAN, v6.2 2018/02/28.
+% \bibitem{COMP} \emph{The \LaTeX\ Companion}. Frank Mittelbach, Michel Goossens, 
+% Johannes Braams, David Carlisle, Chris Rowley, 2nd edition, Pearson Education, 2004.
+% \end{thebibliography}
+
+% \Finale
+\endinput

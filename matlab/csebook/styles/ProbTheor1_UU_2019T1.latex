@@ -134,51 +134,5 @@ EXs~\ref{Exs:onRV}
  } \\
 \end{table}
 
-\clearpage
-
-\section*{Time Table -- Inf.~Theor.~I}
-\begin{table}[hbt]
-\addcontentsline{toc}{chapter}{1MS035 Time Table}
-\centering
-(KEY,VALUE): (EX, Exercise), (RD, Read), (RW, Review), (UD, Understand), (PM, Program)
-\caption{Time Table for Inference Theory I} \label{T:TTCBInfTheorI}
-{\scriptsize
-\begin{tabular}{|ll|l|l|l|}%|l|l|l|l|}
- \hline
-Lec.& Lab.& Week & Topics & Section/Labworks/Simulations \\
- \hline
-01 &    & 45 & Overview of Inference \& Decisions & RD~\ref{S:StatExps}\\ 
-02 &    &    & Review of LLN, CLT \& Inference for proportions & \\ 
-03 &    &    & Inference for proportions and Estimators & \\
-   & 04 &    & Set up \Matlab scripts directory & download \& unzip {\tt scripts.zip} on your computer$^{\downarrow}$ \\
-   &    &    & Introduction to {\sc Matlab}  & PM~\ref{LW:IntroMatlab},\ref{LW:Seqs},\ref{LW:VecsMats},\ref{LW:2Dplot},\ref{LW:FloorCeil} \\
-   &    &    & Familiarise yourself with {\sc Matlab}  & Try Labworks covered in Prob.~Theor.~I\\
-\hline
-\remove{
- 15 &  & & Point Estimation \& Confidence Sets & \ref{S:PointEstimation}, \ref{S:PropPointEstim}, \ref{S:ConfidenceSets} \\
- 16 &  & & Confidence Intervals \& Likelihoods & \ref{S:ConfidenceSets} , \ref{S:Likelihood} \\ 
-    & 1& & Implementation  & LWs: (\ref{LW:BernoulliMLE}), \ref{LW:ExponentialMLEOrbiter}, \ref{LW:ExponentialBusMLE} \\ \hline
-       
- 17 &  &22-09-08 & Maximum Likelihood Estimation  & \ref{S:MLE} \\
- 18 &  &24-09-08 & Fisher Information & \ref{S:PropsMLE}, \ref{S:FisherInfo} \\
-        & 9 & 24/25-09-08 & Implementation  & LWs: \ref{LW:NZSIEarthQuakesExponentialMLE}, \ref{LW:RayleighOceanHeightsMLE}, \ref{LW:ExponentialMLECIOrbiter}, \ref{LW:IDSeededBusStopMLECI} \\ \hline
-        
- 19 &  & 29-09-08 & DF Estimation \& Plug-in Estimation & \ref{S:EstimDF}, \ref{S:PlugIn} \\
- 20 & & 01-10-08 & Bootstrap & \ref{S:NPBootstrap}, \ref{S:PBootstrap} \\ 
-       & 10 & 01/02-10-08 & Implementation & LWs: \ref{LW:NZSIEQTimesECDFsConfBands}, \ref{LW:OrbiterECDFsConfBands}, \ref{LW:PlugInEstimatesEarthQuakes}, \ref{LW:NZSIEQTimesMedianBootstrap}, \ref{LW:LSATGPACorrBoot}  \\ \hline
-       
- 21 & & 06-10-08 &Hypothesis Testing: size, level, power, Wald Test \& p-value     & \ref{S:HypTestIntro}, \ref{S:WaldTest}, \ref{S:p-values} \\ 
- 22 & & 08-10-08 & Permutation Test \& $\chisquare$  & \ref{S:PermTest}, \ref{S:Chi2} \\
-       & 11 & 08/09-10-08 & Oral presentation preparation  &  email oral presentation  \\ \hline
-       
- 23 &  & 13-10-08& Group Project Presentation & \\
- 24 &  & 15-10-08 & Group Project Presentation & \\ 
-      & 12 & 15/16-10-08 & Type-setting Written Report & email written report \\ \hline
- %*Oral    & 18/10/07 & &  & Erskine 446 \\
- %Presentation &  & & at the Maths \& Stats Dept.~Seminar &  Room No.~TBA \\
-}% end remove
-\end{tabular}
-} \\
-$^{\downarrow}${\scriptsize {\tt scripts.zip} is at \url{https://github.com/lamastex/computational-statistical-experiments/tree/master/matlab/csebook}}
-\end{table}
+%\clearpage
 

@@ -1,0 +1,742 @@
+\section{Statistics for Bernoulli Trials (Inference for Proportions)}\label{S:InfForProps}
+
+\subsection{ Testing biasedness of a coin}
+
+\textbf{\ }Suppose we have a coin where $\theta$ is the probability of coming up
+with Heads and $1-\theta$ is is the probability of coming up with Tails. Here $\theta$
+is a number between $0$ and $1.$ The coin is fair (unbiased) if $\theta=1/2$;
+otherwise it is a biased coin. Throwing a coin constitutes a\textbf{\
+Bernoulli trial} if we identify Heads with the number $1$ and Tails with $0$%
+. The random variable $X$ symbolizing the outcome of this experiment is a 
+\textbf{Bernoulli random variable.} Thus we have 
+\begin{equation*}
+\P \left( X=0\right) =1-\theta\text{, }\P \left( X=1\right) =\theta\text{, }0<\theta<1%
+\text{. }
+\end{equation*}%
+Generally we abbreviate "random variable" by RV.
+
+Recall that the distribution of a discrete RV is the entirety of its
+possible values $x_{1},x_{2},\ldots $ along with the associated
+probabilities $\theta_{i}=\P \left( X=x_{i}\right) $. The \textbf{Bernoulli
+distribution} $\bernoulli(\theta)$ is by definition the distribution of $X,$
+i.e. the possible values are $0$ and $1$ and the associated probabilities
+are $1-\theta$ and $\theta$.
+
+How can we test whether a given coin is biased or not ? Obviously we should
+throw the coin repeatedly and compare the number of Heads with the number of
+Tails. If we throw the coin $n$ times, this provides us with \ $n$ \textit{%
+independent Bernoulli trials}, symbolized by independent Bernoulli random
+variables $X_{1},\ldots ,X_{n}$. \bigskip \bigskip
+
+\textbf{First example of a hypothesis test.} To phrase the biasedness
+question in statistical terms, introduce two hypotheses: 
+\begin{eqnarray*}
+H_{0} &:&\theta=1/2\text{ null hypothesis} \\
+H_{1} &:&\theta\neq 1/2\text{ alternative hypothesis}
+\end{eqnarray*}%
+To test if the null hypothesis 
+\index{null hypothesis} is true, we throw the coin $n$ times and let $%
+X_{i}=1 $ if Heads comes up on the $i$th trial and $0$ otherwise, so that $%
+\bar{X}_{n}$ is the fraction of times Heads comes up in the first $n$
+trials. The test is specified by giving a critical region \textbf{%
+\index{critical region} }$\mathcal{C}_{n}$ so that we reject $H_{0}$ (that
+is, decide $H_{0}$ is incorrect) when $%
+\bar{X}_{n}\in \mathcal{C}_{n}$. One possible choice in this case is 
+\begin{equation*}
+\mathcal{C}_{n}=\left\{ x:\left\vert x-\frac{1}{2}\right\vert >1/\sqrt{n}%
+\right\} .
+\end{equation*}%
+This choice is motivated by the fact that if $H_{0}$ is true then using the
+central limit theorem ($Z$ is a standard normal variable), with $\theta=1/2$ 
+\begin{equation}
+\P \left( \bar{X}_{n}\in \mathcal{C}_{n}\right) =\P \left( \left\vert 
+\frac{\bar{X}_{n}-\theta}{\sqrt{\theta(1-\theta)}/\sqrt{n}}\right\vert \geq 2\right)
+\approx P\left( \left\vert Z\right\vert \geq 2\right) =0.05.
+\end{equation}%
+and $2\sqrt{\frac{1}{2}\cdot \frac{1}{2}}=1$. Rejecting $H_{0}$ when it is
+true is called a \textbf{type I error. 
+\index{type I error}}In this test we have set the type I error to be 5\%.
+
+\bigskip \bigskip
+
+\subsection{Review of underlying probability concepts}
+
+Although Probability Theory I is a pre-requisite for Inference Theory I, we will review the concepts again as everyone may not have met the pre-requisites at the level needed for the sequel. 
+In the process we will use slightly different notational conventions as these are more common in mathematical statistics.
+
+\textbf{\ }Recall the notion of independence of RV`s: suppose $%
+X_{1},X_{2}$ are RV`s which can be jointly observed, i.e. they have a
+joint distribution. Suppose also that both $X_{1},X_{2}$ have the same
+finite range of possible values: $\mathcal{X}=\left\{ y_{1},\ldots
+,y_{m}\right\} $. Then independence means 
+\begin{equation*}
+\P \left( X_{1}=x_{1},X_{2}=x_{2}\right) =\P \left( X_{1}=x_{1}\right) \P
+\left( X_{2}=x_{2}\right) 
+\text{, }x_{1},x_{2}\in \mathcal{X}.
+\end{equation*}%
+Independence of $n$ RV`s $X_{1},\ldots ,X_{n}$ is defined analogously,
+where for any set of values $x_{1},\ldots ,x_{n}$ (all from $\mathcal{X}$)
+we require 
+\begin{equation*}
+\P \left( X_{1}=x_{1},\ldots ,X_{n}=x_{n}\right)
+=\dprod\limits_{i=1}^{n}\P \left( X_{i}=x_{i}\right) .
+\end{equation*}%
+Throwing a coin $n$ times, our Bernoulli RV`s $X_{1},\ldots ,X_{n}$ are
+not only independent but also \textit{identically distributed}. This means
+that all $X_{i}$ considered "alone" (i.e. in their marginal distribution)
+have the same distribution $\bernoulli(\theta)$. Such an array of RV`s is
+often called \textbf{independent and identically distributed}\textit{, }%
+abbreviated\textit{\ }IID The case of observed IID RV`s is the
+most frequently assumed and encountered one in statistics. Specialized to
+Bernoulli RV`s $X_{1},\ldots ,X_{n}$ the \textit{\ }IID assumption
+means: if $x_{1},\ldots ,x_{n}$ \ is any sequence of $0$'s and $1$'s then 
+\begin{equation*}
+\P \left( X_{1}=x_{1},\ldots ,X_{n}=x_{n}\right)
+=\dprod\limits_{i=1}^{n}\P \left( X_{i}=x_{i}\right) =\theta^{k}\left(
+1-\theta\right) ^{n-k}
+\end{equation*}%
+where $k$ is the number of $1$'s in the $n$-tuple $x_{1},\ldots ,x_{n}$.
+Note that we may write 
+\begin{equation*}
+k=\sum_{i=1}^{n}x_{i}
+\end{equation*}%
+hence 
+\begin{equation*}
+\P \left( X_{1}=x_{1},\ldots ,X_{n}=x_{n}\right) =\theta^{\left(
+\sum_{i=1}^{n}x_{i}\right) }\left( 1-\theta\right) ^{n-\left(
+\sum_{i=1}^{n}x_{i}\right) }.
+\end{equation*}
+
+\textbf{Moments of the Bernoulli distribution}. Suppose that $X$ has the
+Bernoulli law $\bernoulli(\theta)$. A notation we will frequently use is 
+\begin{equation*}
+\mathcal{L}(X)=\bernoulli(\theta)\text{. }
+\end{equation*}%
+Here "$\mathcal{L}(X)$" means "the law of the RV $X$", where the law is
+a short word for the distribution (derived from "probability law", an older
+term for "distribution"). Now it is easy to see, with the shorter notation for expectations without the $(\cdot)$ for convenience, that 
+\begin{eqnarray*}
+\E (X) = \E X &=&0\cdot \left( 1-\theta\right) +1\cdot \theta=\theta, \\
+\E (X^2) = \E X^{2} &=&0^{2}\cdot \left( 1-\theta\right) +1^{2}\cdot \theta=\theta
+\end{eqnarray*}%
+and hence 
+\begin{equation*}
+\V(X)=\E X^{2}-\left( \E X\right) ^{2}=\theta-\theta^{2}=\theta\left( 1-\theta\right) .
+\end{equation*}%
+\textbf{The law of large numbers. }Specialized to our case of IID
+Bernoulli's it gives 
+\begin{equation*}
+\bar{X}_{n}=n^{-1}\sum_{i=1}^{n}X_{i}\longrightarrow _{\theta}\E X=\theta
+\end{equation*}%
+where $\longrightarrow_{p}$ (or equivalently $\overset{\P}{\longrightarrow}$) denotes convergence in probability. Here $\bar{X%
+}_{n}$ is the arithmetic mean of $X_{1},\ldots ,X_{n}$, also called the 
+\textbf{sample mean.} Recall that convergence in probability $\bar{X}%
+_{n}\longrightarrow_{p} \theta$ means: for every $\varepsilon >0$ 
+\begin{equation*}
+\P \left( \left\vert \bar{X}_{n}-\theta\right\vert >\varepsilon \right)
+\longrightarrow 0\text{ as }n\rightarrow \infty \text{. }
+\end{equation*}%
+Here $\theta=\E X$ may be also be called "\textbf{population mean}". This derives
+from the fact that in many examples other than coin throw, a Bernoulli RV $X$ 
+is obtained from randomly selecting an individual from a large
+population. Fore instance, we might select a random individual from the U.S.
+population and observe whether it is a smoker or nonsmoker. Provided our
+selection is "truly random", we obtain a Bernoulli distribution $\bernoulli(\theta)$ 
+where $\theta$ is the proportion of smokers in the population at large. By
+this reasoning, we often identify a random variable $X$ with a "population"
+and its expectation and variance $\E X,$ $\V(X)$ with the population
+mean and variance. Thus there is a correspondence between sample mean $\bar{X%
+}_{n}$ and population mean $\E X$ etc. Of course there are many random
+variables occurring in practice which do not arise from "selecting from a
+population", for example a coin throw, hitting a target when shooting,
+getting rain on a hike etc., \bigskip \bigskip
+
+\textbf{Population proportion and sample proportion.} For Bernoulli RV's $%
+X_{1},\ldots ,X_{n}$, the sample mean $\bar{X}_{n}$ may be identified with
+the \textit{sample proportion of }$1$\textit{'s}. Indeed 
+\begin{equation*}
+\bar{X}_{n}=n^{-1}\sum_{i=1}^{n}X_{i}=\frac{\#\text{ of }1^{^{\prime }}s%
+\text{ in the sample }X_{1},\ldots ,X_{n}}{n}
+\end{equation*}%
+thus $\bar{X}_{n}$ is the number of $1$'s in the sample relative to sample
+size $n$, briefly called \textbf{sample proportion} $\hat{\theta}_{n}$. Thus for
+Bernoulli RV's $X_{1},\ldots ,X_{n}$ we have 
+\begin{equation*}
+\bar{X}_{n}=\hat{\theta}_{n}.
+\end{equation*}%
+The same correspondence exists on the population level: $\E X=\theta$ where $\theta$ may
+be called the \textbf{population proportion}. To repeat it, $X$ may not
+actually be the result of selecting from some population; $X$ may be the
+outcome of a random experiment like a coin throw. Still the terminology
+"sample proportion/ population proportion" is widely used in
+statistics.
+
+\subsubsection{Chebyshev's inequality and the Law of Large Numbers (LLN)}
+
+The law of large numbers (LLN) holds under a general assumption that $%
+E\left\vert X_{i}\right\vert <\infty $, see [D]\footnote{%
+Throughout we will use [D] for the reference: Durrett, R., \emph{The
+Essentials of Probability, }Duxbury Press, 1994.} p. 223. or Proof via CFs in Probability Theory I earlier. 
+But we recall here from scratch for reinforcement of your learning.}
+
+\begin{prop}
+(Weak Law of Large Numbers). Suppose $X_{1},X_{2},\ldots $ are IID\ RV\
+'s and have $E\left\vert X_{i}\right\vert <\infty $. Let $\mu =\E X_{i}$. Then
+as $n\rightarrow \infty $%
+\begin{equation*}
+\bar{X}_{n}\longrightarrow _{p}\mu
+\end{equation*}%
+in other words: for every $\varepsilon >0$ 
+\begin{equation*}
+\P \left( \left\vert \bar{X}_{n}-\mu \right\vert \geq \varepsilon \right)
+\longrightarrow 0\text{. }
+\end{equation*}
+\end{prop}
+
+The general proof is not given in [D], but is argued under an additional
+assumption that the IID $X_{i}$ have a finite variance. In this case the
+LLN follows from \textit{Chebyshev's inequality }([D] p. 222)\textit{: }if $%
+Y $ is an RV with finite variance $\sigma ^{2}$ then for any $t>0$ \textit{%
+\ }%
+\begin{equation}
+\P \left( \left\vert Y-\E Y\right\vert \geq t\right) \leq \frac{\V%
+(Y)}{t^{2}}.  \label{Chebyshev}
+\end{equation}%
+This easily yields a proof of the weak LLN under an additional assumption $%
+\V(X_{i})=\sigma ^{2}<\infty $: note that $\V(\bar{X}%
+_{n})=\sigma ^{2}/n$ so that 
+\begin{equation*}
+\P \left( \left\vert \bar{X}_{n}-\mu \right\vert \geq \varepsilon \right)
+\leq \frac{\V(\bar{X}_{n})}{\varepsilon ^{2}}=\frac{\sigma ^{2}}{%
+n\varepsilon ^{2}}\longrightarrow 0.
+\end{equation*}
+
+\begin{proof}[Proof of Chebyshev's inequality (\protect\ref{Chebyshev})]
+Let $X$ be a nonnegative RV ($X\geq 0$ ) with finite expectation: $%
+\E X<\infty $. Let $\mathbf{1}_{A}$ be the indicator function of an event $A$.
+Then for $u>0$ 
+\begin{equation*}
+\E X=\E X\mathbf{1}_{\left\{ X<u\right\} }+\E X\mathbf{1}_{\left\{ X\geq u\right\}
+}\geq \E X\mathbf{1}_{\left\{ X\geq u\right\} }\geq u \E \mathbf{1}_{\left\{
+X\geq u\right\} }=u\P \left( X\geq u\right) .
+\end{equation*}%
+Thus we obtain \textit{Markov's inequality} 
+\begin{equation*}
+\P \left( X\geq u\right) \leq \frac{\E X}{u}.
+\end{equation*}%
+Setting $X=\left\vert Y-\E Y\right\vert ^{2}$ we obtain 
+\begin{equation*}
+\P \left( \left\vert Y-\E Y\right\vert \geq t\right) =\P \left( \left\vert
+Y-\E Y\right\vert ^{2}\geq t^{2}\right) \leq \frac{E\left\vert Y-\E Y\right\vert
+^{2}}{t^{2}}=\frac{\V(Y)}{t^{2}}.
+\end{equation*}
+\end{proof}
+
+\bigskip \bigskip To understand what the assumption of a finite variance
+means, it is instructive to find an example of a RV having $\E\left\vert
+X\right\vert <\infty $ but with infinite variance.
+
+\subsubsection{Normal approximation and the Central Limit Theorem (CLT)}
+
+Let us state the Central Limit Theorem, following [D], p. 228.
+
+\begin{prop}
+Suppose $X_{1},X_{2},\ldots $ are IID\ RV\ 's and have $\E X_{i}=\mu $
+and $\V(X_{i})=\sigma ^{2}$ with $0<\sigma ^{2}<\infty $. Then as $%
+n\rightarrow \infty $%
+\begin{equation*}
+\P \left( \frac{\bar{X}_{n}-\mu }{\sigma /\sqrt{n}}\leq x\right)
+\longrightarrow \P \left( Z\leq x\right) \text{ for all }x
+\end{equation*}%
+where $Z$ denotes a random variable with the standard normal distribution.
+\end{prop}
+
+Specialized to IID Bernoulli RV's $X_{1},\ldots ,X_{n}$ with law $%
+\bernoulli(\theta)$, this says 
+\begin{equation}
+\sqrt{n}\frac{\left( \hat{\theta}_{n}-\theta\right) }{\sqrt{\theta(1-\theta)}}\rightsquigarrow
+\normal(0,1)\text{ as }n\rightarrow \infty .  \label{specialize-Bern}
+\end{equation}%
+Here $\normal(0,1)$ is the \textit{standard normal distribution} (or standard
+Gaussian distribution) and $\rightsquigarrow $ denotes\textit{\ convergence
+in distribution} (or in law) of a RV A random variable $Z$ has the
+standard normal distribution if 
+\begin{equation*}
+\P \left( Z\leq z\right) =\Phi (z)=\int_{-\infty }^{z}\varphi (t)dt
+\end{equation*}%
+where $\Phi $ is the \textit{standard normal distribution function, }defined
+in terms of the \textit{standard} \textit{normal density }%
+\begin{equation*}
+\varphi (t)=\frac{1}{\sqrt{2\pi }}\exp \left( -t^{2}/2\right) .
+\end{equation*}%
+Thus we have a number of symbols associated with the standard normal
+distribution: $\normal(0,1)$ is the distribution itself, $Z$ is a common symbol
+for a RV having that law, i.e. $\mathcal{L}(Z)=\normal(0,1)$; $\Phi $ is the
+distribution function $\Phi (t)=\P \left( Z\leq t\right) $ and $\varphi $
+is the density. The \textit{general normal} (or Gaussian) distribution with
+mean $\mu $ and variance $\sigma ^{2}$ is denoted by $\normal(\mu ,\sigma ^{2})$;
+it is defined as 
+\begin{equation*}
+\normal(\mu ,\sigma ^{2}):=\mathcal{L}(\mu +\sigma Z).
+\end{equation*}
+
+The convergence stated in the CLT is a special case of \textit{convergence
+in distribution}$.$
+
+\begin{definition}
+\label{def-converg-in-law} A sequence of RV's $Y_{n}$ converges in
+distribution (or in law) to a RV $Y$, written 
+\begin{equation*}
+Y_{n}\rightsquigarrow Y\text{ as }n\rightarrow \infty
+\end{equation*}%
+if 
+\begin{equation}
+\P \left( Y_{n}\leq z\right) \longrightarrow \P \left( Y\leq z\right) 
+\text{ as }n\rightarrow \infty  \label{clt-x}
+\end{equation}%
+for every point of continuity $z$ of the distribution function of $Y$.
+\end{definition}
+
+Since for a standard normal $Z$ the distribution function is $\Phi $ which
+is continuous everywhere, in the case of the CLT we simply have (\ref{clt-x}%
+) for every $z$, and the CLT as stated above indeed gives a convergence in
+distribution. Other ways of writing a convergence in law (in distribution)
+are 
+\begin{equation*}
+\mathcal{L}\left( Y_{n}\right) \rightsquigarrow \mathcal{L}\left( Y\right) 
+\text{ or }Y_{n}\rightsquigarrow \mathcal{L}\left( Y\right)
+\end{equation*}%
+which is justified since convergence in distribution is a statement about
+the laws (or distribution functions) of $Y_{n}$ and $Y$. Thus in the case of
+the CLT we may write 
+\begin{equation*}
+\frac{\bar{X}_{n}-\mu }{\sigma /\sqrt{n}}\rightsquigarrow \normal(0,1)\text{ as }%
+n\rightarrow \infty
+\end{equation*}%
+since $\normal(0,1)=\mathcal{L}\left( Z\right) $, and for Bernoulli's this
+specializes to (\ref{specialize-Bern}).
+
+In [D] the CLT is proved under the assumption that $\E\exp (tX)<\infty $ for $%
+t\in \left( -t_{0},t_{0}\right) $ and some $t_{0}>0$. For a Bernoulli $X$
+this is trivially fulfilled since $X\leq 1$ and hence $\E\exp (tX)\leq \exp
+(t)$. \bigskip
+
+\begin{Exercise}[title={CLT implies LLN},label={CLTImpliesLLN}]
+Show that the CLT implies the LLN. More precisely, assume
+that a sequence of RV's $Y_{n}$ satisfies 
+\begin{equation*}
+\frac{Y_{n}-\mu }{\sigma /\sqrt{n}}\rightsquigarrow \normal(0,1)\text{ as }%
+n\rightarrow \infty
+\end{equation*}%
+for certain $\mu ,\sigma $ where $\sigma >0$. Show that $Y_{n}%
+\longrightarrow _{p}\mu $. \bigskip \bigskip
+\end{Exercise}
+
+\subsubsection{Normal approximation for the binomial distribution}
+
+Recall the definition of the binomial distribution: if $X_{1},\ldots ,X_{n}$
+are IID\ Bernoulli $\bernoulli(\theta)$ then the distribution of the sum $%
+S_{n}=\sum_{i=1}^{n}X_{i}$ is the \textit{binomial distribution} $\binomial(n,\theta)$.
+The probability function of $\binomial(n,\theta)$ is 
+\begin{equation}
+\P \left( S_{n}=k\right) =\left( \binom{n}{k}\right) \theta^{k}\left( 1-\theta\right)
+^{n-k}\text{, }k=0,\ldots ,n.  \label{binom-law}
+\end{equation}%
+The binomial law has two parameters- $n,$ the number of trials, and $\theta$, the
+probability of "success", i.e. of $1$. Thus the binomial law is the
+distribution of the number of successes in $n$ independent Bernoulli trials
+(with the same probability of success).
+
+\bigskip
+
+\begin{proof}[Proof of (\protect\ref{binom-law})]
+Let $x_{1},\ldots ,x_{n}$ be an arbitrary collection of $0^{\prime }$s and $%
+1^{\prime }$s$.$ We have seen above that 
+\begin{equation*}
+\P \left( X_{1}=x_{1},\ldots ,X_{n}=x_{n}\right) =\theta^{\left(
+\sum_{i=1}^{n}x_{i}\right) }\left( 1-\theta\right) ^{n-\left(
+\sum_{i=1}^{n}x_{i}\right) }
+\end{equation*}%
+where $\sum_{i=1}^{n}x_{i}$ is the number of $1^{\prime }$s among $%
+x_{1},\ldots ,x_{n}$, i.e. the number of successes. Thus 
+\begin{eqnarray*}
+\P \left( \sum_{i=1}^{n}X_{i}=k\right) &=&\sum_{\left( x_{1},\ldots
+,x_{n}\right) :\sum_{i=1}^{n}x_{i}=k}\theta^{k}\left( 1-\theta\right) ^{n-k} \\
+&=&\theta^{k}\left( 1-\theta\right) ^{n-k}\cdot \#\left\{ \left( x_{1},\ldots
+,x_{n}\right) :\sum_{i=1}^{n}x_{i}=k\right\} \\
+&=&\theta^{k}\left( 1-\theta\right) ^{n-k}\left( \binom{n}{k}\right)
+\end{eqnarray*}%
+(indeed the number of $n$-tuples of $\left( x_{1},\ldots ,x_{n}\right) $ of $%
+0^{\prime }$s and $1^{\prime }$s having exactly $k$ $1^{\prime }$s is $%
+\left( \binom{n}{k}\right) $- choose the $k$ positions among positions $%
+1,\ldots ,n$ where you place $1^{\prime }$s).
+\end{proof}
+
+\bigskip
+
+Thus the CLT, specialized to IID\ Bernoullis in (\ref{specialize-Bern}),
+is a statement about the normal approximation of the binomial law. Indeed
+let $S_{n}=\sum_{i=1}^{n}X_{i}$; we may write 
+\begin{eqnarray}
+\hat{\theta}_{n} &=&\bar{X}_{n}=n^{-1}\sum_{i=1}^{n}X_{i}=n^{-1}S_{n},  \notag \\
+\sqrt{n}\frac{\left( \hat{\theta}_{n}-\theta\right) }{\sqrt{\theta(1-\theta)}} &=&  \notag \\
+&=&\frac{S_{n}-n\theta}{\sqrt{n\theta(1-\theta)}}\rightsquigarrow \normal(0,1)\text{ as }%
+n\rightarrow \infty .  \label{demoivre-laplace}
+\end{eqnarray}%
+Here $S_{n}$ has the binomial law $\binomial(n,\theta)$. The form (\ref{demoivre-laplace}%
+) of the CLT is also called the \textbf{De Moivre- Laplace theorem};
+historically it was the first version of the CLT (De Moivre (1733) for $%
+\theta=1/2 $, Laplace (1812) for $0<\theta<1$). We see that the left side of (\ref%
+{demoivre-laplace}) is just the standardized sum $S_{n}$, by calculating its
+first two moments: 
+\begin{eqnarray*}
+\E S_{n} &=&\sum_{i=1}^{n}\E X_{i}=n\theta\text{, } \\
+\V(S_{n}) &=&\sum_{i=1}^{n}\V(X_{i})=n\theta(1-\theta).
+\end{eqnarray*}%
+Recall that standardizing a RV $Y$ means subtracting its expectation $\E Y\ $%
+and then dividing by the standard deviation $\mathrm{SD}(Y)=\sqrt{\mathrm{Var%
+}(Y)}$ so that the standardized expression 
+\begin{equation*}
+\frac{Y-\E Y}{\mathrm{SD}(Y)}
+\end{equation*}%
+has mean $0$ and variance $1$. Hence the verbal summary of the CLT: "the
+standardized sum of IID RV's is approximately standard normal". Of
+course standardizing the sum $S_{n}=\sum_{i=1}^{n}X_{i}$ yields the same
+result as standardizing the sample mean $\bar{X}_{n}$: 
+\begin{eqnarray*}
+\E S_{n} &=&nE\bar{X}_{n}\text{ and }\V(S_{n})=n^{2}\V(%
+\bar{X}_{n})\text{, hence } \\
+\frac{S_{n}-\E S_{n}}{\mathrm{SD}(S_{n})} &=&\frac{\bar{X}_{n}-E\bar{X}_{n}}{%
+\mathrm{SD}(\bar{X}_{n})}
+\end{eqnarray*}%
+so it is also true that "the standardized (sample) mean of IID RV's is
+\ldots ".
+
+\subsubsection{A visualization of the De Moivre-Laplace central limit theorem%
+\textbf{\ }}
+
+Let $X_{1},\ldots ,X_{n}$ be independent identically distributed random
+variables having the Bernoulli law $\binomial(1,\theta)$ with probability of success $\theta$.
+Recall that $S_{n}=\sum_{i=1}^{n}X_{i}$ then has the binomial law $\binomial(n,\theta)$
+with probabilities 
+\begin{equation*}
+P(Y=k)=\frac{n!}{k!\cdot (n-k)!}\cdot \theta^{k}(1-\theta)^{n-k}.
+\end{equation*}%
+To plot these probabilities we use the Gamma-function $\Gamma (x)$ which is
+defined for all $x>0$. and which has the property that for integers $k$ 
+\begin{equation*}
+\Gamma (k+1)=k!
+\end{equation*}%
+Thus we are able to plot a continuous function for all $x$ in a range, and
+we obtain a visualization of the factorial and derived expressions. We let $%
+x $ be the continuous variable taking the place of $k=0,1,\ldots ,n$.
+
+Define a function 
+\begin{equation*}
+b_{n}(x)=\frac{\Gamma (n+1)}{\Gamma (x+1)\cdot \Gamma (n-x+1)}\cdot
+\theta^{x}\cdot (1-\theta)^{n-x}
+\end{equation*}
+
+Here $b_{n}(x)$ represents the binomial law $\binomial(n,\theta)$ in the following sense: 
+\begin{equation*}
+b_{n}(k)=\frac{n!}{k!(n-k)!}\theta^{k}(1-\theta)^{n-k}\text{, }k=0,1,\ldots ,n.
+\end{equation*}
+
+Set $\theta=1/3$ and $n=600$. The plot of the function $b_{n}(x)$, which
+interpolates the binomial probabilities, is:
+
+\vspace{3cm} 
+{\scriptsize [done in Lecture 3 - get/read notes to draw by hand here.]}\\
+
+Let us look at this
+picture around the expected value $n\theta=600/3=200$ in the range of three
+standard deviations. The standard deviation is $\sigma =\sqrt{n}\cdot \sqrt{%
+\theta \cdot (1-\theta)}=11.55$, thus $3\sigma =34.65\approx 35$ and we take a range
+values of $x$ from $165$ to $235$.
+
+
+{\scriptsize [done in Lecture 3 - get/read notes to draw by hand here.]}\\
+\vspace{3cm} 
+~\\
+
+
+The curve is
+visually indistinguishable from a normal density. For a comparison we plot
+the normal density with expectation $\mu =200$ and standard deviation $%
+\sigma =11.55$, i. e. the function 
+\begin{equation*}
+f(x)=\frac{1}{\sigma }\varphi \left( \frac{x-\mu }{\sigma }\right)
+\end{equation*}%
+where 
+\begin{equation*}
+\varphi \left( t\right) =\frac{1}{\sqrt{2\pi }}\exp \left( -t^{2}/2\right)
+\end{equation*}%
+is the standard normal density $\varphi \left( t\right) $. The density $f(x)$
+is plotted in (red) dots over the previous function $b_{n}(x)$.
+
+{\scriptsize [done in Lecture 3 - get/read notes to draw by hand here.]}\\
+\vspace{3cm} 
+~\\
+
+In this reasoning, we plotted the interpolated probability
+function of the sum $S_{n}$ against the density of the normal distribution $%
+\normal(\mu ,\sigma ^{2})=\normal\left( n\theta,n\theta(1-\theta)\right) $. In fact since the CLT says
+that the standardized sum $\frac{S_{n}-n\theta}{\sqrt{n\theta(1-\theta)}}$ is approximately
+standard normal:%
+\begin{equation}
+\frac{S_{n}-n\theta}{\sqrt{n\theta(1-\theta)}}\rightsquigarrow Z  \label{clt-correct}
+\end{equation}%
+by multiplying by $\sigma =\sqrt{n\theta(1-\theta)}$ and then adding $\mu =n\theta$ we
+would infer $S_{n}$ that should be approximately 
+\begin{equation}
+S_{n}\approx \sqrt{n\theta(1-\theta)}Z+n\theta  \label{cautious}
+\end{equation}%
+where $\mathcal{L}(\sigma Z+\mu )=$ $\normal(\mu ,\sigma ^{2})$. But here we
+should be cautious as to the meaning of the sign "$\approx $": in (\ref%
+{cautious}) both the left side and the right side depend on $n$, so we do
+not have a limit relation. Nevertheless it is common in statistics to state
+the normal approximation to the binomial as 
+\begin{equation*}
+S_{n}\approx \normal\left( n\theta,n\theta(1-\theta)\right) .
+\end{equation*}%
+This is correct if we understand it to mean the CLT (\ref{clt-correct}).
+When we plot the distributions $\binomial(n,\theta)$ and $\normal\left( n\theta,n\theta(1-\theta)\right) $, we
+make certain scale transforms anyway, e.g. we look at the distributions
+around their expectation, on the scale of the standard deviation. This
+amounts to standardization, and what we see is in fact the CLT (\ref%
+{clt-correct}).
+
+Moreover (\ref{cautious}) can be made rigorous by introducing a certain
+distance for distributions and then claiming that the distance between $%
+\mathcal{L}(S_{n})$ and $\normal\left( n\theta,n\theta(1-\theta)\right) $ tends to zero; we will
+not elaborate this here.
+
+\subsubsection{The success / failure rule}
+
+\textbf{\ }In applied statistics one finds a rule which limits the
+applicability of the normal approximation to the binomial $\binomial(n,\theta)$: it is
+required that both $n\theta\geq 10$ and $n(1-\theta)\geq 10$. This is called the
+"success / failure rule" since $n\theta$ is the expected number of successes: $%
+\E S_{n}=n\theta$ and and $n(1-\theta)$ is the expected number of "failures": $E\left(
+n-S_{n}\right) =n(1-\theta)$. This rule is based on the fact that the CLT\
+"breaks down" for small values of $\theta$. More precisely, when $\theta$ is small, a
+larger $n$ is needed to make the normal approximation good; for large enough 
+$n$ a small $\theta$ can always be compensated. For an illustration, select $%
+\theta=1/200$ and again $n=600$; then $n\theta=3$ and the success / failure rule is
+violated. The plot of $b_{n}(k)$ is as follows:
+
+
+{\scriptsize [done in Lecture 3 - get/read notes to draw by hand here.]}\\
+\vspace{3cm} 
+~\\
+
+
+Next we will look at this distribution around $\mu =n\theta$, i.e. $%
+\mu =3$ in the range of three standard deviations, i. e. $3\sigma $ where $%
+\sigma =\sqrt{n\theta(1-\theta)}$, thus $\sigma =1.\,73$. Thus $3\cdot \sigma
+=5.\,2\approx 5$ and we select a range of $x$ from $0$ to $3+5=10$. 
+
+
+{\scriptsize [done in Lecture 3 - get/read notes to draw by hand here.]}\\
+\vspace{3cm} 
+~\\
+
+
+Clearly the normal
+approximation is not convincing; moreover on that scale, we should take into
+account that the binomial probabilities $b_{n}(k)$ are only defined for
+integer values $k$, whereas we plotted the interpolating continuous function 
+$b_{n}(x)$ defined for all $x\geq 0$.
+
+\begin{labwork}\label{LW:VisualiseSuccessFailureRule}
+Write a \Matlab script to visualise the above figures drawn in lectures and algorithmically as well as visually understand {\em the success / failure rule}.
+
+You need to use {\tt gammaln} in \Matlab for $\log_e(\Gamma)$ function and use laws of exponents and logarithms for the PDF of $\binomial(n,\theta)$ RVs with large $n$.
+\end{labwork}
+
+\subsubsection{The Poisson approximation to the binomial}\label{S:PoissonApproxBinomialSuccessFailureRule}
+
+The breakdown of the normal approximation for small $\theta$ is related to the 
+\textbf{Poisson approximation} for $\binomial(n,\theta)$, according to which $%
+\binomial(n,\theta)\approx \poisson(n\theta)$ if $\theta$ is small and $n$ is large such that $%
+n\theta\rightarrow \lambda $. Here $\poisson(\lambda )$ is the Poisson
+distribution given by probabilities 
+\begin{equation*}
+\P \left( Y=k\right) =\frac{\lambda ^{k}}{k!}\exp \left( -\lambda \right) ,%
+\text{ }k=0,1,\ldots
+\end{equation*}
+
+\begin{prop}
+Suppose $\lambda >0$ and consider the binomial law $\binomial(n,\theta)$ for $\theta=\lambda
+/n $. Let $p_{n,k}$ be the probability function of $\binomial(n,\lambda /n)$ and let 
+$q_{n,k}$ be the probability function of the Poisson law $\poisson%
+(\lambda )$. Then for $n\rightarrow \infty $ and fixed $\lambda $,%
+\begin{equation*}
+p_{n,k}\rightarrow q_{n,k}\text{ as }n\rightarrow \infty \text{, for every }%
+k=0,1,\ldots \text{.}
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+We have 
+\begin{eqnarray}
+p_{n,k} &=&\frac{n!}{k!(n-k)!}\theta^{k}(1-\theta)^{n-k}  \notag \\
+&=&\frac{n!}{k!(n-k)!}\left( \frac{\lambda }{n}\right) ^{k}\left( 1-\frac{%
+\lambda }{n}\right) ^{n-k}  \notag \\
+&=&\frac{1}{k!}\cdot \frac{n!}{(n-k)!n^{k}}\cdot \lambda ^{k}\cdot \frac{1}{%
+\left( 1-\lambda /n\right) ^{k}}\cdot \left( 1-\frac{\lambda }{n}\right)
+^{n}.  \label{factors}
+\end{eqnarray}%
+For the second factor we have 
+\begin{equation*}
+\frac{n!}{(n-k)!n^{k}}=\frac{\left( n-k+1\right) }{n}\cdot \frac{\left(
+n-k+2\right) }{n}\cdot \ldots \frac{n}{n}
+\end{equation*}%
+i.e. it is a product of $k$ factors each of which tends to $1,$ hence $\frac{%
+n!}{(n-k)!n^{k}}\rightarrow 1$. For the 4th factor in (\ref{factors}) we
+obviously have 
+\begin{equation*}
+\frac{1}{\left( 1-\lambda /n\right) ^{k}}\rightarrow 1\text{. }
+\end{equation*}%
+For the 5th factor in (\ref{factors}) we have 
+\begin{equation*}
+\left( 1-\frac{\lambda }{n}\right) ^{n}\rightarrow \exp (-\lambda )
+\end{equation*}%
+which proves that 
+\begin{equation*}
+p_{n,k}\rightarrow \frac{1}{k!}\cdot \lambda ^{k}\cdot \exp (-\lambda )
+\end{equation*}%
+as $n\rightarrow \infty $, for a fixed $k.$
+\end{proof}
+
+We have established the Poisson approximation to $\binomial(n,\theta)$ if $n\theta=\lambda $
+exactly; a slight modification gives the result when $\theta=\theta_{n}$ depends on $n 
+$ in such a way that $n\theta_{n}\rightarrow \lambda $ as $n\rightarrow \infty $.
+This result is sometimes called the \textbf{law of small numbers }because it
+is the probability distribution of the number of occurrences of an event
+that happens rarely but has very many opportunities to happen. Another name
+is {\bf law of rare events}.
+
+Analogously to what we did for the binomial distribution, for visualization
+purposes we will interpolate the probability function by a smooth function 
+\begin{equation*}
+h(x)=\frac{1}{\Gamma (x+1)}\cdot \lambda ^{x}\cdot \exp (-\lambda ).
+\end{equation*}%
+Then $h(x)$ represents the Poisson law $\poisson(\lambda )$ in the
+following sense: 
+\begin{equation*}
+h(k)=\frac{1}{k!}\cdot \lambda ^{k}\cdot \exp (-\lambda )\text{, }%
+k=0,1,\ldots .
+\end{equation*}%
+Set as before $n=600$, and consider the binomial $\binomial(n,\theta)$ for $\theta=1/200$;
+then our appropriate $\lambda $ is $\lambda =3$. The picture below 
+%(Figure % \ref{fig1}) 
+is analogous to the last figure, where the dotted line now
+represents the Poisson law $\poisson(3)$ instead of the normal law $\normal(\mu
+,\sigma ^{2})$ with mean $\mu =n\theta$ and variance $n\theta(1-\theta)$.
+
+
+{\scriptsize [done in Lecuture 5 - get/read notes to draw by hand here.]}\\
+\vspace{3cm} 
+~\\
+
+
+We see a visually perfect approximation of the binomial law by
+the Poisson law. Here both laws are discrete (concentrated on the integers $%
+0,1,\ldots $) and the picture represents a continuous interpolation.
+
+The success/failure rule thus can be explained by the Poisson approximation,
+in the sense that the \textit{Poisson approximation contradicts the normal
+for small }$\lambda =n\theta$. In the requirement $\lambda \geq 10$, the $10$ is
+a limit chosen by convention; in the figures we saw that at least for $%
+\lambda =3$, the Poisson and the normal curves are visually different. Can
+we argue that for $\lambda \geq 10$, the Poisson and the normal
+approximation are not in contradiction? For that we have to observe that $%
+\poisson(\lambda )$ approximates a normal distribution as $\lambda
+\rightarrow \infty $. \bigskip
+
+\begin{Exercise}[title={Sum of independent $\poisson$ RVs is a $\poisson$ RV},label={SumOfIndPoissons}]
+Suppose $X,Y$ are independent RV's with $\mathcal{L}(X)=%
+\poisson(t),\mathcal{L}(Y)=\poisson(u)$ where $t,u>0$. Then $\mathcal{L%
+}(X+Y)=\poisson(u+t)$.
+\end{Exercise}
+
+As a consequence, we can represent $\poisson(n)$ as the law of a sum of
+IID RV`s, each with law $\poisson(1)$:%
+\begin{equation*}
+\poisson(n)=\mathcal{L}\left( S_{n}\right) \text{, }S_{n}=%
+\sum_{i=1}^{n}Y_{i}\text{, }Y_{i}\text{ indep., }\mathcal{L}\left(
+Y_{i}\right) =\poisson(1).
+\end{equation*}%
+Therefore a CLT holds for the normalized $S_{n}$; recall that expectation
+and variance of $\poisson(\lambda )$ are both $\lambda $: if $\mathcal{L}%
+(Y)=\poisson(\lambda )$ then $\E Y=\lambda $, $\V(Y)=\lambda $;
+hence 
+\begin{eqnarray}
+\E (S_n) = \E S_{n} &=&n\text{, }\V(S_{n})= \V S_n = n \\
+\frac{S_{n}-n}{\sqrt{n}} &\rightsquigarrow &\normal(0,1)\text{ by the CLT. }
+\label{clt-for-poisson}
+\end{eqnarray}%
+We can express the latter relation also as 
+\begin{equation*}
+\poisson(n)\approx \normal\left( n,n\right) \text{ as }n\rightarrow \infty
+\end{equation*}%
+where $\approx $ means ``closeness in distribution", with a rigorous meaning (%
+\ref{clt-for-poisson}). \bigskip \bigskip
+
+\begin{rem}
+It can be verified that these limiting relations are also
+true for general $\poisson(\lambda )$:%
+\begin{equation*}
+\poisson(\lambda )\approx \normal\left( \lambda ,\lambda \right) \text{ as }%
+\lambda \rightarrow \infty
+\end{equation*}%
+which is plausible (the limits holds for all sequences of $\lambda
+_{n}\rightarrow \infty $, not only for a limit along the integers $%
+1,2,\ldots $). This can be verified using the characteristic function (or moment generating function) of $%
+\poisson(\lambda )$. an alternative argument is: represent $\poisson%
+(\lambda )$ as a sum $X+Y$ where $\lfloor \lambda \rfloor$ is the floor of $\lambda$, i.e., largest integer $n\leq
+\lambda $, $\mathcal{L}\left( X\right) =\poisson(\lfloor \lambda \rfloor)$ and $%
+\mathcal{L}\left( Y\right) =\poisson(\lambda - \lfloor \lambda \rfloor)$, then show
+that $X$ can be approximated by a normal and $Y$ has negligible influence.
+We will acquire the tools for a rigorous argument later.
+\end{rem}
+
+Let us try to illustrate the CLT for the Poisson law, using the tools we
+have. First we choose a small $\lambda $, e.g. $\lambda =1.5$ and plot the
+Poisson $\poisson(\lambda )$ and the normal $\normal(\lambda ,\lambda )$:
+
+
+{\scriptsize [done in Lecuture 5 - get/read notes to draw by hand here.]}\\
+\vspace{3cm} 
+~\\
+
+
+Consider the value $\lambda =10$ which is "borderline" according to the
+convention of the success / failure rule: 
+
+
+{\scriptsize [done in Lecuture 5 - get/read notes to draw by hand here.]}\\
+\vspace{3cm} 
+~\\
+
+
+A value $\lambda =50$ gives 
+
+
+{\scriptsize [done in Lecuture 5 - get/read notes to draw by hand here.]}\\
+\vspace{3cm} 
+~\\
+
+
+showing a nearly perfect
+fit again, as an illustration of the CLT in action for sums of Poisson
+variables.
+
+\begin{labwork}\label{LW:VisualiseSuccessFailureRulePoisson}
+Write a \Matlab script to visualise the above figures drawn in lectures and algorithmically as well as visually understand {\em the success / failure rule} with {\bf law of rare events} or Poisson approximation.
+
+You need to use {\tt gammaln} in \Matlab for $\log_e(\Gamma)$ function and use laws of exponents and logarithms for the factorial term in the PDF of $\binomial(n,\theta)$ and $\poisson(\lambda)$ RVs with large $n$.
+\end{labwork}
+
+

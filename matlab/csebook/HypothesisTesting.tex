@@ -1,7 +1,9 @@
-\chapter{Hypothesis Testing}\label{S:HypTest}
+\section{Fundamentals of Hypothesis Testing}\label{S:HypTest}
+This section is under Jazz-\work\\{\scriptsize [and will evolve from face-to-face interactions with students of mathematics at Uppsala University]}.
+
 The subset of {\bf all posable hypotheses} that remain {\bf falsifiable} is the space of {\bf scientific hypotheses}.  Roughly, a falsifiable hypothesis is one for which a statistical experiment can be designed to produce data that an experimenter can use to falsify or reject it.  In the statistical decision problem of hypothesis testing, we are interested in empirically falsifying a scientific hypothesis, i.e.~we attempt to reject an hypothesis on the basis of empirical observations or data.  Thus, hypothesis testing has its roots in the philosophy of science and is based on Karl Popper's falsifiability criterion for demarcating scientific hypotheses from the set of all posable hypotheses.
 
-\section{Introduction}\label{S:HypTestIntro}
+\subsection{Introduction}\label{S:HypTestIntro}
 Usually, the hypothesis we attempt to reject or falsify is called the {\bf null hypothesis} or $H_0$ and its complement is called the {\bf alternative hypothesis} or $H_1$.  For example, consider the following two hypotheses:
 
 $H_0$:  The average waiting time at an Orbiter bus stop is less than or equal to $10$ minutes.\\
@@ -74,7 +76,7 @@ $\BB{\Theta} \subset \Rz^1$ & $H_0: \theta^* \leq \theta_0$ versus $H_1: \theta^
 
 We introduce some widely used tests next.
 
-\section{The Wald Test}\label{S:WaldTest}
+\subsection{The Wald Test}\label{S:WaldTest}
 The Wald test is based on a direct relationship between the $1-\alpha$ confidence interval and a $\mathsf{size}$ $\alpha$ test.  It can be used for testing simple hypotheses involving a scalar parameter.
 \begin{definition}[The Wald Test]
 Let $\widehat{\Theta}_n$ be an asymptotically normal estimator of the fixed and possibly unknown parameter $\theta^* \in \BB{\Theta} \subset \Rz$ in the parametric IID experiment:
@@ -159,7 +161,7 @@ H_0: \theta^* = \theta_0 = 0 \quad \text{versus} \quad H_1: \theta^* \neq 0, \qu
 Since the percentile-based $95\%$ bootstrap confidence interval for the plug-in estimate of the correlation coefficient from \hyperref[LW:LSATGPACorrBoot]{Labwork~\ref*{LW:LSATGPACorrBoot}} was $[0.2346, 0.9296]$ and this interval does not contain $0$, we can reject the null hypothesis that the correlation coefficient is $0$ using a $\mathsf{size}$ $\alpha=0.05$ Wald test.
 \end{example}
 
-\section{A Composite Hypothesis Test}
+\subsection{A Composite Hypothesis Test}
 Often, we are interested in a testing a composite hypothesis, i.e.~one in which  the null hypothesis is not a singleton set.  We revisit the Orbiter waiting time problem from this perspective next.
 \begin{figure}[htpb]
 \caption{Plot of power function $\beta(\lambda)$ for different values of the critical value $c$ and the $\mathsf{size}$ $\alpha$ as function of the critical values.
@@ -217,7 +219,7 @@ Thus, we reject $H_0$ when $\overline{X}_n>11.4740$ for a level $\alpha=0.05$ te
 
 
 
-\section{p-values}\label{S:p-values}
+\subsection{p-values}\label{S:p-values}
 It is desirable to have a more informative decision than simply reporting "reject $H_0$'' or ``fail to reject $H_0$.''  For instance, we could ask whether the test rejects $H_0$ for each $\mathsf{size}=\alpha$.  Typically, if the test rejects at $\mathsf{size}$ $\alpha$ it will also reject at a larger $\mathsf{size}$ $\alpha' > \alpha$.  Therefore, there is a smallest $\mathsf{size}$ $\alpha$ at which the test rejects $H_0$ and we call this $\alpha$ the $\pvalue$ of the test.
 
 \begin{figure}[h]
@@ -316,7 +318,7 @@ Therefore, there is little or no evidence against $H_0$ that the mean waiting ti
 \end{example}
 %\section{Parametric Bootstrap-based Test}
 
-\section{Permutation Test for the equality of any two DFs}\label{S:PermTest}
+\subsection{Permutation Test for the equality of any two DFs}\label{S:PermTest}
 
 Permutation test is a non-parametric exact method for testing whether two distributions are the same.  It is non-parametric because we do not impose any restrictions on the class of DFs that the unknown DF should belong to.  It is exact because we do not have any asymptotic approximations involving sample size approaching infinity.  So this test works for any sample size.
 
@@ -405,7 +407,7 @@ ApproxPValue =    0.8576
 Therefore, there is little or no evidence against the null hypothesis.
 \end{labwork}
 
-\section{Pearson's Chi-Square Test for Multinomial Trials}\label{S:Chi2}
+\subsection{Pearson's Chi-Square Test for Multinomial Trials}\label{S:Chi2}
 
 We derive the $\chisquare$ distribution introduced by Karl Pearson in 1900 [{\em Philosophical Magazine}, Series 5, {\bf 50}, 157-175].  This historical work laid the foundations of modern statistics by showing why an experimenter cannot simply plot experimental data and just assert the correctness of his or her hypothesis.  This derivation is adapted from Donald E.~Knuth's treatment [{\em Art of Computer Programming, Vol.~II, Seminumerical Algorithms}, 3rd Ed., 1997, pp.~55-56].  We show how $\demoivre$, $\multinomial$, $\poisson$ and the $\normal$ random vectors conspire to creare the $\chisquare$ random variable.
 

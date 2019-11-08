@@ -1,8 +1,16 @@
-\chapter{Fundamentals of Estimation}
-\section{Introduction}
+\section{Decision Problems and Procedures for Actions}\label{S:Decisions}
+
+Write down the Table from lectures 1 \& 2 giving examples of decision problems, procedures and action spaces for typical estimation, hypothesis testing and prediction problems with associated principles (Maximum Likelihood, Empirical Risk Minimisation where risk is expectation of specific loss functions, etc.) and algorithms (including optimisation (Stochastic)Newton/gradient-descent, etc.).
+
+\vspace{10cm}~\\
+
+\section{Fundamentals of Estimation}
+This section is under Jazz-\work\\{\scriptsize [and will evolve from face-to-face interactions with students of mathematics at Uppsala University]}.
+
+\subsection{Introduction}
 Now that we have been introduced to two notions of convergence for RV sequences, we can begin to appreciate the basic limit theorems used in statistical inference.  The problem of estimation is of fundamental importance in statistical inference and learning.  We will formalise the general estimation problem here.  There are two basic types of estimation.  In point estimation we are interested in estimating a particular point of interest that is supposed to belong to a set of points.  In (confidence) set estimation, we are interested in estimating a set with a particular form that has a specified probability of ``trapping'' the particular point of interest from a set of points.  Here, a point should be interpreted as an element of a collection of elements from some space.
 
-\section{Point Estimation}\label{S:PointEstimation}
+\subsection{Point Estimation}\label{S:PointEstimation}
 {\bf Point estimation} is any statistical methodology that provides one with a ``{\bf single best guess}'' of some specific quantity of interest.  Traditionally, we denote this {\bf quantity of interest as $\theta^*$} and {\bf its point estimate as $\widehat{\theta}$ or $\widehat{\theta}_n$}.  The subscript $n$ in the point estimate $\widehat{\theta}_n$ emphasises that our estimate is based on $n$ observations or data points from a given statistical experiment to estimate $\theta^*$.  This quantity of interest, which is usually unknown, can be: %, namely $\theta$
 %, may be an {\bf integral} $\Iz$ of a real valued function $h(x)$, i.e.~$\theta=\Iz := \int_a^b h(x)\,dx \in \Rz$, or simply a 
 \begin{itemize}
@@ -59,7 +67,7 @@ For the coin tossing experiment I just performed ($n=10$ times), the point estim
 Simulate one thousand IID samples from a $\bernoulli(\theta^*=38/75)$ RV and store this data in an array called $\tt Samples$.  Use your student ID to initialise the fundamental sampler.  Now, pretend that you don't know the true $\theta^*$ and estimate $\theta^*$ using our estimator $\widehat{\Theta}_n=\overline{X}_n$ from the data array $\tt Samples$ for each sample size $n=1,2,\ldots,1000$.  Plot the one thousand estimates $\widehat{\theta}_1,\widehat{\theta}_2,\ldots,\widehat{\theta}_{1000}$ as a function of the corresponding sample size.  Report your observations regarding the behaviour of our estimator as the sample size increases.
 \end{labwork}
 
-\section{Some Properties of Point Estimators}\label{S:PropPointEstim}
+\subsection{Some Properties of Point Estimators}\label{S:PropPointEstim}
 Given that an estimator is merely a function from the data space to the parameter space, we need choose only the best estimators available.  Recall that a point estimator $\widehat{\Theta}_n$, being a statistic or an RV of the data has a probability distribution over its range $\BB{\Theta}$.  This distribution over $\BB{\Theta}$ is called the {\bf sampling distribution} of $\widehat{\Theta}_n$.  Note that the sampling distribution not only depends on the statistic $\widehat{\Theta}_n := \widehat{\Theta}_n(X_1,X_2,\ldots,X_n)$ but also on $\theta^*$ which in turn determines the distribution of the IID data vector $(X_1,X_2,\ldots,X_n)$.  The following definitions are useful for selecting better estimators from some lot of them.
 
 \begin{definition}[Bias of a Point Estimator]\label{D:Bias}
@@ -202,7 +210,7 @@ $\mathsf{se}_n=\sqrt{\theta^*(1-\theta^*)/n} \to 0$, as $n \to \infty$, by
 $\widehat{\Theta}_n \overset{P}{\longrightarrow} \theta^*$.  That is $\widehat{\Theta}_n$ is an {\bf asymptotically consistent estimator} of $\theta^*$.  
 \end{example}
 
-\section{Confidence Set Estimation}\label{S:ConfidenceSets}
+\subsection{Confidence Set Estimation}\label{S:ConfidenceSets}
 As we saw in Section~\ref*{S:PointEstimation}, the point estimate $\widehat{\theta}_n$ is a ``single best guess'' of  the fixed and possibly unknown parameter $\theta^* \in \BB{\Theta}$.  However, if we wanted to make a statement about our confidence in an estimation procedure, then one possibility is to produce subsets from the parameter space $\BB{\Theta}$ called {\bf confidence sets} that ``engulf'' $\theta^*$ with a probability of at least $1-\alpha$.  
 
 Formally, an $\B{1-\alpha}$ {\bf confidence interval} for the parameter $\theta^* \in \BB{\Theta} \subset \Rz$, based on $n$ observations or data points $X_1,X_2,\ldots,X_n$, is an interval $C_n$ that is a function of the data:
@@ -348,7 +356,7 @@ C_{100}
 with a much smaller width of $0.0990$.  Thus our confidence interval shrank considerably from a width of $0.6072$ after an additional $90$ Bernoulli trials.  Thus, we can make the width of the confidence interval as small as we want by making the number of observations or sample size $n$ as large as we can.
 \end{example}
 
-\section{Likelihood}\label{S:Likelihood}
+\subsection{Likelihood}\label{S:Likelihood}
 We take a look at one of the most fundamental concepts in Statistics.  
 
 \begin{definition}[Likelihood Function]\label{D:LklFn}

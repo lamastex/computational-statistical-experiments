@@ -115,11 +115,11 @@ An experimenter often performs more than one trial.  Repeated trials of an exper
 
 \begin{example}[Toss a coin $n$ times]\label{EX:T3X}
 Suppose our experiment entails tossing a coin $n$ times and recording ${\tt H}$ for Heads and ${\tt T}$ for Tails.  When $n=3$, one possible outcome of this experiment is ${\tt HHT}$, ie.~a Head followed by another Head and then a Tail.  Seven other outcomes are possible.  
-%Below, we refer to this experiment by the symbol $\E{E}_{\theta}^{3}$.  More generally, we refer to the experiment of tossing a coin $n$ times as $\E{E}_{\theta}^{n}$ and sometimes refer to $\E{E}_{\theta}^{1}$ by $\E{E}_{\theta}$ for simplicity.  The reason for the $\theta$ subscrip will become apparent as we develop the theory.
+%Below, we refer to this experiment by the symbol $\EE{E}_{\theta}^{3}$.  More generally, we refer to the experiment of tossing a coin $n$ times as $\EE{E}_{\theta}^{n}$ and sometimes refer to $\EE{E}_{\theta}^{1}$ by $\EE{E}_{\theta}$ for simplicity.  The reason for the $\theta$ subscrip will become apparent as we develop the theory.
 \end{example}
 
 
-The sample space for ``toss a coin three times" experiment %$\E{E}_{\theta}^{3}$ %\hyperref[EX:T3X]{Experiment \ref*{EX:T3X}} of tossing a coin 3 times 
+The sample space for ``toss a coin three times" experiment %$\EE{E}_{\theta}^{3}$ %\hyperref[EX:T3X]{Experiment \ref*{EX:T3X}} of tossing a coin 3 times 
 is:
 \[
 \Omega = \{ {\tt H}, {\tt T} \}^3 =  \{ {\tt HHH}, {\tt HHT}, {\tt HTH}, {\tt HTT}, {\tt THH}, {\tt THT}, {\tt TTH}, {\tt TTT}  \} \ ,
@@ -135,7 +135,7 @@ B = \{{\tt TTT}\}
 Note that the event $B$ is also an outcome or sample point.  Another interesting event is the empty set $\emptyset  \subset \Omega$.  The event that `nothing in the sample space occurs' is $\emptyset$.
 
 \begin{classwork}[A thrice-bifurcating tree of outcomes]
-Can you think of a graphical way to enumerate the outcomes of the Experiment~\ref{EX:T3X}%$\E{E}_{\theta}^{3}$
+Can you think of a graphical way to enumerate the outcomes of the Experiment~\ref{EX:T3X}%$\EE{E}_{\theta}^{3}$
 ?  Draw a diagram of this under the caption of \hyperref[F:T3X]{Figure~\ref*{F:T3X}}, using the caption as a hint (in other words, draw your own \hyperref[F:T3X]{Figure~\ref*{F:T3X}}).
 \begin{figure}[htpb]
 \caption{A binary tree whose leaves are all possible outcomes.\label{F:T3X}}
@@ -144,14 +144,14 @@ Can you think of a graphical way to enumerate the outcomes of the Experiment~\re
 \end{classwork}
 
 \remove{
-In \hyperref[LW:T3X]{Labwork~\ref*{LW:T3X}} we implement \hyperref[AL:T3X]{Algorithm~\ref*{AL:T3X}} to  print all the outcomes.  The algorithm uses {\bf for loops} to reach the leaves (outcomes of $\E{E}_{\theta}^{3}$) of the binary tree.
+In \hyperref[LW:T3X]{Labwork~\ref*{LW:T3X}} we implement \hyperref[AL:T3X]{Algorithm~\ref*{AL:T3X}} to  print all the outcomes.  The algorithm uses {\bf for loops} to reach the leaves (outcomes of $\EE{E}_{\theta}^{3}$) of the binary tree.
 \begin{algorithm}[htpb]
-\caption{List $\Omega$ for ``Toss a Coin Three Times" experiment $\E{E}_{\theta}^{3}$}
+\caption{List $\Omega$ for ``Toss a Coin Three Times" experiment $\EE{E}_{\theta}^{3}$}
 \label{AL:T3X}
 \begin{algorithmic}[1]
 \STATE {\it input:} nothing
 
-\STATE {\it output:} print/list all outcomes of $\E{E}_{\theta}^{3}$ 
+\STATE {\it output:} print/list all outcomes of $\EE{E}_{\theta}^{3}$ 
 
 \STATE {\it initialize:} ${\bf SampleSpace1Toss} = \{ {\tt H}, {\tt T} \}$  \COMMENT{{\tiny ${\bf SampleSpace1Toss}[1]={\tt H}$ and ${\bf SampleSpace1Toss}[2]={\tt T}$}}
 \FOR{$i=1$ to $2$} 
@@ -168,7 +168,7 @@ Print `` , "  \COMMENT{{\tiny print a comma character to delimit outcomes}}
 \end{algorithm}
 
 \begin{labwork}[Three for loops for the thrice-bifurcating tree]\label{LW:T3X}
-Let's write a {\sc Matlab} code in a script file named {\tt OutcomesOf3Tosses.m} that implements \hyperref[AL:T3X]{Algorithm~\ref*{AL:T3X}} to print all the outcomes of $\E{E}_{\theta}^{3}$.  You need to go to the File menu and create a new file named {\tt OutcomesOf3Tosses.m} Run it in the command window.
+Let's write a {\sc Matlab} code in a script file named {\tt OutcomesOf3Tosses.m} that implements \hyperref[AL:T3X]{Algorithm~\ref*{AL:T3X}} to print all the outcomes of $\EE{E}_{\theta}^{3}$.  You need to go to the File menu and create a new file named {\tt OutcomesOf3Tosses.m} Run it in the command window.
 \begin{VrbM}
 >> type OutcomesOf3Tosses.m
 
@@ -235,14 +235,14 @@ N({\tt H} \cup {\tt T},n)= N({\tt H},n) + N({\tt T},n) .
 \end{enumerate}
 \end{idea}
 
-We will use the LTRF idea more generally to motivate a mathematical model of probability called probability model.  Suppose $A$ is an event associated with some experiment $\E{E}$, so that $A$ either does or does not occur when the experiment is performed.  We want the probability that event $A$ occurs in a specific performance of $\E{E}$, denoted by $\p(A)$, to intuitively mean the following:  if one were to perform a super-experiment $\E{E}^{\infty}$ by independently repeating the experiment $\E{E}$ and recording $N(A,n)$, the fraction of times $A$ occurs in the first $n$ performances of $\E{E}$ within the super-experiment $\E{E}^{\infty}$. Then the LTRF idea suggests:
+We will use the LTRF idea more generally to motivate a mathematical model of probability called probability model.  Suppose $A$ is an event associated with some experiment $\EE{E}$, so that $A$ either does or does not occur when the experiment is performed.  We want the probability that event $A$ occurs in a specific performance of $\EE{E}$, denoted by $\P(A)$, to intuitively mean the following:  if one were to perform a super-experiment $\EE{E}^{\infty}$ by independently repeating the experiment $\EE{E}$ and recording $N(A,n)$, the fraction of times $A$ occurs in the first $n$ performances of $\EE{E}$ within the super-experiment $\EE{E}^{\infty}$. Then the LTRF idea suggests:
 \begin{equation}\label{E:NofAn}
-N(A,n) :=  \frac{\text{Number of times $A$ occurs}}{n=\text{Number of performances of $\E{E}$}} \to \p(A), \ as \quad  n \to \infty
+N(A,n) :=  \frac{\text{Number of times $A$ occurs}}{n=\text{Number of performances of $\EE{E}$}} \to \P(A), \ as \quad  n \to \infty
 \end{equation}
 
 Now, we are finally ready to define probability.
 \begin{definition}[Probability]\label{D:Prob}
-Let $\E{E}$ be an experiment with sample space $\Omega$.  Let $\C{F}$ denote a suitable collection of events in $\Omega$ that satisfy the following conditions:
+Let $\EE{E}$ be an experiment with sample space $\Omega$.  Let $\C{F}$ denote a suitable collection of events in $\Omega$ that satisfy the following conditions:
 \begin{enumerate}
 \item It (the collection) contains the sample space:
 $\boxed{
@@ -254,15 +254,15 @@ A \in \C{F} \quad \implies \quad A^c \in \C{F} }$.
 $\boxed{
 A_1, A_2, \ldots \in \C{F} \quad \implies \quad \bigcup_{i} {A_i} := A_1 \cup A_2 \cup \cdots \in \C{F} }$.
 \end{enumerate}
-Formally, this collection of events is called a {\bf sigma field} or a {\bf sigma algebra}.  Our experiment $\E{E}$ has a sample space $\Omega$ and a collection of events $\C{F}$ that satisfy the three condition. 
+Formally, this collection of events is called a {\bf sigma field} or a {\bf sigma algebra}.  Our experiment $\EE{E}$ has a sample space $\Omega$ and a collection of events $\C{F}$ that satisfy the three condition. 
 
-Given a double, e.g. $(\Omega, \C{F})$, {\bf probability} is just a function $\p$ which assigns each event $A \in \C{F}$ a number $\p(A)$ in the real interval $[0,1]$, i.e.~$\boxed{\p : \C{F} \to [0,1] }$, such that:
+Given a double, e.g. $(\Omega, \C{F})$, {\bf probability} is just a function $\P$ which assigns each event $A \in \C{F}$ a number $\P(A)$ in the real interval $[0,1]$, i.e.~$\boxed{\P : \C{F} \to [0,1] }$, such that:
 \begin{enumerate}
-\item The `Something Happens' axiom holds, i.e.~$\boxed{\p(\Omega) = 1}$. 
+\item The `Something Happens' axiom holds, i.e.~$\boxed{\P(\Omega) = 1}$. 
 \item The `Addition Rule' axiom holds, i.e.~for events $A$ and $B$:
 $$
 \boxed{
-A \cap B = \emptyset \quad \implies \quad \p(A \cup B) = \p(A) + \p(B)
+A \cap B = \emptyset \quad \implies \quad \P(A \cup B) = \P(A) + \P(B)
 } \ .
 $$
 \end{enumerate}
@@ -270,24 +270,24 @@ $$
 \subsection{Consequences of our Definition of Probability}\label{S:ConseqDefProb}
 It is important to realize that we accept the `addition rule' as an axiom in our mathematical definition of probability (or our probability model) and we do {\bf not} prove this rule.  However, the facts which are stated ({\scriptsize with proofs}) below, are logical consequences of our definition of probability:
 \begin{enumerate}
-\item For any event $A$, $\boxed{\p(A^c) = 1 - \p(A)}$.
+\item For any event $A$, $\boxed{\P(A^c) = 1 - \P(A)}$.
 {\scriptsize
 \begin{proof}
 One line proof.
 \[
-\overbrace{\p(A) + \p(A^c)}^{LHS} \underbrace{=}_{+~\text{rule}~\because A \cap A^c = \emptyset} \p(A \cup A^c) \underbrace{=}_{A \cup A^c = \Omega} \p(\Omega) \underbrace{=}_{\because~\p(\Omega) = 1} \overbrace{1}^{RHS} \quad \underbrace{\Longrightarrow}_{LHS-\p(A)~\&~RHS-\p(A)} \quad \p(A^c) = 1-\p(A)
+\overbrace{\P(A) + \P(A^c)}^{LHS} \underbrace{=}_{+~\text{rule}~\because A \cap A^c = \emptyset} \P(A \cup A^c) \underbrace{=}_{A \cup A^c = \Omega} \P(\Omega) \underbrace{=}_{\because~\P(\Omega) = 1} \overbrace{1}^{RHS} \quad \underbrace{\Longrightarrow}_{LHS-\P(A)~\&~RHS-\P(A)} \quad \P(A^c) = 1-\P(A)
 \]
 \end{proof}
 }
 \begin{itemize}
 \item If $A = \Omega$ then $A^c = \Omega^c = \emptyset$ and 
-$\boxed{\p(\emptyset) = 1-\p(\Omega) = 1-1 = 0}$.
+$\boxed{\P(\emptyset) = 1-\P(\Omega) = 1-1 = 0}$.
 \end{itemize}
 
 \item For any two events $A$ and $B$, we have the {\bf inclusion-exclusion principle}:
 \[
 \boxed{
-\p(A \cup B) = \p(A) + \p(B) - \p(A \cap B)
+\P(A \cup B) = \P(A) + \P(B) - \P(A \cap B)
 }.
 \]
 {\scriptsize
@@ -299,26 +299,26 @@ Since:
 \end{eqnarray}
 the addition rule implies that:
 \begin{eqnarray}
-\p(A) &=& \p(A \setminus B) + \p(A \cap B) \notag \\
-\p(A \cup B) &=& \p(A \setminus B) + \p(B) \notag
+\P(A) &=& \P(A \setminus B) + \P(A \cap B) \notag \\
+\P(A \cup B) &=& \P(A \setminus B) + \P(B) \notag
 \end{eqnarray}
 Substituting the first equality above into the second, we get:
 \[
-\p(A \cup B) = \p(A \setminus B) + \p(B) = \p(A) - \p(A \cap B) + \p(B)
+\P(A \cup B) = \P(A \setminus B) + \P(B) = \P(A) - \P(A \cap B) + \P(B)
 \]
 \end{proof}
 }
 \item From inclusion-exclusion principle we get {\bf Boole's inequality}: for any two events $A, B$
 \[
-\p(A \cup B) \leq \p(A) + \p(B)
+\P(A \cup B) \leq \P(A) + \P(B)
 \]
 \item The inclusion-exclusion principle extends similarly to any three events $A_1,A_2,A_3$ as follows:
 \[
-\p(A_1 \cup A_2 \cup A_3) = \p(A_1) + \p(A_2) + \p(A_3) - \p(A_1 \cap A_2) - \p(A_1 \cap A_3) - \p(A_2 \cap A_3) + \p(A_1 \cap A_2 \cap A_3)
+\P(A_1 \cup A_2 \cup A_3) = \P(A_1) + \P(A_2) + \P(A_3) - \P(A_1 \cap A_2) - \P(A_1 \cap A_3) - \P(A_2 \cap A_3) + \P(A_1 \cap A_2 \cap A_3)
 \]
 and generalises to any $n$ events $A_1,A_2,\ldots,A_n$ as folows:
 \[
-\p \left( \bigcup_{i=1}^n A_i \right) = \sum_{i=1}^n \p(A_i) - \sum_{i<j} \p(A_i \cap A_j) + \sum_{i<j<k} \p(A_i \cap A_j \cap A_k) + \cdots + (-1)^{n-1} \sum_{i< \cdots <n} \p \left( \bigcap_{i=1}^n A_i \right)
+\P \left( \bigcup_{i=1}^n A_i \right) = \sum_{i=1}^n \P(A_i) - \sum_{i<j} \P(A_i \cap A_j) + \sum_{i<j<k} \P(A_i \cap A_j \cap A_k) + \cdots + (-1)^{n-1} \sum_{i< \cdots <n} \P \left( \bigcap_{i=1}^n A_i \right)
 \]
 
 {\scriptsize
@@ -327,25 +327,25 @@ and generalises to any $n$ events $A_1,A_2,\ldots,A_n$ as folows:
 }  
 \item Once again by the inclusion-exclusion principle, the Boole's inequality generalises to any $n$ events $A_1,A_2,\ldots,A_n$ as folows:
 \[
-\p \left( \bigcup_{i=1}^n A_i \right) \leq \sum_{i=1}^n \p(A_i)
+\P \left( \bigcup_{i=1}^n A_i \right) \leq \sum_{i=1}^n \P(A_i)
 \]
 \item For a sequence of mutually disjoint events $A_1, A_2, A_3, \ldots, A_n$: 
 \[
 \boxed{
-A_i \cap A_j = \emptyset \quad \text{for any $i \neq j$} \quad \implies \quad \p(A_1 \cup A_2 \cup \cdots \cup A_n) = \p(A_1)+\p(A_2)+ \cdots + \p(A_n)} .
+A_i \cap A_j = \emptyset \quad \text{for any $i \neq j$} \quad \implies \quad \P(A_1 \cup A_2 \cup \cdots \cup A_n) = \P(A_1)+\P(A_2)+ \cdots + \P(A_n)} .
 \]
 {\scriptsize
 \begin{proof}
 If $A_1, A_2, A_3$ are mutually disjoint events, then $A_1 \cup A_2$ is disjoint from $A_3$.  Thus, two applications of the addition rule for disjoint events yields:
 \[
-\p(A_1 \cup A_2 \cup A_3) = \p((A_1 \cup A_2) \cup A_3) \underbrace{=}_{+~\text{rule}} \p(A_1 \cup A_2) + \p(A_3) \underbrace{=}_{+~\text{rule}}  \p(A_1) + \p(A_2) + \p(A_3)
+\P(A_1 \cup A_2 \cup A_3) = \P((A_1 \cup A_2) \cup A_3) \underbrace{=}_{+~\text{rule}} \P(A_1 \cup A_2) + \P(A_3) \underbrace{=}_{+~\text{rule}}  \P(A_1) + \P(A_2) + \P(A_3)
 \]
 The $n$-event case follows by mathematical induction.
 \end{proof}
 }
 \end{enumerate}
 
-We have formally defined the {\bf probability model} specified by the {\bf probability triple} $(\Omega, \C{F},\p)$ that can be used to model an {\bf experiment} $\E{E}$.
+We have formally defined the {\bf probability model} specified by the {\bf probability triple} $(\Omega, \C{F},\P)$ that can be used to model an {\bf experiment} $\EE{E}$.
 
 \begin{example}[First Ball out of NZ Lotto]\label{Eg:NZLottoModel}
 Let us observe the number on {\em the first ball that pops out in a New Zealand Lotto trial}.  
@@ -354,10 +354,10 @@ Because the balls are vigorously whirled around inside the Lotto machine, modell
 we can model each ball to pop out first with the same probability. 
 So, we assign each outcome $\omega \in \Omega$ the same probability of $\frac{1}{40}$, i.e., our probability model for this experiment is:
 \[
-\p(\omega) = \frac{1}{40}, \ \text{for each \ } \omega \in \Omega = \{\mathsf{1,2,3,\ldots,39,40}\} \enspace .
+\P(\omega) = \frac{1}{40}, \ \text{for each \ } \omega \in \Omega = \{\mathsf{1,2,3,\ldots,39,40}\} \enspace .
 \]
-Note: We sometimes abuse notation and write $\p(\omega)$ instead of the
-more accurate but cumbersome $\p(\{\omega\})$ when writing down
+Note: We sometimes abuse notation and write $\P(\omega)$ instead of the
+more accurate but cumbersome $\P(\{\omega\})$ when writing down
 probabilities of simple events. 
 
 Crucially, by $\omega=\mathsf{17}$ for example, we mean all the detailed dynamics inside the Lotto machine that lead to the event that the ball labelled by the number $\mathsf{17}$ ends up popping out. 
@@ -388,7 +388,7 @@ Sample point $\omega$ & Possible outcome of an experiment \\
 (No counterpart) & Actual outcome $\omega^{\star}$ of an experiment\\
 Event A, a (suitable) subset of $\Omega$ & The real-world event corresponding to A \\
  & occurs if and only if $\omega^{\star} \in A$\\
-$\p(A)$, a number between $0$ and $1$         & Probability that $A$ will occur for an \\
+$\P(A)$, a number between $0$ and $1$         & Probability that $A$ will occur for an \\
  & experiment yet to be performed \\
 \\
 % \end{tabular}
@@ -409,7 +409,7 @@ $A \subset B$ & `If $A$ occurs, then $B$ must occur'
 \end{center}
 
 
-{In the probability model of Example~\ref{Eg:NZLottoModel}, show that for any event $E \subset \Omega$, \[\p(E)\; =\;
+{In the probability model of Example~\ref{Eg:NZLottoModel}, show that for any event $E \subset \Omega$, \[\P(E)\; =\;
 \frac{1}{40} \;\times \;\text{number of elements in $E$} \enspace . \]
 }
 {\label{Eg:NZLottoExp}}
@@ -417,8 +417,8 @@ $A \subset B$ & `If $A$ occurs, then $B$ must occur'
 Let $E = \{\omega_1,\omega_2,\ldots,\omega_k\}$ be an event with $k$ outcomes (simple events).  
 Then by the addition rule for mutually exclusive events we get:
 %\begin{multiline}
-$$\p(E)\;=\;\p\left( \{\omega_1,\omega_2,\ldots,\omega_k\} \right)
-= \p\left(\bigcup^{k}_{i=1} \{ \omega_i \}\right)\;=\;\sum^{k}_{i=1}\p\left(\{\omega_i\}\right)\;=\;\sum^{k}_{i=1}\frac{1}{40}\;=\;\frac{k}{40} \enspace .$$
+$$\P(E)\;=\;\P\left( \{\omega_1,\omega_2,\ldots,\omega_k\} \right)
+= \P\left(\bigcup^{k}_{i=1} \{ \omega_i \}\right)\;=\;\sum^{k}_{i=1}\P\left(\{\omega_i\}\right)\;=\;\sum^{k}_{i=1}\frac{1}{40}\;=\;\frac{k}{40} \enspace .$$
 
 %\end{multiline}
 }
@@ -430,10 +430,10 @@ Consider the `Toss a fair coin once' experiment.  What is its sample space $\Ome
 \[
 \Omega = \{  {\tt H}, {\tt T} \}, \qquad \C{F} = \{ {\tt H}, {\tt T},\Omega, \emptyset \} \ ,
 \]
-A function that will satisfy the definition of probability for this collection of events $\C{F}$ and assign $\p({\tt H}) = \frac{1}{2}$ is summarized below.  First check that the above $\C{F}$ is a sigma-algebra.  Draw a picture for $\p$ with arrows that map elements in the domain $\C{F}$ given above to elements in its range. 
+A function that will satisfy the definition of probability for this collection of events $\C{F}$ and assign $\P({\tt H}) = \frac{1}{2}$ is summarized below.  First check that the above $\C{F}$ is a sigma-algebra.  Draw a picture for $\P$ with arrows that map elements in the domain $\C{F}$ given above to elements in its range. 
 \begin{center}
 \begin{tabular*}{3.5in}{@{\extracolsep{\fill}}r c l} \hline
-Event $A \in \C{F}$ & $\p : \C{F} \to [0,1]$ & $\p(A) \in [0,1]$ \\ \hline
+Event $A \in \C{F}$ & $\P : \C{F} \to [0,1]$ & $\P(A) \in [0,1]$ \\ \hline
 $\Omega=\{ {\tt H}, {\tt T} \} \, \bullet$ & $ \ \longrightarrow \ $ & $1$ \\ 
 ${\tt T} \, \bullet$ & $ \ \longrightarrow \ $ & $1-\frac{1}{2}$ \\ 
 ${\tt H}  \, \bullet$ & $ \ \longrightarrow \ $ & $\frac{1}{2}$ \\ 
@@ -446,7 +446,7 @@ $\emptyset \, \bullet$ & $ \ \longrightarrow \ $ & $0$ \\ \hline
 Note that $\C{F}' = \{ \Omega, \emptyset\}$ is also a sigma algebra of the sample space $\Omega= \{  {\tt H}, {\tt T} \}$.  Can you think of a probability for the collection $\C{F}'$?
 \begin{center}
 \begin{tabular*}{3.5in}{@{\extracolsep{\fill}}r c l} \hline
-Event $A \in \C{F}'$ & $\p : \C{F}' \to [0,1]$ & $\p(A) \in [0,1]$ \\ \hline
+Event $A \in \C{F}'$ & $\P : \C{F}' \to [0,1]$ & $\P(A) \in [0,1]$ \\ \hline
 $\Omega=\{ {\tt H}, {\tt T} \} \, \bullet$ & $ \ \longrightarrow \ $ &\\ 
 $\emptyset \, \bullet$ & $ \ \longrightarrow \ $ & \\ \hline
 \end{tabular*}
@@ -459,8 +459,8 @@ Thus, $\C{F}$ and $\C{F}'$ are two distinct sigma algebras over our $\Omega=\{ {
 Generally one encounters four types of sigma algebras (you will understand the last two types after taking more advanced courses in mathematics, so it is fine to understand the ideas intuitively for now!) and they are:
 \be
 \item
-When the sample space $\Omega=\{\omega_1,\omega_2,\ldots,\omega_k\}$ is a finite set with $k$ outcomes and $\p(\omega_i)$, the probability for each outcome $\omega_i \in \Omega$ is known, then one typically takes the sigma-algebra $\C{F}$ to be the set of all subsets of $\Omega$ called the {\bf power set} and denoted by $2^{\Omega}$.  
-The probability of each event $A \in 2^{\Omega}$ can be obtained by adding the probabilities of the outcomes in $A$, i.e., $\p(A)=\sum_{\omega_i \in A} \p(\omega_i)$.  
+When the sample space $\Omega=\{\omega_1,\omega_2,\ldots,\omega_k\}$ is a finite set with $k$ outcomes and $\P(\omega_i)$, the probability for each outcome $\omega_i \in \Omega$ is known, then one typically takes the sigma-algebra $\C{F}$ to be the set of all subsets of $\Omega$ called the {\bf power set} and denoted by $2^{\Omega}$.  
+The probability of each event $A \in 2^{\Omega}$ can be obtained by adding the probabilities of the outcomes in $A$, i.e., $\P(A)=\sum_{\omega_i \in A} \P(\omega_i)$.  
 Clearly, $2^{\Omega}$ is indeed a sigma-algebra and it contains $2^{\#\Omega}$ events in it.  
 
 \item
@@ -520,16 +520,16 @@ PROBABILITY SUMMARY
 
 Axioms:
 \begin{enumerate}
-\item If $A\subseteq \Omega$ then $0\leq \p(A)\leq 1$ and $\p(\Omega)=1$.
-\item If $A$, $B$ are disjoint events, then $\p(A\cup B)=\p(A)+\p(B)$.
+\item If $A\subseteq \Omega$ then $0\leq \P(A)\leq 1$ and $\P(\Omega)=1$.
+\item If $A$, $B$ are disjoint events, then $\P(A\cup B)=\P(A)+\P(B)$.
 
 [This is true only when $A$ and $B$ are disjoint.]
-\item If $A_1,A_2,\dots$ are disjoint then $\p(A_1\cup A_2
-\cup\dots)=\p(A_1)+\p(A_2)+\dots$
+\item If $A_1,A_2,\dots$ are disjoint then $\P(A_1\cup A_2
+\cup\dots)=\P(A_1)+\P(A_2)+\dots$
 \end{enumerate}
 Rules:
-$$\p(A^c)\;=\;1-\p(A)$$
-$$\p(A\cup B)\;=\;\p(A)+\p(B)-\p(A\cap B) \qquad [\textrm{always true}]$$
+$$\P(A^c)\;=\;1-\P(A)$$
+$$\P(A\cup B)\;=\;\P(A)+\P(B)-\P(A\cap B) \qquad [\textrm{always true}]$$
 \end{framed}
 
 \input{ExsInProbability.tex}
@@ -549,51 +549,51 @@ $B$ happens?''} or \cen{``  What is the probability that  $A$ occurs given that 
 
 Next, we define conditional probability and the notion of independence of events.  We use the LTRF idea to motivate the definition.
 \begin{idea}[LTRF intuition for conditional probability]
-Let $A$ and $B$ be any two events associated with our experiment $\E{E}$ with $\p(A) \neq 0$.  The `conditional probability that $B$ occurs given that $A$ occurs' denoted by $\p(B|A)$ is again intuitively underpinned by the super-experiment $\E{E}^{\infty}$ which is the `independent' repitition of our original experiment $\E{E}$ `infinitely' often.  The LTRF idea is that $\p(B|A)$ is the long-term proportion of those experiments on which $A$ occurs that $B$ also occurs.
+Let $A$ and $B$ be any two events associated with our experiment $\EE{E}$ with $\P(A) \neq 0$.  The `conditional probability that $B$ occurs given that $A$ occurs' denoted by $\P(B|A)$ is again intuitively underpinned by the super-experiment $\EE{E}^{\infty}$ which is the `independent' repitition of our original experiment $\EE{E}$ `infinitely' often.  The LTRF idea is that $\P(B|A)$ is the long-term proportion of those experiments on which $A$ occurs that $B$ also occurs.
  
-Recall that $N(A,n)$ as defined in \eqref{E:NofAn} is the fraction of times $A$ occurs out of $n$ independent repetitions of our experiment $\E{E}$ (ie.~the experiment $\E{E}^{n}$).  If $A \cap B$ is the event that `$A$ and $B$ occur simultaneously', then we intuitively want
+Recall that $N(A,n)$ as defined in \eqref{E:NofAn} is the fraction of times $A$ occurs out of $n$ independent repetitions of our experiment $\EE{E}$ (ie.~the experiment $\EE{E}^{n}$).  If $A \cap B$ is the event that `$A$ and $B$ occur simultaneously', then we intuitively want
 \[
-\p(B|A) \quad \lq\lq \rightarrow " \quad \frac{N(A \cap B,n)}{N(A,n)} = \frac{N(A \cap B,n)/n}{N(A,n)/n} =  \frac{\p(A \cap B)}{\p(A)}
+\P(B|A) \quad \lq\lq \rightarrow " \quad \frac{N(A \cap B,n)}{N(A,n)} = \frac{N(A \cap B,n)/n}{N(A,n)/n} =  \frac{\P(A \cap B)}{\P(A)}
 \]
-as our $\E{E}^{n} \rightarrow \E{E}^{\infty}$.  So, we {\bf define} conditional probability as we want.
+as our $\EE{E}^{n} \rightarrow \EE{E}^{\infty}$.  So, we {\bf define} conditional probability as we want.
  \end{idea}
  \begin{definition}[Conditional Probability]\label{D:CondProb}
-Suppose we are given an experiment $\E{E}$ with a triple $(\Omega, \C{F}, \p)$.  Let $A$ and $B$ be events, ie.~$A,B \in \C{F}$, such that $\p(A) \neq 0$.  Then, we define the {\bf conditional probability} of $B$ given $A$ by,
+Suppose we are given an experiment $\EE{E}$ with a triple $(\Omega, \C{F}, \P)$.  Let $A$ and $B$ be events, ie.~$A,B \in \C{F}$, such that $\P(A) \neq 0$.  Then, we define the {\bf conditional probability} of $B$ given $A$ by,
  \begin{equation}\label{E:CPD}
- \p(B|A) := \frac{\p(A \cap B)}{\p(A)} \ .
+ \P(B|A) := \frac{\P(A \cap B)}{\P(A)} \ .
  \end{equation}
 Note that $A$ serves as the new reduced sample space so that conditional probabilities given $A$ \emph{are} indeed  probabilities.
-Thus, for a {\bf fixed} event $A \in \C{F}$ with $\p(A)>0$ and {\bf any} event $B \in \C{F}$, the conditional  probability $\p(B | A)$ is a probability as in \hyperref[D:Prob]{Definition \ref*{D:Prob}}, ie.~a function:
+Thus, for a {\bf fixed} event $A \in \C{F}$ with $\P(A)>0$ and {\bf any} event $B \in \C{F}$, the conditional  probability $\P(B | A)$ is a probability as in \hyperref[D:Prob]{Definition \ref*{D:Prob}}, ie.~a function:
  \[
- \p(B | A) : \C{F} \rightarrow [0,1]
+ \P(B | A) : \C{F} \rightarrow [0,1]
  \]
  that assigns to each $B \in \C{F}$ a number in the interval $[0,1]$, such that, the axioms of probability are satisfied:
 \begin{itemize}
 \item[]{Axiom~(1): For any event $B$, $0\leq P(B|A)\leq 1$.}
-\item[]{Axiom~(2): $\p(\Omega | A) = 1$ \qquad Meaning `Something Happens given the event A happens'}
+\item[]{Axiom~(2): $\P(\Omega | A) = 1$ \qquad Meaning `Something Happens given the event A happens'}
 \item[]{Axiom~(3): The `Addition Rule' axiom holds, ie.~for events $B_1, B_2 \in \C{F}$,
  \[
- B_1 \cap B_2 = \emptyset \quad \text{implies} \quad \p(B_1 \cup B_2 | A) = \p(B_1 | A) + \p(B_2 |  A)  \ .
+ B_1 \cap B_2 = \emptyset \quad \text{implies} \quad \P(B_1 \cup B_2 | A) = \P(B_1 | A) + \P(B_2 |  A)  \ .
  \]}
 \item[]{Axiom~(4): For mutually exclusive events, $B_1,B_2, \ldots$,
 \[
-\p(B_1 \cup B_2 \cup \cdots | A) = \p(B_1|A)+\p(B_2|A)+\cdots \enspace .
+\P(B_1 \cup B_2 \cup \cdots | A) = \P(B_1|A)+\P(B_2|A)+\cdots \enspace .
 \]}
 \end{itemize} 
 \end{definition}
 
 From the definition of conditional probability we get the following properties or rules:
 \begin{itemize}
-\item[]{{\bf Complementation rule:} $\p(B | A)\, = \,1 - \p(B^c | A)$ .}
-\item[]{{\bf Addition rule for two arbitrary events $B_1$ and $B_2$:} \[{\p(B_1 \cup B_2 | A) \;= \;\p(B_1 | A) + \p(B_2 | A) - \p(B_1\cap B_2|A)}\,.\]}
+\item[]{{\bf Complementation rule:} $\P(B | A)\, = \,1 - \P(B^c | A)$ .}
+\item[]{{\bf Addition rule for two arbitrary events $B_1$ and $B_2$:} \[{\P(B_1 \cup B_2 | A) \;= \;\P(B_1 | A) + \P(B_2 | A) - \P(B_1\cap B_2|A)}\,.\]}
 \item[]{Solving for $P(A\cap B)$ with  these definitions of conditional probability
 gives another rule:
 \begin{framed}
 {\bf Multiplication rule for two likely events:} 
 
 If $A$ and $B$ are events, and if
-  $\p(A)\neq 0$ and  $\p(B)\neq 0$, then
-\[\p(A\cap B)\;=\;\p(A)\p(B|A)\;=\;\p(B)\p(A|B)\,. \]
+  $\P(A)\neq 0$ and  $\P(B)\neq 0$, then
+\[\P(A\cap B)\;=\;\P(A)\P(B|A)\;=\;\P(B)\P(A|B)\,. \]
 \end{framed}
 }
 \end{itemize}
@@ -612,17 +612,17 @@ Test positive ($+$) & 0.009 & 0.099 \\
  \end{center}
  Using the definition of conditional probability, we can compute the conditional probability that you test positive given that you have the disease:
  \[
- \p(+ | D) = \frac{\p(+ \cap D)}{\p(D)} = \frac{0.009}{0.009+0.001}=0.9 \ ,
+ \P(+ | D) = \frac{\P(+ \cap D)}{\P(D)} = \frac{0.009}{0.009+0.001}=0.9 \ ,
  \]
  and the conditional probability that you test negative given that you don't have the disease:
  \[
- \p(- | D^c) = \frac{\p(- \cap D^c)}{\p(D^c)} = \frac{0.891}{0.099+0.891} \approxeq 0.9 \ .
+ \P(- | D^c) = \frac{\P(- \cap D^c)}{\P(D^c)} = \frac{0.891}{0.099+0.891} \approxeq 0.9 \ .
  \]
  Thus, the test is quite accurate since sick people test positive 90\% of the time and healthy people test negative 90\% of the time.
  
 Now, suppose you go for a test and and test positive.  What is the probability that you have the disease ?
  \[
- \p(D|+) = \frac{\p(D \cap +)}{\p(+)} = \frac{0.009}{0.009+0.099} \approxeq 0.08
+ \P(D|+) = \frac{\P(D \cap +)}{\P(+)} = \frac{0.009}{0.009+0.099} \approxeq 0.08
  \]
 Most people who are not used to the definition of conditional probability would intuitively associate a number much bigger than $0.08$ for the answer.  Interpret conditional probability in terms of the meaning of the numbers that appear in the numerator and denominator of the above calculations.
 \end{example}
@@ -775,23 +775,23 @@ Let
 Now $R_1$ and $B_1$ partition $\Omega$ so we can  write:
 \begin{eqnarray*}
 P(R_2)
-&=& \p(R_2\cap R_1) + \p(R_2\cap B_1)\\[6pt]
-&=& \p\;(R_2| R_1)\p(R_1) + \p(R_2|B_1)\p(B_1)\\[6pt]
+&=& \P(R_2\cap R_1) + \P(R_2\cap B_1)\\[6pt]
+&=& \P\;(R_2| R_1)\P(R_1) + \P(R_2|B_1)\P(B_1)\\[6pt]
 &=& (4/14)(1/3)\,+\,(5/14)(2/3) =  1/3 \enspace .
 \end{eqnarray*}
 \end{example}
 
 \begin{framed}
 \begin{prop}[Bayes' Theorem, 1763]
- Suppose the events $A_1,A_2,\ldots,A_k \in \C{F}$, with $\p(A_h)>0$ for each $h \in \{1,2,\ldots,k\}$, partition the sample space $\Omega$, ie.~they are mutually exclusive (disjoint) and exhaustive events with positive probability: 
+ Suppose the events $A_1,A_2,\ldots,A_k \in \C{F}$, with $\P(A_h)>0$ for each $h \in \{1,2,\ldots,k\}$, partition the sample space $\Omega$, ie.~they are mutually exclusive (disjoint) and exhaustive events with positive probability: 
  \[
- A_i \cap A_j = \emptyset, \ \text{for any distinct $i,j \in \{1,2,\ldots,k\}$}, \qquad \bigcup_{h=1}^k A_h = \Omega, \qquad \p(A_h) > 0
+ A_i \cap A_j = \emptyset, \ \text{for any distinct $i,j \in \{1,2,\ldots,k\}$}, \qquad \bigcup_{h=1}^k A_h = \Omega, \qquad \P(A_h) > 0
  \]
- Thus, precisely one of the $A_h$'s will occur on any performance of our experiment $\E{E}$.  
+ Thus, precisely one of the $A_h$'s will occur on any performance of our experiment $\EE{E}$.  
  
- Let $B \in \C{F}$ be some event with $\p(B) > 0$, then 
+ Let $B \in \C{F}$ be some event with $\P(B) > 0$, then 
  \begin{equation}\label{E:BayesThm}
- \p(A_h|B) = \frac{\p(B|A_h) \p(A_h)}{\sum_{h=1}^k \p(B|A_h) \p(A_h)}
+ \P(A_h|B) = \frac{\P(B|A_h) \P(A_h)}{\sum_{h=1}^k \P(B|A_h) \P(A_h)}
  \end{equation}
  \end{prop}
 \end{framed}
@@ -799,52 +799,52 @@ P(R_2)
  \begin{proof}
  We apply elementary set theory, the definition of conditional probability $k+2$ times and the addition rule once:
  \begin{eqnarray}
- \p(A_h | B) &=& \frac{\p(A_h \cap B)}{\p(B)} = \frac{\p( B \cap A_h)}{\p(B)} = 
- \frac{\p( B | A_h) \p(A_h)}{\p(B)}  \notag \\
- &=& \frac{\p( B | A_h) \p(A_h)}{\p \left( \bigcup_{h=1}^k (B \cap A_h) \right)} =
- \frac{\p( B | A_h) \p(A_h)}{\sum_{h=1}^k \p \left( B \cap A_h \right)} \notag \\
- &=& \frac{\p( B | A_h) \p(A_h)}{\sum_{h=1}^k \p(B | A_h) \p(A_h)} \notag
+ \P(A_h | B) &=& \frac{\P(A_h \cap B)}{\P(B)} = \frac{\P( B \cap A_h)}{\P(B)} = 
+ \frac{\P( B | A_h) \P(A_h)}{\P(B)}  \notag \\
+ &=& \frac{\P( B | A_h) \P(A_h)}{\P \left( \bigcup_{h=1}^k (B \cap A_h) \right)} =
+ \frac{\P( B | A_h) \P(A_h)}{\sum_{h=1}^k \P \left( B \cap A_h \right)} \notag \\
+ &=& \frac{\P( B | A_h) \P(A_h)}{\sum_{h=1}^k \P(B | A_h) \P(A_h)} \notag
  \end{eqnarray}
 The operations done to the denominator in the proof above is merely the total probability theorem:
 \begin{equation*}
-\p( B) = \sum_{h=1}^k \p(B | A_h) \p(A_h)
+\P( B) = \sum_{h=1}^k \P(B | A_h) \P(A_h)
 \end{equation*}
  \end{proof}
 }
 
-We call $\p(A_h)$ the {\bf prior probability of} $A_h$, i.e., before observing $B$ or \emph{a priori}, and $\p(A_h|B)$ the {\bf posterior probability of} $A_h$, i.e., after observing $B$ or \emph{a posteriori}. 
+We call $\P(A_h)$ the {\bf prior probability of} $A_h$, i.e., before observing $B$ or \emph{a priori}, and $\P(A_h|B)$ the {\bf posterior probability of} $A_h$, i.e., after observing $B$ or \emph{a posteriori}. 
 
 This theorem is at the heart of solving Bayesian \emph{Decision Problems} which fall into several sub-problems called \emph{inference}, \emph{learning} and \emph{control} problems.
 Let's see one of the simplest such \emph{learning problems} called \emph{prediction}, more specifically \emph{classification}, where we need to choose between finitely many possible choices based on past information next.
 
 \begin{example}[Wasserman2003~p.12]\label{Wasserman2003p12}
-Suppose Larry divides his email into three categories: $A_1 = \text{``spam''}$, $A_2 =\text{ ``low priority''}$, and $A_3 = \text{ ``high priority''}$.  From previous experience, he finds that $\p(A_1) = 0.7$, $\p(A_2) = 0.2$ and $\p(A_3)=0.1$.  Note that $\p(A_1 \cup A_2 \cup A_3) = \p(\Omega) = 0.7+0.2+0.1 = 1$.  Let $B$ be the event that the email contains the word ``free.''  From previous experience, $\p(B|A_1) = 0.9$, $\p(B|A_2) = 0.01$ and $\p(B|A_3)=0.01$.  Note that $\p(B|A_1) + \p(B|A_2) + \p(B|A_3) = 0.9+0.01+0.01 \neq 1$.  Now, suppose Larry receives an email with the word ``free.''  What is the probability that it is ``spam,'' ``low priority,''  and ``high priority'' ?
+Suppose Larry divides his email into three categories: $A_1 = \text{``spam''}$, $A_2 =\text{ ``low priority''}$, and $A_3 = \text{ ``high priority''}$.  From previous experience, he finds that $\P(A_1) = 0.7$, $\P(A_2) = 0.2$ and $\P(A_3)=0.1$.  Note that $\P(A_1 \cup A_2 \cup A_3) = \P(\Omega) = 0.7+0.2+0.1 = 1$.  Let $B$ be the event that the email contains the word ``free.''  From previous experience, $\P(B|A_1) = 0.9$, $\P(B|A_2) = 0.01$ and $\P(B|A_3)=0.01$.  Note that $\P(B|A_1) + \P(B|A_2) + \P(B|A_3) = 0.9+0.01+0.01 \neq 1$.  Now, suppose Larry receives an email with the word ``free.''  What is the probability that it is ``spam,'' ``low priority,''  and ``high priority'' ?
 %{\color{Gray}{
 
 Solution:\\[4pt]
 {\scriptsize{
 \[
 \begin{array}{l l l l l}
-\p(A_1 | B) 
-&= \frac{\p(B|A_1)\p(A_1)}{\p(B|A_1)\p(A_1)+\p(B|A_2)\p(A_2)+\p(B|A_3)\p(A_3)} 
+\P(A_1 | B) 
+&= \frac{\P(B|A_1)\P(A_1)}{\P(B|A_1)\P(A_1)+\P(B|A_2)\P(A_2)+\P(B|A_3)\P(A_3)} 
 &= \frac{0.9 \times 0.7}{(0.9 \times 0.7)+ (0.01 \times 0.2) + (0.01 \times 0.1)}
 &= \frac{0.63}{0.633}
 &\approxeq 0.995 \\
 \\
-\p(A_2 | B) 
-&= \frac{\p(B|A_2)\p(A_2)}{\p(B|A_1)\p(A_1)+\p(B|A_2)\p(A_2)+\p(B|A_3)\p(A_3)} 
+\P(A_2 | B) 
+&= \frac{\P(B|A_2)\P(A_2)}{\P(B|A_1)\P(A_1)+\P(B|A_2)\P(A_2)+\P(B|A_3)\P(A_3)} 
 &= \frac{0.01 \times 0.2}{(0.9 \times 0.7)+ (0.01 \times 0.2) + (0.01 \times 0.1)}
 &= \frac{0.002}{0.633}
 &\approxeq 0.003 \\
 \\
-\p(A_3 | B) 
-&= \frac{\p(B|A_3)\p(A_3)}{\p(B|A_1)\p(A_1)+\p(B|A_2)\p(A_2)+\p(B|A_3)\p(A_3)} 
+\P(A_3 | B) 
+&= \frac{\P(B|A_3)\P(A_3)}{\P(B|A_1)\P(A_1)+\P(B|A_2)\P(A_2)+\P(B|A_3)\P(A_3)} 
 &= \frac{0.01 \times 0.1}{(0.9 \times 0.7)+ (0.01 \times 0.2) + (0.01 \times 0.1)}
 &= \frac{0.001}{0.633}
 &\approxeq 0.002 \\
 \end{array}
 \]
-Note that $\p(A_1|B) + \p(A_2|B)+\p(A_3|B) = 0.995+0.003+0.002=1$.
+Note that $\P(A_1|B) + \P(A_2|B)+\P(A_3|B) = 0.995+0.003+0.002=1$.
 }}
 %}}
 
@@ -862,29 +862,29 @@ associated due to common genetic ancestry, but  events like ``my neighbour wins 
 \begin{definition}[Independence of two events]\label{D:IndOf2Events}
  Any two events $A$ and $B$ are said to be {\bf independent} if and only if
  \begin{equation}\label{E:PofAB=PAPB}
- \p(A \cap B) = \p(A) \p(B) \ .
+ \P(A \cap B) = \P(A) \P(B) \ .
  \end{equation}
  \end{definition}
- Let us make sense of this definition in terms of our previous definitions.  When $\p(A)=0$ or $\p(B)=0$, both sides of the above equality are $0$.  If $\p(A) \neq 0$, then rearranging the above equation we get:
+ Let us make sense of this definition in terms of our previous definitions.  When $\P(A)=0$ or $\P(B)=0$, both sides of the above equality are $0$.  If $\P(A) \neq 0$, then rearranging the above equation we get:
  \[
- \frac{\p(A \cap B)}{\p(A)} = \p(B) \ .
+ \frac{\P(A \cap B)}{\P(A)} = \P(B) \ .
  \]
- But, the LHS is $\p(B|A)$ by \hyperref[E:CPD]{definition \ref*{E:CPD}}, and thus for independent events $A$ and $B$, we get:
+ But, the LHS is $\P(B|A)$ by \hyperref[E:CPD]{definition \ref*{E:CPD}}, and thus for independent events $A$ and $B$, we get:
  \[
- \p(B|A) = \p(B) \ .
+ \P(B|A) = \P(B) \ .
  \]
-This says that information about the occurrence of $A$ does not affect the occurrence of $B$.  If $\p(B) \neq 0$, then an analogous argument:
+This says that information about the occurrence of $A$ does not affect the occurrence of $B$.  If $\P(B) \neq 0$, then an analogous argument:
 {\scriptsize
 \[
-\p(A \cap B) = \p(A) \p(B) \iff \p(B \cap A) = \p(A) \p(B) \iff \frac{\p(B \cap A)}{\p(B)} = \p(A) \iff  \p(A|B) = \p(A) \ ,
+\P(A \cap B) = \P(A) \P(B) \iff \P(B \cap A) = \P(A) \P(B) \iff \frac{\P(B \cap A)}{\P(B)} = \P(A) \iff  \P(A|B) = \P(A) \ ,
 \]
 }
-says that information about the occurrence of $B$ does not affect the occurrence of $A$.  Therefore, the probability of their joint occurence $\p(A \cap B)$ is simply the product of their individual probabilities $\p(A) \p(B)$.
+says that information about the occurrence of $B$ does not affect the occurrence of $A$.  Therefore, the probability of their joint occurence $\P(A \cap B)$ is simply the product of their individual probabilities $\P(A) \P(B)$.
 
 \begin{definition}[Independence of a sequence of events]\label{D:IndOfSeqOfEvents}
 We say that a finite or infinite sequence of events $A_1,A_2,\ldots$ are independent if whenever $i_1,i_2,\ldots,i_k$ are distinct elements from the set of indices $\Nz$, such that $A_{i_1},A_{i_2},\ldots,A_{i_k}$ are defined (elements of $\C{F}$), then
 \[
-\p(A_{i_1} \cap A_{i_2} \ldots \cap A_{i_k})  =  \p(A_{i_1} ) \p(A_{i_2})  \cdots \p(A_{i_k}) 
+\P(A_{i_1} \cap A_{i_2} \ldots \cap A_{i_k})  =  \P(A_{i_1} ) \P(A_{i_2})  \cdots \P(A_{i_k}) 
 \]
 \end{definition}
 
@@ -894,16 +894,16 @@ A sequence of events in a sequence of independent trials is independent.
 
 \item[(a)] Suppose you toss a fair coin twice such that the first toss is independent of the second.  Then,
 $$
-\p(\mathsf{Heads} \text{ on the first toss} \cap \mathsf{Tails} \text{ on the second toss} ) = \p(\mathsf{H}) \p(\mathsf{T}) = \frac{1}{2} \times \frac{1}{2}= \frac{1}{4} \enspace .
+\P(\mathsf{Heads} \text{ on the first toss} \cap \mathsf{Tails} \text{ on the second toss} ) = \P(\mathsf{H}) \P(\mathsf{T}) = \frac{1}{2} \times \frac{1}{2}= \frac{1}{4} \enspace .
 $$
 
 \item[(b)] Suppose you independently toss a fair die three times.  Let $E_i$ be the event that the outcome is an even number on the $i$-th trial.  The probability of getting an even number in all three trials is:
 \begin{eqnarray*}
-\p(E_1 \cap E_2 \cap E_3)
-&=& \p(E_1) \p(E_2) \p(E_3)\\
-&=& \left(\p(\{\mathsf{2,4,6}\})\right)^3\\
-&=& \left(\p(\{\mathsf{2}\} \cup \{\mathsf{4}\} \cup \{\mathsf{6}\}) \right)^3 \\
-&=& \left(\p(\{\mathsf{2}\}) + \p(\{\mathsf{4}\}) + \p(\{\mathsf{6}\})\right)^3\\
+\P(E_1 \cap E_2 \cap E_3)
+&=& \P(E_1) \P(E_2) \P(E_3)\\
+&=& \left(\P(\{\mathsf{2,4,6}\})\right)^3\\
+&=& \left(\P(\{\mathsf{2}\} \cup \{\mathsf{4}\} \cup \{\mathsf{6}\}) \right)^3 \\
+&=& \left(\P(\{\mathsf{2}\}) + \P(\{\mathsf{4}\}) + \P(\{\mathsf{6}\})\right)^3\\
 &=& \left(\frac{1}{6} + \frac{1}{6} + \frac{1}{6} \right)^3 
 = \left(\frac{1}{2} \right)^3
 = \frac{1}{8} \enspace .
@@ -916,15 +916,15 @@ $$
 
 \begin{example}[dependence and independence]\label{EX:depAndindep} 
 Suppose we toss two fair dice.  
-Let $A$ denote the event that the sum of the dice is six and $B$ denote the event that the first die equals four.  The sample space encoding the thirty six ordered pairs of outcomes for the two dice is $\Omega = \{ (1,1), (1,2), \ldots, (1,6), (2,1), \ldots, (2,6), \ldots, (5,6), (6,6)\}$ and due to independence $\p(\omega)=1/36$ for each $\omega\in\Omega$.  
+Let $A$ denote the event that the sum of the dice is six and $B$ denote the event that the first die equals four.  The sample space encoding the thirty six ordered pairs of outcomes for the two dice is $\Omega = \{ (1,1), (1,2), \ldots, (1,6), (2,1), \ldots, (2,6), \ldots, (5,6), (6,6)\}$ and due to independence $\P(\omega)=1/36$ for each $\omega\in\Omega$.  
 Then 
 \[
-\p(A \cap B)  = \p (\{(4,2)\}) = \frac{1}{36} \enspace ,
+\P(A \cap B)  = \P (\{(4,2)\}) = \frac{1}{36} \enspace ,
 \]
 but
 \begin{eqnarray*}
-\p(A)\p(B) 
-&=& \p (\{(1,5),(2,4),(3,3),(4,2),(5,1)\}) \p( \{ (4,1),(4,2),(4,3),(4,4),(4,5),(4,6) \}) \\
+\P(A)\P(B) 
+&=& \P (\{(1,5),(2,4),(3,3),(4,2),(5,1)\}) \P( \{ (4,1),(4,2),(4,3),(4,4),(4,5),(4,6) \}) \\
 &=& \frac{5}{36}\times \frac{6}{36} = \frac{5}{36}\times\frac{1}{6} = \frac{5}{216} \enspace ,
 \end{eqnarray*}
 and therefore $A$ and $B$ are not independent.  
@@ -933,12 +933,12 @@ The reason for the events $A$ and $B$ being dependent is clear because the chanc
 Now, let $C$ be the event that the sum of the two dice equals seven.  
 Then
 \[
-\p(C \cap B)  = \p (\{(4,3)\}) = \frac{1}{36} \enspace ,
+\P(C \cap B)  = \P (\{(4,3)\}) = \frac{1}{36} \enspace ,
 \]
 while
 \begin{eqnarray*}
-\p(C \cap B)  
-&=& \p (\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}) \p( \{ (4,1),(4,2),(4,3),(4,4),(4,5),(4,6) \})\\
+\P(C \cap B)  
+&=& \P (\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}) \P( \{ (4,1),(4,2),(4,3),(4,4),(4,5),(4,6) \})\\
 &=& \frac{6}{36}\times\frac{6}{36}= \frac{1}{36} \enspace ,
 \end{eqnarray*}
 and therefore $C$ and $B$ are independent events.  Once again this is clear because the chance of getting a total of seven does not depend any more on the outcome of the first die (it is allowed to be any one of the six possible outcomes). 
@@ -950,13 +950,13 @@ Let a ball be drawn from an well-stirred urn containing four balls labelled 1,2,
 Consider the events $A = \{1,2\}$, $B=\{1,3\}$ and $C=\{1,4\}$.  
 Then,
 \begin{eqnarray*}
-\p(A \cap B) &=& \p(A)\p(B) = \frac{2}{4}\times\frac{2}{4} = \frac{1}{4},\\
-\p(A \cap C) &=& \p(A)\p(C) = \frac{2}{4}\times\frac{2}{4} = \frac{1}{4},\\
-\p(B \cap C) &=& \p(B)\p(C) = \frac{2}{4}\times\frac{2}{4} = \frac{1}{4},
+\P(A \cap B) &=& \P(A)\P(B) = \frac{2}{4}\times\frac{2}{4} = \frac{1}{4},\\
+\P(A \cap C) &=& \P(A)\P(C) = \frac{2}{4}\times\frac{2}{4} = \frac{1}{4},\\
+\P(B \cap C) &=& \P(B)\P(C) = \frac{2}{4}\times\frac{2}{4} = \frac{1}{4},
 \end{eqnarray*}
 but,
 \[
-\frac{1}{4} = \p(\{1\}) = \p (A \cap B \cap C) \neq \p(A)\p(B)\p(C) = \frac{2}{4}\times\frac{2}{4}\times\frac{2}{4}=\frac{1}{8} \enspace .
+\frac{1}{4} = \P(\{1\}) = \P (A \cap B \cap C) \neq \P(A)\P(B)\P(C) = \frac{2}{4}\times\frac{2}{4}\times\frac{2}{4}=\frac{1}{8} \enspace .
 \]
 Therefore, inspite of being pairwise independent, the events $A$, $B$ and $C$ are not jointly independent.
 \end{example}
@@ -964,12 +964,12 @@ Therefore, inspite of being pairwise independent, the events $A$, $B$ and $C$ ar
 \begin{framed}
 CONDITIONAL PROBABILITY SUMMARY\\
 
-$\p(A|B)$ means the probability that $A$ occurs given that $B$ has
+$\P(A|B)$ means the probability that $A$ occurs given that $B$ has
 occurred.
 
-$$\p(A|B)\;=\;\frac{\p(A\cap B)}{\p(B)}\;=\;\frac{\p(A)\p(B|A)}{\p(B)}\quad \textrm{if}\quad \p(B)\neq0$$
+$$\P(A|B)\;=\;\frac{\P(A\cap B)}{\P(B)}\;=\;\frac{\P(A)\P(B|A)}{\P(B)}\quad \textrm{if}\quad \P(B)\neq0$$
 
-$$\p(B|A)\;=\;\frac{\p(A\cap B)}{\p(A)}\;=\;\frac{\p(B)\p(A|B)}{\p(A)}\quad \textrm{if}\quad \p(A)\neq 0$$
+$$\P(B|A)\;=\;\frac{\P(A\cap B)}{\P(A)}\;=\;\frac{\P(B)\P(A|B)}{\P(A)}\quad \textrm{if}\quad \P(A)\neq 0$$
 
 Conditional probabilities obey the axioms and rules of probability.
 \end{framed}

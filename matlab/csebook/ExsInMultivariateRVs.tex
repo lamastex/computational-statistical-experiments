@@ -7,7 +7,7 @@ $$f(x)\;=\;\begin{cases}6\left(0.25-(x-1.5)^2\right)&1<x<2\\0&\textrm{otherwise}
 Note: $X$ is measured in multiples of 1000 hours.
 \Answer
 The probability that  \emph{one}  light bulb doesn't need to be replaced in  1200 hours is:
-\ba{\p(X>1.2)&\;=\;1-\p(X<1.2)\\[3pt]
+\ba{\P(X>1.2)&\;=\;1-\P(X<1.2)\\[3pt]
 &=\;1\;-\;\int^{1.2}_1 6 (0.25-(x-1.5)^2)\,dx\\[3pt]
 &=\;1\;-\;\int^{1.2}_1 6(0.25-x^2+3x-2.25)\,dx\\[3pt]
 &=\;1\;-\;\int^{1.2}_1 (-6x^2+18x-12)\,dx\\[3pt]
@@ -17,7 +17,7 @@ The probability that  \emph{one}  light bulb doesn't need to be replaced in  120
 Assuming  that   the three light bulbs function  independently of  each
 other, the probability that none of them need to be replaced in the
 first 1200 hours is
-$$\p(\{X_1>1.2\}\cap\{X_2>1.2\}\cap\{X_3>1.2\}\;=\;0.8960^3\;=\;
+$$\P(\{X_1>1.2\}\cap\{X_2>1.2\}\cap\{X_3>1.2\}\;=\;0.8960^3\;=\;
 0.7193$$
 where $X_i$ is the length of time that bulb $i$ lasts.
 
@@ -33,12 +33,12 @@ a (x^2+y) & \text{ if } 0 < x < 1 \text{ and } 0 < y < 1\\
 \]
 Find the following:
 \be
-\item~the normalizing constant $a$ which will ensure $\p(\Omega) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_{X,Y}(x,y) dx dy = 1$
+\item~the normalizing constant $a$ which will ensure $\P(\Omega) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_{X,Y}(x,y) dx dy = 1$
 \item~$f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) dy$ called the marginal probability density function (MPDF) of $X$
 \item~$f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) dx$ called the marginal probability density function (MPDF) of $Y$
 \item Check if $f_X(x)f_Y(y)=f_{X,Y}(x,y)$ for every $(x,y)$ and decide whether $X$ and $Y$ are independent random variables.  {Hint: $X$ and $Y$ are said to be independent if $f_X(x)f_Y(y)=f_{X,Y}(x,y)$ for every $(x,y)$.}
 \item~$F_{X,Y}(x,y)$, the joint cumulative distribution function (JCDF) of $(X,Y)$ for any $(x,y) \in (0,1) \times (0,1)$ 
-\item~the probability that $X > 0.5$ and $Y<0.6$, i.e., $\p(X>0.5,Y<0.6)$
+\item~the probability that $X > 0.5$ and $Y<0.6$, i.e., $\P(X>0.5,Y<0.6)$
 \item~$E(X)$, the expectation of $X$ or the first moment of $X$
 \item~$E(Y)$, the expectation of $Y$ or the first moment of $Y$
 \item~$E(XY)$, the expectation of $XY$
@@ -120,7 +120,7 @@ F_{X,Y}(x,y)
 \end{align*}
 \item~
 \begin{align*}
-\p(X>0.5,Y<0.6) 
+\P(X>0.5,Y<0.6) 
 &= \int_{-\infty}^{0.6} \int_{0.5}^{\infty} f_{X,Y}(x,y) dx dy
 = \int_{0}^{0.6} \int_{0.5}^{1} \frac{6}{5} (x^2+y) dx dy\\
 &= \frac{6}{5} \int_{0}^{0.6} \left[ \frac{x^3}{3}+yx \right]_{x=0.5}^{1} dy
@@ -179,10 +179,10 @@ Note that $Y= (X-\mu)^2$ is not on-to-one so it is better to use the direct meth
 
 If $y\geqslant 0$,
 \begin{align*}
- F_Y(y)\;=&\; \p(Y \leqslant y) \\[3pt]
- \;=&\;  \p( (X-\mu)^2 \leqslant y) \\[3pt]
- \;=&\; \p(-\sqrt y \leqslant X-\mu \leqslant \sqrt y)\\[3pt]
- \;=&\; \p(\mu -\sqrt y \leqslant X  \leqslant \mu + \sqrt y)\\[3pt]
+ F_Y(y)\;=&\; \P(Y \leqslant y) \\[3pt]
+ \;=&\;  \P( (X-\mu)^2 \leqslant y) \\[3pt]
+ \;=&\; \P(-\sqrt y \leqslant X-\mu \leqslant \sqrt y)\\[3pt]
+ \;=&\; \P(\mu -\sqrt y \leqslant X  \leqslant \mu + \sqrt y)\\[3pt]
 \;=&\; F_X( \mu + \sqrt y) \,-\, F_X( \mu + \sqrt y)
 \end{align*}
 
@@ -403,11 +403,11 @@ Suppose that the JPDF of these variables is
 0 & \text{ otherwise} \enspace.
 \end{cases}
 \end{align*}
-What is the probability that the device operates for more than 1000 hours without any failures? [Hint: The requested probability is $\p(X_1>1000,X_2>1000,X_3>1000,X_4>1000)$ since each one of the four components of the device must not fail before 1000 hours.]
+What is the probability that the device operates for more than 1000 hours without any failures? [Hint: The requested probability is $\P(X_1>1000,X_2>1000,X_3>1000,X_4>1000)$ since each one of the four components of the device must not fail before 1000 hours.]
 \Answer
 ~\\
 \begin{multline*}
-\p(X_1>1000,X_2>1000,X_3>1000,X_4>1000) \\
+\P(X_1>1000,X_2>1000,X_3>1000,X_4>1000) \\
 = \int_{1000}^{\infty} \int_{1000}^{\infty} \int_{1000}^{\infty} \int_{1000}^{\infty} 9 \times 10^{-12} e^{-0.001 x_1 - 0.002 x_2 - 0.0015 x_3 - 0.003 x_4} dx_1 dx_2 dx_3 dx_4\\
 = 9 \times 10^{-12} \int_{1000}^{\infty} \int_{1000}^{\infty} \int_{1000}^{\infty} \int_{1000}^{\infty}  e^{-0.001 x_1} e^{- 0.002 x_2} e^{- 0.0015 x_3} e^{- 0.003 x_4} dx_1 dx_2 dx_3 dx_4\\
 =  9 \times 10^{-12} \int_{1000}^{\infty} e^{-0.001 x_1} \int_{1000}^{\infty} e^{- 0.002 x_2} \int_{1000}^{\infty} e^{- 0.0015 x_3} \int_{1000}^{\infty} e^{- 0.003 x_4} dx_4 dx_3 dx_2 dx_1\\
@@ -430,19 +430,19 @@ Suppose the RVs $Y_1$, $Y_2$ and $Y_3$ represent the thickness in micrometers of
 Assume $Y_1$, $Y_2$ and $Y_3$ are $\normal(10000,250^2)$, $\normal(1000,20^2)$ and $\normal(80,4^2)$ RVs, respectively.  
 Further suppose that they are independent.  
 The required specifications for the thickness of the substrate, active layer and coating layer are $[9500,10500]$, $[950,1050]$ and $[75,85]$, respectively.  
-What proportion of chemical products meets all thickness specifications? [Hint: this is just $\p(9500<Y_1<10500,950<Y_2<1050,75<Y_3<85)$]  Which one of the three thicknesses has the least probability of meeting specifications?   
+What proportion of chemical products meets all thickness specifications? [Hint: this is just $\P(9500<Y_1<10500,950<Y_2<1050,75<Y_3<85)$]  Which one of the three thicknesses has the least probability of meeting specifications?   
 \Answer
 ~\\
 Due to independence of $Y_1$, $Y_2$ and $Y_3$
 \begin{multline*}
-\p(9500<Y_1<10500,950<Y_2<1050,75<Y_3<85)\\ = \p(9500<Y_1<10500) \p(950<Y_2<1050) \p(75<Y_3<85)
+\P(9500<Y_1<10500,950<Y_2<1050,75<Y_3<85)\\ = \P(9500<Y_1<10500) \P(950<Y_2<1050) \P(75<Y_3<85)
 \end{multline*}
 After standardizing each Normal RV (subtracting its mean and dividing by its standard deviation) we get
 \begin{align*}
-&~ \p(9500<Y_1<10500) \p(950<Y_2<1050) \p(75<Y_3<85)\\
+&~ \P(9500<Y_1<10500) \P(950<Y_2<1050) \P(75<Y_3<85)\\
 &=  P\left(\frac{9500-10000}{250}< Z < \frac{10500-10000}{250} \right) P\left( \frac{950-1000}{20}<Z<\frac{1050-1000}{20}\right)\\
 &\qquad \qquad \qquad \qquad \qquad \qquad P\left(\frac{75-80}{4}<Z<\frac{85-80}{4}\right)\\
-&= \p(-2.0<Z<2.0) \p(-2.5<Z<2.5) \p(-1.25<Z<1.25) \\
+&= \P(-2.0<Z<2.0) \P(-2.5<Z<2.5) \P(-1.25<Z<1.25) \\
 &= (\Phi(2.0)-(1-\Phi(2.0)) \times (\Phi(2.5)-(1-\Phi(2.5)) \times (\Phi(1.25)-(1-\Phi(1.25))\\
 &= (2\Phi(2.0)-1) \times (2\Phi(2.5)-1) \times (2\Phi(1.25)-1)\\
 &= ((2 \times 0.9772) -1) \times ((2 \times 0.9938) - 1) \times ((2 \times 0.8944)-1) \qquad \text{ using Table for $\Phi(z)$} \\
@@ -478,9 +478,9 @@ By the special property of Normal RVs -- a linear combination of independent nor
 $\ol{X}_{10}$ is a $\normal(12.1,0.001)$ RV.
 Consequetly, the probability of interest is
 \begin{align*}
-\p(\ol{X}_{10} < 12.01) 
+\P(\ol{X}_{10} < 12.01) 
 &= P \left( \frac{\ol{X}_{10}-E(\ol{X}_{10})}{\sqrt{0.001}} < \frac{12.01 - E(\ol{X}_{10})}{\sqrt{0.001}} \right) = P\left(Z < \frac{12.01-12.1}{0.0316}\right)\\ 
-&\approxeq \p(Z<-2.85) = 1-\p(Z<2.85) = 1-\Phi(2.85) = 1-0.9978=0.0022
+&\approxeq \P(Z<-2.85) = 1-\P(Z<2.85) = 1-\Phi(2.85) = 1-0.9978=0.0022
 \end{align*}
 
 \Exercise

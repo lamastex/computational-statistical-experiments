@@ -73,7 +73,7 @@ Y\,=\,\frac{1}{(X+1)^{2}} \enspace .
 \]
 \Answer
 Since $X$ is a $\poisson(\lambda)$ random variable (by suppressing the `$;\lambda$' in the argument to $f_X(\cdot)$ for notational ease), we get
-\[ f_X(x) \,=\, \p(X=x)\,=\, 
+\[ f_X(x) \,=\, \P(X=x)\,=\, 
 \begin{cases}
 \frac{\lambda^x \, e^{-\lambda} }{ x!} & \text{ for }  x= 0, 1, 2, \dots \\
 0 & \text{ otherwise} \,.
@@ -83,7 +83,7 @@ Since $X$ is a $\poisson(\lambda)$ random variable (by suppressing the `$;\lambd
 If $Y=(X+1)^{-2}=1/(X+1)^2$ then  \[ \{\ldots,2,1,0\} \ni x \xmapsto{(x+1)^{-2}} y \,\in\, \left\{1, \frac{1}{4}, \frac{1}{9}, \dots \right\} \]
 and since $y=g(x)=(x+1)^{-2}$ {\scriptsize as it maps or associates each $y \in \left\{1, \frac{1}{4}, \frac{1}{9}, \dots \right\}$ to exactly one $x \in \{0,1,2,\ldots\}$ given by $g^{-1}(y)=y^{-1/2}-1 = \frac{1}{\sqrt{y}}-1= x$, its inverse function, this is because $g$ is {\em injective} or {\em one-to-one} as explained here if you want to recall quickly \url{https://en.wikipedia.org/wiki/Injective_function} again}, so we get:
 \[
-f_Y(y)\;=\; \p(Y=y)\;=\; \sum_{\{ x: g(x)=y\}}f_X(x)  \;=\; f_X\left( \frac{1}{\sqrt y}-1\right) \;=\; \frac{\lambda^{(\frac{1}{\sqrt y} -1)} \, e^{-\lambda}}{(\frac{1}{\sqrt y} -1)!}
+f_Y(y)\;=\; \P(Y=y)\;=\; \sum_{\{ x: g(x)=y\}}f_X(x)  \;=\; f_X\left( \frac{1}{\sqrt y}-1\right) \;=\; \frac{\lambda^{(\frac{1}{\sqrt y} -1)} \, e^{-\lambda}}{(\frac{1}{\sqrt y} -1)!}
 \]
 for $y = 1, \frac{1}{4}, \frac{1}{9}, \dots $, and $0$ otherwise.\\[4pt]
 {\scriptsize CAUTION: This is a discrete RV and so don't just blindly apply the change of variable formula that only applies to continuous RV with a monotone and one-to-one function 

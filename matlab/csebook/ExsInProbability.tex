@@ -16,29 +16,29 @@ book from our central library with
 $\Omega=\{\mathsf{A,B,C,\ldots,Z}\}$ (ignoring upper/lower cases),
 then what is the probability of these events?
 \begin{itemize}
-\item[(a)]$\p(\{\mathsf{Z}\})$
-\item[(b)]$\p(\textrm{`picking any letter'})$
-\item[(c)] $\p(\{\mathsf{E},\mathsf{Z}\})$
-\item[(d)]$\p(\textrm{`picking a vowel'})$
-\item[(e)]$\p(\textrm{`picking any letter in the word WAZZZUP'})$
-\item[(f)]$\p(\textrm{`picking any letter in the word WAZZZUP or a vowel'})$.
+\item[(a)]$\P(\{\mathsf{Z}\})$
+\item[(b)]$\P(\textrm{`picking any letter'})$
+\item[(c)] $\P(\{\mathsf{E},\mathsf{Z}\})$
+\item[(d)]$\P(\textrm{`picking a vowel'})$
+\item[(e)]$\P(\textrm{`picking any letter in the word WAZZZUP'})$
+\item[(f)]$\P(\textrm{`picking any letter in the word WAZZZUP or a vowel'})$.
 \end{itemize}
 }
 \label{Ex:RandomEnglishLetter}
 \Answer
 {\bit
-\item[(a)] $\p(\{\mathsf{Z}\})=0.1\%=\frac{0.1}{100}=0.001$
-\item[(b)] $\p(\textrm{`picking any letter'})= \p(\Omega) = 1$
-\item[(c)] $\p(\{\mathsf{E},\mathsf{Z}\}) =\p(\{\mathsf{E}\} \cup
-    \{\mathsf{Z}\} ) =  \p(\{\mathsf{E}\})+\p(\{\mathsf{Z}\}) =
+\item[(a)] $\P(\{\mathsf{Z}\})=0.1\%=\frac{0.1}{100}=0.001$
+\item[(b)] $\P(\textrm{`picking any letter'})= \P(\Omega) = 1$
+\item[(c)] $\P(\{\mathsf{E},\mathsf{Z}\}) =\P(\{\mathsf{E}\} \cup
+    \{\mathsf{Z}\} ) =  \P(\{\mathsf{E}\})+\P(\{\mathsf{Z}\}) =
     0.13+0.001=0.131$, by Axiom~(3)
-\item[(d)] $\p(\textrm{`picking a
-    vowel'})=\p(\{\mathsf{A,E,I,O,U}\})=(7.3\%+13.0\%+7.4\%+7.4\%+2.7\%)=37.8\%$,  by the addition rule for mutually exclusive events, rule (2).
-\item[(e)] $\p(\textrm{`picking any letter in the word
-    WAZZZUP'})=\p(\{\mathsf{W,A,Z,U,P}\})=14.4\%$,  by the
+\item[(d)] $\P(\textrm{`picking a
+    vowel'})=\P(\{\mathsf{A,E,I,O,U}\})=(7.3\%+13.0\%+7.4\%+7.4\%+2.7\%)=37.8\%$,  by the addition rule for mutually exclusive events, rule (2).
+\item[(e)] $\P(\textrm{`picking any letter in the word
+    WAZZZUP'})=\P(\{\mathsf{W,A,Z,U,P}\})=14.4\%$,  by the
   addition rule for mutually exclusive events, rule (2).
-\item[(f)] $\p(\textrm{`picking any letter in the word WAZZZUP or a vowel'})=$\\
-$\p(\{\mathsf{W,A,Z,U,P}\})+\p(\{\mathsf{A,E,I,O,U}\})-\p(\{\mathsf{A,U}\})
+\item[(f)] $\P(\textrm{`picking any letter in the word WAZZZUP or a vowel'})=$\\
+$\P(\{\mathsf{W,A,Z,U,P}\})+\P(\{\mathsf{A,E,I,O,U}\})-\P(\{\mathsf{A,U}\})
   = 14.4\% + 37.8\% - 10\% = 42.2\%$,  by the addition rule for two
 arbitrary events, rule (3).
 \eit
@@ -76,13 +76,13 @@ Suppose we pick a letter at random from the word WAIMAKARIRI.
 \be
 \item The sample space $\Omega=\{\mathsf{W},\mathsf{A},\mathsf{I},\mathsf{M},\mathsf{K},\mathsf{R}\}$.
 \item   Since there are eleven letters in WAIMAKARIRI the probabilities are:
-\cen{ $\p(\sf\{W\})=\frac{1}{11}$, $\p(\sf\{ A\})=\frac{3}{11}$, $\p( \sf\{ I\})
+\cen{ $\P(\sf\{W\})=\frac{1}{11}$, $\P(\sf\{ A\})=\frac{3}{11}$, $\P( \sf\{ I\})
 =\frac{3}{11}$,
-    $\p(\sf\{ M\})=\frac{1}{11}$, $\p(\sf\{ K\})=\frac{1}{11}$, $\p(\sf\{
+    $\P(\sf\{ M\})=\frac{1}{11}$, $\P(\sf\{ K\})=\frac{1}{11}$, $\P(\sf\{
     R\})=\frac{2}{11}$\,.}
 
 \item By the complementation rule, the probability of not choosing
-    the letter R is:  \[1\,-\,\p(\text{choosing the letter R})\,=\,1\,-\, \frac{2}{11}\,=\,\frac{9}{11}\,.\]
+    the letter R is:  \[1\,-\,\P(\text{choosing the letter R})\,=\,1\,-\, \frac{2}{11}\,=\,\frac{9}{11}\,.\]
 
 \ee
 
@@ -96,11 +96,11 @@ The letter on the first ball that comes out of a BINGO machine after it has been
 \begin{itemize}
 \item[(a)] Write down the sample space of this experiment.
 \item[(b)] Find the probabilities of each simple event.
-\item[(c)] Show that $\p(\Omega)$ is indeed $1$.
+\item[(c)] Show that $\P(\Omega)$ is indeed $1$.
 \item[(d)] Check that the addition rule for mutually exclusive events holds for the simple events $\{B\}$ and $\{I\}$. 
 \item[(e)]Consider the following events: 
 $C = \{\mathsf{B},\mathsf{I},\mathsf{G}\}$ and $D = \{\mathsf{G},\mathsf{I},\mathsf{N}\}$.  
-Using the addition rule for two arbitrary events, find  $\p(C \cup D)$.
+Using the addition rule for two arbitrary events, find  $\P(C \cup D)$.
 \end{itemize}
 
 \Answer
@@ -112,29 +112,29 @@ First, the sample space is: $\Omega=\{ {\mathsf{B}, \mathsf{I},
 
 \item The probabilities of simple events are:
 $$
-\p(\mathsf{B} )\;=\;\p(\mathsf{I})\;=\;\p(\mathsf{N})\;=\;\p(\mathsf{G})\;=\;\p(\mathsf{O})\;=\;{\frac{15}{75}\;=\;\frac{1}{5}} \enspace .
+\P(\mathsf{B} )\;=\;\P(\mathsf{I})\;=\;\P(\mathsf{N})\;=\;\P(\mathsf{G})\;=\;\P(\mathsf{O})\;=\;{\frac{15}{75}\;=\;\frac{1}{5}} \enspace .
 $$
 
 \item 
 
 %Axiom~(1):
-%$${0\leq \p(\mathsf{B})\;=\;\p(\mathsf{I})\;=\;\p(\mathsf{N})\;=\;\p(\mathsf{G})\;=\;\p(\mathsf{O})\;=\;\frac{1}{5} \leq 1 \enspace .}
+%$${0\leq \P(\mathsf{B})\;=\;\P(\mathsf{I})\;=\;\P(\mathsf{N})\;=\;\P(\mathsf{G})\;=\;\P(\mathsf{O})\;=\;\frac{1}{5} \leq 1 \enspace .}
 %$$
 
 %Axiom~(2): 
 Using the addition rule for mutually exclusive events,
 \begin{eqnarray*}
-\p(\Omega)
-&=& \p(\mathsf{\{B,I,N,G,O\}})\\
-&=& \p(\{\sf{B}\} \cup\{\sf{I}\}\cup \{\sf{N}\} \cup \{\sf{G}\} \cup \{\sf{O}\})\\
-&=& \p(\sf B)+\p(\sf I)+\p(\sf N)+\p(\sf G)+\p(\sf O) \quad \text{simplifying notation} \\
+\P(\Omega)
+&=& \P(\mathsf{\{B,I,N,G,O\}})\\
+&=& \P(\{\sf{B}\} \cup\{\sf{I}\}\cup \{\sf{N}\} \cup \{\sf{G}\} \cup \{\sf{O}\})\\
+&=& \P(\sf B)+\P(\sf I)+\P(\sf N)+\P(\sf G)+\P(\sf O) \quad \text{simplifying notation} \\
 &=& \frac{1}{5}+\frac{1}{5}+\frac{1}{5}+\frac{1}{5}+\frac{1}{5}\\
 &=& 1
 \end{eqnarray*}
 
 \item Since the   events $\{\sf B\}$ and $\{\sf I\}$ are disjoint,
 $$
-\p(\{\sf{B}\} \cup \{\sf{I}\})\;=\;\p(\sf B)+\p(\sf I)\;=\;\frac{1}{5}+\frac{1}{5}\;=\;\frac{2}{5}\,.
+\P(\{\sf{B}\} \cup \{\sf{I}\})\;=\;\P(\sf B)+\P(\sf I)\;=\;\frac{1}{5}+\frac{1}{5}\;=\;\frac{2}{5}\,.
 $$
 
 
@@ -143,7 +143,7 @@ $$
 
 \item  Using the addition rule for two arbitrary events we get,
 \begin{eqnarray*}
-\p(C \cup D) &=& \p(C)+\p(D)-\p(C\cap D)\\& =& \p(\{\sf{B},\sf{I},\sf{G}\}) + \p(\{\sf{G},\sf{I},\sf{N}\}) - \p(\{\sf{G},\sf{I}\})\\
+\P(C \cup D) &=& \P(C)+\P(D)-\P(C\cap D)\\& =& \P(\{\sf{B},\sf{I},\sf{G}\}) + \P(\{\sf{G},\sf{I},\sf{N}\}) - \P(\{\sf{G},\sf{I}\})\\
 & =& \frac{3}{5} +\frac{3}{5} - \frac{2}{5}\\& = &\frac{4}{5} \enspace .
 \end{eqnarray*}
 \ee

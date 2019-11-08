@@ -47,13 +47,13 @@ $H_1$ is True & Type II Error & OK \\ \hline
 \begin{definition}[Power, Size and Level of a Test]
 The {\bf power function} of a test with rejection region $\Xz_R$ is
 \begin{equation}\label{E:power}
-\beta(\theta) := \p_{\theta}(x \in \Xz_R) \ .
+\beta(\theta) := \P_{\theta}(x \in \Xz_R) \ .
 \end{equation}
 So $\beta(\theta)$ is the power of the test at the parameter value $\theta$, i.e.~the probability that the observed data $x$, sampled from the distribution specified by $\theta$, falls in $\Xz_R$ and thereby leads to a rejection of the null hypothesis.
 
 The $\mathsf{size}$ of a test with rejection region $\Xz_R$ is the supreme power under the null hypothesis, i.e.~the supreme probability of rejecting the null hypothesis when the null hypothesis is true:
 \begin{equation}\label{E:size}
-\mathsf{size} := \sup_{\theta \in \BB{\Theta}_0} \beta(\theta) := \sup_{\theta \in \BB{\Theta}_0} \p_{\theta}(x \in \Xz_R) \ .
+\mathsf{size} := \sup_{\theta \in \BB{\Theta}_0} \beta(\theta) := \sup_{\theta \in \BB{\Theta}_0} \P_{\theta}(x \in \Xz_R) \ .
 \end{equation}
 The $\mathsf{size}$ of a test is often denoted by $\alpha$.  A test is said to have $\mathsf{level}$ $\alpha$ if its $\mathsf{size}$ is less than or equal to $\alpha$.
 \end{definition}
@@ -107,16 +107,16 @@ The rejection region for the Wald test is:
 As the sample size $n$ approaches infinity, the $\mathsf{size}$ of the Wald test approaches $\alpha$ :
 \[
 \boxed{
-\mathsf{size} = \p_{\theta_0} \left( |W| > z_{\alpha/2} \right) \to \alpha \enspace .}
+\mathsf{size} = \P_{\theta_0} \left( |W| > z_{\alpha/2} \right) \to \alpha \enspace .}
 \]
 \end{prop}
 \begin{proof}
 Let $Z \sim \normal(0,1)$.  The $\mathsf{size}$ of the Wald test, i.e.~the supreme power under $H_0$ is:
 \begin{flalign*}
 \mathsf{size} 
-& := \sup_{\theta \in \BB{\Theta}_0} \beta(\theta) := \sup_{\theta \in \{\theta_0\}} \p_{\theta}(x \in \Xz_R) = \p_{\theta_0}(x \in \Xz_R) \\
-& = \p_{\theta_0} \left( |W| > z_{\alpha/2} \right)  = \p_{\theta_0} \left( \frac{|\widehat{\theta}_n - \theta_0|}{\widehat{\mathsf{se}}_n} > z_{\alpha/2} \right) \\
-& \to \p \left( |Z| > z_{\alpha/2} \right)\\
+& := \sup_{\theta \in \BB{\Theta}_0} \beta(\theta) := \sup_{\theta \in \{\theta_0\}} \P_{\theta}(x \in \Xz_R) = \P_{\theta_0}(x \in \Xz_R) \\
+& = \P_{\theta_0} \left( |W| > z_{\alpha/2} \right)  = \P_{\theta_0} \left( \frac{|\widehat{\theta}_n - \theta_0|}{\widehat{\mathsf{se}}_n} > z_{\alpha/2} \right) \\
+& \to \P \left( |Z| > z_{\alpha/2} \right)\\
 & = \alpha \enspace .
 \end{flalign*}
 \end{proof}
@@ -154,7 +154,7 @@ We can use bootstrap-based confidence interval $C_n$ in conjunction with Wald te
 \begin{example}[Wald test of the bootstrapped correlation coefficient]
 Recall the problem of estimating the confidence interval for the correlation coefficient between the LSAT scores ($Y_1,\ldots,Y_{15}$) and the GPA ($Z_1,\ldots,Z_{15}$) in \hyperref[LW:LSATGPACorrBoot]{Labwork~\ref*{LW:LSATGPACorrBoot}}.  We assumed that the bivariate data $(Y_i,Z_i) \overset{IID}{\sim} F^*$, such that $F^* \in \{ \text{all bivariate DFs} \}$. Suppose we are interested in testing the null hypothesis that the true correlation coefficient $\theta^*$ is $0$:
 \[
-H_0: \theta^* = \theta_0 = 0 \quad \text{versus} \quad H_1: \theta^* \neq 0, \quad \text{where} \quad  \theta^* = \frac{\int \int (y-\e(Y))(z-\e(Z))dF(y,z)}{\sqrt{\int (y-\e(Y))^2 dF(y) \int (z-\e(Z))^2 dF(z)}} \enspace .
+H_0: \theta^* = \theta_0 = 0 \quad \text{versus} \quad H_1: \theta^* \neq 0, \quad \text{where} \quad  \theta^* = \frac{\int \int (y-\E(Y))(z-\E(Z))dF(y,z)}{\sqrt{\int (y-\E(Y))^2 dF(y) \int (z-\E(Z))^2 dF(z)}} \enspace .
 \]
 Since the percentile-based $95\%$ bootstrap confidence interval for the plug-in estimate of the correlation coefficient from \hyperref[LW:LSATGPACorrBoot]{Labwork~\ref*{LW:LSATGPACorrBoot}} was $[0.2346, 0.9296]$ and this interval does not contain $0$, we can reject the null hypothesis that the correlation coefficient is $0$ using a $\mathsf{size}$ $\alpha=0.05$ Wald test.
 \end{example}
@@ -191,7 +191,7 @@ where the test statistic $T=\overline{X}_n$ and the rejection region is:
 \]
 Since the sum of $n$ IID $\exponential(\lambda)$ RVs is $\gammA(\lambda,n)$ distributed, the power function is:
 \begin{flalign*}
-\beta(\lambda) &= \p_{\lambda} \left(\overline{X}_n > c \right) = \p_{\lambda}\left(\sum_{i=1}^n{X_i} > nc \right) = 1- \p_{\lambda}\left(\sum_{i=1}^n{X_i} \leq nc \right)\\
+\beta(\lambda) &= \P_{\lambda} \left(\overline{X}_n > c \right) = \P_{\lambda}\left(\sum_{i=1}^n{X_i} > nc \right) = 1- \P_{\lambda}\left(\sum_{i=1}^n{X_i} \leq nc \right)\\
 &= 1 - F\left( nc; \lambda, n \right) 
 = 1- \frac{1}{\Gamma(n)}\int_0^{\lambda n c} y^{n-1} \exp(-y) dy \\
 &= 1- {\tt gammainc}(\lambda n c, n)
@@ -263,7 +263,7 @@ If the evidence against $H_0$ is strong then the $\pvalue$ will be small.  Howev
 \item $H_0$ is true.
 \item $H_0$ is false but the test has low power.
 \end{enumerate}
-Finally, it is important to realise that $\pvalue$ is not the probability that the null hypothesis is true, i.e.~$\pvalue \neq \p(H_0|x)$, where $x$ is the data.  The following tabulation of evidence scale is useful.
+Finally, it is important to realise that $\pvalue$ is not the probability that the null hypothesis is true, i.e.~$\pvalue \neq \P(H_0|x)$, where $x$ is the data.  The following tabulation of evidence scale is useful.
 \begin{table}
 \caption{Evidence scale against the null hypothesis in terms of the range of $\pvalue$.}\label{T:pvalueEvidenceScale}
 \begin{center}
@@ -286,7 +286,7 @@ Suppose that the $\mathsf{size}$ $\alpha$ test based on the test statistic $T$ a
 \]
 then
 \[
-\pvalue = \sup_{\theta \in \BB{\Theta}_0} \p_{\theta}(T((X_1,\ldots,X_n)) \geq t:=T((x_1,\ldots,x_n))) \enspace ,
+\pvalue = \sup_{\theta \in \BB{\Theta}_0} \P_{\theta}(T((X_1,\ldots,X_n)) \geq t:=T((x_1,\ldots,x_n))) \enspace ,
 \]
 where, $(x_1,\ldots,x_n)$ is the observed data and $t$ is the observed value of the test statistic $T$.  In words, the $\pvalue$ is the supreme probability under $H_0$ of observing a value of the test statistic the same as or more extreme than what was actually observed.
 \end{prop}
@@ -309,8 +309,8 @@ w=W(x_1,\ldots,x_{132})=
 Since, $W \rightsquigarrow Z \sim \normal(0,1)$, the $\pvalue$ for this Wald test is:
 \begin{flalign*}
 \pvalue 
-&= \sup_{\lambda \in \BB{\Lambda}_0} \p_{\lambda} (|W|>|w|)= \sup_{\lambda \in \{\lambda_0\}} \p_{\lambda} (|W|>|w|) =  \p_{\lambda_0} (|W|>|w|) \\
-& \to \p (|Z|>|w|)=2 \Phi(-|w|)=2 \Phi(-|1.0618|)=2 \times 0.1442=0.2884 \enspace .
+&= \sup_{\lambda \in \BB{\Lambda}_0} \P_{\lambda} (|W|>|w|)= \sup_{\lambda \in \{\lambda_0\}} \P_{\lambda} (|W|>|w|) =  \P_{\lambda_0} (|W|>|w|) \\
+& \to \P (|Z|>|w|)=2 \Phi(-|w|)=2 \Phi(-|1.0618|)=2 \times 0.1442=0.2884 \enspace .
 \end{flalign*}
 Therefore, there is little or no evidence against $H_0$ that the mean waiting time under an IID $\exponential$ model of inter-arrival times is exactly ten minutes.
 \end{example}
@@ -336,11 +336,11 @@ Then the idea of a permutation test is as follows:
 \begin{enumerate}
 \item Let $N:=m+n$ be the pooled sample size and consider all $N!$ permutations of the observed data $x_{\mathsf{obs}}:=(x_1,x_2,\ldots,x_m,x_{m+1},x_{m+2},\ldots,x_{m+n})$.
 \item For each permutation of the data compute the statistic $T(\text{permuted data $x$})$ and denote these $N!$ values of $T$ by $t_1,t_2,\ldots,t_{N!}$.
-\item Under $H_0: X_1,\ldots,X_m,X_{m+1},\ldots,X_{m+n} \overset{IID}{\sim}F^*=G^*$, each of the permutations of $x= (x_1,x_2,\ldots,x_m,x_{m+1},x_{m+2},\ldots,x_{m+n})$ has the same joint probability $\prod_{i=1}^{m+n} f(x_i)$, where $f(x_i)=dF(x_i)=dG(x_i)$.  Therefore, the transformation of the data by our statistic $T$ also has the same probability over the values of $T$, namely $\{t_1,t_2,\ldots,t_{N!}\}$.  Let $\p_0$ be this permutation distribution that is dicrete and uniform over  $\{t_1,t_2,\ldots,t_{N!}\}$.
+\item Under $H_0: X_1,\ldots,X_m,X_{m+1},\ldots,X_{m+n} \overset{IID}{\sim}F^*=G^*$, each of the permutations of $x= (x_1,x_2,\ldots,x_m,x_{m+1},x_{m+2},\ldots,x_{m+n})$ has the same joint probability $\prod_{i=1}^{m+n} f(x_i)$, where $f(x_i)=dF(x_i)=dG(x_i)$.  Therefore, the transformation of the data by our statistic $T$ also has the same probability over the values of $T$, namely $\{t_1,t_2,\ldots,t_{N!}\}$.  Let $\P_0$ be this permutation distribution that is dicrete and uniform over  $\{t_1,t_2,\ldots,t_{N!}\}$.
 \item Let $t_{\mathsf{obs}} := T(x_{\mathsf{obs}})$ be the observed value of the statistic.
 \item Assuming we reject $H_0$ when $T$ is large, the $\pvalue$ is:
 \[
-\pvalue = \p_0 \left( T \geq t_{\mathsf{obs}} \right) = \frac{1}{N!} \left( \sum_{j=1}^{N!} \BB{1} (t_j  \geq t_{\mathsf{obs}}) \right), \qquad  \BB{1} (t_j \geq t_{\mathsf{obs}}) =
+\pvalue = \P_0 \left( T \geq t_{\mathsf{obs}} \right) = \frac{1}{N!} \left( \sum_{j=1}^{N!} \BB{1} (t_j  \geq t_{\mathsf{obs}}) \right), \qquad  \BB{1} (t_j \geq t_{\mathsf{obs}}) =
 \begin{cases}
 1 & \text{if } \quad t_j \geq t_{\mathsf{obs}} \\
 0 & \text{otherwise} 
@@ -362,11 +362,11 @@ The data giving the shell diameters in millimetres and $t_{\mathsf{obs}}$ are:
 \[
 (x_1,x_2,x_3) = (52,54,58) \quad \text{and} \quad t_{\mathsf{obs}}=\abs \left( \frac{52+54}{2} - \frac{58}{1} \right) = \abs (53-58) = \abs(-5)=5 \enspace .
 \]
-Let us tabulate the $(2+1)!=3!=3\times2\times1=6$ permutations of the data $(x_1,x_2,x_3) = (52,54,58)$, the corresponding values of $T$ and their probabilities under the null hypothesis, i.e., the permutation distribution $\p_0(T)$.
+Let us tabulate the $(2+1)!=3!=3\times2\times1=6$ permutations of the data $(x_1,x_2,x_3) = (52,54,58)$, the corresponding values of $T$ and their probabilities under the null hypothesis, i.e., the permutation distribution $\P_0(T)$.
 \begin{center}
 \begin{tabular}{c c c}
 \hline
-Permutation & $t$ & $\p_0(T=t)$ \\ \hline
+Permutation & $t$ & $\P_0(T=t)$ \\ \hline
 $(52,54,58)$ & $5$ & $\frac{1}{6}$ \\
 $(54,52,58)$ & $5$ & $\frac{1}{6}$  \\
 $(52,58,54)$ & $1$ & $\frac{1}{6}$  \\
@@ -377,7 +377,7 @@ $(54,58,52)$ & $4$ & $\frac{1}{6}$  \\ \hline
 \end{center}
 From the table, we get:
 \[
-\pvalue = \p_0 \left( T \geq t_{\mathsf{obs}}\right) =  \p_0 \left( T \geq 5 \right) = \frac{1}{6}+ \frac{1}{6}= \frac{2}{6}= \frac{1}{3} \approxeq 0.333 \enspace . 
+\pvalue = \P_0 \left( T \geq t_{\mathsf{obs}}\right) =  \P_0 \left( T \geq 5 \right) = \frac{1}{6}+ \frac{1}{6}= \frac{2}{6}= \frac{1}{3} \approxeq 0.333 \enspace . 
 \]
 Therefore, there is little to no evidence against $H_0$.
 \end{example}
@@ -414,7 +414,7 @@ Consider $n$ independent and identically distributed $\demoivre (\theta_1,\ldots
 \[
 X_1,X_2,\ldots,X_n \overset{IID}{\sim} \demoivre (\theta_1,\ldots,\theta_k) \enspace .
 \]
-Recall from \hyperref[M:deMoivre]{Model~\ref*{M:deMoivre}} that $X_1 \sim \demoivre (\theta_1,\ldots,\theta_k)$ means $\p(X_1=e_i)=\theta_i$ for $i\in\{1,\ldots,k\}$, where $e_1,\ldots,e_k$ are ortho-normal basis vectors in $\Rz^k$. 
+Recall from \hyperref[M:deMoivre]{Model~\ref*{M:deMoivre}} that $X_1 \sim \demoivre (\theta_1,\ldots,\theta_k)$ means $\P(X_1=e_i)=\theta_i$ for $i\in\{1,\ldots,k\}$, where $e_1,\ldots,e_k$ are ortho-normal basis vectors in $\Rz^k$. 
 Thus, for each $i \in \{1,2,\ldots,n\}$, the corresponding  $X_i$ has $k$ components, i.e.~$X_i:=(X_{i,1},X_{i,2},\ldots,X_{i,k})$.
 
 {\em Part 2: \multinomial~trial}\\
@@ -435,11 +435,11 @@ Here we consider an alternative formulation of the $\multinomial(n,\theta_1,\ldo
 \[
 Y_1 \sim \poisson(n \theta_1), Y_2 \sim \poisson(n \theta_2), \ldots, Y_k \sim \poisson(n \theta_k) \enspace ,
 \]
-and that $Y_1,\ldots,Y_k$ are independent.  Recall from \hyperref[M:Poisson]{Model~\ref*{M:Poisson}} that $Y_i \sim \poisson(n\theta_i)$ means $\p(Y_i=y_i)=e^{-n\theta_i} (n\theta_i)^{y_i}/y_i!$ for $y_i \in \{0,1,\ldots\}$.  Then, the joint probability probability of the \rv~$(Y_1,\ldots,Y_k)$ is the product of the independent $\poisson$ probabilities:
+and that $Y_1,\ldots,Y_k$ are independent.  Recall from \hyperref[M:Poisson]{Model~\ref*{M:Poisson}} that $Y_i \sim \poisson(n\theta_i)$ means $\P(Y_i=y_i)=e^{-n\theta_i} (n\theta_i)^{y_i}/y_i!$ for $y_i \in \{0,1,\ldots\}$.  Then, the joint probability probability of the \rv~$(Y_1,\ldots,Y_k)$ is the product of the independent $\poisson$ probabilities:
 \begin{flalign*}
-\p\left( (Y_1,\ldots,Y_k) = (y_1,\ldots,y_k) \right) 
-&:= \p \left( Y_1=y_1,\ldots,Y_k=y_k \right) 
-= \prod_{i=1}^k \p(Y_i=y_i) = \prod_{i=1}^k{ \frac{e^{-n\theta_i} (n\theta_i)^{y_i}}{y_i!} } \\
+\P\left( (Y_1,\ldots,Y_k) = (y_1,\ldots,y_k) \right) 
+&:= \P \left( Y_1=y_1,\ldots,Y_k=y_k \right) 
+= \prod_{i=1}^k \P(Y_i=y_i) = \prod_{i=1}^k{ \frac{e^{-n\theta_i} (n\theta_i)^{y_i}}{y_i!} } \\
 & 
 = \frac{ \prod_{i=1}^k e^{-n\theta_i} n^{y_i} \theta_i^{y_i}}{ \prod_{i=1}^k{ y_i!} }
 =\left(e^{-n \sum_{i=1}^k \theta_i} n^{\sum_{i=1}^k y_i} \prod_{i=1}^k \theta_i^{y_i}\right) \frac{1}{ \prod_{i=1}^k{ y_i!} } \\
@@ -448,24 +448,24 @@ and that $Y_1,\ldots,Y_k$ are independent.  Recall from \hyperref[M:Poisson]{Mod
 \end{flalign*}
 Now, the probability that sum $Y_1+\cdots+Y_k$ will equal $n$ is obtained by summing over the probabilities of all $(y_1,\ldots,y_k) \in \Yz$:
 \begin{flalign*}
-\p\left(\sum_{i=1}^k Y_i = n \right)
-& = \sum_{\substack{(y_1,\ldots,y_k)\\ \in\Yz}}  \p\left( (Y_1,\ldots,Y_k) = (y_1,\ldots,y_k) \right) =  \sum_{\substack{(y_1,\ldots,y_k)\\ \in\Yz}}  \frac{  e^{-n} n^{n} \prod_{i=1}^k \theta_i^{y_i}}{ \prod_{i=1}^k{ y_i!} } \\
+\P\left(\sum_{i=1}^k Y_i = n \right)
+& = \sum_{\substack{(y_1,\ldots,y_k)\\ \in\Yz}}  \P\left( (Y_1,\ldots,Y_k) = (y_1,\ldots,y_k) \right) =  \sum_{\substack{(y_1,\ldots,y_k)\\ \in\Yz}}  \frac{  e^{-n} n^{n} \prod_{i=1}^k \theta_i^{y_i}}{ \prod_{i=1}^k{ y_i!} } \\
 & = e^{-n} n^{n} \frac{1}{n!} 
-\underset {=\p(\Yz)=1}{\underbrace{\left( \sum_{\substack{(y_1,\ldots,y_k)\\ \in\Yz}}   \frac{n!}{ \prod_{i=1}^k{ y_i!} } \prod_{i=1}^k \theta_i^{y_i} \right)}} = \frac{e^{-n} n^{n}}{n!}
+\underset {=\P(\Yz)=1}{\underbrace{\left( \sum_{\substack{(y_1,\ldots,y_k)\\ \in\Yz}}   \frac{n!}{ \prod_{i=1}^k{ y_i!} } \prod_{i=1}^k \theta_i^{y_i} \right)}} = \frac{e^{-n} n^{n}}{n!}
 \enspace .
 \end{flalign*}
 Finally, the conditional probability that $(Y_1,\ldots,Y_k)=(y_1,\ldots,y_k)$ given $\sum_{i=1}^k Y_i = n$ is:
 \begin{multline*}
-\p \left( (Y_1,\ldots,Y_k)=(y_1,\ldots,y_k) \vert \sum_{i=1}^k Y_i = n \right) = 
-\frac{\p \left( (Y_1,\ldots,Y_k)=(y_1,\ldots,y_k) , \sum_{i=1}^k Y_i = n \right)}{\p \left( \sum_{i=1}^k Y_i = n \right) } \\
-= \frac{\p \left( (Y_1,\ldots,Y_k)=(y_1,\ldots,y_k) \right)}{\p \left( \sum_{i=1}^k Y_i = n \right) } 
+\P \left( (Y_1,\ldots,Y_k)=(y_1,\ldots,y_k) \vert \sum_{i=1}^k Y_i = n \right) = 
+\frac{\P \left( (Y_1,\ldots,Y_k)=(y_1,\ldots,y_k) , \sum_{i=1}^k Y_i = n \right)}{\P \left( \sum_{i=1}^k Y_i = n \right) } \\
+= \frac{\P \left( (Y_1,\ldots,Y_k)=(y_1,\ldots,y_k) \right)}{\P \left( \sum_{i=1}^k Y_i = n \right) } 
 = \frac{  e^{-n} n^{n} \prod_{i=1}^k \theta_i^{y_i}}{ \prod_{i=1}^k{ y_i!} } \frac{n!} {e^{-n} n^{n}} =  \frac{n!}{y_1! y_2! \cdots y_k!} \prod_{i=1}^k \theta_i^{y_i} \enspace .
 \end{multline*}
 Therefore, we may also think of the random vector $Y:=(Y_1,\ldots,Y_k) \sim \multinomial(n,\theta_1,\ldots,\theta_k)$ as $k$ independent $\poisson$ random variables, $Y_1 \sim \poisson(n \theta_1), \ldots, Y_k \sim \poisson(n \theta_k)$, that have been conditioned on their sum $\sum_{i=1}^nY_i$ being $n$.
 
 {\em Part 4: The $\normal$ approximation of the centred and scaled $\poisson$}\\
-Recall from \hyperref[M:Poisson]{Model~\ref*{M:Poisson}} that the expectation and variance of a RV $Y_i \sim \poisson(n\theta_i)$ are $\e(Y_i)=\V(Y_i)=n\theta_i$.  Let $Z_i$ be $\e(Y_i)$-centred and $\sqrt{\V(Y_i)}$-scaled $Y_i$ and \[
-Z_i :=  \frac{Y_i - \e(Y_i)}{\sqrt{\V(Y_i)}} = \frac{Y_i - n \theta_i}{\sqrt{n \theta_i}} \enspace .
+Recall from \hyperref[M:Poisson]{Model~\ref*{M:Poisson}} that the expectation and variance of a RV $Y_i \sim \poisson(n\theta_i)$ are $\E(Y_i)=\V(Y_i)=n\theta_i$.  Let $Z_i$ be $\E(Y_i)$-centred and $\sqrt{\V(Y_i)}$-scaled $Y_i$ and \[
+Z_i :=  \frac{Y_i - \E(Y_i)}{\sqrt{\V(Y_i)}} = \frac{Y_i - n \theta_i}{\sqrt{n \theta_i}} \enspace .
 \]
 The condition that $Y_1+\cdots+Y_k=n$ is equivalent to requiring that $\sqrt{\theta_1} Z_1 +\cdots+\sqrt{\theta_k} Z_k = 0$, since:
 \begin{multline*}
@@ -501,11 +501,11 @@ Since the $(k-1)$-dimensional hyper-plane $\Hz$ passes through the origin of  $\
 \]
 for some function $g$ of the angles [See Problem 15 in {\em Art of Computer Programming, Vol.~II, Seminumerical Algorithms}, 3rd Ed., 1997, pp.~59].   The integration over the $(k-2)$ angles results in the same factor that cancels between the numerator and the denominator.  This yields the formula for the probability that $V \leq v$ as $n \rightarrow \infty$:
 \[
-\lim_{n \to \infty} \p(V \leq v) =  \frac{\int_0^{\sqrt{v}}\exp(-\chi^2/2) \chi^{k-2} d \chi} {\int_0^{\infty}\exp(-\chi^2/2) \chi^{k-2} \ d \chi} \enspace .
+\lim_{n \to \infty} \P(V \leq v) =  \frac{\int_0^{\sqrt{v}}\exp(-\chi^2/2) \chi^{k-2} d \chi} {\int_0^{\infty}\exp(-\chi^2/2) \chi^{k-2} \ d \chi} \enspace .
 \]  
 By substituting $t=\chi^2/2$, we can express the integrals in terms of the incomplete Gamma function defined as $\gamma(a,x) :=  \int_0^{a} \exp(-t) t^{a-1} \ dt$ as follows:
 \[
-\p(V \leq v) = \gamma \left( \frac{k-1}{2},\frac{v}{2} \right) / \Gamma \left(\frac{k-1}{2} \right) \enspace .
+\P(V \leq v) = \gamma \left( \frac{k-1}{2},\frac{v}{2} \right) / \Gamma \left(\frac{k-1}{2} \right) \enspace .
 \]
 This is the DF of the $\chisquare$ distribution with $k-1$ degrees of freedom.
 
@@ -513,7 +513,7 @@ This is the DF of the $\chisquare$ distribution with $k-1$ degrees of freedom.
 \[
 f(v; k) :=  \frac{v^{(k/2)-1}e^{-v/2}}{2^{k/2}\Gamma(k/2)} \BB{1}_{\{v \in \Rz: v>0\}}(v)
 \]
-Also, $\e(V)=k$ and $\V(V) = 2k$.
+Also, $\E(V)=k$ and $\V(V) = 2k$.
 \end{model}
 
 We can use the test statistic: 
@@ -532,7 +532,7 @@ Y_1 \overset{IND}{\sim} \poisson(n\theta_1)~\mbox{RV},\ldots,Y_k \overset{IND}{\
 We have seen that under $H_0$, the test statistic $T \rightsquigarrow V \sim \chisquare(k-1)$.  Let $t_{\mathsf{obs}}$ be the observed value of the test statistic and let the upper alpha quantile be $\chi^2_{k-1,\alpha} := F^{[-1]}(1-\alpha)$, where $F$ is the CDF of $V \sim \chisquare(k-1)$.  Hence the test:
 \[
 \boxed{
-\text{Reject $H_0$ if $T > \chi^2_{k-1,\alpha}$ is an asymptotically $\mathsf{size}$ $\alpha$ test and the $\pvalue = \p(V > t_{obs})$.}
+\text{Reject $H_0$ if $T > \chi^2_{k-1,\alpha}$ is an asymptotically $\mathsf{size}$ $\alpha$ test and the $\pvalue = \P(V > t_{obs})$.}
 }
 \]
 

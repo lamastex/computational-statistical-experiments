@@ -59,7 +59,7 @@ Let $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} F^*$, where $F^*$ is some particula
 
 For any fixed value of $x$, the expectation and variance of the empirical DF \eqref{E:ECDF} are:
 \begin{eqnarray}
-\e \left( \widehat{F}_n(x) \right) &=& F^*(x) \implies \mathsf{bias}_n \left( \widehat{F}_n(x) \right) = 0 \label{E:FnhatUnbiased} \\
+\E \left( \widehat{F}_n(x) \right) &=& F^*(x) \implies \mathsf{bias}_n \left( \widehat{F}_n(x) \right) = 0 \label{E:FnhatUnbiased} \\
 \V \left( \widehat{F}_n(x) \right) &=& \frac{F^*(x) (1-F^*(x))}{n} \implies \lim_{n \to \infty}\mathsf{se}_n \left( \widehat{F}_n(x) \right) = 0  \label{E:Fnhatseto0} 
 \end{eqnarray}
 Therefore, by \hyperref[P:AsympConsistencyUnbiasedSE0]{Proposition~\ref* {P:AsympConsistencyUnbiasedSE0}}, the empirical DF evaluated at $x$, i.e.~$\widehat{F}_n(x)$ is an asymptotically consistent estimator of the DF evaluated at $x$, i.e.~$F^*(x)$.  More formally,
@@ -159,11 +159,11 @@ Some specific examples of statistical linear functionals we have already seen in
 \begin{enumerate}
 \item The {\bf mean} of RV $X \sim F$ is a function of the DF $F$:  
 \[
-T(F) = \e(X) = \int x\,dF(x) \ .
+T(F) = \E(X) = \int x\,dF(x) \ .
 \]
 \item The {\bf variance} of RV $X \sim F$ is a function of the DF $F$:  
 \[
-T(F) = \e(X-\e(X))^2 = \int (x-\e(X))^2\,dF(x) \ .
+T(F) = \E(X-\E(X))^2 = \int (x-\E(X))^2\,dF(x) \ .
 \]
 \item The {\bf value of DF at a given $x \in \Rz$} of RV $X \sim F$ is also a function of DF $F$:
 \[

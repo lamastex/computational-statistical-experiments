@@ -119,7 +119,7 @@
 % some acronyms
 %\newcommand{\D}[1]{\mathbb{#1}}%math black board Double \D{A}% replaced with \Az
 \newcommand{\C}[1]{\mathcal{#1}}%math caligraphic \C{A}
-\newcommand{\E}[1]{\mathscr{#1}}%math Euler script \E{A}
+\newcommand{\EE}[1]{\mathscr{#1}}%math Euler script \E{A}
 \newcommand{\B}[1]{\mathbf{#1}}%math bold font \B{A}
 \newcommand{\F}[1]{\mathfrak{#1}}%math frak \F{A}
 
@@ -203,9 +203,10 @@
 
 
 %\includeonly{Statistics,LimitsOfRVs,Estimation,SingleParamEstim,MultiParamEstim}
-%% Nussbaum
-%\let\e\relax
-%\usepackage{styles/mismath/mismath}
+%% Nussbaum's Intro to Math Stats Macros remixing with intmacro.sty
+% need latest post-April-2019 full texlive distribution
+\usepackage{mismath}
+%\renewcommand\probastyle{\mathbb}
 
 \begin{document}
 

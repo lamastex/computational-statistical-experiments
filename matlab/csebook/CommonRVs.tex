@@ -50,8 +50,8 @@ produce plots for various $\normal(\mu,\sigma^2)$ RVs, shown in \hyperref[F:plot
 
 % cse snipped
 %\remove{
-\begin{labwork}[Compute the  the $\p(X \in (a,b))$ for the $\normal(0,1)$ RV $X$]\label{LW:NormalIntervalProb}
-Write a function to evaluate the $\p(X \in (a,b))$ for the $\normal(0,1)$ RV $X$ for user-specified values of $a$ and $b$. [Hint: one option is by making two calls to {\tt NormalCdf} and doing one arithmetic operation.]
+\begin{labwork}[Compute the  the $\P(X \in (a,b))$ for the $\normal(0,1)$ RV $X$]\label{LW:NormalIntervalProb}
+Write a function to evaluate the $\P(X \in (a,b))$ for the $\normal(0,1)$ RV $X$ for user-specified values of $a$ and $b$. [Hint: one option is by making two calls to {\tt NormalCdf} and doing one arithmetic operation.]
 \end{labwork}
 
 Simulations \ref*{SIM:Uniformab} and \ref*{SIM:Exponential}, \ref*{SIM:Laplace} and \ref*{SIM:StdCauchy}
@@ -216,9 +216,9 @@ $\gammA(\alpha,\beta)$&$\frac{\beta^{\alpha}}{\Gamma(\alpha)}{x^{\alpha-1}e^{-\b
 
 We need a new notion for the variance of two RVs.
 \begin{definition}[Covariance]
-Suppose $X_1$ and $X_2$ are random variables, such that $\e(X_1^2) < \infty$ and $\e(X_2)^2 < \infty$.  Then, $\e(|X_1 X_2|) < \infty$ and $\e(|(X_1-\e(X_1))(X_2-\e(X_2))|) < \infty$.  We therefore define the covariance $\cv(X_1,X_2)$ of $X_1$ and $X_2$ as:
+Suppose $X_1$ and $X_2$ are random variables, such that $\E(X_1^2) < \infty$ and $\E(X_2)^2 < \infty$.  Then, $\E(|X_1 X_2|) < \infty$ and $\E(|(X_1-\E(X_1))(X_2-\E(X_2))|) < \infty$.  We therefore define the covariance $\cv(X_1,X_2)$ of $X_1$ and $X_2$ as:
 \[
-\cv(X_1,X_2) := \e \left((X_1-\e(X_1))(X_2-\e(X_2))\right) = \e(X_1 X_2) - \e(X_1) \e(X_2)
+\cv(X_1,X_2) := \E \left((X_1-\E(X_1))(X_2-\E(X_2))\right) = \E(X_1 X_2) - \E(X_1) \E(X_2)
 \]
 \end{definition}
 
@@ -242,7 +242,7 @@ Recall elementary vector addition in the plane.  What is $(1,0)+(1,0)$, $(1,0)+(
 \begin{model}[$\bernoulli(\theta)$ \rv]
 Given a parameter $\theta \in [0,1]$, we say that $X := (X_1,X_2)$ is a $\bernoulli(\theta)$ random vector (\rv) if it has only two possible outcomes in the set $\{e_1,e_2\} \subset \Rz^2$, i.e.~$x:=(x_1,x_2) \in \{(1,0),(0,1)\}$.  The PMF of the \rv~$X:= (X_1,X_2)$ with realisation $x:=(x_1,x_2)$ is:
 \[
-f(x;\theta) := \p(X=x) = \theta \, \BB{1}_{\{e_1\}}(x) + (1-\theta) \, \BB{1}_{\{e_2\}}(x) =
+f(x;\theta) := \P(X=x) = \theta \, \BB{1}_{\{e_1\}}(x) + (1-\theta) \, \BB{1}_{\{e_2\}}(x) =
 \begin{cases}
 \theta & \text{if } \quad x=e_1:=(1,0) \\
 1- \theta & \text{if } \quad x=e_2:=(0,1) \\
@@ -255,10 +255,10 @@ f(x;\theta) := \p(X=x) = \theta \, \BB{1}_{\{e_1\}}(x) + (1-\theta) \, \BB{1}_{\
 \begin{classwork}[Expectation and Variance of $\bernoulli(\theta)$ \rv]
 What is the Expectation of $\bernoulli(\theta)$ \rv?
 \[
-\e_{\theta}(X) = \e_{\theta}((X_1,X_2)) = \sum_{(x_1,x_2) \in \{e_1,e_2\}} (x_1,x_2) f((x_1,x_2);\theta) = (1,0) \theta + (0,1) (1-\theta) = (\theta,1-\theta) \ .
+\E_{\theta}(X) = \E_{\theta}((X_1,X_2)) = \sum_{(x_1,x_2) \in \{e_1,e_2\}} (x_1,x_2) f((x_1,x_2);\theta) = (1,0) \theta + (0,1) (1-\theta) = (\theta,1-\theta) \ .
 \]
 
-How about the variance ? [Hint: Use the definitions of $\e(X)$ and $\V(X)$ for the \rv~$X$.  $\e(X^2)$ is not a single number and you may need new words such as covariance to deal with terms like $\e(X_1 X_2)$.]
+How about the variance ? [Hint: Use the definitions of $\E(X)$ and $\V(X)$ for the \rv~$X$.  $\E(X^2)$ is not a single number and you may need new words such as covariance to deal with terms like $\E(X_1 X_2)$.]
 \end{classwork}
 
 %\remove{
@@ -296,7 +296,7 @@ We are now ready to extend the $\binomial(n,\theta)$ RV or \rv~to its multivaria
 \begin{model}[$\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv]\label{M:deMoivreRVec}
 The PMF of the $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv~$X := (X_1,X_2,\ldots,X_k)$ taking value $x := (x_1,x_2,\ldots,x_k) \in \{e_1,e_2,\ldots,e_k\}$, where the $e_i$'s are ortho-normal basis vectors in $\Rz^k$ is:
 \[
-f(x;\theta_1,\theta_2,\ldots,\theta_k) := \p(X=x) = \sum_{i=1}^k \theta_i \BB{1}_{\{e_i\}}(x) =
+f(x;\theta_1,\theta_2,\ldots,\theta_k) := \P(X=x) = \sum_{i=1}^k \theta_i \BB{1}_{\{e_i\}}(x) =
 \begin{cases}
 \theta_1 & \text{if} \quad x=e_1:=(1,0,\ldots,0) \in \Rz^k \\
 \theta_1 & \text{if} \quad x=e_1:=(0,1,\ldots,0) \in  \Rz^k \\
@@ -314,7 +314,7 @@ When we add $n$ IID $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv~together,
 We say that a \rv~$Y:=(Y_1,Y_2,\ldots,Y_k)$ obtained from the sum of $n$ IID $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ \rv{s} with realisations
 $$y:=(y_1,y_2,\ldots,y_k) \in \Yz:= \{(y_1,y_2,\ldots,y_k) \in \Zz_+^k : \sum_{i=1}^k y_i = n\}$$ has the PMF given by:
 \[
-f(y;n,\theta) := f(y;n,\theta_1,\theta_2,\ldots,\theta_k) := \p(Y=y;n,\theta_1,\theta_2,\ldots,\theta_k) = \binom{n}{y_1,y_2,\ldots,y_k} \prod_{i=1}^k \theta_i^{y_i} \ ,
+f(y;n,\theta) := f(y;n,\theta_1,\theta_2,\ldots,\theta_k) := \P(Y=y;n,\theta_1,\theta_2,\ldots,\theta_k) = \binom{n}{y_1,y_2,\ldots,y_k} \prod_{i=1}^k \theta_i^{y_i} \ ,
 \]
 where, the multinomial coefficient:
 \[
@@ -401,13 +401,13 @@ $$
 
 \begin{prop}The Importance Resampler of Algorithm~\ref{A:ImpReSampler} produces samples from a variable $X^{\prime}$ that is approximately distributed according to $f$, in the sense that:
 \begin{equation}
-\lim_{m\rightarrow \infty}\p( X^{\prime} \leq t)=\int^t_{-\infty}f(x)dx
+\lim_{m\rightarrow \infty}\P( X^{\prime} \leq t)=\int^t_{-\infty}f(x)dx
 \end{equation}
 for any real number $t$.
 \begin{proof}
 \begin{displaymath}
 \begin{split}
-&\p(X^{\prime}\leq t)=\sum^m_{i=1}w_iI_{(-\infty,t]}(y_i)=\frac{\frac{1}{m}\sum^m_{i=1}\frac{f(y_i)}{g(y_i)}I_{(-\infty,t]}(y_i)}{\frac{1}{m}\sum^m_{i=1}\frac{f(y_i)}{g(y_i)}}\\
+&\P(X^{\prime}\leq t)=\sum^m_{i=1}w_iI_{(-\infty,t]}(y_i)=\frac{\frac{1}{m}\sum^m_{i=1}\frac{f(y_i)}{g(y_i)}I_{(-\infty,t]}(y_i)}{\frac{1}{m}\sum^m_{i=1}\frac{f(y_i)}{g(y_i)}}\\
 %\end{displaymath}
 %\begin{displaymath}
 &\underrightarrow{^{m\rightarrow\infty}}\frac{E [\frac{f(y)}{g(y)}I_{(-\infty,t]}(y)]}{E[\frac{f(y)}{g(y)}]}=\frac{\int^t_{-\infty}f(y)dy}{{\int^{\infty}_{-\infty}f(y)dy}}=\int^t_{-\infty}f(y)dy\\
@@ -461,7 +461,7 @@ x =
 \end{simulation}
 
 \begin{model}[$\lognormal(\lambda,\zeta)$]
-$X$ has a $\lognormal(\lambda,\zeta) $ distribution if $\log(X)$ has a $\normal(\lambda,\zeta^2)$ distribution.  The location parameter $\lambda = \e(\log(X)) > 0$ and the scale parameter $\zeta > 0$.  The PDF is:
+$X$ has a $\lognormal(\lambda,\zeta) $ distribution if $\log(X)$ has a $\normal(\lambda,\zeta^2)$ distribution.  The location parameter $\lambda = \E(\log(X)) > 0$ and the scale parameter $\zeta > 0$.  The PDF is:
 \begin{equation}\label{E:LogNormalpdf}
 f(x; \lambda, \zeta) = \frac{1}{\sqrt{2 \pi} \zeta x }
  \exp{\left( - \frac{1}{2 \zeta^2} (\log(x)-\lambda)^2 \right)}, \qquad x > 0
@@ -519,10 +519,10 @@ Dirichlet Distribution
 \Exercise
 {**}The covariance of two random variables $X$ and $Y$ is defined as
 \[
-\cv(X,Y) := \e \left((X-\e(X))(Y-\e(Y))\right) = \e(X Y) - \e(X) \e(Y) \enspace .
+\cv(X,Y) := \E \left((X-\E(X))(Y-\E(Y))\right) = \E(X Y) - \E(X) \E(Y) \enspace .
 \]
 \begin{itemize}
-\item[(a)] Show, starting from the definition, that $\cv(X,Y) = \e(XY)-\e(X) \e(Y)$.
+\item[(a)] Show, starting from the definition, that $\cv(X,Y) = \E(XY)-\E(X) \E(Y)$.
 \item[(b)] When $\cv(X,Y)=0$, $X$ and $Y$ are said to be ``uncorrelated''.  
 Show that if $X$ and $Y$ are independent, then they are also uncorrelated.
 \end{itemize}
@@ -531,7 +531,7 @@ Show that if $X$ and $Y$ are independent, then they are also uncorrelated.
 {**} Let $X_1,X_2,\ldots,X_n$ be random variables.  
 Their joint CDF is defined as 
 \[
-F(x_1,x_2,\ldots,x_n) := \p (X_1 \leq x_1, X_2 \leq x_2, \ldots, X_n \leq x_n) \enspace.
+F(x_1,x_2,\ldots,x_n) := \P (X_1 \leq x_1, X_2 \leq x_2, \ldots, X_n \leq x_n) \enspace.
 \]
 By repeated application of the definition of conditional probability, show that the joint CDF admits the following ``telescopic'' representation:
 \begin{eqnarray*}
@@ -541,7 +541,7 @@ F(x_n \mid x_1,\ldots,x_{n-1}) F(x_{n-1} \mid x_1,\ldots,x_{n-2})\cdots F(x_2 \m
 &=&
 F(x_1) \prod_{i=2}^n F(x_i \mid x_1,\ldots,x_{i-1}) \enspace ,
 \end{eqnarray*}
-where, $F(x_i \mid x_1,\ldots,x_{i-1})$ denotes the conditional probability, $\p(X_i \leq x_i \mid X_1 \leq x_1,\ldots,X_{i-1} \leq x_{i-1})$. 
+where, $F(x_i \mid x_1,\ldots,x_{i-1})$ denotes the conditional probability, $\P(X_i \leq x_i \mid X_1 \leq x_1,\ldots,X_{i-1} \leq x_{i-1})$. 
 \end{ExerciseList}
 
 %infinite coin-tosses and the fundamental model

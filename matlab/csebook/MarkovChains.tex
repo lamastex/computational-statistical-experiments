@@ -9,9 +9,9 @@ Finit Markov chains are among the simplest stochastic processes with a `first-or
 A finite Markov chain is a stochastic process that moves among elements in a finite set $\Xz$ as follows: when at $x \in \Xz$ the next position is chosen at random according to a fixed probability distribution $P(\cdot | x)$.  We define such a process more formally below.
 
 \begin{definition}[Finite Markov Chain]\label{D:TimeHomFiniteMC}
-A stochastic sequence, $$\left(X_n\right)_{n \in \Zz_+} := (X_0,X_1,\ldots),$$ is a homogeneous {\bf Markov chain} with {\bf state space} $\Xz$ and {\bf transition matrix} $P:=\left(P(x,y)\right)_{(x,y)\in \Xz^2}$ if for all pair of {\bf states} ${(x,y)\in \Xz^2 := \Xz \times \Xz}$, all integers $t \geq 1$, and all probable historical events $H_{t-1} := \bigcap_{n=0}^{t-1} \{ X_n = x_n \}$ with $\p \left(H_{t-1} \cap \{X_t = x\} \right) > 0$, the following {\bf Markov property} is satisfied: 
+A stochastic sequence, $$\left(X_n\right)_{n \in \Zz_+} := (X_0,X_1,\ldots),$$ is a homogeneous {\bf Markov chain} with {\bf state space} $\Xz$ and {\bf transition matrix} $P:=\left(P(x,y)\right)_{(x,y)\in \Xz^2}$ if for all pair of {\bf states} ${(x,y)\in \Xz^2 := \Xz \times \Xz}$, all integers $t \geq 1$, and all probable historical events $H_{t-1} := \bigcap_{n=0}^{t-1} \{ X_n = x_n \}$ with $\P \left(H_{t-1} \cap \{X_t = x\} \right) > 0$, the following {\bf Markov property} is satisfied: 
 \begin{equation}\label{E:FiniteMarkovProperty}
-\p\left(X_{t+1} = y | H_{t-1} \cap \{X_t = x\} \right)=\p\left(X_{t+1} = y | X_t = x \right) =: P(x,y) \enspace .
+\P\left(X_{t+1} = y | H_{t-1} \cap \{X_t = x\} \right)=\P\left(X_{t+1} = y | X_t = x \right) =: P(x,y) \enspace .
 \end{equation}
 \end{definition}
 The Markov property means that the conditional probability of going to state $y$ at time $t+1$ from state $x$ at current time $t$ is always given by the $(x,y)$-th entry $P(x,y)$ of the transition matrix $P$, no matter what sequence of states $(x_0,x_1,\ldots,x_{t-1})$ preceded the current state $x$.  Thus, the $|\Xz| \times |\Xz|$ matrix $P$ is enough to obtain the state transitions since the $x$-th row of $P$ is the probability distribution $P(x,\cdot) := \left( P(x,y) \right)_{y \in \Xz}$.  For this reason $P$ is called a {\bf stochastic matrix}, i.e.,
@@ -41,31 +41,31 @@ f & q & 1-q } \enspace .
 \end{equation}
 Suppose we first see Freddy in rollopia, i.e., $X_0=r$.  When he gets restless for the first time we know from the first row of $P$ that he will leave to flippopia with probability $p$ and stay with probability $1-p$, i.e.,
 \begin{equation}\label{E:Freddy1Step}
-\p(X_1=f | X_0=r) = p, \quad \p(X_1=r | X_0=r) = 1-p \enspace .
+\P(X_1=f | X_0=r) = p, \quad \P(X_1=r | X_0=r) = 1-p \enspace .
 \end{equation}
 What happens when he is restless for the second time?  By considering the two possibilities for $X_1$, Definition of conditional probability and the Markov property, we see that,
 \begin{eqnarray}
-\p(X_2 = f | X_0 = r) 
-&=& \p(X_2=f, X_1=f | X_0=r) + \p(X_2=f, X_1=r | X_0=r) \notag \\
-&=& \frac{\p(X_2=f, X_1=f , X_0=r)}{\p(X_0=r)} + \frac{\p(X_2=f, X_1=r , X_0=r)}{\p(X_0=r)} \notag \\
-&=& \p(X_2=f | X_1=f , X_0=r)\frac{\p(X_1=f , X_0=r)}{\p(X_0=r)} \notag \\
-&& \qquad + \p(X_2=f | X_1=r , X_0=r) \frac{\p(X_1=r , X_0=r)}{\p(X_0=r)} \notag \\
-%&=& \frac{\p(X_2=f | X_1=f , X_0=r)\p(X_1=f | X_0=r)\p(X_0=r)}{\p(X_0=r)} \\
-%&& \qquad + \frac{\p(X_2=f | X_1=r , X_0=r) \p(X_1=r | X_0=r)\p(X_0=r)}{\p(X_0=r)} \\
-&=&{\p(X_2=f | X_1=f , X_0=r)\p(X_1=f | X_0=r)} \notag \\
-&& \qquad +{\p(X_2=f | X_1=r , X_0=r) \p(X_1=r | X_0=r)} \notag \\
-&=& \p(X_2=f | X_1=f) \p(X_1=f | X_0=r) \notag \\
-&& \qquad+ \p(X_2=f | X_1=r) \p(X_1=r | X_0=r) \notag \\
+\P(X_2 = f | X_0 = r) 
+&=& \P(X_2=f, X_1=f | X_0=r) + \P(X_2=f, X_1=r | X_0=r) \notag \\
+&=& \frac{\P(X_2=f, X_1=f , X_0=r)}{\P(X_0=r)} + \frac{\P(X_2=f, X_1=r , X_0=r)}{\P(X_0=r)} \notag \\
+&=& \P(X_2=f | X_1=f , X_0=r)\frac{\P(X_1=f , X_0=r)}{\P(X_0=r)} \notag \\
+&& \qquad + \P(X_2=f | X_1=r , X_0=r) \frac{\P(X_1=r , X_0=r)}{\P(X_0=r)} \notag \\
+%&=& \frac{\P(X_2=f | X_1=f , X_0=r)\P(X_1=f | X_0=r)\P(X_0=r)}{\P(X_0=r)} \\
+%&& \qquad + \frac{\P(X_2=f | X_1=r , X_0=r) \P(X_1=r | X_0=r)\P(X_0=r)}{\P(X_0=r)} \\
+&=&{\P(X_2=f | X_1=f , X_0=r)\P(X_1=f | X_0=r)} \notag \\
+&& \qquad +{\P(X_2=f | X_1=r , X_0=r) \P(X_1=r | X_0=r)} \notag \\
+&=& \P(X_2=f | X_1=f) \P(X_1=f | X_0=r) \notag \\
+&& \qquad+ \P(X_2=f | X_1=r) \P(X_1=r | X_0=r) \notag \\
 &=& P(f,f) P(r,f) + P(r,f) P(r,r) \notag \\
 &=& (1-q) p + p (1-p) \label{E:Freddy2Stepa}
 \end{eqnarray}
 Similarly, 
 \begin{equation} \label{E:Freddy2Stepb}
-\p(X_2=r | X_0 =r) = P(f,r) P(r,f) + P(r,r) P(r,r) = q p + (1-p)(1-p)
+\P(X_2=r | X_0 =r) = P(f,r) P(r,f) + P(r,r) P(r,r) = q p + (1-p)(1-p)
 \end{equation}
 Instead of elaborate computations of the probabilities of being in a given state after Freddy's $t$-th restless moment, we can store the state probabilities at time $t$ in a row vector:
 \[
-\mu_t := \left(  \p(X_t = r | X_0 = r), \p(X_t=f | X_0=r) \right) \enspace ,
+\mu_t := \left(  \P(X_t = r | X_0 = r), \P(X_t=f | X_0=r) \right) \enspace ,
 \]
 Now, we can conveniently represent Freddy starting in rollopia by the {\bf initial distribution} $\mu_0 = (1,0)$ and obtain the 1-step {\bf state probability vector} in \eqref{E:Freddy1Step} from $\mu_1 = \mu_0 P$ and the 2-step state probabilities in \eqref{E:Freddy2Stepa} and \eqref{E:Freddy2Stepb} by $\mu_2 = \mu_1 P = \mu_0 P P = \mu_0 P^2$.  In general, multiplying $\mu_t$, the state probability vector at time $t$, by the transition matrix $P$ on the right updates the state probabilities by another step:
 \[
@@ -127,20 +127,20 @@ that gives the solution:
 \[
 \pi(r) = \frac{q}{p+q}, \qquad \pi(f) = \frac{p}{p+q} \enspace .
 \]
-In \hyperref[F:FlippantFreddyRollopiaProbs]{Figure~\ref*{F:FlippantFreddyRollopiaProbs}} we see that $\p(X_t=r)$ approaches $\pi(r) = \frac{q}{p+q}$ for the three cases of $p$ and $q$:
+In \hyperref[F:FlippantFreddyRollopiaProbs]{Figure~\ref*{F:FlippantFreddyRollopiaProbs}} we see that $\P(X_t=r)$ approaches $\pi(r) = \frac{q}{p+q}$ for the three cases of $p$ and $q$:
 \begin{align*}
-\text{(i)}& \ p=0.50, q=0.50, & \p(X_t=r) & \to \pi(r) = \frac{q}{p+q} =  \frac{0.50}{0.50+0.50} = 0.5000,\\
-\text{(ii)}& \  p=0.85, q=0.35, & \p(X_t=r) & \to \pi(r) = \frac{q}{p+q} =  \frac{0.35}{0.85+0.35} = 0.2917, \\
-\text{(iii)}& \ p=0.15, q=0.95, & \p(X_t=r) & \to \pi(r) = \frac{q}{p+q} = \frac{0.95}{0.15+0.95} = 0.8636.
+\text{(i)}& \ p=0.50, q=0.50, & \P(X_t=r) & \to \pi(r) = \frac{q}{p+q} =  \frac{0.50}{0.50+0.50} = 0.5000,\\
+\text{(ii)}& \  p=0.85, q=0.35, & \P(X_t=r) & \to \pi(r) = \frac{q}{p+q} =  \frac{0.35}{0.85+0.35} = 0.2917, \\
+\text{(iii)}& \ p=0.15, q=0.95, & \P(X_t=r) & \to \pi(r) = \frac{q}{p+q} = \frac{0.95}{0.15+0.95} = 0.8636.
 \end{align*}
 \end{example}
 
 Now let us generalise the lessons learned from \hyperref[EX:FlippantFreddy]{Example~\ref*{EX:FlippantFreddy}}.
 
 \begin{prop}\label{P:FiniteMCProbsAtTimet}
-For a finite Markov chain $\left(X_t\right)_{t \in \Zz_+}$ with state space $\Xz=\{s_1,s_2,\ldots,s_k\}$, initial distribution $$\mu_0 := \left( \mu_0(s_1), \mu_0(s_2), \ldots, \mu_0(s_k) \right),$$ where $\mu_0(s_i) = \p(X_0=s_i)$, and transition matrix $$P := \left(P(s_i,s_j)\right)_{(s_i,s_j)\in \Xz^2},$$ we have for any $t \in \Zz_+$ that the distribution at time $t$ given by:
+For a finite Markov chain $\left(X_t\right)_{t \in \Zz_+}$ with state space $\Xz=\{s_1,s_2,\ldots,s_k\}$, initial distribution $$\mu_0 := \left( \mu_0(s_1), \mu_0(s_2), \ldots, \mu_0(s_k) \right),$$ where $\mu_0(s_i) = \P(X_0=s_i)$, and transition matrix $$P := \left(P(s_i,s_j)\right)_{(s_i,s_j)\in \Xz^2},$$ we have for any $t \in \Zz_+$ that the distribution at time $t$ given by:
 $$\mu_t := \left( \mu_t(s_1), \mu_t(s_2), \ldots, \mu_t(s_k) \right),$$
-where $\mu_t(s_i) = \p(X_t=s_i)$, satisfies:
+where $\mu_t(s_i) = \P(X_t=s_i)$, satisfies:
 \begin{equation}\label{E:mutismu0Pt}
 \mu_t = \mu_0 P^t \enspace .
 \end{equation}
@@ -151,16 +151,16 @@ We will prove this by induction on $\Z_+:=\{0,1,2,\ldots\}$.  First consider the
 \]
 Next consider the case when $t=1$.  We get for each $j \in \{1,2,\ldots,k\}$, that
 \begin{align*}
-\mu_1(s_j) &= \p(X_1 = s_j) = \sum_{i=1}^k \p(X_1=s_j,X_0=s_i)\\
-&= \sum_{i=1}^k \p(X_1=s_j | X_0=s_i) \p(X_0=s_i) \\
+\mu_1(s_j) &= \P(X_1 = s_j) = \sum_{i=1}^k \P(X_1=s_j,X_0=s_i)\\
+&= \sum_{i=1}^k \P(X_1=s_j | X_0=s_i) \P(X_0=s_i) \\
 &= \sum_{i=1}^k P(s_i,s_j) \mu_0(s_i)\\
 &= (\mu_0 P)(s_j), \quad \text{the $j$-th entry of the row vector $(\mu_0 P)$} \enspace .
 \end{align*}
 Hence, $\mu_1=\mu_0 P$.  Now, we will fix $m$ and suppose that \eqref{E:mutismu0Pt} holds for $t=m$ and prove that \eqref{E:mutismu0Pt} also holds for $t=m+1$.  
 For each $j \in \{1,2,\ldots,k\}$, we get
 \begin{align*}
-\mu_{m+1}(s_j) &= \p(X_{m+1} = s_j) = \sum_{i=1}^k \p(X_{m+1}=s_j,X_m=s_i)\\
-&= \sum_{i=1}^k \p(X_{m+1}=s_j | X_m=s_i) \p(X_m=s_i) \\
+\mu_{m+1}(s_j) &= \P(X_{m+1} = s_j) = \sum_{i=1}^k \P(X_{m+1}=s_j,X_m=s_i)\\
+&= \sum_{i=1}^k \P(X_{m+1}=s_j | X_m=s_i) \P(X_m=s_i) \\
 &= \sum_{i=1}^k P(s_i,s_j) \mu_m(s_i)\\
 &= (\mu_m P)(s_j), \quad \text{the $j$-th entry of the row vector $(\mu_m P)$} \enspace .
 \end{align*}
@@ -173,18 +173,18 @@ Thus by the principle of mathematical induction we have proved the proposition.
 \end{prop}
 Thus, multiplying a row vector $\mu_0$ by $P^t$ on the right takes you from current distribution over the state space to the distribution in $t$ steps of the chain.  
 
-Since we will be interested in Markov chains on $\Xz =\{s_1,s_2,\ldots,s_k\}$ with the same transition matrix $P$ but different initial distributions, we introduce $\p_{\mu}$ and $\e_{\mu}$ for probabilities and expectations  given that the initial distribution is $\mu$, respectively.  When the initial distribution is concentrated at a single initial state $x$ given by:
+Since we will be interested in Markov chains on $\Xz =\{s_1,s_2,\ldots,s_k\}$ with the same transition matrix $P$ but different initial distributions, we introduce $\P_{\mu}$ and $\E_{\mu}$ for probabilities and expectations  given that the initial distribution is $\mu$, respectively.  When the initial distribution is concentrated at a single initial state $x$ given by:
 $$\BB{1}_{\{x\}}(y) := \begin{cases} 1 & \text{if } y=x\\ 0 & \text{if } y \neq x \end{cases}$$ 
 we represent it by $e_x$, the $1 \times k$ ortho-normal basis row vector with a $1$ in the $x$-th entry and a $0$ elsewhere.  
-We simply write $\p_x$ for $\p_{\BB{1}_{\{x\}}}$ or $\p_{e_x}$ and $\e_x$ for $\e_{\BB{1}_{\{x\}}}$ or $\e_{e_x}$.  Thus, \hyperref[P:FiniteMCProbsAtTimet]{Proposition~\ref*{P:FiniteMCProbsAtTimet}} along with our new notations means that:
+We simply write $\P_x$ for $\P_{\BB{1}_{\{x\}}}$ or $\P_{e_x}$ and $\E_x$ for $\E_{\BB{1}_{\{x\}}}$ or $\E_{e_x}$.  Thus, \hyperref[P:FiniteMCProbsAtTimet]{Proposition~\ref*{P:FiniteMCProbsAtTimet}} along with our new notations means that:
 \[
-\p_x (X_t = y)  = (e_x P^t)(y) = P^t(x,y) \enspace .
+\P_x (X_t = y)  = (e_x P^t)(y) = P^t(x,y) \enspace .
 \]
 In words, the probability of going to $y$ from $x$ in $t$ steps is given by the $(x,y)$-th entry of $P^t$, the {\bf $t$-step transition matrix}.  We refer to the $x$-th row and the $x$-th column of $P$ by $P(x,\cdot)$ and $P(\cdot,x)$, respectively.
 
 Let the function $f(x): \Xz\to \Rz$ be represented by the column vector $f := (f(s_1),f(s_2),\ldots,f(s_k)) \in \Rz^{k \times 1}$.  Then the $x$-th entry of $P^t f$ is:
 \[
-P^t f(x) = \sum_{y} P^t(x,y) f(y) = \sum_{y} f(y) \p_x (X_t = y) = \e_x (f(X_t)) \enspace .
+P^t f(x) = \sum_{y} P^t(x,y) f(y) = \sum_{y} f(y) \P_x (X_t = y) = \E_x (f(X_t)) \enspace .
 \] 
 This is the expected value of $f$ under the distribution of states in $t$ steps given that we start at state $x$.  
 Thus multiplying a column vector $f$ by $P^t$ from the left takes you from a function on the state space to its expected value in $t$ steps of the chain. 
@@ -253,17 +253,17 @@ Let $(X_t)_{t\in\Zz_+}$ be a (homogeneous) Markov chain on $\Xz=\{s_1,s_2,\ldots
 Until now our Markov chains have been {\bf  homogeneous} in time according to \hyperref[D:TimeHomFiniteMC]{Definition~\ref*{D:TimeHomFiniteMC}}, i.e., the transition matrix $P$ does not change with time.  We define inhomogeneous Markov chains that allow their transition matrices to possibly change with time.  Such Markov chains are more realistic as models in some situations and more flexible as algorithms in the sequel.
 
 \begin{definition}[Inhomogeneous finite Markov chain]\label{D:TimeInhomFiniteMC}
-Let $P_1,P_2,\ldots$ be a sequence of $k \times k$ stochastic matrices satisfying the conditions in \hyperref[E:StochasticMatrixConds]{Equation~\ref*{E:StochasticMatrixConds}}.  Then, the stochastic sequence $\left( X_t \right)_{t \in \Z_+} := (X_0,X_1,\ldots)$ with finite state space $\Xz := \{s_1,s_2,\ldots,s_k\}$ is called an inhomogeneous Markov chain with transition matrices $P_1,P_2,\ldots$, if for all pairs of states $(x,y) \in \Xz \times \Xz$, all integers $t \geq 1$, and all probable historical events $H_{t-1} := \bigcap_{n=0}^{t-1} \{ X_n = x_n \}$ with $\p\left(H_{t-1} \cap \{X_t = x\} \right) > 0$, the following {\bf Markov property} is satisfied: 
+Let $P_1,P_2,\ldots$ be a sequence of $k \times k$ stochastic matrices satisfying the conditions in \hyperref[E:StochasticMatrixConds]{Equation~\ref*{E:StochasticMatrixConds}}.  Then, the stochastic sequence $\left( X_t \right)_{t \in \Z_+} := (X_0,X_1,\ldots)$ with finite state space $\Xz := \{s_1,s_2,\ldots,s_k\}$ is called an inhomogeneous Markov chain with transition matrices $P_1,P_2,\ldots$, if for all pairs of states $(x,y) \in \Xz \times \Xz$, all integers $t \geq 1$, and all probable historical events $H_{t-1} := \bigcap_{n=0}^{t-1} \{ X_n = x_n \}$ with $\P\left(H_{t-1} \cap \{X_t = x\} \right) > 0$, the following {\bf Markov property} is satisfied: 
 \begin{equation}\label{E:InHomFiniteMarkovProperty}
-\p\left(X_{t+1} = y | H_{t-1} \cap \{X_t = x\} \right)=\p\left(X_{t+1} = y | X_t = x \right) =: P_{t+1}(x,y) \enspace .
+\P\left(X_{t+1} = y | H_{t-1} \cap \{X_t = x\} \right)=\P\left(X_{t+1} = y | X_t = x \right) =: P_{t+1}(x,y) \enspace .
 \end{equation}
 \end{definition}
 
 \begin{prop}\label{P:FiniteInHomMCProbsAtTimet}
-For a finite inhomogeneous Markov chain $\left(X_t\right)_{t \in \Zz_+}$ with state space $\Xz=\{s_1,s_2,\ldots,s_k\}$, initial distribution $$\mu_0 := \left( \mu_0(s_1), \mu_0(s_2), \ldots, \mu_0(s_k) \right),$$ where $\mu_0(s_i) = \p(X_0=s_i)$, and transition matrices 
+For a finite inhomogeneous Markov chain $\left(X_t\right)_{t \in \Zz_+}$ with state space $\Xz=\{s_1,s_2,\ldots,s_k\}$, initial distribution $$\mu_0 := \left( \mu_0(s_1), \mu_0(s_2), \ldots, \mu_0(s_k) \right),$$ where $\mu_0(s_i) = \P(X_0=s_i)$, and transition matrices 
 $$\left(P_1,P_2,\ldots\right), \quad P_t := \left(P_t(s_i,s_j)\right)_{(s_i,s_j)\in \Xz\times \Xz}, \ t \in \{1,2,\ldots\}$$ we have for any $t \in \Zz_+$ that the distribution at time $t$ given by:
 $$\mu_t := \left( \mu_t(s_1), \mu_t(s_2), \ldots, \mu_t(s_k) \right),$$
-where $\mu_t(s_i) = \p(X_t=s_i)$, satisfies:
+where $\mu_t(s_i) = \P(X_t=s_i)$, satisfies:
 \begin{equation}\label{E:InhomMutismu0Pt}
 \mu_t = \mu_0 P_1 P_2 \cdots P_t \enspace .
 \end{equation}
@@ -326,7 +326,7 @@ A {\bf random mapping representation} (RMR) of a transition matrix $P := \left(P
 \end{equation}
 along with the auxiliary $\Wz$-valued random variable $W$, satisfying
 \begin{equation}\label{E:RMRProbrho}
-\p \left( \{ \rho \left( x,W \right) = y  \} \right) = P(x,y), \quad \text{for each } (x,y) \in \Xz^2 \enspace .
+\P \left( \{ \rho \left( x,W \right) = y  \} \right) = P(x,y), \quad \text{for each } (x,y) \in \Xz^2 \enspace .
 \end{equation}
 \end{definition}
 
@@ -356,15 +356,15 @@ Let the auxiliary RV $W$ have sample space $\Wz=\{0,1\}$.  Then an RMR $\rho: \X
 \rho (x,w) : \{r,f\} \times \{0,1\} \to \{r,f\},
 \quad \rho(r,0)=r, \quad \rho(r,1)=f, \quad \rho(f,0)=f,  \quad \rho(f,1)=r ,
 \]
-with $\p(W=0)=\p(W=1)=1/2$.  Now let us check that our $\rho$ and $W$ satisfy \hyperref[E:RMRProbrho]{Equation~\ref*{E:RMRProbrho}}:
+with $\P(W=0)=\P(W=1)=1/2$.  Now let us check that our $\rho$ and $W$ satisfy \hyperref[E:RMRProbrho]{Equation~\ref*{E:RMRProbrho}}:
 \begin{eqnarray*}
 \bordermatrix{~ & r & f \cr
-r & \p \left( \{ \rho (r,W) = r \} \right) & \p \left( \{ \rho (r,W) = f \} \right) \cr
-f & \p \left( \{ \rho (f,W) = r \} \right) & \p \left( \{ \rho (f,W) = f \} \right) }
+r & \P \left( \{ \rho (r,W) = r \} \right) & \P \left( \{ \rho (r,W) = f \} \right) \cr
+f & \P \left( \{ \rho (f,W) = r \} \right) & \P \left( \{ \rho (f,W) = f \} \right) }
 &=&
 \bordermatrix{~ & r & f \cr
-r & \p \left( W=0 \right) & \p \left( W=1 \right) \cr
-f & \p \left( W=1 \right) & \p \left( W=0 \right)} \\
+r & \P \left( W=0 \right) & \P \left( W=1 \right) \cr
+f & \P \left( W=1 \right) & \P \left( W=0 \right)} \\
 &=&
 \bordermatrix{~ & r & f \cr
 r & 1/2 & 1/2\cr
@@ -430,7 +430,7 @@ Let $\Xz = \{s_1,s_2,\ldots,s_k\}$ be sequentially accessible by $\psi(i)=s_i : 
 \]
 Then, by construction, this $\rho$ is indeed an RMR of $P$ since
 \[
-\p \left( \{ \rho(x,W)=y \} \right) = P(x,y) \quad \text{for each } (x,y) \in \Xz^2 \enspace .
+\P \left( \{ \rho(x,W)=y \} \right) = P(x,y) \quad \text{for each } (x,y) \in \Xz^2 \enspace .
 \]
 Non-uniqueness is established by constructing another RMR for $P$ as $\rho^\prime(x,w) = \rho(x,1-w)$.
 \end{proof}
@@ -553,7 +553,7 @@ The utility of our mathematical constructions with Markov chains depends on a de
 \begin{definition}[Communication between states]\label{D:Communication} Let $(X_t)_{t\in\Zz_+}$ be a homogeneous Markov chain with transition matrix $P$ on state space $\Xz:=\{s_1,s_2,\ldots,s_k\}$.  
 We say that a state $s_i$ {\bf communicates} with a state $s_j$ and write $s_i \rightarrow s_j$ or $s_j \leftarrow s_i$ if there exists an $\eta(s_i,s_j) \in \Nz$ such that:
 \[
-\p \left( X_{t+\eta(s_i,s_j)} = s_j | X_t = s_i \right) = P^{\eta(s_i,s_j)} (s_i, s_j) > 0 \enspace .
+\P \left( X_{t+\eta(s_i,s_j)} = s_j | X_t = s_i \right) = P^{\eta(s_i,s_j)} (s_i, s_j) > 0 \enspace .
 \] 
 In words, $s_i$ communicates with $s_j$ if you can eventually reach $s_j$ from $s_i$.  If $P^{\eta} (s_i, s_j)=0$ for every $\eta \in \Nz$ then we say that $s_i$ {\bf does not communicate} with $s_j$ and write $s_i  \nrightarrow s_j$ or $s_j  \nleftarrow s_i$.
 
@@ -630,7 +630,7 @@ Is the Markov chain corresponding to the randomly walking black king on the ches
 \begin{exercise}[King's random walk on a chesstorus]\label{EXR:KingRWChessTorus}
 We can obtain a chesstorus from a pliable chessboard by identifying the eastern edge with the western edge (roll the chessboard into a cylinder) and then identifying the northern edge with the southern edge (gluing the top and bottom end of the cylinder together by turning into a doughnut or torus).  Consider the squares in the chesstorus as the state space $\Xz = \{ 0,1,2,\ldots,7\}^2$ with a randomly walking black king, i.e., for each move from current state $(x,y) \in \Xz$ the king chooses one of his $8$ possible moves uniformly at random according to the scheme: $X_t \gets X_{t-1}+ W_t$, where $W_t$ is independent and identically distributed as follows:
 \[ 
-\p(W_t = w) = 
+\P(W_t = w) = 
 \begin{cases}
 \frac{1}{8} & \text{if } w \in \left\{ (1,1), (1,0), (1,-1), (0,-1), (-1,-1), (-1,0), (-1,1), (0,1) \right\} , \\
 0 & \text{ otherwise}.
@@ -659,7 +659,7 @@ T(x,y) = \min \{ t \geq 1: X_t = y \} \enspace .
 \]
 and let $T(x,y) = \min \{\} = \infty$ if the Markov chain never visits $y$ after having started from $x$.  Let the {\bf  mean hitting time} 
 \[
-\tau(x,y) := \e(T(x,y)) ,
+\tau(x,y) := \E(T(x,y)) ,
 \]
 be the expected time taken to reach $y$ after having started at $x$.  Note that $\tau(x,x)$ is the {\bf mean return time} to state $x$.
 \end{definition}
@@ -667,7 +667,7 @@ be the expected time taken to reach $y$ after having started at $x$.  Note that 
 \begin{prop}[Hitting times of irreducible aperiodic Markov chains]  
 If  $\left( X_t \right)_{t \in \Zz_+}$ is an irreducible aperiodic Markov chain with state space $\Xz=\{s_1,s_2,\ldots,s_k\}$, transition matrix $P = \left( P(x,y) \right)_{(x,y) \in \Xz^2}$ then for any pair of states ${(x,y) \in \Xz^2}$,
 \[
-\p\left( T(x,y) < \infty \right) = 1 \enspace ,
+\P\left( T(x,y) < \infty \right) = 1 \enspace ,
 \]
 and the mean hitting time is finite, i.e.,
 \[
@@ -1265,11 +1265,11 @@ Let the vacant configuration be $\tilde{x}$, i.e., $\tilde{x}(v)=0$ for every ve
 In finitely many steps, we can go from any $x$ to $\tilde{x}$ and from $\tilde{x}$ to $x'$.  
 If $x$ has $s(x):=\sum_{v \in \Vz}x(v)$ occupied sites or vertices then we can go to the vacant configuration $\tilde{x}$ with $s(\tilde{x})=0$ in $s(x)$ time steps by picking one of the currently occupied sites and making it vacant as follows:
 \[
-\p(X_{t+s(x)} = \tilde{x} | X_t = x) = \prod_{i=0}^{s(x)-1} \frac{(s(x)-i)}{\#\Vz}\frac{1}{2} > 0 \enspace .
+\P(X_{t+s(x)} = \tilde{x} | X_t = x) = \prod_{i=0}^{s(x)-1} \frac{(s(x)-i)}{\#\Vz}\frac{1}{2} > 0 \enspace .
 \]
 Similarly, we can go from $\tilde{x}$ to any other configuration $x'$ with $s(x')$ many occupied sites in $s(x')$ time steps with the following positive probability:
 \[
-\p(X_{t+s(x')} = x' | X_t = \tilde{x}) = \prod_{i=0}^{s(x')-1} \frac{(s(x')-i)}{\#\Vz}\frac{1}{2} > 0 \enspace .
+\P(X_{t+s(x')} = x' | X_t = \tilde{x}) = \prod_{i=0}^{s(x')-1} \frac{(s(x')-i)}{\#\Vz}\frac{1}{2} > 0 \enspace .
 \]
 Note that this is not the shortest possible number of steps to go from $x$ to $x'$ but just a finite number of steps.  
 Thus we have established that $x \leftrightarrow x'$ for every $(x,x') \in \Xz$ and thereby established irreducibility of the chain $\left( X_t \right)_{t \in \Zz_+}$.  
@@ -1346,7 +1346,7 @@ Thus, lower energy is equivalent to a higher egreement in spins between neighbou
 
 The Ising model on $\Gz$ at inverse temperature $\beta$ means a random spin configuration $X$ with
 \[
-\p(X=x) = \pi_{\Gz,\beta}(x) = \frac{1}{\mathcal{Z}_{\Gz,\beta}} \exp{\left(- \beta H(x)\right)} 
+\P(X=x) = \pi_{\Gz,\beta}(x) = \frac{1}{\mathcal{Z}_{\Gz,\beta}} \exp{\left(- \beta H(x)\right)} 
 =  \frac{1}{\mathcal{Z}_{\Gz,\beta}} \exp{\left(\beta \sum_{\langle u, v \rangle \in \Ez} x(u) x(v)  \right)} \enspace , 
 \]
 where $\mathcal{Z}_{\Gz,\beta}= \sum_{x \in \Xz}\exp{\left(- \beta H(x)\right)}$ is the normalising constant.

@@ -6,7 +6,7 @@
 \section{Convergence of Random Variables}\label{S:ConvOfRVs}
 
 This important topic is concerned with the limiting behavior of sequences of RVs. 
-We want to understand what it means for a sequence of random variables $\{X_n\}_{n=1}^{\infty} := X_1,X_2,\ldots$ to converge to another random variable $X$, when all RVs are defined on the same probability space $(\Omega,\mathcal{F},\p)$.
+We want to understand what it means for a sequence of random variables $\{X_n\}_{n=1}^{\infty} := X_1,X_2,\ldots$ to converge to another random variable $X$, when all RVs are defined on the same probability space $(\Omega,\mathcal{F},\P)$.
 \[
 \{X_i \}_{i=1}^n := X_1,X_2,X_3, \ldots X_{n-1}, X_n \qquad \text{as  $n \rightarrow \infty$ .}
 \]
@@ -31,7 +31,7 @@ Yes why not -- just move to space of distributions over the reals! See Figure~\r
 \begin{classwork}[Convergence of $X_i \sim \normal(0,1/i)$]\label{CW:Normal01bynConvToPointMass0}
 Suppose you are given an independent sequence of RVs $\{X_i \}_{i=1}^n$, where $X_i \sim \normal(0,1/i)$.  How would you talk about the convergence of $X_n \sim \normal(0,1/n)$ as $n$ approaches $\infty$ ?  Take a look at \hyperref[F:PlotNormal01bynConvToPointMass0]{Figure \ref*{F:PlotNormal01bynConvToPointMass0}} for insight.  The probability mass of $X_n$ increasingly concentrates about $0$ as $n$ approaches $\infty$ and the variance $1/n$ approaches $0$, as depicted in \hyperref[F:PlotNormal01bynConvToPointMass0]{Figure \ref*{F:PlotNormal01bynConvToPointMass0}}.  Based on this observation, can we expect $\lim_{n \rightarrow \infty} X_n = X$, where the limiting RV $X \sim \pointmass(0)$ ?
 
-The answer is {\bf no}.  This is because $\p(X_n=X)=0$ for any $n$, since $X \sim \pointmass(0)$ is a discrete RV with exactly one outcome $0$ and $X_n \sim \normal(0,1/n)$ is a continuous RV for every $n$, however large.  In other words, a continuous RV, such as $X_n$, has $0$ probability of realizing any single real number in its support, such as $0$.    
+The answer is {\bf no}.  This is because $\P(X_n=X)=0$ for any $n$, since $X \sim \pointmass(0)$ is a discrete RV with exactly one outcome $0$ and $X_n \sim \normal(0,1/n)$ is a continuous RV for every $n$, however large.  In other words, a continuous RV, such as $X_n$, has $0$ probability of realizing any single real number in its support, such as $0$.    
 \begin{figure}[htpb]
 \caption{Distribution functions of several $\normal(\mu,\sigma^2)$ RVs for $\sigma^2 = 1,\frac{1}{10},\frac{1}{100},\frac{1}{1000}$.\label{F:PlotNormal01bynConvToPointMass0}}
 \centering   \makebox{\includegraphics[width=6.5in]{figures/PlotNormal01bynConvToPointMass0}}
@@ -56,9 +56,9 @@ if for any real number $t$ at which $F$ is continuous,
 \]
 The above limit, by \eqref{E:DF} in our \hyperref[D:DF]{Definition \ref*{D:DF}} of a DF, can be equivalently expressed as follows: 
 \begin{eqnarray}
-& & \lim_{n \rightarrow \infty} \p( \ \{\omega: X_n(\omega) \leq  t \} \ )= 
-\p( \ \{\omega: X(\omega) \leq  t \} \ ), \notag \\
-&\text{i.e.~} & \p( \ \{\omega: X_n(\omega) \leq t \} \ ) \rightarrow \p( \ \{\omega: X(\omega) \leq  t \} \ ), \quad \text{as} \quad n \rightarrow \infty \notag \ .
+& & \lim_{n \rightarrow \infty} \P( \ \{\omega: X_n(\omega) \leq  t \} \ )= 
+\P( \ \{\omega: X(\omega) \leq  t \} \ ), \notag \\
+&\text{i.e.~} & \P( \ \{\omega: X_n(\omega) \leq t \} \ ) \rightarrow \P( \ \{\omega: X(\omega) \leq  t \} \ ), \quad \text{as} \quad n \rightarrow \infty \notag \ .
 \end{eqnarray}
 \end{definition}
 
@@ -76,17 +76,17 @@ X_n \sim \normal(0,1/n) \implies Z := \sqrt{n} X_n \sim \normal(0,1) \ ,
 \]
 and thus
 \[
-F_n(t) = \p(X_n < t) = \p(\sqrt{n} X_n < \sqrt{n} t) = \p(Z < \sqrt{n} t) \ .
+F_n(t) = \P(X_n < t) = \P(\sqrt{n} X_n < \sqrt{n} t) = \P(Z < \sqrt{n} t) \ .
 \]
 The only discontinuous point of $F$ is $0$ where $F$ jump from $0$ to $1$.  
 
 When $t < 0$, $F(t)$, being the constant $0$ function over the interval $(-\infty,0)$, is continuous at $t$.  Since $\sqrt{n} t \to -\infty$, as $n \to \infty$,
 \[
-\lim_{n \to \infty} F_n(t)  = \lim_{n \to \infty} \p(Z < \sqrt{n} t) = 0 = F(t) \ .
+\lim_{n \to \infty} F_n(t)  = \lim_{n \to \infty} \P(Z < \sqrt{n} t) = 0 = F(t) \ .
 \]
 And, when $t >0$, $F(t)$, being the constant $1$ function over the interval $(0,\infty)$, is again continuous at $t$.  Since $\sqrt{n} t \to \infty$, as $n \to \infty$,
 \[
-\lim_{n \to \infty} F_n(t)  = \lim_{n \to \infty} \p(Z < \sqrt{n} t) = 1 = F(t) \ .
+\lim_{n \to \infty} F_n(t)  = \lim_{n \to \infty} \P(Z < \sqrt{n} t) = 1 = F(t) \ .
 \]
 Thus, we have proved that $X_n \rightsquigarrow X$ by verifying that for any $t$ at which the $\pointmass(0)$ DF $F$ is continuous, we also have the desired equality: $\lim_{n \to \infty} F_n(t)=F(t)$.
 \end{proof}
@@ -116,9 +116,9 @@ We will state this without a Proof here as Proof of the Theorem requires measure
 \end{proof}
 \end{prop}
 
-Since $F(x) = \p(X \leq x)$, convergence in distribution means that the probability for $X_n$ to be in a given range is approximately equal to the probability that the value of the limiting RV $X$ is in that range, provided $n$ is sufficiently large. 
+Since $F(x) = \P(X \leq x)$, convergence in distribution means that the probability for $X_n$ to be in a given range is approximately equal to the probability that the value of the limiting RV $X$ is in that range, provided $n$ is sufficiently large. 
 
-Thus, for a discrete sequence of RVs $X_n$`n to converge in distribution to another discrete RV $X$ taking values in $\mathbb{Z}_+ = \{0,1,2,\ldots\}$, it is sufficient to show that $\lim_{n \to \infty}\p(X_n = x) = \p(X=x)$ for each $x \in \mathbb{Z_+}$.  
+Thus, for a discrete sequence of RVs $X_n$`n to converge in distribution to another discrete RV $X$ taking values in $\mathbb{Z}_+ = \{0,1,2,\ldots\}$, it is sufficient to show that $\lim_{n \to \infty}\P(X_n = x) = \P(X=x)$ for each $x \in \mathbb{Z_+}$.  
 We will use this fact to prove why we can approximate $\binomial$ RVs by a $\poisson$ under some limiting conditions.
 
 \begin{example}[$\binomial(n,\lambda/n) {\rightsquigarrow} \poisson(\lambda)$]\label{EgBinomialConvergesInDistToPoisson}
@@ -134,10 +134,10 @@ However, for some real parameter $\lambda>0$, the $\binomial(n,\lambda/n)$ RV wi
 The $\poisson(\lambda)$ RV is much simpler to work with than the combinatorially laden $\binomial(n,\theta=\lambda/n)$ RV.  We sketch the details of this next.
 
 Let $X_n \sim \binomial(n,\theta=\lambda/n)$ and $Y \sim \poisson(\lambda)$ and let $\lambda=n\theta$ remain constant as  $n \to \infty$, $\theta \to 0$.  
-We need to show that $\lim_{n \to \infty} \p(X_n=x) = \p(Y=x) = e^{-\lambda}\lambda^x/x!$ for any $x \in \{0,1,2,3,\ldots,n\}$. 
+We need to show that $\lim_{n \to \infty} \P(X_n=x) = \P(Y=x) = e^{-\lambda}\lambda^x/x!$ for any $x \in \{0,1,2,3,\ldots,n\}$. 
 %{\normalsize
 \begin{eqnarray}
-\p(X=x)
+\P(X=x)
 &=&
 \binom{n}{x} \left( \frac{\lambda}{n} \right)^x \left( 1- \frac{\lambda}{n} \right)^{n-x} \notag \\
 &=& \frac{n(n-1)(n-2)\cdots(n-x+1)}{x(x-1)(x-2)\cdots (2)(1)}
@@ -157,7 +157,7 @@ As $n \to \infty$, the expression below the first overbrace $\to 1$, while that 
 , as $n \to \infty$, the expression over the first underbrace approaches $e^{-\lambda}$ while that over the second underbrace approaches $1$.  Finally, we get the desired limit:
 
 \[
-\lim_{n \to \infty} \p(X=x)
+\lim_{n \to \infty} \P(X=x)
 = \frac{ e^{-\lambda} \lambda^x}{x!}  \ .
 \]
 %}
@@ -168,25 +168,25 @@ The second notion of convergence of RVs is convergence in probability.
 \begin{definition}[Convergence in Probability]\label{D:ConvInProb}
 Let $X_1,X_2,\ldots,$ be a sequence of RVs and let $X$ be another RV.  Let $F_n$ denote the DF of $X_n$ and $F$ denote the DF of $X$.  The we say that $X_n$ converges to $X$ in probability, and write:
 \[
-X_n \overset{\p}{\longrightarrow} X
+X_n \overset{\P}{\longrightarrow} X
 \]
 if for every real number $\epsilon > 0$,
 \[
-\lim_{n \rightarrow \infty} \p(|X_n-X|> \epsilon) = 0 \qquad \text{[in the sense of \hyperref[D:LimitofRealFunction]{Definition \ref*{D:LimitofRealFunction}}].}
+\lim_{n \rightarrow \infty} \P(|X_n-X|> \epsilon) = 0 \qquad \text{[in the sense of \hyperref[D:LimitofRealFunction]{Definition \ref*{D:LimitofRealFunction}}].}
 \]
 Once again, the above limit, by \eqref{E:ProbOfRV} in our \hyperref[D:RV]{Definition \ref*{D:RV}} of a RV, can be equivalently expressed as follows: 
 \[
-\lim_{n \rightarrow \infty} \p( \ \{\omega: |X_n(\omega) - X(\omega)| > \epsilon\} \ )=0, \qquad \text{ie,} \qquad \p( \ \{\omega: |X_n(\omega) - X(\omega)| > \epsilon\} \ ) \rightarrow 0, \quad \text{as} \quad n \rightarrow \infty \ .
+\lim_{n \rightarrow \infty} \P( \ \{\omega: |X_n(\omega) - X(\omega)| > \epsilon\} \ )=0, \qquad \text{ie,} \qquad \P( \ \{\omega: |X_n(\omega) - X(\omega)| > \epsilon\} \ ) \rightarrow 0, \quad \text{as} \quad n \rightarrow \infty \ .
 \]
 \end{definition}
  
-For the same sequence of RVs in  \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} and \hyperref[EX:Normal01bynConvinDistToPointMass0]{Example \ref*{EX:Normal01bynConvinDistToPointMass0}} we are tempted to ask whether $X_n \sim \normal(0,1/n)$ converges in probability to $X \sim \pointmass(0)$, i.e.~whether $X_n \overset{\p}{\longrightarrow} X$.  We need some elementary inequalities in Probability to help us answer this question.  We visit these inequalities next.
+For the same sequence of RVs in  \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} and \hyperref[EX:Normal01bynConvinDistToPointMass0]{Example \ref*{EX:Normal01bynConvinDistToPointMass0}} we are tempted to ask whether $X_n \sim \normal(0,1/n)$ converges in probability to $X \sim \pointmass(0)$, i.e.~whether $X_n \overset{\P}{\longrightarrow} X$.  We need some elementary inequalities in Probability to help us answer this question.  We visit these inequalities next.
 
 
 \begin{prop}[Markov's Inequality]
 Let $(\Omega,\C{F},P)$ be a probability triple and let $X=X(\omega)$ be a non-negative RV.  Then,
 \begin{equation}\label{E:MarkovNeq}
-\p(X \geq \epsilon) \leq \frac{\e(X)}{\epsilon}, \qquad \text{for any} \quad \epsilon > 0 \ .
+\P(X \geq \epsilon) \leq \frac{\E(X)}{\epsilon}, \qquad \text{for any} \quad \epsilon > 0 \ .
 \end{equation}
 {\normalsize
 \begin{proof}
@@ -197,7 +197,7 @@ X &=& X \BB{1}_{ \{y: y \geq \epsilon \} } (x) + X \BB{1}_{ \{y: y < \epsilon \}
 \end{eqnarray}
 Finally, taking expectations on both sides of the above inequality and then using the fact that the expectation of an indicator function of an event is simply the probability of that event \eqref{E:ExpectationofIndicator}, we get the desired result:
 \[
-\e(X) \geq \epsilon \e( \BB{1}_{ \{y: y \geq \epsilon \} } (x)) = \epsilon \p(X \geq \epsilon) \ .
+\E(X) \geq \epsilon \E( \BB{1}_{ \{y: y \geq \epsilon \} } (x)) = \epsilon \P(X \geq \epsilon) \ .
 \]
 \end{proof}
 }
@@ -206,9 +206,9 @@ Let us look at some immediate consequences of Markov's inequality.
 \begin{prop}[Chebychev's Inequality]
 For {\bf any} RV $X$ and any $\epsilon > 0$,
 \begin{eqnarray}
-\p(|X| > \epsilon) &\leq& \frac{\e(|X|)}{\epsilon} \label{E:ChebychevNeq1} \\
-\p(|X| > \epsilon) = \p(X^2 \geq \epsilon^2) &\leq& \frac{\e(X^2)}{\epsilon^2} \label{E:ChebychevNeq2} \\
-\p(|X-\e(X)| \geq \epsilon) = \p((X-\e(X))^2 \geq \epsilon^2) &\leq& \frac{\e(X-\e(X))^2}{\epsilon^2}  = \frac{\V(X)}{\epsilon^2}  \label{E:ChebychevNeq3} 
+\P(|X| > \epsilon) &\leq& \frac{\E(|X|)}{\epsilon} \label{E:ChebychevNeq1} \\
+\P(|X| > \epsilon) = \P(X^2 \geq \epsilon^2) &\leq& \frac{\E(X^2)}{\epsilon^2} \label{E:ChebychevNeq2} \\
+\P(|X-\E(X)| \geq \epsilon) = \P((X-\E(X))^2 \geq \epsilon^2) &\leq& \frac{\E(X-\E(X))^2}{\epsilon^2}  = \frac{\V(X)}{\epsilon^2}  \label{E:ChebychevNeq3} 
 \end{eqnarray}
 {\normalsize
 \begin{proof}
@@ -220,31 +220,31 @@ All three forms of Chebychev's inequality are mere corollaries (careful reapplic
 Armed with Markov's inequality we next enquire the convergence in probability for the sequence of RVs in \hyperref[CW:Normal01bynConvToPointMass0]{Classwork \ref*{CW:Normal01bynConvToPointMass0}} and \hyperref[EX:Normal01bynConvinDistToPointMass0]{Example \ref*{EX:Normal01bynConvinDistToPointMass0}}.
 
 \begin{example}[Convergence in probability]\label{EX:Normal01bynConvinProbToPointMass0}
-Does the the sequence of RVs $\{X_n\}_{n=1}^{\infty}$, where $X_n \sim \normal(0,1/n)$, converge in probability to $X \sim \pointmass(0)$, i.e.~does $X_n \overset{\p}{\longrightarrow} X$ ?
+Does the the sequence of RVs $\{X_n\}_{n=1}^{\infty}$, where $X_n \sim \normal(0,1/n)$, converge in probability to $X \sim \pointmass(0)$, i.e.~does $X_n \overset{\P}{\longrightarrow} X$ ?
 
-To find out if $X_n \overset{\p}{\longrightarrow} X$, we need to show that for any $\epsilon >0$, $\lim_{n \to \infty} \p(|X_n-X|>\epsilon)=0$.
+To find out if $X_n \overset{\P}{\longrightarrow} X$, we need to show that for any $\epsilon >0$, $\lim_{n \to \infty} \P(|X_n-X|>\epsilon)=0$.
 
 Let $\epsilon$ be any real number greater than $0$, then
 \begin{eqnarray}
-\p(|X_n|>\epsilon) &=& \p(|X_n|^2 > \epsilon^2) \notag \\
-&\leq& \frac{\e(X_n^2)}{\epsilon^2} \qquad \text{[by Markov's Inequality \eqref{E:MarkovNeq}]} \notag \\
+\P(|X_n|>\epsilon) &=& \P(|X_n|^2 > \epsilon^2) \notag \\
+&\leq& \frac{\E(X_n^2)}{\epsilon^2} \qquad \text{[by Markov's Inequality \eqref{E:MarkovNeq}]} \notag \\
 &=& \frac{\frac{1}{n}}{\epsilon^2} \to 0, \quad \text{as} \quad n \to \infty \qquad \text{[in the sense of \hyperref[D:LimitofRealFunction]{Definition \ref*{D:LimitofRealFunction}}].} \notag
 \end{eqnarray}
-Hence, we have shown that for any $\epsilon >0$, $\lim_{n \to \infty} \p(|X_n-X|>\epsilon)=0$ and therefore by \hyperref[D:ConvInProb]{Definition \ref*{D:ConvInProb}}, $X_n \overset{\p}{\longrightarrow} X$ or $X_n \overset{\p}{\longrightarrow} 0$.  
+Hence, we have shown that for any $\epsilon >0$, $\lim_{n \to \infty} \P(|X_n-X|>\epsilon)=0$ and therefore by \hyperref[D:ConvInProb]{Definition \ref*{D:ConvInProb}}, $X_n \overset{\P}{\longrightarrow} X$ or $X_n \overset{\P}{\longrightarrow} 0$.  
 
 {\normalsize
-{\bf Convention:} When $X$ has a $\pointmass(\theta)$ distribution and $X_n \overset{\p}{\longrightarrow} X$, we simply write $X_n \overset{\p}{\longrightarrow} \theta$.
+{\bf Convention:} When $X$ has a $\pointmass(\theta)$ distribution and $X_n \overset{\P}{\longrightarrow} X$, we simply write $X_n \overset{\P}{\longrightarrow} \theta$.
 }
 \end{example}
 
 \begin{definition}[Convergence Almost Surely (or with Probability $1$)]
-To say that the sequence of RVs $\{X_n\}_{n=1}^{\infty}$ converges almost surely (or with probability $1$ or strongly) towards another RV $X$ on the same probability space $(\Omega,\mathcal{F},\p)$, as denoted by
+To say that the sequence of RVs $\{X_n\}_{n=1}^{\infty}$ converges almost surely (or with probability $1$ or strongly) towards another RV $X$ on the same probability space $(\Omega,\mathcal{F},\P)$, as denoted by
 \[
 X_n \overset{a.s.}{\to} X
 \]
 means that
 \[
-\p \left( \{ \lim_{n \to \infty} X_n = X \} \right) = 1 \quad \iff \quad \p \left( \{\omega \in \Omega : \lim_{n \to \infty} X_n(\omega) = X(\omega)\} \right) = 1.
+\P \left( \{ \lim_{n \to \infty} X_n = X \} \right) = 1 \quad \iff \quad \P \left( \{\omega \in \Omega : \lim_{n \to \infty} X_n(\omega) = X(\omega)\} \right) = 1.
 \]
 This means that the values of $X_n$ approach the value of $X$, in the sense that events for which $X_n$ does not converge to $X$ have probability $0$.
 \end{definition}
@@ -268,16 +268,16 @@ Just remember that subtle implication relations exist between the three notions.
 \bit
 \item Convergence almost surely implies convergence in probability\footnote{{\tiny \url{https://en.wikipedia.org/wiki/Proofs\_of\_convergence\_of\_random\_variables\#Convergence\_almost\_surely\_implies\_convergence\_in\_probability}}}
 \[
-\boxed{X_n \overset{a.s.}{\to} X \implies X_n \overset{\p}{\to} X \enspace .}
+\boxed{X_n \overset{a.s.}{\to} X \implies X_n \overset{\P}{\to} X \enspace .}
 \]
 \item By the Borel-Cantelli Lemma \footnote{{\tiny \url{https://en.wikipedia.org/wiki/Borel\%E2\%80\%93Cantelli\_lemma}}}, convergence in probability does not imply almost sure convergence in the discrete case \footnote{{\tiny \url{https://en.wikipedia.org/wiki/Proofs_of_convergence_of_random_variables\#Convergence_in_probability_does_not_imply_almost_sure_convergence_in_the_discrete_case}}}
 \item Convergence in probability implies convergence in distribution \footnote{{\tiny \url{https://en.wikipedia.org/wiki/Proofs_of_convergence_of_random_variables\#Convergence_in_probability_implies_convergence_in_distribution}}} 
 \[
-\boxed{X_n \overset{\p}{\to} X \implies X_n \rightsquigarrow X \enspace .}
+\boxed{X_n \overset{\P}{\to} X \implies X_n \rightsquigarrow X \enspace .}
 \]
 \item Convergence in distribution to a constant $\theta$ implies convergence in probability to $\theta$: \footnote{{\tiny \url{https://en.wikipedia.org/wiki/Proofs_of_convergence_of_random_variables\#Convergence_in_distribution_to_a_constant_implies_convergence_in_probability}}}
 \[
-X_n \rightsquigarrow \pointmass(\theta) \implies X_n \overset{\p}{\to} \pointmass(\theta) \enspace . 
+X_n \rightsquigarrow \pointmass(\theta) \implies X_n \overset{\P}{\to} \pointmass(\theta) \enspace . 
 \] 
 \item In general, convergence in distribution does not imply convergence in probability.  %\footnote{{\tiny \url{}}} 
 \eit
@@ -285,33 +285,33 @@ X_n \rightsquigarrow \pointmass(\theta) \implies X_n \overset{\p}{\to} \pointmas
 
 \section{Law of Large Numbers}
 
-\begin{prop}[Law of Large Numbers (LLN): $\overline{X}_n \overset{\p}{\longrightarrow} \e(X_1)$]
-If we are given a sequence if independent and identically distributed RVs, $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and if $\e(X_1)$ exists, as per \eqref{E:ExpectationExists}, i.e., $\e(\abs(X_1))< \infty$, and the variance is finite, i.e., $\V(X_1) < \infty$, then the sample mean $\overline{X}_n$ converges in probability to the expectation of any one of the IID RVs, say $\e(X_1)$ by convention.  More formally, we write:
+\begin{prop}[Law of Large Numbers (LLN): $\overline{X}_n \overset{\P}{\longrightarrow} \E(X_1)$]
+If we are given a sequence if independent and identically distributed RVs, $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and if $\E(X_1)$ exists, as per \eqref{E:ExpectationExists}, i.e., $\E(\abs(X_1))< \infty$, and the variance is finite, i.e., $\V(X_1) < \infty$, then the sample mean $\overline{X}_n$ converges in probability to the expectation of any one of the IID RVs, say $\E(X_1)$ by convention.  More formally, we write:
 \[
-\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \e(X_1) \ \text{exists, then } \ \overline{X}_n \overset{\p}{\longrightarrow} \e(X_1) \ .
+\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \E(X_1) \ \text{exists, then } \ \overline{X}_n \overset{\P}{\longrightarrow} \E(X_1) \ .
 \]
 {\normalsize
 \begin{proof}
 Because $\V(X_1) < \infty$, we have:
 \begin{eqnarray}
-\p(| \overline{X}_n - \e(\overline{X}_n) | \geq \epsilon)
+\P(| \overline{X}_n - \E(\overline{X}_n) | \geq \epsilon)
 &=& \frac{\V(\overline{X}_n)}{\epsilon^2} \qquad \text{{\scriptsize [by applying Chebychev's inequality \eqref{E:ChebychevNeq3} to the RV $\overline{X}_n$]}} \notag \\
 &=& \frac{\frac{1}{n}\V(X_1)}{\epsilon^2} \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$ we can apply \eqref{E:VarOfSampleMeanOfIIDSeq}]}} \notag 
 \end{eqnarray}
 Therefore, for any given $\epsilon>0$,
 \begin{eqnarray}
-\p(| \overline{X}_n - \e(X_1) | \geq \epsilon)
-&=&  \p(| \overline{X}_n - \e(\overline{X}_n) | \geq \epsilon) \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$,  $\e(\overline{X}_n)=\e(X_1)$, as per \eqref{E:ExpOfSampleMeanOfIDSeq}]}} \notag \\
+\P(| \overline{X}_n - \E(X_1) | \geq \epsilon)
+&=&  \P(| \overline{X}_n - \E(\overline{X}_n) | \geq \epsilon) \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$,  $\E(\overline{X}_n)=\E(X_1)$, as per \eqref{E:ExpOfSampleMeanOfIDSeq}]}} \notag \\
 &=&  \frac{\frac{1}{n}\V(X_1)}{\epsilon^2} \to 0, \quad \text{as} \quad n \to \infty \ , \notag
 \end{eqnarray}
-or equivalently, $\lim_{n \to \infty} \p(| \overline{X}_n - \e(X_1) | \geq \epsilon) = 0$.  And the last statement is the definition of the claim made by the law of large numbers (LLN), namely that $\overline{X}_n \overset{\p}{\longrightarrow} \e(X_1)$ .
+or equivalently, $\lim_{n \to \infty} \P(| \overline{X}_n - \E(X_1) | \geq \epsilon) = 0$.  And the last statement is the definition of the claim made by the law of large numbers (LLN), namely that $\overline{X}_n \overset{\P}{\longrightarrow} \E(X_1)$ .
 \end{proof}
 }
 
-\begin{prop}[Weak Law of Large Numbers (WLLN): $\overline{X}_n \rightsquigarrow \pointmass(\e(X_1))$]
-If we are given a sequence of independently and identically distributed (IID) RVs, $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and if $\e(X_1)$ exists, i.e.~$\e(\abs(X)) < \infty$, then the sample mean $\overline{X}_n$ converges in distribution to the expectation of any one of the IID RVs, say $\pointmass(\e(X_1))$ by convention.  More formally, we write:
+\begin{prop}[Weak Law of Large Numbers (WLLN): $\overline{X}_n \rightsquigarrow \pointmass(\E(X_1))$]
+If we are given a sequence of independently and identically distributed (IID) RVs, $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and if $\E(X_1)$ exists, i.e.~$\E(\abs(X)) < \infty$, then the sample mean $\overline{X}_n$ converges in distribution to the expectation of any one of the IID RVs, say $\pointmass(\E(X_1))$ by convention.  More formally, we write:
 \[
-\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \e(X_1) \ \text{exists, then } \ \overline{X}_n \rightsquigarrow \pointmass(\e(X_1)) \ \text{ as } n\to\infty \enspace .
+\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \E(X_1) \ \text{exists, then } \ \overline{X}_n \rightsquigarrow \pointmass(\E(X_1)) \ \text{ as } n\to\infty \enspace .
 \]
 \end{prop}
 
@@ -319,16 +319,16 @@ If we are given a sequence of independently and identically distributed (IID) RV
 \begin{proof}
 Our proof now is based on the convergence of characteristic functions (CFs) pointwise to the CF of the limiting RV, as this implies, by L\'evy's Continuity Theorem on CFs \footnote{\url{https://en.wikipedia.org/wiki/L\%C3\%A9vy\%27s_continuity_theorem}}, the convergence of the corresponding distribution functions (DFs).  
 
-First, the CF of $\pointmass(\e(X_1))$ is 
+First, the CF of $\pointmass(\E(X_1))$ is 
 \[
-\e(e^{\imath t \e(X_1)})=e^{\imath t \e(X_1)} \enspace,
+\E(e^{\imath t \E(X_1)})=e^{\imath t \E(X_1)} \enspace,
 \]
-since $\e(X_1)$ is just a constant, i.e., a $\pointmass$ RV that puts all of its probability mass at $\e(X_1)$.  
+since $\E(X_1)$ is just a constant, i.e., a $\pointmass$ RV that puts all of its probability mass at $\E(X_1)$.  
 
 Second, the CF of $\ol{X}_n$ is 
 \begin{align*}
-\e \left( e^{\imath t \ol{X}_n}\right)
-&= \e \left( e^{\imath t \frac{1}{n} \sum_{k=1}^n X_k} \right) = \e \left( \prod_{k=1}^n e^{\imath t X_k/n} \right) = \prod_{k=1}^n \e \left( e^{\imath t X_k/n} \right) = \prod_{k=1}^n \cf_{X_k}(t/n)\\ 
+\E \left( e^{\imath t \ol{X}_n}\right)
+&= \E \left( e^{\imath t \frac{1}{n} \sum_{k=1}^n X_k} \right) = \E \left( \prod_{k=1}^n e^{\imath t X_k/n} \right) = \prod_{k=1}^n \E \left( e^{\imath t X_k/n} \right) = \prod_{k=1}^n \cf_{X_k}(t/n)\\ 
 &= \prod_{k=1}^n \cf_{X_1}(t/n) =\left(\cf_{X_1}(t/n)\right)^n \enspace .
 \end{align*}
 
@@ -339,36 +339,36 @@ For example, $\log(x)$ is $o(x)$, $x^2$ is $o(x^3)$ and $x^m$ is $o(x^{m+1})$ fo
 
 Third, we can expand any CF whose expectation exists as a Taylor series with a remainder term that is $o(t)$ as follows:
 \[
-\cf_X(t) = 1 + \imath t \e(X) + o(t) \enspace .
+\cf_X(t) = 1 + \imath t \E(X) + o(t) \enspace .
 \]
 Hence,
 \[
-\cf_{X_1}(t/n) = 1 + \imath \frac{t}{n} \e(X_1) + o\left(\frac{t}{n}\right) 
+\cf_{X_1}(t/n) = 1 + \imath \frac{t}{n} \E(X_1) + o\left(\frac{t}{n}\right) 
 \]
 and
 \[
-E \left( e^{\imath t \ol{X}_n}\right) = \left( 1 + \imath \frac{t}{n} \e(X_1) + o\left(\frac{t}{n}\right) \right)^n
-\to e^{\imath t \e(X_1)} \text{ as } n \to \infty \enspace .
+E \left( e^{\imath t \ol{X}_n}\right) = \left( 1 + \imath \frac{t}{n} \E(X_1) + o\left(\frac{t}{n}\right) \right)^n
+\to e^{\imath t \E(X_1)} \text{ as } n \to \infty \enspace .
 \]
 For the last limit we have used $\left( 1+\frac{x}{n}\right)^n \to e^x$ as $n \to \infty$.
 
-Finally, we have shown that $E \left( e^{\imath t \ol{X}_n}\right)$, the CF of the $n$-sample mean RV $\ol{X}_n$, converges to $\e(e^{\imath t \e(X_1)})=e^{\imath t \e(X_1)}$, the CF of the $\pointmass(\e(X_1))$ RV, as the sample size $n$ tends to infinity.
+Finally, we have shown that $E \left( e^{\imath t \ol{X}_n}\right)$, the CF of the $n$-sample mean RV $\ol{X}_n$, converges to $\E(e^{\imath t \E(X_1)})=e^{\imath t \E(X_1)}$, the CF of the $\pointmass(\E(X_1))$ RV, as the sample size $n$ tends to infinity.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%--too heavy for Inference Course - not introduced to conv in prob, Markov ineq or Chebychev ineq
 %\begin{proof}
 %For simplicity, we will prove a slightly weaker result by assuming finite variance of $X_1$.  Suppose $\V(X_1) < \infty$, then:
 %\begin{eqnarray}
-%\p(| \overline{X}_n - \e(\overline{X}_n) | \geq \epsilon)
+%\P(| \overline{X}_n - \E(\overline{X}_n) | \geq \epsilon)
 %&=& \frac{\V(\overline{X}_n)}{\epsilon^2} \qquad \text{{\scriptsize [by applying Chebychev's inequality \eqref{E:ChebychevNeq3} to the RV $\overline{X}_n$]}} \notag \\
 %&=& \frac{\frac{1}{n}\V(X_1)}{\epsilon^2} \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$ we can apply \eqref{E:VarOfSampleMeanOfIIDSeq}]}} \notag 
 %\end{eqnarray}
 %Therefore, for any given $\epsilon>0$,
 %\begin{eqnarray}
-%\p(| \overline{X}_n - \e(X_1) | \geq \epsilon)
-%&=&  \p(| \overline{X}_n - \e(\overline{X}_n) | \geq \epsilon) \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$,  $\e(\overline{X}_n)=\e(X_1)$, as per \eqref{E:ExpOfSampleMeanOfIDSeq}]}} \notag \\
+%\P(| \overline{X}_n - \E(X_1) | \geq \epsilon)
+%&=&  \P(| \overline{X}_n - \E(\overline{X}_n) | \geq \epsilon) \qquad \text{{\scriptsize [by the IID assumption of $X_1,X_2,\ldots$,  $\E(\overline{X}_n)=\E(X_1)$, as per \eqref{E:ExpOfSampleMeanOfIDSeq}]}} \notag \\
 %&=&  \frac{\frac{1}{n}\V(X_1)}{\epsilon^2} \to 0, \quad \text{as} \quad n \to \infty \ , \notag
 %\end{eqnarray}
-%or equivalently, $\lim_{n \to \infty} \p(| \overline{X}_n - \e(X_1) | \geq \epsilon) = 0$.  And the last statement is the Definition of the claim made by the weak law of large numbers (LLN), namely that $\overline{X}_n \overset{\p}{\longrightarrow} \e(X_1)$ .
+%or equivalently, $\lim_{n \to \infty} \P(| \overline{X}_n - \E(X_1) | \geq \epsilon) = 0$.  And the last statement is the Definition of the claim made by the weak law of large numbers (LLN), namely that $\overline{X}_n \overset{\P}{\longrightarrow} \E(X_1)$ .
 %\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 }
@@ -376,7 +376,7 @@ Finally, we have shown that $E \left( e^{\imath t \ol{X}_n}\right)$, the CF of t
 
 
 \subsubsection{Heuristic Interpretation of LLN}  
-The distribution of the sample mean RV $\overline{X}_n$ obtained from an independent and identically distributed sequence of RVs $X_1,X_2,\ldots$ {\scriptsize [i.e.~all the RVs $X_i$'s are independent of one another and have the same distribution function, and thereby the same expectation, variance and higher moments]}, concentrates around the expectation of any one of the RVs in the sequence, say that of the first one $\e(X_1)$ {\scriptsize [without loss of generality]}, as $n$ approaches infinity.  See Figure~\ref{F:RunningMeansFairDieFairCoinUnif01Exp1By10} for examples of 20 replicates of the sample mean of IID sequences from four RVs.  All the sample mean trajectories converge to the corresponding population mean. 
+The distribution of the sample mean RV $\overline{X}_n$ obtained from an independent and identically distributed sequence of RVs $X_1,X_2,\ldots$ {\scriptsize [i.e.~all the RVs $X_i$'s are independent of one another and have the same distribution function, and thereby the same expectation, variance and higher moments]}, concentrates around the expectation of any one of the RVs in the sequence, say that of the first one $\E(X_1)$ {\scriptsize [without loss of generality]}, as $n$ approaches infinity.  See Figure~\ref{F:RunningMeansFairDieFairCoinUnif01Exp1By10} for examples of 20 replicates of the sample mean of IID sequences from four RVs.  All the sample mean trajectories converge to the corresponding population mean. 
 
 \begin{figure}[htpb]
 \caption{Sample mean $\ol{X}_n$ as a function of sample size $n$ for 20 replications from independent realizations of a fair die (blue), fair coin (magenta), $\uniform(0,30)$ RV (green) and $\exponential(0.1)$ RV (red) with population means $(1+2+3+4+5+6)/6=21/6=3.5$, $(0+1)/2=0.5$, $(30-0)/2=15$ and $1/0.1=10$, respectively.\label{F:RunningMeansFairDieFairCoinUnif01Exp1By10}}
@@ -499,38 +499,38 @@ After reading Sec.~\ref{S:ConvOfRVs} up to now, think carefully about what you n
 
 \remove{ % removing CSE book CLT without proof
 \begin{prop}[Central Limit Theorem (CLT)]
-Let $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and suppose $\e(X_1)$ and $\V(X_1)$ exists, then 
+Let $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and suppose $\E(X_1)$ and $\V(X_1)$ exists, then 
 {\small
 \begin{eqnarray}
 %1
 \overline{X}_n = \frac{1}{n} \sum_{i=1}^n X_i 
 & \rightsquigarrow & 
-X \sim \normal \left( \e(X_1),\frac{\V(X_1)}{n}  \right) \ , \\
+X \sim \normal \left( \E(X_1),\frac{\V(X_1)}{n}  \right) \ , \\
 %2
-\overline{X}_n -\e(X_1) 
+\overline{X}_n -\E(X_1) 
 & \rightsquigarrow & 
-X-\e(X_1) \sim \normal \left( 0,\frac{\V(X_1)}{n}  \right) \ , \\
+X-\E(X_1) \sim \normal \left( 0,\frac{\V(X_1)}{n}  \right) \ , \\
 %3
-\sqrt{n} \left( \overline{X}_n -\e(X_1) \right)
+\sqrt{n} \left( \overline{X}_n -\E(X_1) \right)
 & \rightsquigarrow & 
-\sqrt{n} \left( X-\e(X_1) \right) \sim \normal \left( 0,\V(X_1)  \right) \ , \\
+\sqrt{n} \left( X-\E(X_1) \right) \sim \normal \left( 0,\V(X_1)  \right) \ , \\
 %4
-Z_n :=  \frac{\overline{X}_n-\e(\overline{X}_n)}{\sqrt{\V(\overline{X}_n)}} 
-= \frac{\sqrt{n} \left( \overline{X}_n -\e(X_1) \right)}{\sqrt{\V(X_1)}}
+Z_n :=  \frac{\overline{X}_n-\E(\overline{X}_n)}{\sqrt{\V(\overline{X}_n)}} 
+= \frac{\sqrt{n} \left( \overline{X}_n -\E(X_1) \right)}{\sqrt{\V(X_1)}}
 & \rightsquigarrow & 
 Z  \sim \normal \left( 0,1  \right) \ , \\
 %5
-\lim_{n \to \infty} P\left( \frac{\overline{X}_n-\e(\overline{X}_n)}{\sqrt{\V(\overline{X}_n)}}  \leq z \right)
-= \lim_{n \to \infty} \p(Z_n \leq z)
+\lim_{n \to \infty} P\left( \frac{\overline{X}_n-\E(\overline{X}_n)}{\sqrt{\V(\overline{X}_n)}}  \leq z \right)
+= \lim_{n \to \infty} \P(Z_n \leq z)
 &=&
 \Phi(z) := \int_{- \infty}^z \left( \frac{1}{\sqrt{2 \pi}} \ \exp \left( \frac{-x^2}{2} \right) \right) dx \ .
 \end{eqnarray}
 }
 Thus, for sufficiently large $n$ (say $n>30$) we can make the following approximation:
 \begin{equation}\label{E:CLTApprox}
-P\left( \frac{\overline{X}_n-\e(\overline{X}_n)}{\sqrt{\V(\overline{X}_n)}}  \leq z \right) 
+P\left( \frac{\overline{X}_n-\E(\overline{X}_n)}{\sqrt{\V(\overline{X}_n)}}  \leq z \right) 
 \approxeq 
-\p(Z \leq z)
+\P(Z \leq z)
 =
 \Phi(z) := \int_{- \infty}^z \left( \frac{1}{\sqrt{2 \pi}} \ \exp \left( \frac{-x^2}{2} \right) \right) dx \ .
 \end{equation}
@@ -557,13 +557,13 @@ Suppose the collection of RVs $X_1,X_2, \ldots, X_n$ model the number of errors 
 \[
 X_1,X_2,\ldots,X_n \overset{\IID}{\sim} \poisson(\lambda=5) \ . 
 \]
-Suppose we have $n=125$ programs and want to make a probability statement about $\overline{X}_n$ which is the average error per program out of these $125$ programs.  Since $\e(X_i) = \lambda=5$ and $\V(X_i)=\lambda=5$, we may want to know how often our sample mean $\overline{X}_{125}$ differs from the expectation of $5$ errors per program.  Using the CLT we can approximate $\p(\overline{X}_n < 5.5)$, for instance, as follows:
+Suppose we have $n=125$ programs and want to make a probability statement about $\overline{X}_n$ which is the average error per program out of these $125$ programs.  Since $\E(X_i) = \lambda=5$ and $\V(X_i)=\lambda=5$, we may want to know how often our sample mean $\overline{X}_{125}$ differs from the expectation of $5$ errors per program.  Using the CLT we can approximate $\P(\overline{X}_n < 5.5)$, for instance, as follows:
 \begin{eqnarray}
-\p(\overline{X}_n < 5.5) 
-&=& P \left( \frac{\sqrt{n}(\overline{X}_n - \e(X_1))}{\sqrt{\V(X_1)}} < \frac{\sqrt{n}(5.5-\e(X_1))}{\sqrt{\V(X_1)}} \right) \notag \\
-&\approxeq& P \left( Z < \frac{\sqrt{n}(5.5-\lambda)}{\sqrt{\lambda}} \right) \qquad \text{{\scriptsize [by \eqref{E:CLTApprox}, and $\e(X_1)=\V(X_1)=\lambda$]}} \notag \\
+\P(\overline{X}_n < 5.5) 
+&=& P \left( \frac{\sqrt{n}(\overline{X}_n - \E(X_1))}{\sqrt{\V(X_1)}} < \frac{\sqrt{n}(5.5-\E(X_1))}{\sqrt{\V(X_1)}} \right) \notag \\
+&\approxeq& P \left( Z < \frac{\sqrt{n}(5.5-\lambda)}{\sqrt{\lambda}} \right) \qquad \text{{\scriptsize [by \eqref{E:CLTApprox}, and $\E(X_1)=\V(X_1)=\lambda$]}} \notag \\
 &=& P \left( Z < \frac{\sqrt{125}(5.5-5)}{\sqrt{5}} \right) \qquad \text{{\scriptsize [Since, $\lambda=5$ and $n=125$ in this Example]}} \notag \\
-&=& \p(Z \leq 2.5) = \Phi(2.5) =  \int_{- \infty}^{2.5} \left( \frac{1}{\sqrt{2 \pi}} \ \exp \left( \frac{-x^2}{2} \right) \right) dx \approxeq 0.993790334674224 \ . \notag
+&=& \P(Z \leq 2.5) = \Phi(2.5) =  \int_{- \infty}^{2.5} \left( \frac{1}{\sqrt{2 \pi}} \ \exp \left( \frac{-x^2}{2} \right) \right) dx \approxeq 0.993790334674224 \ . \notag
 \end{eqnarray}
 The last number above needed the following:
 \begin{labwork}[Numerical approximation of $\Phi(2.5)$]
@@ -575,11 +575,11 @@ The numerical approximation of $\Phi(2.5)$ was obtained via the following call t
 \end{VrbM}
 \end{labwork}
 \end{example}
-The CLT says that if $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$, then $Z_n := \sqrt{n}(\overline{X}_n-\e(X_1))/\sqrt{\V(X_1)}$ is approximately distributed as $\normal(0,1)$.  In \hyperref[EX:CLTPoisson]{Example \ref*{EX:CLTPoisson}}, we knew $\sqrt{\V(X_1)}$.   However, in general, we may not know $\sqrt{\V(X_1)}$.  The next proposition says that we may estimate $\sqrt{\V(X_1)}$ using the sample standard deviation $S_n$ of $X_1,X_2,\ldots,X_n$, according to \eqref{E:SampleStdDevRV}, and still make probability statements about the sample mean $\overline{X}_n$ using a Normal distribution.
+The CLT says that if $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$, then $Z_n := \sqrt{n}(\overline{X}_n-\E(X_1))/\sqrt{\V(X_1)}$ is approximately distributed as $\normal(0,1)$.  In \hyperref[EX:CLTPoisson]{Example \ref*{EX:CLTPoisson}}, we knew $\sqrt{\V(X_1)}$.   However, in general, we may not know $\sqrt{\V(X_1)}$.  The next proposition says that we may estimate $\sqrt{\V(X_1)}$ using the sample standard deviation $S_n$ of $X_1,X_2,\ldots,X_n$, according to \eqref{E:SampleStdDevRV}, and still make probability statements about the sample mean $\overline{X}_n$ using a Normal distribution.
 \begin{prop}[CLT based on Sample Variance]
-Let $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and suppose $\e(X_1)$ and $\V(X_1)$ exists, then
+Let $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and suppose $\E(X_1)$ and $\V(X_1)$ exists, then
 \begin{equation}\label{E:CLTApproxSn}
-\frac{\sqrt{n} \left( \overline{X}_n - \e(X_1) \right)}{S_n} \rightsquigarrow \normal(0,1) \ .
+\frac{\sqrt{n} \left( \overline{X}_n - \E(X_1) \right)}{S_n} \rightsquigarrow \normal(0,1) \ .
 \end{equation}
 \end{prop}
 
@@ -590,7 +590,7 @@ We will use \eqref{E:CLTApproxSn} for statistical estimation in the sequel.
 %\begin{prop}[Gilvenko-Cantelli Theorem]\label{P:Gilvenko-Cantelli}
 %Let $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} F$.  Then,
 %\[
-%\sup_x { | \widehat{F}_n(x) - F(x) | } \overset{\p}{\longrightarrow} 0 \ .
+%\sup_x { | \widehat{F}_n(x) - F(x) | } \overset{\P}{\longrightarrow} 0 \ .
 %\]
 %{\scriptsize
 %\begin{proof}
@@ -618,13 +618,13 @@ We will use \eqref{E:CLTApproxSn} for statistical estimation in the sequel.
 
 If we are given a sequence of independently and identically distributed (IID) RVs, $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and if $E(X) < \infty$ and $V(X_1)<\infty$, then the sample mean $\overline{X}_n$ converges in 
 %probability 
-distribution to the Normal RV with mean given by any one of the IID RVs, say $\e(X_1)$ by convention, and variance given by $\frac{1}{n}$ times the variance of any one of the IID RVs, say $V(X_1)$ by convention.  More formally, we write:
+distribution to the Normal RV with mean given by any one of the IID RVs, say $\E(X_1)$ by convention, and variance given by $\frac{1}{n}$ times the variance of any one of the IID RVs, say $V(X_1)$ by convention.  More formally, we write:
 \begin{multline}\label{E:CLT}
-\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \e(X_1)<\infty, V(X_1) < \infty \\ \text{ then } \ \overline{X}_n \rightsquigarrow \normal\left(E(X_1), \frac{V(X_1)}{n}\right) \ \text{ as } n\to\infty \enspace ,
+\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \E(X_1)<\infty, V(X_1) < \infty \\ \text{ then } \ \overline{X}_n \rightsquigarrow \normal\left(E(X_1), \frac{V(X_1)}{n}\right) \ \text{ as } n\to\infty \enspace ,
 \end{multline}
 or equivalently after standardization:
 \begin{multline}\label{E:CLTStd}
-\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \e(X_1)<\infty, V(X_1) < \infty \\ \text{ then } \ \frac{\overline{X}_n - E(X_1)}{\sqrt{V(X_1)/n}} \rightsquigarrow Z \sim \normal\left(0,1 \right) \ \text{ as } n\to\infty \enspace .
+\text{If} \quad X_1,X_2,\ldots \overset{\IID}{\sim} X_1 \ \text{and if } \ \E(X_1)<\infty, V(X_1) < \infty \\ \text{ then } \ \frac{\overline{X}_n - E(X_1)}{\sqrt{V(X_1)/n}} \rightsquigarrow Z \sim \normal\left(0,1 \right) \ \text{ as } n\to\infty \enspace .
 \end{multline}
 
 {\normalsize

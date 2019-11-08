@@ -5,9 +5,14 @@ We formalize the notion of a staistical experiment.  Let us first motivate the n
 \text{Given realizations from $X_1, X_2, \ldots, X_n \sim$ some unknown DF $F$, how do we infer $F$} ?
 \]
 However, to make this question tractable or even sensible it is best to restrict ourselves to a particular  class or family of DFs that may be assumed to contain the unknown DF $F$.
+
 \begin{definition}[Experiment]
-A statistical experiment $\E{E}$ is a set of probability distributions (DFs, PDFs or PMFs) $\Pz := \{P_{\theta} : \theta \in \BB{\Theta} \}$ associated with a RV $X$ and indexed by the set $\BB{\Theta}$.  We refer to $\BB{\Theta}$ as the parameter space or the index set and $d:\BB{\Theta} \rightarrow \Pz$ that associates to each $\theta \in \BB{\Theta}$ a probability $P_{\theta} \in \Pz$ as the index map.
+A statistical experiment $\EE{E}$ is a set of probability distributions (DFs, PDFs or PMFs) 
+$\Pz := \{\P_{\theta} : \theta \in \BB{\Theta} \}$ associated with a RV $X$ and indexed by the set $\BB{\Theta}$.  
+We refer to $\BB{\Theta}$ as the parameter space or the index set and $d:\BB{\Theta} \rightarrow \Pz$ that associates to each $\theta \in \BB{\Theta}$ a probability $\P_{\theta} \in \Pz$ as the index map:
+\[ \BB{\Theta} \ni \theta \mapsto \P_{\theta} \in \Pz \enspace .\]
 \end{definition}
+
 \section{Some Common Experiments}
 Next, let's formally consider some experiments we have already encountered.
 \begin{Exp}[The Fundamental Experiment]\label{Exp:Uniform01}
@@ -15,16 +20,17 @@ The `uniformly pick a number in the interval $[0,1]$' experiment is the followin
 \[
 \Pz = \{ \,  F(x) = x \BB{1}_{[0,1]}(x)  \, \} 
 \]
-where, the only distribution $F(x)$ in the family $\Pz$ is a re-expression of~\eqref{E:Uniform01DF} using the indicator function $\BB{1}_{[0,1]}(x)$.  The parameter space of the fundamental experiment is a singleton whose DF is its own inverse, ie.~$F(x) = F^{[-1]}(x)$.
+where, the only distribution $F(x)$ in the family $\Pz$ is a re-expression of~\eqref{E:Uniform01DF} using the indicator function $\BB{1}_{[0,1]}(x)$.  The parameter space of the fundamental experiment is a singleton whose DF is its own inverse, ie.~$F(x) = F^{[-1]}(x)$. 
+Recall from Exercise~\ref{underMPSA} that this is equivalent to infinitely many independent and identical $\bernoulli(1/2)$ trials, i.e., independently tossing a fair coint infinitely many times.
 %The two dimensional parameter space or index set for this experiment is $\BB{\Theta} = \{ -\infty < a < b < \infty \} = \{ (a,b) \in \Rz \times \Rz :  a < b \}$, a half-plane.
 \end{Exp}
 
 \begin{Exp}[Bernoulli]\label{Exp:Bernoulli}
 The `toss 1 times' experiment is the following family of densities (PMFs) :
 \[
-\Pz = \{ \,  f(x; p) :  p \in [0,1] \, \} 
+\Pz = \{ \,  f(x; \theta) :  \theta \in [0,1] \, \} 
 \]
-where, $f(x; p)$ is given in~\eqref{E:Bernoullipdf}.  The one dimensional parameter space or index set for this experiment is  $\BB{\Theta} = [0,1] \subset \Rz$.
+where, $f(x; \theta)$ is given in~\eqref{E:Bernoullipdf}.  The one dimensional parameter space or index set for this experiment is  $\BB{\Theta} = [0,1] \subset \Rz$.
 \end{Exp}
 
 \begin{Exp}[Point~Mass]\label{Exp:PointMass}

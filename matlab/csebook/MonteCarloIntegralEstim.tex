@@ -20,11 +20,11 @@ w(x)= h(x) \prod_{j=1}^k (\overline{a}_j - \underline{a}_j) , \qquad f(x)=\frac{
 \]
 The PDF of the RV $X \sim \uniform(A) = \uniform(\underline{a}_1,\overline{a}_1) \times  \uniform(\underline{a}_2,\overline{a}_2) \times \cdots \times  \uniform(\underline{a}_k,\overline{a}_k)$ is $f(x)$ over the box $A$.  Therefore: 
 \[
-\vartheta^* =  \int_A w(x) f(x)\, dx = \e_f(w(X)) = \e(w(X)) \ .
+\vartheta^* =  \int_A w(x) f(x)\, dx = \E_f(w(X)) = \E(w(X)) \ .
 \]
 We subscript the expectation $E$ by $f$ to emphasize the PDF with respect to which we integrate.  Thus, if we generate $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} \uniform(A)$, then by the WLLN:
 \[
-\widehat{\varTheta}_n := \frac{1}{n} \sum_{i=1}^n w(X_i) \overset{P}{\longrightarrow} \e(w(X_1)) = \vartheta^* \ .
+\widehat{\varTheta}_n := \frac{1}{n} \sum_{i=1}^n w(X_i) \overset{P}{\longrightarrow} \E(w(X_1)) = \vartheta^* \ .
 \]
 The standard error:
 \[
@@ -181,17 +181,17 @@ which can be obtained by noting that $e^{-x^2}$ is the un-normalised $\normal(0,
 
 Consider the problem of estimating the integral $\vartheta^* = \int h(x) f(x) dx$, where $f(x)$ is a PDF.  In basic Monte Carlo method, we can simulate from the RV $X$ with PDF $f$.  However, there are situations where we may not be able to draw samples from $X$.  {\bf Importance sampling} overcomes this problem by generalising the basic Monte Carlo method.   Suppose $g(x)$ is a PDF from which we can draw samples, then
 \[
-\vartheta^* = \int h(x) f(x) dx = \int \frac{h(x) f(x)}{g(x)} g(x) dx = \e_{g}(Y) \ ,
+\vartheta^* = \int h(x) f(x) dx = \int \frac{h(x) f(x)}{g(x)} g(x) dx = \E_{g}(Y) \ ,
 \]
-where, $Y=h(X)f(X)/g(X)$ and the expectation $\e_g(Y)$ is taken with respect to the PDF $g$.  Therefore, we can simulate $x_1,x_2,\ldots,x_n \overset{IID}{\sim} g$ and estimate $\vartheta^*$ by:
+where, $Y=h(X)f(X)/g(X)$ and the expectation $\E_g(Y)$ is taken with respect to the PDF $g$.  Therefore, we can simulate $x_1,x_2,\ldots,x_n \overset{IID}{\sim} g$ and estimate $\vartheta^*$ by:
 \[
 \widehat{\vartheta}_n = \frac{1}{n} \sum_{i=1}^n y_i =  \frac{1}{n} \sum_{i=1}^n \frac{h(x_i) f(x_i)}{g(x_i)} \ .
 \]
 By the law of large numbers, $\widehat{\varTheta}_n \overset{P}{\to} \vartheta^*$, however $\widehat{\varTheta}_n$ may have an infinite standard error if $g(x)$ is chosen poorly.  Since the estimator $\widehat{\varTheta}_n$ of $\vartheta^*$ is the mean of $w(X) = h(X)f(X)/g(X)$ and the second moment of $W(X)$, given by:
 \[
-\e_g(w^2(X)) = \int \left(w(x)\right)^2 g(x) dx = \int \left( \frac{h(x) f(x)}{g(x)} \right)^2 g(x) dx = \int \frac{h^2(x) f^2(x)}{g(x)} dx
+\E_g(w^2(X)) = \int \left(w(x)\right)^2 g(x) dx = \int \left( \frac{h(x) f(x)}{g(x)} \right)^2 g(x) dx = \int \frac{h^2(x) f^2(x)}{g(x)} dx
 \]
-may be infinite if $g$ has thinner tails than $f$.  Moreover, $\e_g(w^2(X))$ may be large if $g(x)$ is small over some set $A$ where $f(x)$ is large, since the ratio $f/g$ over $A$ could become large.  Therefore, we want the {\bf importance sampling density} $g$ to have thicker tails than $f$ and also be of similar shape to $f$ to minimise the ratio $f/g$.  In fact, the optimal choice of the importance sampling density $g$ is given by the following proposition.
+may be infinite if $g$ has thinner tails than $f$.  Moreover, $\E_g(w^2(X))$ may be large if $g(x)$ is small over some set $A$ where $f(x)$ is large, since the ratio $f/g$ over $A$ could become large.  Therefore, we want the {\bf importance sampling density} $g$ to have thicker tails than $f$ and also be of similar shape to $f$ to minimise the ratio $f/g$.  In fact, the optimal choice of the importance sampling density $g$ is given by the following proposition.
 
 \begin{prop}[Optimal Importance Sampling Density]
 The optimal choice for the importance sampling density $g$ that minimises the variance of the importance sampling estimator 
@@ -210,7 +210,7 @@ g^*(x) = \frac{|h(x)| f(x)}{\int |h(t)| f(t) dt} \ .
 Let $w(X) := \frac{f(X)h(X)}{g(X)}$.  The variance of $w(X)$ is:
 \begin{flalign*}
 \V_g(w(X)) 
-&= \e_g(w^2(X)) - (\e_g(w(X)))^2 \\
+&= \E_g(w^2(X)) - (\E_g(w(X)))^2 \\
 &= \int w^2(x) g(x) dx  - \left( \int w(x) g(x) dx \right)^2 \\
 &= \int \frac{h^2(x) f^2(x)}{g^2(x)} g(x) dx  - \left( \int \frac{h(x)f(x)}{g(x)} g(x) dx \right)^2 \\
 &= \int \frac{h^2(x) f^2(x)}{g^2(x)} g(x) dx  - \left( \int h(x)f(x) dx \right)^2 \\
@@ -219,17 +219,17 @@ Note that $\left( \int h(x)f(x) dx \right)^2$ does not depend on $g$, therefore,
 \[
 \V_g(\widehat{\varTheta}_n) = \V_g \left( \frac{1}{n} \sum_{i=1}^n \frac{h(X_i) f(X_i)}{g(X_i)} \right) = \V_g \left( \sum_{i=1}^n  \frac{1}{n} w(X_i) \right) =  n \frac{1}{n^2} \V_g(w(X_1)) = \frac{1}{n} \V_g(w(X_1))
 \]
-over all possible densities $g$, is equivalent to minimisation of $\e_g(w^2(X)) = \int \frac{h^2(x) f^2(x)}{g^2(x)} g(x) dx$, where $X \sim g$.  Due to Jensen's inequality:
+over all possible densities $g$, is equivalent to minimisation of $\E_g(w^2(X)) = \int \frac{h^2(x) f^2(x)}{g^2(x)} g(x) dx$, where $X \sim g$.  Due to Jensen's inequality:
 \begin{flalign*}
-\e_g(w^2(X)) 
-& \geq \left( \e_g(|w(X)|) \right)^2 \\
+\E_g(w^2(X)) 
+& \geq \left( \E_g(|w(X)|) \right)^2 \\
 & = \left( \int \frac{|h(x) f(x)|}{|g(x)|} g(x) dx \right)^2
 = \left( \int \frac{|h(x)| f(x)}{g(x)} g(x) dx \right)^2
 = \left( \int |h(x)| f(x) dx \right)^2
 \end{flalign*}
-This establishes a lower bound on $\e_g(w^2(X))$ and thereby on $\V_g(\widehat{\varTheta}_n)$.  This lower bound is achieved when $g(x)=g^*(x)=\frac{|h(x)|f(x)}{\int |h(t)| f(t) dt}$:
+This establishes a lower bound on $\E_g(w^2(X))$ and thereby on $\V_g(\widehat{\varTheta}_n)$.  This lower bound is achieved when $g(x)=g^*(x)=\frac{|h(x)|f(x)}{\int |h(t)| f(t) dt}$:
 \begin{flalign*}
-\e_{g^*}(w^2(X))  
+\E_{g^*}(w^2(X))  
 &= \int \frac{h^2(x)f^2(x)}{{g^*}^2(x)} g^*(x) dx 
 = \int \frac{|h(x)|^2f^2(x)}{\frac{|h(x)|^2f^2(x)}{\left(\int |h(t)| f(t) dt \right)^2}} \frac{|h(x)|f(x)}{\int |h(t)| f(t) dt} dx \\
 &= \int \left(\int |h(t)| f(t) dt \right)^2 \frac{|h(x)|f(x)}{\int |h(t)| f(t) dt} dx 
@@ -240,10 +240,10 @@ This establishes a lower bound on $\e_g(w^2(X))$ and thereby on $\V_g(\widehat{\
 \end{prop} 
 There is no free lunch.  If we can't sample from $f(x)$, then we probably can't sample from the more complicated optimal importance sampling density $g(x)^*=|h(x)|f(x)/\int |h(t)| f(t) dt$ either.  In practice, we sample from a thick-tailed density $g$ that is as close a possible to $g^*=|h|f$.
 
-\begin{labwork}[Estimating $\p(Z>\pi)$]\label{LW:GaussianTailProbs}
+\begin{labwork}[Estimating $\P(Z>\pi)$]\label{LW:GaussianTailProbs}
 Compare the estimates and standard errors of the following estimators of the Gaussian tail probability: 
 $$
-\vartheta^* = \p(Z>\pi) = \int_{-\infty}^{\infty} \BB{1}_{(\pi,\infty)}(x) \phi(x) dx, \quad \text{where, $Z \sim \normal(0,1)$, $\phi(x)$ is PDF of $Z$} \ ,
+\vartheta^* = \P(Z>\pi) = \int_{-\infty}^{\infty} \BB{1}_{(\pi,\infty)}(x) \phi(x) dx, \quad \text{where, $Z \sim \normal(0,1)$, $\phi(x)$ is PDF of $Z$} \ ,
 $$
 for different sample sizes $n=\{10^2,10^4, 10^6\}$, based on four different importance sampling densities:
 \begin{enumerate}

@@ -35,7 +35,7 @@ Vertical displacement from current position of a pollen on water & $\Rz$ \\ \hli
 \end{tabular}
 \end{table}
 
-Thus, we want a \textbf{random variable} to be a function from the sample space $\Omega$ to the set of real numbers $\mathbb{R}$, that is,  $X : \Omega \to \mathbb{R}$ that should satisfy certain conditions to keep the meaning of the underlying probability space $(\Omega, \mathcal{F},\p)$. 
+Thus, we want a \textbf{random variable} to be a function from the sample space $\Omega$ to the set of real numbers $\mathbb{R}$, that is,  $X : \Omega \to \mathbb{R}$ that should satisfy certain conditions to keep the meaning of the underlying probability space $(\Omega, \mathcal{F},\P)$. 
 Let us go through some examples before giving the formal definition of such a real-valued or $\Rz$-valued random variable.
 
 
@@ -141,7 +141,7 @@ such that for every $x \in \Rz$, the inverse image of the half-open real interva
 {\scriptsize This definition can be summarised by the statement that a RV is an  $\C{F}$-measurable map.}
 We assign probability to the RV $X$ as follows:
 \begin{equation}\label{E:ProbOfRV}
-\p(X \leq x)  = \p(\ X^{[-1]}(\ (-\infty,x] \ ) \ ) := \p( \ \{\omega: X(\omega) \leq x\} \ ) \ .
+\P(X \leq x)  = \P(\ X^{[-1]}(\ (-\infty,x] \ ) \ ) := \P( \ \{\omega: X(\omega) \leq x\} \ ) \ .
 \end{equation}
 \end{definition}
 
@@ -149,7 +149,7 @@ We assign probability to the RV $X$ as follows:
 The {\bf Distribution Function (DF)} or {\bf Cumulative Distribution Function (CDF)} of any RV $X$, over a  probability triple $(\Omega, \C{F},P)$, denoted by $F$ is:
 \begin{framed}
 \begin{equation}\label{E:DF}
-F(x) := \p(X \leq x) = \p( \ \{\omega: X(\omega) \leq x\} \ ), \qquad \text{for any }\quad x \in \Rz \ .
+F(x) := \P(X \leq x) = \P( \ \{\omega: X(\omega) \leq x\} \ ), \qquad \text{for any }\quad x \in \Rz \ .
 \end{equation}
 \end{framed}
 Thus, $F(x)$ or simply $F$ is a non-decreasing, right continuous, $[0,1]$-valued function over $\Rz$.  When a RV $X$ has DF $F$ we write $X \sim F$.
@@ -186,7 +186,7 @@ Equation~\ref{E:Fb-a}.
 
 A special RV that often plays the role of `building-block' in Probability and Statistics is the indicator function of an event $A$ that tells us whether the event $A$ has occurred or not.  Recall that an event belongs to the collection of possible events $\C{F}$ for our experiment.
 \begin{definition}[Indicator Function]
-Given a probability triple $(\Omega,\C{F},\p)$, the {\bf Indicator Function} of an event $A \in \C{f}$ which is denoted $\BB{1}_A$ is defined as follows:
+Given a probability triple $(\Omega,\C{F},\P)$, the {\bf Indicator Function} of an event $A \in \C{f}$ which is denoted $\BB{1}_A$ is defined as follows:
 \begin{equation}
 \BB{1}_A(\omega) := 
 \begin{cases}
@@ -215,7 +215,7 @@ A \cup A^c  = \Omega   & \text{if} \quad 1 \leq x  \notag
 \end{equation}
 Thus, $\BB{1}_A^{[-1]}( \ (- \infty, x] \ )$ is one of the following three sets that belong to $\C{F}$; (1) $\emptyset$, (2) $A^c$ and (3) $\Omega$ depending on the value taken by $x$ relative to the interval $[0,1]$.  We have proved that $\BB{1}_A$ is indeed a RV.
 
-Model~\ref{M:IndicatorIsaRV} is called the $\bernoulli$ RV for event $A$ with a known probability $\p(A)$. We will define as our next model the $\bernoulli(\theta)$ RV by introducing a paramater $\theta \in [0,1]$ for the typically unknown probability $\p(A)$. 
+Model~\ref{M:IndicatorIsaRV} is called the $\bernoulli$ RV for event $A$ with a known probability $\P(A)$. We will define as our next model the $\bernoulli(\theta)$ RV by introducing a paramater $\theta \in [0,1]$ for the typically unknown probability $\P(A)$. 
 \end{model}
 
 Some useful properties of the Indicator Function are:
@@ -243,11 +243,11 @@ Identify the mistakes in how the  $\BB{1}_A$ is drawn as a discontinous function
 %\Question What happens to if $b=1$?
 \end{Exercise}
 \begin{Answer}
-The first mistake is the solid vertical lines (blue) from $0$ in the domain or $x$-axis to $\p( \text{`not A'})$ in the range or $y$-axis and from $1$ in the domain to $1$ in the range. 
-This is ill-defined for any function if we are to interpret that the elements in the domain, namely $0$ and $1$, are to be associated with the uncountably many image values in the range of the function, namely $[0,\p( \text{`not A'})]$ and $[\p( \text{`not A'}),1]$, respectively. 
+The first mistake is the solid vertical lines (blue) from $0$ in the domain or $x$-axis to $\P( \text{`not A'})$ in the range or $y$-axis and from $1$ in the domain to $1$ in the range. 
+This is ill-defined for any function if we are to interpret that the elements in the domain, namely $0$ and $1$, are to be associated with the uncountably many image values in the range of the function, namely $[0,\P( \text{`not A'})]$ and $[\P( \text{`not A'}),1]$, respectively. 
 So we should first replace them by dotted lines which merely help us track where the function jumped to at $0$ and $1$.
 
-The second mistake is failing to emphasise that the value taken by the function at $0$ and $1$ is not $0$ and $\p( \text{`not A'})$, respectively. So it is best to introduce an empty circle like $\circ$ at $(0,0)$ and $(1,\p( \text{`not A'}))$ to indicate the points of discontinuity. The same mistakes should be fixed in the next Figure~\ref{F:RVABC}.
+The second mistake is failing to emphasise that the value taken by the function at $0$ and $1$ is not $0$ and $\P( \text{`not A'})$, respectively. So it is best to introduce an empty circle like $\circ$ at $(0,0)$ and $(1,\P( \text{`not A'}))$ to indicate the points of discontinuity. The same mistakes should be fixed in the next Figure~\ref{F:RVABC}.
 \end{Answer}
 
 \begin{classwork}[A random variable with three values and eight sample points]\label{CW:ARVwith3Values}
@@ -326,12 +326,12 @@ So, $\Xz$ is either finite with $k$ elements in $\Xz = \{x_1,x_2,\ldots,x_k\}$ o
 When $\Xz \subset \Rz$, we have a real-valued or $\Rz$-valued discrete random variable.
 
 \begin{definition}[probability mass function (PMF)]
-Let $X$ be a $\Rz$-valued discrete RV over a probability triple $(\Omega, \C{F},\p)$.  
+Let $X$ be a $\Rz$-valued discrete RV over a probability triple $(\Omega, \C{F},\P)$.  
 We define the {\bf probability mass function} (PMF) $f$ of $X$ to be the function 
 $f : \Rz \rightarrow [0,1]$ defined as follows:
 \begin{framed}
 \begin{equation}\label{Eq:DiscretePMF}
-f(x) := \p(X=x) = \p( \ \{\omega: X(\omega) = x\} \ ) = 
+f(x) := \P(X=x) = \P( \ \{\omega: X(\omega) = x\} \ ) = 
 \begin{cases}
 \theta_i \quad \text{if $x=x_i \in \Xz$.}\\
 0 \quad \text{otherwise}. 
@@ -344,24 +344,24 @@ The DF $F$ and PMF $f$ for a discrete RV $X$ satisfy the following:
 \begin{enumerate}
 \item  For any $x \in \Rz$, 
 \begin{equation}\label{Eq:DiscreteDF}
-\boxed{\p(X \leq x) = F(x)  = \sum_{x_i \leq x} f(x_i) = \sum_{x_i \leq x} \theta_i \ .}
+\boxed{\P(X \leq x) = F(x)  = \sum_{x_i \leq x} f(x_i) = \sum_{x_i \leq x} \theta_i \ .}
 \end{equation}
 \item For any $a,b \in \Rz$ with $a<b$,
 \begin{equation}\label{E:DRVFab}
-\boxed{\p(a < X \leq b) = F(b) - F(a) = \sum_{a < x_i \leq b} \theta_i \ .}
+\boxed{\P(a < X \leq b) = F(b) - F(a) = \sum_{a < x_i \leq b} \theta_i \ .}
 \end{equation}
 This is just the sum of all probabilities $\theta_i$ for which $x_i$ satisfies $a<x_i \leq b$. 
 \item
-From the fact that $\p(\Omega)=1$, we get that the sum of all the probabilties is $1$:
+From the fact that $\P(\Omega)=1$, we get that the sum of all the probabilties is $1$:
 \begin{equation}\label{E:DRVsumofP}
 \boxed{\sum_i \theta_i = 1 \ .}
 \end{equation}
 \item
-When $X$ only has finitely many possibilities, say $k$ with $\Xz = \{x_1,x_2,\ldots,x_k\}$, then we may think of the probability $\p$ specified by $(\theta_1,\theta_2,\ldots,\theta_k)$ as a point in the \textbf{unit $(k-1)$ simplex}:
+When $X$ only has finitely many possibilities, say $k$ with $\Xz = \{x_1,x_2,\ldots,x_k\}$, then we may think of the probability $\P$ specified by $(\theta_1,\theta_2,\ldots,\theta_k)$ as a point in the \textbf{unit $(k-1)$ simplex}:
 \begin{equation}\label{E:unitk-1simplex}
 \Delta^{k-1} := \{ (\theta_1,\theta_2,\ldots,\theta_k) \in \Rz^{k} : \sum_i \theta_i = 1 \text{ and } \theta_i \geq 0, \text{ for all } i\}
 \end{equation}
-In particular when $X$ has only two possible values with $\Xz = \{x_1,x_2\}$ then $\theta_2=1-\theta_1$, so we can avoid subscripts and take $\theta := \theta_1$ and realize that the probability $\p$ is now specified by the point $(\theta,1-\theta)$ in the \textbf{unit $1$ simplex}:
+In particular when $X$ has only two possible values with $\Xz = \{x_1,x_2\}$ then $\theta_2=1-\theta_1$, so we can avoid subscripts and take $\theta := \theta_1$ and realize that the probability $\P$ is now specified by the point $(\theta,1-\theta)$ in the \textbf{unit $1$ simplex}:
 \begin{equation}\label{E:unit1simplex}
 \Delta^{1} := \{ (\theta,1-\theta) \in \Rz^2 : 0 \leq \theta \leq 1 \} \enspace .
 \end{equation}
@@ -381,7 +381,7 @@ random variable by the table:
 $$\begin{array}{|c||c|c|c|c|}\hline
 \textrm{Possible values: $x_i$} & x_1 & x_2 & x_3 & \ldots \\ \hline
 &&&&\\
-\textrm{Probability: $\p(X=x_i)=\theta_i$}& \theta_1 & \theta_2 & \theta_3 & \ldots \\ \hline
+\textrm{Probability: $\P(X=x_i)=\theta_i$}& \theta_1 & \theta_2 & \theta_3 & \ldots \\ \hline
 \end{array}
 $$
 It is customary to use $p_i$ instead of $\theta_i$ for the probabilities. But we try to avoid it as it will hurt us when we start doing Inference Theory soon!
@@ -431,14 +431,14 @@ The discrete uniform RV with values in $\Xz = \{1,2,\ldots,k\}$ is called the eq
 \begin{example}\label{ExFairCoinRV}
 The {\em fair coin toss experiment} of Exercise~\ref{xFairCoinRV} is an example of a discrete uniform random variable with finitely many possibilities. 
 Its probability mass function is given by 
-\[f(x)\;=\;\p(X=x)\;=\;
+\[f(x)\;=\;\P(X=x)\;=\;
 \begin{cases}
 \frac{1}{2} & \text{if } x=0\\
 \frac{1}{2} & \text{if } x=1\\
 0 & \text{otherwise}
 \end{cases}\] 
 and its distribution function is given by
-\[F(x)\; = \;\p(X \leq x) \;=\;
+\[F(x)\; = \;\P(X \leq x) \;=\;
 \begin{cases}
  0, & \text{ if } \ -\infty < x < 0\\
  \frac{1}{2}, & \text{ if } \ 0 \leq x < 1\\
@@ -471,7 +471,7 @@ Find the probability mass function and distribution function for this random var
 
 Solution:\\[4pt]
 The probability mass function of this random variable is:
-\[f(x)\;=\;\p(X=x)\;=\;
+\[f(x)\;=\;\P(X=x)\;=\;
 \begin{cases}
 \frac{1}{6} & \text{if } x=1\\
 \frac{1}{6} & \text{if } x=2\\
@@ -481,7 +481,7 @@ The probability mass function of this random variable is:
 \frac{1}{6} & \text{if } x=6\\
 0 & \text{otherwise}
 \end{cases}\] and the  distribution function is:
-\[F(x)\; = \;\p(X \leq x) \;=\;
+\[F(x)\; = \;\P(X \leq x) \;=\;
 \begin{cases}
  0, & \text{ if } \ -\infty < x < 1\\
  \frac{1}{6}, & \text{ if } \ 1 \leq x < 2\\
@@ -531,7 +531,7 @@ In many experiments there are only two outcomes. For instance:
 \item  Determine whether it will be below $0$ degrees Celsius at 0600 hours in Uppsala tomorrow or not.
 \eit
 
-Performing such an experiment $\E{E}$ once to see if an event of interest $A$ occurs is called a {\bf Bernoulli trial} and its probability model over a triple $(\Omega,\C{F},\p)$, with $A \in \C{F}$, given by  the Indicator Function $\BB{1}_A$ in Model~\ref{M:IndicatorIsaRV} is called the $\bernoulli$ RV. 
+Performing such an experiment $\EE{E}$ once to see if an event of interest $A$ occurs is called a {\bf Bernoulli trial} and its probability model over a triple $(\Omega,\C{F},\P)$, with $A \in \C{F}$, given by  the Indicator Function $\BB{1}_A$ in Model~\ref{M:IndicatorIsaRV} is called the $\bernoulli$ RV. 
 
 If we do not know the probability $\theta$ that `$A$ occurs', i.e., the $\bernoulli$ RV will equal $1$, then we can define a whole family of $\bernoulli$ RVs for each 
 $\theta \in [0,1]$ or more precisely for each $(\theta, 1-\theta) \in \Delta^1$, the unit $1$-Simplex.
@@ -556,7 +556,7 @@ F(x;\theta) =
 0 & \text{otherwise}
 \end{cases}
 \end{equation}
-We emphasise the dependence of the probabilities on the parameter $\theta$ by specifying it following the semicolon in the argument for $f$ and $F$ and by subscripting the probabilities, i.e.~$\p_{\theta}(X=1)=\theta$ and $\p_{\theta}(X=0)=1-\theta$.
+We emphasise the dependence of the probabilities on the parameter $\theta$ by specifying it following the semicolon in the argument for $f$ and $F$ and by subscripting the probabilities, i.e.~$\P_{\theta}(X=1)=\theta$ and $\P_{\theta}(X=0)=1-\theta$.
 \end{model}
 \begin{figure}[htpb]
 \centering   \makebox{\includegraphics{pstricks/bernouliThetafF}}
@@ -571,7 +571,7 @@ For instance:
 \bit
 \item Flip a coin 10 times; count the  number of heads 
 \bit
-\item by possibly allowing for the coin's $\p(\mathsf{H})$ to change each time because each of them are manufactured in a terrible mint.
+\item by possibly allowing for the coin's $\P(\mathsf{H})$ to change each time because each of them are manufactured in a terrible mint.
 \eit
 \item Test 50 randomly selected circuits from an assembly line; count
   the  number of defective circuits.
@@ -592,12 +592,12 @@ with each $\theta_i \in [0,1]$ being possibly unkown but fixed as a parameter.
 Now, if we assume independence across trials, so one trial's outcome does not affect the outcome of any of the other trials, in the sense of Definition~\ref{D:IndOfSeqOfEvents} 
 about \emph{independence of a sequence of events}, then we can obtain the probability of the entire sequence of outcomes for this sequence of \textbf{independently distributed} $\bernoulli(\theta_i)$ \textbf{trails} which can be any infinite sequence of $0$'s and $1$'s, i.e., any element of $\{0,1\}^{\infty}$, by simply multiplying the corresponding probabilities given by $\theta_i$'s in $(\theta_1,\theta_2,\ldots) \in [0,1]^{\infty}$, an infinite dimensional parameter space, as follows:
 \begin{eqnarray}\label{Eq:probofindependentBernoullithetaiTrials}
-\p(x; (\theta_1,\theta_2,\ldots)) &=& \prod_i f(x_i;\theta_i)= \prod_i \theta_i^{x_i} (1-\theta_i)^{1-x_i} \BB{1}_{\{0,1\}}(x_i), \\
+\P(x; (\theta_1,\theta_2,\ldots)) &=& \prod_i f(x_i;\theta_i)= \prod_i \theta_i^{x_i} (1-\theta_i)^{1-x_i} \BB{1}_{\{0,1\}}(x_i), \\
 &~& \qquad \qquad \text{ where } x:= (x_1,x_2,\ldots) \in \mathbb{X}_{\infty} = \{0,1\}^{\infty} := \{0,1\} \times \{0,1\} \times \cdots \notag
 \end{eqnarray}
 By further assuming that all the $\theta_i$'s are identical, say $\theta = \theta_1 = \theta_2 = \cdots$, with $\theta \in [0,1]$, a one-dimensional parameter space, we get the much simpler expression for the \textbf{independent and identically distributed (IID)} $\bernoulli(\theta)$ \textbf{trails} as follows:
 \begin{eqnarray}\label{Eq:probofindependentIdenticalBernoullithetaTrials}
-\p(x; \theta) &=& \prod_i f(x_i;\theta)= \prod_i \theta^{x_i} (1-\theta)^{1-x_i} \BB{1}_{\{0,1\}}(x_i) =  \BB{1}_{\{0,1\}^{\infty}}(x) \, \theta^{\sum_i x_i} (1-\theta)^{\sum_i(1-x_i)} \notag\\
+\P(x; \theta) &=& \prod_i f(x_i;\theta)= \prod_i \theta^{x_i} (1-\theta)^{1-x_i} \BB{1}_{\{0,1\}}(x_i) =  \BB{1}_{\{0,1\}^{\infty}}(x) \, \theta^{\sum_i x_i} (1-\theta)^{\sum_i(1-x_i)} \notag\\
 &=&  
 \begin{cases}
 \theta^{\sum_i x_i} (1-\theta)^{n-\sum_i x_i} & \text{if $x:= (x_1,x_2,\ldots) \in \mathbb{X}_{\infty} = \{0,1\}^{\infty}$}\\ 
@@ -624,11 +624,11 @@ Now $X$ can take on the values
 $\{1,\,2,\,3,\,\ldots\}$, so we  have a  non-uniform random
 variable with infinitely many possibilities.  Since
 \ba{
-&f(1)\; =\; \p(X=1)\;=\;P(\mathsf{H})\;=\;\frac{1}{2}\enspace , & \\
-&f(2)\; =\; \p(X=2)\;=\;P(\mathsf{TH})\;=\;\frac{1}{2}\cdot \frac{1}{2}\;= \;\left(\frac{1}{2}\right)^2 \enspace , \\
-&f(3)\; = \; \p(X=3)\;=\;P(\mathsf{TTH})\;=\;\frac{1}{2}\cdot \frac{1}{2}\cdot \frac{1}{2}\;= \;\left(\frac{1}{2}\right)^3 \enspace, \qquad \textrm{etc.}
+&f(1)\; =\; \P(X=1)\;=\;P(\mathsf{H})\;=\;\frac{1}{2}\enspace , & \\
+&f(2)\; =\; \P(X=2)\;=\;P(\mathsf{TH})\;=\;\frac{1}{2}\cdot \frac{1}{2}\;= \;\left(\frac{1}{2}\right)^2 \enspace , \\
+&f(3)\; = \; \P(X=3)\;=\;P(\mathsf{TTH})\;=\;\frac{1}{2}\cdot \frac{1}{2}\cdot \frac{1}{2}\;= \;\left(\frac{1}{2}\right)^3 \enspace, \qquad \textrm{etc.}
 }the  probability mass function of $X$ is:
-$$f(x)\; =\; \p(X=x)\;=\;\left(\frac{1}{2}\right)^x, \quad x=1,2,\dots \enspace.$$
+$$f(x)\; =\; \P(X=x)\;=\;\left(\frac{1}{2}\right)^x, \quad x=1,2,\dots \enspace.$$
 \end{example}
 
 \bigskip
@@ -636,11 +636,11 @@ $$f(x)\; =\; \p(X=x)\;=\;\left(\frac{1}{2}\right)^x, \quad x=1,2,\dots \enspace.
 In the previous Example, % \ref{Ex:WaitinfFor1stHeads},  %%cross-referencing needs fixing as the counters are clashing need change in new_base macro file
 noting that we have independent trials, we get:
 
-\[f(x)\; = \;\p(X=x)\;=\;\p(\mathsf{\underbrace{\mathsf{TT}\ldots\mathsf{T}}_{n-1}\mathsf{H}})\;=\; \p(\mathsf{T})^{x-1}\,\p(\mathsf{H})\;=\;
+\[f(x)\; = \;\P(X=x)\;=\;\P(\mathsf{\underbrace{\mathsf{TT}\ldots\mathsf{T}}_{n-1}\mathsf{H}})\;=\; \P(\mathsf{T})^{x-1}\,\P(\mathsf{H})\;=\;
 \left(\frac{1}{2}\right)^{x-1}\,\frac{1}{2}\,.\]
 More generally, let there be two possibilities, success ($\mathsf{S}$) or failure
-($\mathsf{F}$), with  $\p(\mathsf{S})=  \theta$  and \newline $\p(\mathsf{F})=1-\theta$ so that:
-\[\p(X=x)\;=\;\p(\underbrace{\mathsf{F F} \ldots \mathsf{F}}_{x-1}\mathsf{S})\;=\; (1 - \theta)^{x-1}\, \theta\,.\]
+($\mathsf{F}$), with  $\P(\mathsf{S})=  \theta$  and \newline $\P(\mathsf{F})=1-\theta$ so that:
+\[\P(X=x)\;=\;\P(\underbrace{\mathsf{F F} \ldots \mathsf{F}}_{x-1}\mathsf{S})\;=\; (1 - \theta)^{x-1}\, \theta\,.\]
 
  This is called a {\bf geometric random variable} with ``success
  probability'' parameter $\theta$. We can spot a geometric distribution
@@ -715,14 +715,14 @@ The probability that the first three flips are heads and the last  seven  flips 
     \text{ failures}} \, .\]
 But there are \[\binom{10}{3} \;=\; \frac{10!}{7!\, 3!}\;=\;120 \] ways
 of ordering three heads and seven tails,  so the
-  probability  of getting three  heads and seven  tails \emph{in any order},  is\[\p( \text{`} 3 \text{ heads'}) \;=\; \binom{10}{3}  \left(\frac{1}{2}\right)^3
+  probability  of getting three  heads and seven  tails \emph{in any order},  is\[\P( \text{`} 3 \text{ heads'}) \;=\; \binom{10}{3}  \left(\frac{1}{2}\right)^3
   \;\left(\frac{1}{2}\right)^7 \;\approx\; 0.117\]
 \end{example}
 
 We can describe  this sort of situation by considering a random variable $X$ which counts the number of successes, as follows:
 
 \remove{
-The RV $Y$ in \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}} may be generalized to an experiment $\E{E}_{\theta}^{n}$ with $n$ coin tosses.  
+The RV $Y$ in \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}} may be generalized to an experiment $\EE{E}_{\theta}^{n}$ with $n$ coin tosses.  
 %}% end remove
 Let $X_i$ be the Indicator function of the event `Heads on the $i$-th toss' as before.  Then $Y$ defined by,
  \[
@@ -730,7 +730,7 @@ Let $X_i$ be the Indicator function of the event `Heads on the $i$-th toss' as b
  \]
 is the number of `Heads' in $n$ tosses.  
 %\remove{
-Akin to the second row of \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}}, for the `Toss $n$ times' experiment $\E{E}_{\theta}^{n}$ the
+Akin to the second row of \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}}, for the `Toss $n$ times' experiment $\EE{E}_{\theta}^{n}$ the
 %} 
 RV $Y$ as defined above will take values in $\{0,1,2,\ldots,n\}$ and is therefore a discrete RV.  This is called the Binomial RV as defined next.  
 %\remove{
@@ -774,7 +774,7 @@ given by
 {\scriptsize
 \begin{proof} This is only a sketch. A formal proof should start with the mathematical induction for the very formula for the binomial coefficient.
 
-Observe that for the $\binomial(n,\theta)$ RV $X$, $\p(X=x) = f(x;n,\theta)$ is the probability that $x$ of the $n$ $\bernoulli(\theta)$ trials result in an outcome of $1$'s.  Next note that if all $n$ $X_i$'s are $0$'s, then $X=0$, and if all $n$ $X_i$'s are $1$'s, then $X=n$.  In general, if some of the $n$ $X_i$'s are $1$'s and the others are $0$, then $X$ can only take values in $\{0,1,2,\ldots,n\}$ and therefore $f(x;n,\theta)=0$ if $x \notin \{0,1,2,\ldots,n\}$.
+Observe that for the $\binomial(n,\theta)$ RV $X$, $\P(X=x) = f(x;n,\theta)$ is the probability that $x$ of the $n$ $\bernoulli(\theta)$ trials result in an outcome of $1$'s.  Next note that if all $n$ $X_i$'s are $0$'s, then $X=0$, and if all $n$ $X_i$'s are $1$'s, then $X=n$.  In general, if some of the $n$ $X_i$'s are $1$'s and the others are $0$, then $X$ can only take values in $\{0,1,2,\ldots,n\}$ and therefore $f(x;n,\theta)=0$ if $x \notin \{0,1,2,\ldots,n\}$.
 
 Now, let us compute $f(x;n,\theta)$ when $x\in\{0,1,2,\ldots,n\}$.  Consider the set of indices $\{1,2,3,\ldots,n\}$ for the $n$ IID $\bernoulli(\theta)$ RVs $\{X_1,X_2,\ldots,X_n\}$.  Now choose $x$ indices from $\{1,2,\ldots,n\}$ to mark those trials in a particular realization of $\{x_1,x_2,\ldots,x_n\}$ with the Bernoulli outcome of $1$.  The probability of each such event is $\theta^x (1-\theta)^{n-x}$ due to the IID assumption.  For each realization $\{x_1,x_2,\ldots,x_n\} \in \{0,1\}^{n} := \{ \text{all binary $(0-1)$ strings of length $n$}\}$, specified by a choice of $x$ trial indices with Bernoulli outcome $1$, the binomial RV $X=\sum_{i=1}^n X_i$ takes the value $x$.  Since there are exactly $\binom{n}{x}$ many ways in which we can choose $x$ trial indices (with outcome $1$) from the set of $n$ trial indices $\{1,2,\ldots,n\}$, we get the desired product for $f(x; n,\theta) = \binom{n}{x} \theta^x (1-\theta)^{n-x}$ when $x \in \{0,1,\ldots,n\}$.
 \end{proof}
@@ -807,13 +807,13 @@ situation with  $x=7$, $n=10$, and $\theta=0.8$. Substituting these into the for
   four times.}
 
 {Solution:}\\[4pt]
-{In any given toss let $\theta=\p(\{\mathsf{6}\})=1/6$,
+{In any given toss let $\theta=\P(\{\mathsf{6}\})=1/6$,
 $1-\theta=5/6$, $n=4$.
 
 The event {\em at least two $\mathsf{6}$'s} occurs if we obtain two or
 three or four $\mathsf{6}$'s.  Hence the answer is:
 \ba{
-\p(\text{{\em at least two $\mathsf{6}$'s}})&\;=\; f\left(2;4,\frac{1}{6}\right)\;+\;f\left(3;4,\frac{1}{6}\right)\;+\;f\left(4;4,\frac{1}{6}\right) \\[6pt]
+\P(\text{{\em at least two $\mathsf{6}$'s}})&\;=\; f\left(2;4,\frac{1}{6}\right)\;+\;f\left(3;4,\frac{1}{6}\right)\;+\;f\left(4;4,\frac{1}{6}\right) \\[6pt]
 &=\; \binom{4}{2}\left(\frac{1}{6}\right)^2\left(\frac{5}{6}\right)^{4-2}\;+\;
 \binom{4}{3}\left(\frac{1}{6}\right)^3\left(\frac{5}{6}\right)^{4-3}\;+\;
 \binom{4}{4}\left(\frac{1}{6}\right)^{4}\left(\frac{5}{6}\right)^{4-4}\\[6pt]
@@ -909,7 +909,7 @@ average.
 \medskip
 
 The probability that three cars or fewer enter the lot is:
-\ba{\p(X\leq 3)&\;=\;
+\ba{\P(X\leq 3)&\;=\;
 f(0;2)+f(1;2)+f(2;2)+f(3;2)\\
 &\;=\;e^{-2}\left(\frac{2^0}{0!}+\frac{2^1}{1!}+\frac{2^2}{2!}+\frac{2^3}{3!}\right) \qquad ^*\text{\scriptsize{This is a perfectly fine answer in the exam.}}\\
 &\;=\;0.857 \quad 
@@ -939,11 +939,11 @@ Let the random variable $X$ denote the number of cars
 \be
 \item[(a)]
 
-\[\p(X=0)\;=\;  f(0; 2)\;=\;  \frac{ e^{-2} 2^0}{0!}\;=\; 0.135 \quad (\text{3 sig. fig})\]
+\[\P(X=0)\;=\;  f(0; 2)\;=\;  \frac{ e^{-2} 2^0}{0!}\;=\; 0.135 \quad (\text{3 sig. fig})\]
 
 \item[(b)]
- \ba{\p(X\geq  3 )&\;=\;  1\,-\, \p(X <  3)\\
-&\;=\;  1\,-\, \p(X = 0)\,-\, \p(X = 1)\,-\, \p(X = 2)\\
+ \ba{\P(X\geq  3 )&\;=\;  1\,-\, \P(X <  3)\\
+&\;=\;  1\,-\, \P(X = 0)\,-\, \P(X = 1)\,-\, \P(X = 2)\\
 &\;=\;  1\,-\, f(0; 2) \,-\, f(1; 2) \,-\, f(2; 2) \\
 &\;=\;1-  0.1353 \,-\, 0.2707\,-\, 0.2707\\
 &\;=\; 0.323 \quad (\text{3 sig. fig.})}
@@ -971,7 +971,7 @@ binomial distribution may be approximated by a Poisson distribution
   with parameter
 \[\lambda\;=\; n\,\theta\;=\; 5000 \times 0.0001 \;=\; 0.5\,. \]
 Hence
- \[\p(X\leq 1)\;=\; \p(X=0)\,+\, \p(X=1)\,=\, f(0;0.5) \,+\, f(1;0.5)\;=\; 0.910 \quad (\text{3 sig. fig.})\]
+ \[\P(X\leq 1)\;=\; \P(X=0)\,+\, \P(X=1)\,=\, f(0;0.5) \,+\, f(1;0.5)\;=\; 0.910 \quad (\text{3 sig. fig.})\]
 }
 \end{example}
 
@@ -1023,7 +1023,7 @@ Binomial. In particular, Exercise~\ref{eqn:poi_cars} thinks of a Poisson distrib
 
 DISCRETE RANDOM VARIABLE SUMMARY\\
 
-Probability mass function $$f(x)=\p(X=x_i)$$
+Probability mass function $$f(x)=\P(X=x_i)$$
 Distribution function $$F(x)=\sum_{x_i\leq x}f(x_i)$$
 
 \begin{center}
@@ -1031,11 +1031,11 @@ Distribution function $$F(x)=\sum_{x_i\leq x}f(x_i)$$
 \begin{tabular}{|c|c|p{3.2cm}|p{6.2cm}|}
 \multicolumn{1}{c}{\bf Random  Variable} & \multicolumn{1}{c}{\bf Possible  Values}
 &\multicolumn{1}{c}{\bf Probabilities} &\multicolumn{1}{c}{\bf Modelled situations} \\\hline
-Discrete  uniform&$\{x_1,x_2,\dots,x_k\}$&$\p(X=x_i)=\displaystyle\frac{1}{k}$&Situations with $k$ equally likely values.  Parameter: $k$.\\\hline
-$\bernoulli(\theta)$&$\{0,1\}$&$\p(X=0)=1-\theta$\newline$\p(X=1)=\theta$&Situations with only 2 outcomes, coded 1 for success and 0 for failure.\newline Parameter: $\theta=\p(\textrm{success}) \in (0, 1)$.\\\hline
-Geometric($\theta$)&$\{1,2,3,\dots\}$&$\p(X=x)\newline=(1-\theta)^{x-1}\theta$& Situations where you count the number of trials until the first success in a sequence of independent trails with a constant probability of success. \newline Parameter: $\theta=\p(\textrm{success}) \in (0, 1)$.\\\hline
-Binomial($n,\theta$)&$\{0,1,2,\dots,n\}$&$\p(X=x)$\newline $=\displaystyle\binom{n}{x}\theta^x(1-\theta)^{n-x}$&Situations where you count the number of success in $n$ trials where each trial is independent and there is a constant probability of success.\newline Parameters: $n \in \{1,2,\ldots\}$; $\theta=\p(\textrm{success}) \in (0, 1)$.\\\hline
-Poisson($\lambda$)&$\{0,1,2,\dots\}$&$\p(X=x)\newline=\displaystyle \frac{\lambda^xe^{-\lambda}}{x!}$&Situations where you count the number of events in a continuum where the events occur one at a time and are independent of one another.\newline Parameter: $\lambda$= rate $\in (0,\infty)$.\\\hline
+Discrete  uniform&$\{x_1,x_2,\dots,x_k\}$&$\P(X=x_i)=\displaystyle\frac{1}{k}$&Situations with $k$ equally likely values.  Parameter: $k$.\\\hline
+$\bernoulli(\theta)$&$\{0,1\}$&$\P(X=0)=1-\theta$\newline$\P(X=1)=\theta$&Situations with only 2 outcomes, coded 1 for success and 0 for failure.\newline Parameter: $\theta=\P(\textrm{success}) \in (0, 1)$.\\\hline
+Geometric($\theta$)&$\{1,2,3,\dots\}$&$\P(X=x)\newline=(1-\theta)^{x-1}\theta$& Situations where you count the number of trials until the first success in a sequence of independent trails with a constant probability of success. \newline Parameter: $\theta=\P(\textrm{success}) \in (0, 1)$.\\\hline
+Binomial($n,\theta$)&$\{0,1,2,\dots,n\}$&$\P(X=x)$\newline $=\displaystyle\binom{n}{x}\theta^x(1-\theta)^{n-x}$&Situations where you count the number of success in $n$ trials where each trial is independent and there is a constant probability of success.\newline Parameters: $n \in \{1,2,\ldots\}$; $\theta=\P(\textrm{success}) \in (0, 1)$.\\\hline
+Poisson($\lambda$)&$\{0,1,2,\dots\}$&$\P(X=x)\newline=\displaystyle \frac{\lambda^xe^{-\lambda}}{x!}$&Situations where you count the number of events in a continuum where the events occur one at a time and are independent of one another.\newline Parameter: $\lambda$= rate $\in (0,\infty)$.\\\hline
 \end{tabular}}
 \end{center}
 
@@ -1062,10 +1062,10 @@ Suppose that  $X$ is  the time, in minutes, before the next student
   could be $2.1$ minutes, or $2.1000000001$ minutes,  or $2.9999999$
   minutes, etc., depending the measurement precision of the clock being used to measure time.  
 
-Finding $\p(X=2)$, for example,  doesn't make sense because
+Finding $\P(X=2)$, for example,  doesn't make sense because
   how can it ever be {\em exactly} $2.00000 \cdots$ minutes? It is more
-  sensible to consider  probabilities like  $\p(X>x)$ or $\p(X<x)$ or $\p(a < X < b)$ with $a < b$, up to measurement precision of the time-measuring clock rather
-  than the discrete approach of trying to compute $\p(X=x)$.
+  sensible to consider  probabilities like  $\P(X>x)$ or $\P(X<x)$ or $\P(a < X < b)$ with $a < b$, up to measurement precision of the time-measuring clock rather
+  than the discrete approach of trying to compute $\P(X=x)$.
 \end{example}
 
  The characteristics of continuous random variables are:
@@ -1080,7 +1080,7 @@ Finding $\p(X=2)$, for example,  doesn't make sense because
 \begin{definition}[probability density function (PDF)]\label{D:PDF}
 A RV $X$ with distribution function (DF) given by $F$ is said to be {\bf continuous} if there exists a piecewise-continuous function $f$, called the {\bf probability density function (PDF)} of $X$, such that 
 \begin{equation}\label{eqn:cdf_integral}
-F(x)\;=\; \p(X\leq x)\;=\;\int_{-\infty}^x f(v) \;dv
+F(x)\;=\; \P(X\leq x)\;=\;\int_{-\infty}^x f(v) \;dv
 \end{equation}
 where $f: \Rz \to \Rz$ is a non-negative function, i.e., $f(x)\geq 0$. 
 We write $v$ because $x$ is needed as the upper limit of the integral.
@@ -1089,7 +1089,7 @@ Piecewise-continuity of $f$ means $f$ is continuous, perhaps possibly at the $x$
 
 The following hold for a continuous RV $X$ with PDF $f$:
 \begin{enumerate}
-\item For any $x \in \Rz$, $\p(X=x)=\p(X \in [x,x]) = \int_x^x f(v)dv = 0$.
+\item For any $x \in \Rz$, $\P(X=x)=\P(X \in [x,x]) = \int_x^x f(v)dv = 0$.
 \item By the fundamental theorem of calculus:
 \begin{equation}\label{eqn:density_dev_cdf}
 f(x) = \frac{d}{dx} F(x) =: F'(x), 
@@ -1097,12 +1097,12 @@ f(x) = \frac{d}{dx} F(x) =: F'(x),
 for every $x$ at which $f(x)$ is continuous.
 \item Consequentially, for any $a,b \in \Rz$ with $a<b$,
 \begin{eqnarray}\label{eqn:con_intval_prob}
-\p(a < X < b ) &=& \p(a < X \leq b) = \p(a \leq X \leq b) = \p(a \leq X < b)\\
+\P(a < X < b ) &=& \P(a < X \leq b) = \P(a \leq X \leq b) = \P(a \leq X < b)\\
                &=& F(b)-F(a)\;=\;\int^b_a f(v)dv\enspace.
 \end{eqnarray}
 \item And $P(\Omega)=1$ implies that:
 \[
-\int_{-\infty}^{\infty} f(x) \ dx = \p(-\infty < X < \infty) = 1 \ .
+\int_{-\infty}^{\infty} f(x) \ dx = \P(-\infty < X < \infty) = 1 \ .
 \] 
 \end{enumerate}
 
@@ -1360,7 +1360,7 @@ The previous example is a special case of the following parametric
 family of random variables.
 
 \begin{model}[$\exponential(\lambda)$]\label{M:exponential}
-For a given $\lambda > 0$, an $\exponential(\lambda)$ RV has the following PDF $f$ and DF $F$ and its complementary distribution function denoted by $\overline{F}(x; \lambda) := \p(X > x) = 1-F(x;\lambda)$:
+For a given $\lambda > 0$, an $\exponential(\lambda)$ RV has the following PDF $f$ and DF $F$ and its complementary distribution function denoted by $\overline{F}(x; \lambda) := \P(X > x) = 1-F(x;\lambda)$:
 \begin{eqnarray}\label{E:Exponentialpdfcdf}
 f(x; \lambda) &=& \BB{1}_{(0,\infty)} \lambda e^{-\lambda x} =
 \begin{cases}
@@ -1376,9 +1376,9 @@ The last two equations are derived from definitions as follows:
 F(x; \lambda) = \int_{-\infty}^{x} \BB{1}_{(0,\infty)} \lambda e^{-\lambda v} dv = \lambda \int_0^x e^{-\lambda v} dv = \lambda \left( -\frac{1}{\lambda} e^{-\lambda v} \right]_0^x =  \left( - e^{-\lambda v} \right]_0^x \\ \notag
 = -e^{-\lambda x} - (-e^{-0}) = -e^{-\lambda x} - (-1/e^0) = -e^{-\lambda x} - (-1/1) = -e^{-\lambda x} - (-1) = -e^{-\lambda x} + 1 \\ \notag
 \end{multline*}
-\[\p(X > x) = 1- \p(X \leq x) = 1- F(x; \lambda) = 1 - \left( 1-e^{-\lambda x}\right) = e^{-\lambda x}\].
+\[\P(X > x) = 1- \P(X \leq x) = 1- F(x; \lambda) = 1 - \left( 1-e^{-\lambda x}\right) = e^{-\lambda x}\].
 
-This distribution is unique because of its property of {\bf memorylessness}, i.e., $\p(X>x+y | X > y) = e^{-\lambda x}$, and plays a fundamental role in modeling continuous time processes, such as time between occurrence of events of interest, as we will see in the sequel.
+This distribution is unique because of its property of {\bf memorylessness}, i.e., $\P(X>x+y | X > y) = e^{-\lambda x}$, and plays a fundamental role in modeling continuous time processes, such as time between occurrence of events of interest, as we will see in the sequel.
 \end{model}
 
 \remove{%%%%%%%%%%%%%%% SIMUL
@@ -1418,22 +1418,22 @@ If $X \sim \exponential(\lambda)$, then $X$ has the property of {\bf memorylessn
 \begin{equation}
 \boxed
 {
-\p(X>x+y  | X > y) = \p (X > x) \enspace .
+\P(X>x+y  | X > y) = \P (X > x) \enspace .
 } 
 \end{equation}
 \end{prop}
 \begin{proof}
 By the definition of conditional probability,
 \[
-\p(X > x+y | X > y) =\p( \{X>x+y\} |  \{X > y \}) = \frac{\p( \{X>x+y\} \cap \{X > y \})}{\p( \{X>y\} )}
+\P(X > x+y | X > y) =\P( \{X>x+y\} |  \{X > y \}) = \frac{\P( \{X>x+y\} \cap \{X > y \})}{\P( \{X>y\} )}
 \]
 Due to redundancy, i.e., $\{X>x+y\} \subset \{X > y \} \implies \{X>x+y\} \cap \{X > y \}=\{X>x+y\}$, so
 \begin{align*}
-\p(X > x+y | X > y) 
-&=  \frac{\p( \{X>x+y\}}{\p( \{X>y\} )} = \frac{\overline{F}(x+y; \lambda)}{\overline{F}(y; \lambda)} = \frac{e^{-\lambda(x+y)}}{e^{-\lambda y}} 
+\P(X > x+y | X > y) 
+&=  \frac{\P( \{X>x+y\}}{\P( \{X>y\} )} = \frac{\overline{F}(x+y; \lambda)}{\overline{F}(y; \lambda)} = \frac{e^{-\lambda(x+y)}}{e^{-\lambda y}} 
 = \frac{e^{-\lambda x} e^{-\lambda y}}{e^{-\lambda y}}
 = e^{-\lambda x} = \overline{F}(x; \lambda) \\
-&= \p(X > x)
+&= \P(X > x)
 \end{align*}
 \end{proof}
 
@@ -1445,7 +1445,7 @@ What is the probability that the server will be free after $2$ units of time?
 \begin{Answer}
 Let $X \sim \exponential(\lambda=0.1)$ denote the time taken to serve any given customer in an IID manner.
 Let $y$ denote the unknown time that the current customer being served has already been served before your arrival.
-By memorylessness of $\exponential(\lambda=0.1)$ RV $X$, we know $\p(X > 2 + y | X > y) = \p(X > 2) = e^{-\lambda 2} = e^{-2/10}$.
+By memorylessness of $\exponential(\lambda=0.1)$ RV $X$, we know $\P(X > 2 + y | X > y) = \P(X > 2) = e^{-\lambda 2} = e^{-2/10}$.
 \end{Answer}
 
 \bigskip
@@ -1749,14 +1749,14 @@ Because we have more than one random variable to consider, namely, $X$ and its t
 For a discrete random variable $X$ with probability mass function $f_X$ we can obtain the probability mass function $f_Y$ of $Y=g(X)$ using Equation~\eqref{E:ProbOfgOfX} as follows:
 \begin{eqnarray*}
 f_Y(y) 
-&=& \p(Y =y) = \p(Y \in \{y\}) \\
+&=& \P(Y =y) = \P(Y \in \{y\}) \\
 &=& P \left( g(X) \in \{y\} \right) = P \left(X \in g^{[-1]}(\{y\}) \right)\\
 &=& P \left(X \in g^{[-1]}(y) \right) = \sum_{x \in g^{[-1]}(y)} f_X(x) = \sum_{x \in \{x: g(x)=y\}} f_X(x) \enspace .
 \end{eqnarray*}
 This gives the formula:
 \begin{equation}\label{E:PMFOfgOfX}
 \boxed{
-f_Y(y) = \p(Y =y) = \sum_{x \in g^{[-1]}(y)} f_X(x) = \sum_{x \in \{x: g(x)=y\}} f_X(x) \enspace .
+f_Y(y) = \P(Y =y) = \sum_{x \in g^{[-1]}(y)} f_X(x) = \sum_{x \in \{x: g(x)=y\}} f_X(x) \enspace .
 }
 \end{equation}
 
@@ -1766,12 +1766,12 @@ Let $X$ be the discrete random variable with probability mass function $f_X$ as 
 \begin{tabular}{r|rrr}
 $x$ & -1 & 0 & 1\\ \hline
  &  &  & \\ 
-$f_X(x)=\p(X=x)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$
+$f_X(x)=\P(X=x)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$
 \end{tabular}
 \end{center}
 If $Y=2X$ then the transformation $g(X)=2X$ has inverse image $g^{[-1]}(y)=\{y/2\}$.  
 Then, by Equation~\eqref{E:PMFOfgOfX} the probability mass function of $Y$ is expressed in terms of the known probabilities of $X$ as:\\ 
-$$f_Y(y)=\p(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{x \in \{y/2\}} f_X(x) = f_X(y/2) \enspace ,$$
+$$f_Y(y)=\P(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{x \in \{y/2\}} f_X(x) = f_X(y/2) \enspace ,$$
 and tabulated below:\\
 \begin{center}
 \begin{tabular}{r|rrr}
@@ -1785,7 +1785,7 @@ $f_Y(y)$ & $\frac{1}{4}$ & $\frac{1}{2}$ & $\frac{1}{4}$
 \begin{example}\label{EXMP:Discrete1to1TransYis2Xplus1}
 If $X$ is the random variable in the previous Example then what is the probability mass function of $Y=2X+1$?
 Once again,
-$$f_Y(y)=\p(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{x \in \{(y-1)/2\}} f_X(x) = f_X((y-1)/2) \enspace ,$$
+$$f_Y(y)=\P(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{x \in \{(y-1)/2\}} f_X(x) = f_X((y-1)/2) \enspace ,$$
 and tabulated below:\\
 \begin{center}
 \begin{tabular}{r|rrr}
@@ -1804,7 +1804,7 @@ Recall that $g(x)=x^2$ does not have an inverse function unless the domain is re
 Since our random variable $X$ takes values on both sides of the real line, namely $\{-1,0,1\}$, let us note that the transformation $g(X)=X^2$ is no longer a one-to-one function.  
 Then, by Equation~\eqref{E:PMFOfgOfX} the probability mass function of $Y$ is expressed in terms of the known probabilities of $X$ as:\\ 
 \[
-f_Y(y)=\p(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{\{x:g(x)=y\}} f_X(x) = \sum_{\{x:x^2=y\}} f_X(x) \enspace ,
+f_Y(y)=\P(Y=y)= \sum_{x \in g^{[-1]}(y)} f_X(x)  = \sum_{\{x:g(x)=y\}} f_X(x) = \sum_{\{x:x^2=y\}} f_X(x) \enspace ,
 \]
 computed for each $y \in \{0,1\}$ as follows:
 \begin{eqnarray*}
@@ -2065,7 +2065,7 @@ We can use this approach if it is reasonably easy to find the set $g^{[-1]}((-\i
 Let $X$ be any random variable with distribution function $F_X$.  Let $Y=g(X)=X^2$.  
 Then we can find $F_Y$, the distribution function of $Y$ from $F_X$ as follows:
 \begin{itemize}
-\item {Since $Y=X^2 \geq 0$, if $y < 0$ then $F_Y(y) = P\left( X \in \{ x : x^2 < y\} \right) = \p(X \in \emptyset) = 0$.}
+\item {Since $Y=X^2 \geq 0$, if $y < 0$ then $F_Y(y) = P\left( X \in \{ x : x^2 < y\} \right) = \P(X \in \emptyset) = 0$.}
 \item {If $y \geq 0$ then
 \begin{eqnarray*}
 F_Y(y) = P \left(Y \leq y \right) 
@@ -2141,7 +2141,7 @@ Its variance measures its spread and so on.
 \begin{definition}[Expectation of a RV]
 The {\bf expectation}, or {\bf expected value}, or {\bf mean}, or {\bf first moment}, of a random variable $X$, with distribution function $F$ and density $f$, is defined to be
 \begin{equation}\label{E:Mean}
-\e(X) := \int x\,dF(x) = 
+\E(X) := \int x\,dF(x) = 
 \begin{cases}
 \sum_x x f(x) & \qquad \text{if $X$ is discrete} \\
 \int x f(x)\,dx  & \qquad \text{if $X$ is continuous} \  ,
@@ -2151,17 +2151,17 @@ provided the sum or integral is well-defined.  We say the expectation exists if
 \begin{equation}\label{E:ExpectationExists}
 \int \left|x\right|\,dF(x) < \infty \ .
 \end{equation}
-Sometimes, we denote $\e(X)$ by $\e X$ for brevity.  Thus, the expectation is a single-number summary of the RV $X$ and may be thought of  as the average.
+Sometimes, we denote $\E(X)$ by $\E X$ for brevity.  Thus, the expectation is a single-number summary of the RV $X$ and may be thought of  as the average.
 We subscript $E$ to specify the parameter $\theta \in \BB{\Theta}$ with respect to which the integration is undertaken. 
 \[
-\e_{\theta} X := \int x\,dF(x;\theta)
+\E_{\theta} \paren{X} := \int x\,dF(x;\theta)
 \]
 \end{definition}
 
 \begin{definition}[Variance of a RV]\label{D:VarianceofX}
-Let $X$ be a RV with mean or expectation $\e(X)$.  Variance of $X$ denoted by $\V(X)$ or $VX$ is
+Let $X$ be a RV with mean or expectation $\E(X)$.  Variance of $X$ denoted by $\V(X)$ or simply $\V X$ is
 \[
-\V(X) := \e \left((X-\e(X))^2\right) = \int (x-\e(X))^2 \,d F(x) \ ,
+\V(X) := \E \left((X-\E(X))^2\right) = \int (x-\E(X))^2 \,d F(x) \ ,
 \]
 provided this expectation exists.  The {\bf standard deviation} denoted by $\sd(X) := \sqrt{\V(X)}$.
 Thus variance is a measure of ``spread'' of a distribution.
@@ -2170,11 +2170,11 @@ Thus variance is a measure of ``spread'' of a distribution.
 \begin{definition}[$k$-th moment of a RV]
 We call 
 \[
-\e(X^k) = \int x^k\,dF(x)
+\E \paren{X^k} = \int x^k\,dF(x)
 \]
-as the $k$-th moment of the RV $X$ and say that the $k$-th moment exists when $\e(|X|^k) < \infty$.  We call the following expectation as the $k$-th central moment:
+as the $k$-th moment of the RV $X$ and say that the $k$-th moment exists when $\E\paren{|X|^k} < \infty$.  We call the following expectation as the $k$-th central moment:
 \[
-\e \left((X- \e(X))^k\right) \ .
+\E \paren{(X- \E(X))^k} \ .
 \]
 \end{definition}
 
@@ -2187,18 +2187,18 @@ More generally, by taking the expected value of various functions of a random va
 \begin{definition}[Expectation of a function of a RV]\label{Df:expectation}
 The \textbf{Expectation} of a function $g(X)$ of a random variable $X$ is defined as:
 \[
-\e(g(X))\; :=\; \int g(x) dF(x) = 
+\E(g(X))\; :=\; \int g(x) dF(x) = 
 \begin{cases}
 \displaystyle \sum_x g(x) f(x) & \text{if $X$ is a discrete RV}\\[12pt]
 \displaystyle \int_{-\infty}^{\infty} g(x) f(x) dx & \text{if $X$ is a continuous RV}
 \end{cases}
 \]
-provided $\e(g(X))$ exists, i.e., $\int |g(x)| dF(x) < \infty$.
+provided $\E(g(X))$ exists, i.e., $\int |g(x)| dF(x) < \infty$.
 \end{definition}
 
 The {\bf mean} which characterises the central location of the random variable $X$ is merely the expectation of the identity function $g(x)=x$:
 \[
-\e(X)\; =\;
+\E(X)\; =\;
 \begin{cases}
 \displaystyle \sum_x x f(x) & \text{if $X$ is a discrete RV}\\[12pt]
 \displaystyle\int_{-\infty}^{\infty} x f(x) dx & \text{if $X$ is a
@@ -2209,12 +2209,12 @@ Often, mean is denoted by $\mu$.
 
 The \textbf{variance} which characterises the spread or the
   variability of the random variable $X$ is also the expectation of the
-  function $g(x)=(x-\e(X))^2$:
+  function $g(x)=(x-\E(X))^2$:
 \[
-\V(X)\; =\; \e \left( (X-\e(X))^2 \right)\; =\;
+\V(X)  = \E \paren{ (X-\E(X))^2 }  = 
 \begin{cases}
-\displaystyle\sum_x (x-\e(X))^2 f(x) & \text{if $X$ is a discrete RV}\\[12pt]
-\displaystyle\int_{-\infty}^{\infty} (x-\e(X))^2 f(x) dx & \text{if $X$ is a continuous RV}
+\displaystyle\sum_x (x-\E(X))^2 f(x) & \text{if $X$ is a discrete RV}\\[12pt]
+\displaystyle\int_{-\infty}^{\infty} (x-\E(X))^2 f(x) dx & \text{if $X$ is a continuous RV}
 \end{cases}
 \] 
 Often, variance is denoted by $\sigma^2$. 
@@ -2227,15 +2227,15 @@ Definition \ref{Df:expectation} gives expectation as a ``weighted average'' of t
 \item Expectation is what you expect. \\[6pt]
 Consider tossing a fair coin. If it is heads you lose \$10. If it is tails you win \$10. 
 What do you expect to win? Nothing. 
-If $X$ is the amount you win then $$\e(X)\;=\;-10\times \frac{1}{2}+10\times \frac{1}{2}\;=\;0\,.$$
+If $X$ is the amount you win then $$\E(X)\;=\;-10\times \frac{1}{2}+10\times \frac{1}{2}\;=\;0\,.$$
 
-So what you expect (nothing) and the weighted average ($\e(X)=0$) agree.
+So what you expect (nothing) and the weighted average ($\E(X)=0$) agree.
 
 
 \item Expectation is a long run average.\\[6pt]
 Suppose you are able to repeat an experiment independently, over and over again. 
 Each experiment produces one value $x$ of a random variable $X$.  
-If you take the average of the $x$ values for a large number of trials, then this average converges to $\e(X)$ as the number of trials grows.  In fact, this is called the {\bf law of large numbers}.
+If you take the average of the $x$ values for a large number of trials, then this average converges to $\E(X)$ as the number of trials grows.  In fact, this is called the {\bf law of large numbers}.
 \end{itemize}
 %\end{framed}
 
@@ -2244,7 +2244,7 @@ We can concretize the above two intuitive insights by the following two examples
 \begin{example}[Winnings on Average]\label{EgWinningsOnAverage}
 Let $Y = r(X)$.  Then
 \[
-\e(Y) = \e(r(X)) = \int r(x)\, d F(x) \ .
+\E(Y) = \E(r(X)) = \int r(x)\, d F(x) \ .
 \]
 Think of playing a game where we draw $x \sim X$ and then I pay you $y=r(x)$.  Then your average income is $r(x)$ times the chance that $X=x$, summed (or integrated) over all values of $x$.
 \end{example}
@@ -2252,7 +2252,7 @@ Think of playing a game where we draw $x \sim X$ and then I pay you $y=r(x)$.  T
 \begin{example}[Probability is an Expectation]\label{EgProbIsAnExpectation}
 Let $A$ be an event and let $r(X)=\BB{1}_{A}(x)$.  Recall $\BB{1}_A(x)$ is $1$ if $x \in A$ and $\BB{1}_A(x)=0$ if $x \notin A$.  Then
 \begin{equation}\label{E:ExpectationofIndicator}
-\e(\BB{1}_A(X)) = \int \BB{1}_A(x)\, dF(x) = \int_A dF(x) = \p(X \in A) = \p(A)
+\E\paren{\BB{1}_A(X)} = \int \BB{1}_A(x)\, dF(x) = \int_A dF(x) = \P(X \in A) = \P(A)
 \end{equation}
 Thus, probability is a special case of expectation.  Recall our LTRF motivation for the definition of probability and make the connection.
 \end{example}
@@ -2266,7 +2266,7 @@ Similarly, by taking the expected value of various functions of a $\Rz^2$-valued
 \begin{definition}\label{Df:2expectation}
 The \textbf{Expectation} of a function $g(X,Y)$ of the $\Rz^2$-valued RV $(X,Y)$ is defined as:
 \[
-\e(g(X,Y))\; =\;
+\E(g(X,Y))\; =\;
 \begin{cases}
 \displaystyle \sum_{(x,y)} g(x,y) f_{X,Y}(x,y) & \text{if $(X,Y)$ is a discrete \rv}\\[12pt]
 \displaystyle \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x,y) f_{X,Y}(x,y) dx dy & \text{if $(X,Y)$ is a continuous \rv}
@@ -2279,15 +2279,15 @@ Some typical expectations for $\Rz^2$-valued random variables are:
 \be
 \item Joint Moments
 \[
-\e(X^r Y^s)
+\E \paren{X^r Y^s}
 \]
-When $r=s=1$, we have $\e(XY)$, the expectation of the product of two RVs.
+When $r=s=1$, we have $\E(XY)$, the expectation of the product of two RVs.
 \item 
 We need a new notion for the variance of two RVs.
 
-If $\e(X^2) < \infty$ and $\e(Y^2) < \infty$ then $\e(|X Y|) < \infty$ and $\e(|(X-\e(X))(Y-\e(Y))|) < \infty$.  This allows the definition of {\bf covariance} of $X$ and $Y$ as
+If $\E(X^2) < \infty$ and $\E(Y^2) < \infty$ then $\E(|X Y|) < \infty$ and $\E(|(X-\E(X))(Y-\E(Y))|) < \infty$.  This allows the definition of {\bf covariance} of $X$ and $Y$ as
 \[
-\cv(X,Y) := \e \left((X-\e(X))(Y-\e(Y))\right) = \e(X Y) - \e(X) \e(Y)
+\cv(X,Y) := \E \left((X-\E(X))(Y-\E(Y))\right) = \E(X Y) - \E(X) \E(Y)
 \]
 \ee
 
@@ -2321,8 +2321,8 @@ Thus, $\pointmass(\theta)$ RV $X$ is deterministic in the sense that every reali
 \begin{example}[Mean and variance of $\pointmass(\theta)$ RV]
 Let $X \sim \pointmass(\theta)$.  Then:
 \[
-\e(X) = \sum_{x} x f(x) = \theta \times 1 = \theta \ , \qquad
-\V(X) = \e(X^2) - (\e(X))^2 = \theta^2 - \theta^2 = 0 \ .
+\E(X) = \sum_{x} x f(x) = \theta \times 1 = \theta \ , \qquad
+\V(X) = \E(X^2) - (\E(X))^2 = \theta^2 - \theta^2 = 0 \ .
 \]
 \end{example}
 
@@ -2331,29 +2331,29 @@ The following results, where $a$ is a  constant, may easily be
 proved using the properties of summations and integrals:
 
 \bit
-\item[] $\boxed{\e(a ) \,=\, a}$
+\item[] $\boxed{\E(a ) \,=\, a}$
 
-\item[] $\boxed{\e(a \,g(X)) \,=\, a\, \e(g(X))}$
+\item[] $\boxed{\E(a \,g(X)) \,=\, a\, \E(g(X))}$
 
-\item[] $\boxed{\e(g(X)+h(X))  \,=\, \e(g(X)) \,+\, \e(h(X))}$
+\item[] $\boxed{\E(g(X)+h(X))  \,=\, \E(g(X)) \,+\, \E(h(X))}$
 \eit
 Note that here  $g(X)$ and $h(X)$ are functions of the random variable
 $X$: e.g.  $g(X)=X^2$.
 
 Using these results we can obtain the following useful formula for variance:
 \begin{eqnarray*}
-V(X)
-&=& E\left((X-\e(X))^2\right)\\[3pt]
-& =& E \left( X^2 - 2 X \e(X) + (\e(X))^2 \right) \\[3pt]
-&=& E ( X^2) - E \left( 2 X \e(X) \right) + E \left( (\e(X))^2
+\V(X)
+&=& \E\left((X-\E(X))^2\right)\\[3pt]
+& =& \E \left( X^2 - 2 X \E(X) + (\E(X))^2 \right) \\[3pt]
+&=& \E ( X^2) - \E \left( 2 X \E(X) \right) + \E \left( (\E(X))^2
 \right)\\[3pt]
-& =& E ( X^2) - 2 \e(X) E \left( X \right) + (\e(X))^2 \\[3pt]
-&=& E ( X^2) - 2 (\e(X))^2 + (\e(X))^2\\[3pt]
-&=& \e(X^2) - (\e(X))^2 \enspace .
+& =& \E ( X^2) - 2 \E(X) \E \left( X \right) + (\E(X))^2 \\[3pt]
+&=& \E ( X^2) - 2 (\E(X))^2 + (\E(X))^2\\[3pt]
+&=& \E(X^2) - (\E(X))^2 \enspace .
 \end{eqnarray*}
 That is, \[
 \boxed{
-V(X) \;=\; \e(X^2) \,- \,(\e(X))^2
+\V(X) \;=\; \E(X^2) \,- \,(\E(X))^2
 }.
 \]
 
@@ -2369,9 +2369,10 @@ More generally, for random variables $X_1,X_2,\ldots,X_n$ and constants $a_1,a_2
 \begin{itemize}
 \item
 \begin{equation}\label{E:EofLinCombofRVs}
-\e \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i \e(X_i) \ .
+\E \left( \sum_{i=1}^n a_i X_i \right) 
+= \sum_{i=1}^n a_i \E(X_i) \ .
 \end{equation}
-%E \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i \e(X_i)}$
+%E \left( \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i \E(X_i)}$
 %\smallskip
 \item
 %$\boxed{V \left(  \sum_{i=1}^n a_i X_i \right) = \sum_{i=1}^n a_i^2 V(X_i)}$, provided $X_1,X_2,\ldots,X_n$ are independent
@@ -2380,13 +2381,13 @@ More generally, for random variables $X_1,X_2,\ldots,X_n$ and constants $a_1,a_2
 \end{equation}
 \item Let $X_1,X_2,\ldots,X_n$ be independent RVs, then
 \begin{equation}\label{E:EofProdIndRVs}
-\e \left(  \prod_{i=1}^n X_i \right) = \prod_{i=1}^{n} \e(X_i) , \text{ provided $X_1,X_2,\ldots,X_n$ are independent}\ .
+\E \left(  \prod_{i=1}^n X_i \right) = \prod_{i=1}^{n} \E(X_i) , \text{ provided $X_1,X_2,\ldots,X_n$ are independent}\ .
 \end{equation}
 \end{itemize}
 
 %\item If the $k$-th moment exists and if $j<k$ then the $j$-th moment exists.
 
-%\item $\V(X) = \e(X^2) - (\e(X))^2$ \ . [prove by completing the square and applying \eqref{E:EofLinCombofRVs}]
+%\item $\V(X) = \E(X^2) - (\E(X))^2$ \ . [prove by completing the square and applying \eqref{E:EofLinCombofRVs}]
 %\item If $a$ and $b$ are constants then:
 %\item If $X_1,X_2,\ldots,X_n$ are independent and $a_1,a_2,\ldots,a_n$ are constants, then:
 %\end{enumerate}
@@ -2398,20 +2399,20 @@ Let us compute the mean and variance of our familiar RVs.
 \begin{example}[Mean and variance of $\bernoulli(\theta)$ RV]\label{EgMeanAndVarOfBernoulli}
 Let $X \sim \bernoulli(\theta)$.  Then, 
 \[
-\e(X) = \sum_{x=0}^1 x f(x) = (0 \times (1-\theta)) + (1 \times \theta) = 0+\theta=\theta \ ,
+\E(X) = \sum_{x=0}^1 x f(x) = (0 \times (1-\theta)) + (1 \times \theta) = 0+\theta=\theta \ ,
 \]
 \[
-\e(X^2) =  \sum_{x=0}^1 x^2 f(x) =  (0^2 \times (1-\theta) ) + (1^2 \times \theta) = 0+\theta= \theta \ ,
+\E(X^2) =  \sum_{x=0}^1 x^2 f(x) =  (0^2 \times (1-\theta) ) + (1^2 \times \theta) = 0+\theta= \theta \ ,
 \]
 \[
-\V(X) = \e(X^2) - (\e(X))^2 = \theta - \theta^2 = \theta(1-\theta) \ .
+\V(X) = \E(X^2) - (\E(X))^2 = \theta - \theta^2 = \theta(1-\theta) \ .
 \]
 Parameter specifically,
 \[
-\e_{\theta}(X)=\theta \qquad \text{and} \qquad \V_{\theta}(X)=\theta(1-\theta) \ .
+\E_{\theta}(X)=\theta \qquad \text{and} \qquad \V_{\theta}(X)=\theta(1-\theta) \ .
 \]
 \begin{figure}[htpb]
-\caption{Mean ($\e_{\theta}(X)$), variance ($\V_{\theta}(X)$) and the rate of change of variance ($\frac{d}{d \theta} \V_{\theta}(X)$) of a $\bernoulli(\theta)$ RV $X$ as a function of the parameter $\theta$.\label{F:MeanVarBernoulli}}
+\caption{Mean ($\E_{\theta}(X)$), variance ($\V_{\theta}(X)$) and the rate of change of variance ($\frac{d}{d \theta} \V_{\theta}(X)$) of a $\bernoulli(\theta)$ RV $X$ as a function of the parameter $\theta$.\label{F:MeanVarBernoulli}}
 \centering   \makebox{\includegraphics[width=5.0in]{figures/PlotMeanVarBernoulli}}
 \end{figure}
 
@@ -2430,41 +2431,41 @@ The plot depicting these expectations as well as the rate of change of the varia
 \begin{example}[Mean and variance of $\uniform(0,1)$ RV]\label{EgMeanAndVarOfUnif01}
 Let $X \sim \uniform(0,1)$.  Then, 
 \[
-\e(X) = \int_{x=0}^1 x f(x)\, dx = \int_{x=0}^1 x \ 1 \, dx = \frac{1}{2} \left( x^2 \right]_{x=0}^{x=1} = \frac{1}{2} \left( 1-0 \right) = \frac{1}{2} \ ,
+\E(X) = \int_{x=0}^1 x f(x)\, dx = \int_{x=0}^1 x \ 1 \, dx = \frac{1}{2} \left( x^2 \right]_{x=0}^{x=1} = \frac{1}{2} \left( 1-0 \right) = \frac{1}{2} \ ,
 \]
 \[
-\e(X^2) = \int_{x=0}^1 x^2 f(x)\, dx = \int_{x=0}^1 x^2 \ 1 \, dx =  \frac{1}{3} \left( x^3 \right]_{x=0}^{x=1} = \frac{1}{3} \left( 1-0 \right) = \frac{1}{3} \ ,
+\E(X^2) = \int_{x=0}^1 x^2 f(x)\, dx = \int_{x=0}^1 x^2 \ 1 \, dx =  \frac{1}{3} \left( x^3 \right]_{x=0}^{x=1} = \frac{1}{3} \left( 1-0 \right) = \frac{1}{3} \ ,
 \]
 \[
-\V(X) = \e(X^2) - (\e(X))^2 = \frac{1}{3}  - \left( \frac{1}{2} \right)^2  = \frac{1}{3}  - \frac{1}{4} = \frac{1}{12} \ .
+\V(X) = \E(X^2) - (\E(X))^2 = \frac{1}{3}  - \left( \frac{1}{2} \right)^2  = \frac{1}{3}  - \frac{1}{4} = \frac{1}{12} \ .
 \]
 \end{example}
 
 \begin{Exercise}[title={Mean and variance of $\uniform(\theta_1,\theta_2)$ RV},label={xMeanAndVarOfUniformab}]
-Let $X \sim \uniform(\theta_1,\theta_2)$ of Model~\ref{M:Uniformab}. Derive expressions for $\e(X)$ and $\V(X)$ in terms of the parameters $\theta_1$ and $\theta_2$. Make sure that when $\theta_2=1$ and $\theta_1=0$ you recover the expectation and variance of the $\uniform(0,1)$ RV in Example~\ref{EgMeanAndVarOfUnif01}.
+Let $X \sim \uniform(\theta_1,\theta_2)$ of Model~\ref{M:Uniformab}. Derive expressions for $\E(X)$ and $\V(X)$ in terms of the parameters $\theta_1$ and $\theta_2$. Make sure that when $\theta_2=1$ and $\theta_1=0$ you recover the expectation and variance of the $\uniform(0,1)$ RV in Example~\ref{EgMeanAndVarOfUnif01}.
 \end{Exercise}
 \begin{Answer}
-Derive the answers from the definition of $\e(X)$ and $\V(X) = \e(X^2) - (\e(X))^2$ when $X \sim \uniform(\theta_1,\theta_2)$ with PDF given in Model~\ref{M:Uniformab}.
-\[\e(X) = \frac{\theta_1+\theta_2}{2} \quad \V(\X) = \frac{(\theta_2-\theta_1)^2}{12}\]
+Derive the answers from the definition of $\E(X)$ and $\V(X) = \E(X^2) - (\E(X))^2$ when $X \sim \uniform(\theta_1,\theta_2)$ with PDF given in Model~\ref{M:Uniformab}.
+\[\E(X) = \frac{\theta_1+\theta_2}{2} \quad \V(\X) = \frac{(\theta_2-\theta_1)^2}{12}\]
 \end{Answer}
 
 \begin{example}[Expected Exponential of the $\uniform(0,1)$ RV]\label{EgExpectedExponentialOfUniform01}
-Let $X \sim \uniform(0,1)$ and $Y=r(X)=e^X$.  Compute $\e(Y)$. 
+Let $X \sim \uniform(0,1)$ and $Y=r(X)=e^X$.  Compute $\E(Y)$. 
 
-We can simply apply the definition of $\e(r(X))$, since $Y=r(X)$, is just a function of $X$, as follows: 
+We can simply apply the definition of $\E(r(X))$, since $Y=r(X)$, is just a function of $X$, as follows: 
 \[
-\e(Y) = \int_0^1 e^x f(x) dx = \int_0^1 e^x 1 \ dx = e-1 \ .
+\E(Y) = \int_0^1 e^x f(x) dx = \int_0^1 e^x 1 \ dx = e-1 \ .
 \]
 %You could have also found out that the density $f(y)=1/y$ for the RV $Y$, provided $1<y<e$, and $0$ otherwise.  Again,
 %\[
-%\e(Y) = \int_1^e y f(y) dy = \int_1^e y \frac{1}{y} dy = \int_1^e 1 \ dy = e-1 \ .
+%\E(Y) = \int_1^e y f(y) dy = \int_1^e y \frac{1}{y} dy = \int_1^e 1 \ dy = e-1 \ .
 %\]
 \end{example}
 
 \begin{example}[Mean and variance of $\exponential(\lambda)$]\label{EgmeanAndVarOfExponential}
 Show that the mean of an $\exponential(\lambda)$ RV $X$ is:
 \[
-\e_{\lambda}(X) = \int_{0}^{\infty} x f(x;\lambda)\,dx
+\E_{\lambda}(X) = \int_{0}^{\infty} x f(x;\lambda)\,dx
 =   \int_{0}^{\infty} x \lambda e^{-\lambda x}\,dx
 = \frac{1}{\lambda} \ ,
 \]
@@ -2477,15 +2478,15 @@ and the variance is:
 \begin{example}[Mean and variance of $\geometric(\theta)$ RV]\label{EgmeanAndVarOfGeometric}
 Let $X \sim \geometric(\theta)$ RV.  Then,
 \[
-\e(X) = \sum_{x=0}^{\infty} x \theta(1-\theta)^x =  \theta \sum_{x=0}^{\infty} x (1-\theta)^x
+\E(X) = \sum_{x=0}^{\infty} x \theta(1-\theta)^x =  \theta \sum_{x=0}^{\infty} x (1-\theta)^x
 \]
 In order to simplify the RHS above, let us employ differentiation with respect to $\theta$:
 \[
 \frac{-1}{\theta^2}= \frac{d}{d\theta} \left( \frac{1}{\theta} \right)= \frac{d}{d\theta} \sum_{x=0}^{\infty} (1-\theta)^x  =  \sum_{x=0}^{\infty} -x (1-\theta)^{x-1}
 \]
-Multiplying the LHS and RHS above by $-(1-\theta)$ and substituting in $\e(X)=  \theta \sum_{x=0}^{\infty} x (1-\theta)^x$, we get a much simpler expression for $\e(X)$ :
+Multiplying the LHS and RHS above by $-(1-\theta)$ and substituting in $\E(X)=  \theta \sum_{x=0}^{\infty} x (1-\theta)^x$, we get a much simpler expression for $\E(X)$ :
 \[
-\frac{1-\theta}{\theta^2}= \sum_{x=0}^{\infty} x (1-\theta)^{x} \implies \e(X) = \theta \left( \frac{1-\theta}{\theta^2} \right) = \frac{1-\theta}{\theta} \ .
+\frac{1-\theta}{\theta^2}= \sum_{x=0}^{\infty} x (1-\theta)^{x} \implies \E(X) = \theta \left( \frac{1-\theta}{\theta^2} \right) = \frac{1-\theta}{\theta} \ .
 \]
 Similarly, it can be shown that
 \[
@@ -2502,11 +2503,11 @@ Similarly, it can be shown that
 \begin{example}[Mean and variance of $\binomial(n,\theta)$ RV]\label{EgMeanAndVarOfBinomial}
 Let $X \sim \binomial(n,\theta)$.  Based on the definition of expectation:
 \[
-\e(X) = \int x \, dF(x; n,\theta) = \sum_x x f(x;n,\theta) = \sum_{x =0}^n x \binom{n}{x} \theta^x (1-\theta)^{n-x} \ .
+\E(X) = \int x \, dF(x; n,\theta) = \sum_x x f(x;n,\theta) = \sum_{x =0}^n x \binom{n}{x} \theta^x (1-\theta)^{n-x} \ .
 \]
-However, this is a nontrivial sum to evaluate.  Instead, we may use \eqref{E:EofLinCombofRVs} and \eqref{E:VofLinCombofRVs} by noting that $X = \sum_{i=1}^n X_i$, where the $\{X_1,X_2,\ldots,X_n \} \overset{\IID}{\sim} \bernoulli(\theta)$, $\e(X_i) = \theta$ and $\V(X_i)=\theta(1-\theta)$:
+However, this is a nontrivial sum to evaluate.  Instead, we may use \eqref{E:EofLinCombofRVs} and \eqref{E:VofLinCombofRVs} by noting that $X = \sum_{i=1}^n X_i$, where the $\{X_1,X_2,\ldots,X_n \} \overset{\IID}{\sim} \bernoulli(\theta)$, $\E(X_i) = \theta$ and $\V(X_i)=\theta(1-\theta)$:
 \[
-\e(X) = \e(X_1+X_2, \cdots ,X_n) = \e \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \e(X_i) = n \theta \ ,
+\E(X) = \E(X_1+X_2, \cdots ,X_n) = \E \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \E(X_i) = n \theta \ ,
 \]
 \[
 \V(X) = \V \left( \sum_{i=1}^n X_i \right) = \sum_{i=1}^n \V(X_i) = \sum_{i=1}^n{\theta(1-\theta)} = n\theta(1-\theta) \ .
@@ -2516,7 +2517,7 @@ However, this is a nontrivial sum to evaluate.  Instead, we may use \eqref{E:Eof
 \begin{example}[Mean and variance of $\poisson(\lambda)$ RV]\label{EgMeanAndVarOfPoisson}
 Let $X \sim \poisson(\lambda)$.  Then:
 \[
-\e(X) = \sum_{x=0}^{\infty} x f(x;\lambda)
+\E(X) = \sum_{x=0}^{\infty} x f(x;\lambda)
 = \sum_{x =0}^{\infty} x \frac{ e^{-\lambda} \lambda^x}{x!}
 = e^{-\lambda} \sum_{x =0}^{\infty} x \frac{  \lambda^x}{x!}
 = e^{-\lambda} \sum_{x -1 =0}^{\infty} \frac{ \lambda \lambda^{x-1}}{(x-1)!}
@@ -2526,11 +2527,11 @@ Let $X \sim \poisson(\lambda)$.  Then:
 \]
 Similarly,
 \[
-\V(X) = \e(X^2)-(\e(X))^2 = \lambda + \lambda^2 - \lambda^2 = \lambda \ .
+\V(X) = \E(X^2)-(\E(X))^2 = \lambda + \lambda^2 - \lambda^2 = \lambda \ .
 \]
 since
 \begin{align*}
-\e(X^2)& = \sum_{x=0}^{\infty} x^2 \frac{e^{-\lambda} \lambda^x}{x!} = \lambda \, e^{-\lambda} \sum_{x=1}^{\infty} \frac{x \, \lambda^{x-1}}{(x-1)!}
+\E(X^2)& = \sum_{x=0}^{\infty} x^2 \frac{e^{-\lambda} \lambda^x}{x!} = \lambda \, e^{-\lambda} \sum_{x=1}^{\infty} \frac{x \, \lambda^{x-1}}{(x-1)!}
 = \lambda \, e^{-\lambda} \left( 1 + \frac{2 \lambda}{1} + \frac{3 \lambda^2}{2!} + \frac{4 \lambda^3}{3!} + ... \right)\\
 &= \lambda \, e^{-\lambda} \left( \left( 1 + \frac{\lambda}{1} + \frac{\lambda^2}{2!} + \frac{\lambda^3}{3!} + ... \right) + \left[ \frac{\lambda}{1} + \frac{2 \lambda^2}{2!} + \frac{3 \lambda^3}{3!} + ... \right] \right)\\
 &= \lambda \, e^{-\lambda} \left( \left( e^{\lambda} \right) + \lambda \left( 1 + \frac{2 \lambda}{2!} + \frac{3 \lambda^2}{3!} + ... \right) \right)
@@ -2552,17 +2553,17 @@ Note that $\poisson(\lambda)$ distribution is one whose mean and variance are th
 The $\poisson(\lambda)$ RV $X$ is also related to the IID $\exponential(\lambda)$ RV $Y_1,Y_2,\ldots$: $X$ is the number of occurrences, per unit time, of an instantaneous event whose inter-occurrence time is the IID $\exponential(\lambda)$ RV.  For example, the number of buses arriving at our bus-stop in the next minute, with exponentially distributed inter-arrival times, has a Poisson distribution.
 
 \begin{example}[Mean and variance of $\normal(\mu,\sigma^2)$ RV]\label{EgMeanAndVarOfNormalMuSigmaSquareRV}
-The location-scale family of RVs is indeed parameterised by its mean and variance, i.e., if  $X \sim \normal(\mu,\sigma^2)$ where $X=g(Z)= \sigma Z+\mu$ and $Z \sim \normal(0,1)$ then $\e(X) = \mu$ and $\V(X) = \sigma^2$ follows directly from the properties of Expectations, provided $\e(Z)=0$ and $\V(Z)=\e(Z^2)-\left(\e(Z)\right)^2=\e(Z^2)=1$.
+The location-scale family of RVs is indeed parameterised by its mean and variance, i.e., if  $X \sim \normal(\mu,\sigma^2)$ where $X=g(Z)= \sigma Z+\mu$ and $Z \sim \normal(0,1)$ then $\E(X) = \mu$ and $\V(X) = \sigma^2$ follows directly from the properties of Expectations, provided $\E(Z)=0$ and $\V(Z)=\E(Z^2)-\left(\E(Z)\right)^2=\E(Z^2)=1$.
 
 The mean of a $\normal(0,1)$ RV $Z$ is:
 \[
-\e(Z) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} z \exp{\left( - \frac{1}{2} z^2 \right)}\,dz
+\E(Z) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} z \exp{\left( - \frac{1}{2} z^2 \right)}\,dz
  = \frac{1}{\sqrt{2 \pi}} \left(  -\exp{\left( - \frac{1}{2} z^2 \right)} \right]_{-\infty}^{\infty} 
 = 0 \ ,
 \]
 and the variance is:
 \[
-\V(Z) =\e(Z^2)-\left(\e(Z)\right)^2=\e(Z^2)-0=\e(Z^2) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} z^2 e^{-z^2/2} dz .
+\V(Z) =\E(Z^2)-\left(\E(Z)\right)^2=\E(Z^2)-0=\E(Z^2) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} z^2 e^{-z^2/2} dz .
 \]
 Using integration by parts with $u = z, dv=ze^{-z^2/2} \implies du=1, v=-e^{-z^2/2}, \, \int u dv = uv - \int v du$
 \[
@@ -2635,20 +2636,20 @@ The $\demoivre(\theta_1,\theta_2,\ldots,\theta_k)$ RV can be thought of as a pro
 \paragraph{Mean and variance of $\demoivre (\theta_1,\theta_2,\ldots,\theta_k)$ RV:}
 The not too useful expressions for the first two moments of $X \sim \demoivre (\theta_1,\theta_2,\ldots,\theta_k)$ are,
 \[
-\e(X) = \sum_{x=1}^k x \theta(x) =  \theta_1 + 2 \theta_2 + \cdots + k \theta_k \ , \text{ and }
+\E(X) = \sum_{x=1}^k x \theta(x) =  \theta_1 + 2 \theta_2 + \cdots + k \theta_k \ , \text{ and }
 \]
 \[
-\V(X) = \e(X^2) - (\e(X))^2 =   \left(\theta_1 + 2^2 \theta_2 + \cdots + k^2 \theta_k \right) - \left( \theta_1 + 2 \theta_2 + \cdots + k \theta_k \right)^2 \ .
+\V(X) = \E(X^2) - (\E(X))^2 =   \left(\theta_1 + 2^2 \theta_2 + \cdots + k^2 \theta_k \right) - \left( \theta_1 + 2 \theta_2 + \cdots + k \theta_k \right)^2 \ .
 \]
 However, if $X\sim \demoivre(1/k,1/k,\ldots,1/k)$, then the mean and variance for the fair $k$-faced die based on Faulhaber's formula for $\sum_{i=1}^k i^m$, with $m\in\{1,2\}$, are,
 \[
-\e(X) = \frac{1}{k} \left( 1+2+\cdots+k \right)= \frac{1}{k} \frac{k(k+1)}{2} = \frac{k+1}{2}  \ ,
+\E(X) = \frac{1}{k} \left( 1+2+\cdots+k \right)= \frac{1}{k} \frac{k(k+1)}{2} = \frac{k+1}{2}  \ ,
 \]
 \[
-\e(X^2) = \frac{1}{k} \left( 1^2+2^2+\cdots+k^2 \right)  = \frac{1}{k} \frac{k(k+1)(2k+1)}{6} =  \frac{2k^2+3k+1}{6} \ ,
+\E(X^2) = \frac{1}{k} \left( 1^2+2^2+\cdots+k^2 \right)  = \frac{1}{k} \frac{k(k+1)(2k+1)}{6} =  \frac{2k^2+3k+1}{6} \ ,
 \]
 \begin{align}
-\V(X) = \e(X^2) - (\e(X))^2
+\V(X) = \E(X^2) - (\E(X))^2
 &= \frac{2k^2+3k+1}{6} -  \left( \frac{k+1}{2} \right)^2 = \frac{2k^2+3k+1}{6} -  \left( \frac{k^2+2k+1}{4} \right) \notag \\
 &=  \frac{8k^2+12k+4 - 6k^2-12k-6}{24} =  \frac{2k^2-2}{24} = \frac{k^2-1}{12} \notag \ .
 \end{align}
@@ -2678,7 +2679,7 @@ We then generalize to $\Rz^m$-valued RVs with $m>2$ in the next section.
 The {\bf joint distribution function (JDF)} or {\bf joint cumulative distribution function (JCDF)}, $F_{X,Y}(x,y):\mathbb{R}^2\to [0,1]$, of the bivariate random vector $(X,Y)$ is
 \begin{eqnarray}\label{E:j2DF}
 F_{X,Y}(x,y)\; 
-&=& \p(X\leq x \cap Y \leq y) \;= \;\p(X\leq x , Y \leq y)\notag\\
+&=& \P(X\leq x \cap Y \leq y) \;= \;\P(X\leq x , Y \leq y)\notag\\
 &=& P\left( \{ \omega: X(\omega) \le x, Y(\omega) \le y \} \right) \mbox{, for any } (x,y) \in \mathbb{R}^2 \enspace ,
 \end{eqnarray}
 where the right-hand side represents the probability that the random vector $(X,Y)$ takes on a value in 
@@ -2694,22 +2695,22 @@ The JDF $F_{X,Y}(x,y):\Rz^2\to\Rz$ satisfies the following conditions to remain 
 \end{enumerate}
 
 \begin{definition}[JPMF]
-If $(X,Y)$ is a {\bf discrete random vector} that takes values in a discrete support set $\mathcal{S}_{X,Y} = \{(x_i,y_j): i=1,2,\ldots, \, j=1,2,\ldots\} \subset \Rz^2$ with probabilities $p_{i,j}=\p(X=x_i,Y=y_j)>0$, then its \textbf{joint probability mass function} (or JPMF) is:
+If $(X,Y)$ is a {\bf discrete random vector} that takes values in a discrete support set $\mathcal{S}_{X,Y} = \{(x_i,y_j): i=1,2,\ldots, \, j=1,2,\ldots\} \subset \Rz^2$ with probabilities $p_{i,j}=\P(X=x_i,Y=y_j)>0$, then its \textbf{joint probability mass function} (or JPMF) is:
 \begin{equation}\label{Eq:j2DPMF}
-f_{X,Y}(x_i,y_j) = \p(X=x_i,Y=y_j) %P\left(\{\omega: X(\omega) = x_i, Y(\omega)=y_j \}\right) 
+f_{X,Y}(x_i,y_j) = \P(X=x_i,Y=y_j) %P\left(\{\omega: X(\omega) = x_i, Y(\omega)=y_j \}\right) 
 =\begin{cases}
 p_{i,j}&\quad \textrm{if } (x_i,y_j) \in \mathcal{S}_{X,Y}\\
 0&\quad \textrm{otherwise}
 \end{cases}  \enspace .
 \end{equation}
 
-Since $\p(\Omega)=1$, $\sum_{{\substack{(x_i,y_j) \in \mathcal{S}_{X,Y}}}}f_{X,Y}(x_i,y_j)=1$.
+Since $\P(\Omega)=1$, $\sum_{{\substack{(x_i,y_j) \in \mathcal{S}_{X,Y}}}}f_{X,Y}(x_i,y_j)=1$.
 \end{definition}
 
 From JPMF $f_{X,Y}$ we can get the values of the JDF $F_{X,Y}(x,y)$ and the probability of any event $B$ by simply taking sums,
 \begin{equation}\label{Eq:2DiscretejDFFromjPMF}
 \boxed{F_{X,Y}(x,y)\;=\;\sum_{x_i\leq x, y_j \leq y}f_{X,Y}(x_i,y_j) }\enspace ,
-\qquad \boxed{\p(B)\;=\;\sum_{\substack{(x_i, y_j) \in B \cap \mathcal{S}_{X,Y}}}f_{X,Y}(x_i,y_j) }\enspace ,
+\qquad \boxed{\P(B)\;=\;\sum_{\substack{(x_i, y_j) \in B \cap \mathcal{S}_{X,Y}}}f_{X,Y}(x_i,y_j) }\enspace ,
 \end{equation}
 
 \begin{example}\label{Eg:Discrete2DPMF}
@@ -2738,10 +2739,10 @@ $X=1$& $0.2$ & $0.4$  \\ \hline
 \end{center}
 From the above Table we can read for instance that the joint probability $f_{X,Y}(0,0)=0.1$.
 
-Find $\p(B)$ for the event $B=\{(0,0),(1,1)\}$, $F_{X,Y}(1/2,1/2)$, $F_{X,Y}(3/2,1/2)$, $F_{X,Y}(4,5)$ and $F_{X,Y}(-4,-1)$.
+Find $\P(B)$ for the event $B=\{(0,0),(1,1)\}$, $F_{X,Y}(1/2,1/2)$, $F_{X,Y}(3/2,1/2)$, $F_{X,Y}(4,5)$ and $F_{X,Y}(-4,-1)$.
 
 \begin{enumerate}
-\item $\p(B) = \sum_{(x,y) \in \{(0,0),(1,1)\}}f_{X,Y}(x,y) = f_{X,Y}(0,0)+f_{X,Y}(1,1)=0.1+0.4$
+\item $\P(B) = \sum_{(x,y) \in \{(0,0),(1,1)\}}f_{X,Y}(x,y) = f_{X,Y}(0,0)+f_{X,Y}(1,1)=0.1+0.4$
 \item $F_{X,Y}(1/2,1/2) = \sum_{\{(x,y): x\leq 1/2, y \leq 1/2\}} f_{X,Y}(x,y)=f_{X,Y}(0,0)=0.1$
 \item $F_{X,Y}(3/2,1/2) = \sum_{\{(x,y): x\leq 3/2, y \leq 1/2\}} f_{X,Y}(x,y)=f_{X,Y}(0,0)+f_{X,Y}(1,0)=0.1+0.2=0.3$
 \item $F_{X,Y}(4,5) = \sum_{\{(x,y): x\leq 4, y \leq 5\}} f_{X,Y}(x,y)=f_{X,Y}(0,0)+f_{X,Y}(0,1)+f_{X,Y}(1,0)+f_{X,Y}(1,1)=1$
@@ -2764,11 +2765,11 @@ From JPDF $f_{X,Y}$ we can compute the JDF $F_{X,Y}$ at any point $(x,y) \in \Rz
 \end{equation}
 and
 \begin{equation}\label{Eq:2ContProbEventFromjPDF}
-\boxed{\p(B)\;=\; \int\int_{B} f_{X,Y}(x,y) dx dy}\enspace .
+\boxed{\P(B)\;=\; \int\int_{B} f_{X,Y}(x,y) dx dy}\enspace .
 \end{equation}
 In particular, if $\Bz_{\delta}(x,y)$ denotes a square of a small area $\delta>0$ that is centered at $(x,y)$, then the following approximate equality holds and improves as $\delta \to 0$:
 \begin{equation}\label{Eq:2ContProbEventFromjPDFInSmallBall}
-\p\left( (X,Y) \in \Bz_{\delta}(x,y) \right) \approxeq \delta f_{X,Y}(x,y) \enspace .
+\P\left( (X,Y) \in \Bz_{\delta}(x,y) \right) \approxeq \delta f_{X,Y}(x,y) \enspace .
 \end{equation}
 The JPDF satisfies the following two properties:
 \be
@@ -2785,7 +2786,7 @@ f(x,y) =  \BB{1}_{[0,1]^2}(x)
 0 & \text{ otherwise}.
 \end{cases}
 \]
-Find explicit expressions for the following: (1) DF $F(x,y)$ for any $(x,y) \in [0,1]^2$, (2) $\p(X \leq 1/3, Y \leq 1/2)$, (3) $P\left( (X,Y) \in [1/4,1/2]\times[1/3,2/3] \right)$.
+Find explicit expressions for the following: (1) DF $F(x,y)$ for any $(x,y) \in [0,1]^2$, (2) $\P(X \leq 1/3, Y \leq 1/2)$, (3) $P\left( (X,Y) \in [1/4,1/2]\times[1/3,2/3] \right)$.
 
 \begin{center}
 \makebox{\includegraphics[width=6.5in]{figures/Unif2DPDFandCDF}}
@@ -2806,17 +2807,17 @@ F_{X,Y}(x,y)
 = {x}{y}
 \end{align*}
 }
-\item We can obtain $\p(X \leq 1/3, Y \leq 1/2)$ by evaluating $F_{X,Y}$ at $(1/3,1/2)$:
+\item We can obtain $\P(X \leq 1/3, Y \leq 1/2)$ by evaluating $F_{X,Y}$ at $(1/3,1/2)$:
 {\small
 \begin{align*}
-\p(X \leq 1/3, Y \leq 1/2)
+\P(X \leq 1/3, Y \leq 1/2)
 &= F_{X,Y}(1/3,1/2)
 = \frac{1}{3}\frac{1}{2}
 = \frac{1}{6}
 \end{align*}
 }
-We can also find $\p(X \leq 1/3, Y \leq 1/2)$ by integrating the JPDF over the rectangular event $A=\{X < 1/3, Y < 1/2 \} \subset [0,1]^2$ according to Equation~\eqref{Eq:2ContProbEventFromjPDF}.  
-This amounts here to finding the area of $A$, we compute $\p(A) = (1/3) (1/2) = 1/6$.  
+We can also find $\P(X \leq 1/3, Y \leq 1/2)$ by integrating the JPDF over the rectangular event $A=\{X < 1/3, Y < 1/2 \} \subset [0,1]^2$ according to Equation~\eqref{Eq:2ContProbEventFromjPDF}.  
+This amounts here to finding the area of $A$, we compute $\P(A) = (1/3) (1/2) = 1/6$.  
 
 \item We can find $P\left( (X,Y) \in [1/4,1/2]\times[1/3,2/3] \right)$ by integrating the JPDF over the rectangular event $B=[1/4,1/2]\times[1/3,2/3]$ according to Equation~\eqref{Eq:2ContProbEventFromjPDF}:
 {\small
@@ -2833,7 +2834,7 @@ P\left( (X,Y) \in [1/4,1/2]\times[1/3,2/3] \right)
 }
 \ee
 
-In general, for a bivariate uniform \rv~on the unit square the $\p([a,b]\times[c,d]) = (b-a)(d-c)$ for any event given by the rectangular region $[a,b]\times[c,d]$ inside the unit square $[0,1]\times[0,1]$.  
+In general, for a bivariate uniform \rv~on the unit square the $\P([a,b]\times[c,d]) = (b-a)(d-c)$ for any event given by the rectangular region $[a,b]\times[c,d]$ inside the unit square $[0,1]\times[0,1]$.  
 Thus any two events with the same rectangular area have the same probability (imagine sliding a small rectangle inside the unit square... no matter where you slide this rectangle to while remaining in the unit square, the probability of $\omega \mapsto (X(\omega),Y(\omega))=(x,y)$ falling inside this ``slidable'' rectangle is the same...).
 \end{example}
  
@@ -2853,8 +2854,8 @@ Answer the following:
 \be
 \item identify the support of $(X,Y)$, i.e., the region in the plane where $f_{X,Y}$ takes positive values
 \item check that $f_{X,Y}$ indeed integrates to $1$ as it should
-\item Find $\p(X \leq 400, Y \leq 800)$
-\item It is known that humans prefer a response time of under $1/10$ seconds ($10^2$ milliseconds) from the web server before they get impatient.  What is $\p(X+Y < 10^2)$? 
+\item Find $\P(X \leq 400, Y \leq 800)$
+\item It is known that humans prefer a response time of under $1/10$ seconds ($10^2$ milliseconds) from the web server before they get impatient.  What is $\P(X+Y < 10^2)$? 
 \ee
 \begin{center}
 \makebox{\includegraphics[width=6.0in]{figures/PlotPDF2ServerTimes}}
@@ -2882,7 +2883,7 @@ The support is the intersection of the positive quadrant with the $y>x$ half-pla
 First, identify the region with positive JPDF for the event $(X \leq 400, Y \leq 800)$
 {\scriptsize
 \begin{align*}
-&\p(X \leq 400, Y \leq 800)\\
+&\P(X \leq 400, Y \leq 800)\\
 &= \int_{x=0}^{400} \int_{y=x}^{800} f_{X,Y}(x,y) dy dx \\
 &= \int_{x=0}^{400} \int_{y=x}^{800} \frac{6}{10^6} \exp \left( -\frac{1}{1000}x-\frac{2}{1000}y \right) dy dx \\
 &= \frac{6}{10^6}  \int_{x=0}^{400} \left[ -\frac{1000}{2} \exp \left( -\frac{2}{1000}y \right) \right]_{y=x}^{800}  \exp \left(-\frac{1}{1000}x\right) dx\\
@@ -2901,7 +2902,7 @@ This is the triangular region at the intersection of the four half-planes: $x>0$
 Let's integrate the JPDF over our triangular event as follows:
 {\scriptsize
 \begin{align*}
-\p(X+Y \leq c) 
+\P(X+Y \leq c) 
 &= \int_{x=0}^{c/2}\int_{y=x}^{c-x} f_{X,Y}(x,y) dy dx \\
 &= \int_{x=0}^{c/2}\int_{y=x}^{c-x} \frac{6}{10^6} \exp \left( -\frac{1}{1000}x-\frac{2}{1000}y \right) dy dx \\
 &= \frac{6}{10^6} \int_{x=0}^{c/2}\int_{y=x}^{c-x}  \exp \left( -\frac{1}{1000}x-\frac{2}{1000}y \right) dy dx \\
@@ -2915,9 +2916,9 @@ Let's integrate the JPDF over our triangular event as follows:
 \end{align*}
 }
 %\vspace{1cm}\\
-\item $\p(X+Y<100) = 1 - 4 e^{-300/2000} + 3 e^{-100/500} \approxeq 0.134$.  This means only about one in one hundred requests to this server will be processed within 100 milliseconds.
+\item $\P(X+Y<100) = 1 - 4 e^{-300/2000} + 3 e^{-100/500} \approxeq 0.134$.  This means only about one in one hundred requests to this server will be processed within 100 milliseconds.
 \ee
-We can obtain $\p(X+Y<c)$ for several values of $c$ using \Matlab and note that about 96\% of requests are processed in less than 3000 milliseconds or 3 seconds.
+We can obtain $\P(X+Y<c)$ for several values of $c$ using \Matlab and note that about 96\% of requests are processed in less than 3000 milliseconds or 3 seconds.
 \begin{VrbM}
 >> c = [100 1000 2000 3000 4000]
 c =  100        1000        2000        3000        4000
@@ -2961,7 +2962,7 @@ $X=1$& $0.2$ & $0.4$  \\ \hline
 \end{center}
 From the above Table we can find:
 \begin{align*}
-f_X(x) = \p(X=x) 
+f_X(x) = \P(X=x) 
 &= \sum_{y} f_{X,Y}(x,y) \\
 &= 
 f_{X,Y}(x,0) + f_{X,Y}(x,1) = 
@@ -2972,7 +2973,7 @@ f_{X,Y}(1,0) + f_{X,Y}(1,1) = 0.2+0.4=0.6 & \text{ if } x=1\\
 \end{align*}
 Similarly,
 \begin{align*}
-f_Y(y) = \p(Y=y) 
+f_Y(y) = \P(Y=y) 
 &= \sum_{x} f_{X,Y}(x,y) \\
 &= 
 f_{X,Y}(0,y) + f_{X,Y}(1,y) 
@@ -3040,7 +3041,7 @@ f_Y(y)
 We have the marginal PDF of $Y$ and from this we can obtain 
 {\scriptsize
 \begin{align*}
-\p(Y>2000)
+\P(Y>2000)
 &= \int_{2000}^{\infty} f_Y(y) dy \\
 &= \int_{2000}^{\infty} 6 \times 10^{-3} e^{-0.002y} \left({1- e^{-0.001 y}} \right) dy\\
 &= 6 \times 10^{-3} \int_{2000}^{\infty}  e^{-0.002y} dy - \int_{2000}^{\infty} e^{-0.003 y} dy\\
@@ -3052,13 +3053,13 @@ We have the marginal PDF of $Y$ and from this we can obtain
 }
 
 {\scriptsize
-Alternatively, you can obtain $\p(Y>2000)$ by directly integrating the joint PDF $f_{X,Y}(x,y)$ over the appropriate region (but you may now have to integrate two pieces: rectangular infinite strip ${(x,y): 0<x<2000, y>2000}$ and a triangular infinite piece $\{(x,y): y>x, y>2000, x> 2000\}$)... more involved but we get the same answer.
+Alternatively, you can obtain $\P(Y>2000)$ by directly integrating the joint PDF $f_{X,Y}(x,y)$ over the appropriate region (but you may now have to integrate two pieces: rectangular infinite strip ${(x,y): 0<x<2000, y>2000}$ and a triangular infinite piece $\{(x,y): y>x, y>2000, x> 2000\}$)... more involved but we get the same answer.
 \begin{multline*}
-\p(Y>2000) = \int_{x=0}^{2000} \left( \int_{y=2000}^{\infty} 6 \times 10^{-6} e^{-0.001 x - 0.002y} dy \right) dx + \\
+\P(Y>2000) = \int_{x=0}^{2000} \left( \int_{y=2000}^{\infty} 6 \times 10^{-6} e^{-0.001 x - 0.002y} dy \right) dx + \\
 \int_{x=2000}^{\infty} \left( \int_{y=x}^{\infty} 6 \times 10^{-6} e^{-0.001 x - 0.002y} dy \right) dx 
 \\
 \vdots \text{(try as a tutorial problem)} \\
-\p(Y>2000) = 0.0475 + 0.0025 = 0.05
+\P(Y>2000) = 0.0475 + 0.0025 = 0.05
 \end{multline*}
 }
 \end{example}
@@ -3071,7 +3072,7 @@ We can use the definition of independence of two events to define the independen
 \begin{definition}[Independence of Two RVs]\label{D:Ind2RVs}
 Consider an $\Rz^2$-valued RV $X:=(X_1,X_2)$. Then the $\Rz$-valued RVs $X_1$ and $X_2$ are said to be independent or independently distributed if and only if
 \[
-\p(X_{1} \leq x_{1}, X_{2} \leq x_{2} ) = \p(X_{1} \leq x_{1}) \p(X_{2} \leq x_{2})
+\P(X_{1} \leq x_{1}, X_{2} \leq x_{2} ) = \P(X_{1} \leq x_{1}) \P(X_{2} \leq x_{2})
 \]
 or equivalently,
 \[
@@ -3081,7 +3082,7 @@ for any pair of real numbers $(x_{1},x_{2}) \in \Rz^2$.
 
 By the above definition, for {\bf discrete} RVs $X_1,X_2$ that are independent, the following equality is satisfied between the joint and marginal PMFs:
 \[
-f_{X_1,X_2}(x_1,x_2) = \p(X_{1}= x_{1}, X_{2} = x_{2}) = \p(X_{1} = x_{1}) \p(X_{2} = x_{2}) = f_{X_1}(x_1) f_{X_2}(x_2) \text{ for any} (x_{1},x_{2}) \in \Rz^2 \enspace ,
+f_{X_1,X_2}(x_1,x_2) = \P(X_{1}= x_{1}, X_{2} = x_{2}) = \P(X_{1} = x_{1}) \P(X_{2} = x_{2}) = f_{X_1}(x_1) f_{X_2}(x_2) \text{ for any} (x_{1},x_{2}) \in \Rz^2 \enspace ,
 \]
 and for {\bf continuous} RVs $X_1,X_2$ that are independent, the following equality is satisfied between the joint and marginal PDFs:
 \[
@@ -3111,9 +3112,9 @@ $X_1=1$& $1/4$ & $1/4$ & $1/2$ \\ \hline
 \end{tabular}
 \end{center}
 From the above Table we can read for instance that the {\em joint probability} that $\Rz^2$-valued RV $(X_1,X_2)$ takes the value or realization $(0,0)$ is $1/4$ from the first entry of the inner-most tabulated rectangle, 
-i.e., $\p((X_1,X_2)=(0,0))=1/4$, 
+i.e., $\P((X_1,X_2)=(0,0))=1/4$, 
 and that the {\em marginal probability} that the RV $X_1$ takes the value or relaization $0$ is $1/2$, 
-i.e., $\p(X_1=0)=1/2$. 
+i.e., $\P(X_1=0)=1/2$. 
 Clearly, $1/4=1/2 \times 1/2$, and so our familiar experiment when seen as an $\Rz^2$-valued RV is indeed composed of two independent$\Rz$-valued $\bernoulli(1/2)$ RVs. 
 \end{example}
 
@@ -3169,7 +3170,7 @@ X_2 \leq l \sin(X_1) \enspace,
 i.e., if and only if the corresponding point $X := (X_1,X_2)$ falls in the region $B$, where $B$ is part of the rectangle $[0,\pi] \times [0,L]$ lying between the $x_1$-axis and the curve $x_2=\sin(x_1)$ (area under the curve in right-subfigure of Figure~\ref{F:BuffonsNeedle}). 
 Hence, we can integrate the JPDF to get the probability of the event $A$ of interest:
 \[
-\p(A) = \p \left( (X_1,X_2) \in B \right) = \underset{B}{\int \int} \frac{dx_1 dx_2}{\pi L} = \frac{2l}{\pi L}
+\P(A) = \P \left( (X_1,X_2) \in B \right) = \underset{B}{\int \int} \frac{dx_1 dx_2}{\pi L} = \frac{2l}{\pi L}
 \]
 where,
 \[
@@ -3177,7 +3178,7 @@ l \int_0{\pi} \sin(x_1) dx_1 = l \left( - \cos(x_1)\right]_0^{\pi} = l(1-(-1))=l
 \]
 is the area of $B$. 
 
-Thus, if the needle is repeatedly tossed onto the ruled plane and $n(A)$ is the number of times $A$ occurs out of $n$ trials, then the relative frequency of the event $A$ should approach $\p(A)$ as $n \to \infty$ (we will see this as the Law of Large Numbers in the sequel, but recall that this is also how we motivated the LTRF or long-term relative frequency idea of probability):
+Thus, if the needle is repeatedly tossed onto the ruled plane and $n(A)$ is the number of times $A$ occurs out of $n$ trials, then the relative frequency of the event $A$ should approach $\P(A)$ as $n \to \infty$ (we will see this as the Law of Large Numbers in the sequel, but recall that this is also how we motivated the LTRF or long-term relative frequency idea of probability):
 \[
 \frac{n(A)}{n} \to \frac{2l}{\pi L}
 \]
@@ -3199,32 +3200,32 @@ And we might want to compute the probability of the occurrence of the other rand
 For this all we need to do is extend the idea of conditional probabiliies to $\Rz^2$-valued random variables as defined below.
 
 \begin{definition}[Conditional PDF or PMF]
-Let $(X_1,X_2)$ be a discrete bivariate \rv.  The conditional PMF of $X_1|X_2=x_2$, where $f_{X_2}(x_2) := \p(X_2=x_2) > 0$ is:
+Let $(X_1,X_2)$ be a discrete bivariate \rv.  The conditional PMF of $X_1|X_2=x_2$, where $f_{X_2}(x_2) := \P(X_2=x_2) > 0$ is:
 \[
-f_{X_1|X_2}(x_1 | x_2) := \p(X_1=x_1 | X_2=x_2) = \frac{\p(X_1=x_1,X_2=x_2)}{\p(X_2=x_2)} = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_2}(x_2)} \ .
+f_{X_1|X_2}(x_1 | x_2) := \P(X_1=x_1 | X_2=x_2) = \frac{\P(X_1=x_1,X_2=x_2)}{\P(X_2=x_2)} = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_2}(x_2)} \ .
 \]
-Similarly, if $f_{X_1}(x_1) := \p(X_1=x_1) >0$, then the conditional PMF of $X_2|X_1=x_1$ is:
+Similarly, if $f_{X_1}(x_1) := \P(X_1=x_1) >0$, then the conditional PMF of $X_2|X_1=x_1$ is:
 \[
-f_{X_2|X_1}(x_2|x_1) := \p(X_2=x_2 | X_1=x_1) = \frac{\p(X_1=x_1,X_2=x_2)}{\p(X_1=x_1)} = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_1}(x_1)} \ .
+f_{X_2|X_1}(x_2|x_1) := \P(X_2=x_2 | X_1=x_1) = \frac{\P(X_1=x_1,X_2=x_2)}{\P(X_1=x_1)} = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_1}(x_1)} \ .
 \]
 If $(X_1,X_2)$ are continuous RVs such that the marginal PDF $f_{X_2}(x_2)>0$, then the conditional PDF of $X_1|X_2=x_2$ is:
 \[
-f_{X_1|X_2}(x_1|x_2) = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_2}(x_2)}, \qquad \p(X_1 \in A| X_2=x_2) = \int_A f_{X_1|X_2}(x_1|x_2) dx_1 \ .
+f_{X_1|X_2}(x_1|x_2) = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_2}(x_2)}, \qquad \P(X_1 \in A| X_2=x_2) = \int_A f_{X_1|X_2}(x_1|x_2) dx_1 \ .
 \]
 Similarly, if $f_{X_1}(x_1)>0$, then the conditional PDF of $X_2|X_1=x_1$ is:
 \[
-f_{X_2|X_1}(x_2|x_1) = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_1}(x_1)}, \qquad \p(X_2 \in A| X_1=x_1) = \int_A f_{X_2|X_1}(x_2|x_1) dx_2 \ .
+f_{X_2|X_1}(x_2|x_1) = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_1}(x_1)}, \qquad \P(X_2 \in A| X_1=x_1) = \int_A f_{X_2|X_1}(x_2|x_1) dx_2 \ .
 \]
 \end{definition}
 
-Let us consider a few discrete RVs for the simple coin tossing experiment $\E{E}_{\theta}^{3}$ that build on the $\bernoulli(\theta)$ RV $X_i$ for the $i$-th toss in an {\bf independent and identically distibuted (IID.)} manner.
+Let us consider a few discrete RVs for the simple coin tossing experiment $\EE{E}_{\theta}^{3}$ that build on the $\bernoulli(\theta)$ RV $X_i$ for the $i$-th toss in an {\bf independent and identically distibuted (IID.)} manner.
 \begin{table}[htpb]
-\caption{The $8$ $\omega$'s in the sample space $\Omega$ of the experiment $\E{E}_{\theta}^{3}$ are given in the first row above.  The RV $Y$ is the number of `Heads' in the $3$ tosses and the RV $Z$ is the number of `Tails' in the $3$ tosses.  Finally, the RVs $Y'$ and $Z'$ are the indicator functions of the event that `all three tosses were Heads' and the event that `all three tosses were Tails', respectively.\label{T:T3XRVs}}
+\caption{The $8$ $\omega$'s in the sample space $\Omega$ of the experiment $\EE{E}_{\theta}^{3}$ are given in the first row above.  The RV $Y$ is the number of `Heads' in the $3$ tosses and the RV $Z$ is the number of `Tails' in the $3$ tosses.  Finally, the RVs $Y'$ and $Z'$ are the indicator functions of the event that `all three tosses were Heads' and the event that `all three tosses were Tails', respectively.\label{T:T3XRVs}}
  \begin{tabular}{r c c c c c c c c l}
  \hline
 $\omega$:    & {\tt HHH} & {\tt HHT} & {\tt HTH} & {\tt HTT} & {\tt THH} & {\tt THT} & {\tt TTH} & {\tt TTT} & RV Definitions / Model \\ \hline
  \\
-$\p(\omega)$: & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ &  $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$  & $X_i \overset{\IID}{\sim} \bernoulli(\frac{1}{2})$ \\
+$\P(\omega)$: & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ &  $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$ & $\frac{1}{8}$  & $X_i \overset{\IID}{\sim} \bernoulli(\frac{1}{2})$ \\
  \\
 $Y(\omega)$: & 3         & 2         & 2         & 1         & 2         & 1         & 1         & 0        & $Y := X_1+X_2+X_3$ \\
  \\
@@ -3238,7 +3239,7 @@ $Z'(\omega)$: & 0         & 0         & 0         & 0         & 0         & 0   
  \begin{classwork}[Two random variables of `toss a coin thrice' experiment]
 Describe the probability of the RV $Y$ and $Y'$ of \hyperref[T:T3XRVs]{Table \ref*{T:T3XRVs}} in terms of its PMF.  Repeat the process for the RV $Z$ in your spare time.
  \begin{eqnarray}
- \p(Y=y) =%:= \p(\{\omega: Y(\omega)=y\}) = 
+ \P(Y=y) =%:= \P(\{\omega: Y(\omega)=y\}) = 
  \begin{cases}
  \qquad & \qquad \notag \\
  \qquad & \qquad \notag \\
@@ -3246,7 +3247,7 @@ Describe the probability of the RV $Y$ and $Y'$ of \hyperref[T:T3XRVs]{Table \re
  \qquad & \qquad \notag
  \end{cases} 
  & \qquad \qquad \qquad \qquad \qquad
-\p(Y'=y') =%:= \p(\{\omega: Y'(\omega)=y'\}) = 
+\P(Y'=y') =%:= \P(\{\omega: Y'(\omega)=y'\}) = 
  \begin{cases}
  \qquad & \qquad \notag \\
  \qquad & \qquad \notag 
@@ -3257,29 +3258,29 @@ Describe the probability of the RV $Y$ and $Y'$ of \hyperref[T:T3XRVs]{Table \re
  \begin{classwork}[The number of `Heads' given there is at least one `Tails']
  Consider the following two questions.
  \begin{enumerate}
-\item What is conditional probability $\p(Y|Y'=0)$ ?
+\item What is conditional probability $\P(Y|Y'=0)$ ?
 %{\color{Gray}{
  \[
  \begin{array}{c c c c}
  \hline \\
- \p(Y=y | Y'=0) & =\frac{\p(Y=y,Y'=0)}{\p(Y'=0)} & =\frac{\p(\{\omega: Y(\omega)=y \  \cap \ Y'(\omega)=0\})}{\p(\{\omega: Y'(\omega)=0\})} & = ? \\ \hline \\
+ \P(Y=y | Y'=0) & =\frac{\P(Y=y,Y'=0)}{\P(Y'=0)} & =\frac{\P(\{\omega: Y(\omega)=y \  \cap \ Y'(\omega)=0\})}{\P(\{\omega: Y'(\omega)=0\})} & = ? \\ \hline \\
  \\
- \p(Y=0 | Y'=0) & \frac{\p(Y=0,Y'=0)}{\p(Y'=0)} & \frac{\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & \frac{1}{7} \\
+ \P(Y=0 | Y'=0) & \frac{\P(Y=0,Y'=0)}{\P(Y'=0)} & \frac{\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & \frac{1}{7} \\
 \\
-\p(Y=1 | Y'=0) & \frac{\p(Y=1,Y'=0)}{\p(Y'=0)} & \frac{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & \frac{3}{7} \\
+\P(Y=1 | Y'=0) & \frac{\P(Y=1,Y'=0)}{\P(Y'=0)} & \frac{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & \frac{3}{7} \\
 \\
-\p(Y=2 | Y'=0) & \frac{\p(Y=2,Y'=0)}{\p(Y'=0)} & \frac{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & \frac{3}{7} \\
+\P(Y=2 | Y'=0) & \frac{\P(Y=2,Y'=0)}{\P(Y'=0)} & \frac{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & \frac{3}{7} \\
 \\
-\p(Y=3 | Y'=0) & \frac{\p(Y=3,Y'=0)}{\p(Y'=0)} & \frac{\p(\emptyset)}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & 0 \\
+\P(Y=3 | Y'=0) & \frac{\P(Y=3,Y'=0)}{\P(Y'=0)} & \frac{\P(\emptyset)}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & 0 \\
 \\ \hline
-\p(Y \in \{0,1,2,3\} | Y'=0) & \frac{\sum_{y=0}^3{\p(Y=y,Y'=0)}}{\p(Y'=0)} & \frac {\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & 1 \\ \hline
+\P(Y \in \{0,1,2,3\} | Y'=0) & \frac{\sum_{y=0}^3{\P(Y=y,Y'=0)}}{\P(Y'=0)} & \frac {\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}}{\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}+\frac{1}{8}} & 1 \\ \hline
  \end{array}
  \]
 % }}
-\item What is $\p(Y|Y'=1)$ ?
+\item What is $\P(Y|Y'=1)$ ?
 %{\color{Gray}{
  \[
-\p(Y=y | Y'=1) = 
+\P(Y=y | Y'=1) = 
 \begin{cases}
 1 & \text{if $y=3$} \\
 0 & \text{otherwise}
@@ -3300,8 +3301,8 @@ Now, let us extend the notions of JCDF, JPMF and JPDF to $\Rz^m$.
 The {\bf joint distribution function (JDF)} or {\bf joint cumulative distribution function (JCDF)}, $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m):\mathbb{R}^m\to [0,1]$, of the multivariate random vector $(X_1,X_2,\ldots,X_m)$ is
 \begin{eqnarray}\label{E:jmDF}
 F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)\; 
-&=& \p(X\leq x_1 \cap X_2 \leq x_2 \cap \cdots \cap X_m \leq x_m)\notag\\ 
-&=& \p(X_1\leq x_1 , X_2 \leq x_2, \ldots, X_m \leq x_m)\\
+&=& \P(X\leq x_1 \cap X_2 \leq x_2 \cap \cdots \cap X_m \leq x_m)\notag\\ 
+&=& \P(X_1\leq x_1 , X_2 \leq x_2, \ldots, X_m \leq x_m)\\
 &=& P\left( \{ \omega: X_1(\omega) \leq x_1, X_2(\omega) \leq x_2, \ldots, X_m(\omega) \leq x_m \} \right), \notag
 \end{eqnarray}
 for any $(x_1,x_2,\ldots,x_m) \in \mathbb{R}^m$, 
@@ -3320,15 +3321,15 @@ The JDF $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m):\Rz^m\to\Rz$ satisfies the f
 \begin{definition}[Multivariate JPMF]
 If $(X_1,X_2,\ldots,X_m)$ is a {\bf discrete random vector} that takes values in a discrete support set $\mathcal{S}_{X_1,X_2,\ldots,X_m}$, then its \textbf{joint probability mass function} (or JPMF) is:
 \begin{equation}\label{Eq:jmDPMF}
-f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) = \p(X_1=x_1,X_2=x_2,\ldots,X_m=x_m) \enspace . 
+f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) = \P(X_1=x_1,X_2=x_2,\ldots,X_m=x_m) \enspace . 
 \end{equation}
 \end{definition}
-Since $\p(\Omega)=1$, $\sum_{{\substack{(x_1,x_2,\ldots,x_m) \in \mathcal{S}_{X_1,X_2,\ldots,X_m}}}}f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)=1$.
+Since $\P(\Omega)=1$, $\sum_{{\substack{(x_1,x_2,\ldots,x_m) \in \mathcal{S}_{X_1,X_2,\ldots,X_m}}}}f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)=1$.
 
 From JPMF $f_{X_1,X_2,\ldots,X_m}$ we can get the JCDF $F_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m)$ and the probability of any event $B$ by simply taking sums as in Equation~\eqref{Eq:2DiscretejDFFromjPMF} but now over all $m$ coordinates.
 %\begin{equation}\label{Eq:2DiscretejDFFromjPMF}
 %\boxed{F_{X_1,X_2,\ldots,X_m}(x,y)\;=\;\sum_{x_i\leq x, y_j \leq y}f_{X_1,X_2,\ldots,X_m}(x_i,y_j) }\enspace ,
-%\qquad \boxed{\p(B)\;=\;\sum_{\substack{(x_i, y_j) \in B \cap \mathcal{S}_{X_1,X_2,\ldots,X_m}}}f_{X_1,X_2,\ldots,X_m}(x_i,y_j) }\enspace ,
+%\qquad \boxed{\P(B)\;=\;\sum_{\substack{(x_i, y_j) \in B \cap \mathcal{S}_{X_1,X_2,\ldots,X_m}}}f_{X_1,X_2,\ldots,X_m}(x_i,y_j) }\enspace ,
 %\end{equation}
 
 \begin{definition}[Multivariate JPDF]
@@ -3344,7 +3345,7 @@ From JPDF $f_{X_1,X_2,\ldots,X_m}$ we can compute the JDF $F_{X_1,X_2,\ldots,X_m
 \end{equation}
 and
 \begin{equation}\label{Eq:mContProbEventFromjPDF}
-\boxed{\p(B)\;=\; \int\cdots\int\int_{B} f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) dx_1 dx_2\ldots d x_m}\enspace .
+\boxed{\P(B)\;=\; \int\cdots\int\int_{B} f_{X_1,X_2,\ldots,X_m}(x_1,x_2,\ldots,x_m) dx_1 dx_2\ldots d x_m}\enspace .
 \end{equation}
 The JPDF satisfies the following two properties:
 \be
@@ -3362,7 +3363,7 @@ f_{X_1}(x_1) =
 \begin{definition}[Independence of Sequence of RVs]\label{D:IndRVs}
 A finite or infinite sequence of RVs $X_1,X_2,\ldots$ is said to be independent or independently distributed if and only if
 \[
-\p(X_{i_1} \leq x_{i_1}, X_{i_2} \leq x_{i_2}, \ldots,  X_{i_k} \leq x_{i_k} ) = \p(X_{i_1} \leq x_{i_1}) \p(X_{i_2} \leq x_{i_2}) \cdots,  \p(X_{i_k} \leq x_{i_k} )
+\P(X_{i_1} \leq x_{i_1}, X_{i_2} \leq x_{i_2}, \ldots,  X_{i_k} \leq x_{i_k} ) = \P(X_{i_1} \leq x_{i_1}) \P(X_{i_2} \leq x_{i_2}) \cdots,  \P(X_{i_k} \leq x_{i_k} )
 \]
 or equivalently,
 \[
@@ -3372,7 +3373,7 @@ for any distinct subset of indices $\{i_1,i_2,\ldots,i_m\}$ of $\{1,2,\ldots\}$,
 
 By the above definition, the sequence of {\bf discrete} RVs $X_1,X_2,\ldots$ taking values in an at most countable set $\Dz$ are said to be independently distributed if for any distinct subset of indices $\{i_1,i_2,\ldots,i_k\}$ such that the corresponding RVs $X_{i_1},X_{i_2},\ldots,X_{i_k}$ exists as a distinct subset of our original sequence of RVs $X_1,X_2,\ldots$ and for any elements $x_{i_1}, x_{i_2},\ldots,x_{i_k}$ in $\Dz$, the following equality is satisfied:
 \[
-\p(X_{i_1}= x_{i_1}, X_{i_2} = x_{i_2}, \ldots,  X_{i_k} = x_{i_k} ) = \p(X_{i_1} = x_{i_1}) \p(X_{i_2} = x_{i_2}) \cdots  \p(X_{i_k} = x_{i_k}) \enspace ,
+\P(X_{i_1}= x_{i_1}, X_{i_2} = x_{i_2}, \ldots,  X_{i_k} = x_{i_k} ) = \P(X_{i_1} = x_{i_1}) \P(X_{i_2} = x_{i_2}) \cdots  \P(X_{i_k} = x_{i_k}) \enspace ,
 \]
 or equivalently,
 \[
@@ -3389,18 +3390,18 @@ f_{X_{1},X_{2},\ldots,X_{m}}(x_{1},x_{2},\ldots,x_{m}) &=& f_{X_{1}}(x_{1}) f_{X
 \begin{prop}[Conditional probability of independent sequence of RVs]
 For an independent sequence of RVs $\{X_1,X_2,\ldots\}$, we have
 \begin{equation}\label{Eqn:CndProbOfIndepSeqOfRVs}
-\p(X_{i+1} \leq x_{i+1} | X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1) =  \p(X_{i+1} \leq x_{i+1}) 
+\P(X_{i+1} \leq x_{i+1} | X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1) =  \P(X_{i+1} \leq x_{i+1}) 
 \end{equation}
 \end{prop}
 \begin{proof}
 \begin{eqnarray}
-&&\p(X_{i+1} \leq x_{i+1} | X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1) \notag\\
+&&\P(X_{i+1} \leq x_{i+1} | X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1) \notag\\
 \notag \\
-&=& \frac{\p(X_{i+1} \leq x_{i+1}, X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1)}{\p(X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1)} \notag \\
+&=& \frac{\P(X_{i+1} \leq x_{i+1}, X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1)}{\P(X_{i} \leq x_{i}, X_{i-1} \leq x_{i-1}, \ldots, X_1 \leq x_1)} \notag \\
 \notag \\
-&=& \frac{\p(X_{i+1} \leq x_{i+1}) \p(X_{i} \leq x_{i}) \p(X_{i-1} \leq x_{i-1}) \cdots \p(X_1 \leq x_1)}{\p(X_{i} \leq x_{i}) \p(X_{i-1} \leq x_{i-1}) \cdots \p(X_1 \leq x_1)} \notag \\
+&=& \frac{\P(X_{i+1} \leq x_{i+1}) \P(X_{i} \leq x_{i}) \P(X_{i-1} \leq x_{i-1}) \cdots \P(X_1 \leq x_1)}{\P(X_{i} \leq x_{i}) \P(X_{i-1} \leq x_{i-1}) \cdots \P(X_1 \leq x_1)} \notag \\
 \notag \\
-&=& \p(X_{i+1} \leq x_{i+1}) \notag 
+&=& \P(X_{i+1} \leq x_{i+1}) \notag 
 \end{eqnarray}
 \end{proof}
 Equation~\eqref{Eqn:CndProbOfIndepSeqOfRVs} simply says that the conditional distribution of the RV $X_{i+1}$ given all previous RVs $X_i,X_{i-1},\ldots,X_1$ is simply determined by the distribution of $X_{i+1}$.
@@ -3566,10 +3567,10 @@ f(x;\theta) := P(X=x) = \theta \, \BB{1}_{\{e_1\}}(x) + (1-\theta) \, \BB{1}_{\{
 \begin{example}\label{EgExpectationOfBernoulliRVector}
 Let us find the Expectation of $\bernoulli(\theta)$ \rv in Model~\ref{M:BernoulliTheraRandomVector}.
 \[
-\e_{\theta}(X) = \e_{\theta}((X_1,X_2)) = \sum_{(x_1,x_2) \in \{e_1,e_2\}} (x_1,x_2) f((x_1,x_2);\theta) = (1,0) \theta + (0,1) (1-\theta) = (\theta,1-\theta) \ .
+\E_{\theta}(X) = \E_{\theta}((X_1,X_2)) = \sum_{(x_1,x_2) \in \{e_1,e_2\}} (x_1,x_2) f((x_1,x_2);\theta) = (1,0) \theta + (0,1) (1-\theta) = (\theta,1-\theta) \ .
 \]
 \end{example}
-%How about the variance ? [Hint: Use the definitions of $\e(X)$ and $\V(X)$ for the \rv~$X$.  $\e(X^2)$ is not a single number and you may need new words such as covariance to deal with terms like $\e(X_1 X_2)$.]
+%How about the variance ? [Hint: Use the definitions of $\E(X)$ and $\V(X)$ for the \rv~$X$.  $\E(X^2)$ is not a single number and you may need new words such as covariance to deal with terms like $\E(X_1 X_2)$.]
 
 
 \begin{rem}
@@ -4201,7 +4202,7 @@ Thus, a statistic $T$ is also an RV that takes values in the space $\Tz$.  When 
 Is the RV $X$, for which the realisation is the observed data $X(\omega)=x$, a statistic?  In other words, is the data a statistic? [Hint: consider the identity map $T(x)=x: \Xz \to \Tz=\Xz$.]
 \end{classwork}
 
-Next, we define two important statistics called the {\bf sample mean} and {\bf sample variance}.  Since they are obtained from the sample data, they are called {\bf sample moments}, as opposed to the {\bf population moments}.  The corresponding population moments are $\e(X_1)$ and $\V(X_1)$, respectively.
+Next, we define two important statistics called the {\bf sample mean} and {\bf sample variance}.  Since they are obtained from the sample data, they are called {\bf sample moments}, as opposed to the {\bf population moments}.  The corresponding population moments are $\E(X_1)$ and $\V(X_1)$, respectively.
 \begin{definition}[Sample Mean]\label{D:SampleMean}
 From a given a sequence of RVs $X_1,X_2,\ldots,X_n$, we may obtain another RV called the $n$-samples mean or simply the sample mean:
 \begin{equation}\label{E:SampleMeanRV}
@@ -4211,15 +4212,15 @@ For brevity, we write $$\overline{X}_n( \ (X_1,X_2,\ldots,X_n) \ ) \quad \text{a
 \end{definition}
 Note that the expectation and variance of $\overline{X}_n$ are:
 \begin{eqnarray}
-\e(\overline{X}_n) &=& \e \left(  \frac{1}{n} \sum_{i=1}^n X_i \right) \qquad \text{{\scriptsize[by \hyperref[E:SampleMeanRV]{definition \eqref{E:SampleMeanRV}}]}} \notag \\
-&=&  \frac{1}{n} \sum_{i=1}^n \e \left( X_i \right) \qquad \text{{\scriptsize [by \hyperref[E:EofLinCombofRVs]{property \eqref{E:EofLinCombofRVs}}]}} \notag
+\E(\overline{X}_n) &=& \E \left(  \frac{1}{n} \sum_{i=1}^n X_i \right) \qquad \text{{\scriptsize[by \hyperref[E:SampleMeanRV]{definition \eqref{E:SampleMeanRV}}]}} \notag \\
+&=&  \frac{1}{n} \sum_{i=1}^n \E \left( X_i \right) \qquad \text{{\scriptsize [by \hyperref[E:EofLinCombofRVs]{property \eqref{E:EofLinCombofRVs}}]}} \notag
 \end{eqnarray}
-Furthermore, if every $X_i$ in the original sequence of RVs $X_1,X_2,\ldots$ is {\bf identically} distributed with the same expectation, by convention $\e(X_1)$, then:
+Furthermore, if every $X_i$ in the original sequence of RVs $X_1,X_2,\ldots$ is {\bf identically} distributed with the same expectation, by convention $\E(X_1)$, then:
 \begin{equation}\label{E:ExpOfSampleMeanOfIDSeq}
-\e(\overline{X}_n) 
-= \frac{1}{n} \sum_{i=1}^n \e \left( X_i \right)
-=  \frac{1}{n} \sum_{i=1}^n \e \left( X_1 \right) 
-=  \frac{1}{n} \ n \ \e \left( X_1 \right)  = \e \left( X_1 \right) \ .
+\E(\overline{X}_n) 
+= \frac{1}{n} \sum_{i=1}^n \E \left( X_i \right)
+=  \frac{1}{n} \sum_{i=1}^n \E \left( X_1 \right) 
+=  \frac{1}{n} \ n \ \E \left( X_1 \right)  = \E \left( X_1 \right) \ .
 \end{equation}
 Similarly, we can show that:
 \begin{eqnarray}
@@ -4295,7 +4296,7 @@ For brevity, we write $S_n( \ (X_1,X_2,\ldots,X_n) \ )$ as $S_n$ and its  realis
 \end{definition}
 Once again, if $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} X_1$, the expectation of the sample variance is:
 \[
-\e(S^2_n) = \V(X_1) \ .
+\E(S^2_n) = \V(X_1) \ .
 \]
 \begin{labwork}[Sample variance and sample standard deviation]\label{LW:XsFromUni01Twstr101varstd}
 We can compute the sample variance and sample standard deviation for the five samples stored in the array {\tt XsFromUni01Twstr101} from \hyperref[LW:XsFromUni01Twstr101mean]{Labwork \ref*{LW:XsFromUni01Twstr101mean}} using {\sc Matlab}'s functions {\tt var} and {\tt std}, respectively.
@@ -4345,11 +4346,11 @@ A {\bf functional} is merely a function of another function.  Thus, $T(F): \{ \t
 \begin{enumerate}
 \item The {\bf mean} of RV $X \sim F$ is a function of the DF $F$:  
 \[
-T(F) = \e(X) = \int x\,dF(x) \ .
+T(F) = \E(X) = \int x\,dF(x) \ .
 \]
 \item The {\bf variance} of RV $X \sim F$ is a function of the DF $F$:  
 \[
-T(F) = \e(X-\e(X))^2 = \int (x-\e(X))^2\,dF(x) \ .
+T(F) = \E(X-\E(X))^2 = \int (x-\E(X))^2\,dF(x) \ .
 \]
 \item The {\bf value of DF at a given $x \in \Rz$} of RV $X \sim F$ is also a function of DF $F$:
 \[

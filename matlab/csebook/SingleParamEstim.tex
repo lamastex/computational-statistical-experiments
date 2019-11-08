@@ -304,7 +304,7 @@ Let $X_1,X_2,\ldots,X_n \overset{IID}{\sim} f(X_1;\theta)$.  Here, $f(X_1;\theta
 The {\bf score function} of an RV $X$ for which the density is parameterised by $\theta$ is defined as:
 \[
 \mathscr{S}(X;\theta) := \frac{\partial log f(X;\theta)}{\partial \theta}, \qquad \text{and} \quad 
-\e_{\theta} (\mathscr{S}(X;\theta))=0 \ .
+\E_{\theta} (\mathscr{S}(X;\theta))=0 \ .
 \]
 The {\bf Fisher Information} is
 \begin{equation}\label{E:FisherInfo}
@@ -315,8 +315,8 @@ I_n := \V_{\theta} \left( \sum_{i=1}^n \mathscr{S}(X_i;\theta) \right)
 where $I_1$ is the Fisher Information of just one of the RVs $X_i$,e.g.~$X$:
 \begin{eqnarray}
 I_1 (\theta) &:=& \V_{\theta} \left( \mathscr{S}(X;\theta) \right) 
-= \e_{\theta} \left(  \mathscr{S}^2(X,\theta) \right) \notag \\
-&=& - \e_{\theta} \left(  \frac{\partial^2 log f(X;\theta)}{\partial^2 \theta} \right)
+= \E_{\theta} \left(  \mathscr{S}^2(X,\theta) \right) \notag \\
+&=& - \E_{\theta} \left(  \frac{\partial^2 log f(X;\theta)}{\partial^2 \theta} \right)
 =
 \begin{cases}
 -\sum_{x \in \Xz}  \left( \frac{\partial^2 \log f(x;\theta)}{\partial^2 \theta} \right) f(x;\theta)  & \text{for discrete $X$}\\
@@ -399,11 +399,11 @@ Now, substitute the above expression into the right-hand side of $I_1$ to obtain
 I_1= - \sum_{x=0}^{\infty} \left( -\frac{x}{\lambda^2} \right) f(x;\lambda)
 = \frac{1}{\lambda^2} \sum_{x=0}^{\infty} \left( x \right) f(x;\lambda)
 = \frac{1}{\lambda^2} \sum_{x=0}^{\infty} \left( x \right) e^{-\lambda} \frac{\lambda^x}{x!} 
-=  \frac{1}{\lambda^2} \e_{\lambda}(X)
+=  \frac{1}{\lambda^2} \E_{\lambda}(X)
 = \frac{1}{\lambda^2} \lambda
 =\frac{1}{\lambda}
 \]
-In the third-to-last step above, we recognise the sum as the expectation of the $\poisson(\lambda)$ RV $X$, namely $\e_{\lambda}(X)=\lambda$.  Therefore, the estimated standard error is:
+In the third-to-last step above, we recognise the sum as the expectation of the $\poisson(\lambda)$ RV $X$, namely $\E_{\lambda}(X)=\lambda$.  Therefore, the estimated standard error is:
 \[
 \widehat{\mathsf{se}}_n \approxeq \sqrt{1/I_n(\widehat{\lambda}_n)}
 = \sqrt{1/(n I_1(\widehat{\lambda}_n))}
@@ -429,7 +429,7 @@ Suppose $X_1,X_2,\ldots,X_n \overset{IID}{\sim}$ $\bernoulli(\theta^*)$.  Also, 
 \end{flalign*}
 So, we need to first compute $I_1(\theta)$, the Fisher Information of one sample.  Due to \eqref{E:FisherInfo1} and the fact that the $\bernoulli(\theta^*)$ distributed RV $X$ is discrete with probability mass function $f(x;\theta)=\theta^{x} (1-\theta)^{1-x}$, for $x\in \Xz := \{0,1\}$, we have,
 \begin{flalign*}
-I_1(\theta) &= - \e_{\theta} \left(  \frac{\partial^2 log f(X;\theta)}{\partial^2 \theta} \right) = - \sum_{x \in \Xz = \{0,1\}} \left( \frac{\partial^2 \log \left( \theta^{x} (1-\theta)^{1-x} \right)}{\partial^2 \theta} \right) \theta^{x} (1-\theta)^{1-x} \\
+I_1(\theta) &= - \E_{\theta} \left(  \frac{\partial^2 log f(X;\theta)}{\partial^2 \theta} \right) = - \sum_{x \in \Xz = \{0,1\}} \left( \frac{\partial^2 \log \left( \theta^{x} (1-\theta)^{1-x} \right)}{\partial^2 \theta} \right) \theta^{x} (1-\theta)^{1-x} \\
 \end{flalign*}
 Next, let us compute,
 \begin{flalign*}
@@ -481,7 +481,7 @@ and construct an approximate $95\%$ confidence interval for $\lambda^*$ using th
 
 So, we need to first compute $I_1(\theta)$, the Fisher Information of one sample.  Due to \eqref{E:FisherInfo1} and the fact that the $\exponential(\lambda^*)$ distributed RV $X$ is continuous with probability density function $f(x;\lambda)=\lambda e^{-\lambda x}$, for $x\in \Xz := [0,\infty)$, we have,
 \begin{flalign*}
-I_1(\theta) &= - \e_{\theta} \left(  \frac{\partial^2 log f(X;\theta)}{\partial^2 \theta} \right) = - \int_{x \in \Xz = [0,\infty)} \left( \frac{\partial^2 \log \left( \lambda e^{-\lambda x} \right)}{\partial^2 \lambda} \right) \lambda e^{-\lambda x} \ dx
+I_1(\theta) &= - \E_{\theta} \left(  \frac{\partial^2 log f(X;\theta)}{\partial^2 \theta} \right) = - \int_{x \in \Xz = [0,\infty)} \left( \frac{\partial^2 \log \left( \lambda e^{-\lambda x} \right)}{\partial^2 \lambda} \right) \lambda e^{-\lambda x} \ dx
 \end{flalign*}
 Let us compute the above integrand next.
 \begin{flalign*}
@@ -492,7 +492,7 @@ Let us compute the above integrand next.
 &= \frac{\partial}{\partial \lambda} \left( \frac{\partial}{\partial \lambda} \left( \log(\lambda) -\lambda x \right) \right) 
 = \frac{\partial}{\partial \lambda} \left( {\lambda}^{-1} - x \right) = - \lambda^{-2} - 0 = -\frac{1}{\lambda^2}
 \end{flalign*}
-Now, let us evaluate the integral by recalling that the expectation of the constant $1$ is 1 for any RV $X$ governed by some parameter, say $\theta$.  For instance when $X$ is a continuous RV, $\e_{\theta}(1) = \int_{x \in \Xz} 1 \ f(x;\theta) =  \int_{x \in \Xz} \ f(x;\theta) = 1$.  Therefore, the Fisher Information of one sample is
+Now, let us evaluate the integral by recalling that the expectation of the constant $1$ is 1 for any RV $X$ governed by some parameter, say $\theta$.  For instance when $X$ is a continuous RV, $\E_{\theta}(1) = \int_{x \in \Xz} 1 \ f(x;\theta) =  \int_{x \in \Xz} \ f(x;\theta) = 1$.  Therefore, the Fisher Information of one sample is
 \begin{flalign*}
 I_1(\theta) = - \int_{x \in \Xz = [0,\infty)} \left( \frac{\partial^2 \log \left( \lambda e^{-\lambda x} \right)}{\partial^2 \lambda} \right) \lambda e^{-\lambda x} \ dx
  &=  - \int_{0}^{\infty} \left(-\frac{1}{\lambda^2} \right) \lambda e^{-\lambda x} \ dx \\
@@ -678,7 +678,7 @@ I_1(\sigma)
  =  - \int_{-\infty}^{\infty} \left( \sigma^{-2}  -3  \sigma^{-4} (x-\mu)^2  \right) f(x;\sigma) \ dx \\
  &=   \int_{-\infty}^{\infty} -\sigma^{-2}  f(x;\sigma) \ dx +  \int_{-\infty}^{\infty} 3  \sigma^{-4} (x-\mu)^2  f(x;\sigma) \ dx \\
 & =  -\sigma^{-2} \int_{-\infty}^{\infty} f(x;\sigma) \ dx + 3  \sigma^{-4} \int_{-\infty}^{\infty} (x- \mu)^2  f(x;\sigma) \ dx \\
-& =  -\sigma^{-2}  + 3  \sigma^{-4} \sigma^2  \qquad \qquad \because \sigma^2 = \V(X) = \e(X- \e(X))^2 = \int_{-\infty}^{\infty} (x- \mu)^2  f(x;\sigma) \ dx \\
+& =  -\sigma^{-2}  + 3  \sigma^{-4} \sigma^2  \qquad \qquad \because \sigma^2 = \V(X) = \E(X- \E(X))^2 = \int_{-\infty}^{\infty} (x- \mu)^2  f(x;\sigma) \ dx \\
 & =  -\sigma^{-2}  + 3  \sigma^{-4+2} =  -\sigma^{-2}  + 3  \sigma^{-2}  = 2 \sigma^{-2}  
 \end{flalign*}
 Therefore, the estimated standard error of the estimator of the unknown $\sigma^*$ is

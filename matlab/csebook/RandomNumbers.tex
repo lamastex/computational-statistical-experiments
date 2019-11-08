@@ -209,7 +209,7 @@ Then, $F^{[-1]}(U)$ has the distribution function $F$, provided $U$ is a $\unifo
 \begin{proof}
 The ``one-line proof'' of the proposition is due to the following equalities:
 \[
-\p(F^{[-1]}(U) \leq x) = \p(\inf \{ y :  F(y) = U)\} \leq x ) = \p(U \leq F(x)) = F(x), \quad for~all~x \in \Rz .
+\P(F^{[-1]}(U) \leq x) = \P(\inf \{ y :  F(y) = U)\} \leq x ) = \P(U \leq F(x)) = F(x), \quad for~all~x \in \Rz .
 \]
 \end{proof}
 
@@ -396,7 +396,7 @@ F^{[-1]}(u;\lambda) = - \frac{1}{\lambda} \ \sign\left(u-\frac{1}{2}\right) \log
 \paragraph{Mean and Variance of $\laplace(\lambda)$ RV $X$:}
 Show that the mean of a $\laplace(\lambda)$ RV $X$ is
 \[
-\e(X) = \int_{0}^{\infty} x f(x;\lambda)\,dx
+\E(X) = \int_{0}^{\infty} x f(x;\lambda)\,dx
 =   \int_{0}^{\infty} x \frac{\lambda}{2} e^{- \lambda |x|}\,dx
 = 0 \ ,
 \]
@@ -480,7 +480,7 @@ If $U \sim \uniform(0,1)$ then $F^{[-1]}(U)$ has the DF $F$, i.e.~$F^{[-1]}(U) \
 \begin{proof}
 The proof is a consequence of the following equalities:
 \[
-\p(F^{[-1]}(U) \leq x) = \p(U \leq F(x)) = F(x) := \p(X \leq x)
+\P(F^{[-1]}(U) \leq x) = \P(U \leq F(x)) = F(x) := \P(X \leq x)
 \]
 \end{proof}
 
@@ -890,8 +890,8 @@ for any $x\in \Xz$, the support of $X$.  Then $x$ can be generated from Algorith
 We shall prove the result for the continuous case. For any real number $t$:
 
 \begin{eqnarray*}
-F(t) &= \p(X \leq t) = \p\left(Y \leq t  \, | \, U \leq\frac{f(Y)}{ag(Y)} \right)
-=\frac{\p\left(Y \leq t, U \leq\frac{f(Y)}{ag(Y)} \right)}{\p\left(U \leq\frac{f(Y)}{ag(Y)}\right)}\\
+F(t) &= \P(X \leq t) = \P\left(Y \leq t  \, | \, U \leq\frac{f(Y)}{ag(Y)} \right)
+=\frac{\P\left(Y \leq t, U \leq\frac{f(Y)}{ag(Y)} \right)}{\P\left(U \leq\frac{f(Y)}{ag(Y)}\right)}\\
 &=\frac{\int^t_{-\infty}\left(\int^{f(y)/ag(y)}_0 1 du\right)g(y)dy}{\int^{\infty}_{-\infty}\left(\int^{f(y)/ag(y)}_0 1 du\right)g(y)dy}
 =\frac{\int^t_{-\infty}\left(\frac{f(y)}{ag(y)} \right)g(y)dy}{\int^{\infty}_{-\infty}\left(\frac{f(y)}{ag(y)} \right)g(y)dy}\\
 &=\int^t_{-\infty}f(y)dy
@@ -955,7 +955,7 @@ The next result tells us how many iterations of the algorithm are needed, on ave
 \begin{proof}
 For the continuous case:
 \begin{displaymath}
-\p(\textrm{`accept }y\textrm{'})=\p\left( u\leq \frac{f(y)}{ag(y)}\right)=\int^{\infty}_{-\infty}\left(\int^{f(y)/ag(y)}_0du\right)g(y)dy=\int^{\infty}_{-\infty}\frac{f(y)}{ag(y)}g(y)dy=\frac{1}{a}.
+\P(\textrm{`accept }y\textrm{'})=\P\left( u\leq \frac{f(y)}{ag(y)}\right)=\int^{\infty}_{-\infty}\left(\int^{f(y)/ag(y)}_0du\right)g(y)dy=\int^{\infty}_{-\infty}\frac{f(y)}{ag(y)}g(y)dy=\frac{1}{a}.
 \end{displaymath}
 And the number of proposals before acceptance is the $\geometric(1/a)$ RV with expectation $\frac{1}{1/a}=a$.
 \end{proof}

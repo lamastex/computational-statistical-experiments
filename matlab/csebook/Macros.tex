@@ -30,12 +30,14 @@
 %\newcommand{\pvalue}{\mbox{\sf{p-value}}}
 \newcommand{\pvalue}{\mathsf{p-value}}
 
-\newcommand{\p}{\mathbf{P}}%\p for Probability P()
-\newcommand{\e}{\mathbf{E}}%\e for Expectation E()
-\newcommand{\V}{\mathbf{V}}%\V for Variance V()
+%\newcommand{\P}{\mathbf{P}}%\P for Probability P()
+%\newcommand{\E}{\mathbf{E}}%\E for Expectation E()
+%\newcommand{\V}{\mathbf{V}}%\V for Variance V()
 \newcommand{\dtv}{\mathsf{d_{TV}}}%\V for Variance V()
 
-\newcommand{\cv}{\mathbf{Cov}}%\p for Probability P()
+%\newcommand{\cv}{\mathrm{Cov}}
+\def\cv{\mathop{\rm Cov}}% covariance
+
 \newcommand{\rv}{{\mbox{R$\vec{\text V}$}}}
 \newcommand{\Matlab}{{\sc Matlab }}
 \newcommand{\define}{{\it Definition. }}
@@ -173,7 +175,7 @@
 \def\b {\bfm{b}}
 %\def\c {\bfm{c}}
 \def\d {\bfm{d}}
-%\def\e {\bfm{e}} % Expectation is {\bf E}
+%\def\E {\bfm{e}} % Expectation is {\bf E}
 \def\f {\bfm{f}}
 \def\g {\bfm{g}}
 \def\h {\bfm{h}}
@@ -184,7 +186,7 @@
 \def\m {\bfm{m}}
 \def\n {\bfm{n}}
 \def\o {\bfm{o}}
-%\def\p {\bfm{p}} %  Prob is {\bf P}
+%\def\P {\bfm{p}} %  Prob is {\bf P}
 \def\q {\bfm{q}}
 \def\r {\bfm{r}}
 \def\s {\bfm{s}}
@@ -210,7 +212,7 @@
 \def\M {\bfm{M}}
 \def\N {\bfm{N}}
 \def\O {\bfm{O}}
-\def\P {\bfm{P}}
+\def\Pb {\bfm{P}} % \P is probablity from mismath
 \def\Q {\bfm{Q}}
 \def\R {\bfm{R}}
 \def\S {\bfm{S}}

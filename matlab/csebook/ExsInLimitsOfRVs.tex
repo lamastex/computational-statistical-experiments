@@ -37,18 +37,18 @@ Suppose we have $n=125$ programs and want to make a probability statement about 
 Using the CLT find the $P(\overline{X}_{125} < 5.5)$.
 \Answer
 ~\\
-By CLT, $\frac{\sqrt{n}(\overline{X}_n - \e(X_1))}{\sqrt{\V(X_1)}} \rightsquigarrow Z \sim \mathrm{Normal}(0,1)$.  
+By CLT, $\frac{\sqrt{n}(\overline{X}_n - \E(X_1))}{\sqrt{\V(X_1)}} \rightsquigarrow Z \sim \mathrm{Normal}(0,1)$.  
 So we need to apply the ``standardization'' to both sides of the inequality that is defining the event of interest:
 $$\{\overline{X}_n < 5.5\} \enspace ,$$ 
-in order to find its probability $\p(\overline{X}_n < 5.5)$.
+in order to find its probability $\P(\overline{X}_n < 5.5)$.
 ~\\
 \begin{eqnarray}
-\p(\overline{X}_n < 5.5) 
-&=& P \left( \frac{\sqrt{n}(\overline{X}_n - \e(X_1))}{\sqrt{\V(X_1)}} < \frac{\sqrt{n}(5.5-\e(X_1))}{\sqrt{\V(X_1)}} \right) \notag \\
+\P(\overline{X}_n < 5.5) 
+&=& P \left( \frac{\sqrt{n}(\overline{X}_n - \E(X_1))}{\sqrt{\V(X_1)}} < \frac{\sqrt{n}(5.5-\E(X_1))}{\sqrt{\V(X_1)}} \right) \notag \\
 &\approxeq& P \left( Z < \frac{\sqrt{n}(5.5-\lambda)}{\sqrt{\lambda}} \right) \qquad \text{{\scriptsize [
-since we know/assume that $\e(X_1)=\V(X_1)=\lambda$]}} \notag \\
+since we know/assume that $\E(X_1)=\V(X_1)=\lambda$]}} \notag \\
 &=& P \left( Z < \frac{\sqrt{125}(5.5-5)}{\sqrt{5}} \right) \qquad \text{{\scriptsize [Since, $\lambda=5$ and $n=125$ in this Example]}} \notag \\
-&=& \p(Z \leq 2.5) = \Phi(2.5) = 0.9938\ . \notag
+&=& \P(Z \leq 2.5) = \Phi(2.5) = 0.9938\ . \notag
 \end{eqnarray}
 (source: Wasserman, {\em All of Statistics}, Springer, p.~78, 2003)
 

@@ -10,7 +10,7 @@ Now that we have been introduced to two notions of convergence for RV sequences,
 \item a {\bf parameter} $\theta^*$ which is an element of the {\bf parameter space} $\BB{\Theta}$, denoted $\theta^* \in \BB{\Theta}$,
 \item a {\bf distribution function (DF)} $F^* \in \Fz := \text{the set of all DFs}$
 \item a {\bf density function (pdf)} $f \in \{ \text{``not too wiggly Sobolev functions''} \}$, or 
-\item a {\bf regression function} $g^* \in \Gz$, where $\Gz$ is a class of regression functions in a regression experiment with model: $Y=g^*(X)+\epsilon$, such that $\e(\epsilon)=0$, from pairs of observations $\{(X_i,Y_i)\}_{i=1}^n$, or
+\item a {\bf regression function} $g^* \in \Gz$, where $\Gz$ is a class of regression functions in a regression experiment with model: $Y=g^*(X)+\epsilon$, such that $\E(\epsilon)=0$, from pairs of observations $\{(X_i,Y_i)\}_{i=1}^n$, or
 \item a {\bf classifier} $g^* \in \Gz$, i.e.~a regression experiment with discrete $Y = g^*(X)+\epsilon$, or 
 \item a {\bf prediction} in a regression experiment, i.e.~when you want to estimate $Y_i$ given $X_i$. 
 \end{itemize}
@@ -66,18 +66,18 @@ Given that an estimator is merely a function from the data space to the paramete
 The $\mathsf{bias}_n$ of an estimator $\widehat{\Theta}_n$ of  $\theta^* \in \BB{\Theta}$ is:
 \begin{equation}\label{E:Bias}
 \boxed{
-\mathsf{bias}_n=\mathsf{bias}_n(\widehat{\Theta}_n) := \e_{\theta^*}(\widehat{\Theta}_n) - \theta^* = \int_{\Xz_n} \widehat{\Theta}_n(x) \, dF(x;\theta^*) - \theta^*
+\mathsf{bias}_n=\mathsf{bias}_n(\widehat{\Theta}_n) := \E_{\theta^*}(\widehat{\Theta}_n) - \theta^* = \int_{\Xz_n} \widehat{\Theta}_n(x) \, dF(x;\theta^*) - \theta^*
 }
  \ .
 \end{equation} 
-We say that the estimator $\widehat{\Theta}_n$ is {\bf unbiased} if $\mathsf{bias}_n(\widehat{\Theta}_n)=0$ or if $\e_{\theta^*}(\widehat{\Theta}_n)=\theta^*$ for every $n$.  If $\lim_{n \to \infty}\mathsf{bias}_n(\widehat{\Theta}_n)=0$, we say that the estimator is {\bf asymptotically unbiased}.
+We say that the estimator $\widehat{\Theta}_n$ is {\bf unbiased} if $\mathsf{bias}_n(\widehat{\Theta}_n)=0$ or if $\E_{\theta^*}(\widehat{\Theta}_n)=\theta^*$ for every $n$.  If $\lim_{n \to \infty}\mathsf{bias}_n(\widehat{\Theta}_n)=0$, we say that the estimator is {\bf asymptotically unbiased}.
 \end{definition}
-Since the expectation of the sampling distribution of the point estimator $\widehat{\Theta}_n$ depends on the unknown $\theta^*$, we emphasise the $\theta^*$-dependence by $\e_{\theta^*}(\widehat{\Theta}_n)$.
+Since the expectation of the sampling distribution of the point estimator $\widehat{\Theta}_n$ depends on the unknown $\theta^*$, we emphasise the $\theta^*$-dependence by $\E_{\theta^*}(\widehat{\Theta}_n)$.
 
 \begin{example}[Bias of our Estimator of $\theta^*$]\label{EX:BiasEstimatePFromNIIDBernoulliTrials}
 Consider the sample mean estimator $\widehat{\Theta}_n := \overline{X}_n$ of $\theta^*$, from $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} \bernoulli(\theta^*)$.  That is, we take the sample mean of the $n$ IID $\bernoulli(\theta^*)$ trials to be our point estimator of $\theta^*\in[0,1]$.  Then, {\bf this estimator is unbiased} since:
 \[
-\e_{\theta^*}(\widehat{\Theta}_n) = \e_{\theta^*} \left( n^{-1} \sum_{i=1}^n X_i \right) = n^{-1} \e_{\theta^*} \left(  \sum_{i=1}^n X_i \right) = n^{-1} \sum_{i=1}^n \e_{\theta^*}(X_i) = n^{-1} n \theta^* = \theta^* \ .
+\E_{\theta^*}(\widehat{\Theta}_n) = \E_{\theta^*} \left( n^{-1} \sum_{i=1}^n X_i \right) = n^{-1} \E_{\theta^*} \left(  \sum_{i=1}^n X_i \right) = n^{-1} \sum_{i=1}^n \E_{\theta^*}(X_i) = n^{-1} n \theta^* = \theta^* \ .
 \]
 \end{example}
 
@@ -85,7 +85,7 @@ Consider the sample mean estimator $\widehat{\Theta}_n := \overline{X}_n$ of $\t
 The standard deviation of the point estimator $\widehat{\Theta}_n$ of  $\theta^* \in \BB{\Theta}$ is called the {\bf standard error}:
 \begin{equation}\label{E:se}
 \boxed{
-\mathsf{se}_n = \mathsf{se}_n(\widehat{\Theta}_n)=\sqrt{\V_{\theta^*}(\widehat{\Theta}_n)} = \sqrt{ \int_{\Xz_n} \left( \widehat{\Theta}_n(x) - \e_{\theta^*}(\widehat{\Theta}_n) \right)^2 \, dF(x;\theta^*)}
+\mathsf{se}_n = \mathsf{se}_n(\widehat{\Theta}_n)=\sqrt{\V_{\theta^*}(\widehat{\Theta}_n)} = \sqrt{ \int_{\Xz_n} \left( \widehat{\Theta}_n(x) - \E_{\theta^*}(\widehat{\Theta}_n) \right)^2 \, dF(x;\theta^*)}
 }\ .
 \end{equation}
 \end{definition}
@@ -112,7 +112,7 @@ A point estimator $\widehat{\Theta}_n$ of $\theta^* \in \BB{\Theta}$ is said to 
 \widehat{\Theta}_n \overset{P}{\longrightarrow} \theta^*
 } \qquad \text{i.e., for any real $\epsilon > 0$,} \quad
 \boxed{
-\lim_{n \to \infty} \p (| \widehat{\Theta}_n - \theta^* | > \epsilon) = 0
+\lim_{n \to \infty} \P (| \widehat{\Theta}_n - \theta^* | > \epsilon) = 0
 } \ .
 \]
 \end{definition}
@@ -121,7 +121,7 @@ A point estimator $\widehat{\Theta}_n$ of $\theta^* \in \BB{\Theta}$ is said to 
 Often, the quality of a point estimator $\widehat{\Theta}_n$ of $\theta^* \in \BB{\Theta}$ is assessed by the {\bf mean squared error} or $\mathsf{MSE}_n$ defined by:
 \begin{equation}\label{E:MSE}
 \boxed{
-\mathsf{MSE}_n=\mathsf{MSE}_n(\widehat{\Theta}_n) := \e_{\theta^*} \left((\widehat{\Theta}_n-\theta^*)^2 \right) 
+\mathsf{MSE}_n=\mathsf{MSE}_n(\widehat{\Theta}_n) := \E_{\theta^*} \left((\widehat{\Theta}_n-\theta^*)^2 \right) 
 = \int_{\Xz} (\widehat{\Theta}_n(x)-\theta^*)^2 \, dF(x;\theta^*) 
 } \ .
 \end{equation}
@@ -141,31 +141,31 @@ Let $\widehat{\Theta}_n$ be an estimator of $\theta^* \in \BB{\Theta}$.  Then:
 \begin{eqnarray}
 & & LHS \notag \\
 &=& \mathsf{MSE}_n(\widehat{\Theta}_n) \notag \\
-&:=& \e_{\theta^*} \left((\widehat{\Theta}_n-\theta^*)^2 \right), \qquad  \text{by definition of $\mathsf{MSE}_n$ \eqref{E:MSE}} \notag \\
-&=& \e_{\theta^*} \left( \left( \ \underset{A}{\underbrace{\left(\widehat{\Theta}_n -\e_{\theta^*}(\widehat{\Theta}_n) \right)}} + \underset{B}{\underbrace{\left(\e_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}} \ \right)^2 \right), \qquad \text{by subtracting and adding the constant $\e_{\theta^*}(\widehat{\Theta}_n)$} \notag \\
-&=& \e_{\theta^*} \left( \underset{A^2}{\underbrace{{\left(\widehat{\Theta}_n -\e_{\theta^*}(\widehat{\Theta}_n) \right)}^2}} + \underset{2AB}{\underbrace{2  {\left(\widehat{\Theta}_n -\e_{\theta^*}(\widehat{\Theta}_n) \right)} {\left(\e_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}}} + \underset{B^2}{\underbrace{{\left(\e_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}^2}}  \right), \qquad \text{$\because \ (A+B)^2=A^2+2AB+B^2$} \notag \\
-&=& \e_{\theta^*} \left( {\left(\widehat{\Theta}_n -\e_{\theta^*}(\widehat{\Theta}_n) \right)}^2 \right) + 
-\e_{\theta^*} \left( 2  {\left(\widehat{\Theta}_n -\e_{\theta^*}(\widehat{\Theta}_n) \right)} {\left(\e_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)} \right) + 
-\e_{\theta^*} \left( {\left(\e_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}^2  \right), %\quad \text{taking $\e_{\theta^*}(\cdot)$ of $A^2$, $2AB$ and $B^2$} 
+&:=& \E_{\theta^*} \left((\widehat{\Theta}_n-\theta^*)^2 \right), \qquad  \text{by definition of $\mathsf{MSE}_n$ \eqref{E:MSE}} \notag \\
+&=& \E_{\theta^*} \left( \left( \ \underset{A}{\underbrace{\left(\widehat{\Theta}_n -\E_{\theta^*}(\widehat{\Theta}_n) \right)}} + \underset{B}{\underbrace{\left(\E_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}} \ \right)^2 \right), \qquad \text{by subtracting and adding the constant $\E_{\theta^*}(\widehat{\Theta}_n)$} \notag \\
+&=& \E_{\theta^*} \left( \underset{A^2}{\underbrace{{\left(\widehat{\Theta}_n -\E_{\theta^*}(\widehat{\Theta}_n) \right)}^2}} + \underset{2AB}{\underbrace{2  {\left(\widehat{\Theta}_n -\E_{\theta^*}(\widehat{\Theta}_n) \right)} {\left(\E_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}}} + \underset{B^2}{\underbrace{{\left(\E_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}^2}}  \right), \qquad \text{$\because \ (A+B)^2=A^2+2AB+B^2$} \notag \\
+&=& \E_{\theta^*} \left( {\left(\widehat{\Theta}_n -\E_{\theta^*}(\widehat{\Theta}_n) \right)}^2 \right) + 
+\E_{\theta^*} \left( 2  {\left(\widehat{\Theta}_n -\E_{\theta^*}(\widehat{\Theta}_n) \right)} {\left(\E_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)} \right) + 
+\E_{\theta^*} \left( {\left(\E_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}^2  \right), %\quad \text{taking $\E_{\theta^*}(\cdot)$ of $A^2$, $2AB$ and $B^2$} 
 \notag \\
-&=& \e_{\theta^*} \left( {\left(\widehat{\Theta}_n -\e_{\theta^*}(\widehat{\Theta}_n) \right)}^2 \right) + 
-\underset{C}{\underbrace{2 {\left(\e_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}}} \underset{D}{\underbrace{ \e_{\theta^*} \left(  {\left(\widehat{\Theta}_n -\e_{\theta^*}(\widehat{\Theta}_n) \right)} \right)}} + 
-\e_{\theta^*} \left( {\left(\e_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}^2  \right), \quad \text{$\because \ C$ 
-% := 2 {\left(\e_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}$
+&=& \E_{\theta^*} \left( {\left(\widehat{\Theta}_n -\E_{\theta^*}(\widehat{\Theta}_n) \right)}^2 \right) + 
+\underset{C}{\underbrace{2 {\left(\E_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}}} \underset{D}{\underbrace{ \E_{\theta^*} \left(  {\left(\widehat{\Theta}_n -\E_{\theta^*}(\widehat{\Theta}_n) \right)} \right)}} + 
+\E_{\theta^*} \left( {\left(\E_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}^2  \right), \quad \text{$\because \ C$ 
+% := 2 {\left(\E_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}$
 is constant} \notag \\
-&=& \e_{\theta^*} \left( {\left(\widehat{\Theta}_n -\e_{\theta^*}(\widehat{\Theta}_n) \right)}^2 \right) + 
+&=& \E_{\theta^*} \left( {\left(\widehat{\Theta}_n -\E_{\theta^*}(\widehat{\Theta}_n) \right)}^2 \right) + 
 0 + 
-\e_{\theta^*} \left( {\left(\e_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}^2  \right), \qquad \text{$\because \ D := \e_{\theta^*} \left(  {\left(\widehat{\Theta}_n -\e_{\theta^*}(\widehat{\Theta}_n) \right)} \right)=\e_{\theta^*}(\widehat{\Theta}_n ) - \e_{\theta^*}(\widehat{\Theta}_n) = 0$} \notag \\
+\E_{\theta^*} \left( {\left(\E_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}^2  \right), \qquad \text{$\because \ D := \E_{\theta^*} \left(  {\left(\widehat{\Theta}_n -\E_{\theta^*}(\widehat{\Theta}_n) \right)} \right)=\E_{\theta^*}(\widehat{\Theta}_n ) - \E_{\theta^*}(\widehat{\Theta}_n) = 0$} \notag \\
 &=& \V_{\theta^*}(\widehat{\Theta}_n)+ 
-\e_{\theta^*} \left( {\left(\e_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}^2  \right), \qquad \text{$\because \ \V_{\theta^*}(\widehat{\Theta}_n) := \e_{\theta^*} \left( {\left(\widehat{\Theta}_n -\e_{\theta^*}(\widehat{\Theta}_n) \right)}^2 \right)$, by definition of variance} \notag \\
+\E_{\theta^*} \left( {\left(\E_{\theta^*}(\widehat{\Theta}_n) -\theta^* \right)}^2  \right), \qquad \text{$\because \ \V_{\theta^*}(\widehat{\Theta}_n) := \E_{\theta^*} \left( {\left(\widehat{\Theta}_n -\E_{\theta^*}(\widehat{\Theta}_n) \right)}^2 \right)$, by definition of variance} \notag \\
 &=& \left( \sqrt{\V_{\theta^*}(\widehat{\Theta}_n)} \right)^2+ 
-\e_{\theta^*} \left( {\left( \mathsf{bias}_n(\widehat{\Theta}_n) \right)}^2  \right), \qquad \text{$\because \  \mathsf{bias}_n(\widehat{\Theta}_n) = \e_{\theta^*}(\widehat{\Theta}_n) -\theta^* $, by definition of $\mathsf{bias}_n$ of an estimator $\widehat{\Theta}_n$} \notag \\
+\E_{\theta^*} \left( {\left( \mathsf{bias}_n(\widehat{\Theta}_n) \right)}^2  \right), \qquad \text{$\because \  \mathsf{bias}_n(\widehat{\Theta}_n) = \E_{\theta^*}(\widehat{\Theta}_n) -\theta^* $, by definition of $\mathsf{bias}_n$ of an estimator $\widehat{\Theta}_n$} \notag \\
 &=&  \left(  \mathsf{se}_n(\widehat{\Theta}_n) \right)^2 + 
-\e_{\theta^*} \left( {\left( \mathsf{bias}_n(\widehat{\Theta}_n) \right)}^2  \right) , \qquad 
+\E_{\theta^*} \left( {\left( \mathsf{bias}_n(\widehat{\Theta}_n) \right)}^2  \right) , \qquad 
 \text{$\because \ \mathsf{se}_n(\widehat{\Theta}_n) := \sqrt{\V_{\theta^*}(\widehat{\Theta}_n)}$, by definition \eqref{E:se}} \notag \\
 &=&  \left(  \mathsf{se}_n(\widehat{\Theta}_n) \right)^2 + 
  {\left( \mathsf{bias}_n(\widehat{\Theta}_n) \right)}^2, \qquad 
-\text{$\because \  \mathsf{bias}_n(\widehat{\Theta}_n) = \e_{\theta^*}(\widehat{\Theta}_n) -\theta^*$ and $\left( \mathsf{bias}_n(\widehat{\Theta}_n) \right)^2$ are constants.} \notag \\
+\text{$\because \  \mathsf{bias}_n(\widehat{\Theta}_n) = \E_{\theta^*}(\widehat{\Theta}_n) -\theta^*$ and $\left( \mathsf{bias}_n(\widehat{\Theta}_n) \right)^2$ are constants.} \notag \\
 &=& RHS \notag 
 \end{eqnarray}
 \end{proof}
@@ -179,14 +179,14 @@ Let $\widehat{\Theta}_n$ be an estimator of $\theta^* \in \BB{\Theta}$.  Then, i
 \]
 {\scriptsize
 \begin{proof}
-If $\mathsf{bias}_n(\widehat{\Theta}_n) \to 0$ and $\mathsf{se}_n(\widehat{\Theta}_n) \to 0$, then by \eqref{E:RMseSeBiasTriangle}, $\mathsf{MSE}_n(\widehat{\Theta}_n) \to 0$, i.e.~that $\e_{\theta^*}\left( (\widehat{\Theta}_n-\theta^*)^2 \right) \to 0$.  This type of convergence of the RV $\widehat{\Theta}_n$ to the $Point~Mass(\theta^*)$ RV as $n \to \infty$ is called convergence in {\bf quadratic mean} or {\bf convergence in} $\B{L_2}$ and denoted by $\widehat{\Theta}_n \overset{qm}{\longrightarrow} \theta^*$.  Convergence in quadratic mean is a stronger notion of convergence than convergence in probability, in the sense that 
+If $\mathsf{bias}_n(\widehat{\Theta}_n) \to 0$ and $\mathsf{se}_n(\widehat{\Theta}_n) \to 0$, then by \eqref{E:RMseSeBiasTriangle}, $\mathsf{MSE}_n(\widehat{\Theta}_n) \to 0$, i.e.~that $\E_{\theta^*}\left( (\widehat{\Theta}_n-\theta^*)^2 \right) \to 0$.  This type of convergence of the RV $\widehat{\Theta}_n$ to the $Point~Mass(\theta^*)$ RV as $n \to \infty$ is called convergence in {\bf quadratic mean} or {\bf convergence in} $\B{L_2}$ and denoted by $\widehat{\Theta}_n \overset{qm}{\longrightarrow} \theta^*$.  Convergence in quadratic mean is a stronger notion of convergence than convergence in probability, in the sense that 
 \[
-\e_{\theta^*}\left( (\widehat{\Theta}_n-\theta^*)^2 \right) \to 0 \quad \text{ or } \quad \widehat{\Theta}_n \overset{qm}{\longrightarrow} \theta^* \implies \widehat{\Theta}_n \overset{P}{\longrightarrow} \theta^* \ .
+\E_{\theta^*}\left( (\widehat{\Theta}_n-\theta^*)^2 \right) \to 0 \quad \text{ or } \quad \widehat{\Theta}_n \overset{qm}{\longrightarrow} \theta^* \implies \widehat{\Theta}_n \overset{P}{\longrightarrow} \theta^* \ .
 \]
 Thus, if we prove the above implication we are done with the proof of our proposition.  To show that convergence in quadratic mean implies convergence in probability for general sequence of RVs $X_n$ converging to an RV $X$, we first assume that $X_n \overset{qm}{\longrightarrow} X$.
 Now, fix any $\epsilon>0$.  Then by Markov's inequality \eqref{E:MarkovNeq},
 \[
-\p(|X_n-X|>\epsilon) = \p(|X_n-X|^2>\epsilon^2) \leq \frac{\e(|X_n-X|^2)}{\epsilon^2} \to 0 \ ,
+\P(|X_n-X|>\epsilon) = \P(|X_n-X|^2>\epsilon^2) \leq \frac{\E(|X_n-X|^2)}{\epsilon^2} \to 0 \ ,
 \]
 and we have shown that the definition of convergence in probability holds provided convergence in quadratic mean holds.
 \end{proof}
@@ -212,11 +212,11 @@ C_n := [\underline{C}_{\, n}, \overline{C}_{\, n}]
 \]
 such that:
 \[
-\p_{\theta^*} \left(  \theta^* \in C_n :=  [\underline{C}_{\, n}, \overline{C}_{\, n}] \right) \geq 1-\alpha \ .
+\P_{\theta^*} \left(  \theta^* \in C_n :=  [\underline{C}_{\, n}, \overline{C}_{\, n}] \right) \geq 1-\alpha \ .
 \]
 Note that the confidence interval $C_n := [\underline{C}_{\, n}, \overline{C}_{\, n}]$ is a two-dimensional RV or a random vector in $\Rz^2$ that depends on the two statistics $\underline{C}_{\, n} (X_1,X_2,\ldots,X_n) $ and $\overline{C}_{\, n} (X_1,X_2,\ldots,X_n) $, as well as $\theta^*$, which in turn determines the distribution of the data $(X_1,X_2,\ldots,X_n)$.  In words, $C_n$ engulfs the true parameter $\theta^* \in \BB{\Theta}$ with a probability of at least $1-\alpha$.  We call $1-\alpha$ as the {\bf coverage} of the confidence interval $C_n$.
 
-Formally, a $1-\alpha$ {\bf confidence set} $C_n$ for a vector-valued $\theta^* \in \BB{\Theta} \subset \Rz^k$ is any subset of $\BB{\Theta}$ such that $\p_{\theta^*}( \theta^* \in C_n) \geq 1-\alpha$.  The typical forms taken by $C_n$ are $k$-dimensional boxes or hyper-cuboids, hyper-ellipsoids and subsets defined by inequalities involving level sets of some estimator of $\theta^*$.  
+Formally, a $1-\alpha$ {\bf confidence set} $C_n$ for a vector-valued $\theta^* \in \BB{\Theta} \subset \Rz^k$ is any subset of $\BB{\Theta}$ such that $\P_{\theta^*}( \theta^* \in C_n) \geq 1-\alpha$.  The typical forms taken by $C_n$ are $k$-dimensional boxes or hyper-cuboids, hyper-ellipsoids and subsets defined by inequalities involving level sets of some estimator of $\theta^*$.  
 
 Typically, we take $\alpha=0.05$ because we are interested in the $1-\alpha=0.95$ or $95\%$ confidence interval/set $C_n \subset \BB{\Theta}$ of $\theta^* \in \BB{\Theta}$ from an estimator $\widehat{\Theta}_n$ of $\theta^*$.  
 
@@ -226,13 +226,13 @@ Typically, we take $\alpha=0.05$ because we are interested in the $1-\alpha=0.95
 %\[
 %X_1,X_2,\ldots,X_n \overset{\IID}{\sim} \poisson(\lambda^*=5) \ . 
 %\]
-%Suppose we have $n=125$ programs and want to make a probability statement about $\overline{X}_n$ which is the average number of errors per program out of these $125$ programs.  Since $\e(X_i) = \lambda^*=5$ and $\V(X_i)=\lambda^*=5$, we may want to know how often our sample mean $\overline{X}_{125}$ differs from the expectation of $5$ errors per program.  Using the CLT, we can approximate $\p(\overline{X}_n < 5.5)$, for instance, as follows:
+%Suppose we have $n=125$ programs and want to make a probability statement about $\overline{X}_n$ which is the average number of errors per program out of these $125$ programs.  Since $\E(X_i) = \lambda^*=5$ and $\V(X_i)=\lambda^*=5$, we may want to know how often our sample mean $\overline{X}_{125}$ differs from the expectation of $5$ errors per program.  Using the CLT, we can approximate $\P(\overline{X}_n < 5.5)$, for instance, as follows:
 %\begin{eqnarray}
-%\p(\overline{X}_n < 5.5) 
-%&=& \p \left( \frac{\sqrt{n}(\overline{X}_n - \e(X_1))}{\sqrt{\V(X_1)}} < \frac{\sqrt{n}(5.5-\e(X_1))}{\sqrt{\V(X_1)}} \right) \notag \\
-%&\approxeq& \p \left( Z < \frac{\sqrt{n}(5.5-\lambda^*)}{\sqrt{\lambda^*}} \right) \qquad \text{{\scriptsize [by \eqref{E:CLTApprox}, and $\e(X_1)=\V(X_1)=\lambda^*$]}} \notag \\
-%&=& \p \left( Z < \frac{\sqrt{125}(5.5-5)}{\sqrt{5}} \right) \qquad \text{{\scriptsize [Since, $\lambda^*=5$ and $n=125$ in this Example]}} \notag \\
-%&=& \p(Z \leq 2.5) = \Phi(2.5) =  \int_{- \infty}^{2.5} \left( \frac{1}{\sqrt{2 \pi}} \ \exp \left( \frac{-x^2}{2} \right) \right) dx \approxeq 0.993790334674224 \ . \notag
+%\P(\overline{X}_n < 5.5) 
+%&=& \P \left( \frac{\sqrt{n}(\overline{X}_n - \E(X_1))}{\sqrt{\V(X_1)}} < \frac{\sqrt{n}(5.5-\E(X_1))}{\sqrt{\V(X_1)}} \right) \notag \\
+%&\approxeq& \P \left( Z < \frac{\sqrt{n}(5.5-\lambda^*)}{\sqrt{\lambda^*}} \right) \qquad \text{{\scriptsize [by \eqref{E:CLTApprox}, and $\E(X_1)=\V(X_1)=\lambda^*$]}} \notag \\
+%&=& \P \left( Z < \frac{\sqrt{125}(5.5-5)}{\sqrt{5}} \right) \qquad \text{{\scriptsize [Since, $\lambda^*=5$ and $n=125$ in this Example]}} \notag \\
+%&=& \P(Z \leq 2.5) = \Phi(2.5) =  \int_{- \infty}^{2.5} \left( \frac{1}{\sqrt{2 \pi}} \ \exp \left( \frac{-x^2}{2} \right) \right) dx \approxeq 0.993790334674224 \ . \notag
 %\end{eqnarray}
 %To obtain the final number in this approximation, we need the following:
 %\begin{labwork}
@@ -244,11 +244,11 @@ Typically, we take $\alpha=0.05$ because we are interested in the $1-\alpha=0.95
 %\end{VrbM}
 %\end{labwork}
 %\end{example}
-%The CLT says that if $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ then $Z_n := \sqrt{n}(\overline{X}_n-\e(X_1))/\sqrt{\V(X_1)}$ is approximately distributed as $\normal(0,1)$.  In \hyperref[EX:CLTPoisson]{Example \ref*{EX:CLTPoisson}}, we knew $\sqrt{\V(X_1)}$ since we assumed knowledge of $\lambda^*=5$.   However, in general, we may not know $\sqrt{\V(X_1)}$.  The next proposition says that we may estimate $\sqrt{\V(X_1)}$ using the sample standard deviation $S_n$ of $X_1,X_2,\ldots,X_n$, according to \eqref{E:SampleStdDevRV}, and still make probability statements about the sample mean $\overline{X}_n$ using a $\normal$ distribution, {\bf provided $\mathbf{n}$ is not too small}, for e.g.~$n \geq 30$.
+%The CLT says that if $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ then $Z_n := \sqrt{n}(\overline{X}_n-\E(X_1))/\sqrt{\V(X_1)}$ is approximately distributed as $\normal(0,1)$.  In \hyperref[EX:CLTPoisson]{Example \ref*{EX:CLTPoisson}}, we knew $\sqrt{\V(X_1)}$ since we assumed knowledge of $\lambda^*=5$.   However, in general, we may not know $\sqrt{\V(X_1)}$.  The next proposition says that we may estimate $\sqrt{\V(X_1)}$ using the sample standard deviation $S_n$ of $X_1,X_2,\ldots,X_n$, according to \eqref{E:SampleStdDevRV}, and still make probability statements about the sample mean $\overline{X}_n$ using a $\normal$ distribution, {\bf provided $\mathbf{n}$ is not too small}, for e.g.~$n \geq 30$.
 %\begin{prop}[CLT based on Sample Variance]
-%Let $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and suppose $\e(X_1)$ and $\V(X_1)$ exists, then:
+%Let $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and suppose $\E(X_1)$ and $\V(X_1)$ exists, then:
 %\begin{equation}\label{E:CLTApproxSn}
-%\frac{\sqrt{n} \left( \overline{X}_n - \e(X_1) \right)}{S_n} \rightsquigarrow \normal(0,1) \ .
+%\frac{\sqrt{n} \left( \overline{X}_n - \E(X_1) \right)}{S_n} \rightsquigarrow \normal(0,1) \ .
 %\end{equation}
 %\end{prop}
 
@@ -268,11 +268,11 @@ Suppose an estimator $\widehat{\Theta}_n$ of  parameter $\theta^* \in \BB{\Theta
 \]
 Let the RV $Z \sim \normal(0,1)$ have DF $\Phi$ and inverse DF $\Phi^{-1}$.  Let:
 \[
-z_{\alpha/2}=\Phi^{-1}(1-(\alpha/2)), \quad \text{ that is, } \quad \p(Z>z_{\alpha/2})=\alpha/2 \ \text{ and } \ \p(-z_{\alpha/2} < Z < z_{\alpha/2}) = 1-\alpha \ .
+z_{\alpha/2}=\Phi^{-1}(1-(\alpha/2)), \quad \text{ that is, } \quad \P(Z>z_{\alpha/2})=\alpha/2 \ \text{ and } \ \P(-z_{\alpha/2} < Z < z_{\alpha/2}) = 1-\alpha \ .
 \]
 Then:
 \[
-\p_{\theta^*}(\theta^* \in C_n)  = \p \left( \theta^* \in [\widehat{\Theta}_n - z_{\alpha/2} \widehat{\mathsf{se}}_n, \widehat{\Theta}_n + z_{\alpha/2} \widehat{\mathsf{se}}_n] \right) \to 1-\alpha \ .
+\P_{\theta^*}(\theta^* \in C_n)  = \P \left( \theta^* \in [\widehat{\Theta}_n - z_{\alpha/2} \widehat{\mathsf{se}}_n, \widehat{\Theta}_n + z_{\alpha/2} \widehat{\mathsf{se}}_n] \right) \to 1-\alpha \ .
 \]
 Therefore:
 \[
@@ -284,12 +284,12 @@ is the $1-\alpha$ Normal-based asymptotic confidence interval that relies on the
 \begin{proof}
 Define the centralised and scaled estimator as $Z_n := (\widehat{\Theta}_n-\theta^*)/\widehat{\mathsf{se}}_n$.  By assumption, $Z_n \rightsquigarrow Z \sim \normal(0,1)$.  Therefore,
 \begin{eqnarray}
-\p_{\theta^*}(\theta^* \in C_n) 
-&=& \p_{\theta^*} \left( \theta^* \in [\widehat{\Theta}_n - z_{\alpha/2} \widehat{\mathsf{se}}_n, \widehat{\Theta}_n + z_{\alpha/2} \widehat{\mathsf{se}}_n] \right) \notag \\
-&=& \p_{\theta^*} \left( \widehat{\Theta}_n - z_{\alpha/2} \widehat{\mathsf{se}}_n \leq \theta^* \leq  \widehat{\Theta}_n + z_{\alpha/2} \widehat{\mathsf{se}}_n \right) \notag \\
-&=& \p_{\theta^*} \left(  - z_{\alpha/2} \widehat{\mathsf{se}}_n \leq \widehat{\Theta}_n - \theta^* \leq   z_{\alpha/2} \widehat{\mathsf{se}}_n \right) \notag \\
-&=& \p_{\theta^*} \left(  - z_{\alpha/2}  \leq \frac{\widehat{\Theta}_n - \theta^*}{\widehat{\mathsf{se}}_n} \leq   z_{\alpha/2} \right) \notag \\
-&\to& \p_{\theta^*} \left(  - z_{\alpha/2}  \leq Z \leq   z_{\alpha/2} \right) \notag \\
+\P_{\theta^*}(\theta^* \in C_n) 
+&=& \P_{\theta^*} \left( \theta^* \in [\widehat{\Theta}_n - z_{\alpha/2} \widehat{\mathsf{se}}_n, \widehat{\Theta}_n + z_{\alpha/2} \widehat{\mathsf{se}}_n] \right) \notag \\
+&=& \P_{\theta^*} \left( \widehat{\Theta}_n - z_{\alpha/2} \widehat{\mathsf{se}}_n \leq \theta^* \leq  \widehat{\Theta}_n + z_{\alpha/2} \widehat{\mathsf{se}}_n \right) \notag \\
+&=& \P_{\theta^*} \left(  - z_{\alpha/2} \widehat{\mathsf{se}}_n \leq \widehat{\Theta}_n - \theta^* \leq   z_{\alpha/2} \widehat{\mathsf{se}}_n \right) \notag \\
+&=& \P_{\theta^*} \left(  - z_{\alpha/2}  \leq \frac{\widehat{\Theta}_n - \theta^*}{\widehat{\mathsf{se}}_n} \leq   z_{\alpha/2} \right) \notag \\
+&\to& \P_{\theta^*} \left(  - z_{\alpha/2}  \leq Z \leq   z_{\alpha/2} \right) \notag \\
 &=& 1-\alpha \notag
 \end{eqnarray}
 \end{proof}

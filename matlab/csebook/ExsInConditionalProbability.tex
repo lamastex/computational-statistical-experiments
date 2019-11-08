@@ -19,7 +19,7 @@ For case A, there is only one shot so the probability of hitting at least once i
 
 For case B, the probability of missing both shots is
 $\frac{2}{3}\,\frac{2}{3}\,=\,\frac{4}{9}$,  so  the probability hitting some target at least once is
-  \[ 1- \p(\text{missing the target both times})\;=\; 1-\frac{4}{9}\;=\;\frac{5}{9}\]
+  \[ 1- \P(\text{missing the target both times})\;=\; 1-\frac{4}{9}\;=\;\frac{5}{9}\]
 Therefore, case B has the greater probability of hitting the target at least once.
 
 \Exercise
@@ -61,10 +61,10 @@ $$
 \end{array}$$
  Let $A$ be the event {\em the sum is 5} and $B$ be the event {\em
     the sum is 6}, then $A$ and $B$ are mutually exclusive events with
-  probabilities \[\p(A) = \frac{4}{36} \quad \text{and}\quad \p(B) =
+  probabilities \[\P(A) = \frac{4}{36} \quad \text{and}\quad \P(B) =
   \frac{5}{36} \,.\]
 Therefore,
-   $$\p(4<\textrm{sum }<7)\;=\; \p( A \cup B) \;=\; \p(A)\,+\,\p(B)\;=\; \frac{4}{36} +
+   $$\P(4<\textrm{sum }<7)\;=\; \P( A \cup B) \;=\; \P(A)\,+\,\P(B)\;=\; \frac{4}{36} +
 \frac{5}{36} \;=\;\frac{1}{4}$$
 \ee
 
@@ -84,10 +84,10 @@ Let $A$ be the event that the student passes the final exam and let $B$ be the e
 \drawline(75,120)(125,100)\drawline(0,90)(75,60)(125,40)
 \drawline(75,60)(125,80)
 \put(55,125){$B$}\put(55,50){$B^c$}
-\put(130,140){$A$\quad $\p(A \cap  B) = 0.56$}\put(130,100){$A^c$ \quad
-  $\p(A^c\cap B)= 0.14$}
-\put(130,80){$A$ \quad $\p(A\cap B^c) = 0.12$ }\put(130,40){$A^c$ \quad
-  $\p(A^c\cap B^c)= 0.18$}
+\put(130,140){$A$\quad $\P(A \cap  B) = 0.56$}\put(130,100){$A^c$ \quad
+  $\P(A^c\cap B)= 0.14$}
+\put(130,80){$A$ \quad $\P(A\cap B^c) = 0.12$ }\put(130,40){$A^c$ \quad
+  $\P(A^c\cap B^c)= 0.18$}
 \put(100,137){0.8}\put(100,112){0.2}
 \put(100,77){0.4}\put(100,52){0.6}
 \put(30,110){0.7}\put(30,85){0.3}}
@@ -97,13 +97,13 @@ Let $A$ be the event that the student passes the final exam and let $B$ be the e
 \end{center}
 
 Then the probability of passing the final exam is:
-\[ \p(A)\;=\; 0.56\,+\,0.12\;=\;0.68\,.\]
+\[ \P(A)\;=\; 0.56\,+\,0.12\;=\;0.68\,.\]
 
 To do this with formulae,  partitioning according to the midterm test
 result  and using the multiplication rule, we get:
 \begin{eqnarray*}
-\p(A)&=& \p(A\cap B)+\p(A\cap B^c)\\
-&=& \p(A|B)\p(B)+\p(A|B^c)\p(B^c)\\
+\P(A)&=& \P(A\cap B)+\P(A\cap B^c)\\
+&=& \P(A|B)\P(B)+\P(A|B^c)\P(B^c)\\
 &=& (0.8)(0.7)+(0.4)(0.3)\;=\;0.68
 \end{eqnarray*}
 
@@ -117,19 +117,19 @@ Let $A$ be the event that bottles are produced by machine 1; and $A^c$ is the ev
 $R$ denotes the event that the bottles are rejected; and $R^c$ denotes the event that the bottles are accepted.  
 We know the following probabilities:
 
-\[ \p(A) \;=\; 0.75 \quad \text{and} \quad \p(A^c) \;=\; 0.25\]
-\[ \p(R | A) \;=\; \frac{1}{20} \quad \text{and } \quad  \p(R^c | A) \;=\;
+\[ \P(A) \;=\; 0.75 \quad \text{and} \quad \P(A^c) \;=\; 0.25\]
+\[ \P(R | A) \;=\; \frac{1}{20} \quad \text{and } \quad  \P(R^c | A) \;=\;
 \frac{19}{20}\]
 
-\[ \p(R | A^c) \;=\; \frac{1}{30} \quad \text{and} \quad  \p(R^c | A^c) \;=\;
+\[ \P(R | A^c) \;=\; \frac{1}{30} \quad \text{and} \quad  \P(R^c | A^c) \;=\;
 \frac{29}{30}\]
 
-We want $\p(A|R^c)$ which is give by
-$$\p(A|R^c)\;=\;\frac{\p(R^c\cap A)}{\p(R^c)}\;=\;\frac{\p(R^c\cap A)}{\p(R^c\cap A)+\p(R^c\cap A^c)}$$
-where, $$\p(R^c\cap A)\;=\;\p(R^c| A)\p(A)\;=\;\frac{19}{20}\times0.75$$
-and, $$\p(R^c\cap A^c)\;=\;\p(R^c|A^c)\p(A^c)\;=\;\frac{29}{30}\times0.25$$
+We want $\P(A|R^c)$ which is give by
+$$\P(A|R^c)\;=\;\frac{\P(R^c\cap A)}{\P(R^c)}\;=\;\frac{\P(R^c\cap A)}{\P(R^c\cap A)+\P(R^c\cap A^c)}$$
+where, $$\P(R^c\cap A)\;=\;\P(R^c| A)\P(A)\;=\;\frac{19}{20}\times0.75$$
+and, $$\P(R^c\cap A^c)\;=\;\P(R^c|A^c)\P(A^c)\;=\;\frac{29}{30}\times0.25$$
 Therefore,
-$$\p(A|R^c)\;=\;\frac{\frac{19}{20}\times0.75}{\frac{19}{20}\times
+$$\P(A|R^c)\;=\;\frac{\frac{19}{20}\times0.75}{\frac{19}{20}\times
   0.75+\frac{29}{30}\times0.25}\;\approxeq \;0.747\quad $$\\[6pt]
 
 The  tree diagram for this problem is:
@@ -140,9 +140,9 @@ The  tree diagram for this problem is:
 \put(60,120){$A$}
 \put(60,50){$A^c$}
 \put(130,140){$\mathsf{R}$}
-\put(130,100){$\mathsf{R^c}$ \;\;$\p(A\cap R^c)= 0.75\times 19/20$}
+\put(130,100){$\mathsf{R^c}$ \;\;$\P(A\cap R^c)= 0.75\times 19/20$}
 \put(130,80){$\mathsf{R}$}
-\put(130,40){$\mathsf{R^c}$ \;\;$\p(A^c\cap R^c)= 0.25\times 29/30$}
+\put(130,40){$\mathsf{R^c}$ \;\;$\P(A^c\cap R^c)= 0.25\times 29/30$}
 \put(90,140){$1/20$}\put(90,95){$19/20$}
 \put(90,75){$1/30$}\put(90,35){$29/30$}
 \put(30,110){$0.75$}\put(30,60){$0.25$}
@@ -153,7 +153,7 @@ The  tree diagram for this problem is:
 \end{center}
 
 So the required probability is 
-$$\p(A|R^c)\;=\;\frac{\p(R^c\cap A)}{\p(R^c)}\;=\;\frac{\frac{19}{20}\times0.75}{\frac{19}{20}\times
+$$\P(A|R^c)\;=\;\frac{\P(R^c\cap A)}{\P(R^c)}\;=\;\frac{\frac{19}{20}\times0.75}{\frac{19}{20}\times
   0.75+\frac{29}{30}\times0.25}\;\approxeq \;0.747$$
 
 \Exercise
@@ -281,8 +281,8 @@ and
 \Exercise
 {**}The sensitivity and specificity of a medical diagnostic test for a disease are defined as follows:
 \begin{eqnarray*}
-\text{sensitivity } &=& \p \left( \text{ test is positive } | \text{ patient has the disease } \right) \enspace ,\\
-\text{specificity} &=& \p \left( \text{ test is negative } | \text{ patient does not have the disease } \right) \enspace .
+\text{sensitivity } &=& \P \left( \text{ test is positive } | \text{ patient has the disease } \right) \enspace ,\\
+\text{specificity} &=& \P \left( \text{ test is negative } | \text{ patient does not have the disease } \right) \enspace .
 \end{eqnarray*}
 Suppose that a medical test has a sensitivity of $0.7$ and a specificity of $0.95$.  
 If the prevalence of the disease in the general populaiton is $1\%$, find
@@ -294,8 +294,8 @@ If the prevalence of the disease in the general populaiton is $1\%$, find
 \Exercise
 {**}The detection rate and false alarm rate of an intrusion sensor are defined as
 \begin{eqnarray*}
-\text{detection rate} &=& \p \left( \text{ detection declared } | \text{ intrusion } \right) \enspace ,\\
-\text{false alarm rate} &=& \p \left( \text{ detection declared } | \text{ no intrusion } \right) \enspace .
+\text{detection rate} &=& \P \left( \text{ detection declared } | \text{ intrusion } \right) \enspace ,\\
+\text{false alarm rate} &=& \P \left( \text{ detection declared } | \text{ no intrusion } \right) \enspace .
 \end{eqnarray*}
 If the detection rate is $0.999$ and the false alarm rate is $0.001$, and the probability of an intrusion occuring is $0.01$, find
 \begin{itemize}
@@ -304,7 +304,7 @@ If the detection rate is $0.999$ and the false alarm rate is $0.001$, and the pr
 \end{itemize}
 
 \Exercise
-{**}Let $A$ and $B$ be events such that $\p(A) \neq 0$ and $\p(B) \neq 0$.  
+{**}Let $A$ and $B$ be events such that $\P(A) \neq 0$ and $\P(B) \neq 0$.  
 When $A$ and $B$ are disjoint, are they also independent?  
 Explain clearly why or why not.
 

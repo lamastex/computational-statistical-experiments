@@ -157,6 +157,7 @@
 \newtheorem{definition}{Definition}
 %\newtheorem{theorem}[definition]{Theorem}
 \newtheorem{prop}[definition]{Proposition}
+\newtheorem{lemma}[definition]{Lemma}
 \newtheorem{idea}[definition]{Idea}
 \newtheorem{rem}[definition]{Remark}
 \newtheorem{model}{Model}
@@ -207,7 +208,9 @@
 % need latest post-April-2019 full texlive distribution
 \usepackage{mismath}
 %\renewcommand\probastyle{\mathbb}
+\usepackage{makeidx}
 
+\makeindex
 \begin{document}
 
 \renewcommand{\baselinestretch}{1.1}
@@ -319,15 +322,19 @@ This work is licensed under the Creative Commons Attribution-Noncommercial-Share
 %\remove{
 \shipoutAnswer
 %}
-\remove{
-\input{CodeAppendix.tex}
-}
 
-\comment{
+%\remove{
+\input{CodeAppendix.tex}
+%}
+
+%\comment{
 \input{StudentProjects.tex}
-}
+%}
 
 %}
 
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
 
 \end{document}

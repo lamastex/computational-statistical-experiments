@@ -13,7 +13,7 @@ Bernoulli trial} if we identify Heads with the number $1$ and Tails with $0$%
 \P \left( X=0\right) =1-\theta\text{, }\P \left( X=1\right) =\theta\text{, }0<\theta<1%
 \text{. }
 \end{equation*}%
-Generally we abbreviate "random variable" by RV.
+Generally we abbreviate ``random variable" by RV.
 
 Recall that the distribution of a discrete RV is the entirety of its
 possible values $x_{1},x_{2},\ldots $ along with the associated
@@ -37,11 +37,11 @@ H_{1} &:&\theta\neq 1/2\text{ alternative hypothesis}
 To test if the null hypothesis 
 \index{null hypothesis} is true, we throw the coin $n$ times and let $%
 X_{i}=1 $ if Heads comes up on the $i$th trial and $0$ otherwise, so that $%
-\bar{X}_{n}$ is the fraction of times Heads comes up in the first $n$
+\overline{X}_{n}$ is the fraction of times Heads comes up in the first $n$
 trials. The test is specified by giving a critical region \textbf{%
 \index{critical region} }$\mathcal{C}_{n}$ so that we reject $H_{0}$ (that
 is, decide $H_{0}$ is incorrect) when $%
-\bar{X}_{n}\in \mathcal{C}_{n}$. One possible choice in this case is 
+\overline{X}_{n}\in \mathcal{C}_{n}$. One possible choice in this case is 
 \begin{equation*}
 \mathcal{C}_{n}=\left\{ x:\left\vert x-\frac{1}{2}\right\vert >1/\sqrt{n}%
 \right\} .
@@ -49,8 +49,8 @@ is, decide $H_{0}$ is incorrect) when $%
 This choice is motivated by the fact that if $H_{0}$ is true then using the
 central limit theorem ($Z$ is a standard normal variable), with $\theta=1/2$ 
 \begin{equation}
-\P \left( \bar{X}_{n}\in \mathcal{C}_{n}\right) =\P \left( \left\vert 
-\frac{\bar{X}_{n}-\theta}{\sqrt{\theta(1-\theta)}/\sqrt{n}}\right\vert \geq 2\right)
+\P \left( \overline{X}_{n}\in \mathcal{C}_{n}\right) =\P \left( \left\vert 
+\frac{\overline{X}_{n}-\theta}{\sqrt{\theta(1-\theta)}/\sqrt{n}}\right\vert \geq 2\right)
 \approx P\left( \left\vert Z\right\vert \geq 2\right) =0.05.
 \end{equation}%
 and $2\sqrt{\frac{1}{2}\cdot \frac{1}{2}}=1$. Rejecting $H_{0}$ when it is
@@ -59,7 +59,7 @@ true is called a \textbf{type I error.
 
 \bigskip \bigskip
 
-\subsection{Review of underlying probability concepts}
+\subsection{Review of underlying probability concepts}\label{S:ReviewOfProb}
 
 Although Probability Theory I is a pre-requisite for Inference Theory I, we will review the concepts again as everyone may not have met the pre-requisites at the level needed for the sequel. 
 In the process we will use slightly different notational conventions as these are more common in mathematical statistics.
@@ -83,7 +83,7 @@ we require
 \end{equation*}%
 Throwing a coin $n$ times, our Bernoulli RV`s $X_{1},\ldots ,X_{n}$ are
 not only independent but also \textit{identically distributed}. This means
-that all $X_{i}$ considered "alone" (i.e. in their marginal distribution)
+that all $X_{i}$ considered ``alone" (i.e. in their marginal distribution)
 have the same distribution $\bernoulli(\theta)$. Such an array of RV`s is
 often called \textbf{independent and identically distributed}\textit{, }%
 abbreviated\textit{\ }IID The case of observed IID RV`s is the
@@ -112,9 +112,9 @@ Bernoulli law $\bernoulli(\theta)$. A notation we will frequently use is
 \begin{equation*}
 \mathcal{L}(X)=\bernoulli(\theta)\text{. }
 \end{equation*}%
-Here "$\mathcal{L}(X)$" means "the law of the RV $X$", where the law is
-a short word for the distribution (derived from "probability law", an older
-term for "distribution"). Now it is easy to see, with the shorter notation for expectations without the $(\cdot)$ for convenience, that 
+Here ``$\mathcal{L}(X)$" means ``the law of the RV $X$", where the law is
+a short word for the distribution (derived from ``probability law", an older
+term for ``distribution"). Now it is easy to see, with the shorter notation for expectations without the $(\cdot)$ for convenience, that 
 \begin{eqnarray*}
 \E (X) = \E X &=&0\cdot \left( 1-\theta\right) +1\cdot \theta=\theta, \\
 \E (X^2) = \E X^{2} &=&0^{2}\cdot \left( 1-\theta\right) +1^{2}\cdot \theta=\theta
@@ -126,69 +126,69 @@ and hence
 \textbf{The law of large numbers. }Specialized to our case of IID
 Bernoulli's it gives 
 \begin{equation*}
-\bar{X}_{n}=n^{-1}\sum_{i=1}^{n}X_{i}\longrightarrow _{\theta}\E X=\theta
+\overline{X}_{n}=n^{-1}\sum_{i=1}^{n}X_{i}\longrightarrow _{\theta}\E X=\theta
 \end{equation*}%
-where $\longrightarrow_{p}$ (or equivalently $\overset{\P}{\longrightarrow}$) denotes convergence in probability. Here $\bar{X%
+where $\longrightarrow_{p}$ (or equivalently $\overset{\P}{\longrightarrow}$) denotes convergence in probability. Here $\overline{X%
 }_{n}$ is the arithmetic mean of $X_{1},\ldots ,X_{n}$, also called the 
-\textbf{sample mean.} Recall that convergence in probability $\bar{X}%
+\textbf{sample mean.} Recall that convergence in probability $\overline{X}%
 _{n}\longrightarrow_{p} \theta$ means: for every $\varepsilon >0$ 
 \begin{equation*}
-\P \left( \left\vert \bar{X}_{n}-\theta\right\vert >\varepsilon \right)
+\P \left( \left\vert \overline{X}_{n}-\theta\right\vert >\varepsilon \right)
 \longrightarrow 0\text{ as }n\rightarrow \infty \text{. }
 \end{equation*}%
-Here $\theta=\E X$ may be also be called "\textbf{population mean}". This derives
+Here $\theta=\E X$ may be also be called ``\textbf{population mean}". This derives
 from the fact that in many examples other than coin throw, a Bernoulli RV $X$ 
 is obtained from randomly selecting an individual from a large
 population. Fore instance, we might select a random individual from the U.S.
 population and observe whether it is a smoker or nonsmoker. Provided our
-selection is "truly random", we obtain a Bernoulli distribution $\bernoulli(\theta)$ 
+selection is ``truly random", we obtain a Bernoulli distribution $\bernoulli(\theta)$ 
 where $\theta$ is the proportion of smokers in the population at large. By
-this reasoning, we often identify a random variable $X$ with a "population"
+this reasoning, we often identify a random variable $X$ with a ``population"
 and its expectation and variance $\E X,$ $\V(X)$ with the population
-mean and variance. Thus there is a correspondence between sample mean $\bar{X%
+mean and variance. Thus there is a correspondence between sample mean $\overline{X%
 }_{n}$ and population mean $\E X$ etc. Of course there are many random
-variables occurring in practice which do not arise from "selecting from a
+variables occurring in practice which do not arise from ``selecting from a
 population", for example a coin throw, hitting a target when shooting,
 getting rain on a hike etc., \bigskip \bigskip
 
 \textbf{Population proportion and sample proportion.} For Bernoulli RV's $%
-X_{1},\ldots ,X_{n}$, the sample mean $\bar{X}_{n}$ may be identified with
+X_{1},\ldots ,X_{n}$, the sample mean $\overline{X}_{n}$ may be identified with
 the \textit{sample proportion of }$1$\textit{'s}. Indeed 
 \begin{equation*}
-\bar{X}_{n}=n^{-1}\sum_{i=1}^{n}X_{i}=\frac{\#\text{ of }1^{^{\prime }}s%
+\overline{X}_{n}=n^{-1}\sum_{i=1}^{n}X_{i}=\frac{\#\text{ of }1^{^{\prime }}s%
 \text{ in the sample }X_{1},\ldots ,X_{n}}{n}
 \end{equation*}%
-thus $\bar{X}_{n}$ is the number of $1$'s in the sample relative to sample
-size $n$, briefly called \textbf{sample proportion} $\hat{\theta}_{n}$. Thus for
+thus $\overline{X}_{n}$ is the number of $1$'s in the sample relative to sample
+size $n$, briefly called \textbf{sample proportion} $\widehat{\theta}_{n}$. Thus for
 Bernoulli RV's $X_{1},\ldots ,X_{n}$ we have 
 \begin{equation*}
-\bar{X}_{n}=\hat{\theta}_{n}.
+\overline{X}_{n}=\widehat{\theta}_{n}.
 \end{equation*}%
 The same correspondence exists on the population level: $\E X=\theta$ where $\theta$ may
 be called the \textbf{population proportion}. To repeat it, $X$ may not
 actually be the result of selecting from some population; $X$ may be the
 outcome of a random experiment like a coin throw. Still the terminology
-"sample proportion/ population proportion" is widely used in
+``sample proportion/ population proportion" is widely used in
 statistics.
 
 \subsubsection{Chebyshev's inequality and the Law of Large Numbers (LLN)}
 
-The law of large numbers (LLN) holds under a general assumption that $%
+The law of large numbers (LLN) \index{Law of Large Numbers} holds under a general assumption that $%
 E\left\vert X_{i}\right\vert <\infty $, see [D]\footnote{%
 Throughout we will use [D] for the reference: Durrett, R., \emph{The
 Essentials of Probability, }Duxbury Press, 1994.} p. 223. or Proof via CFs in Probability Theory I earlier. 
 But we recall here from scratch for reinforcement of your learning.}
 
-\begin{prop}
-(Weak Law of Large Numbers). Suppose $X_{1},X_{2},\ldots $ are IID\ RV\
+\begin{prop}[Weak Law of Large Numbers] 
+Suppose $X_{1},X_{2},\ldots $ are IID\ RV\
 's and have $E\left\vert X_{i}\right\vert <\infty $. Let $\mu =\E X_{i}$. Then
 as $n\rightarrow \infty $%
 \begin{equation*}
-\bar{X}_{n}\longrightarrow _{p}\mu
+\overline{X}_{n}\longrightarrow _{p}\mu
 \end{equation*}%
 in other words: for every $\varepsilon >0$ 
 \begin{equation*}
-\P \left( \left\vert \bar{X}_{n}-\mu \right\vert \geq \varepsilon \right)
+\P \left( \left\vert \overline{X}_{n}-\mu \right\vert \geq \varepsilon \right)
 \longrightarrow 0\text{. }
 \end{equation*}
 \end{prop}
@@ -203,11 +203,11 @@ Y $ is an RV with finite variance $\sigma ^{2}$ then for any $t>0$ \textit{%
 (Y)}{t^{2}}.  \label{Chebyshev}
 \end{equation}%
 This easily yields a proof of the weak LLN under an additional assumption $%
-\V(X_{i})=\sigma ^{2}<\infty $: note that $\V(\bar{X}%
+\V(X_{i})=\sigma ^{2}<\infty $: note that $\V(\overline{X}%
 _{n})=\sigma ^{2}/n$ so that 
 \begin{equation*}
-\P \left( \left\vert \bar{X}_{n}-\mu \right\vert \geq \varepsilon \right)
-\leq \frac{\V(\bar{X}_{n})}{\varepsilon ^{2}}=\frac{\sigma ^{2}}{%
+\P \left( \left\vert \overline{X}_{n}-\mu \right\vert \geq \varepsilon \right)
+\leq \frac{\V(\overline{X}_{n})}{\varepsilon ^{2}}=\frac{\sigma ^{2}}{%
 n\varepsilon ^{2}}\longrightarrow 0.
 \end{equation*}
 
@@ -245,7 +245,7 @@ Suppose $X_{1},X_{2},\ldots $ are IID\ RV\ 's and have $\E X_{i}=\mu $
 and $\V(X_{i})=\sigma ^{2}$ with $0<\sigma ^{2}<\infty $. Then as $%
 n\rightarrow \infty $%
 \begin{equation*}
-\P \left( \frac{\bar{X}_{n}-\mu }{\sigma /\sqrt{n}}\leq x\right)
+\P \left( \frac{\overline{X}_{n}-\mu }{\sigma /\sqrt{n}}\leq x\right)
 \longrightarrow \P \left( Z\leq x\right) \text{ for all }x
 \end{equation*}%
 where $Z$ denotes a random variable with the standard normal distribution.
@@ -254,7 +254,7 @@ where $Z$ denotes a random variable with the standard normal distribution.
 Specialized to IID Bernoulli RV's $X_{1},\ldots ,X_{n}$ with law $%
 \bernoulli(\theta)$, this says 
 \begin{equation}
-\sqrt{n}\frac{\left( \hat{\theta}_{n}-\theta\right) }{\sqrt{\theta(1-\theta)}}\rightsquigarrow
+\sqrt{n}\frac{\left( \widehat{\theta}_{n}-\theta\right) }{\sqrt{\theta(1-\theta)}}\rightsquigarrow
 \normal(0,1)\text{ as }n\rightarrow \infty .  \label{specialize-Bern}
 \end{equation}%
 Here $\normal(0,1)$ is the \textit{standard normal distribution} (or standard
@@ -310,7 +310,7 @@ which is justified since convergence in distribution is a statement about
 the laws (or distribution functions) of $Y_{n}$ and $Y$. Thus in the case of
 the CLT we may write 
 \begin{equation*}
-\frac{\bar{X}_{n}-\mu }{\sigma /\sqrt{n}}\rightsquigarrow \normal(0,1)\text{ as }%
+\frac{\overline{X}_{n}-\mu }{\sigma /\sqrt{n}}\rightsquigarrow \normal(0,1)\text{ as }%
 n\rightarrow \infty
 \end{equation*}%
 since $\normal(0,1)=\mathcal{L}\left( Z\right) $, and for Bernoulli's this
@@ -343,7 +343,7 @@ The probability function of $\binomial(n,\theta)$ is
 ^{n-k}\text{, }k=0,\ldots ,n.  \label{binom-law}
 \end{equation}%
 The binomial law has two parameters- $n,$ the number of trials, and $\theta$, the
-probability of "success", i.e. of $1$. Thus the binomial law is the
+probability of ``success", i.e. of $1$. Thus the binomial law is the
 distribution of the number of successes in $n$ independent Bernoulli trials
 (with the same probability of success).
 
@@ -378,8 +378,8 @@ Thus the CLT, specialized to IID\ Bernoullis in (\ref{specialize-Bern}),
 is a statement about the normal approximation of the binomial law. Indeed
 let $S_{n}=\sum_{i=1}^{n}X_{i}$; we may write 
 \begin{eqnarray}
-\hat{\theta}_{n} &=&\bar{X}_{n}=n^{-1}\sum_{i=1}^{n}X_{i}=n^{-1}S_{n},  \notag \\
-\sqrt{n}\frac{\left( \hat{\theta}_{n}-\theta\right) }{\sqrt{\theta(1-\theta)}} &=&  \notag \\
+\widehat{\theta}_{n} &=&\overline{X}_{n}=n^{-1}\sum_{i=1}^{n}X_{i}=n^{-1}S_{n},  \notag \\
+\sqrt{n}\frac{\left( \widehat{\theta}_{n}-\theta\right) }{\sqrt{\theta(1-\theta)}} &=&  \notag \\
 &=&\frac{S_{n}-n\theta}{\sqrt{n\theta(1-\theta)}}\rightsquigarrow \normal(0,1)\text{ as }%
 n\rightarrow \infty .  \label{demoivre-laplace}
 \end{eqnarray}%
@@ -399,17 +399,17 @@ and then dividing by the standard deviation $\mathrm{SD}(Y)=\sqrt{\mathrm{Var%
 \begin{equation*}
 \frac{Y-\E Y}{\mathrm{SD}(Y)}
 \end{equation*}%
-has mean $0$ and variance $1$. Hence the verbal summary of the CLT: "the
+has mean $0$ and variance $1$. Hence the verbal summary of the CLT: ``the
 standardized sum of IID RV's is approximately standard normal". Of
 course standardizing the sum $S_{n}=\sum_{i=1}^{n}X_{i}$ yields the same
-result as standardizing the sample mean $\bar{X}_{n}$: 
+result as standardizing the sample mean $\overline{X}_{n}$: 
 \begin{eqnarray*}
-\E S_{n} &=&nE\bar{X}_{n}\text{ and }\V(S_{n})=n^{2}\V(%
-\bar{X}_{n})\text{, hence } \\
-\frac{S_{n}-\E S_{n}}{\mathrm{SD}(S_{n})} &=&\frac{\bar{X}_{n}-E\bar{X}_{n}}{%
-\mathrm{SD}(\bar{X}_{n})}
+\E S_{n} &=&nE\overline{X}_{n}\text{ and }\V(S_{n})=n^{2}\V(%
+\overline{X}_{n})\text{, hence } \\
+\frac{S_{n}-\E S_{n}}{\mathrm{SD}(S_{n})} &=&\frac{\overline{X}_{n}-E\overline{X}_{n}}{%
+\mathrm{SD}(\overline{X}_{n})}
 \end{eqnarray*}%
-so it is also true that "the standardized (sample) mean of IID RV's is
+so it is also true that ``the standardized (sample) mean of IID RV's is
 \ldots ".
 
 \subsubsection{A visualization of the De Moivre-Laplace central limit theorem%
@@ -492,7 +492,7 @@ would infer $S_{n}$ that should be approximately
 S_{n}\approx \sqrt{n\theta(1-\theta)}Z+n\theta  \label{cautious}
 \end{equation}%
 where $\mathcal{L}(\sigma Z+\mu )=$ $\normal(\mu ,\sigma ^{2})$. But here we
-should be cautious as to the meaning of the sign "$\approx $": in (\ref%
+should be cautious as to the meaning of the sign ``$\approx $": in (\ref%
 {cautious}) both the left side and the right side depend on $n$, so we do
 not have a limit relation. Nevertheless it is common in statistics to state
 the normal approximation to the binomial as 
@@ -511,15 +511,15 @@ distance for distributions and then claiming that the distance between $%
 \mathcal{L}(S_{n})$ and $\normal\left( n\theta,n\theta(1-\theta)\right) $ tends to zero; we will
 not elaborate this here.
 
-\subsubsection{The success / failure rule}
+\subsection{The success / failure rule}\label{S:SuccessFailureRule}
 
 \textbf{\ }In applied statistics one finds a rule which limits the
 applicability of the normal approximation to the binomial $\binomial(n,\theta)$: it is
 required that both $n\theta\geq 10$ and $n(1-\theta)\geq 10$. This is called the
-"success / failure rule" since $n\theta$ is the expected number of successes: $%
-\E S_{n}=n\theta$ and and $n(1-\theta)$ is the expected number of "failures": $E\left(
+``success / failure rule" \index{success / failure rule} since $n\theta$ is the expected number of successes: $%
+\E S_{n}=n\theta$ and and $n(1-\theta)$ is the expected number of ``failures": $E\left(
 n-S_{n}\right) =n(1-\theta)$. This rule is based on the fact that the CLT\
-"breaks down" for small values of $\theta$. More precisely, when $\theta$ is small, a
+``breaks down" for small values of $\theta$. More precisely, when $\theta$ is small, a
 larger $n$ is needed to make the normal approximation good; for large enough 
 $n$ a small $\theta$ can always be compensated. For an illustration, select $%
 \theta=1/200$ and again $n=600$; then $n\theta=3$ and the success / failure rule is
@@ -712,7 +712,7 @@ Poisson $\poisson(\lambda )$ and the normal $\normal(\lambda ,\lambda )$:
 ~\\
 
 
-Consider the value $\lambda =10$ which is "borderline" according to the
+Consider the value $\lambda =10$ which is ``borderline" according to the
 convention of the success / failure rule: 
 
 
@@ -739,4 +739,1160 @@ Write a \Matlab script to visualise the above figures drawn in lectures and algo
 You need to use {\tt gammaln} in \Matlab for $\log_e(\Gamma)$ function and use laws of exponents and logarithms for the factorial term in the PDF of $\binomial(n,\theta)$ and $\poisson(\lambda)$ RVs with large $n$.
 \end{labwork}
 
+\subsubsection{An example for use of normal approximation of the binomial}
 
+\begin{Exercise}[label={ExMultipleChoiceQuestions}]
+A multiple-choice examination has 100 questions, each
+with five possible answers of which only one is correct. Suppose a student
+just guesses at all the answers.
+
+(a) What is the probability that he or she gets exactly 2 out of the first 5
+questions correct?
+
+(b) What is approximately the probability that he or she gets between 20 and
+30 questions correct on the entire test?
+
+\end{Exercise}
+
+\begin{Answer}
+
+(a) The number of questions out of the first five that the student gets
+correct has a binomial distribution with parameters $n=5$ and $p=0.2.$
+Therefore, the probability that the student gets exactly two of the
+questions correct is 
+\begin{equation*}
+\left( \binom{5}{2}\right) \left( 0.2\right) ^{2}\left( 0.8\right) ^{5-2}=%
+\frac{5!}{2!\cdot 3!}\left( 0.2\right) ^{2}\left( 0.8\right) ^{5-2}=0.204\,8.
+\end{equation*}
+
+(b) Let $X$ be the number of questions that the student answers correctly on
+the entire test. Then, $X$ has a binomial distribution with $n=100$ and $%
+p=0.2$. Check the sucess/ failure condition :%
+\begin{equation*}
+np=100\cdot 0.2=20>10,\text{ }n(1-p)=80>10.
+\end{equation*}%
+Using the normal approximation to the binomial distribution, we can
+approximate the distribution of the standardized $X$ by a standard normal
+distribution. We have $\mu =EX=np=20$ and 
+\begin{equation*}
+\sigma =SD(X)=\sqrt{np(1-p)}=\sqrt{100\cdot \left( 0.2\right) \cdot \left(
+0.8\right) }=4.
+\end{equation*}%
+Now we have for $a=20$ and $b=30$ 
+\begin{eqnarray*}
+\P \left( a\leq X\leq b\right) &=&\P \left( \frac{a-\mu }{\sigma }\leq 
+\frac{X-\mu }{\sigma }\leq \frac{b-\mu }{\sigma }\right) \\
+&\approx &\P \left( \frac{a-\mu }{\sigma }\leq Z\leq \frac{b-\mu }{\sigma }%
+\right)
+\end{eqnarray*}%
+where $Z$ is a standard normal random variable. We find 
+\begin{eqnarray*}
+\frac{a-\mu }{\sigma } &=&\frac{20-20}{\sigma }=0, \\
+\frac{b-\mu }{\sigma } &=&\frac{30-20}{4}=10/4=2.5
+\end{eqnarray*}%
+The numbers $\frac{a-\mu }{\sigma }$ and $\frac{b-\mu }{\sigma }$ are called
+the $Z$-scores of $a$ and $b$ respectively; thus from the table of $Z$ 
+\begin{eqnarray*}
+\P \left( \frac{a-\mu }{\sigma }\leq Z\leq \frac{b-\mu }{\sigma }\right)
+&=&\P \left( 0\leq Z\leq 2.5\right) \\
+&=&\P \left( Z\leq 2.5\right) -\P \left( Z\leq 0\right) \\
+&=&0.9938-0.5=0.4938.
+\end{eqnarray*}
+\end{Answer}
+
+\subsubsection{The correction for continuity}\label{S:CorrectionForContinuity}
+
+Suppose that in the last example, we substitute question (b) ``between 20
+and 30 questions correct" by ``between 21 and 30 questions correct", that
+is, we are asking for the approximate probability%
+\begin{equation*}
+\P \left( a+1\leq X\leq b\right)
+\end{equation*}%
+with $a=20,$ $b=30$ or equivalently, for an approximation to 
+\begin{equation*}
+\P \left( a<X\leq b\right)
+\end{equation*}%
+(since $X$ is a binomial RV, taking only integer values). By the reasoning
+above, we find the Z-score of $a+1$:%
+\begin{equation*}
+\frac{a+1-\mu }{\sigma }=\frac{21-20}{\sigma }=\frac{1}{4}=0.25.
+\end{equation*}%
+The approximate probability is then 
+\begin{equation*}
+\P \left( a+1\leq X\leq b\right) \approx \P \left( \frac{a+1-\mu }{\sigma }%
+\leq Z\leq \frac{b-\mu }{\sigma }\right)
+\end{equation*}
+This will yield a different value from our previous approximation since the
+lower Z-score is now $\frac{a+1-\mu }{\sigma }$ instead of $\frac{a-\mu }{%
+\sigma }$; the difference can be described by 
+\begin{eqnarray*}
+&&\P \left( \frac{a-\mu }{\sigma }\leq Z\leq \frac{b-\mu }{\sigma }\right)
+-\P \left( \frac{a+1-\mu }{\sigma }\leq Z\leq \frac{b-\mu }{\sigma }\right)
+\\
+&=&\P \left( \frac{a-\mu }{\sigma }\leq Z\leq \frac{a-\mu }{\sigma }+\frac{1%
+}{\sigma }\right) .
+\end{eqnarray*}%
+Recall that $\sigma =\sqrt{np(1-p)}$ here, so that $1/\sigma $ is small. At
+the same time, this difference approximates the difference 
+\begin{equation*}
+\P \left( a<X\leq b\right) -\P \left( a+1\leq X\leq b\right) =\P \left(
+X=a\right)
+\end{equation*}%
+for $a=20$, so that it turns out that we approximate an individual
+probability $\P \left( X=a\right) $ for a binomial $X$ by (setting $z(a)=%
+\frac{a-\mu }{\sigma }$) 
+\begin{equation}
+\P \left( X=a\right) \approx \int_{z(a)}^{z(a)+1/\sigma }\varphi (t)dt.
+\label{indiv-probab-approx}
+\end{equation}%
+where $1/\sigma $ is small. The right hand side is an integral of the
+standard normal density over a small piece of size $1/\sigma .$ Extending
+this reasoning to all integers between $a=20$ and $b=30$, we obtain 
+\begin{equation*}
+\P \left( a\leq X\leq b\right) =\sum_{k=0}^{10}\P \left( X=a+k\right)
+\end{equation*}%
+\textit{so we have }$11$\textit{\ individual probabilities to approximate.}
+On the other hand, our original approximation was%
+\begin{equation}
+\P \left( a\leq X\leq b\right) \approx \int_{z(a)}^{z(b)}\varphi (t)dt.
+\label{uncorrected}
+\end{equation}%
+and noting $z(a)+10/\sigma =z(b),$ we note that the interval $\left(
+z(a),z(b)\right) $ \textit{contains only }$10$\textit{\ of the small
+intervals of length }$1/\sigma $\textit{.} So there is a slight
+inconsistency in our method.
+
+This can be corrected by replacing the approximation (\ref%
+{indiv-probab-approx}), that is, integration over the interval $\left(
+z(a),z(a)+1/\sigma \right) $, by integration over a symmetric interval
+around $z(a)$ having the same length: $\left( z(a)-1/2\sigma ,z(a)+1/2\sigma
+\right) $, so that we now use 
+\begin{equation}
+\P \left( X=a\right) \approx \int_{z(a)-1/2\sigma }^{z(a)+1/2\sigma
+}\varphi (t)dt.  \label{indiv-probab-approx-corr-1}
+\end{equation}%
+Since 
+\begin{eqnarray*}
+z(a)-1/2\sigma &=&\frac{a-\mu }{\sigma }-\frac{1}{2\sigma }=\frac{a-1/2-\mu 
+}{\sigma }=z(a-1/2) \\
+z(a)+1/2\sigma &=&z(a+1/2),
+\end{eqnarray*}%
+we may write (\ref{indiv-probab-approx-corr-1}) as 
+\begin{equation}
+\P \left( X=a\right) \approx \int_{z(a-1/2)}^{z(a+1/2)}\varphi (t)dt.
+\label{indiv-probab-approx-corr-2}
+\end{equation}%
+The principle of using (\ref{indiv-probab-approx-corr-2}) for individual
+binomial probabilities is known as the \textit{correction for continuity}.
+It implies that, for $\P \left( a\leq X\leq b\right) $, we now use an
+approximation 
+\begin{equation}
+\P \left( a\leq X\leq b\right) \approx \int_{z(a-1/2)}^{z(b+1/2)}\varphi
+(t)dt  \label{uncorrected-corr}
+\end{equation}%
+rather than (\ref{uncorrected}). This corrected method is now consistent in
+itself, that is, the left side splits up into 11 individual probabilities $%
+\P \left( X=k\right) $:%
+\begin{equation*}
+\P \left( a\leq X\leq b\right) =\sum_{k=0}^{10}\P \left( X=a+k\right) ,
+\end{equation*}%
+and similarly the right side in (\ref{uncorrected-corr}) splits into $11$
+integrals over small pieces of length $1/\sigma $.
+
+Whether we use the continuity correction or not, the individual binomial
+probabilities will be small for large $n$: for some $t^{\ast }$ 
+\begin{eqnarray*}
+\P \left( X=a\right) &\approx &\int_{z(a)-1/2\sigma }^{z(a)+1/2\sigma
+}\varphi (t)dt=\frac{1}{\sigma }\varphi (t^{\ast })=\frac{1}{\sqrt{np(1-p)}}%
+\varphi (t^{\ast }) \\
+&\leq &\frac{1}{\sqrt{n}}\cdot \frac{1}{\sqrt{2\pi p(1-p)}},
+\end{eqnarray*}
+for some $t^{\ast }$ with $z(a)-1/2\sigma <t^{\ast }<z(a)+1/2\sigma $, and
+in view of 
+\begin{equation*}
+\varphi (t^{\ast })=\frac{1}{\sqrt{2\pi }}\exp (-t^{\ast }/2)\leq \frac{1}{%
+\sqrt{2\pi }}.
+\end{equation*}%
+Thus the individual binomial probabilities will decrease like $1/\sqrt{n}$
+as $n\rightarrow \infty $ at most (or will be even smaller).
+
+%\begin{mycomments-env}
+%If possible, add a histogram picture, on the scale of $X$ and $\normal(\mu ,\sigma
+%^{2})$, similar to standard argument (cf. DeGroot, Shervish, p. 293).
+%
+%A paragraph on a local limit theorem might be added. The proper reference
+%is: Borovkov (Russian, 1976), p. 107. Below we append an earlier paragraph
+%about ``behaviour of binomial probabilities".
+%
+%How do the binomial probabilities%
+%\begin{equation*}
+%p_{n,k}:=\P \left( S_{n}=k\right) =p^{k}\left( 1-p\right) ^{n-k}\left( 
+%\binom{n}{k}\right)
+%\end{equation*}%
+%behave in the context of the CLT ? Firstly, we should suppose they tend to $%
+%0,$ since (arguing nonrigorously) $\sum_{k=0}^{n}p_{n,k}=1$ and there are $%
+%n+1$ of them. Moreover the CLT implies that for any $a,b$ $,$ $a<b$%
+%\begin{equation*}
+%\P \left( a\leq \frac{S_{n}-np}{\sqrt{np(1-p)}}\leq b\right) \rightarrow
+%\int_{a}^{b}\varphi (t)dt
+%\end{equation*}%
+%where $\varphi $ is the standard normal density.
+%
+%Note that $S_{n}$ takes values in $\left\{ 0,1,2,\ldots ,n\right\} $, i.e.
+%in ``grid points" with step size $1$. Hence the standardized sum $\frac{%
+%S_{n}-np}{\sqrt{n}c}$ (where $c=\sqrt{p(1-p)}$) takes values in ``grid
+%points" $t_{k,n}=\frac{k-np}{\sqrt{n}c}$ which have step size $\frac{1}{%
+%\sqrt{n}c}$.
+%
+%How would we approximate the normal integral $\int_{a}^{b}\varphi (t)dt$ by
+%a Riemann sum, using the integrand function $\varphi (t)$, on a grid of
+%points $\left\{ t_{k,n}\right\} $ ? Obviously we would use the approximation 
+%\begin{equation}
+%\sum_{a\leq t_{k,n}\leq b}\varphi (t_{k,n})\frac{1}{\sqrt{n}c}\rightarrow
+%\int_{a}^{b}\varphi (t)dt\text{ as }n\rightarrow \infty  \label{compar-1}
+%\end{equation}%
+%since $\frac{1}{\sqrt{n}c}$ is exactly the distance between the points $%
+%t_{k,n}$. On the other hand we have by the CLT, if $p_{n,k}=\P \left(
+%S_{n}=k\right) $ are the binomial probabilities 
+%\begin{equation}
+%\P \left( a\leq \frac{S_{n}-\text{ }np}{\sqrt{np(1-p)}}\leq b\right)
+%=\sum_{a\leq t_{k,n}\leq b}p_{n,k}\rightarrow \int_{a}^{b}\varphi (t)dt\text{
+%as }n\rightarrow \infty  \label{compar-2}
+%\end{equation}%
+%Comparing (\ref{compar-1}) and (\ref{compar-2}) we find that 
+%\begin{equation*}
+%\sum_{a\leq t_{k,n}\leq b}\varphi (t_{k,n})\frac{1}{\sqrt{n}c}-\sum_{a\leq
+%t_{k,n}\leq b}p_{n,k}\rightarrow 0\text{ as }n\rightarrow \infty .
+%\end{equation*}%
+%Comparing the individual terms in this sum we are led to believe that each
+%ndividual $p_{n,k}$ behaves like the associated $\varphi (t_{k,n})/\sqrt{n}%
+%c,$ more precisely that 
+%\begin{equation*}
+%\varphi (t_{k,n})-p_{n,k}\sqrt{n}c\rightarrow 0\text{ as }n\rightarrow
+%\infty .
+%\end{equation*}%
+%Such a result can be obtained rigorously and is known as a \textbf{local
+%limit theorem }(local CLT ).
+%\end{mycomments-env}
+
+%TCIMACRO{\TeXButton{end-mycomments}{\end{mycomments}}}%
+%BeginExpansion
+%\end{mycomments}%
+%EndExpansion
+
+\subsubsection{The normal table and quantiles}
+
+The so-called $Z$-table gives the areas under the standard normal curve%
+\begin{equation*}
+\P \left( Z\leq z\right) =\int_{-\infty }^{z}\varphi (t)dt.
+\end{equation*}%
+It is well known that the normal integral 
+\begin{equation*}
+\int_{-\infty }^{z}\varphi (t)dt=\frac{1}{\sqrt{2\pi }}\int_{-\infty
+}^{z}\exp \left( -t^{2}/2\right) dt
+\end{equation*}%
+does not have an explicit analytic solution. Hence the necessity to use a
+numerically computed table; statistical software has these values stored (or
+sometimes computes them).
+
+As an example, suppose $z=-1.26$. First, look up the value of $z$ without
+the second decimal place, i.e. $-1.2$, in one of the two columns headed ``z".
+To the left of $-1.2$ you find all the probabilities $\P \left( Z\leq
+-1.2-s\right) $ for $s=0.00,\ldots ,0.09$, i.e. for values of the second
+decimal place. In our example we have $s=0.06$, so we go to the column
+headed ``$0.06$" and find $\P \left( Z\leq -1.26\right) =0.1038$.
+
+Consider a positive value of $z$, e.g. $z=2.73.$ First, look up the value of 
+$z$ without the second decimal place, i.e. $2.7$, in one of the two columns
+headed ``z". To the right of $2.73$ you find all the probabilities $\P
+\left( Z\leq 2.7+s\right) $ for $x=0.00,\ldots ,0.09$, i.e. for values of
+the second decimal place. In our example we have $s=0.03$, so we go to the
+column headed ``$0.03$" and find $\P \left( Z\leq 2.73\right) =0.9968$.
+
+Useful rules to find other normal probabilities are 
+\begin{equation*}
+\P \left( Z<z\right) =\P \left( Z\leq z\right)
+\end{equation*}%
+(since for a continuous RV having a density, $\P \left( Z=z\right) =0$), 
+\begin{eqnarray*}
+\P \left( Z\geq z\right) &=&1-\P \left( Z\leq z\right) \\
+&=&\P \left( Z\leq -z\right)
+\end{eqnarray*}%
+The last two equalities give two ways of looking up $\P \left( Z\geq
+z\right) $ in the table. The second equality derives from the symmetry of
+the normal density: since $\varphi (t)=\varphi (-t)$, we have 
+\begin{eqnarray*}
+\P \left( Z\geq z\right) &=&\int_{z}^{\infty }\varphi
+(t)dt=\lim_{x\rightarrow \infty }\int_{z}^{x}\varphi
+(t)dt=\lim_{x\rightarrow \infty }\int_{-x}^{-z}\varphi (t)dt \\
+&=&\int_{-\infty }^{-z}\varphi (t)dt=\P \left( Z\leq -z\right) .
+\end{eqnarray*}%
+It also follows that $\P \left( Z\leq 0\right) =\P \left( Z\geq 0\right)
+=1/2$.
+
+The table begins at $z=-3.9$ and ends at $z=3.9$, for which the
+probabilities are given as $0.0000$ and $1$.$0000$ respectively, i.e. they
+are given up to $4$ decimal places. There is a famous rule for the
+practitioner giving the probability content of certain intervals around $0.$
+
+\bigskip
+
+\textbf{The 68-95-99.7 rule }(De Moivre, 1733).\textbf{\ }\emph{In a normal
+model }$\normal(\mu ,\sigma ^{2})$\emph{, about }$68\%$\emph{\ of the values fall
+within one standard deviation of the mean, about }$95\%$\emph{\ of the
+values fall within two standard deviations of the mean, and about }$99.7\%$%
+\emph{\ of the values fall within three standard deviations of the mean.}%
+\bigskip\ 
+
+The last part (99.7 part) is also called the $3\sigma -$\textbf{rule}. Let
+us verify these claims, using the $Z$-table. Suppose $\mathcal{L}\left(
+X\right) =\normal(\mu ,\sigma ^{2})$; then for $k=1,2,3$ 
+\begin{eqnarray*}
+\P \left( \mu -k\sigma \leq X\leq \mu +k\sigma \right) &=&\P \left( -k\leq 
+\frac{X-\mu }{\sigma }\leq k\right) =\P \left( -k\leq Z\leq k\right) \\
+&=&\P \left( Z\leq k\right) -\P \left( Z\leq -k\right) .
+\end{eqnarray*}%
+For $k=1,2,3$ we find 
+\begin{eqnarray*}
+\P \left( Z\leq 1\right) -\P \left( Z\leq -1\right)
+&=&0.8413-0.1568=0.6845, \\
+\P \left( Z\leq 2\right) -\P \left( Z\leq -2\right)
+&=&0.9772-0.0228=0.954\,4, \\
+\P \left( Z\leq 3\right) -\P \left( Z\leq -3\right)
+&=&0.9987-0.0013=0.9974.
+\end{eqnarray*}%
+The rule (as an approximation statement)\ is confirmed. \bigskip
+
+\textbf{Reverse lookup and quantiles.} It is often of interest to find a
+value of $z$ which matches a certain probability, say $\alpha $ ($0<a<1$),
+such that$,$ if $X$ is a RV 
+\begin{equation*}
+\P \left( X\geq z\right) =\alpha .
+\end{equation*}%
+In this case we write $z=z_{\alpha}$ and call this the \textbf{%
+upper }$\alpha $\textbf{-quantile} of the distribution of $X$. Note that if $%
+X$ is $\normal(\mu ,\sigma ^{2})$ then $z_{\alpha}$ is uniquely defined:
+the equation 
+\begin{equation*}
+\int_{z}^{\infty }\varphi _{\mu ,\sigma ^{2}}(t)dt=\alpha
+\end{equation*}%
+has a unique solution in $z$, since the left side is continuous, strictly
+monotone decreasing in $z$ and ranges between $0$ and $1$. Here $\varphi
+_{\mu ,\sigma ^{2}}(t)=\varphi (\left( t-\mu \right) /\sigma )/\sigma $ is
+the density of $\normal(\mu ,\sigma ^{2})$; since this density is strictly
+positive everywhere, we find 
+\begin{equation*}
+\frac{d}{dz}\int_{z}^{\infty }\varphi _{\mu ,\sigma ^{2}}(t)dt=-\varphi
+_{\mu ,\sigma ^{2}}(z)<0
+\end{equation*}%
+and indeed $\P \left( X\geq z\right) $ is strictly decreasing in $z$. For $%
+\alpha =0.25$ the $z_{\alpha}$ called \textbf{the upper quartile}
+of the distribution; for $\alpha =0.75$ the $z_{\alpha}$ called 
+\textbf{the lower quartile}. For $\alpha =0.5$ we obtain the \textbf{median}
+of distribution of $X$; for $\normal(\mu ,\sigma ^{2})$ it coincides with the mean 
+$\mu $. We can also define \textbf{lower }$\alpha $\textbf{-quantiles} by
+solving $\P \left( X\leq z\right) =\alpha $ for $z$.
+
+
+\begin{example}
+Suppose that Verbal SAT test scores $X$ are described by a
+normal curve, for which the mean is 500 and the standard deviation is 100. A
+student's score is better than 75\% of all the scores. What is the student's
+score?
+
+
+\medskip \textbf{Solution. }We are asked the upper $25$\%-quantile (or $0.25$%
+-quantile, or the upper quartile) of $\normal(\mu ,\sigma ^{2})$ with $\mu =500$
+and $\sigma =100.$ Call this $s$ now, i.e. $s$ is the student's score. We
+must have 
+\begin{equation*}
+P(X\geq s)=0.25
+\end{equation*}%
+hence 
+\begin{equation*}
+P(X\leq s)=0.75=P\left( \frac{X-\mu }{\sigma }\leq \frac{s-\mu }{\sigma }%
+\right) =P\left( Z\leq \frac{s-\mu }{\sigma }\right) .
+\end{equation*}%
+Let $s^{\ast }=(s-\mu )/\sigma ,$ then 
+\begin{equation*}
+P\left( Z\leq s^{\ast }\right) =0.75
+\end{equation*}%
+i.e. $s^{\ast }=z_{1/4}^{\ast }$ is the upper quartile of $\normal(0,1)$. By
+``reverse lookup" in the $Z$-table, we find the two closest to $0.75$ entries
+(probabilities) to be $0.7486$ and $0.7517$, corresponding to $z$-values $%
+0.67$ and $0.68$ respectively (i.e. $\P \left( Z\leq 0.67\right) =0.7486$).
+A common method now is to interpolate between these two values of $z$, which
+would give us $z_{1/4}^{\ast }=s^{\ast }=0.675$. This gives a value for $s$ 
+\begin{equation*}
+s=\sigma s^{\ast }+\mu =67.5+500=567.5.
+\end{equation*}%
+The method can be summarized: if $z_{\alpha}$ denotes the $\alpha $%
+-quantile of $\normal(0,1)$ and $x_{\alpha }^{\ast }$ denotes the $\alpha $%
+-quantile of $\normal(\mu ,\sigma ^{2})$ then $x_{\alpha }^{\ast }=\sigma
+z_{\alpha}+\mu $
+\end{example}
+
+\subsubsection{Drawing the normal curve}
+
+Below we are plotting the normal density with mean $\mu =5$ and standard
+deviation $\sigma =5$.
+
+\vspace{5cm}
+~\\
+
+We see that at $x=0$
+the curve changes curvature, i. e. left of $0 $ it is convex (downward bent)
+and right of $0$ it is concave (upward bent). Such a point is called an 
+\textbf{inflection point}. We see that at $x=10$ there is another inflection
+point, and both inflection points are one standard deviation away from the
+mean. We will show that this a general feature of any normal distribution $%
+\normal(\mu ,\sigma ^{2})$.
+
+To see this, note that a smooth function $f$ (which has at least 2
+derivatives) is convex at $x$ if $f^{\prime }$ is increasing at $x$
+(strictly increasing, say), which means $f^{\prime \prime }(x)>0$.
+Similarly, $f$ is concave at $x$ if $f^{\prime \prime }(x)<0$. The density
+of $\normal(\mu ,\sigma ^{2})$ is 
+\begin{equation*}
+f(x)=\frac{1}{\sigma }\varphi \left( \frac{x-\mu }{\sigma }\right)
+\end{equation*}%
+where $\varphi \left( t\right) =\frac{1}{\sqrt{2\pi }}\exp \left(
+-t^{2}/2\right) $ is the density of $\normal(0,1)$. Now 
+\begin{eqnarray}
+f^{\prime }(x) &=&\frac{1}{\sigma ^{2}}\varphi ^{\prime }\left( \frac{x-\mu 
+}{\sigma }\right) \text{, }  \notag \\
+f^{\prime \prime }(x) &=&\frac{1}{\sigma ^{3}}\varphi ^{\prime \prime
+}\left( \frac{x-\mu }{\sigma }\right)  \label{inflec}
+\end{eqnarray}%
+and 
+\begin{eqnarray*}
+\varphi ^{\prime }\left( t\right) &=&\frac{d}{dt}\frac{1}{\sqrt{2\pi }}\exp
+\left( -t^{2}/2\right) =-\frac{1}{\sqrt{2\pi }}\exp \left( -t^{2}/2\right)
+\cdot t, \\
+\varphi ^{\prime \prime }\left( t\right) &=&\frac{1}{\sqrt{2\pi }}\left(
+\exp \left( -t^{2}/2\right) \cdot t^{2}-\exp \left( -t^{2}/2\right) \right)
+\\
+&=&\varphi \left( t\right) \cdot \left( t^{2}-1\right) .
+\end{eqnarray*}%
+It follows that $\varphi ^{\prime \prime }\left( t\right) <0$ for $|t|<1$
+and $\varphi ^{\prime \prime }\left( t\right) >0$ for $|t|>1$, hence the
+inflection points of $\varphi $ are $-1$ and $1$. From (\ref{inflec}) it
+follows that $f^{\prime \prime }(x)<0$ if $\left\vert \frac{x-\mu }{\sigma }%
+\right\vert <1$ etc, so that the inflection points of $f$ are at $x=\mu \pm
+\sigma $.
+
+\subsubsection{Chebyshev's inequality and the normal tail}
+
+A \textit{tail estimate} for a RV $X$ is an estimate for the probability $%
+\P \left( \left\vert X\right\vert >t\right) $. We may compare the tail
+estimates obtained from the standard normal $Z\ $with those from the
+Chebyshev inequality. The latter lells us that for any RV $X$ with $EX=0$
+and $\V(X)=1$ and any $t>0$ 
+\begin{equation*}
+\P \left( \left\vert X\right\vert >t\right) \leq t^{-2}
+\end{equation*}%
+which for $t=1$ gives $1$ (i.e. it is trivial), for $t=2$ it gives $0.25$
+and for $t=3$ it gives $1/9=0.11$. For the standard normal we obtain the
+corresponding $\P \left( \left\vert Z\right\vert >t\right) $ from the table
+(or approximately from the $3\sigma $-rule) as $0.315\,5$ for $t=1$, $%
+0.045\,6$ for $t=2$ and $0.002\,6$ for $t=3$. Thus the normal tail decreases
+much faster than $1/t^{2}$, the upper bound from the Chebyshev inequality.
+This is not surprising in view of the form of the normal density: we have 
+\begin{equation*}
+\P \left( \left\vert Z\right\vert >t\right) =2\int_{t}^{\infty }\varphi
+(u)du=\sqrt{\frac{2}{\pi }}\int_{t}^{\infty }\exp \left( -u^{2}/2\right) du
+\end{equation*}%
+and we would expect that the integral decreases with a similarly fast rate
+as the density $\varphi $ itself, as the lower bound $t$ tends to infinity.
+This is made precise by the following result.
+
+\begin{prop}
+(\textbf{Mill's inequality}) Let $\mathcal{L}(Z)=\normal(0,1)$. Then 
+\begin{equation}
+P\left( \left\vert Z\right\vert >t\right) \leq \sqrt{\frac{2}{\pi }}\frac{1}{%
+t}\exp \left( -t^{2}/2\right) .  \label{mills-ineq}
+\end{equation}
+\end{prop}
+
+\begin{proof}
+Observe that $u/t\geq 1$ for $u\geq t$, hence 
+\begin{eqnarray*}
+\P \left( \left\vert Z\right\vert >t\right) &\leq &\sqrt{\frac{2}{\pi }}%
+\frac{1}{t}\int_{t}^{\infty }u\exp \left( -u^{2}/2\right) du \\
+&=&\sqrt{\frac{2}{\pi }}\frac{1}{t}\lim_{x\rightarrow \infty
+}\int_{t}^{x}u\exp \left( -u^{2}/2\right) du \\
+&=&\sqrt{\frac{2}{\pi }}\frac{1}{t}\lim_{x\rightarrow \infty }\left[ -\exp
+\left( -u^{2}/2\right) \right] _{t}^{x} \\
+&=&\sqrt{\frac{2}{\pi }}\frac{1}{t}\exp \left( -t^{2}/2\right) .
+\end{eqnarray*}
+\end{proof}
+
+
+Suppose again that $S_{n}=\sum_{i=1}^{n}X_{i}$ where $X_{i}$ are IID
+Bernoulli $\bernoulli(p)$. The Chebyshev inequality gives for a tail
+probability 
+\begin{equation*}
+\P \left( \left\vert \frac{S_{n}-np}{\sqrt{np(1-p)}}\right\vert >t\right)
+\leq 1/t^{2}
+\end{equation*}%
+and it is \textit{exact} (holds for every $n$). In contrast, the normal tail
+estimate holds only as a limiting result for large $n,$ i.e. $\P \left(
+\left\vert \cdot \right\vert >t\right) \rightarrow \P \left( \left\vert
+Z\right\vert >t\right) $). But then the upper bound on $\P \left(
+\left\vert \cdot \right\vert >t\right) $ suggested is much smaller than the
+one of Chebyshev's inequality, as shown by Mill's inequality. Obviously, for
+applications a choice is to be made. Probability estimates which hold only
+as limits for $n\rightarrow \infty $ are called \textit{asymptotic}. Much of
+the basic statistical methods to be discussed (confidence intervals, tests)\
+are asymptotic \ in this sense, based on an assumption that $n$ is large
+enough. \bigskip
+
+\begin{Exercise}
+Show that Mill's inequality is sharp in the
+following sense: as $t\rightarrow \infty$, the ratio of the left and
+right sides of (\ref{mills-ineq}) tends to one. A common notation for this
+is: 
+\begin{equation*}
+P\left( \left\vert Z\right\vert >t\right) \sim \sqrt{\frac{2}{\pi }}\frac{1}{%
+t}\exp \left( -t^{2}/2\right) \text{ as }t\rightarrow \infty
+\end{equation*}%
+\emph{where the symbol "}$\sim $\emph{" applied to two functions }$g(t)$%
+\emph{, }$h(t)$\emph{\ means that }$g(t)/h(t)\rightarrow 1$\emph{\ as }$t$%
+\emph{\ tends to a limit (}$t\rightarrow \infty $\emph{\ on our case). }
+\end{Exercise}
+
+\subsection{Confidence intervals for a proportion}\label{S:ConfIntForProps}
+
+\subsubsection{Basic reasoning for a normal mean}
+
+Suppose that a random variable $X$ has a distribution $\normal(\mu ,1)$, i.e. it
+can be written $X=\mu +Z$. Suppose further that we do not know $\mu $, but
+we observe $X$ (\textit{one observation only}, i.e we obtain one realization
+of $X$). What statements can be made about the unknown $\mu $ ?
+
+From the $3\sigma $-rule we know that with probability $99.7\%$, $Z$ falls
+within a distance $3$ from $0.$ Consequently, $X$ falls within a distance $3$
+from $\mu $, with the same probability $99.7\%$. Now we have observed $X$,
+and we know that 
+\begin{equation*}
+\P \left( \left\vert X-\mu \right\vert \leq 3\right) =0.997
+\end{equation*}%
+which can equivalently be expressed as: ``the interval $\left[ X-3,X+3\right] 
+$ covers $\mu $ with probability $99.7\%$" or formally 
+\begin{equation}
+\P \left( \left[ X-3,X+3\right] \ni \mu \right) =0.997.
+\label{confid-interv}
+\end{equation}%
+Here ``$\ni $" is the inverted ``element of" sign $\in $ which should be read
+``the interval contains" or ``the interval covers". Of course we could have
+written $\mu \in \left[ X-3,X+3\right] $, but to stress the fact that \emph{%
+the interval is random, not }$\mu $, we write $\left[ X-3,X+3\right] \ni \mu 
+$.
+
+Suppose that $X$ has been observed and takes the value $x$. Then, based on (%
+\ref{confid-interv}), the interval $\left[ x-3,x+3\right] $ is called a 
+\textit{confidence interval} and the probability $0.997$ is called the 
+\textit{confidence level}, usually denoted by $C$. As an example, assume $%
+x=2 $ was observed. Then $\left[ -1,5\right] $ is a confidence interval of
+level $C=99.7$ percent. Based on the probability estimate (\ref%
+{confid-interv}), the statement usually associated to the interval is: ``we
+are $99.7$ \% confident that $\left[ -1,5\right] $ covers the unknown mean $%
+\mu $".
+
+A confidence statement like this is not the same as a probability statement:
+it is not claimed that, after $x$ is already observed, that ``the probability
+that the interval $\left[ -1,5\right] $ covers the true mean $\mu $ is $%
+99.7\%$". Indeed after $X$ took the value $x=2$, there is no randomness
+left, when we assume that $\mu $ is merely unknown, but not random. What can
+be said about the interval $\left[ -1,5\right] $ is a \textit{confidence
+statement}, not a probability statement. This is based on the probability
+statement: in $99.7\%$ of all cases, the interval obtained by this method
+covers the true parameter - formally expressed as (\ref{confid-interv})
+where $X$ is random. When $X=x$ is realized, i.e. no longer random, the
+confidence statement about $\left[ -1,5\right] $ is derived ``in hindsight"
+from (\ref{confid-interv}).
+
+The confidence level $C=99.7\%$ is not a commonly used value; these are $%
+99\% $ and $95\%$. Let us find the corresponding confidence intervals for $%
+\mu $, based on $X\sim \normal(\mu ,1)\footnote{%
+The notation $X\sim \normal(\mu ,1)$ is a commonly used equivalent for $\mathcal{L}%
+(X)=\normal(\mu ,1)$. Similarly, $X\sim Y$ will be used for $\mathcal{L}(X)=%
+\mathcal{L}(Y)$. This usage should not be confused with the one for
+nonrandom sequences $x_{n}$,$y_{n}$, where the symbol $x_{n}\sim y_{n}$
+means $x_{n}$/$y_{n}\rightarrow 1$.}$ We have to solve%
+\begin{equation*}
+\P \left( \left\vert X-\mu \right\vert \leq z\right) =C
+\end{equation*}%
+for $z>0$, upon which $\left[ X-z,X+z\right] $ will be a level $C$
+confidence interval. Since $X-\mu \sim Z$, we have 
+\begin{eqnarray*}
+\P \left( \left\vert Z\right\vert \leq z\right) &=&1-2\P \left( Z>z\right)
+=C, \\
+\P \left( Z>z\right) &=&\left( 1-C\right) /2=:\alpha .
+\end{eqnarray*}%
+Thus $z=z_{\alpha}$, the upper $\alpha $-quantile of $Z$ for $%
+\alpha =\left( 1-C\right) /2$. The commonly used values are easily found
+from the table, using $\P \left( Z>z\right) =\P \left( Z<-z\right) $:%
+\begin{eqnarray*}
+C &=&99\%\text{, }\alpha =0.005\text{, }z_{\alpha}=2.578 \\
+C &=&95\%\text{, }\alpha =0.025\text{, }z_{\alpha}=1.96.
+\end{eqnarray*}%
+Recall the second part of the 68-95-99.7\% rule: there it was claimed that $%
+\P \left( \left\vert Z\right\vert \leq 2\right) \approx 95\%$; we just
+found the corresponding quantile more accurately: it is not $2$ but $1.96.$
+
+The idea of the confidence interval for the unknown mean $\mu $ can easily
+be extended to the case where we observe (one) $X\sim \normal(\mu ,\sigma ^{2})$
+provided $\sigma ^{2}$ is known. Let $C$ be the confidence level and $\alpha
+=(1-C)/2$; then $\left( X-\mu \right) /\sigma \sim Z$ and 
+\begin{eqnarray*}
+C &=&\P \left( \left\vert Z\right\vert \leq z_{\alpha}\right) =\P
+\left( \left\vert \frac{X-\mu }{\sigma }\right\vert \leq z_{\alpha }^{\ast
+}\right) \\
+&=&\P \left( \left\vert X-\mu \right\vert \leq \sigma z_{\alpha }^{\ast
+}\right) =\P \left( \left[ X-\sigma z_{\alpha},X+\sigma z_{\alpha
+}^{\ast }\right] \ni \mu \right) .
+\end{eqnarray*}
+
+\begin{prop}
+\label{prop-normal-CI}Suppose a RV $X\sim \normal(\mu ,\sigma ^{2})$ is observed
+where $\mu $ is unknown and $\sigma >0$ is known. Let $z_{\alpha}$
+be the upper $\alpha $-quantile of $Z$ for some $0<\alpha <1/2$. Then for $%
+C=1-2\alpha $.%
+\begin{equation*}
+\P \left( \left[ X-\sigma z_{\alpha},X+\sigma z_{\alpha}%
+\right] \ni \mu \right) =C,
+\end{equation*}%
+which means that for any observed value $X=x$, the interval $\left[ x-\sigma
+z_{\alpha},x+\sigma z_{\alpha}\right] $ is a confidence
+interval for $\mu $ of level $C$.
+\end{prop}
+
+In what follows, we will generally abbreviate the statement: ``\textit{for
+any observed value }$X=x$\textit{, the interval }$\left[ x-\sigma z_{\alpha
+}^{\ast },x+\sigma z_{\alpha}\right] $\textit{\ is a confidence
+interval for.. }" by: ``\textit{the interval }$\left[ X-\sigma z_{\alpha
+}^{\ast },X+\sigma z_{\alpha}\right] $\textit{\ is a confidence
+interval for.}.".\bigskip
+
+\textbf{Parameters and statistical inference.} We assumed initially that we
+observe $X\sim \normal(\mu ,1)$ (or equivalently an $X$ with $\mathcal{L}(X)=\normal(\mu
+,1)$) where the mean $\mu $ is unknown. In that context $\mu $ is called a%
+\textit{\ parameter} of the distribution of $X$. Constructing a confidence
+interval for $\mu $ is an example of \textit{statistical inference }%
+regarding a parameter. Other examples of inference are hypothesis tests
+(about a parameter) and estimation of a parameter, also called \textit{point
+estimation}. In point estimation one just gives a ``reasonable guess" of a
+parameter. Note that if $X\sim \normal(\mu ,1)$, then $X$ itself is a reasonable
+guess of $\mu $, i.e. a point estimate. In contrast, a confidence interval
+gives a range and an attached probability statement; a confidence interval
+is also called an \textit{interval estimate}. In the case $X\sim \normal(\mu
+,\sigma ^{2})$, both $\mu $ and $\sigma ^{2}$ may be parameters; above we
+assumed $\sigma $ ``known", i.e. we constructed a confidence interval which
+made use of $\sigma $ (namely $\left[ X-\sigma z_{\alpha},X+\sigma
+z_{\alpha}\right] $\textit{\ }). When $\sigma $ is unknown, this
+interval is not available. \bigskip
+
+\textbf{The case of }$n$\textbf{\ IID normal observations.} The model of 
+\textit{one }normal observation $X$ appears artificial; it may strike one as
+a situation with very little data indeed. Consider instead the case of
+independent observations $X_{1},\ldots ,X_{n}$ all with law $\normal(\mu ,\sigma
+^{2})$, and as above assume $\mu $ is unknown while $\sigma $ is known. To
+construct a confidence interval for $\mu $, one may choose to take the
+sample mean $\overline{X}_{n}$ first and then build an interval estimate using
+information about the law of $\overline{X}_{n}$. Indeed we have from basic
+properties of the normal law 
+\begin{equation*}
+\overline{X}_{n}\sim \normal(\mu ,n^{-1}\sigma ^{2})
+\end{equation*}%
+(this follows from the fact that the sum of independent normals is normal,
+and a mean and variance computation). As a reminder, let's compute the
+variance: 
+\begin{eqnarray*}
+\V(\overline{X}_{n}) &=&\V\left(
+n^{-1}\sum_{i=1}^{n}X_{i}\right) =n^{-2}\V\left(
+\sum_{i=1}^{n}X_{i}\right) =_{\text{(by independence)}}n^{-2}\sum_{i=1}^{n}%
+\V\left( X_{i}\right) \\
+&=&n^{-2}\sum_{i=1}^{n}\sigma ^{2}=n^{-1}\sigma ^{2}.
+\end{eqnarray*}%
+We immediately obtain a confidence interval for $\mu $, by treating $\overline{X}%
+_{n}$ as ``one normal observation" with mean $\mu $ and variance $\tau
+^{2}=n^{-1}\sigma ^{2}$. We need only apply the previous Proposition \ref%
+{prop-normal-CI} setting the standard deviation $\tau =\sigma /\sqrt{n}$:
+
+\begin{prop}
+\label{prop-ci-normal-sample}Suppose independent observations $X_{1},\ldots
+,X_{n}$ with $X_{i}\sim \normal(\mu ,\sigma ^{2})$ where $\mu $ is unknown and $%
+\sigma >0$ is known. Let $\overline{X}_{n}$ be the sample mean and let $z_{\alpha
+}^{\ast }$ be the upper $\alpha $-quantile of $Z$ for some $0<\alpha <1/2$.
+Then $\left[ \overline{X}_{n}-\sigma z_{\alpha}/\sqrt{n},\overline{X}%
+_{n}+\sigma z_{\alpha}/\sqrt{n}\right] $ is a confidence interval
+for $\mu $ of level $C=1-2\alpha $.
+\end{prop}
+
+\subsubsection{Asymptotics for the sample proportion}
+
+Let us return to the case of $n$ IID Bernoulli observations $X_{1},\ldots ,X_{n}$
+$,$ $X_{i}\sim \bernoulli(\theta^*)$ where $\theta^* \in (0,1)$ is unknown. Our goal is
+to construct a confidence interval of level $C$ for the unknown population
+proportion $\theta^*$. The starting point is the normal approximation for the {\em point estimator} $\widehat{\Theta}_n$ based on the sample proportion: 
+\begin{equation}
+\widehat{\Theta}_{n}=\overline{X}_{n}=n^{-1}\sum_{i=1}^{n}X_{i} \quad \text{ and } \qquad
+T_{n}:=\frac{\widehat{\Theta}_{n}-\theta^*}{\sqrt{\theta^*(1-\theta^*)}/\sqrt{n}}\rightsquigarrow Z
+\label{sample-prop-limitlaw}
+\end{equation}%
+where $Z\sim \normal(0,1)$.
+
+\begin{lemma}
+\label{lem-lawconv-interval}For $\alpha =\left( 1-C\right) /2$ and $%
+z_{\alpha}$ such that $\P \left( Z>z_{\alpha}\right)
+=\alpha $ we have 
+\begin{equation*}
+\P \left( -z_{\alpha}\leq \frac{\widehat{\Theta}_{n}-\theta^*}{\sqrt{\theta^*(1-\theta^*)}/\sqrt{%
+n}}\leq z_{\alpha}\right) \rightarrow \P \left( -z_{\alpha }^{\ast
+}\leq Z\leq z_{\alpha}\right) =C\text{ as }n\rightarrow \infty .
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Indeed we have 
+\begin{equation*}
+\P \left( -z_{\alpha}\leq T_{n}\leq z_{\alpha}\right)
+=\P \left( T_{n}\leq z_{\alpha}\right) -\P \left(
+T_{n}<-z_{\alpha}\right)
+\end{equation*}%
+Now $\P \left( T_{n}\leq t\right) $ is the distribution function of $T_{n}$
+at $t$; by convergence in distribution $T_{n}\rightsquigarrow Z$, $\P \left( T_{n}\leq t\right) $ tends to 
+$\P \left( Z\leq t\right) =\Phi (t)$ for every $t$ (since every $t$ is a
+continuity point of $\Phi$). We also claim that for every $t$ 
+\begin{equation}
+\P \left( T_{n}<t\right) \rightarrow \Phi (t).
+\label{variant-of-lawconverg}
+\end{equation}%
+(the distribution function of $T_{n}$ may have a jump at $t$, but its size
+tends to $0$ as $n \to \infty$). Indeed for every $\varepsilon >0$ 
+\begin{equation*}
+\P \left( T_{n}\leq t-\varepsilon \right) \leq \P \left( T_{n}<t\right)
+\leq \P \left( T_{n}\leq t+\varepsilon \right)
+\end{equation*}%
+and $\P \left( T_{n}\leq t-\varepsilon \right) \rightarrow \Phi
+(t-\varepsilon )$, $\P \left( T_{n}\leq t+\varepsilon \right) \rightarrow
+\Phi (t+\varepsilon )$ and $\left\vert \Phi (t+\varepsilon )-\Phi
+(t-\varepsilon )\right\vert $ can be made arbitrarily small by a choice of $%
+\varepsilon $. Hence (\ref{variant-of-lawconverg}) is shown. Setting $%
+t=z_{\alpha}$ and $t=-z_{\alpha}$ we obtain 
+\begin{equation*}
+\P \left( T_{n}\leq z_{\alpha}\right) -\P \left( T_{n}<-z_{\alpha
+}^{\ast }\right) \rightarrow \P \left( Z\leq z_{\alpha}\right)
+-\P \left( Z\leq -z_{\alpha}\right) =\P \left( -z_{\alpha }^{\ast
+}\leq Z\leq z_{\alpha}\right) .
+\end{equation*}
+\end{proof}
+
+We may write the claim of the lemma as 
+\begin{eqnarray}
+&&\P \left( -z_{\alpha}\sqrt{\theta^*(1-\theta^*)}/\sqrt{n}\leq \theta^*-\widehat{\Theta}%
+_{n}\leq z_{\alpha}\sqrt{\theta^*(1-\theta^*)}/\sqrt{n}\right) \\
+&=&\P \left( \widehat{\Theta}_{n}-z_{\alpha}\sqrt{\theta^*(1-\theta^*)}/\sqrt{n}\leq
+\theta^* \leq \widehat{\Theta}_{n}+z_{\alpha}\sqrt{\theta^*(1-\theta^*)}/\sqrt{n}\right)
+\rightarrow C  \label{asympt-coverage}
+\end{eqnarray}%
+and we are close to an approximate confidence interval for the unknown $\theta^*$,
+except for the fact that $\theta^*(1-\theta^*)$ is unknown, hence the upper and lower
+bounds of the interval cannot be used. There are several methods to overcome
+this difficulty as shown below.
+
+
+\textbf{a). Standard Confidence Interval of asymptotic level $C$: } We can use $\widehat{\theta}_{n}$ as a point estimate for the unknown $\theta^*$ in the
+interval bounds, i.e. we set 
+\begin{equation*}
+m=z_{\alpha}\sqrt{\frac{\widehat{\theta}_{n}(1-\widehat{\theta}_{n})}{n}}
+\end{equation*}%
+use the interval 
+\begin{equation}
+\left[ \widehat{\theta}_{n}-m,\widehat{\theta}_{n}+m\right]
+\label{standard-one-proportion-interval}
+\end{equation}%
+as an approximate confidence interval of level $C$. Indeed $\widehat{\theta}_{n}$ is
+a reasonable estimate of $\theta^*$ since $\widehat{\Theta}_{n}\longrightarrow_{\P } \theta^*$ by the
+LLN and also $E\widehat{\Theta}_{n}=\theta^*$ (i.e., $\widehat{\Theta}_{n}$ is an {\em unbiased} estimator). But then we must
+establish a convergence result as in (\ref{asympt-coverage}), more precisely 
+\begin{eqnarray}
+&&\P \left( \widehat{\Theta}_{n}-m\leq \theta^* \leq \widehat{\Theta}_{n}+m\right)  \notag \\
+&=&\P \left( -z_{\alpha}\leq \frac{\widehat{\Theta}_{n}-\theta^*}{\sqrt{\widehat{\Theta}%
+_{n}(1-\widehat{\Theta}_{n})}/\sqrt{n}}\leq z_{\alpha}\right) \rightarrow C.
+\label{will-establish}
+\end{eqnarray}%
+That should be possible, given that 
+\begin{equation*}
+\frac{\widehat{\Theta}_{n}-\theta^*}{\sqrt{\widehat{\Theta}_{n}(1-\widehat{\Theta}_{n})}/\sqrt{n}}=T_{n}\cdot 
+\sqrt{\frac{\theta^*(1-\theta^*)}{\widehat{\Theta}_{n}(1-\widehat{\Theta}_{n})}}
+\end{equation*}%
+and the fact that $\widehat{\Theta}_{n}\longrightarrow_{\P} \theta^*,$ hence $\theta^*/\widehat{\Theta}%
+_{n}\longrightarrow_{\P} 1$. Below we will establish (\ref{will-establish}),
+showing that the interval (\ref{standard-one-proportion-interval}) is an
+approximate confidence interval of level $C$ for $\theta^*$. A common synonym for
+``approximate as $n\rightarrow \infty $" is ``asymptotic"; the interval (\ref%
+{standard-one-proportion-interval}) is in fact the \textbf{standard
+confidence interval of asymptotic level }$C$ for the population proportion.
+The bound $m$ in the interval $\left[ \widehat{\Theta}_{n}-m,\widehat{\Theta}_{n}+m\right] $
+is called the \textit{margin of error}; the width of the interval is $2m$.
+
+\bigskip
+
+\textbf{b) Conservative confidence interval of asymptotic level $C$: }. We use the inequality 
+\begin{equation*}
+\theta^*(1-\theta^*)\leq \frac{1}{4}
+\end{equation*}%
+\textbf{(Exercise !)} to replace $\sqrt{\theta^*(1-\theta^*)}$ by $1/2$ in (\ref%
+{asympt-coverage}) and thus we work with a wider interval around $\widehat{\theta}%
+_{n} $ which increases coverage probability of $\theta^*$, and thus should also
+have asymptotic coverage probability \textit{at least} $C$. In more detail:
+set $m=z_{\alpha}/2\sqrt{n}$; since $\sqrt{\theta^*(1-\theta^*)} \leq 1/2,$ we
+have $z_{\alpha}\sqrt{\theta^*(1-\theta^*)}/\sqrt{n}\leq m$ and hence 
+\begin{eqnarray*}
+&&\P \left( \widehat{\Theta}_{n}-m\leq \theta^* \leq \widehat{\Theta}_{n}+m\right) \\
+&\geq &\P \left( \widehat{\Theta}_{n}-z_{\alpha}\sqrt{\theta^*(1-\theta^*)}/\sqrt{n}\leq
+\theta^* \leq \widehat{\Theta}_{n}+z_{\alpha}\sqrt{\theta^*(1-\theta^*)}/\sqrt{n}\right)
+\rightarrow C.
+\end{eqnarray*}%
+hence 
+\begin{equation}
+\liminf_{n\rightarrow \infty }\P \left( \widehat{\Theta}_{n}-z_{\alpha}%
+\frac{1}{2\sqrt{n}}\leq \theta^* \leq \widehat{\Theta}_{n}+z_{\alpha}\frac{1}{2\sqrt{%
+n}}\right) \geq C.  \label{asy-level-conservat-CI}
+\end{equation}%
+So there is also an asymptotic coverage probability of at least $C$. This
+method is known as the \textbf{conservative method} for an asymptotic
+confidence interval of level $C$. The conservative margin of error is $%
+m=z_{\alpha}/2\sqrt{n}$.
+
+\bigskip
+
+\textbf{c) Exact Chebyshev's confidence interval with coverage probability at least $C$: } We use \textit{Chebyshev's inequality} applied to the sample
+proportion (with $\V(\widehat{\Theta}_{n})=\theta^*(1-\theta^*)/n$) 
+\begin{equation*}
+\P \left( \left\vert \widehat{\Theta}_{n}-\theta^*\right\vert \geq m\right) \leq \frac{%
+\theta^*(1-\theta^*)}{nm^{2}}\leq \frac{1}{4nm^{2}}\enspace ,
+\end{equation*}%
+set $C=1-1/4nm^{2}$ and solve for $m$, which gives $m=\sqrt{\frac{1}{%
+4n(1-C)}}$ and for the interval $\left[ \widehat{\theta}_{n}-m,\widehat{\theta}_{n}+m\right] $
+a confidence statement 
+\begin{equation*}
+\P \left( \left[ \widehat{\Theta}_{n}-m,\widehat{\Theta}_{n}+m\right] \ni \theta^* \right) \geq C.
+\end{equation*}%
+This interval has nonasymptotic (or \textit{exact}) coverage probability at
+least $C$, and in that sense it is preferable to an asymptotic confidence
+interval. But the margin of error is larger: if we compare it with the
+conservative (asymptotic) margin of error $z_{\alpha}\frac{1}{2%
+\sqrt{n}}$, we notice that both are of order $1/\sqrt{n}$, but their ratio 
+\begin{equation}
+\frac{\sqrt{\frac{1}{4n(1-C)}}}{z_{\alpha}\frac{1}{2\sqrt{n}}}=%
+\frac{1/\sqrt{1-C}}{z_{\alpha}}=\frac{1/\sqrt{2\alpha }}{z_{\alpha
+}^{\ast }}  \label{ratio}
+\end{equation}%
+is large. This is clear from the fact that the numerator is the solution of $%
+1/2x^{2}=\alpha $ and the denominator is the solution of $\P (Z>x)=\alpha $%
+, and from what we discussed above about the normal tail. From the table it
+can be seen that for $C=0.95$ we have $z_{\alpha}=1.96$; then the
+above ratio is $2.28$ and for $C=0.99$ the ratio $3.88.$\bigskip
+
+\begin{Exercise}
+Use Mill's inequality to formally show that (\ref{ratio})
+tends to infinity as $\alpha \rightarrow 0$ (i.e. as $C\rightarrow 1$) .
+\end{Exercise}
+
+\textbf{d) Exact Hoeffding's confidence interval with coverage probability at least $C$: } 
+For the sample proportion there is a much better inequality available than that of Chebyshev: Hoeffding's inequality of \eqref{EqHoeffdingsInequality} in Proposition~\ref{P:HoeffdingsInequality}, 
+applied to the the sample proportion $\widehat{\Theta}_{n}$ gives for any $%
+m>0 $ 
+\begin{equation*}
+\P \left( \left\vert \widehat{\Theta}_{n}-\theta^*\right\vert \geq m\right) \leq 2\exp
+\left( -2nm^{2}\right)
+\end{equation*}%
+so that if we desire a confidence interval with level $C$, we set 
+\begin{equation*}
+C=1-2\exp \left( -2nm^{2}\right)
+\end{equation*}
+and solve for $m$, which gives 
+\begin{equation*}
+m=\sqrt{\frac{-\log \left( (1-C)/2 \right)}{2n}}=\sqrt{\frac{\log (1/\alpha )}{%
+2n}}.
+\end{equation*}%
+This interval is also nonasymptotic (i.e. has exact coverage probability $C$
+for any $n$) and is narrower than the one derived from the Chebyshev
+inequality. Nevertheless the interval derived from the normal tail, which is
+not exact but asymptotic, is more commonly used.
+
+\begin{prop}[Hoeffding's $\neq$]\label{P:HoeffdingsInequality}
+Let $X_1,X_2,\ldots,X_n$ be independent bounded RVs such that $\P(Z_i \in [a_i,b_i])=1$ for each $i \in \{1,2,\ldots,n\}$. Let $S_n = \sum_{i=1}^n X_i$. Then for any $t>0$, we have
+\begin{equation}\label{EqHoeffdingsInequality}
+\P (\vert S_n - \E(S_n) \vert \geq t) \leq 2 \exp \left(-\frac{2t^2}{\sum_{i=1}^n (b_i-a_i)^2}\right)
+\end{equation}
+\end{prop}
+
+\begin{proof}
+The core of proving Hoeffding's inequality is the following upper bound: if $X$ is a RV with $\E(X)=0$ and $a \leq X \leq b$, then
+\[
+\E \left( e^{sX}\right) \leq e^{(s^2(b-a)^2/8)}
+\] 
+The above upper-bound is derived from the convexity of the exponential function:
+\[
+e^{sx} \leq \frac{z-a}{b-a}e^{sb} + \frac{b-z}{b-a}e^{sa}, \text{ for } a \leq z \leq b
+\]
+
+{\scriptsize Draw $e^{sx}$ on y-axis as a function of $x$ along x-axis and the line from $e^{sa}$ to $e^{sb}$ for the upper-bound as $x$ goes from $a$ to $b$.}
+
+\vspace{4cm}
+
+Thus, taking expectations on both sides of the above inequality
+\begin{align*}
+\E \left( e^{sX}\right) 
+&\leq
+\E\left( \frac{X-a}{b-a}\right) e^{sb} +   \E \left( \frac{b-X}{b-a} e^{sa} \right)\\
+&= \frac{b}{b-a} e^{sa} - \frac{a}{b-a} e^{sb}, \quad \text{ because } \E(X)=0\\
+&= \left( 1 - c + c e^{s(b-a)} \right) e^{-c s(b-a)}, \text{ where, } c=\frac{-a}{b-a}\enspace.
+\end{align*}
+Now let
+\[
+u=s(b-a) \quad \text{ and define } \phi(u) := -c u + \log(1-c+ce^u)
+\]
+Then we have
+\[
+\E \left( e^{sX} \right) \leq \left( 1-c+ce^{s(b-a)}\right) e^{- c s (b-a)} = e^{\phi(u)}
+\]
+To minimise the upper-bound let's express $\phi(u)$ in a Taylor's series with remainder term:
+\[
+\phi(u) = \phi(0) + u \phi'(0) + \frac{u^2}{2} \phi^{\prime\prime}(v) \quad \text{for some } v \in [0,u]
+\]
+\begin{align*}
+\phi'(u)
+&= -c + \frac{c e^u}{1-c+ce^u} \quad \implies \quad \phi'(u)=0 \\
+\phi^{\prime \prime}
+&= \frac{c e^u}{1-c+ce^u} - \frac{ce^u}{(1-c+ce^u)^2}\\
+&= \frac{c e^u}{1-c+ce^u} \left(1 - \frac{ce^u}{(1-c+ce^u)} \right)\\
+&= \rho(1-\rho), \quad \text{ where, } \rho := \frac{ce^u}{(1-c+ce^u)}  
+\end{align*}
+Now, $\phi^{\prime\prime}$ is maximised by setting
+\[
+\rho = \frac{ce^u}{(1-c+ce^u)} = \frac{1}{2} \implies \phi^{\prime\prime} \leq \frac{1}{4} \enspace .
+\]
+Thus we get
+\[
+\phi(u) \leq \frac{u^2}{8} = \frac{s^2(b-a)^2}{8} \quad \implies \quad \E(e^{sX}) \leq e^{s^2(b-a)^2/8} \enspace .
+\]
+Now, we can apply this upper-bound
+
+\vspace{5cm}
+
+{\scriptsize Proof to be completed in lectures}.
+
+\end{proof}
+
+\subsubsection{Some technical convergence results}
+
+In order to establish the result for the asymptotic coverage probability of
+the standard confidence interval for $p$ (i. e. in order to show (\ref%
+{will-establish})) some results about convergence in law and in probability
+are needed. Recall that a continuous random variable is one with a
+continuous distribution function $\P \left( X\leq t\right) $. The claim
+that a RV $X$ has a continuous distribution (or law) means that $X$ has a
+continuous distribution function $\P \left( X\leq t\right) $.
+
+\begin{lemma}
+\label{lem-lawconv-1a}Suppose $X_{n}$ is a sequence of RV which converges
+in distribution to a continuous RV $X$: 
+\begin{equation*}
+X_{n}\rightsquigarrow X
+\end{equation*}%
+and let $Y_{n}$ be a sequence of RV which converges in probability to $0$: 
+\begin{equation*}
+Y_{n}\rightarrow _{\P }0.
+\end{equation*}%
+Then 
+\begin{equation*}
+X_{n}+Y_{n}\rightsquigarrow X.
+\end{equation*}
+\end{lemma}
+
+Note that no independence assumptions were made.
+
+\begin{proof}
+Let $F_{n}$ be the distribution function of $X_{n}$ and $F$ be the
+respective d.f. of $X$. Convergence in distribution means that 
+\begin{equation*}
+\P (X_{n}\leq t)=F_{n}(t)\rightarrow F(t)
+\end{equation*}%
+for every continuity point of the limit d.f. $F.$ We assumed that $F$ is
+continuous, so it means convergence for every $t$. Now for $\varepsilon >0$%
+\begin{equation*}
+\P (X_{n}+Y_{n}\leq t)=
+\end{equation*}%
+\begin{equation}
+=\P (\left\{ X_{n}+Y_{n}\leq t\right\} \cap \left\{ \left\vert
+Y_{n}\right\vert \leq \varepsilon \right\} )+\P (\left\{ X_{n}+Y_{n}\leq
+t\right\} \cap \left\{ \left\vert Y_{n}\right\vert >\varepsilon \right\} ).
+\label{split-up}
+\end{equation}%
+The first term on the right is 
+\begin{eqnarray*}
+\P (\left\{ X_{n}\leq t-Y_{n}\right\} \cap \left\{ \left\vert
+Y_{n}\right\vert \leq \varepsilon \right\} ) &\leq &\P (\left\{ X_{n}\leq
+t+\varepsilon \right\} \cap \left\{ \left\vert Y_{n}\right\vert \leq
+\varepsilon \right\} ) \\
+&\leq &\P (X_{n}\leq t+\varepsilon ).
+\end{eqnarray*}%
+For this upper bound we have%
+\begin{equation*}
+\P (X_{n}\leq t+\varepsilon )\rightarrow F(t+\varepsilon )\text{ as }%
+n\rightarrow \infty .
+\end{equation*}%
+The second term in (\ref{split-up}) is 
+\begin{equation*}
+\P (\left\{ X_{n}+Y_{n}\leq t\right\} \cap \left\{ \left\vert
+Y_{n}\right\vert >\varepsilon \right\} )\leq \P (\left\vert
+Y_{n}\right\vert >\varepsilon )\rightarrow 0\text{ as }n\rightarrow \infty .
+\end{equation*}%
+Hence for every $\delta >0$ we can find $m_{1}$ such that for all $n\geq
+m_{1}$ 
+\begin{equation}
+\P (X_{n}+Y_{n}\leq t)\leq F(t+\varepsilon )+2\delta .  \label{bracket-1a}
+\end{equation}%
+Now take the same $\varepsilon >0$; we have 
+\begin{equation*}
+P(X_{n}\leq t-\varepsilon )=
+\end{equation*}%
+\begin{eqnarray*}
+&&\P (\left\{ X_{n}\leq t-\varepsilon \right\} \cap \left\{ \left\vert
+Y_{n}\right\vert \leq \varepsilon \right\} )+\P (\left\{ X_{n}\leq
+t-\varepsilon \right\} \cap \left\{ \left\vert Y_{n}\right\vert >\varepsilon
+\right\} ) \\
+&\leq &\P (\left\{ X_{n}+Y_{n}\leq t\right\} \cap \left\{ \left\vert
+Y_{n}\right\vert \leq \varepsilon \right\} )+\P (\left\vert
+Y_{n}\right\vert >\varepsilon ) \\
+&\leq &\P (X_{n}+Y_{n}\leq t)+P(\left\vert Y_{n}\right\vert >\varepsilon ).
+\end{eqnarray*}%
+Consequently 
+\begin{equation*}
+\P (X_{n}+Y_{n}\leq t)\geq \P (X_{n}\leq t-\varepsilon )-\P (\left\vert
+Y_{n}\right\vert >\varepsilon ).
+\end{equation*}%
+Using again the two limits for the probabilities on the right, for every $%
+\delta >0$ we can find $m_{2}$ such that for all $n\geq m_{2}$ 
+\begin{equation}
+\P (X_{n}+Y_{n}\leq t)\geq F(t-\varepsilon )-2\delta .  \label{bracket-2a}
+\end{equation}%
+Taking $m=\max (m_{1},m_{2})$ and collecting (\ref{bracket-1a}), (\ref%
+{bracket-2a}), we obtain for $n\geq m$ 
+\begin{equation*}
+F(t-\varepsilon )-2\delta \leq P(X_{n}+Y_{n}\leq t)\leq F(t+\varepsilon
+)+2\delta .
+\end{equation*}%
+Since $F$ is continuous at $t$, and $\varepsilon $ was arbitrary, we can
+select $\varepsilon $ such that 
+\begin{eqnarray*}
+F(t+\varepsilon ) &\leq &F(t)+\delta , \\
+F(t-\varepsilon ) &\geq &F(t)-\delta
+\end{eqnarray*}%
+so that for $n$ large enough 
+\begin{equation*}
+F(t)-3\delta \leq \P (X_{n}+Y_{n}\leq t)\leq F(t)+3\delta
+\end{equation*}%
+and since $\delta $ was also arbitrary, the result follows.
+\end{proof}
+
+\begin{lemma}
+\label{lem-lawconv-2a}Under the assumptions of Lemma \ref{lem-lawconv-1a},
+we have 
+\begin{equation*}
+X_{n}Y_{n}\rightarrow _{\P }0.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Let $\varepsilon >0$; and $\delta >0$ be arbitrary and given. Suppose $%
+\left\vert X_{n}Y_{n}\right\vert \geq \varepsilon $. Then, for every $t>0$,
+either $\left\{ \left\vert X_{n}\right\vert >t\right\} $, or if that is not
+the case, then$\left\vert X_{n}Y_{n}\right\vert \leq t\left\vert
+Y_{n}\right\vert $ and hence $\left\vert Y_{n}\right\vert \geq \varepsilon
+/t $. Hence . 
+\begin{equation}
+\P \left( \left\vert X_{n}Y_{n}\right\vert \geq \varepsilon \right) \leq
+\P \left( \left\vert X_{n}\right\vert >t\right) +\P \left( \left\vert
+Y_{n}\right\vert \geq \varepsilon /t\right) .  \label{first-decompos-a}
+\end{equation}%
+Let again $F_{n}$ be the distribution function of $X_{n}$ and $F$ be the
+respective d.f. of $X$. Now for every $t>0$ 
+\begin{eqnarray*}
+\P \left( \left\vert X_{n}\right\vert >t\right) &=&1-\P \left( X_{n}\leq
+t\right) +\P \left( X_{n}<-t\right) \\
+&\leq &1-F_{n}\left( t\right) +F_{n}\left( -t\right) .
+\end{eqnarray*}%
+Since $F_{n}$ converges to $F_{0}$ at both points $t$, $-t$, we find $%
+m_{1}=m_{1}(t)$ (depending on $t$) such that for all $n\geq m_{1}$ 
+\begin{equation*}
+\P \left( \left\vert X_{n}\right\vert >t\right) \leq
+1-F_{0}(t)+F_{0}(-t)+\delta
+\end{equation*}%
+Select now $t$ large enough such that 
+\begin{equation*}
+1-F_{0}(t)\leq \delta \text{, }F_{0}(-t)\leq \delta .
+\end{equation*}%
+Then for all $n\geq m_{1}(t)$ 
+\begin{equation*}
+\P \left( \left\vert X_{n}\right\vert \geq t\right) \leq 3\delta .
+\end{equation*}%
+On the other hand, once $t$ is fixed, in view of convergence in probability
+to $0$ of $\left\vert Y_{n}\right\vert $, one can find $m_{2}$ such that for
+all $n\geq m_{2}$ 
+\begin{equation*}
+\P \left( \left\vert Y_{n}\right\vert \geq \varepsilon /t\right) \leq
+\delta .
+\end{equation*}%
+In view of (\ref{first-decompos-a}) we have for all $n\geq m=\max
+(m_{1},m_{2})$%
+\begin{equation*}
+\P \left( \left\vert X_{n}Y_{n}\right\vert \geq \varepsilon \right) \leq
+4\delta .
+\end{equation*}%
+Since $\delta >0$ was arbitrary, the result is proved.
+\end{proof}
+
+We need an auxiliary result which despite its simplicity is still frequently
+cited as a ``Theorem".
+
+\begin{prop}
+\label{theo-slutsky}(\textbf{Slutsky's theorem}). Suppose a sequence of
+random variables $X_{n}$ converges in probability to a value $x$ ($%
+X_{n}\rightarrow _{\P }x$ as $n\rightarrow \infty $). Suppose $f$ is a real
+valued function defined in a neighborhood of $x$ and continuous there. Then 
+\begin{equation*}
+f(X_{n})\rightarrow _{\P }f(x),\;n\rightarrow \infty .
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Consider an arbitrary $\varepsilon >0$. Select $\delta >0$ small enough such
+that $(x-\delta ,x+\delta )$ is contained in the neighborhood of $x$ where $%
+f $ is defined and also fulfilling the condition that $\left\vert
+t-x\right\vert \leq \delta $ implies $\left\vert f(t)-f(x)\right\vert \leq
+\varepsilon $ (by continuity of $f$ such a $\delta $ can be found). Then the
+event $\left\vert f(X_{n})-f(x)\right\vert >\varepsilon $ implies $%
+\left\vert X_{n}-x\right\vert >\delta $ and hence 
+\begin{equation*}
+P\left( \left\vert f(X_{n})-f(x)\right\vert >\varepsilon \right) \leq
+P\left( \left\vert X_{n}-x\right\vert >\delta \right) .
+\end{equation*}%
+Since the latter probability tends to $0$ as $\;n\rightarrow \infty $, we
+also have 
+\begin{equation*}
+P\left( \left\vert f(X_{n})-f(x_{0})\right\vert >\varepsilon \right)
+\rightarrow 0\text{ as }n\rightarrow \infty
+\end{equation*}%
+and since $\varepsilon $ was arbitrary, the result is proved.\bigskip
+\end{proof}
+
+
+\remove{
+
+}

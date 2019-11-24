@@ -174,14 +174,14 @@ statistics.
 \subsubsection{Chebyshev's inequality and the Law of Large Numbers (LLN)}
 
 The law of large numbers (LLN) \index{Law of Large Numbers} holds under a general assumption that $%
-E\left\vert X_{i}\right\vert <\infty $, see [D]\footnote{%
+\E\left\vert X_{i}\right\vert <\infty $, see [D]\footnote{%
 Throughout we will use [D] for the reference: Durrett, R., \emph{The
 Essentials of Probability, }Duxbury Press, 1994.} p. 223. or Proof via CFs in Probability Theory I earlier. 
 But we recall here from scratch for reinforcement of your learning.}
 
 \begin{prop}[Weak Law of Large Numbers] 
 Suppose $X_{1},X_{2},\ldots $ are IID\ RV\
-'s and have $E\left\vert X_{i}\right\vert <\infty $. Let $\mu =\E X_{i}$. Then
+'s and have $\E\left\vert X_{i}\right\vert <\infty $. Let $\mu =\E X_{i}$. Then
 as $n\rightarrow \infty $%
 \begin{equation*}
 \overline{X}_{n}\longrightarrow _{p}\mu
@@ -227,7 +227,7 @@ Thus we obtain \textit{Markov's inequality}
 Setting $X=\left\vert Y-\E Y\right\vert ^{2}$ we obtain 
 \begin{equation*}
 \P \left( \left\vert Y-\E Y\right\vert \geq t\right) =\P \left( \left\vert
-Y-\E Y\right\vert ^{2}\geq t^{2}\right) \leq \frac{E\left\vert Y-\E Y\right\vert
+Y-\E Y\right\vert ^{2}\geq t^{2}\right) \leq \frac{\E\left\vert Y-\E Y\right\vert
 ^{2}}{t^{2}}=\frac{\V(Y)}{t^{2}}.
 \end{equation*}
 \end{proof}
@@ -404,9 +404,9 @@ standardized sum of IID RV's is approximately standard normal". Of
 course standardizing the sum $S_{n}=\sum_{i=1}^{n}X_{i}$ yields the same
 result as standardizing the sample mean $\overline{X}_{n}$: 
 \begin{eqnarray*}
-\E S_{n} &=&nE\overline{X}_{n}\text{ and }\V(S_{n})=n^{2}\V(%
+\E S_{n} &=&n\E\overline{X}_{n}\text{ and }\V(S_{n})=n^{2}\V(%
 \overline{X}_{n})\text{, hence } \\
-\frac{S_{n}-\E S_{n}}{\mathrm{SD}(S_{n})} &=&\frac{\overline{X}_{n}-E\overline{X}_{n}}{%
+\frac{S_{n}-\E S_{n}}{\mathrm{SD}(S_{n})} &=&\frac{\overline{X}_{n}-\E\overline{X}_{n}}{%
 \mathrm{SD}(\overline{X}_{n})}
 \end{eqnarray*}%
 so it is also true that ``the standardized (sample) mean of IID RV's is
@@ -517,7 +517,7 @@ not elaborate this here.
 applicability of the normal approximation to the binomial $\binomial(n,\theta)$: it is
 required that both $n\theta\geq 10$ and $n(1-\theta)\geq 10$. This is called the
 ``success / failure rule" \index{success / failure rule} since $n\theta$ is the expected number of successes: $%
-\E S_{n}=n\theta$ and and $n(1-\theta)$ is the expected number of ``failures": $E\left(
+\E S_{n}=n\theta$ and and $n(1-\theta)$ is the expected number of ``failures": $\E\left(
 n-S_{n}\right) =n(1-\theta)$. This rule is based on the fact that the CLT\
 ``breaks down" for small values of $\theta$. More precisely, when $\theta$ is small, a
 larger $n$ is needed to make the normal approximation good; for large enough 
@@ -1186,7 +1186,7 @@ follows that $f^{\prime \prime }(x)<0$ if $\left\vert \frac{x-\mu }{\sigma }%
 A \textit{tail estimate} for a RV $X$ is an estimate for the probability $%
 \P \left( \left\vert X\right\vert >t\right) $. We may compare the tail
 estimates obtained from the standard normal $Z\ $with those from the
-Chebyshev inequality. The latter lells us that for any RV $X$ with $EX=0$
+Chebyshev inequality. The latter lells us that for any RV $X$ with $\E X=0$
 and $\V(X)=1$ and any $t>0$ 
 \begin{equation*}
 \P \left( \left\vert X\right\vert >t\right) \leq t^{-2}
@@ -1347,11 +1347,9 @@ provided $\sigma ^{2}$ is known. Let $C$ be the confidence level and $\alpha
 =(1-C)/2$; then $\left( X-\mu \right) /\sigma \sim Z$ and 
 \begin{eqnarray*}
 C &=&\P \left( \left\vert Z\right\vert \leq z_{\alpha}\right) =\P
-\left( \left\vert \frac{X-\mu }{\sigma }\right\vert \leq z_{\alpha }^{\ast
-}\right) \\
-&=&\P \left( \left\vert X-\mu \right\vert \leq \sigma z_{\alpha }^{\ast
-}\right) =\P \left( \left[ X-\sigma z_{\alpha},X+\sigma z_{\alpha
-}^{\ast }\right] \ni \mu \right) .
+\left( \left\vert \frac{X-\mu }{\sigma }\right\vert \leq z_{\alpha }\right) \\
+&=&\P \left( \left\vert X-\mu \right\vert \leq \sigma z_{\alpha }\right) =\P \left( \left[ X-\sigma z_{\alpha},X+\sigma z_{\alpha
+}\right] \ni \mu \right) .
 \end{eqnarray*}
 
 \begin{prop}
@@ -1369,11 +1367,9 @@ interval for $\mu $ of level $C$.
 \end{prop}
 
 In what follows, we will generally abbreviate the statement: ``\textit{for
-any observed value }$X=x$\textit{, the interval }$\left[ x-\sigma z_{\alpha
-}^{\ast },x+\sigma z_{\alpha}\right] $\textit{\ is a confidence
-interval for.. }" by: ``\textit{the interval }$\left[ X-\sigma z_{\alpha
-}^{\ast },X+\sigma z_{\alpha}\right] $\textit{\ is a confidence
-interval for.}.".\bigskip
+any observed value }$X=x$\textit{, the interval }$\left[ x-\sigma z_{\alpha},x+\sigma z_{\alpha}\right] $\textit{\ is a confidence
+interval for.. }" by: ``\textit{the interval }$\left[ X-\sigma z_{\alpha},X+\sigma z_{\alpha}\right] $\textit{\ is a confidence
+interval for ...}."\bigskip
 
 \textbf{Parameters and statistical inference.} We assumed initially that we
 observe $X\sim \normal(\mu ,1)$ (or equivalently an $X$ with $\mathcal{L}(X)=\normal(\mu
@@ -1515,7 +1511,7 @@ use the interval
 \end{equation}%
 as an approximate confidence interval of level $C$. Indeed $\widehat{\theta}_{n}$ is
 a reasonable estimate of $\theta^*$ since $\widehat{\Theta}_{n}\longrightarrow_{\P } \theta^*$ by the
-LLN and also $E\widehat{\Theta}_{n}=\theta^*$ (i.e., $\widehat{\Theta}_{n}$ is an {\em unbiased} estimator). But then we must
+LLN and also $\E\widehat{\Theta}_{n}=\theta^*$ (i.e., $\widehat{\Theta}_{n}$ is an {\em unbiased} estimator). But then we must
 establish a convergence result as in (\ref{asympt-coverage}), more precisely 
 \begin{eqnarray}
 &&\P \left( \widehat{\Theta}_{n}-m\leq \theta^* \leq \widehat{\Theta}_{n}+m\right)  \notag \\
@@ -1588,8 +1584,7 @@ conservative (asymptotic) margin of error $z_{\alpha}\frac{1}{2%
 \sqrt{n}}$, we notice that both are of order $1/\sqrt{n}$, but their ratio 
 \begin{equation}
 \frac{\sqrt{\frac{1}{4n(1-C)}}}{z_{\alpha}\frac{1}{2\sqrt{n}}}=%
-\frac{1/\sqrt{1-C}}{z_{\alpha}}=\frac{1/\sqrt{2\alpha }}{z_{\alpha
-}^{\ast }}  \label{ratio}
+\frac{1/\sqrt{1-C}}{z_{\alpha}}=\frac{1/\sqrt{2\alpha }}{z_{\alpha}}  \label{ratio}
 \end{equation}%
 is large. This is clear from the fact that the numerator is the solution of $%
 1/2x^{2}=\alpha $ and the denominator is the solution of $\P (Z>x)=\alpha $%
@@ -1606,10 +1601,10 @@ tends to infinity as $\alpha \rightarrow 0$ (i.e. as $C\rightarrow 1$) .
 For the sample proportion there is a much better inequality available than that of Chebyshev: Hoeffding's inequality of \eqref{EqHoeffdingsInequality} in Proposition~\ref{P:HoeffdingsInequality}, 
 applied to the the sample proportion $\widehat{\Theta}_{n}$ gives for any $%
 m>0 $ 
-\begin{equation*}
+\begin{equation}\label{EqExactHoeffdingsConfInterForProportion}
 \P \left( \left\vert \widehat{\Theta}_{n}-\theta^*\right\vert \geq m\right) \leq 2\exp
 \left( -2nm^{2}\right)
-\end{equation*}%
+\end{equation}%
 so that if we desire a confidence interval with level $C$, we set 
 \begin{equation*}
 C=1-2\exp \left( -2nm^{2}\right)
@@ -1624,6 +1619,23 @@ for any $n$) and is narrower than the one derived from the Chebyshev
 inequality. Nevertheless the interval derived from the normal tail, which is
 not exact but asymptotic, is more commonly used.
 
+Next we prove Hoeffding's inequality using the following simple idea of Chernoff.
+
+\begin{idea}[Chernoff's bounding method]
+By Markov's inequality, if $s$ is an arbitrary positive real number, then for any RV $X$, and any $t>0$:
+\[
+\P(X \geq t) = \P (\e^{sX} \geq \e^{st}) \leq \frac{\E(\e^{sX})}{\e^{st}}
+\]
+The idea in Chernoff's bounding method is to find $s>0$ that minimises the upper-bound, i.e., the RHS of the above equation, to make it as small as possible. In the case of a sum of independent RVs $X_1,X_2,\ldots,X_n$ given by $S_n = \sum_{i=1}^n X_i$:
+\begin{align}
+\P(S_n - \E(S_n) \geq t) 
+&\leq \e^{-st} \E \left( \exp \left( s \sum_{i=1}^n (X_i - \E(X_i)) \right)\right) \notag \\
+&= \e^{-st} \prod_{i=1}^n \E\left( \e^{s(X_i-\E(X_i))}\right), \quad \text{by independence.} \label{EqChernoffsBoundingMethod}
+\end{align}
+Thus, the problem of finding better bounds than that given by Chebychev's inequality boils down to finding a good upper-bound for $\E\left( \e^{s(X_i-\E(X_i))}\right)$, i.e., 
+the moment generating function of each of the random variables $X_i-\E(X_i)$. There are many ways to do this and the most simple approach is due to Hoeffding in 1963 as shown next.
+\end{idea}
+
 \begin{prop}[Hoeffding's $\neq$]\label{P:HoeffdingsInequality}
 Let $X_1,X_2,\ldots,X_n$ be independent bounded RVs such that $\P(Z_i \in [a_i,b_i])=1$ for each $i \in \{1,2,\ldots,n\}$. Let $S_n = \sum_{i=1}^n X_i$. Then for any $t>0$, we have
 \begin{equation}\label{EqHoeffdingsInequality}
@@ -1634,65 +1646,84 @@ Let $X_1,X_2,\ldots,X_n$ be independent bounded RVs such that $\P(Z_i \in [a_i,b
 \begin{proof}
 The core of proving Hoeffding's inequality is the following upper bound: if $X$ is a RV with $\E(X)=0$ and $a \leq X \leq b$, then
 \[
-\E \left( e^{sX}\right) \leq e^{(s^2(b-a)^2/8)}
+\E \left( \e^{sX}\right) \leq \e^{(s^2(b-a)^2/8)}
 \] 
 The above upper-bound is derived from the convexity of the exponential function:
 \[
-e^{sx} \leq \frac{z-a}{b-a}e^{sb} + \frac{b-z}{b-a}e^{sa}, \text{ for } a \leq z \leq b
+\e^{sx} \leq \frac{x-a}{b-a}\e^{sb} + \frac{b-x}{b-a}\e^{sa}, \text{ for } a \leq x \leq b
 \]
 
-{\scriptsize Draw $e^{sx}$ on y-axis as a function of $x$ along x-axis and the line from $e^{sa}$ to $e^{sb}$ for the upper-bound as $x$ goes from $a$ to $b$.}
+{\scriptsize Draw $\e^{sx}$ on y-axis as a function of $x$ along x-axis and the line from $\e^{sa}$ to $\e^{sb}$ for the upper-bound as $x$ goes from $a$ to $b$.}
 
 \vspace{4cm}
 
 Thus, taking expectations on both sides of the above inequality
 \begin{align*}
-\E \left( e^{sX}\right) 
+\E \left( \e^{sX}\right) 
 &\leq
-\E\left( \frac{X-a}{b-a}\right) e^{sb} +   \E \left( \frac{b-X}{b-a} e^{sa} \right)\\
-&= \frac{b}{b-a} e^{sa} - \frac{a}{b-a} e^{sb}, \quad \text{ because } \E(X)=0\\
-&= \left( 1 - c + c e^{s(b-a)} \right) e^{-c s(b-a)}, \text{ where, } c=\frac{-a}{b-a}\enspace.
+\E\left( \frac{X-a}{b-a}\right) \e^{sb} +   \E \left( \frac{b-X}{b-a} \e^{sa} \right)\\
+&= \frac{b}{b-a} \e^{sa} - \frac{a}{b-a} \e^{sb}, \quad \text{ because } \E(X)=0\\
+&= \left( 1 - c + c \e^{s(b-a)} \right) \e^{-c s(b-a)}, \text{ where, } c=\frac{-a}{b-a}\enspace.
 \end{align*}
 Now let
 \[
-u=s(b-a) \quad \text{ and define } \phi(u) := -c u + \log(1-c+ce^u)
+u=s(b-a) \quad \text{ and define } \phi(u) := -c u + \log(1-c+c\e^u)
 \]
 Then we have
 \[
-\E \left( e^{sX} \right) \leq \left( 1-c+ce^{s(b-a)}\right) e^{- c s (b-a)} = e^{\phi(u)}
+\E \left( \e^{sX} \right) \leq \left( 1-c+c\e^{s(b-a)}\right) \e^{- c s (b-a)} = \e^{\phi(u)}
 \]
 To minimise the upper-bound let's express $\phi(u)$ in a Taylor's series with remainder term:
 \[
 \phi(u) = \phi(0) + u \phi'(0) + \frac{u^2}{2} \phi^{\prime\prime}(v) \quad \text{for some } v \in [0,u]
 \]
 \begin{align*}
+\phi(0)
+&= -c \cdot 0 + \log(1-c+c \e^0) = 0 \\
 \phi'(u)
-&= -c + \frac{c e^u}{1-c+ce^u} \quad \implies \quad \phi'(u)=0 \\
+&= -c + \frac{c \e^u}{1-c+c\e^u} \quad \implies \quad \phi'(u)=0 \\
 \phi^{\prime \prime}
-&= \frac{c e^u}{1-c+ce^u} - \frac{ce^u}{(1-c+ce^u)^2}\\
-&= \frac{c e^u}{1-c+ce^u} \left(1 - \frac{ce^u}{(1-c+ce^u)} \right)\\
-&= \rho(1-\rho), \quad \text{ where, } \rho := \frac{ce^u}{(1-c+ce^u)}  
+&= \frac{c \e^u}{1-c+c\e^u} - \frac{c\e^u}{(1-c+c\e^u)^2}\\
+&= \frac{c \e^u}{1-c+c\e^u} \left(1 - \frac{c\e^u}{(1-c+c\e^u)} \right)\\
+&= \rho(1-\rho), \quad \text{ where, } \rho := \frac{c\e^u}{(1-c+c\e^u)}  
 \end{align*}
-Now, $\phi^{\prime\prime}$ is maximised by setting
+Now, $\phi^{\prime\prime}=\rho(1-\rho)$, being the familiar quadratic, is maximised by setting
 \[
-\rho = \frac{ce^u}{(1-c+ce^u)} = \frac{1}{2} \implies \phi^{\prime\prime} \leq \frac{1}{4} \enspace .
+\rho = \frac{c\e^u}{(1-c+c\e^u)} = \frac{1}{2} \implies \phi^{\prime\prime} \leq \frac{1}{4} \enspace .
 \]
 Thus we get
 \[
-\phi(u) \leq \frac{u^2}{8} = \frac{s^2(b-a)^2}{8} \quad \implies \quad \E(e^{sX}) \leq e^{s^2(b-a)^2/8} \enspace .
+\phi(u) \leq \frac{u^2}{8} = \frac{s^2(b-a)^2}{8} \quad \implies \quad \E(\e^{sX}) \leq \e^{s^2(b-a)^2/8} \enspace .
 \]
-Now, we can apply this upper-bound
-
-\vspace{5cm}
-
-{\scriptsize Proof to be completed in lectures}.
-
+Now, we can just plug-in the above upper-bound $\e^{s^2(b-a)^2/8}$, specialised to each $X_i$ that is bounded between $a_i$ and $b_i$, directly into \eqref{EqChernoffsBoundingMethod} of Chernoff's bounding method 
+to derive Hoeffding's inequality:
+\begin{align*}
+\P \left( (S_n - \E(S_n)) \geq t \right) 
+&\leq \e^{-st} \prod_{i=1}^n \e^{s^2(b_i-a_i)^2/8} \\
+%=& \e^{-st} \e^{s^2 \sum_{i=1}^n (b_i-a_i)^2/8} \\
+%=& \e^{-2t^2/\sum_{i=1}^n (b_i-a_i)^2}, \qquad \text{by choosing the optimal } s=4t/\sum_{i=1}^n(b_i-a_i)^2
+\end{align*}
+Similarly, we can also show that
+\[
+\P \left( (\E(S_n) - S_n) \geq t \right) \leq \e^{-2t^2/\sum_{i=1}^n (b_i-a_i)^2}
+\]
+Thus we have proved the inequality for the absolute value of $S_n - \E(S_n)$ in \eqref{EqHoeffdingsInequality} known as Hoeffding's inequality. 
 \end{proof}
+
+Next we prove \eqref{EqExactHoeffdingsConfInterForProportion} by specialising \eqref{EqHoeffdingsInequality} to the $\binomial(n,\theta^*)$ RV $S_n=\sum_{i=1}^nX_i$, where $X_1,X_2,\ldots,X_n \overset{IID}{\sim} \bernoulli(\theta^*)$, in terms of the sample mean as the point estimator $\widehat{\Theta}_n = \overline{X}_n = S_n/n$, as originally proved by Chernoff (1952) and Okamoto (1958):
+\begin{align}
+\P \left( \vert \overline{\Theta}_n - \theta^* \vert \geq m \right) 
+&= \P \left( \frac{1}{n} \vert S_n - \E(S_n) \vert \geq m \right) %\notag \\
+= \P \left( \vert S_n - \E(S_n) \vert \geq n m \right) \notag \\
+&\leq 2 \e^{-2(n m)^2/\sum_{i=1}^n (b_i-a_i)^2} \notag\\
+&= 2 \e^{-2(n m)^2/\sum_{i=1}^n (1-0)^2} \quad \text{since for each $\bernoulli(\theta)$ RV } b_i=1, a_i=0 \notag\\
+&= 2 \e^{-2(n m)^2/n} = 2 \e^{-2 n m^2} \notag 
+\end{align}
 
 \subsubsection{Some technical convergence results}
 
 In order to establish the result for the asymptotic coverage probability of
-the standard confidence interval for $p$ (i. e. in order to show (\ref%
+the standard confidence interval for $\theta^*$ (i. e. in order to show (\ref%
 {will-establish})) some results about convergence in law and in probability
 are needed. Recall that a continuous random variable is one with a
 continuous distribution function $\P \left( X\leq t\right) $. The claim
@@ -1893,6 +1924,311 @@ and since $\varepsilon $ was arbitrary, the result is proved.\bigskip
 \end{proof}
 
 
-\remove{
+\subsubsection{Asymptotic confidence level}
 
+With these results we are now able to prove that the standard asymptotic confidence
+interval for the unknown population proportion $\theta^*$ has indeed asymptotic level $C$, i.e.
+prove relation (\ref{will-establish}): 
+\begin{equation}
+\P \left( -z_{\alpha}\leq \frac{\widehat{\Theta}_{n}-\theta^*}{\sqrt{\widehat{\Theta}_{n}(1-%
+\widehat{\Theta}_{n})}/\sqrt{n}}\leq z_{\alpha}\right) \rightarrow C
+\label{asy-level-a}
+\end{equation}%
+for $\alpha =\left( 1-C\right) /2$. As already noted we have 
+\begin{equation}
+\frac{\widehat{\Theta}_{n}-\theta^*}{\sqrt{\widehat{\Theta}_{n}(1-\widehat{\Theta}_{n})}/\sqrt{n}}=T_{n}\cdot 
+\sqrt{\frac{\theta^*(1-\theta^*)}{\widehat{\Theta}_{n}(1-\widehat{\Theta}_{n})}}  \label{factor-T-n}
+\end{equation}%
+where $T_{n}\rightsquigarrow Z$, and $T_{n}$ is the "correctly standardized"
+sample proportion $\widehat{\Theta}_{n}$ (as in (\ref{sample-prop-limitlaw})). The
+function $f(\theta^*):=\theta^*(1-\theta^*)$ is continuous in a neighborhood of every $\theta^* \in (0,1)$; by
+Slutsky's theorem we have $\widehat{\Theta}_{n}(1-\widehat{\Theta}_{n})\rightarrow _{\P
+}\theta^*(1-\theta^*)$. A repeated application of Slutsky's theorem now gives 
+\begin{equation*}
+\frac{\theta^*(1-\theta^*)}{\widehat{\Theta}_{n}(1-\widehat{\Theta}_{n})}\rightarrow _{\P }1\text{, }\sqrt{%
+\frac{\theta^*(1-\theta^*)}{\widehat{\Theta}_{n}(1-\widehat{\Theta}_{n})}}\rightarrow _{\P }1.
+\end{equation*}%
+An application of Lemma (\ref{lem-lawconv-2a}) to (\ref{factor-T-n}) gives 
+\begin{equation*}
+\widehat{T}_{n}:=\frac{\widehat{\Theta}_{n}-\theta^*}{\sqrt{\widehat{\Theta}_{n}(1-\widehat{\Theta}_{n})}/\sqrt{n}}%
+\rightsquigarrow Z.
+\end{equation*}%
+Analogously to Lemma (\ref{lem-lawconv-interval}) (replace $T_{n}$ there by $%
+\widehat{T}_{n}$) it now follows that 
+\begin{equation*}
+\P \left( -z_{\alpha}\leq \widehat{T}_{n}\leq z_{\alpha }^{\ast
+}\right) \rightarrow \P \left( -z_{\alpha}\leq Z\leq z_{\alpha
+}^{\ast }\right) =C\text{ }
+\end{equation*}%
+i.e. (\ref{asy-level-a}) is established and thereby proving the following proposition.
+
+\begin{prop}
+\label{prop-asy-confid-level-two-sided}Suppose 
+$X_{1},\ldots ,X_{n}$ are independent Bernoulli observations with $X_{i}\sim \bernoulli(\theta^*)$.  
+Suppose $\theta^*\in (0,1)$ is unknown and we want to find out its value. 
+Let the point estimator $\widehat{\Theta}_{n}$ of $\theta^*$ be the sample proportion and let $%
+z_{\alpha}$ be the upper $\alpha $-quantile of $Z$ for some $%
+0<\alpha <1/2$. Then 
+\begin{equation*}
+ \left[ \widehat{\Theta}_{n}-m,\widehat{\Theta}_{n}+m\right] \quad \text{where,} \quad m=z_{\alpha}\sqrt{\frac{\widehat{\Theta}_{n}(1-\widehat{\Theta}_{n})}{n}}
+\end{equation*}%
+is a confidence interval for $\theta^*$ of asymptotic level $C=1-2\alpha $.
+\end{prop}
+
+\subsubsection{Sample size determination}
+
+The standard confidence interval has width $2m$, where the margin of error
+is 
+\begin{equation}
+m=z_{\alpha}\sqrt{\frac{\widehat{\Theta}_{n}(1-\widehat{\Theta}_{n})}{n}}
+\label{standard-margin-a}
+\end{equation}
+There are two conflicting aims:
+
+\begin{itemize}
+\item[{\bf Aim of precision:}] The width should be as small as possible, in order to accurately ``pinpoint" the unknown value $\theta^*$.
+
+\item[{\bf Aim of certainty:}] The confidence level $C$ should be as high as possible, i.e., close to one, since it can be interpreted as the ``reliability" of the interval.
+\end{itemize}
+
+The conflict clearly appears with the quantile $z_{\alpha}$: if $%
+C\rightarrow 1$ then $\alpha =\left( 1-C\right) /2\rightarrow 0$ and hence $%
+z_{\alpha}\rightarrow \infty $, and as a consequence the margin of
+error $m$ also tends to infinity. For small margin of error at fixed sample
+size $n$ we would have to decrease $z_{\alpha}$, thus increase $%
+\alpha $ and decrease $C$. However the sample size $n$ also influences the
+margin of error $m$; in fact $m$ is proportional to $1/\sqrt{n}$. Thus both
+high $C$ and small $m$ \textit{can easily be achieved if we let }$%
+n\rightarrow \infty $, but sample size usually is a cost factor.
+
+If we use the conservative margin of error 
+\begin{equation}
+m=z_{\alpha}\sqrt{\frac{1}{4n}}  \label{conserv-margin}
+\end{equation}%
+then it is easy to determine a sample size that a given margin of error $%
+m^{\ast }$ is guaranteed: 
+\begin{equation}
+n=\left( \frac{z_{\alpha}}{2m^{\ast }}\right) ^{2}
+\label{sample-size-determin-1}
+\end{equation}%
+is obtained by solving (\ref{conserv-margin}) for $n$.
+
+If we prefer the standard interval, and try to determine $n$ for achieving a
+given margin of error, we are faced with the problem that $\widehat{\Theta}_{n}$ is
+not available before we have obtained the sample of that size. Indeed
+setting $m=m^{\ast }$ in (\ref{standard-margin-a}) and solving for $n$ gives 
+\begin{equation*}
+n=\widehat{\Theta}_{n}(1-\widehat{\Theta}_{n})\left( \frac{z_{\alpha}}{m^{\ast }}%
+\right) ^{2}.
+\end{equation*}
+
+An obvious idea is to use an initial guess of $\theta^*$, or conduct a pilot study
+with sample size $n_{1}$ and obtain an initial estimate $\widehat{\Theta}_{(1)}$ from
+there. Then determine the final sample size from 
+\begin{equation*}
+\widehat{n}=\widehat{\Theta}_{(1)}(1-\widehat{\Theta}_{(1)})\left( \frac{z_{\alpha}}{%
+m^{\ast }}\right) ^{2}
+\end{equation*}
+
+\begin{algorithm}[htbp]
+\label{algo-2-stage}\textbf{Two stage method }\\To achieve a given margin
+of error\textit{\ }$m^{\ast }$ (for fixed confidence level C)\textit{: }%
+\bigskip \newline
+\textbf{(1)} Sample $n_{1}$ data $Y_{1},\ldots ,Y_{n_{1}}$ (all IID
+Bernoulli $\bernoulli(\theta^*)$), obtain the corresponding sample proportion $%
+\widehat{\Theta}_{(1)}$ and use it to determine an estimated sample size $\widehat{n}$ by 
+\begin{equation*}
+\widehat{n}=\widehat{\Theta}_{(1)}(1-\widehat{\Theta}_{(1)})\left( \frac{z_{\alpha}}{%
+m^{\ast }}\right) ^{2}.
+\end{equation*}%
+\bigskip \textbf{(2) }Take another sample $X_{1},\ldots ,X_{\widehat{n}}$ (all
+IID Bernoulli $\bernoulli(\theta^*)$), independent of the first one, of size $%
+\widehat{n}$, obtain the sample proportion $\widehat{\Theta}_{\widehat{n}}$ and use it for a
+confidence interval $\left[ \widehat{\Theta}_{\widehat{n}}-m^{\ast },\widehat{\Theta}_{\widehat{n}%
+}+m^{\ast }\right] .$ \bigskip
+\end{algorithm}
+
+The method is well founded heuristically. Can we show that it works, i.e.
+that asymptotic confidence level $C$ is maintained ?
+
+Consider an "ideal sample size" $n_{0}$ which would guarantee the margin of
+error $m^{\ast }$ if $\theta^*$ were known: 
+\begin{equation}
+m^{\ast }=z_{\alpha}\sqrt{\frac{\theta^*(1-\theta^*)}{n_{0}}}.
+\label{m-star-equal}
+\end{equation}%
+i.e. 
+\begin{equation}
+n_{0}=\theta^*(1-\theta^*)\left( \frac{z_{\alpha}}{m^{\ast }}\right) ^{2}.
+\label{n-null-determined}
+\end{equation}%
+This is a sample size we cannot use, but if we could use it, then the
+interval $\left[ \widehat{\Theta}_{n_{0}}-m^{\ast },\widehat{\Theta}_{n_{0}}+m^{\ast }\right] $
+would surely have asymptotic confidence level $C$. Of course if we know $\theta^*$
+then there is no need for a confidence interval anymore. But consideration
+of such "unavailable" methods is frequently useful\footnote{%
+Such unavailable choices are sometimes called "of oracle type" since they
+are only available if an oracle tells us the truth, i.e. gives the true $\theta^*$
+here.}.
+
+In what follows we will assume firstly, that the sample size for the pilot
+study $n_{1}$ tends to infinity, so that we have a more and more accurate $%
+\widehat{\Theta}_{(1)}$. On the other hand, we want $n_{1}$ to be small compared to
+the size $\widehat{n}$ of our "actual" sample, i.e we want $n_{1}/\widehat{n}%
+\rightarrow _{\P }0$ (here $\widehat{n}$ is random). Since there is good reason
+to believe that $\widehat{n}/n_{0}\rightarrow _{\P }1$, we should guarantee $%
+n_{1}/n_{0}\rightarrow 0$. But $n_{0}$ is determined by $m^{\ast }$ via (\ref%
+{n-null-determined}), so we are led to consider small desired margins of
+error: $m^{\ast }\rightarrow 0$. The requirement $n_{1}/n_{0}\rightarrow 0$
+will equivalently be expressed as $n_{1}\left( m^{\ast }\right)
+^{2}\rightarrow 0$ (in view of (\ref{n-null-determined})).
+
+\bigskip
+
+\begin{rem}
+When $n_{1}$ is only a fraction of $n_{0}$ 
+then the following modification of the Algorithm does not change the
+essence: let $Y_{1},\ldots ,Y_{n_{1}}$ be the first part of the
+larger sample $X_{1},\ldots ,X_{\widehat{n}}$. This is how one might
+proceed in practice, but to show rigorously that this method also works is
+slightly more involved, though not different in principle from our proof
+below.
+\end{rem}
+
+To summarize: we will consider the Algorithm \ref{algo-2-stage} in a setting
+where $m^{\ast }\rightarrow 0$, $n_{1}\rightarrow \infty $, and $n_{1}\left(
+m^{\ast }\right) ^{2}\rightarrow 0$ (the third requirement means that $n_{1}$
+tends to infinity slower than $\left( m^{\ast }\right) ^{2}$ tends to zero).
+
+\begin{prop}
+Suppose independent Bernoulli observations $Y_{1},\ldots ,Y_{n_{1}}$ and $%
+X_{1},X_{2}\ldots $with law $\bernoulli(\theta^*)$ where $\theta^* \in (0,1)$ is unknown.
+Suppose $n_{1}\rightarrow \infty $, $m^{\ast }\rightarrow 0$ and $%
+n_{1}\left( m^{\ast }\right) ^{2}\rightarrow 0$. Then the confidence
+interval $\left[ \widehat{\Theta}_{\widehat{n}}-m^{\ast },\widehat{\Theta}_{\widehat{n}}+m^{\ast }%
+\right] $ given by Algorithm \ref{algo-2-stage} maintains asymptotic level $%
+C $.
+\end{prop}
+
+\begin{proof}
+For the proof, we may take $n_{0}$ as our basic index tending to infinity ($%
+n_{0}\rightarrow 0$ is equivalent to $m^{\ast }\rightarrow 0$). First we
+show that 
+\begin{equation}
+\frac{\widehat{n}}{n_{0}}\rightarrow _{\P }1\text{ as }n_{0}\rightarrow 0.
+\label{firststep-n-0}
+\end{equation}%
+Indeed, we have 
+\begin{eqnarray*}
+\frac{\widehat{n}}{n_{0}} &=&\frac{\widehat{\Theta}_{(1)}(1-\widehat{\Theta}_{(1)})\left( \frac{%
+z_{\alpha}}{m^{\ast }}\right) ^{2}}{\theta^*(1-\theta^*)\left( \frac{z_{\alpha}}{m^{\ast }}\right) ^{2}} \\
+&=&\frac{\widehat{\Theta}_{(1)}(1-\widehat{\Theta}_{(1)})}{\theta^*(1-\theta^*)}.
+\end{eqnarray*}%
+By Slutsky's theorem (Theorem \ref{theo-slutsky}) it suffices to show that $%
+\widehat{\Theta}_{(1)}\rightarrow _{\P }\theta^*$. By the LLN, this is implied by our
+condition $n_{1}\rightarrow \infty $.
+
+Consider the coverage probability:%
+\begin{eqnarray}
+&=&\P \left( \widehat{\Theta}_{\widehat{n}}-m^{\ast }\leq \theta^*\leq \widehat{\Theta}_{\widehat{n}%
+}+m^{\ast }\right)  \notag \\
+&=&1-\P \left( \widehat{\Theta}_{\widehat{n}}-\theta^*\leq -m^{\ast }\right) +\P \left( \widehat{\Theta}%
+_{\widehat{n}}-\theta^*\geq m^{\ast }\right)  \label{other-term}
+\end{eqnarray}%
+Now 
+\begin{equation*}
+\P \left( \widehat{\Theta}_{\widehat{n}}-\theta^*\geq m^{\ast }\right) =
+\end{equation*}
+\begin{equation}
+\P \left( \frac{\widehat{\Theta}_{\widehat{n}}-\theta^*}{\sqrt{\theta^*(1-\theta^*)}/\sqrt{\widehat{n}}}\leq 
+\frac{\sqrt{\widehat{n}}m^{\ast }}{\sqrt{\theta^*(1-\theta^*)}}\right) .  \label{tail-inequ}
+\end{equation}%
+Now $\widehat{\Theta}_{\widehat{n}}$ is from a sample of random size $\widehat{n}$ but the $%
+\widehat{n}$ is independent of this sample since it is based on $Y:=\left(
+Y_{1},\ldots ,Y_{n_{1}},\ldots \right) $. Now by $\P_{\ast }$ we will write
+probabilities for fixed $Y$ (conditional on $Y$); then we have $\P \left(
+\cdot \right) =\E\P_{\ast }\left( \cdot \right) $ where the expected value
+refers to $Y$. Select $\varepsilon >0$; from (\ref{firststep-n-0}) we have
+on an event $A_{n_{0}}$ (concerning only $Y$) where $\P \left( Y\notin
+A_{n_{0}}\right) \rightarrow 0$ 
+\begin{equation*}
+1-\varepsilon \leq \widehat{n}/n_{0}\leq 1+\varepsilon
+\end{equation*}%
+hence for $Y\in A_{n_{0}}$ 
+\begin{equation*}
+\widehat{n}\geq n_{0}\left( 1-\varepsilon \right) \text{ and }\widehat{n}\leq
+n_{0}\left( 1+\varepsilon \right) .
+\end{equation*}%
+In this case 
+\begin{equation*}
+\frac{\sqrt{\widehat{n}}m^{\ast }}{\sqrt{\theta^*(1-\theta^*)}}\leq \frac{\sqrt{n_{0}}m^{\ast }%
+}{\sqrt{\theta^*(1-\theta^*)}}\sqrt{\left( 1+\varepsilon \right) }=z_{\alpha}%
+\sqrt{\left( 1+\varepsilon \right) }
+\end{equation*}%
+by (\ref{m-star-equal}). Let $B_{n_{0}}$be the event in (\ref{tail-inequ}),
+then, if $\mathbf{1}_{\left\{ Y\in A_{n_{0}}\right\} }$ denotes the
+indicator of the event $\left\{ Y\in A_{n_{0}}\right\} $, 
+\begin{eqnarray*}
+\P \left( B_{n_{0}}\right) &=&\E\P\nolimits_{\ast }\left( B_{n_{0}}\right)
+=\E\mathbf{1}_{\left\{ Y\in A_{n_{0}}\right\} }\P\nolimits_{\ast }\left(
+B_{n_{0}}\right) +\E\mathbf{1}_{\left\{ Y\notin A_{n_{0}}\right\}
+}\P\nolimits_{\ast }\left( B_{n_{0}}\right) \\
+&\leq &\E\mathbf{1}_{\left\{ Y\in A_{n_{0}}\right\} }\P\nolimits_{\ast
+}\left( B_{n_{0}}\right) +\E\mathbf{1}_{\left\{ Y\notin A_{n_{0}}\right\} } \\
+&=&\E\mathbf{1}_{\left\{ Y\in A_{n_{0}}\right\} }\P\nolimits_{\ast }\left(
+B_{n_{0}}\right) +\P \left( Y\notin A_{n_{0}}\right) \\
+&\leq &\E\mathbf{1}_{\left\{ Y\in A_{n_{0}}\right\} }\P\nolimits_{\ast
+}\left( \frac{\widehat{\Theta}_{\widehat{n}}-\theta^*}{\sqrt{\theta^*(1-\theta^*)}/\sqrt{\widehat{n}}}\leq
+z_{\alpha}\sqrt{\left( 1+\varepsilon \right) }\right) +\P \left(
+Y\notin A_{n_{0}}\right) .
+\end{eqnarray*}
+If $Y$ is fixed then $\widehat{n}$ is also fixed and on the event $Y\in
+A_{n_{0}} $ we have $\widehat{n}\geq n_{0}\left( 1-\varepsilon \right) $. Thus $%
+\widehat{n}$ is large and the CLT will hold, so for large $n_{0}$ we will have 
+\begin{equation*}
+\P\nolimits_{\ast }\left( \frac{\widehat{\Theta}_{\widehat{n}}-\theta^*}{\sqrt{\theta^*(1-\theta^*)}/\sqrt{%
+\widehat{n}}}\leq z_{\alpha}\sqrt{\left( 1+\varepsilon \right) }\right)
+\leq \P \left( Z\leq z_{\alpha}\sqrt{\left( 1+\varepsilon \right) }%
+\right) +\varepsilon .
+\end{equation*}%
+Here the right side does not depend on $Y$. Collecting these results we
+obtain 
+\begin{eqnarray*}
+\P \left( B_{n_{0}}\right) &\leq &\E\mathbf{1}_{\left\{ Y\in
+A_{n_{0}}\right\} }\left( \P \left( Z\leq z_{\alpha}\sqrt{\left(
+1+\varepsilon \right) }\right) +\varepsilon \right) +\P \left( Y\notin
+A_{n_{0}}\right) \\
+&\leq &\P \left( Z\leq z_{\alpha}\sqrt{\left( 1+\varepsilon
+\right) }\right) +\varepsilon +\P \left( Y\notin A_{n_{0}}\right) \\
+&\leq &\P \left( Z\leq z_{\alpha}\sqrt{\left( 1+\varepsilon
+\right) }\right) +2\varepsilon
+\end{eqnarray*}%
+since $\P \left( Y\notin A_{n_{0}}\right) \leq \varepsilon $ for
+sufficently large $n_{0}$. Since $\varepsilon >0$ was arbitrary, we obtain 
+\begin{equation*}
+\limsup \P \left( \widehat{\Theta}_{\widehat{n}}-\theta^*\geq m^{\ast }\right) =\limsup \P
+\left( B_{n_{0}}\right) \leq \P \left( Z\leq z_{\alpha}\right)
+=\alpha
+\end{equation*}%
+For the other term in (\ref{other-term}) we obtain analogously 
+\begin{equation*}
+\limsup \P \left( \widehat{\Theta}_{\widehat{n}}-\theta^*\leq -m^{\ast }\right) \leq \alpha .
+\end{equation*}%
+hence 
+\begin{equation*}
+\liminf \P \left( \widehat{\Theta}_{\widehat{n}}-m^{\ast }\leq \theta^*\leq \widehat{\Theta}_{\widehat{n}%
+}+m^{\ast }\right) \geq 1-2\alpha =C.
+\end{equation*}
+\end{proof}
+
+
+\begin{rem}
+In the proof we did not use the condition that $n_{1}$ is
+only a fraction of $n_{0}$ (i.e. $n_{1}\left( m^{\ast }\right)
+^{2}\rightarrow 0$) but this condition would play a role if $Y_{1},\ldots
+,Y_{n_{1}}$\emph{\ }is the first part of the larger sample $X_{1},\ldots ,X_{%
+\widehat{n}}$.
+\end{rem}
+
+\remove{
 }

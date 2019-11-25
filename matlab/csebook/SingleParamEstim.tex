@@ -1,9 +1,486 @@
-%\section{Parameter Estimation via Likelihood}
+\section{Parameter Estimation and Likelihood}\label{S:ParamEstAndLikelihood}
+
+Now that we have been introduced to point and set estimation of the population mean and the population proportion using the notion of convergence in distribution for sequences of RVs as well as concentration inequalities, 
+we can begin to appreciate the art of estimation in a more general setting.  
+Parameter estimation is the basic problem in statistical inference and machine learning.  
+We will formalize the general estimation problem here.  
+
+As we have already seen, when estimating the population mean or population proportion, there are two basic types of estimators.  
+In point estimation we are interested in estimating a particular point of interest that is supposed to belong to a set of points.  
+In (confidence) set estimation, we are interested in estimating a set with a particular form that has a specified probability of ``trapping'' the particular point of interest from a set of points.  
+Here, a point should be interpreted as an element of a collection of elements from some space.
+
+\subsection{Point and Set Estimation -- A General Likelihood Approach}\label{S:PointSetEstimationLikelihood}
+{\bf Point estimation} is any statistical methodology that provides one with a ``{\bf single best guess}'' of some specific quantity of interest.  Traditionally, we denote this {\bf quantity of interest as $\theta^*$} and {\bf its point estimate as $\widehat{\theta}$ or $\widehat{\theta}_n$}.  The subscript $n$ in the point estimate $\widehat{\theta}_n$ emphasizes that our estimate is based on $n$ observations or data points from a given statistical experiment to estimate $\theta^*$.  This quantity of interest, which is usually unknown, can be: %, namely $\theta$
+%, may be an {\bf integral} $\Iz$ of a real valued function $h(x)$, i.e.~$\theta=\Iz := \int_a^b h(x)\,dx \in \Rz$, or simply a 
+\begin{itemize}
+\item a {\bf parameter} $\theta^*$ which is an element of the {\bf parameter space} $\BB{\Theta}$, i.e.~$\theta^* \in \BB{\Theta}$ such that $\theta^*$ specifies the ``law'' of the observations (realizations or samples) of the \rv~$(X_1,\ldots,X_n)$ modeled by JPDF or JPMF $f_{X_1,\ldots,X_n}(x_1,\ldots,x_n; \theta^*)$, or
+%\item a {\bf distribution function (DF)} $F^* \in \Fz := \text{the set of all DFs}$
+%\item a {\bf density function (pdf)} $f \in \{ \text{``not too wiggly Sobolev functions''} \}$, or 
+\item a {\bf regression function} $\theta^* \in \BB{\Theta}$, where $\BB{\Theta}$ is a class of regression functions in a regression experiment with model: $Y=\theta^*(X)+\epsilon$, such that $\e(\epsilon)=0$ and $\theta^*$ specifies the ``law'' of pairs of observations $\{(X_i,Y_i)\}_{i=1}^n$, for e.g., fitting parameters in noisy ODE or PDEs from observed data --- one can always do a {\bf prediction} in a regression experiment, i.e.~when you want to estimate $Y_i$ given $X_i$, or
+\item a {\bf classifier} $\theta^* \in \BB{\Theta}$, i.e.~a regression experiment with discrete $Y = \theta^*(X)+\epsilon$, for e.g.~training an scrub-nurse robot to assist a human surgeon, or 
+\item an {\bf integral} $\theta^* := \int_A h(x)\,dx \in \BB{\Theta}$.  If $\theta^*$ is finite, then $\BB{\Theta} =  \Rz$, for e.g.~$\theta^*$ could be the volume of a high-dimensional irregular polyhedron, a traffic congestion measure on a network of roadways, the expected profit from a new brew of beer, or the probability of an extreme event such as the collapse of a dam in the Southern Alps in the next 150 years.%  For e.g.~see \ref{S:BMC} on Monte Carlo integration.
+\end{itemize}
+{\bf Set estimation} is any statistical methodology that provides one with a ``{\bf best smallest set}'', such as an interval, rectangle, ellipse, etc.~that contains $\theta^*$ with a high probability $1-\alpha$.
+
+Recall that a statistic is a RV or \rv~$T(X)$ that maps every data point $x$ in the data space $\Xz$ with $T(x)=t$ in its range $\Tz$, i.e.~$T(x):\Xz \to \Tz$ (\hyperref[D:Statistic]{Definition~\ref*{D:Statistic}}).  
+Next, we look at a specific class of statistics whose range is the parameter space $\BB{\Theta}$.
+
+\begin{definition}[Point Estimator]\label{D:Estimator}
+%{\rm
+A {\bf point estimator} $\widehat{\Theta}$ of some {\bf fixed and possibly unknown} $\theta^* \in \BB{\Theta}$ is a statistic that associates each data point $x \in \Xz$ with a {\bf point estimate} $\widehat{\Theta}(x)=\widehat{\theta} \in \BB{\Theta}$,  
+\[
+\boxed{
+ \widehat{\Theta} := \widehat{\Theta}(x)=\widehat{\theta}: \Xz \to \BB{\Theta}
+ } \ .
+\]
+If our data point $x := (x_1,x_2,\ldots,x_n)$ is an $n$-vector or a point in the $n$-dimensional real space, i.e.~$x := (x_1,x_2,\ldots,x_n) \in \Xz_n \subset \Rz^n$, then we emphasize the dimension $n$ in our point estimator $\widehat{\Theta}_n$ of $\theta^* \in \BB{\Theta}$.
+\[
+\boxed{
+\widehat{\Theta}_n :=  \widehat{\Theta}_n(x:=(x_1,x_2,\ldots,x_n))=\widehat{\theta}_n : \Xz_n \to \BB{\Theta}, \quad \Xz_n \subset \Rz^n 
+} \ .
+\]
+The typical situation for us involves point {\bf estimation} of $\theta^* \in \BB{\Theta}$ from 
+$(x_1,x_2,\ldots,x_n)$, the {\bf observed data} (realization or sample), based on the {\bf model}
+\[
+X=(X_1,X_2,\ldots,X_n) \sim f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n; \theta^*) \enspace .
+\]
+%}
+\end{definition}
+
+\begin{example}[Coin Tossing Experiment ($X_1,\ldots,X_n \overset{IID}{\sim} \bernoulli(\theta^*)$)]\label{EX:CoinTossing}
+{\rm
+I tossed a coin that has an unknown probability $\theta^*$ of landing Heads independently and identically $10$ times in a row.  Four of my outcomes were Heads and the remaining six were Tails, with the actual sequence of Bernoulli outcomes (Heads $\to 1$ and Tails $\to 0$) being $(1,0,0,0,1,1,0,0,1,0)$.  I would like to estimate the probability $\theta^* \in \BB{\Theta} = [0,1]$ of observing Heads using the natural estimator $\widehat{\Theta}_n((X_1,X_2,\ldots,X_n))$ of $\theta^*$:
+\[
+\widehat{\Theta}_n((X_1,X_2,\ldots,X_n)) := \widehat{\Theta}_n = \frac{1}{n} \sum_{i=1}^n X_i =: \overline{X}_n
+\]
+For the coin tossing experiment I just performed ($n=10$ times), the point estimate of the unknown $\theta^*$ is:
+\begin{eqnarray}
+\widehat{\theta}_{10} = \widehat{\Theta}_{10}((x_1,x_2,\ldots,x_{10})) 
+&=&\widehat{\Theta}_{10}((1,0,0,0,1,1,0,0,1,0)) \notag \\
+&=& \frac{1+0+0+0+1+1+0+0+1+0}{10}=\frac{4}{10}=0.40 \notag \ .
+\end{eqnarray}
+}
+\end{example}
+
+\subsection{Likelihood}\label{S:Likelihood}
+We take a look at {\bf likelihood} --- one of the most fundamental concepts in Statistics.  
+
+\begin{definition}[Likelihood Function]\label{D:LklFn}
+{\rm
+Suppose $(X_1,X_2,\ldots,X_n)$ is a \rv~with JPDF or JPMF $f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n; \theta)$ specified by parameter $\theta \in \BB{\Theta}$.  
+Let the observed data be $(x_1,x_2,\ldots,x_n)$.  
+Then the {\bf likelihood} function given by $L_n(\theta)$ is merely the joint probability of the data, with the exception that we see it as a function of the parameter:
+\begin{equation}
+\boxed{
+L_n(\theta) := L_n(x_1,x_2,\ldots,x_n; \theta) = f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n; \theta) \enspace .
+}
+\end{equation}
+The {\bf log-likelihood} function is defined by:
+\begin{equation}
+\boxed{
+\ell_n(\theta) := \log(L_n(\theta))
+} \enspace
+\end{equation}
+}
+\end{definition}
+
+\begin{example}[Likelihood of the IID $\bernoulli(\theta^*)$ experiment]\label{EX:LklCoinTossing}
+{\rm
+Consider our IID Bernoulli experiment:
+$$
+X_1,X_2,\ldots,X_n \overset{IID}{\sim} \bernoulli(\theta^*), \text{ with PDF } f_{X_i}(x_i;\theta)=\theta^{x_i}(1-\theta)^{1-x_i} \BB{1}_{\{0,1\}}(x_i), \, \text{for } i \in \{1,2,\ldots,n\} \enspace .
+$$
+Let us understand the likelihood function for one observation first.  There are two possibilities for the first observation.  
+
+If we only have one observation and it happens to be $x_1=1$, then our likelihood function is:
+$$L_1(\theta)=L_1(x_1;\theta)
+= f_{X_1}(x_1;\theta)
+=\theta^{1}(1-\theta)^{1-1} \BB{1}_{\{0,1\}}(1)
+=\theta (1-\theta)^0 1
+=\theta \enspace
+$$
+If we only have one observation and it happens to be $x_1=0$, then our likelihood function is:
+$$L_1(\theta)=L_1(x_1;\theta)
+= f_{X_1}(x_1;\theta)
+=\theta^{0}(1-\theta)^{1-0} \BB{1}_{\{0,1\}}(0)
+=1 (1-\theta)^1 1
+=1-\theta \enspace
+$$
+If we have $n$ observations $(x_1,x_2,\ldots,x_n)$, i.e.~a vertex point of the unit hyper-cube $\{0,1\}^n$ (see top panel of Figure~\ref{F:BernoulliSampleLkl} when $n \in \{1,2,3\}$), then our likelihood function (see bottom panel of Figure~\ref{F:BernoulliSampleLkl}) is obtained by multiplying the densities due to our IID assumption:
+\begin{eqnarray}\label{E:LklBernoulli}
+L_n(\theta) &:=& L_n(x_1,x_2,\ldots,x_n; \theta)  = f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n ; \theta) \notag \\
+&=& f_{X_1}(x_1 ; \theta) f_{X_2}(x_2 ; \theta) \cdots f_{X_n}(x_n ; \theta) := \prod_{i=1}^n f_{X_i}(x_i ; \theta) \notag \\
+&=& \theta^{\sum_{i=1}^n x_i} (1-\theta)^ {n-\sum_{i=1}^n x_i} %:= \theta^{t_n} (1-\theta)^{n-t_n} \notag 
+\end{eqnarray}
+%In the last step, we have formally defined the following statistic of the data: 
+%$$T_n(X_1,X_2,\ldots,X_n)=\sum_{i=1}^n X_i :  \Xz_n \rightarrow \Tz_n$$ with the corresponding realisation $t_n := T_n(x_1,x_2,\ldots,x_n)=\sum_{i=1}^n x_i \in \Tz_n$. 
+}
+\end{example}
+
+\begin{figure}[htbp]
+\caption{Data Spaces $\Xz_1=\{0,1\}$, $\Xz_2=\{0,1\}^2$ and $\Xz_3=\{0,1\}^3$ for one, two and three IID Bernoulli trials, respectively and the corresponding likelihood functions.\label{F:BernoulliSampleLkl}}
+\centering   \makebox{\includegraphics[width=5.0in]{figures/BernoulliSampleLkl}}
+\end{figure}
+
+
+\begin{definition}[Maximum Likelihood Estimator (MLE)]\label{D:MLE}
+{\rm
+Let the model for the data be
+$$(X_1,\ldots,X_n) \sim f_{X_1,X_2,\ldots,X_n}(x_1,\ldots,x_n;\theta^*) \enspace .$$ 
+Then the maximum likelihood estimator (MLE) $\widehat{\Theta}_n$ of the fixed and possibly unknown parameter $\theta^* \in \BB{\Theta}$ is the value of $\theta$ that maximizes the likelihood function:
+\[
+\boxed{
+\widehat{\Theta}_n := \widehat{\Theta}_n(X_1,X_2,\ldots,X_n) :=  \argmax_{\theta \in \BB{\Theta}} L_n(\theta) \enspace ,
+}
+\]
+Equivalently, MLE is the value of $\theta$ that maximizes the log-likelihood function (since $\log=\log_e=\ln$ is a monotone increasing function):
+\[
+\boxed{
+\widehat{\Theta}_n := \argmax_{\theta \in \BB{\Theta}} \ell_n(\theta) \enspace ,
+}
+\]
+}
+\end{definition}
+
+\subsubsection*{Useful Properties of the Maximum Likelihood Estimator}
+\be
+\item The ML Estimator is {\em asymptotically consistent} (gives the ``true'' $\theta^*$ as sample size $n \to \infty$):
+\[
+\boxed{\widehat{\Theta}_n \rightsquigarrow \pointmass(\theta^*)}
+\]
+\item The ML Estimator is asymptotically normal (has a normal distribution concentrating on $\theta^*$ as $n \to \infty$):
+\[
+\boxed{\widehat{\Theta}_n \rightsquigarrow \normal(\theta^*,(\widehat{\mathsf{se}}_n)^2)}
+\]
+or equivalently:
+\[
+\boxed{(\widehat{\Theta}_n - \theta^*) / \widehat{\mathsf{se}}_n \rightsquigarrow \normal(0,1)}
+\]
+where $\widehat{\mathsf{se}}_n$ is the {\bf estimated standard error}, i.e.~the standard deviation of $\widehat{\Theta}_n$, and it is given by the square-root of the inverse negative curvature of $\ell_n(\theta)$ at $\widehat{\theta}_n$:
+\[
+\boxed{
+\widehat{\mathsf{se}}_n = \sqrt{\left( \left[ -\frac{d^2 \ell_n(\theta)}{d \theta^2}\right]_{\theta=\widehat{\theta}_n}\right)^{-1}}
+}
+\]
+\item Because of the previous two properties, the $1-\alpha$ confidence interval is:
+\[
+\boxed{
+\widehat{\Theta}_n \pm z_{\alpha/2} \widehat{\mathsf{se}}_n 
+}
+\]
+%\item The ML Estimator is {\bf equivariant}, i.e.~$\widehat{\psi}_n=g(\widehat{\theta}_n)$ is the ML Estimate of $\psi^*=g(\theta^*)$, for some smooth function $g(\theta)=\psi: \BB{\Theta} \to \BB{\Psi}$.  
+\ee
+
+MLE is a general methodology for parameter estimation in an essentially arbitrary parameter space $\BB{\Theta}$ that is defining or indexing the laws in a parametric family of models, although we are only seeing it in action when $\BB{\Theta} \subset \Rz$ for simplest parametric family of models involving IID product experiments here.  
+When $\BB{\Theta} \subset \Rz^d$ with $2 \leq d < \infty$ then MLE $\widehat{\Theta}_n \rightsquigarrow \pointmass(\theta^*)$, where $\theta^*=(\theta^*_1,\theta^*_2,\ldots,\theta^*_d)^{T}$ is a column vector in $\BB{\Theta} \subset \Rz^d$ 
+and $\widehat{\Theta}_n \rightsquigarrow \normal\left(\theta^*,\widehat{\Sigma(\mathsf{se})}_n\right)$, a multivariate Normal distribution with mean vector $\theta^*$ and variance-covariance matrix of standard errors given by the {\em Hessian} (a $d \times d$ matrix of mixed partial derivatives) of $\ell_n(\theta_1,\theta_2,\ldots,\theta_d)$.  The ideas in the cased of dimension $d=1$ naturally generalize to an arbitrary, but finite, dimension $d$.
+ 
+\begin{rem}
+In order to use MLE for parameter estimation we need to ensure that the following two conditions hold:
+\be
+\item The {\em support} of the data, i.e.~the set of possible values of $(X_1,X_2,\ldots,X_n)$ must not depend on $\theta$ for every $\theta \in \BB{\Theta}$ --- of course the probabilities do depend on $\theta$ in an {\em identifiable} manner, i.e.~for every $\theta$ and $\vartheta$ in $\BB{\Theta}$, if $\theta \neq \vartheta$ then $f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n;\theta) \neq f_{X_1,\ldots,X_n}(x_1,x_2,\ldots,x_n;\vartheta)$ at least for some $(x_1,x_2,\ldots,x_n) \in \Xz$.
+\item If the parameter space $\BB{\Theta}$ is bounded then $\theta^*$ must not belong to the boundaries of $\BB{\Theta}$.
+\ee
+\end{rem}
+
+\subsubsection*{Maximum Likelihood Estimation Method in Six Easy Steps}
+{\bf Background:} We have observed data:
+\[
+(x_1,x_2,\ldots,x_n)
+\]
+which is modeled as a sample or realization from the random vector:
+\[
+(X_1,X_2,\ldots,X_n) \sim f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n; \theta^*), \quad \theta^* \in \BB{\Theta} \enspace .
+\]
+{\bf Objective:} We want to obtain an estimator $\widehat{\Theta}_n$ that will give:
+\be
+\item the point estimate $\widehat{\theta}_n$ of the ``true'' parameter $\theta^*$ and
+\item the $(1-\alpha)$ confidence interval for $\theta^*$.
+\ee
+{\bf Steps of MLE:} 
+\begin{itemize}
+\item{{\sf Step 1}:} Find the expression for the log likelihood function:
+\[
+\ell_n(\theta) = \log(L_n(\theta)) = \log\left( f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n; \theta) \right) \enspace .
+\]
+Note that if the model assumes that $(X_1,X_2,\ldots,X_n)$ is jointly independent, i.e.~we have an independent and identically distributed (IID) experiment, then $\ell_n(\theta)$ simplifies further as follows:
+\[
+\ell_n(\theta) = \log(L_n(\theta)) = \log\left( f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n; \theta) \right) = \log \left(\prod_{i=1}^n f_{X_i}(x_i;\theta) \right) %= \sum_{i=1}^n \log\left(f_{X_i}(x_i;\theta)\right) 
+\enspace .
+\]
+
+\item{{\sf Step 2}:} Obtain the derivative of $\ell_n(\theta)$ with respect to $\theta$:
+\[
+\frac{d}{d \theta}\left(\ell_n(\theta)\right) \enspace .
+\]
+\item{{\sf Step 3}:} Set the derivative equal to zero, solve for $\theta$ and let $\widehat{\theta}_n$ equal to this solution. 
+\item{{\sf Step 4}:} Check if this solution is indeed a maximum of $\ell_n(\theta)$ by checking  if:
+\[
+\frac{d^2}{d \theta^2}\left(\ell_n(\theta)\right) < 0 \enspace .
+\]
+\item{{\sf Step 5}:} If $\frac{d^2}{d \theta^2}\left(\ell_n(\theta)\right) < 0$ then you have found the maximum likelihood estimate $\widehat{\theta}_n$.
+\item{{\sf Step 6}:} If you also want the $(1-\alpha)$ confidence interval then get it from
+\[
+\widehat{\theta}_n \pm z_{\alpha/2} \widehat{\mathsf{se}}_n \quad \text{, where } \quad \widehat{\mathsf{se}}_n = \sqrt{\left( \left[ -\frac{d^2 \ell_n(\theta)}{d \theta^2}\right]_{\theta=\widehat{\theta}_n}\right)^{-1}} \enspace .
+\]
+\end{itemize}
+
+Let us apply this method in some examples.
+
+\remove{
+\Exmp{
+\label{Eg:ExponentialMLE}
+Find (or derive) the maximum likelihood estimate $\widehat{\lambda}_n$ and the $(1-\alpha)$ confidence interval of the fixed and possibly unknown parameter $\lambda^*$ for the IID experiment:
+$$X_1,\ldots,X_n \overset{IID}{\sim} \exponential(\lambda^*), \qquad \lambda^* \in \BB{\Lambda} = (0,\infty) \enspace .$$
+Note that $\BB{\Lambda}$ is the parameter space.
+
+We first obtain the log-likelihood function $\ell_n(\theta)$ given data $(x_1,x_2,\ldots,x_n)$.
+\begin{flalign*}
+\ell_n(\lambda) 
+& := \log(L(x_1,x_2,\ldots,x_n;\lambda))  = \log \left( \prod_{i=1}^n f_{X_i}(x_i;\lambda) \right) = \log \left( \prod_{i=1}^n \lambda e^{-\lambda x_i}  \right)\\
+& = \log \left( \lambda e^{-\lambda x_1} \cdot \lambda e^{-\lambda x_2}  \cdots \lambda e^{-\lambda x_n}  \right) = \log \left( \lambda^n e^{-\lambda \sum_{i=1}^n x_i}  \right) =\log \left( \lambda^n \right) + \log \left( e^{-\lambda \sum_{i=1}^n x_i}  \right) \\
+&= \boxed{\log \left( \lambda^n \right) -\lambda \sum_{i=1}^n x_i}
+\end{flalign*}
+
+Now, let us take the derivative with respect to $\lambda$,
+\begin{flalign*}
+\frac{d}{d \lambda} \left( \ell_n(\lambda) \right) 
+& :=  \frac{d}{d \lambda} \left( 
+\log \left( \lambda^n \right) -\lambda \sum_{i=1}^n x_i
+\right) = \frac{d}{d \lambda} \left( 
+\log \left( \lambda^n \right) \right) -  \frac{d}{d \lambda} \left( \lambda \sum_{i=1}^n x_i \right)  = \frac{1}{\lambda^n}  \frac{d}{d \lambda} \left( \lambda^n \right) - \sum_{i=1}^n x_i \\
+&= \frac{1}{\lambda^n}  n \lambda^{n-1}  - \sum_{i=1}^n x_i = \boxed{\frac{n}{\lambda} - \sum_{i=1}^n x_i } \enspace .
+\end{flalign*}
+Next, we set the derivative to $0$, solve for $\lambda$, and let the solution equal to the ML estimate $\widehat{\lambda}_n$.
+\begin{flalign*}
+0 = \frac{d}{d \lambda} \left( \ell_n(\lambda) \right) 
+& \iff 0 = \frac{n}{\lambda} - \sum_{i=1}^n x_i \iff \sum_{i=1}^n x_i = \frac{n}{\lambda} \iff \lambda = \frac{n}{\sum_{i=1}^n x_i} \quad \text{ and let } \boxed{\widehat{\lambda}_n = \frac{1}{\overline{x}_n}} \enspace .
+\end{flalign*}
+Next, we find the second derivative and check if it is negative.
+\begin{flalign*}
+\frac{d^2}{d \lambda^2} \left( \ell_n(\lambda) \right) 
+&= \frac{d}{d \lambda} \left( \frac{d}{d \lambda} \left( \ell_n(\lambda) \right) \right) = \frac{d}{d \lambda} \left( \frac{n}{\lambda} - \sum_{i=1}^n x_i \right) = \boxed{-n\lambda^{-2}} \enspace .
+\end{flalign*}
+Since $\lambda>0$ and $n \in \Nz$, $\boxed{-n\lambda^{-2}=-n/\lambda^2 < 0}$, so we have found the maximum likelihood estimate:
+\[
+\boxed{\widehat{\lambda}_n = \frac{1}{\overline{x}_n} } \enspace .
+\]
+Now, let us find the estimated standard error:
+\begin{align*}
+\boxed{\widehat{\mathsf{se}}_n} 
+&= \sqrt{\left( \left[ -\frac{d^2 \ell_n(\lambda)}{d \lambda^2}\right]_{\lambda=\widehat{\lambda}_n}\right)^{-1}} 
+= \sqrt{\left( \left[ - \left( -\frac{n}{\lambda^2}\right) \right]_{\lambda=\widehat{\lambda}_n}\right)^{-1}} = \sqrt{\left( \frac{n}{\widehat{\lambda}_n^2}\right)^{-1}}=\sqrt{\frac{\widehat{\lambda}_n^2}{n}}=\frac{\widehat{\lambda}_n}{\sqrt{n}}\\
+&=\boxed{\frac{1}{\ol{x}_n\sqrt{n}}}
+\enspace .
+\end{align*}
+And finally, the $(1-\alpha)$ confidence interval is
+\[
+\widehat{\lambda}_n \pm z_{\alpha/2} \widehat{\mathsf{se}}_n 
+= \boxed{\frac{1}{\overline{x}_n} \pm z_{\alpha/2} \frac{1}{\ol{x}_n\sqrt{n}}} \enspace . 
+\]
+}
+
+Since we have worked ``hard'' to get the maximum likelihood estimate for a general IID model $X_1,X_2,\ldots,X_n \overset{IID}{\sim} \exponential(\lambda^*)$.  Let us kill two birds with the same stone by applying it to two datasets:
+\be
+\item Orbiter waiting times and
+\item Time between measurable earthquakes in New Zealand over a few months.
+\ee
+
+
+Therefore, the ML estimate $\widehat{\lambda}_n$ of the unknown rate parameter $\lambda^* \in \BB{\Lambda}$ on the basis of $n$ IID observations $x_1,x_2,\ldots,x_n \overset{IID}{\sim} \exponential(\lambda^*)$ is $1/\overline{x}_n$ and the ML estimator $\widehat{\Lambda}_n=1/\overline{X}_n$.  Let us apply this ML estimator of the rate parameter for the supposedly exponentially distributed waiting times at the on-campus Orbiter bus-stop.
+
+%\begin{VrbM}
+%% Joshu Fenemore’s Data from 2007 on Waiting Times at Orbiter Bust Stop by Balgay Street
+%%The raw data -- the waiting times to nearest minute between Orbiter buses
+%>> orbiterTimes=[8 3 7 18 18 3 7 9 9 25 0 0 25 6 10 0 10 8 16 9 1 5 16 6 4 1 3 21 0 28 3 8 ...
+% 6 6 11 8 10 15 0 8 7 11 10 9 12 13 8 10 11 8 7 11 5 9 11 14 13 5 8 9 12 10 13 6 11 13 ...
+% 0 0 11 1 9 5 14 16 2 10 21 1 14 2 10 24 6 1 14 14 0 14 4 11 15 0 10 2 13 2 22 ...
+% 10 5 6 13 1 13 10 11 4 7 9 12 8 16 15 14 5 10 12 9 8 0 5 13 13 6 8 4 13 15 7 11 6 23 1];
+%>> mean(orbiterTimes)
+%ans =
+%    9.0758
+%\end{VrbM}
+
+{\bf Orbiter Waiting Times}
+
+Joshua Fenemore and Yiran Wang collected data on waiting times between buses at an Orbiter bus-stop close to campus.  
+They collected a sample of size $n=132$ with sample mean $\overline{x}_{132}=9.0758$.
+From our work in Example~\ref{Eg:ExponentialMLE} we can now easily obtain the maximum likelihood estimate of $\lambda^*$ and the $95\%$ confidence interval for it, under the assumption that the waiting times $X_1,\ldots,X_{132}$ are IID $\exponential(\lambda^*)$ RVs as follows: 
+$$\widehat{\lambda}_{132}=1/\overline{x}_{132}=1/9.0758=0.1102 \quad 
+(0.1102 \pm 1.96 \times 0.1102/\sqrt{132}) = (0.0914,0.1290) \enspace ,$$ 
+and thus the estimated mean waiting time is 
+$$1/\widehat{\lambda}_{132}=9.0763 \text{ minutes} .$$  
+The estimated mean waiting time for a bus to arrive is well within the $10$ minutes promised by the Orbiter bus company.  
+This data and its maximum likelihood analysis is presented visually in Figure~\ref{F:ExponentialMLEOrbiter}.
+ 
+%The following script was used to generate the \hyperref[F:ExponentialMLE]{Figure \ref*{F:ExponentialMLEOrbiter}}:
+\begin{figure}[htpb]
+\caption{Plot of $\log(L(\lambda))$ as a function of the parameter $\lambda$  and the MLE $\widehat{\lambda}_{132}$ of $0.1102$ for Fenemore-Wang Orbiter Waiting Times Experiment from STAT 218 S2 2007.  The density or PDF and the DF at the MLE of $0.1102$ are compared with a histogram and the empirical DF.\label{F:ExponentialMLEOrbiter}}
+\centering   \makebox{\includegraphics[width=4.5in]{../../../figures/ExponentialMLEOrbiter}}
+\end{figure}
+Notice how the exponential PDF $f(x;\widehat{\lambda}_{132}=0.1102)$ and the DF $F(x;\widehat{\lambda}_{132}=0.1102)$ based on the MLE fits with the histogram and the empirical DF, respectively.  
+%This is an indication of the inadequacy of our parametric model.  Partly this discrepancy is due to the resolution of the the measurements being confined to whole minutes.  We can overcome this problem by fitting a minute-discretized PMF from the $\exponential(\lambda)$ PDF.  
+
+\begin{figure}[htpb]
+\caption{Comparing the $\exponential(\widehat{\lambda}_{6128}= 28.6694)$ PDF and DF with a histogram and empirical DF of the times (in units of days) between earth quakes in  NZ.  The epicenters of $6128$ earth quakes are shown in left panel.\label{F:NZSIEarthQuakesExponentialMLE}}
+\centering   \makebox{\includegraphics[width=4.5in]{../../../figures/NZSIEarthQuakesExponentialMLE}}
+\end{figure}
+
+{\bf Waiting Times between Earth Quakes in NZ:}%\label{LW:NZSIEarthQuakesExponentialMLE}  
+
+Once again from our work in Example~\ref{Eg:ExponentialMLE} we can now easily obtain the maximum likelihood estimate of $\lambda^*$ and the $95\%$ confidence interval for it, under the assumption that the waiting times (in days) between the $6128$ measurable earth-quakes in NZ from 18-Jan-2008 02:23:44 to 18-Aug-2008 19:29:29 are IID $\exponential(\lambda^*)$ RVs as follows: 
+$$\widehat{\lambda}_{6128}=1/\overline{x}_{6128}=1/0.0349=28.6694 \quad 
+(28.6694 \pm 1.96 \times 28.6694/\sqrt{6128}) = (27.95,29.39) \enspace ,$$ 
+and thus the estimated mean time in days and minutes between earth quakes (somewhere in NZ over the first 8 months in 2008) is 
+$$1/\widehat{\lambda}_{6128}=\overline{x}_{6128}=0.0349 \text{ days } \quad = \quad 0.0349*24*60=50.2560  \text{ minutes} \enspace .$$  
+This data and its maximum likelihood analysis is presented visually in Figure~\ref{F:NZSIEarthQuakesExponentialMLE}.  The PDF and DF corresponding to the $\widehat{\lambda}_{6128}$ (blue curves in Figure~\ref{F:NZSIEarthQuakesExponentialMLE}) are the best fitting PDF and DF from the parametric family of PDFs in $\{\lambda e^{-\lambda x}: \lambda \in (0,\infty) \}$ and DFs in $\{1- e^{-\lambda x}: \lambda \in (0,\infty) \}$ to the density histogram and the empirical distribution function given by the data, respectively.  Clearly, there is room for improving beyond the model of IID $\exponential(\lambda)$ RVs, but the fit with just one real-valued parameter is not too bad either.  Finally, with the best fitting PDF $28.6694 e^{-28.6694 x}$ we can get probabilities of events and answer questions like: ``what is the probability that there will be three earth quakes somewhere in NZ within the next hour?'', etc.
+
+%as computed in the following script:\VrbMf[label=NZSIEarthQuakesExponentialMLE.m]{../../../scripts/NZSIEarthQuakesExponentialMLE.m}
+%We first load the data in the text file {\tt earthquakes.csv} into a matrix {\tt EQ}.  Using the {\tt datenum} function in {\sc Matlab} we transform the time stamps into a number starting at zero.  These transformed time stamps are in units of days.  Then we find the times between consecutive events and estimate a histogram.  We finally compute the ML estimate of $\lambda^*$ and super-impose the PDF of the $\exponential(\widehat{\lambda}_{6128}= 28.6694)$ upon the histogram.
+%\begin{VrbM}
+%>> NZSIEarthQuakesExponentialMLE
+%ans =        6128          13
+%
+%Earth Quakes in NZ between
+%18-Jan-2008 02:23:44 and18-Aug-2008 19:29:29
+%
+%SampleMean =    0.0349
+%MLELambdaHat =   28.6694
+%\end{VrbM}
+%Thus, the average time between earth quakes is $0.0349*24*60=50.2560$ minutes.
+%\end{labwork}
+
+\begin{example}[ML Estimation for the IID $\bernoulli(\theta^*)$ experiment]\label{EX:MLECoinTossing}
+{\rm 
+Let us do maximum likelihood estimation for the coin-tossing experiment of Example~\ref{EX:CoinTossing} with likelihood derived in Example~\ref{EX:LklCoinTossing} to obtain the maximum likelihood estimate $\widehat{\theta}_n$ of the unknown parameter $\theta^* \in \BB{\Theta} = [0,1]$ and the $(1-\alpha)$ confidence interval for it.
+
+From Equation~\eqref{E:LklBernoulli} the log likelihood function is
+\begin{eqnarray}
+\ell_n(\theta) = \log(L_n(\theta)) 
+= \log \left( \theta^{\sum_{i=1}^n x_i} (1-\theta)^ {n-\sum_{i=1}^n x_i} \right) 
+= \boxed{\left({\sum_{i=1}^n x_i}\right) \log(\theta) + \left(n-{\sum_{i=1}^n x_i}\right) \log(1-\theta)} \notag \enspace ,
+\end{eqnarray}
+Next, we take the derivative with respect to the parameter $\theta$:
+\begin{eqnarray}
+\frac{d}{d \theta} \left(\ell_n(\theta)\right) 
+&=& \frac{d}{d \theta}  \left( \left({\sum_{i=1}^n x_i}\right) \log(\theta) \right) + \frac{d}{d \theta} \left(  \left( n-{\sum_{i=1}^n x_i} \right) \log(1-\theta) \right) \notag = \boxed{\frac{{\sum_{i=1}^n x_i}}{\theta} - \frac{n-{\sum_{i=1}^n x_i}}{1-\theta}} \notag \enspace .
+\end{eqnarray}
+Now, set $\frac{d}{d \theta} \log(L_n(\theta))=0$, solve for $\theta$ and set the solution equal to $\widehat{\theta}_n$: 
+\begin{align*}
+\frac{d}{d \theta} \left( \ell_n(\theta) \right) = 0 
+&\iff  \frac{{\sum_{i=1}^n x_i}}{\theta} = \frac{n-{\sum_{i=1}^n x_i}}{1-\theta} \iff
+\frac{1-\theta}{\theta} = \frac{n-{\sum_{i=1}^n x_i}}{{\sum_{i=1}^n x_i}} \\
+&\iff
+\frac{1}{\theta}-1 = \frac{n}{{\sum_{i=1}^n x_i}}-1 \quad \text{ let } \boxed{\widehat{\theta}_n = \frac{{\sum_{i=1}^n x_i}}{n}}
+\end{align*}
+Next, we find the second derivative and check if it is negative.
+\begin{align*}
+\frac{d^2}{d \theta^2} (\ell_n(\theta)) 
+&= \frac{d}{d \theta} \left( \frac{{\sum_{i=1}^n x_i}}{\theta} - \frac{n-{\sum_{i=1}^n x_i}}{1-\theta} \right) 
+= \boxed{-\frac{{\sum_{i=1}^n x_i}}{\theta^2} - \frac{n-{\sum_{i=1}^n x_i}}{(1-\theta)^2}} 
+\end{align*}
+
+Since each term in the numerator and the denominator of the two fractions in the above box are non-negative, $\frac{d^2}{d \theta^2} (\ell_n(\theta))< 0$ and therefore we have found the maximum likelihood estimate
+\[
+\widehat{\theta}_n  = \frac{1}{n} \sum_{i=1}^n x_i = \overline{x}_n
+\]
+We already knew this to be a point estimate for $E(X_i)=\theta^*$ from LLN and CLT.  But now we know that MLE also agrees.
+Now, let us find the estimated standard error:
+\begin{align*}
+\boxed{\widehat{\mathsf{se}}_n} 
+&= \sqrt{\left( \left[ -\frac{d^2 \ell_n(\theta)}{d \theta^2}\right]_{\theta=\widehat{\theta}_n}\right)^{-1}} 
+= \sqrt{\left( \left[ - \left( -\frac{{\sum_{i=1}^n x_i}}{\theta^2} - \frac{n-{\sum_{i=1}^n x_i}}{(1-\theta)^2}\right) \right]_{\theta=\widehat{\theta}_n}\right)^{-1}} \\
+&= \sqrt{\left( \frac{{\sum_{i=1}^n x_i}}{\widehat{\theta}_n^2} + \frac{n-{\sum_{i=1}^n x_i}}{(1-\widehat{\theta}_n)^2} \right)^{-1}}
+= \sqrt{\left( \frac{n\ol{x}_n}{\ol{x}_n^2} + \frac{n-n\ol{x}_n}{(1-\ol{x}_n)^2} \right)^{-1}}
+= \sqrt{\left( \frac{n}{\ol{x}_n} + \frac{n}{(1-\ol{x}_n)} \right)^{-1}}\\
+&= \sqrt{\left( \frac{n(1-\ol{x}_n)+n\ol{x}_n}{\ol{x}_n(1-\ol{x}_n)} \right)^{-1}}
+= \sqrt{\frac{\ol{x}_n(1-\ol{x}_n)}{n((1-\ol{x}_n)+\ol{x}_n}}
+= \boxed{\sqrt{\frac{\ol{x}_n(1-\ol{x}_n)}{n}}} \enspace .\\
+\enspace .
+\end{align*}
+And finally, the $(1-\alpha)$ confidence interval is
+\[
+\widehat{\theta}_n \pm z_{\alpha/2} \widehat{\mathsf{se}}_n 
+= \boxed{\overline{x}_n \pm z_{\alpha/2} \sqrt{\frac{\ol{x}_n(1-\ol{x}_n)}{n}}} \enspace . 
+\]
+
+For the coin tossing experiment that was performed ($n=10$ times) in Example~\ref{EX:CoinTossing}, the maximum likelihood estimate of $\theta^*$ and the $95\%$ confidence interval for it, under the model that the tosses are IID $\bernoulli(\theta^*)$ RVs, are as follows:
+\[
+\widehat{\theta}_{10} 
+= \ol{x}_{10} =\frac{4}{10}=0.40
+\quad \text{and} \quad \left(0.4 \pm 1.96 \times \sqrt{\frac{0.4 \times 0.6}{10}}\right) =  (0.0964, 0.7036) \enspace .
+\]
+See Figures~\ref{F:BernoulliMLE} and \ref{F:BernoulliMLEConsistency} to completely understand parameter estimation for IID Bernoulli experiments.
+% (not just coin toss, but for any event of interest!) through the pictures.
+}
+\end{example}
+
+\begin{figure}[htpb]
+\caption{Plots of the log likelihood $\ell_n(\theta)=\log(L(1,0,0,0,1,1,0,0,1,0;\theta))$ as a function of the parameter $\theta$ over the parameter space $\BB{\Theta}=[0,1]$ and the MLE $\widehat{\theta}_{10}$ of $0.4$ for the coin-tossing experiment shown in standard scale (left panel) and log scale for $x$-axis (right panel).\label{F:BernoulliMLE}}
+\centering   \makebox{\includegraphics[width=5.5in]{../../../figures/BernoulliMLE}}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\caption{{\small $100$ realizations of $95\%$ confidence intervals based on samples of size $n$ $=$ $10$, $100$ and $1000$ simulated from IID $\bernoulli(\theta^*=0.5)$ RVs.  %as per \hyperref[Mf:BernoulliMLEConsistency]{Labwork~\ref*{Mf:BernoulliMLEConsistency}}.  
+The MLE $\widehat{\theta}_n$ (cyan dot) and the log-likelihood function (magenta curve) for each of the $100$ replications of the experiment for each sample size $n$ are depicted.  
+The approximate normal-based $95\%$ confidence intervals with blue boundaries are based on the exact $\mathsf{se}_n=\sqrt{\theta^*(1-\theta^*)/n}=\sqrt{1/4}$, while those with red boundaries are based on the estimated $\widehat{\mathsf{se}_n}=\sqrt{\widehat{\theta}_n(1-\widehat{\theta}_n)/n} = \sqrt{\frac{\ol{x}_n(1-\ol{x}_n)}{n}}$.  
+The fraction of times the true parameter $\theta^*=0.5$ was contained by the exact and approximate confidence interval (known as {\em empirical coverage}) over the $100$ replications of the simulation experiment for each of the three sample sizes are given by the numbers after {\tt Cvrg.=} and {\tt $\sim$=}, above each sub-plot, respectively.}\label{F:BernoulliMLEConsistency}}
+\begin{center}
+\makebox{\includegraphics[width=6.00in]{../../../figures/BernoulliMLEConsistency}}
+\end{center}
+\end{figure}  
+
+\clearpage
+
+\iftoggle{PlaceTutsHere}{%
+\subsection{Tutorial Exercises}
+\input{Tutorials/Tut_Lkl_preps.tex}
+~\\
+\input{Tutorials/Tut_Lkl_inTut.tex}
+}{%
+  % don't do anything otherwise
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%Sorry ---  no time to make an exhaustive glossary of all the notation yet. 
+%\subsubsection*{Summarizing Table of Point Estimators}
+%Using the sample mean $\overline{X}_n$ and sample standard deviation $S_n$ defined in \eqref{E:SampleMeanRV} and \eqref{E:SampleStdDevRV}, respectively, we summarise the two point estimators of the parameters of some common distributions below.  For some cases, the MLE is the same as the MME and can be solved analytically.
+%\begin{center}
+%\begin{table}[htbp]
+%\caption{Summary of the Method of Moment Estimator (MME) and the Maximum Likelihood Estimator (MLE) for some IID Experiments. \label{T:MMEMLE}}
+%\begin{tabular}{l | r | r}
+%\hline
+%Statistical Experiment & MLE & MME \\ \hline
+%$X_1,X_2,\ldots,X_n \overset{IID}{\sim} \bernoulli(\theta)$ & $\widehat{\theta}=\overline{X}_n$ & same as MLE \\ \hline
+%$X_1,X_2,\ldots,X_n \overset{IID}{\sim} \exponential(\lambda)$ & $\widehat{\lambda}={1}/{\overline{X}_n} $ & same as MLE \\ \hline
+%$X_1,X_2,\ldots,X_n \overset{IID}{\sim} \normal(\mu,\sigma^2)$ & $\widehat{\mu}=\overline{X}_n, \widehat{\sigma} = \sqrt{\frac{n-1}{n}S^2_n} $ & $\widehat{\mu}=\overline{X}_n, \widehat{\sigma} = S_n $ \\ \hline
+%$X_1,X_2,\ldots,X_n \overset{IID}{\sim} \lognormal(\lambda,\zeta)$ & $\widehat{\lambda}=\frac{1}{n}{\sum_{i=1}^n \log(X_i)} $ & $\widehat{\lambda} = \log(\overline{X}_n) - \frac{1}{2} {\widehat{\zeta}} \ ^2$ \\ %\\
+% & $\widehat{\zeta} = \sqrt{\frac{1}{n} \sum_{i=1}^n{(\log(X_i)-\widehat{\lambda})^2}} $ & $\widehat{\zeta} = \sqrt{\log \left({S_n^2}/{\overline{X}_n^2} +1 \right)}$ \\
+%\hline
+%\end{tabular}
+%\end{table}
+%\end{center}
+
+
+%\begin{labwork}
+%Choose some parameter $p\in[0,1]$ and some sample size $n$.  Then, using the {\sc Matlab} expression {\tt floor(rand(1,n)+p)} (See \hyperref[SIM:Bernoulli]{Simulation~\ref*{SIM:Bernoulli}}) simulate $n$ IID $\bernoulli(p)$ RVs $X_1,X_2,\ldots,X_n$.  Once you have generated the data, pretend that you don't know the $p$ used in your simulation and estimate $p$ using the sample mean estimator we have seen in \hyperref[EX:EstimatePFromNIIDBernoulliTrials]{Example~\ref*{EX:EstimatePFromNIIDBernoulliTrials}},  That is, compute the estimate $\widehat{p}_n=n^{-1}\sum_{i=1}^n x_i$ and also the approximate $95\%$ Normal-based confidence interval $C_n = \widehat{p}_n \pm 1.96 \sqrt{\frac{\widehat{p}_n(1-\widehat{p}_n)}{n}}$.
+
+%For each value of $p \in [0, 1/100, 1/10, 2/10, 3/10, 4/10, 5/10, 6/10, 7/10, 8/10, 9/10, 9/100, 1]$,  generate $n$ IID $\bernoulli(p)$ samples where $n$ ranges in $\{10^i: i =1,2,3,4,5 \}$ and estimate $p$ from the simulated data of different sample sizes.  Do you intuitively agree with the behavior of the confidence intervals, in terms of the changes in their widths, as $n$ gets large for each of the fixed $p$'s ?  Is the point estimate $\widehat{p}_n$ approaching the $p$ from which the data were simulated for each of the fixed $p$'s as $n$ gets large ?
+%For each value of $p$ as before, generate, say $1000$ data sets each of sample size $n \in \{10^i: i =1,2,3,4,5 \}$ and empirically study the coverage properties of the estimator.  That is, for each $p$ and $n$, find what fraction of the Normal-based  $95\%$ confidence intervals constructed from each of the $1000$ replicate data sets actually contain the parameter $p$ that they were simulated from.  Try to explain why coverage properties are both a function of how close $p$ is to the boundary of the the parameter space $[0,1]$ and the sample size $n$.  [Inspired by Russell Gribble]
+%\end{labwork}
+
+}
 
 
 %\section{Moment Estimator (MME)}\label{S:MME}
 %See notes from class.  
 
+%original cse book notes to be reabsorbed into the condensed content above
+\remove{
 \chapter{Maximum Likelihood Estimator}
 
 Next we look at a specific point estimator called the maximum likelihood estimator (MLE) of a possibly unknown but fixed parameter $\theta^*$ in a parametric experiment, i.e.~$\theta^* \in \BB{\Theta} \subset \Rz^k$ with $k < \infty$.  Other point estimators in such a setting include the moment estimator (MME). 
@@ -731,3 +1208,4 @@ Therefore, the estimated standard error of the estimator of the unknown $\sigma^
 
 %measurement theory
 \clearpage
+}

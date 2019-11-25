@@ -67,15 +67,14 @@ In the process we will use slightly different notational conventions as these ar
 \textbf{\ }Recall the notion of independence of RV`s: suppose $%
 X_{1},X_{2}$ are RV`s which can be jointly observed, i.e. they have a
 joint distribution. Suppose also that both $X_{1},X_{2}$ have the same
-finite range of possible values: $\mathcal{X}=\left\{ y_{1},\ldots
-,y_{m}\right\} $. Then independence means 
+finite range of possible values: $\Xz=\left\{ \xi _{1},\ldots ,\xi _{m}\right\} $. Then independence means 
 \begin{equation*}
 \P \left( X_{1}=x_{1},X_{2}=x_{2}\right) =\P \left( X_{1}=x_{1}\right) \P
 \left( X_{2}=x_{2}\right) 
-\text{, }x_{1},x_{2}\in \mathcal{X}.
+\text{, }x_{1},x_{2}\in \Xz.
 \end{equation*}%
 Independence of $n$ RV`s $X_{1},\ldots ,X_{n}$ is defined analogously,
-where for any set of values $x_{1},\ldots ,x_{n}$ (all from $\mathcal{X}$)
+where for any set of values $x_{1},\ldots ,x_{n}$ (all from $\Xz$)
 we require 
 \begin{equation*}
 \P \left( X_{1}=x_{1},\ldots ,X_{n}=x_{n}\right)
@@ -107,6 +106,48 @@ hence
 \sum_{i=1}^{n}x_{i}\right) }.
 \end{equation*}
 
+\begin{Exercise}[title={Subsets of independent RVs},label={IndepOfSubSeqOfRVs}]
+Suppose that $X_{1},\ldots ,X_{n}$ is a set of RV's
+all having the same finite range of possible values: $\Xz=\left\{
+\xi _{1},\ldots ,\xi _{m}\right\} $, i.e we have $X_{i}\in \Xz$, $%
+i=1,\ldots ,n$. Define independence of $X_{1},\ldots ,X_{n}$ by the
+property: for all $n$-tuples $\left( x_{1},\ldots ,x_{n}\right) \in \Xz^{n}$ we have 
+\begin{equation*}
+\P \left( X_{1}=x_{1},\ldots ,X_{n}=x_{n}\right)
+=\dprod\limits_{i=1}^{n}\P \left( X_{i}=x_{i}\right) \text{.}
+\end{equation*}%
+Show that independence of $X_{1},\ldots ,X_{n}$ implies independence of any
+subset $X_{i_{1}},\ldots ,X_{i_{k}}$ where $\left\{ i_{1},\ldots
+,i_{k}\right\} $ is an arbitrary subset of size $k$ of the indices $\left\{
+1,\ldots ,n\right\} $, and $2\leq k<n$.\bigskip
+\end{Exercise}
+
+\begin{Exercise}[title={Convergence in distribution and probability to $\pointmass$ RV},label={ConvInDistToPointMassImpliesConvInProb}] 
+Let $X_{1},X_{2}\ldots $ be a sequence of RV's and $%
+\mu $ be a real number. Let $Y$ be a RV taking value $\mu $ with
+probability one ($\P \left( Y=\mu \right) =1$). The law, or probability
+distribution, of $Y$ is called the \textit{degenerate law concentrated at }$%
+\mu $ or the $\pointmass(\mu)$ RV; it has distribution function 
+\begin{equation*}
+G_{\mu }(x)=\P \left( Y\leq x\right) =\left\{ 
+\begin{tabular}{l}
+$0$, $x<\mu $ \\ 
+$1$, $x\geq \mu .$%
+\end{tabular}%
+\right.
+\end{equation*}%
+Show that as $n\rightarrow \infty $ 
+\begin{equation*}
+X_{n}\rightsquigarrow Y\text{ if and only if }X_{n}\longrightarrow_{\P}\mu ,
+\end{equation*}%
+i.e. convergence in distribution to the degenerate law means convergence in
+probability to $\mu $. For these convergence notions, see Definition (\ref%
+{def-converg-in-law}) ( regarding $\rightsquigarrow $) , and the well known
+convergence in probability: $X_{n}\longrightarrow_{\P}\mu $ if $\P \left(
+\left\vert X_{n}-\mu \right\vert \geq \varepsilon \right) \rightarrow 0$ for
+every $\varepsilon >0$).
+\end{Exercise}
+
 \textbf{Moments of the Bernoulli distribution}. Suppose that $X$ has the
 Bernoulli law $\bernoulli(\theta)$. A notation we will frequently use is 
 \begin{equation*}
@@ -128,10 +169,10 @@ Bernoulli's it gives
 \begin{equation*}
 \overline{X}_{n}=n^{-1}\sum_{i=1}^{n}X_{i}\longrightarrow _{\theta}\E X=\theta
 \end{equation*}%
-where $\longrightarrow_{p}$ (or equivalently $\overset{\P}{\longrightarrow}$) denotes convergence in probability. Here $\overline{X%
+where $\longrightarrow_{\P}$ (or equivalently $\overset{\P}{\longrightarrow}$) denotes convergence in probability. Here $\overline{X%
 }_{n}$ is the arithmetic mean of $X_{1},\ldots ,X_{n}$, also called the 
 \textbf{sample mean.} Recall that convergence in probability $\overline{X}%
-_{n}\longrightarrow_{p} \theta$ means: for every $\varepsilon >0$ 
+_{n}\longrightarrow_{\P} \theta$ means: for every $\varepsilon >0$ 
 \begin{equation*}
 \P \left( \left\vert \overline{X}_{n}-\theta\right\vert >\varepsilon \right)
 \longrightarrow 0\text{ as }n\rightarrow \infty \text{. }
@@ -171,6 +212,8 @@ outcome of a random experiment like a coin throw. Still the terminology
 ``sample proportion/ population proportion" is widely used in
 statistics.
 
+
+
 \subsubsection{Chebyshev's inequality and the Law of Large Numbers (LLN)}
 
 The law of large numbers (LLN) \index{Law of Large Numbers} holds under a general assumption that $%
@@ -184,7 +227,7 @@ Suppose $X_{1},X_{2},\ldots $ are IID\ RV\
 's and have $\E\left\vert X_{i}\right\vert <\infty $. Let $\mu =\E X_{i}$. Then
 as $n\rightarrow \infty $%
 \begin{equation*}
-\overline{X}_{n}\longrightarrow _{p}\mu
+\overline{X}_{n}\longrightarrow_{\P}\mu
 \end{equation*}%
 in other words: for every $\varepsilon >0$ 
 \begin{equation*}
@@ -329,7 +372,7 @@ that a sequence of RV's $Y_{n}$ satisfies
 n\rightarrow \infty
 \end{equation*}%
 for certain $\mu ,\sigma $ where $\sigma >0$. Show that $Y_{n}%
-\longrightarrow _{p}\mu $. \bigskip \bigskip
+\longrightarrow_{\P}\mu $. \bigskip \bigskip
 \end{Exercise}
 
 \subsubsection{Normal approximation for the binomial distribution}
@@ -553,6 +596,26 @@ Write a \Matlab script to visualise the above figures drawn in lectures and algo
 
 You need to use {\tt gammaln} in \Matlab for $\log_e(\Gamma)$ function and use laws of exponents and logarithms for the PDF of $\binomial(n,\theta)$ RVs with large $n$.
 \end{labwork}
+
+\begin{Exercise}[label={ExBlueEyedInSpringfield}]
+Suppose the probability of having blue eyes is $0.15$
+for any given person in the U.S.. The town of Springfield, USA has $800$
+people. Suppose the residents of Springfield are all unrelated as they are immigrants arriving from all over the U.S., 
+and therefore have eye colors that are independent of each other.
+
+\begin{description}
+\item[\textbf{a)}] Find the expected number of people with blue eyes in
+Springfield, USA.
+
+\item[b)] Find the variance and standard deviation of the number of
+blue-eyed people in Springfield, USA.
+
+\item[c)] Use the Normal approximation to the Binomial to calculate the
+probability that there are between $110$ and $125$ blue-eyed residents of
+Springfield, USA. Be sure to verify the success/ failure condition for
+validity of the normal approximation.
+\end{description}
+\end{Exercise}
 
 \subsubsection{The Poisson approximation to the binomial}\label{S:PoissonApproxBinomialSuccessFailureRule}
 
@@ -799,6 +862,25 @@ the $Z$-scores of $a$ and $b$ respectively; thus from the table of $Z$
 &=&0.9938-0.5=0.4938.
 \end{eqnarray*}
 \end{Answer}
+
+\begin{Exercise}[label={ExBlueEyedInNewSpringfield}]
+Suppose the probability of having blue eyes is $0.15$
+for any given person in the U.S.. The town of Springfield, USA recently experienced economic downturn and most people lost their jobs.  There are only $60$ people now in Springfield. 
+Suppose the residents of Springfield are all unrelated as they are immigrants arriving from all over the U.S., 
+and therefore have eye colors that are independent of each other.
+
+\begin{description}
+\item[\textbf{a)}] Find the expected number of people with blue eyes in
+Springfield, USA.
+
+\item[b)] Find the variance and standard deviation of the number of
+blue-eyed people in Springfield, USA.
+
+\item[c)] Use either the Normal or Poisson approximation to the Binomial, whichever is most appropriate via the success / failure condition, to calculate the
+probability that there are between $20$ and $25$ blue-eyed residents of
+Springfield, USA. You may leave your answer as a simplified expression instead of a numerical value.
+\end{description}
+\end{Exercise}
 
 \subsubsection{The correction for continuity}\label{S:CorrectionForContinuity}
 
@@ -1597,6 +1679,20 @@ Use Mill's inequality to formally show that (\ref{ratio})
 tends to infinity as $\alpha \rightarrow 0$ (i.e. as $C\rightarrow 1$) .
 \end{Exercise}
 
+\begin{Exercise}[label={ExmaxOfBernoulliVarianceIsQuarter}] 
+Show that for any $\theta$ with $0<\theta<1$ 
+\begin{equation*}
+\theta(1-\theta)\leq \frac{1}{4}.
+\end{equation*}%
+\textit{Remark:} this inequality was used to derive the conservative method
+of building a confidence interval for the population proportion.
+\end{Exercise}
+\begin{Answer}
+HINT: Take the first derivative of $\theta(1-\theta)$ with respect to $\theta$, set it equal to $0$ and solve for $\theta$.
+This solution will give the point at which $\theta(1-\theta)$ has zero slope. 
+Now, find the second derivative of $\theta(1-\theta)$ with respect to $\theta$, and evaluate it at the solution to see if the maximum is achieved with a negative second derivative.
+\end{Answer}
+
 \textbf{d) Exact Hoeffding's confidence interval with coverage probability at least $C$: } 
 For the sample proportion there is a much better inequality available than that of Chebyshev: Hoeffding's inequality of \eqref{EqHoeffdingsInequality} in Proposition~\ref{P:HoeffdingsInequality}, 
 applied to the the sample proportion $\widehat{\Theta}_{n}$ gives for any $%
@@ -1719,6 +1815,10 @@ Next we prove \eqref{EqExactHoeffdingsConfInterForProportion} by specialising \e
 &= 2 \e^{-2(n m)^2/\sum_{i=1}^n (1-0)^2} \quad \text{since for each $\bernoulli(\theta)$ RV } b_i=1, a_i=0 \notag\\
 &= 2 \e^{-2(n m)^2/n} = 2 \e^{-2 n m^2} \notag 
 \end{align}
+
+\begin{Exercise}[label={ExExactConfIntervalsFor25BernoulliTrials}]
+Suppose you toss a possibly biased coin 25 times and observe 18 heads. Assuming IID $\bernoulli(\theta^*)$ trials where $\theta^*$ is the probability of coming up heads, obtain exact confidence intervals for the unknown $\theta^*$ with confidence level $C$ of at least $95\%$ using exact sample size via: (a) Chebyshev's inequality and (b) Hoeffding's inequality.
+\end{Exercise}
 
 \subsubsection{Some technical convergence results}
 
@@ -1924,7 +2024,7 @@ and since $\varepsilon $ was arbitrary, the result is proved.\bigskip
 \end{proof}
 
 
-\subsubsection{Asymptotic confidence level}
+\subsubsection{Asymptotic confidence level}\label{S:AsympConfLevel}
 
 With these results we are now able to prove that the standard asymptotic confidence
 interval for the unknown population proportion $\theta^*$ has indeed asymptotic level $C$, i.e.
@@ -1975,7 +2075,12 @@ z_{\alpha}$ be the upper $\alpha $-quantile of $Z$ for some $%
 is a confidence interval for $\theta^*$ of asymptotic level $C=1-2\alpha $.
 \end{prop}
 
-\subsubsection{Sample size determination}
+\begin{Exercise}[label={ExAsymptoticConfIntervalsFor125BernoulliTrials}]
+Suppose you toss a possibly biased coin 125 times and observe 118 heads. Assuming IID $\bernoulli(\theta^*)$ trials where $\theta^*$ is the probability of coming up heads, obtain a confidence interval based on the CLT with asymptotic level $95\%$ for the unknown $\theta^*$.
+\end{Exercise}
+
+
+\subsubsection{Sample size determination}\label{S:SampleSizeDetermination}
 
 The standard confidence interval has width $2m$, where the margin of error
 is 
@@ -2229,6 +2334,26 @@ only a fraction of $n_{0}$ (i.e. $n_{1}\left( m^{\ast }\right)
 ,Y_{n_{1}}$\emph{\ }is the first part of the larger sample $X_{1},\ldots ,X_{%
 \widehat{n}}$.
 \end{rem}
+
+\begin{Exercise}[label={ExNameOfMayorPoll}]
+A simple random sample of 200 people aged 18 or over
+is taken in a large city to see how many of them know the name of the mayor.
+It turns out that $118$ could correctly give her name.
+
+\begin{description}
+\item[\textbf{a}] Find a $90\%$ (asymptotic) confidence interval for the
+proportion of people 18 or over who know the mayor's name. In calculating
+the interval, please also give the margin of error.
+
+%\item[\textbf{b}] What is the margin of error for this interval?
+
+\item[\textbf{b}] Suppose the staff said that budget constraints mean that
+the largest sample they can obtain is $1200$ people. They make another
+survey with that sample size and find $\widehat{p}=0.6$. In order to please the
+mayor they report a margin of error of $0.02$. What is the asymptotic
+confidence level of this interval?
+\end{description}
+\end{Exercise}
 
 \remove{
 }

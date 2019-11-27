@@ -228,9 +228,9 @@ Note that if the model assumes that $(X_1,X_2,\ldots,X_n)$ is jointly independen
 
 Let us apply this method in some examples.
 
-\remove{
-\Exmp{
-\label{Eg:ExponentialMLE}
+
+{
+\begin{example}[Maximum likelihood estimation for IID $\exponential(\lambda^*)$ trials]\label{Eg:ExponentialMLE}
 Find (or derive) the maximum likelihood estimate $\widehat{\lambda}_n$ and the $(1-\alpha)$ confidence interval of the fixed and possibly unknown parameter $\lambda^*$ for the IID experiment:
 $$X_1,\ldots,X_n \overset{IID}{\sim} \exponential(\lambda^*), \qquad \lambda^* \in \BB{\Lambda} = (0,\infty) \enspace .$$
 Note that $\BB{\Lambda}$ is the parameter space.
@@ -279,6 +279,7 @@ And finally, the $(1-\alpha)$ confidence interval is
 \widehat{\lambda}_n \pm z_{\alpha/2} \widehat{\mathsf{se}}_n 
 = \boxed{\frac{1}{\overline{x}_n} \pm z_{\alpha/2} \frac{1}{\ol{x}_n\sqrt{n}}} \enspace . 
 \]
+\end{example}
 }
 
 Since we have worked ``hard'' to get the maximum likelihood estimate for a general IID model $X_1,X_2,\ldots,X_n \overset{IID}{\sim} \exponential(\lambda^*)$.  Let us kill two birds with the same stone by applying it to two datasets:
@@ -286,26 +287,25 @@ Since we have worked ``hard'' to get the maximum likelihood estimate for a gener
 \item Orbiter waiting times and
 \item Time between measurable earthquakes in New Zealand over a few months.
 \ee
+Therefore, the ML estimate $\widehat{\lambda}_n$ of the unknown rate parameter $\lambda^* \in \BB{\Lambda}$ on the basis of $n$ IID observations $x_1,x_2,\ldots,x_n \overset{IID}{\sim} \exponential(\lambda^*)$ is $1/\overline{x}_n$ and the ML estimator $\widehat{\Lambda}_n=1/\overline{X}_n$.  
 
-
-Therefore, the ML estimate $\widehat{\lambda}_n$ of the unknown rate parameter $\lambda^* \in \BB{\Lambda}$ on the basis of $n$ IID observations $x_1,x_2,\ldots,x_n \overset{IID}{\sim} \exponential(\lambda^*)$ is $1/\overline{x}_n$ and the ML estimator $\widehat{\Lambda}_n=1/\overline{X}_n$.  Let us apply this ML estimator of the rate parameter for the supposedly exponentially distributed waiting times at the on-campus Orbiter bus-stop.
-
-%\begin{VrbM}
-%% Joshu Fenemore’s Data from 2007 on Waiting Times at Orbiter Bust Stop by Balgay Street
-%%The raw data -- the waiting times to nearest minute between Orbiter buses
-%>> orbiterTimes=[8 3 7 18 18 3 7 9 9 25 0 0 25 6 10 0 10 8 16 9 1 5 16 6 4 1 3 21 0 28 3 8 ...
-% 6 6 11 8 10 15 0 8 7 11 10 9 12 13 8 10 11 8 7 11 5 9 11 14 13 5 8 9 12 10 13 6 11 13 ...
-% 0 0 11 1 9 5 14 16 2 10 21 1 14 2 10 24 6 1 14 14 0 14 4 11 15 0 10 2 13 2 22 ...
-% 10 5 6 13 1 13 10 11 4 7 9 12 8 16 15 14 5 10 12 9 8 0 5 13 13 6 8 4 13 15 7 11 6 23 1];
-%>> mean(orbiterTimes)
-%ans =
-%    9.0758
-%\end{VrbM}
-
-{\bf Orbiter Waiting Times}
+\begin{example}[Orbiter Waiting Times]\label{EgOrbiterMLE}
+Let us apply this ML estimator of the rate parameter for the supposedly exponentially distributed waiting times at the on-campus Orbiter bus-stop.
 
 Joshua Fenemore and Yiran Wang collected data on waiting times between buses at an Orbiter bus-stop close to campus.  
 They collected a sample of size $n=132$ with sample mean $\overline{x}_{132}=9.0758$.
+\begin{VrbM}
+% Joshu Fenemore’s Data from 2007 on Waiting Times at Orbiter Bust Stop by Balgay Street
+%The raw data -- the waiting times to nearest minute between Orbiter buses
+>> orbiterTimes=[8 3 7 18 18 3 7 9 9 25 0 0 25 6 10 0 10 8 16 9 1 5 16 6 4 1 3 21 0 28 3 8 ...
+ 6 6 11 8 10 15 0 8 7 11 10 9 12 13 8 10 11 8 7 11 5 9 11 14 13 5 8 9 12 10 13 6 11 13 ...
+ 0 0 11 1 9 5 14 16 2 10 21 1 14 2 10 24 6 1 14 14 0 14 4 11 15 0 10 2 13 2 22 ...
+ 10 5 6 13 1 13 10 11 4 7 9 12 8 16 15 14 5 10 12 9 8 0 5 13 13 6 8 4 13 15 7 11 6 23 1];
+>> mean(orbiterTimes)
+ans =
+    9.0758
+\end{VrbM}
+
 From our work in Example~\ref{Eg:ExponentialMLE} we can now easily obtain the maximum likelihood estimate of $\lambda^*$ and the $95\%$ confidence interval for it, under the assumption that the waiting times $X_1,\ldots,X_{132}$ are IID $\exponential(\lambda^*)$ RVs as follows: 
 $$\widehat{\lambda}_{132}=1/\overline{x}_{132}=1/9.0758=0.1102 \quad 
 (0.1102 \pm 1.96 \times 0.1102/\sqrt{132}) = (0.0914,0.1290) \enspace ,$$ 
@@ -314,45 +314,46 @@ $$1/\widehat{\lambda}_{132}=9.0763 \text{ minutes} .$$
 The estimated mean waiting time for a bus to arrive is well within the $10$ minutes promised by the Orbiter bus company.  
 This data and its maximum likelihood analysis is presented visually in Figure~\ref{F:ExponentialMLEOrbiter}.
  
-%The following script was used to generate the \hyperref[F:ExponentialMLE]{Figure \ref*{F:ExponentialMLEOrbiter}}:
+The following script was used to generate the \hyperref[F:ExponentialMLE]{Figure \ref*{F:ExponentialMLEOrbiter}}:
 \begin{figure}[htpb]
 \caption{Plot of $\log(L(\lambda))$ as a function of the parameter $\lambda$  and the MLE $\widehat{\lambda}_{132}$ of $0.1102$ for Fenemore-Wang Orbiter Waiting Times Experiment from STAT 218 S2 2007.  The density or PDF and the DF at the MLE of $0.1102$ are compared with a histogram and the empirical DF.\label{F:ExponentialMLEOrbiter}}
-\centering   \makebox{\includegraphics[width=4.5in]{../../../figures/ExponentialMLEOrbiter}}
+\centering   \makebox{\includegraphics[width=4.5in]{figures/ExponentialMLEOrbiter}}
 \end{figure}
 Notice how the exponential PDF $f(x;\widehat{\lambda}_{132}=0.1102)$ and the DF $F(x;\widehat{\lambda}_{132}=0.1102)$ based on the MLE fits with the histogram and the empirical DF, respectively.  
 %This is an indication of the inadequacy of our parametric model.  Partly this discrepancy is due to the resolution of the the measurements being confined to whole minutes.  We can overcome this problem by fitting a minute-discretized PMF from the $\exponential(\lambda)$ PDF.  
 
 \begin{figure}[htpb]
 \caption{Comparing the $\exponential(\widehat{\lambda}_{6128}= 28.6694)$ PDF and DF with a histogram and empirical DF of the times (in units of days) between earth quakes in  NZ.  The epicenters of $6128$ earth quakes are shown in left panel.\label{F:NZSIEarthQuakesExponentialMLE}}
-\centering   \makebox{\includegraphics[width=4.5in]{../../../figures/NZSIEarthQuakesExponentialMLE}}
+\centering   \makebox{\includegraphics[width=4.5in]{figures/NZSIEarthQuakesExponentialMLE}}
 \end{figure}
+\end{example}
 
-{\bf Waiting Times between Earth Quakes in NZ:}%\label{LW:NZSIEarthQuakesExponentialMLE}  
-
+\begin{example}[Waiting Times between Earth Quakes in NZ]\label{LW:NZSIEarthQuakesExponentialMLE}  
 Once again from our work in Example~\ref{Eg:ExponentialMLE} we can now easily obtain the maximum likelihood estimate of $\lambda^*$ and the $95\%$ confidence interval for it, under the assumption that the waiting times (in days) between the $6128$ measurable earth-quakes in NZ from 18-Jan-2008 02:23:44 to 18-Aug-2008 19:29:29 are IID $\exponential(\lambda^*)$ RVs as follows: 
 $$\widehat{\lambda}_{6128}=1/\overline{x}_{6128}=1/0.0349=28.6694 \quad 
 (28.6694 \pm 1.96 \times 28.6694/\sqrt{6128}) = (27.95,29.39) \enspace ,$$ 
-and thus the estimated mean time in days and minutes between earth quakes (somewhere in NZ over the first 8 months in 2008) is 
+and thus the estimated mean time in days and minutes between earth quakes (somewhere in NZ over the first 8 months in 2008), as processed in Labwork~\ref{LW:NZSIEarthQuakesExponentialMLE}, is 
 $$1/\widehat{\lambda}_{6128}=\overline{x}_{6128}=0.0349 \text{ days } \quad = \quad 0.0349*24*60=50.2560  \text{ minutes} \enspace .$$  
 This data and its maximum likelihood analysis is presented visually in Figure~\ref{F:NZSIEarthQuakesExponentialMLE}.  The PDF and DF corresponding to the $\widehat{\lambda}_{6128}$ (blue curves in Figure~\ref{F:NZSIEarthQuakesExponentialMLE}) are the best fitting PDF and DF from the parametric family of PDFs in $\{\lambda e^{-\lambda x}: \lambda \in (0,\infty) \}$ and DFs in $\{1- e^{-\lambda x}: \lambda \in (0,\infty) \}$ to the density histogram and the empirical distribution function given by the data, respectively.  Clearly, there is room for improving beyond the model of IID $\exponential(\lambda)$ RVs, but the fit with just one real-valued parameter is not too bad either.  Finally, with the best fitting PDF $28.6694 e^{-28.6694 x}$ we can get probabilities of events and answer questions like: ``what is the probability that there will be three earth quakes somewhere in NZ within the next hour?'', etc.
+\end{example}
 
-%as computed in the following script:\VrbMf[label=NZSIEarthQuakesExponentialMLE.m]{../../../scripts/NZSIEarthQuakesExponentialMLE.m}
-%We first load the data in the text file {\tt earthquakes.csv} into a matrix {\tt EQ}.  Using the {\tt datenum} function in {\sc Matlab} we transform the time stamps into a number starting at zero.  These transformed time stamps are in units of days.  Then we find the times between consecutive events and estimate a histogram.  We finally compute the ML estimate of $\lambda^*$ and super-impose the PDF of the $\exponential(\widehat{\lambda}_{6128}= 28.6694)$ upon the histogram.
-%\begin{VrbM}
-%>> NZSIEarthQuakesExponentialMLE
-%ans =        6128          13
-%
-%Earth Quakes in NZ between
-%18-Jan-2008 02:23:44 and18-Aug-2008 19:29:29
-%
-%SampleMean =    0.0349
-%MLELambdaHat =   28.6694
-%\end{VrbM}
-%Thus, the average time between earth quakes is $0.0349*24*60=50.2560$ minutes.
-%\end{labwork}
+\begin{labwork}[Inter Earth Quake Time Processing]\label{LW:NZSIEarthQuakesExponentialMLE}
+To process the data to get the times between earth quakes, we can compute as in the following script:\VrbMf[label=NZSIEarthQuakesExponentialMLE.m]{scripts/NZSIEarthQuakesExponentialMLE.m}
+We first load the data in the text file {\tt earthquakes.csv} into a matrix {\tt EQ}.  Using the {\tt datenum} function in {\sc Matlab} we transform the time stamps into a number starting at zero.  These transformed time stamps are in units of days.  Then we find the times between consecutive events and estimate a histogram.  We finally compute the ML estimate of $\lambda^*$ and super-impose the PDF of the $\exponential(\widehat{\lambda}_{6128}= 28.6694)$ upon the histogram.
+\begin{VrbM}
+>> NZSIEarthQuakesExponentialMLE
+ans =        6128          13
+
+Earth Quakes in NZ between
+18-Jan-2008 02:23:44 and18-Aug-2008 19:29:29
+
+SampleMean =    0.0349
+MLELambdaHat =   28.6694
+\end{VrbM}
+Thus, the average time between earth quakes is $0.0349*24*60=50.2560$ minutes.
+\end{labwork}
 
 \begin{example}[ML Estimation for the IID $\bernoulli(\theta^*)$ experiment]\label{EX:MLECoinTossing}
-{\rm 
 Let us do maximum likelihood estimation for the coin-tossing experiment of Example~\ref{EX:CoinTossing} with likelihood derived in Example~\ref{EX:LklCoinTossing} to obtain the maximum likelihood estimate $\widehat{\theta}_n$ of the unknown parameter $\theta^* \in \BB{\Theta} = [0,1]$ and the $(1-\alpha)$ confidence interval for it.
 
 From Equation~\eqref{E:LklBernoulli} the log likelihood function is
@@ -413,12 +414,11 @@ For the coin tossing experiment that was performed ($n=10$ times) in Example~\re
 \]
 See Figures~\ref{F:BernoulliMLE} and \ref{F:BernoulliMLEConsistency} to completely understand parameter estimation for IID Bernoulli experiments.
 % (not just coin toss, but for any event of interest!) through the pictures.
-}
 \end{example}
 
 \begin{figure}[htpb]
 \caption{Plots of the log likelihood $\ell_n(\theta)=\log(L(1,0,0,0,1,1,0,0,1,0;\theta))$ as a function of the parameter $\theta$ over the parameter space $\BB{\Theta}=[0,1]$ and the MLE $\widehat{\theta}_{10}$ of $0.4$ for the coin-tossing experiment shown in standard scale (left panel) and log scale for $x$-axis (right panel).\label{F:BernoulliMLE}}
-\centering   \makebox{\includegraphics[width=5.5in]{../../../figures/BernoulliMLE}}
+\centering   \makebox{\includegraphics[width=5.5in]{figures/BernoulliMLE}}
 \end{figure}
 
 
@@ -428,20 +428,403 @@ The MLE $\widehat{\theta}_n$ (cyan dot) and the log-likelihood function (magenta
 The approximate normal-based $95\%$ confidence intervals with blue boundaries are based on the exact $\mathsf{se}_n=\sqrt{\theta^*(1-\theta^*)/n}=\sqrt{1/4}$, while those with red boundaries are based on the estimated $\widehat{\mathsf{se}_n}=\sqrt{\widehat{\theta}_n(1-\widehat{\theta}_n)/n} = \sqrt{\frac{\ol{x}_n(1-\ol{x}_n)}{n}}$.  
 The fraction of times the true parameter $\theta^*=0.5$ was contained by the exact and approximate confidence interval (known as {\em empirical coverage}) over the $100$ replications of the simulation experiment for each of the three sample sizes are given by the numbers after {\tt Cvrg.=} and {\tt $\sim$=}, above each sub-plot, respectively.}\label{F:BernoulliMLEConsistency}}
 \begin{center}
-\makebox{\includegraphics[width=6.00in]{../../../figures/BernoulliMLEConsistency}}
+\makebox{\includegraphics[width=6.00in]{figures/BernoulliMLEConsistency}}
 \end{center}
 \end{figure}  
 
 \clearpage
 
-\iftoggle{PlaceTutsHere}{%
-\subsection{Tutorial Exercises}
-\input{Tutorials/Tut_Lkl_preps.tex}
+%\iftoggle{PlaceTutsHere}{%
+%\subsection{Tutorial Exercises}
+%\input{Tutorials/Tut_Lkl_preps.tex}
+%~\\
+%\input{Tutorials/Tut_Lkl_inTut.tex}
+%}{%
+%  % don't do anything otherwise
+%}
+
+\begin{Exercise}[title={Likelihoods of tiny $\bernoulli$ trials},label={ExLklOfTinyBernoulliTrials}]
+Find and plot the likelihood function of the following observations $(x_1,x_2,\ldots,x_n)$ from the following IID sequence of $\mathrm{Bernoulli}(\theta)$ RVs:
+\begin{enumerate}
+\item~$(x_1)=(1)$
+\item~$(x_1)=(0)$
+\item~$(x_1,x_2)=(0,0)$
+\item~$(x_1,x_2)=(1,1)$
+\item~$(x_1,x_2)=(1,0)$
+\item~$(x_1,x_2)=(0,1)$
+\item~$(x_1,x_2,x_3)=(1,1,0)$
+\item~$(x_1,x_2,x_3)=(0,0,1)$
+\end{enumerate}
+[Hint: your x-axis is $\theta$ with values in $[0,1]$, the parameter space, and $y$-axis is $L_n(\theta; x_1,x_2,\ldots,x_n) = \prod_{i=1}^n f_{X_i}(x_i;\theta)$, where $f_{X_i}(x_i;\theta)$ is the PMF of $\mathrm{Bernoulli}(\theta)$ RV $X_i$]
+\end{Exercise}
+
+\begin{Answer}
 ~\\
-\input{Tutorials/Tut_Lkl_inTut.tex}
-}{%
-  % don't do anything otherwise
-}
+Likelihood is just the joint PDF (if continuous) or joint PMF (if discrete) of the data {\bf but} seen as a function of the parameter $\theta$: 
+\[
+L(\theta)=L(\theta; (x_1,x_n,\ldots,x_n)) = f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n; \theta)
+\]
+We sometimes write $L(\theta)$ instead of $L(\theta; (x_1,x_n,\ldots,x_n))$ for notational simplicity.  
+In this case, since we are assuming independent and identically distributed observations, the joint PDF/PMF is simply the product of the marginal PDFs/PMFs:
+\[
+L(\theta) = f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n; \theta) = \prod_{i=1}^n f_{X_i}(x_i;\theta) = \prod_{i=1}^n f_{X_1}(x_i;\theta)
+\]
+Since each $X_i \overset{IID}{\sim} \mathrm{Bernoulli}(\theta)$ RV, the marginal PMF of each $X_i$ is the same as that of the first RV $X_1$, which is:
+\[
+f_{X_1}(x_i; \theta) 
+= 
+\begin{cases}
+\theta & \text{ if } x_i = 1\\
+0 & \text{ if } x_i=0 \enspace.
+\end{cases}
+\]
+From this we get the eight likelihood functions in the question:
+\begin{enumerate}
+\item~When $(x_1)=(1)$, there is only one data point so $n=1$ and therefore
+$$L(\theta)= \prod_{i=1}^1 f_{X_1}(x_1;\theta) = f_{X_1}(x_1=1;\theta) = f_{X_1}(1;\theta)=\theta$$
+The above step-by-step break down is for understanding only.  In the exam, you can just write:
+$$L(\theta)= \theta$$
+Make a plot of $L(\theta)=\theta$ as a function of $\theta$ (with x-axis values taken by $\theta$ in the unit interval $[0,1]$).
+\item~When $(x_1)=(0)$
+$$L(\theta)= \prod_{i=1}^1 f_{X_1}(x_1;\theta) = f_{X_1}(x_1=0;\theta) = f_{X_1}(0;\theta)=1-\theta$$
+In the exam, you can just write:
+$$L(\theta)= 1-\theta$$
+Make a plot of $L(\theta)=1-\theta$ as a function of $\theta$.
+\item~When $(x_1,x_2)=(0,0)$, we have $n=2$ data points and therefore
+\begin{multline*}
+L(\theta)= \prod_{i=1}^2 f_{X_1}(x_i;\theta) = f_{X_1}(x_1=0;\theta) \times f_{X_1}(x_2=0;\theta) \\
+= f_{X_1}(0;\theta)\times f_{X_1}(0;\theta) =(1-\theta) \times (1-\theta) = (1-\theta)^2
+\end{multline*}
+Or just
+\[
+L(\theta) = (1-\theta) \times (1-\theta) = (1-\theta)^2 \enspace .
+\]
+Make a plot of $L(\theta)=(1-\theta)^2$ as a function of $\theta$.
+\item~When $(x_1,x_2)=(1,1)$, we have $n=2$ data points and therefore
+\begin{multline*}
+L(\theta)= \prod_{i=1}^2 f_{X_1}(x_i;\theta) = f_{X_1}(x_1=1;\theta) \times f_{X_1}(x_2=1;\theta) \\
+= f_{X_1}(1;\theta)\times f_{X_1}(1;\theta) = \theta \times \theta = \theta^2
+\end{multline*}
+Or just
+\[
+L(\theta) = \theta \times \theta = \theta^2 \enspace .
+\]
+Make a plot of $L(\theta)=\theta^2$ as a function of $\theta$.
+\item~When $(x_1,x_2)=(1,0)$, we have $n=2$ data points and therefore
+\[
+L(\theta) = \theta \times (1-\theta)  = \theta  - \theta^2 \enspace .
+\]
+Make a plot of $L(\theta)=\theta-\theta^2$ as a function of $\theta$.
+This plot is easy to draw if you overlay the plot for $\theta$ and $\theta^2$ (that you just made separately) and then see where $\theta > \theta^2$ and by mow much.
+\item~When $(x_1,x_2)=(0,1)$,
+\[
+L(\theta) = (1-\theta) \times \theta  = \theta  - \theta^2 \enspace .
+\]
+Notice that the likelihood with data $(x_1,x_2)=(0,1)$ is the same as the likelihood with the previous data $(x_1,x_2)=(1,0)$.  
+This is because, the likelihood being a product (from the IID assumption) is invariant to the order of the data, i.e., first observing $0$ and then oberving $1$ has the same likelihood as first observing $1$ and then observing $0$.  
+This means, in general even when $n>2$, only the number of $1$'s and $0$'s in the $n$ IID $\mathrm{Bernoulli}(\theta)$ experiment affects the likelihood of $\theta$.       
+You have already made the plot of $L(\theta)=\theta-\theta^2$ as a function of $\theta$ in the previous problem!
+\item~When $(x_1,x_2,x_3)=(1,1,0)$
+\[
+L(\theta) = \theta \times \theta \times (1-\theta)  = \theta^2  (1-\theta) = \theta^2-\theta^3 \enspace .
+\]
+This plot is easy to draw if you first plot $\theta^2$ and $\theta^3$ separately and then see how far apart they are to get a sense for $\theta^2-\theta^3$.
+\item~When $(x_1,x_2,x_3)=(0,0,1)$
+\[
+L(\theta) = (1-\theta) \times (1-\theta) \times \theta  = (1-\theta)^2  \theta = 1-2\theta+\theta^2 \enspace .
+\]
+This is just a polynomial in $\theta$ and can be plotted.  It should be clear from this exercise that the likelihood with observation $(x_1,x_2,\ldots,x_n)$ from $n$ IID $\mathrm{Bernoulli}(\theta)$ RVs is just 
+$$L(\theta) = \theta^{\sum_{i=1}^{n}x_i}  (1-\theta)^{n-\sum_{i=1}^{n}x_i}$$
+where, the number of $1$'s is $\sum_{i=1}^{n}x_i$ and the number of $0$'s is $n-\sum_{i=1}^{n}x_i$.
+\end{enumerate}
+
+See Figure 19 on page 125 of the notes for the plots of these likelihoods as well as those of all possible observations one could have from $n=1$, $n=2$ or $n=3$ trials (seen as vertices of the unit interval $[0,1]$, the unit square $[0,1]^2$ and the unit cube $[0,1]^3$, respectively).
+\end{Answer}
+
+\begin{Exercise}[title={MLE Exercises},label={ExsMLEExercises}]
+Assume that an independent and identically distributed sample, $X_1 , X_2 , \ldots, X_n$ 
+is drawn from the distribution of $X$ with PDF $f(x; \theta^*)$ for a fixed and unknown 
+parameter $\theta^*$ and derive the maximum likelihood estimate of $\theta^*$ (you only need to do {\sf Steps 1--5} from {\bf Steps of MLE} in Lecture Notes on pages 126--127).  
+Consider the following PDFs:
+\begin{enumerate}
+\item~
+The parameter $\theta$ is a real number in $(0,\infty)$ and the PDF is given by
+\[
+f(x;\theta) = 
+\begin{cases}
+\theta x^{\theta-1} & \text{ if } 0 < x < 1\\
+0 & \text{otherwise} \enspace .
+\end{cases}
+\]
+
+\item~
+The parameter $\theta$ is a real number in $(0,\infty)$ and the PDF is given by
+\[
+f(x;\theta) = 
+\begin{cases}
+\frac{1}{\theta} x^{(1-\theta)/\theta} & \text{ if } 0 < x < 1\\
+0 & \text{otherwise} \enspace .
+\end{cases}
+\]
+
+\item~
+The parameter $\theta$ is a real number in $(0,\infty)$ and the PDF is given by
+\[
+f(x;\theta) = 
+\begin{cases}
+\frac{1}{2\theta^3} x^{2}e^{-x/\theta} & \text{ if } 0 < x < \infty\\
+0 & \text{otherwise} \enspace .
+\end{cases}
+\]
+
+\item~
+The parameter $\theta$ is a real number in $(0,\infty)$ and the PDF is given by
+\[
+f(x;\theta) = 
+\begin{cases}
+\frac{x}{\theta^2} e^{-\frac{1}{2}(x/\theta)^2} & \text{ if } 0 < x  < \infty \\
+0 & \text{otherwise} \enspace .
+\end{cases}
+\]
+
+
+
+%\item~
+%The parameter $\theta$ is a real number in $(0,\infty)$ and the PDF is given by
+%\[
+%f(x;\theta) = 
+%\begin{cases}
+%\frac{1}{\theta^2} x e^{-x/\theta} & \text{ if } 0 < x < \infty\\
+%0 & \text{otherwise} \enspace .
+%\end{cases}
+%\]
+\end{enumerate}
+\end{Exercise}
+
+\begin{Answer}
+~\\
+Since all five of these problems involve $n$ IID samples we note that the likelihood function is
+\[
+L(\theta) = f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n; \theta)
+= \prod_{i=1}^n f_{X_i}(x_i;\theta) = \prod_{i=1}^n f_{X_1}(x_i;\theta)
+\]
+For ease of notation, we just write $f(x;\theta)$, instead of the more accurate $f_{X_1}(x;\theta)$, for the {\bf common} PDF/PMF of each RV $X_i$.  Thus, for IID samples we just write the likelihood as
+\[
+L(\theta) = \prod_{i=1}^n f(x_i;\theta) \enspace.
+\] 
+Recall that the logarithm of a product is the sum of the logarithms of each term in the product, i.e., $\log(a \times b) = \log(a)+\log(b)$.  
+More generally this means: 
+$$\log\left(\prod_{i=1}^n a_i\right) = \log\left( a_1 \times a_2 \times \cdots \times a_n\right) = \log(a_1)+\log(a_2)+\cdots+\log(a_n)=\sum_{i=1}^n \log(a_i)$$
+The above formula won't appear in the formula sheet --- you should know this by now.
+Putting all of the above facts together we can get the log-likelihood as
+\[
+\ell(\theta) = \log \left( L(\theta) \right) = \log \left( \prod_{i=1}^n f(x_i;\theta) \right) 
+= \sum_{i=1}^n \log\left(f(x_i;\theta)\right)
+\] 
+Recall the 5 main steps (from pages 126--127 of the notes) to find $\widehat{\theta}_n$, the maximum likelihood estimate (MLE) of the unknown parameter $\theta^*$ according to which the data is independently and identically distributed, are as follows:\\ 
+({\sf Step 1:}) find $\ell(\theta)$, the log-likelihood as a function of the parameter $\theta$, 
+({\sf Step 2:}) find $\frac{d}{d \theta} \ell(\theta)$, the first derivative of $\ell(\theta)$ with respect to $\theta$, 
+({\sf Step 3:}) solve the equation $\frac{d}{d \theta} \ell(\theta)=0$ for $\theta$ and set this solution equal to $\widehat{\theta}_n$, 
+({\sf Step 4:}) find $\frac{d^2}{d \theta^2} \ell(\theta)$, the second derivative of $\ell(\theta)$ with respect to $\theta$ and finally 
+({\sf Step 5:}) $\widehat{\theta}_n$ is the MLE if $\frac{d^2}{d \theta^2} \ell(\theta) < 0$.
+
+We are now ready to answer the four questions in this problem.
+\begin{enumerate}
+\item~\\
+{\sf Step 1:} If $x_i \in (0,1)$ for each $i \in \{1,2,\ldots,n\}$, i.e.~when each data point lies inside the open interval $(0,1)$, the log-likelihood is
+\begin{multline*}
+\ell(\theta) = \sum_{i=1}^n \log\left(f_{X}(x_i;\theta)\right)
+= \sum_{i=1}^n \left(\log\left( \theta x_i^{\theta-1} \right)\right)
+= \sum_{i=1}^n \left(\log( \theta)+ \log\left( x_i^{\theta-1} \right)\right)\\
+= \sum_{i=1}^n \left(\log( \theta)+ (\theta-1)(\log( x_i))\right)
+= \sum_{i=1}^n \left(\log( \theta)+ \theta\log( x_i)-\log( x_i)\right)\\
+= \sum_{i=1}^n \log( \theta)+ \sum_{i=1}^n \theta\log( x_i)- \sum_{i=1}^n \log( x_i)
+= n \log( \theta) + \theta \sum_{i=1}^n \log( x_i)- \sum_{i=1}^n \log( x_i)
+\end{multline*} 
+{\sf Step 2:}
+\[
+\frac{d}{d \theta} \left( \ell(\theta)\right) = \frac{d}{d \theta} \left( n \log( \theta) + \theta \sum_{i=1}^n \log( x_i)- \sum_{i=1}^n \log( x_i)\right) = \frac{n}{\theta} + \sum_{i=1}^n \log( x_i)-0=\frac{n}{\theta} + \sum_{i=1}^n \log( x_i)
+\]
+{\sf Step 3:}
+\[
+\frac{d}{d \theta} \left( \ell(\theta)\right) = 0 \iff \frac{n}{\theta} + \sum_{i=1}^n \log( x_i)=0 \iff
+\frac{n}{\theta} = - \sum_{i=1}^n \log( x_i) \iff \theta = -\frac{n}{\sum_{i=1}^n \log( x_i)}
+\]
+Let $$\widehat{\theta}_n = -\frac{n}{\sum_{i=1}^n \log( x_i)} \enspace .$$
+{\sf Step 4:}
+\begin{multline*}
+\frac{d^2}{d \theta^2} \ell(\theta) = \frac{d}{d \theta} \left( \frac{d}{d \theta} \left( \ell(\theta)\right)\right)
+=  \frac{d}{d \theta} \left( \frac{n}{\theta} + \sum_{i=1}^n \log( x_i)\right)
+=  \frac{d}{d \theta} \left( n\theta^{-1} + \sum_{i=1}^n \log( x_i)\right)\\
+=   -n\theta^{-2} + 0 = -\frac{n}{\theta^2} \qquad \quad
+\end{multline*}
+{\sf Step 5:}
+The problem states that $\theta > 0$.  Since $\theta^2 > 0$ and $n \geq 1$, we have indeed checked that 
+$$\frac{d^2}{d \theta^2} \ell(\theta)=-\frac{n}{\theta^2}<0$$
+and therefore the MLE is indeed
+$$\widehat{\theta}_n = \frac{-n}{\sum_{i=1}^n \log(x_i)} \enspace .$$
+
+\item~
+{\sf Step 1:} If $x_i \in (0,1)$ for each $i \in \{1,2,\ldots,n\}$, i.e.~when each data point lies inside the open interval $(0,1)$, the log-likelihood is
+\begin{multline*}
+\ell(\theta) = \sum_{i=1}^n \log\left(f_{X}(x_i;\theta)\right)
+= \sum_{i=1}^n \left(\log\left( \frac{1}{\theta} x_i^{(1-\theta)/\theta} \right)\right)
+= \sum_{i=1}^n \left(\log\left( \frac{1}{\theta}\right) + \log \left( x_i^{(1-\theta)/\theta} \right)\right)\\
+= \sum_{i=1}^n \left(\log\left( \frac{1}{\theta}\right) + \left(\frac{1-\theta}{\theta}\right)\log \left( x_i \right)\right)
+= \sum_{i=1}^n \left(\log\left( \frac{1}{\theta}\right) + \left(\frac{1}{\theta}-1\right)\log \left( x_i \right)\right)\\
+= \sum_{i=1}^n \left(\log\left( \frac{1}{\theta}\right) + \frac{1}{\theta} \log \left( x_i \right)-\log \left( x_i \right)\right)
+= \sum_{i=1}^n \log\left( \frac{1}{\theta}\right) + \sum_{i=1}^n \frac{1}{\theta} \log \left( x_i \right)- \sum_{i=1}^n \log \left( x_i \right)\\
+= n \log\left( \frac{1}{\theta}\right) + \frac{1}{\theta} \sum_{i=1}^n \log \left( x_i \right)- \sum_{i=1}^n \log \left( x_i \right)
+= n \log\left( \theta^{-1}\right) + \frac{1}{\theta} \sum_{i=1}^n \log \left( x_i \right)- \sum_{i=1}^n \log \left( x_i \right)\\
+= -n \log\left( \theta \right) + \theta^{-1} \sum_{i=1}^n \log \left( x_i \right)- \sum_{i=1}^n \log \left( x_i \right)
+\end{multline*} 
+{\sf Step 2:}
+\begin{multline*}
+\frac{d}{d \theta} \left( \ell(\theta)\right) 
+= \frac{d}{d \theta} \left( -n \log\left( \theta \right) + \theta^{-1} \sum_{i=1}^n \log \left( x_i \right)- \sum_{i=1}^n \log \left( x_i \right)\right)
+= -n \theta^{-1} - \theta^{-2} \sum_{i=1}^n \log \left( x_i \right) 
+\end{multline*}
+{\sf Step 3:}
+\[
+\frac{d}{d \theta} \left( \ell(\theta)\right) = 0 \iff -n \theta^{-1} - \theta^{-2} \sum_{i=1}^n \log \left( x_i \right)=0
+\]
+Multiplying both sides of the above equality by $\theta^2$ we get
+\begin{multline*}
+\theta^2 \times \left(-n \theta^{-1} - \theta^{-2} \sum_{i=1}^n \log \left( x_i \right) \right)=0 \times \theta^2
+\iff
+\left(-n \theta - \sum_{i=1}^n \log \left( x_i \right) \right)=0 \\
+\iff
+n \theta = - \sum_{i=1}^n \log \left( x_i \right) \iff
+\theta = -\frac{1}{n}\sum_{i=1}^n \log \left( x_i \right)
+\end{multline*}
+Let $$\widehat{\theta}_n =  -\frac{1}{n}\sum_{i=1}^n \log \left( x_i \right) \enspace .$$
+{\sf Step 4:}
+\begin{multline*}
+\frac{d^2}{d \theta^2} \ell(\theta) = \frac{d}{d \theta} \left( \frac{d}{d \theta} \left( \ell(\theta)\right)\right)
+=  \frac{d}{d \theta} \left( -n \theta^{-1} - \theta^{-2} \sum_{i=1}^n \log \left( x_i \right) \right)
+= n \theta^{-2} + 2 \theta^{-3} \sum_{i=1}^n \log \left( x_i \right) 
+\end{multline*}
+{\sf Step 5:}
+Since $\theta > 0$ and $n \geq 1$, we know that $n \theta^{-2}=n/\theta^2 > 0$, $2 \theta^{-3}=2/\theta^3 >0$.  
+And since every $x_i$ only takes values in $(0,1)$ we know that $\log(x_i)<0$ and therefore $\sum_{i=1}^n \log \left( x_i \right) < 0$.  
+This problem is more interesting because we have some positive and some negative terms in $\frac{d^2}{d \theta^2} \ell(\theta)$.     
+Let us find out when $\frac{d^2}{d \theta^2} \ell(\theta) < 0$
+\begin{multline*}
+\frac{d^2}{d \theta^2} \ell(\theta)= n \theta^{-2} + 2 \theta^{-3} \sum_{i=1}^n \log \left( x_i \right) <0 \\
+\iff 2 \theta^{-3} \sum_{i=1}^n \log \left( x_i \right) < 0 - n \theta^{-2} \qquad \text{{\tiny subtracting $n \theta^{-2}$ from both sides preserves the inequality}}\\
+\iff \sum_{i=1}^n \log \left( x_i \right) <  - \frac{n \theta^{-2}}{2 \theta^{-3}} \qquad \text{{\tiny dividing by the positive quantity $2 \theta^{-3}$ on both sides preserves the inequality}}\\
+\iff \sum_{i=1}^n \log \left( x_i \right) <  - \frac{n \theta^{3}}{2 \theta^{2}}  \iff \sum_{i=1}^n \log \left( x_i \right) < - \frac{n \theta}{2} \qquad \qquad \quad \qquad \qquad \quad \qquad \qquad \quad
+\end{multline*}
+and therefore only when the observed data and the parameter jointly satisfy the condition: $$\sum_{i=1}^n \log \left( x_i \right) <  - \frac{n \theta}{2}$$ will the MLE be
+$$\widehat{\theta}_n = -\frac{1}{n}{\sum_{i=1}^n \log(x_i)} \enspace .$$
+If the condition is not satisfied then we cannot be sure about the MLE we found by setting the first derivative of the log-likelihood function to $0$.  
+This exercise illustrates that just ensuring that the slope or the first derivative of the log-likelihood function is zero at the MLE does not necessarily ensure that the curvature or second derivative of the log-likelihood function will always be negative or concave downward in order to ensure a global maximum at the MLE for every observable data and every possible parameter.
+
+\item~
+{\sf Step 1:} If $x_i \in (0,\infty)$ for each $i \in \{1,2,\ldots,n\}$, i.e.~when each data point is greater than $0$, the log-likelihood is
+\begin{multline*}
+\ell(\theta) = \sum_{i=1}^n \log\left(f_{X}(x_i;\theta)\right)
+= \sum_{i=1}^n \left(\log\left(  \frac{1}{2 \theta^3}x_i^2 e^{-x_i/\theta} \right)\right)\\
+= \sum_{i=1}^n \left(\log\left(  \frac{1}{2} \right) + \log\left(\frac{1}{ \theta^3}\right) + \log \left(x_i^2 \right) + \log \left( e^{-x_i/\theta} \right) \right)\\
+= \sum_{i=1}^n \left(\log\left(  2^{-1} \right) + \log\left(\theta^{-3}\right) + 2 \log \left(x_i \right) + (-x_i/\theta) \right)\\
+= \sum_{i=1}^n \left(-\log\left(  2 \right) -3 \log\left(\theta\right) + 2 \log \left(x_i \right) - x_i \theta^{-1} \right)\\
+= -\sum_{i=1}^n \log(  2 ) - \sum_{i=1}^n 3 \log(\theta) + \sum_{i=1}^n 2 \log (x_i) - \sum_{i=1}^n x_i \theta^{-1}\\ 
+= -n \log(  2 ) - 3 n  \log(\theta) + \sum_{i=1}^n 2 \log (x_i) - \sum_{i=1}^n x_i \theta^{-1} 
+\end{multline*} 
+{\sf Step 2:}
+\begin{multline*}
+\frac{d}{d \theta} \left( \ell(\theta)\right) 
+= \frac{d}{d \theta} \left( -n \log(  2 ) - 3 n  \log(\theta) + \sum_{i=1}^n 2 \log (x_i) - \sum_{i=1}^n x_i \theta^{-1} \right)\\ 
+= -0 - 3 n \theta^{-1} + \frac{d}{d \theta} \left(\sum_{i=1}^n 2 \log (x_i)\right) - \frac{d}{d \theta} \left( \sum_{i=1}^n x_i \theta^{-1} \right)\\ 
+= - 3 n \theta^{-1} + 0 - \sum_{i=1}^n \frac{d}{d \theta} \left( x_i \theta^{-1} \right) 
+= - 3 n \theta^{-1} - \sum_{i=1}^n \left( -x_i \theta^{-2} \right) 
+= - 3 n \theta^{-1} + \sum_{i=1}^n x_i \theta^{-2} 
+\end{multline*}
+{\sf Step 3:}
+\begin{multline*}
+\frac{d}{d \theta} \left( \ell(\theta)\right) = 0 \iff - 3 n \theta^{-1} + \sum_{i=1}^n x_i \theta^{-2}=0
+\iff 3 n \theta^{-1} = \sum_{i=1}^n x_i \theta^{-2} \\
+\iff 3 n \theta^{-1} \times \theta^2 =  \sum_{i=1}^n x_i \theta^{-2} \times \theta^2 \qquad {\text{\tiny Multiplying both sides of the quality by $\theta^2$}}\\
+\iff 3 n \theta = \sum_{i=1}^n x_i \iff \theta = \frac{1}{3n} \sum_{i=1}^n x_i \qquad \qquad \qquad \qquad
+\end{multline*}
+Let $$\widehat{\theta}_n =  \frac{1}{3n} \sum_{i=1}^n x_i \enspace .$$
+{\sf Step 4:}
+\begin{multline*}
+\frac{d^2}{d \theta^2} \ell(\theta) = \frac{d}{d \theta} \left( \frac{d}{d \theta} \left( \ell(\theta)\right)\right)
+=  \frac{d}{d \theta} \left( - 3 n \theta^{-1} + \sum_{i=1}^n x_i \theta^{-2}\right)
+=   3 n \theta^{-2} + \frac{d}{d \theta} \left(\sum_{i=1}^n x_i \theta^{-2}\right)\\
+=   3 n \theta^{-2} + \sum_{i=1}^n \frac{d}{d \theta} \left( x_i \theta^{-2}\right)
+=   3 n \theta^{-2} + \sum_{i=1}^n  \left( -2 x_i \theta^{-3}\right)
+=   3 n \theta^{-2} - 2 \theta^{-3} \sum_{i=1}^n  x_i
+\end{multline*}
+{\sf Step 5:}
+The problem states that $\theta > 0$ and each data point $x_i>0$.  
+Thus $3 n \theta^{-2}=3n/\theta^2 > 0$, and more crucially the cubic term $2 \theta^{-3}=2/\theta^3 > 0$.  
+Finally with at least one sample $n \geq 1$ and each data point $x_i>0$ , we have the following condition for the negativity of the second derivative 
+\begin{multline*}
+\frac{d^2}{d \theta^2} \ell(\theta) <0
+\iff
+3 n \theta^{-2} - 2 \theta^{-3} \sum_{i=1}^n  x_i  < 0 \quad {\text{ \small you can stop here for full credit in exam}}\\
+\iff
+3 n \theta^{-2} < 2 \theta^{-3} \sum_{i=1}^n  x_i  
+\iff
+\theta^{-2}\theta^3 < \frac{2}{3n} \sum_{i=1}^n  x_i  
+\iff
+\theta < \frac{2}{3n} \sum_{i=1}^n  x_i  
+\end{multline*}
+and therefore when the above condition is satisfied the MLE is indeed
+$$\widehat{\theta}_n = \frac{\sum_{i=1}^n x_i}{3n} \enspace .$$
+
+\item~
+{\sf Step 1:} If $x_i \in (0,\infty)$ for each $i \in \{1,2,\ldots,n\}$, the log-likelihood is
+\begin{multline*}
+\ell(\theta) 
+= \sum_{i=1}^n \log\left(f_{X}(x_i;\theta)\right)
+= \sum_{i=1}^n \left(\log\left(  \frac{x_i}{\theta^2} e^{-\frac{1}{2} (x_i/\theta)^2} \right)\right)
+= \sum_{i=1}^n \left(\log\left(  \frac{x_i}{\theta^2}\right)+\log\left( e^{-\frac{1}{2} (x_i/\theta)^2} \right)\right)\\
+=  \sum_{i=1}^n \left( \log(x_i) - \log(\theta^2)  {-\frac{1}{2} (x_i/\theta)^2} \right) 
+= \sum_{i=1}^n \left( \log(x_i) \right) - \sum_{i=1}^n \left( 2 \log(\theta) \right) - \sum_{i=1}^n \left(  \frac{1}{2} x_i^2 \theta^{-2} \right)\\ 
+= \sum_{i=1}^n \log(x_i) - 2n \log(\theta) - \sum_{i=1}^n  \left(  \frac{1}{2} x_i^2 \theta^{-2} \right) \qquad \qquad \qquad \qquad \qquad \qquad 
+\end{multline*} 
+{\sf Step 2:}
+\begin{multline*}
+\frac{d}{d \theta} \left( \ell(\theta)\right) 
+=  \frac{d}{d \theta} \left( \sum_{i=1}^n \left( \log(x_i) \right) - 2 n \log(\theta) - \sum_{i=1}^n \left(  \frac{1}{2} x_i^2 \theta^{-2} \right) \right) \\
+= \frac{d}{d \theta} \left( \sum_{i=1}^n \left( \log(x_i) \right) \right) -  \frac{d}{d \theta} \left( 2 n \log(\theta) \right) -  \frac{d}{d \theta} \left( \sum_{i=1}^n \left(  \frac{1}{2} x_i^2 \theta^{-2} \right) \right) \\
+= 0 - 2n \frac{1}{\theta} - \sum_{i=1}^n \left(  \frac{1}{2} x_i^2 (-2 \theta^{-3}) \right)
+= - 2n \theta^{-1} + \theta^{-3} \sum_{i=1}^n  x_i^2 
+\end{multline*}
+{\sf Step 3:}
+\begin{multline*}
+\frac{d}{d \theta} \left( \ell(\theta)\right) = 0 
+\iff - 2n \theta^{-1} + \theta^{-3} \sum_{i=1}^n x_i^2 = 0
+\iff 2n \theta^{-1} = \theta^{-3} \sum_{i=1}^n x_i^2 \\
+\iff 2n \theta^{-1} \theta^{3} = \sum_{i=1}^n x_i^2 
+\iff \theta^{2} = \frac{1}{2n} \sum_{i=1}^n x_i^2
+\iff \theta = \sqrt{  \frac{1}{2n} \sum_{i=1}^n x_i^2 }
+\end{multline*}
+Let $$\widehat{\theta}_n =  \sqrt{  \frac{1}{2n} \sum_{i=1}^n x_i^2 } \enspace .$$
+{\sf Step 4:}
+\begin{multline*}
+\frac{d^2}{d \theta^2} \ell(\theta) = \frac{d}{d \theta} \left( \frac{d}{d \theta} \left( \ell(\theta)\right)\right)
+=  \frac{d}{d \theta} \left( - 2n \theta^{-1} + \theta^{-3} \sum_{i=1}^n  x_i^2 \right)
+=   2n \theta^{-2} -3 \theta^{-4} \sum_{i=1}^n  x_i^2 
+\end{multline*}
+{\sf Step 5:}
+Since $\theta > 0$, we have the following condition for the the second derivative to be negative 
+\begin{multline*}
+\frac{d^2}{d \theta^2} \ell(\theta)= 2n \theta^{-2} -3 \theta^{-4} \sum_{i=1}^n  x_i^2 <0 \quad {\text{ \small you can stop here for full credit in exam}}\\
+\iff
+2n \theta^{-2} < 3 \theta^{-4} \sum_{i=1}^n  x_i^2
+\iff \theta^{2} < \frac{3}{2n}  \sum_{i=1}^n  x_i^2
+\end{multline*}
+and therefore when the inequality above is satisfied the MLE is indeed
+$$\widehat{\theta}_n = \sqrt{  \frac{1}{2n} \sum_{i=1}^n x_i^2 } \enspace.$$
+\end{enumerate}
+
+%{\bf For more MLE problems if you want:} 
+%Every common random variable we have seen in EMTH119 and EMTH210 has a maximum likelihood estimate.  Obtain MLE for Poisson (see \url{http://en.wikipedia.org/wiki/Poisson_distribution}), Geometric (see ?), Normal (make your own problem with say $\sigma^2=1$ to be known and we are only estimating $\mu^*$, the true mean parameter), etc.  See Wikipedia for the solutions to these problems or email me if you are stuck and can't get the solutions they are supposed to get!
+\end{Answer}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -465,7 +848,10 @@ The fraction of times the true parameter $\theta^*=0.5$ was contained by the exa
 %\end{table}
 %\end{center}
 
+\subsection{Moment Estimator (MME)}\label{S:MME}
+See notes from class.  
 
+\remove{
 %\begin{labwork}
 %Choose some parameter $p\in[0,1]$ and some sample size $n$.  Then, using the {\sc Matlab} expression {\tt floor(rand(1,n)+p)} (See \hyperref[SIM:Bernoulli]{Simulation~\ref*{SIM:Bernoulli}}) simulate $n$ IID $\bernoulli(p)$ RVs $X_1,X_2,\ldots,X_n$.  Once you have generated the data, pretend that you don't know the $p$ used in your simulation and estimate $p$ using the sample mean estimator we have seen in \hyperref[EX:EstimatePFromNIIDBernoulliTrials]{Example~\ref*{EX:EstimatePFromNIIDBernoulliTrials}},  That is, compute the estimate $\widehat{p}_n=n^{-1}\sum_{i=1}^n x_i$ and also the approximate $95\%$ Normal-based confidence interval $C_n = \widehat{p}_n \pm 1.96 \sqrt{\frac{\widehat{p}_n(1-\widehat{p}_n)}{n}}$.
 
@@ -476,8 +862,6 @@ The fraction of times the true parameter $\theta^*=0.5$ was contained by the exa
 }
 
 
-%\section{Moment Estimator (MME)}\label{S:MME}
-%See notes from class.  
 
 %original cse book notes to be reabsorbed into the condensed content above
 \remove{

@@ -1,11 +1,5 @@
-\section{Decision Problems and Procedures for Actions}\label{S:Decisions}
-
-Write down the Table from lectures 1 \& 2 giving examples of decision problems, procedures and action spaces for typical estimation, hypothesis testing and prediction problems with associated principles (Maximum Likelihood, Empirical Risk Minimisation where risk is expectation of specific loss functions, etc.) and algorithms (including optimisation (Stochastic)Newton/gradient-descent, etc.).
-
-\vspace{10cm}~\\
-
 \section{Fundamentals of Estimation}
-This section is under Jazz-\work\\{\scriptsize [and will evolve from face-to-face interactions with students of mathematics at Uppsala University]}.
+%This section is under Jazz-\work\\{\scriptsize [and will evolve from face-to-face interactions with students of mathematics at Uppsala University]}.
 
 \subsection{Introduction}
 Now that we have been introduced to two notions of convergence for RV sequences, we can begin to appreciate the basic limit theorems used in statistical inference.  The problem of estimation is of fundamental importance in statistical inference and learning.  We will formalise the general estimation problem here.  There are two basic types of estimation.  In point estimation we are interested in estimating a particular point of interest that is supposed to belong to a set of points.  In (confidence) set estimation, we are interested in estimating a set with a particular form that has a specified probability of ``trapping'' the particular point of interest from a set of points.  Here, a point should be interpreted as an element of a collection of elements from some space.
@@ -213,7 +207,7 @@ $\widehat{\Theta}_n \overset{P}{\longrightarrow} \theta^*$.  That is $\widehat{\
 \subsection{Confidence Set Estimation}\label{S:ConfidenceSets}
 As we saw in Section~\ref*{S:PointEstimation}, the point estimate $\widehat{\theta}_n$ is a ``single best guess'' of  the fixed and possibly unknown parameter $\theta^* \in \BB{\Theta}$.  However, if we wanted to make a statement about our confidence in an estimation procedure, then one possibility is to produce subsets from the parameter space $\BB{\Theta}$ called {\bf confidence sets} that ``engulf'' $\theta^*$ with a probability of at least $1-\alpha$.  
 
-Formally, an $\B{1-\alpha}$ {\bf confidence interval} for the parameter $\theta^* \in \BB{\Theta} \subset \Rz$, based on $n$ observations or data points $X_1,X_2,\ldots,X_n$, is an interval $C_n$ that is a function of the data:
+Formally, an $1-\alpha$ {\bf confidence interval} for the parameter $\theta^* \in \BB{\Theta} \subset \Rz$, based on $n$ observations or data points $X_1,X_2,\ldots,X_n$, is an interval $C_n$ that is a function of the data:
 \[
 C_n := [\underline{C}_{\, n}, \overline{C}_{\, n}]
 = [\underline{C}_{\, n}(X_1,X_2,\ldots,X_n), \overline{C}_{\, n}(X_1,X_2,\ldots,X_n)] \ ,
@@ -252,13 +246,14 @@ Typically, we take $\alpha=0.05$ because we are interested in the $1-\alpha=0.95
 %\end{VrbM}
 %\end{labwork}
 %\end{example}
-%The CLT says that if $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ then $Z_n := \sqrt{n}(\overline{X}_n-\E(X_1))/\sqrt{\V(X_1)}$ is approximately distributed as $\normal(0,1)$.  In \hyperref[EX:CLTPoisson]{Example \ref*{EX:CLTPoisson}}, we knew $\sqrt{\V(X_1)}$ since we assumed knowledge of $\lambda^*=5$.   However, in general, we may not know $\sqrt{\V(X_1)}$.  The next proposition says that we may estimate $\sqrt{\V(X_1)}$ using the sample standard deviation $S_n$ of $X_1,X_2,\ldots,X_n$, according to \eqref{E:SampleStdDevRV}, and still make probability statements about the sample mean $\overline{X}_n$ using a $\normal$ distribution, {\bf provided $\mathbf{n}$ is not too small}, for e.g.~$n \geq 30$.
-%\begin{prop}[CLT based on Sample Variance]
-%Let $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and suppose $\E(X_1)$ and $\V(X_1)$ exists, then:
-%\begin{equation}\label{E:CLTApproxSn}
-%\frac{\sqrt{n} \left( \overline{X}_n - \E(X_1) \right)}{S_n} \rightsquigarrow \normal(0,1) \ .
-%\end{equation}
-%\end{prop}
+
+The CLT says that if $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ then $Z_n := \sqrt{n}(\overline{X}_n-\E(X_1))/\sqrt{\V(X_1)}$ is approximately distributed as $\normal(0,1)$.  In \hyperref[EX:CLTPoisson]{Example \ref*{EX:CLTPoisson}}, we knew $\sqrt{\V(X_1)}$ since we assumed knowledge of $\lambda^*=5$.   However, in general, we may not know $\sqrt{\V(X_1)}$.  The next proposition says that we may estimate $\sqrt{\V(X_1)}$ using the sample standard deviation $S_n$ of $X_1,X_2,\ldots,X_n$, according to \eqref{E:SampleStdDevRV}, and still make probability statements about the sample mean $\overline{X}_n$ using a $\normal$ distribution, {\bf provided $\mathbf{n}$ is not too small}, for e.g.~$n \geq 30$.
+\begin{prop}[CLT based on Sample Variance]
+Let $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and suppose $\E(X_1)$ and $\V(X_1)$ exists, then:
+\begin{equation}\label{E:CLTApproxSn}
+\frac{\sqrt{n} \left( \overline{X}_n - \E(X_1) \right)}{S_n} \rightsquigarrow \normal(0,1) \ .
+\end{equation}
+\end{prop}
 
 The following property of an estimator makes it easy to obtain confidence intervals.
 \begin{definition}[Asymptotic Normality of Estimators]
@@ -306,7 +301,7 @@ Define the centralised and scaled estimator as $Z_n := (\widehat{\Theta}_n-\thet
 \caption{Density and Confidence Interval of the Asymptotically Normal Point Estimator}
 \vspace{4cm}
 \end{figure}
-For $95\%$ confidence intervals, $\alpha=0.05$ and $z_{\alpha/2}=z_{0.025}=1.96\approxeq 2$.  This leads to the {\bf approximate $\B{95\%}$ confidence interval} of $\widehat{\theta}_n \pm 2 \widehat{\mathsf{se}}_n$, where $\widehat{\theta}_n=\widehat{\Theta}_n(x_1,x_2,\ldots,x_n)$ and $x_1,x_2,\ldots,x_n$ are the data or observations of the RVs $X_1,X_2,\ldots,X_n$.
+For $95\%$ confidence intervals, $\alpha=0.05$ and $z_{\alpha/2}=z_{0.025}=1.96\approxeq 2$.  This leads to the {\bf approximate ${95\%}$ confidence interval} of $\widehat{\theta}_n \pm 2 \widehat{\mathsf{se}}_n$, where $\widehat{\theta}_n=\widehat{\Theta}_n(x_1,x_2,\ldots,x_n)$ and $x_1,x_2,\ldots,x_n$ are the data or observations of the RVs $X_1,X_2,\ldots,X_n$.
 \end{prop}
 
 \begin{example}[Confidence interval for $\theta^*$ from $n$ $\bernoulli(\theta^*)$ trials]\label{EX:EstimatePFromNIIDBernoulliTrials}

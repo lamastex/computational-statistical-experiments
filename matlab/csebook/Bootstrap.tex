@@ -1,7 +1,7 @@
-\chapter{Bootstrap}
+\section{Bootstrap}
 The {\bf bootstrap} is a statistical method for estimating standard errors and confidence sets of statistics, such as estimators.
 
-\section{Non-parametric Bootstrap for Confidence Sets}\label{S:NPBootstrap}
+\subsection{Non-parametric Bootstrap for Confidence Sets}\label{S:NPBootstrap}
 Let $T_n := T_n((X_1,X_2,\ldots,X_n))$ be a statistic, i.e.~any function of the data $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} F^*$.  Suppose we want to know its variance $\V_{F^*}(T_n)$, which clearly depends on the fixed and possibly unknown DF $F^*$.  
 
 If our statistic $T_n$ is one with an analytically unknown variance, then we can use the bootstrap to estimate it.  The bootstrap idea has the following two basic steps:
@@ -125,7 +125,7 @@ ConfInt95BootPercentile =    0.2346    0.9296
 
 \end{labwork}
 
-\section{Parametric Bootstrap for Confidence Sets}\label{S:PBootstrap}
+\subsection{Parametric Bootstrap for Confidence Sets}\label{S:PBootstrap}
 
 The {\bf bootstrap} may also be employed for estimating standard errors and confidence sets of statistics, such as estimators, even in a parametric setting.  This is much easier than the the variance calculation based on Fisher Information and/or the Delta method.  
 

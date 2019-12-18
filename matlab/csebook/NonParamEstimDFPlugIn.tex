@@ -1,4 +1,4 @@
-\chapter{Non-parametric DF Estimation}
+\section{Non-parametric DF Estimation}\label{S:NonparamDFEstimation}
 So far, we have been interested in some estimation problems involved in parametric experiments.  In parametric experiments, the parameter space $\BB{\Theta}$ can have many dimensions, but these are finite.  For example, in the $n$ IID $\bernoulli(\theta^*)$ and the $n$ IID $\exponential(\lambda^*)$ experiments:
 \begin{eqnarray*}
 X_1,\ldots,X_n \overset{IID}{\sim} \bernoulli(\theta^*), & \qquad & \theta^* \in \BB{\Theta}=[0,1] \subset \Rz^1 \enspace , \\
@@ -54,7 +54,7 @@ P \left( \sup_x | \widehat{F}_n(x) - F^*(x) | > \epsilon  \right) \leq 2 \exp {(
 Recall that $\sup(A)$ or supremum of a set $A \subset \Rz$ is the least upper bound of every element in $A$.
 \end{prop}
 
-\section{Estimating DF}\label{S:EstimDF}
+\subsection{Estimating DF}\label{S:EstimDF}
 Let $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} F^*$, where $F^*$ is some particular DF in the space of all possible DFs, i.e.~the experiment is non-parametric.  Then, based on the data sequence $X_1,X_2,\ldots,X_n$ we want to estimate $F^*$.
 
 For any fixed value of $x$, the expectation and variance of the empirical DF \eqref{E:ECDF} are:

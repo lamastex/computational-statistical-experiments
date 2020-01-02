@@ -6,7 +6,7 @@ Parameter estimation is the basic problem in statistical inference and machine l
 We will formalize the general estimation problem here.  
 
 As we have already seen, when estimating the population mean or population proportion, there are two basic types of estimators.  
-In point estimation we are interested in estimating a particular point of interest that is supposed to belong to a set of points.  
+In point estimation, as seen in Definition~\ref{D:Estimator}, we are interested in estimating a particular point of interest that is supposed to belong to a set of points.  
 In (confidence) set estimation, we are interested in estimating a set with a particular form that has a specified probability of ``trapping'' the particular point of interest from a set of points.  
 Here, a point should be interpreted as an element of a collection of elements from some space.
 
@@ -24,8 +24,9 @@ Here, a point should be interpreted as an element of a collection of elements fr
 {\bf Set estimation} is any statistical methodology that provides one with a ``{\bf best smallest set}'', such as an interval, rectangle, ellipse, etc.~that contains $\theta^*$ with a high probability $1-\alpha$.
 
 Recall that a statistic is a RV or \rv~$T(X)$ that maps every data point $x$ in the data space $\Xz$ with $T(x)=t$ in its range $\Tz$, i.e.~$T(x):\Xz \to \Tz$ (\hyperref[D:Statistic]{Definition~\ref*{D:Statistic}}).  
-Next, we look at a specific class of statistics whose range is the parameter space $\BB{\Theta}$.
+Next, we look at a specific class of estimators based on the likelihood of the data.
 
+\remove{
 \begin{definition}[Point Estimator]\label{D:Estimator}
 %{\rm
 A {\bf point estimator} $\widehat{\Theta}$ of some {\bf fixed and possibly unknown} $\theta^* \in \BB{\Theta}$ is a statistic that associates each data point $x \in \Xz$ with a {\bf point estimate} $\widehat{\Theta}(x)=\widehat{\theta} \in \BB{\Theta}$,  
@@ -62,6 +63,7 @@ For the coin tossing experiment I just performed ($n=10$ times), the point estim
 \end{eqnarray}
 }
 \end{example}
+}
 
 \subsection{Likelihood}\label{S:Likelihood}
 We take a look at {\bf likelihood} --- one of the most fundamental concepts in Statistics.  
@@ -314,7 +316,7 @@ $$1/\widehat{\lambda}_{132}=9.0763 \text{ minutes} .$$
 The estimated mean waiting time for a bus to arrive is well within the $10$ minutes promised by the Orbiter bus company.  
 This data and its maximum likelihood analysis is presented visually in Figure~\ref{F:ExponentialMLEOrbiter}.
  
-The following script was used to generate the \hyperref[F:ExponentialMLE]{Figure \ref*{F:ExponentialMLEOrbiter}}:
+The following script was used to generate the \hyperref[F:ExponentialMLEOrbiter]{Figure \ref*{F:ExponentialMLEOrbiter}}:
 \begin{figure}[htpb]
 \caption{Plot of $\log(L(\lambda))$ as a function of the parameter $\lambda$  and the MLE $\widehat{\lambda}_{132}$ of $0.1102$ for Fenemore-Wang Orbiter Waiting Times Experiment from STAT 218 S2 2007.  The density or PDF and the DF at the MLE of $0.1102$ are compared with a histogram and the empirical DF.\label{F:ExponentialMLEOrbiter}}
 \centering   \makebox{\includegraphics[width=4.5in]{figures/ExponentialMLEOrbiter}}
@@ -328,7 +330,7 @@ Notice how the exponential PDF $f(x;\widehat{\lambda}_{132}=0.1102)$ and the DF 
 \end{figure}
 \end{example}
 
-\begin{example}[Waiting Times between Earth Quakes in NZ]\label{LW:NZSIEarthQuakesExponentialMLE}  
+\begin{example}[Waiting Times between Earth Quakes in NZ]\label{EX:NZSIEarthQuakesExponentialMLE}  
 Once again from our work in Example~\ref{Eg:ExponentialMLE} we can now easily obtain the maximum likelihood estimate of $\lambda^*$ and the $95\%$ confidence interval for it, under the assumption that the waiting times (in days) between the $6128$ measurable earth-quakes in NZ from 18-Jan-2008 02:23:44 to 18-Aug-2008 19:29:29 are IID $\exponential(\lambda^*)$ RVs as follows: 
 $$\widehat{\lambda}_{6128}=1/\overline{x}_{6128}=1/0.0349=28.6694 \quad 
 (28.6694 \pm 1.96 \times 28.6694/\sqrt{6128}) = (27.95,29.39) \enspace ,$$ 
@@ -418,7 +420,7 @@ See Figures~\ref{F:BernoulliMLE} and \ref{F:BernoulliMLEConsistency} to complete
 
 \begin{figure}[htpb]
 \caption{Plots of the log likelihood $\ell_n(\theta)=\log(L(1,0,0,0,1,1,0,0,1,0;\theta))$ as a function of the parameter $\theta$ over the parameter space $\BB{\Theta}=[0,1]$ and the MLE $\widehat{\theta}_{10}$ of $0.4$ for the coin-tossing experiment shown in standard scale (left panel) and log scale for $x$-axis (right panel).\label{F:BernoulliMLE}}
-\centering   \makebox{\includegraphics[width=5.5in]{figures/BernoulliMLE}}
+\centering   \makebox{\includegraphics[width=4.5in]{figures/BernoulliMLE}}
 \end{figure}
 
 
@@ -428,7 +430,7 @@ The MLE $\widehat{\theta}_n$ (cyan dot) and the log-likelihood function (magenta
 The approximate normal-based $95\%$ confidence intervals with blue boundaries are based on the exact $\mathsf{se}_n=\sqrt{\theta^*(1-\theta^*)/n}=\sqrt{1/4}$, while those with red boundaries are based on the estimated $\widehat{\mathsf{se}_n}=\sqrt{\widehat{\theta}_n(1-\widehat{\theta}_n)/n} = \sqrt{\frac{\ol{x}_n(1-\ol{x}_n)}{n}}$.  
 The fraction of times the true parameter $\theta^*=0.5$ was contained by the exact and approximate confidence interval (known as {\em empirical coverage}) over the $100$ replications of the simulation experiment for each of the three sample sizes are given by the numbers after {\tt Cvrg.=} and {\tt $\sim$=}, above each sub-plot, respectively.}\label{F:BernoulliMLEConsistency}}
 \begin{center}
-\makebox{\includegraphics[width=6.00in]{figures/BernoulliMLEConsistency}}
+\makebox{\includegraphics[width=5.00in]{figures/BernoulliMLEConsistency}}
 \end{center}
 \end{figure}  
 
@@ -867,6 +869,8 @@ See notes from class.
 \remove{
 \chapter{Maximum Likelihood Estimator}
 
+XXXX
+
 Next we look at a specific point estimator called the maximum likelihood estimator (MLE) of a possibly unknown but fixed parameter $\theta^*$ in a parametric experiment, i.e.~$\theta^* \in \BB{\Theta} \subset \Rz^k$ with $k < \infty$.  Other point estimators in such a setting include the moment estimator (MME). 
 
 Recall that the likelihood function (See \hyperref[D:LklFn]{Definition~\ref*{D:LklFn}}) for an IID experiment with observations $x_1,x_2,\ldots,x_n$ is simply the product of the densities:
@@ -898,8 +902,8 @@ since the maximum of the likelihood coincides with that of the log-likelihood.  
 Once again, the realisation of the MLE, namely $\widehat{\theta}_n = \widehat{\Theta_n}(x_1,\ldots,x_n)$ based on the observation is the maximum likelihood estimate (MLe) of the $\theta^*$.
 \end{definition}
 
-\begin{example}[Coin Tossing Experiment ($X_1,\ldots,X_{10} \overset{IID}{\sim} \bernoulli(\theta^*)$)]\label{EX:CoinTossingML}
-I tossed a coin that has an unknown probability $\theta^*$ of landing Heads independently and identically $10$ times in a row.  Four of my outcomes were Heads and the remaining six were Tails, with the actual sequence of Bernoulli outcomes (Heads $\to 1$ and Tails $\to 0$) being $(1,0,0,0,1,1,0,0,1,0)$.  I would like to estimate the probability $\theta^* \in \BB{\Theta} = [0,1]$ of observing Heads using the maximum likelihood estimator or MLE $\widehat{\Theta}_n((X_1,X_2,\ldots,X_n))$ of $\theta$. We derive the MLE next.
+\begin{example}[Coin Tossing Experiment]\label{EX:CoinTossingML}
+I tossed a coin that has an unknown probability $\theta^*$ of landing Heads independently and identically $10$ times in a row, i.e., $X_1,\ldots,X_{10} \overset{IID}{\sim} \bernoulli(\theta^*)$.  Four of my outcomes were Heads and the remaining six were Tails, with the actual sequence of Bernoulli outcomes (Heads $\to 1$ and Tails $\to 0$) being $(1,0,0,0,1,1,0,0,1,0)$.  I would like to estimate the probability $\theta^* \in \BB{\Theta} = [0,1]$ of observing Heads using the maximum likelihood estimator or MLE $\widehat{\Theta}_n((X_1,X_2,\ldots,X_n))$ of $\theta$. We derive the MLE next.
 
 First, the likelihood function is:
 \begin{eqnarray}
@@ -936,6 +940,9 @@ For the coin tossing experiment I just performed ($n=10$ times), the point estim
 &=& \frac{1+0+0+0+1+1+0+0+1+0}{10}=\frac{4}{10}=0.40 \notag \ .
 \end{eqnarray}
 \end{example}
+}% remove
+
+\newpage
 
 \section{Practical Excursion in One-dimensional Optimisation}
 Numerically maximising a log-likelihood function of one parameter is a useful technique.  This can be used for models with no analytically known MLE.  A fairly large field of maths, called optimisation, exists for this sole purpose.  Conventionally, in optimisation, one is interested in minimisation.  Therefore, the basic algorithms are cast in the ``find the minimiser and the minimum'' of a target function $f:\Rz \to \Rz$.  Since we are interested in maximising our target, which is the likelihood or log-likelihood function, say $\log(L(x_1,\ldots,x_n; \theta)): \BB{\Theta} \to \Rz$, we will simply apply the standard optimisation algorithms directly to $-\log(L(x_1,\ldots,x_n; \theta)):\BB{\Theta}\to \Rz$.
@@ -948,11 +955,12 @@ The algorithm implemented in {\tt fminbnd} is based on the golden section search
 \item {\sc Matlab}'s {\tt fminbnd} exhibits slow convergence when the solution is on a boundary of the starting interval.
 \end{itemize}
 
+\remove{
 \begin{figure}[htpb]
 \caption{Plot of $\log(L(1,0,0,0,1,1,0,0,1,0;\theta))$ as a function of the parameter $\theta$ over the parameter space $\BB{\Theta}=[0,1]$ and the MLE $\widehat{\theta}_{10}$ of $0.4$ for the coin-tossing experiment.\label {F:BernoulliMLE}}
 \centering   \makebox{\includegraphics[width=6.5in]{figures/BernoulliMLE}}
 \end{figure}
-
+}
 
 \begin{labwork}[Coin-tossing experiment]\label{LW:BernoulliMLE}
 The following script was used to study the coin-tossing experiment in {\sc Matlab}.  The plot of the log-likelihood function and the numerical optimisation of MLE are carried out using {\sc Matlab}'s built-in function {\tt fminbnd} (See \hyperref[F:BernoulliMLE]{Figure \ref*{F:BernoulliMLE}}).
@@ -979,6 +987,7 @@ NumericalMLE =   0.4000
 \end{VrbM}
 \end{labwork}
 
+\remove{
 \begin{example}[MLE of an IID $\exponential(\lambda^*)$ experiment]
 Let us derive the MLE $\widehat{\Lambda}_n$ of the fixed and possibly unknown $\lambda^*$ for the IID experiment:
 $$X_1,\ldots,X_n \overset{IID}{\sim} \exponential(\lambda^*), \qquad \lambda^* \in \BB{\Lambda} = (0,\infty) \enspace .$$
@@ -1011,9 +1020,10 @@ Next, we set the derivative to $0$, solve for $\lambda$, and set the solution eq
 \end{flalign*}
 Therefore, the ML estimate $\widehat{\lambda}_n$ of the unknown rate parameter $\lambda^* \in \BB{\Lambda}$ on the basis of $n$ IID observations $x_1,x_2,\ldots,x_n \overset{IID}{\sim} \exponential(\lambda^*)$ is $1/\overline{x}_n$ and the ML estimator $\widehat{\Lambda}_n=1/\overline{X}_n$.  Let us apply this ML estimator of the rate parameter for the supposedly exponentially distributed waiting times at the on-campus Orbiter bus-stop.
 \end{example}
+}
 
 \begin{labwork}[Numerical MLE of $\lambda$ from n IID $\exponential(\lambda)$ RVs]\label{LW:ExponentialMLEOrbiter}
-Joshua Fenemore and Yiran Wang collected data on waiting times between buses at an Orbiter bus-stop close to campus and modelled the waiting times as IID $\exponential(\lambda^*)$ RVs (\href{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218/projects/Stat218StudentProjects2007.pdf}{\url{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218/projects/Stat218StudentProjects2007.pdf}}).  We can use their data {\tt sampleTimes} to find the MLE of $\lambda^*$ under the assumption that the waiting times $X_1,\ldots,X_{132}$ are IID $\exponential(\lambda^*)$.  We find the ML estimate $\widehat{\lambda}_{132}=0.1102$ and thus the estimated mean waiting time is $1/\widehat{\lambda}_{132}=9.0763$ minutes.  The estimated mean waiting time for a bus to arrive is well within the $10$ minutes promised by the Orbiter bus company.  The following script was used to generate the \hyperref[F:ExponentialMLE]{Figure \ref*{F:ExponentialMLEOrbiter}}:
+Joshua Fenemore and Yiran Wang collected data on waiting times between buses at an Orbiter bus-stop close to campus and modelled the waiting times as IID $\exponential(\lambda^*)$ RVs (\href{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218/projects/Stat218StudentProjects2007.pdf}{\url{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218/projects/Stat218StudentProjects2007.pdf}}).  We can use their data {\tt sampleTimes} to find the MLE of $\lambda^*$ under the assumption that the waiting times $X_1,\ldots,X_{132}$ are IID $\exponential(\lambda^*)$.  We find the ML estimate $\widehat{\lambda}_{132}=0.1102$ and thus the estimated mean waiting time is $1/\widehat{\lambda}_{132}=9.0763$ minutes.  The estimated mean waiting time for a bus to arrive is well within the $10$ minutes promised by the Orbiter bus company.  The following script was used to generate the \hyperref[F:ExponentialMLEOrbiter]{Figure \ref*{F:ExponentialMLEOrbiter}}:
 
 \VrbMf[label=ExponentialMLEOrbiter.m]{scripts/ExponentialMLEOrbiter.m}
 
@@ -1025,6 +1035,7 @@ MeanEstimate =    9.0763
 \end{VrbM}
 \end{labwork}
 
+\remove{
 \begin{figure}[htpb]
 \caption{Plot of $\log(L(\lambda))$ as a function of the parameter $\lambda$  and the MLE $\widehat{\lambda}_{132}$ of $0.1102$ for Fenemore-Wang Orbiter Waiting Times Experiment from STAT 218 S2 2007.  The density or PDF and the DF at the MLE of $0.1102$ are compared with a histogram and the empirical DF.\label{F:ExponentialMLEOrbiter}}
 \centering   \makebox{\includegraphics[width=6.5in]{figures/ExponentialMLEOrbiter}}
@@ -1085,12 +1096,13 @@ MLELambdaHat =   28.6694
 \end{VrbM}
 Thus, the average time between earth quakes is $0.0349*24*60=50.2560$ minutes.
 \end{labwork}
+}%remove
 
 \begin{figure}[htpb]
 \caption{The ML fitted ${\rm Rayleigh}(\widehat{\alpha}_{10}= 2)$ PDF and a histogram of the ocean wave heights.\label{F:RayleighOceanHeightsMLE}}
-\centering   \makebox{\includegraphics[width=6.5in]{figures/RayleighOceanHeightsMLE}}
+\centering   \makebox{\includegraphics[width=5.5in]{figures/RayleighOceanHeightsMLE}}
 \end{figure}
-\begin{labwork}[6.7, p.~275 of Ang \& Tang]\label{LW:RayleighOceanHeightsMLE}
+\begin{example}[6.7, p.~275 of Ang \& Tang]\label{LW:RayleighOceanHeightsMLE}
 The distribution of ocean wave heights, $H$, may be modeled with the ${\rm Rayleigh}(\alpha)$ RV with parameter $\alpha$ and probability density function,
 \[
 f(h;\alpha) = \frac{h}{\alpha^2} \exp \left({-\frac{1}{2} (h/\alpha)^2}\right), \qquad h \in \Hz := [0,\infty) \ .
@@ -1134,7 +1146,7 @@ We use the following script file to compute the MLE $\widehat{\alpha}_{10}$ and 
 >> RayleighOceanHeightsMLE
 AlphaHat =    2.0052
 \end{VrbM}
-\end{labwork}
+\end{example}
 
 %\begin{labwork}
 %Choose some parameter $p\in[0,1]$ and some sample size $n$.  Then, using the {\sc Matlab} expression {\tt floor(rand(1,n)+p)} (See \hyperref[SIM:Bernoulli]{Simulation~\ref*{SIM:Bernoulli}}) simulate $n$ IID $\bernoulli(p)$ RVs $X_1,X_2,\ldots,X_n$.  Once you have generated the data, pretend that you don't know the $p$ used in your simulation and estimate $p$ using the sample mean estimator we have seen in \hyperref[EX:EstimatePFromNIIDBernoulliTrials]{Example~\ref*{EX:EstimatePFromNIIDBernoulliTrials}},  That is, compute the estimate $\widehat{p}_n=n^{-1}\sum_{i=1}^n x_i$ and also the approximate $95\%$ Normal-based confidence interval $C_n = \widehat{p}_n \pm 1.96 \sqrt{\frac{\widehat{p}_n(1-\widehat{p}_n)}{n}}$.
@@ -1143,7 +1155,7 @@ AlphaHat =    2.0052
 %For each value of $p$ as before, generate, say $1000$ data sets each of sample size $n \in \{10^i: i =1,2,3,4,5 \}$ and empirically study the coverage properties of the estimator.  That is, for each $p$ and $n$, find what fraction of the Normal-based  $95\%$ confidence intervals constructed from each of the $1000$ replicate data sets actually contain the parameter $p$ that they were simulated from.  Try to explain why coverage properties are both a function of how close $p$ is to the boundary of the the parameter space $[0,1]$ and the sample size $n$.  [Inspired by Russell Gribble]
 %\end{labwork}
 
-\section{Properties of the Maximum Likelihood Estimator}\label{S:PropsMLE}
+\section{More Properties of the Maximum Likelihood Estimator}\label{S:PropsMLE}
 Next, we list some nice properties of the ML Estimator $\widehat{\Theta}_n$ for the fixed and possibly unknown $\theta^* \in \BB{\Theta}$.
 \begin{enumerate}
 \item The ML Estimator is asymptotically consistent, i.e.~
@@ -1280,7 +1292,7 @@ and the approximate $1-\alpha$ confidence interval is
 Thus, using the MLE and the estimated standard error via the Fisher Information, we can carry out point estimation and confidence interval construction in {\bf most} parametric families of RVs encountered in typical engineering applications.  
 
 \begin{example}[Fisher Information of the $\bernoulli$ Experiment]\label{EX:BernoulliFisherInfo}
-Suppose $X_1,X_2,\ldots,X_n \overset{IID}{\sim}$ $\bernoulli(\theta^*)$.  Also, suppose that $\theta^* \in \BB{\Theta} = [0,1]$ is unknown.  We have already shown in \hyperref[EX:CoinTossingML]{Example~\ref*{EX:CoinTossingML}} that the ML estimator of $\theta^*$ is $\widehat{\theta}_n = \overline{X}_n$.  Using the identity:
+Suppose $X_1,X_2,\ldots,X_n \overset{IID}{\sim}$ $\bernoulli(\theta^*)$.  Also, suppose that $\theta^* \in \BB{\Theta} = [0,1]$ is unknown.  We have already shown in \hyperref[EX:MLECoinTossing]{Example~\ref*{EX:MLECoinTossing}} that the ML estimator of $\theta^*$ is $\widehat{\theta}_n = \overline{X}_n$.  Using the identity:
 \[
 \widehat{\mathsf{se}}_n = \frac{1}{\sqrt{I_n(\widehat{\theta}_n)}}
 \]
@@ -1438,7 +1450,7 @@ C_n  =[\underline{C}_n, \overline{C}_n]= \widehat{\psi}_n \pm z_{\alpha/2} {\wid
 \end{enumerate}
 
 Let us do an example next.
-\begin{example}
+\begin{example}\label{EX:BernoulliDelta}
 Let $X_1,X_2,\ldots,X_n \overset{IID}{\sim} \bernoulli(\theta^*)$.  Let $\psi=g(\theta)=\log(\theta/(1-\theta))$.  Suppose we are interested in producing a point estimate and confidence interval for $\psi^*=g(\theta^*)$.  We can use the Delta method as follows: 
 
 First, the estimated standard error of the ML estimator of $\theta^*$, as shown in \hyperref[EX:BernoulliFisherInfo]{Example~\ref*{EX:BernoulliFisherInfo}}, is
@@ -1472,7 +1484,8 @@ Let us try the Delta method on a continuous RV.  Let $X_1,X_2,\ldots,X_n \overse
 \ell(\sigma) 
 & := \log (L(\sigma)) := \log( L(x_1,x_2,\ldots,x_n; \sigma)) = \log \left( \prod_{i=1}^n f(x_i; \sigma) \right) = \sum_{i=1}^n \log \left( f(x_i; \sigma) \right) \\
 & = \sum_{i=1}^n \log \left( \frac{1}{\sigma \sqrt{2 \pi}}
- \exp{\left( - \frac{1}{2 \sigma^2} (x_i-\mu)^2 \right)} \right) \quad \because \text{\scriptsize{$f(x_i;\sigma)$ in \eqref{E:Normalpdf} is pdf of $\normal(\mu,\sigma^2)$ RV with known $\mu$}} \\
+ \exp{\left( - \frac{1}{2 \sigma^2} (x_i-\mu)^2 \right)} \right) \quad \because \text{\scriptsize{$f(x_i;\sigma)$ in \eqref{eqn:norm_pdf} 
+is pdf of $\normal(\mu,\sigma^2)$ RV with known $\mu$}} \\
  & =  \sum_{i=1}^n \left( \log \left( \frac{1}{\sigma \sqrt{2 \pi}} \right) +
  \log \left( \exp{\left( - \frac{1}{2 \sigma^2} (x_i-\mu)^2 \right)} \right) \right) \\
 & =  \sum_{i=1}^n \log \left( \frac{1}{\sigma \sqrt{2 \pi}} \right) +
@@ -1556,6 +1569,7 @@ Therefore, the estimated standard error of the estimator of the unknown $\sigma^
 \end{example}
 
 
+\remove{
 %In summary, there are three basic experimental situations to bear in mind, when estimating confidence sets from data.  We already saw the first two situations.
 %\begin{enumerate}
 %\item

@@ -222,32 +222,32 @@ Formally, a $1-\alpha$ {\bf confidence set} $C_n$ for a vector-valued $\theta^* 
 
 Typically, we take $\alpha=0.05$ because we are interested in the $1-\alpha=0.95$ or $95\%$ confidence interval/set $C_n \subset \BB{\Theta}$ of $\theta^* \in \BB{\Theta}$ from an estimator $\widehat{\Theta}_n$ of $\theta^*$.  
 
-%Let us look at an example that makes use of the CLT next.
-%\begin{example}[Errors in computer code (Wasserman03, p.~78)]\label{EX:CLTPoisson}
-%Suppose the collection of RVs $X_1,X_2, \ldots, X_n$ model the number of errors in $n$ computer programs named $1,2,\ldots,n$, respectively.  Suppose that the RV $X_i$ modelling the number of errors in the $i^{\text{th}}$ program is the $Poisson(\lambda^*=5)$ for any $i=1,2,\ldots,n$.  Also suppose that they are independently distributed.  In short, we suppose that:
-%\[
-%X_1,X_2,\ldots,X_n \overset{\IID}{\sim} \poisson(\lambda^*=5) \ . 
-%\]
-%Suppose we have $n=125$ programs and want to make a probability statement about $\overline{X}_n$ which is the average number of errors per program out of these $125$ programs.  Since $\E(X_i) = \lambda^*=5$ and $\V(X_i)=\lambda^*=5$, we may want to know how often our sample mean $\overline{X}_{125}$ differs from the expectation of $5$ errors per program.  Using the CLT, we can approximate $\P(\overline{X}_n < 5.5)$, for instance, as follows:
-%\begin{eqnarray}
-%\P(\overline{X}_n < 5.5) 
-%&=& \P \left( \frac{\sqrt{n}(\overline{X}_n - \E(X_1))}{\sqrt{\V(X_1)}} < \frac{\sqrt{n}(5.5-\E(X_1))}{\sqrt{\V(X_1)}} \right) \notag \\
-%&\approxeq& \P \left( Z < \frac{\sqrt{n}(5.5-\lambda^*)}{\sqrt{\lambda^*}} \right) \qquad \text{{\scriptsize [by \eqref{E:CLTApprox}, and $\E(X_1)=\V(X_1)=\lambda^*$]}} \notag \\
-%&=& \P \left( Z < \frac{\sqrt{125}(5.5-5)}{\sqrt{5}} \right) \qquad \text{{\scriptsize [Since, $\lambda^*=5$ and $n=125$ in this Example]}} \notag \\
-%&=& \P(Z \leq 2.5) = \Phi(2.5) =  \int_{- \infty}^{2.5} \left( \frac{1}{\sqrt{2 \pi}} \ \exp \left( \frac{-x^2}{2} \right) \right) dx \approxeq 0.993790334674224 \ . \notag
-%\end{eqnarray}
-%To obtain the final number in this approximation, we need the following:
-%\begin{labwork}
-%The numerical approximation of $\Phi(2.5)$ was obtained via the call shown below to our $\erf$-based {\tt NormalCdf} function from \ref*{Mf: NormalCdfPdf}.  We could have also found it from a pre-computed Table for $\Phi(x)$.
-%\begin{VrbM}
-%>> format long
-%>> disp(NormalCdf(2.5,0,1))
-%   0.993790334674224
-%\end{VrbM}
-%\end{labwork}
-%\end{example}
+Let us look at an example that makes use of the CLT next (Exercise in Prob.~Theor.I).
+\begin{example}[Errors in computer code (Wasserman03, p.~78)]\label{EXCLTPoisson}
+Suppose the collection of RVs $X_1,X_2, \ldots, X_n$ model the number of errors in $n$ computer programs named $1,2,\ldots,n$, respectively.  Suppose that the RV $X_i$ modelling the number of errors in the $i^{\text{th}}$ program is the $Poisson(\lambda^*=5)$ for any $i=1,2,\ldots,n$.  Also suppose that they are independently distributed.  In short, we suppose that:
+\[
+X_1,X_2,\ldots,X_n \overset{\IID}{\sim} \poisson(\lambda^*=5) \ . 
+\]
+Suppose we have $n=125$ programs and want to make a probability statement about $\overline{X}_n$ which is the average number of errors per program out of these $125$ programs.  Since $\E(X_i) = \lambda^*=5$ and $\V(X_i)=\lambda^*=5$, we may want to know how often our sample mean $\overline{X}_{125}$ differs from the expectation of $5$ errors per program.  Using the CLT, we can approximate $\P(\overline{X}_n < 5.5)$, for instance, as follows:
+\begin{eqnarray}
+\P(\overline{X}_n < 5.5) 
+&=& \P \left( \frac{\sqrt{n}(\overline{X}_n - \E(X_1))}{\sqrt{\V(X_1)}} < \frac{\sqrt{n}(5.5-\E(X_1))}{\sqrt{\V(X_1)}} \right) \notag \\
+&\approxeq& \P \left( Z < \frac{\sqrt{n}(5.5-\lambda^*)}{\sqrt{\lambda^*}} \right) \qquad \text{{\scriptsize [by CLT, and $\E(X_1)=\V(X_1)=\lambda^*$]}} \notag \\
+&=& \P \left( Z < \frac{\sqrt{125}(5.5-5)}{\sqrt{5}} \right) \qquad \text{{\scriptsize [Since, $\lambda^*=5$ and $n=125$ in this Example]}} \notag \\
+&=& \P(Z \leq 2.5) = \Phi(2.5) =  \int_{- \infty}^{2.5} \left( \frac{1}{\sqrt{2 \pi}} \ \exp \left( \frac{-x^2}{2} \right) \right) dx \approxeq 0.993790334674224 \ . \notag
+\end{eqnarray}
+To obtain the final number in this approximation, we need the following:
+\begin{labwork}
+The numerical approximation of $\Phi(2.5)$ was obtained via the call shown below to our $\erf$-based {\tt NormalCdf} function from \ref*{Mf: NormalCdfPdf}.  We could have also found it from a pre-computed Table for $\Phi(x)$.
+\begin{VrbM}
+>> format long
+>> disp(NormalCdf(2.5,0,1))
+   0.993790334674224
+\end{VrbM}
+\end{labwork}
+\end{example}
 
-The CLT says that if $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ then $Z_n := \sqrt{n}(\overline{X}_n-\E(X_1))/\sqrt{\V(X_1)}$ is approximately distributed as $\normal(0,1)$.  In \hyperref[EX:CLTPoisson]{Example \ref*{EX:CLTPoisson}}, we knew $\sqrt{\V(X_1)}$ since we assumed knowledge of $\lambda^*=5$.   However, in general, we may not know $\sqrt{\V(X_1)}$.  The next proposition says that we may estimate $\sqrt{\V(X_1)}$ using the sample standard deviation $S_n$ of $X_1,X_2,\ldots,X_n$, according to \eqref{E:SampleStdDevRV}, and still make probability statements about the sample mean $\overline{X}_n$ using a $\normal$ distribution, {\bf provided $\mathbf{n}$ is not too small}, for e.g.~$n \geq 30$.
+The CLT says that if $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ then $Z_n := \sqrt{n}(\overline{X}_n-\E(X_1))/\sqrt{\V(X_1)}$ is approximately distributed as $\normal(0,1)$.  In \hyperref[EXCLTPoisson]{Example \ref*{EXCLTPoisson}}, we knew $\sqrt{\V(X_1)}$ since we assumed knowledge of $\lambda^*=5$.   However, in general, we may not know $\sqrt{\V(X_1)}$.  The next proposition says that we may estimate $\sqrt{\V(X_1)}$ using the sample standard deviation $S_n$ of $X_1,X_2,\ldots,X_n$, according to \eqref{E:SampleStdDevRV}, and still make probability statements about the sample mean $\overline{X}_n$ using a $\normal$ distribution, {\bf provided $\mathbf{n}$ is not too small}, for e.g.~$n \geq 30$.
 \begin{prop}[CLT based on Sample Variance]
 Let $X_1,X_2,\ldots \overset{\IID}{\sim} X_1$ and suppose $\E(X_1)$ and $\V(X_1)$ exists, then:
 \begin{equation}\label{E:CLTApproxSn}

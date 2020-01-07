@@ -1176,26 +1176,64 @@ Let $X_1,X_2,\ldots,X_n \overset{IID}{\sim} f(X_1;\theta)$.  Here, $f(X_1;\theta
 \begin{definition}[Fisher Information]\label{D:FisherInfo}
 The {\bf score function} of an RV $X$ for which the density is parameterised by $\theta$ is defined as:
 \[
-\mathscr{S}(X;\theta) := \frac{\partial log f(X;\theta)}{\partial \theta}, \qquad \text{and} \quad 
+\mathscr{S}(X;\theta) := \frac{\partial}{\partial \theta} \log f(X;\theta), \qquad \text{and} \quad 
 \E_{\theta} (\mathscr{S}(X;\theta))=0 \ .
 \]
-The {\bf Fisher Information} is
+The expectation of the score function is $0$ if $X$ is distributed according to $f(x; \theta)$ and under regularity conditions that allow for the interchange of differentiation and integration or summation, as shown below:
+\begin{eqnarray*}
+\E_{\theta} (\mathscr{S}(X;\theta)) 
+&=& \E_{\theta} \left( \frac{\partial}{\partial \theta} \log f(X;\theta) \right) = \int \frac{\frac{\partial}{\partial \theta} f(x;\theta)}{f(x;\theta)} d F(x;\theta)\\ \notag 
+&=& 
+\begin{cases}
+\smashoperator[r]{\sum_{x \in \Xz}}  \left( \frac{\frac{\partial}{\partial \theta} f(x;\theta)}{f(x;\theta)}  \right) f(x;\theta) 
+%= \sum_{x \in \Xz} \frac{\partial}{\partial \theta} f(x;\theta) 
+= \frac{\partial}{\partial \theta} \left( \sum_{x \in \Xz} f(x;\theta) \right) = \frac{\partial}{\partial \theta} (1) = 0  & \text{for discrete $X$}\\
+\smashoperator[r]{\int_{x \in \Xz}}  \left( \frac{\frac{\partial}{\partial \theta} f(x;\theta)}{f(x;\theta)}  \right) f(x;\theta) dx  
+%=  \int_{x \in \Xz} \frac{\partial}{\partial \theta} f(x;\theta) dx 
+= \frac{\partial}{\partial \theta} \left( \int_{x \in \Xz}  f(x;\theta) dx \right) = \frac{\partial}{\partial \theta} (1) = 0 & \text{for continuous $X$} 
+\end{cases} 
+\end{eqnarray*}
+The {\bf Fisher Information} is simply the variance of the score function.
 \begin{equation}\label{E:FisherInfo}
 I_n := \V_{\theta} \left( \sum_{i=1}^n \mathscr{S}(X_i;\theta) \right) 
 =  \sum_{i=1}^n \V_{\theta} \left( \mathscr{S}(X_i;\theta) \right) 
 = n I_1(\theta),
 \end{equation}
-where $I_1$ is the Fisher Information of just one of the RVs $X_i$,e.g.~$X$:
+where $I_1$ is the Fisher Information of just one of the RVs $X_i$, say for e.g.~$X$:
 \begin{eqnarray}
 I_1 (\theta) &:=& \V_{\theta} \left( \mathscr{S}(X;\theta) \right) 
-= \E_{\theta} \left(  \mathscr{S}^2(X,\theta) \right) \notag \\
-&=& - \E_{\theta} \left(  \frac{\partial^2 log f(X;\theta)}{\partial^2 \theta} \right)
+= \E_{\theta} \left(  \mathscr{S}^2(X,\theta) \right) - \left( \E_{\theta}  \mathscr{S} (X,\theta) \right)^2 = \E_{\theta} \left(  \mathscr{S}^2(X,\theta) \right) - 0^2 \notag \\
+&=& \E_{\theta} \left(  \mathscr{S}^2(X,\theta) \right) 
+= 
+\begin{cases}
+\smashoperator[r]{\sum_{x \in \Xz}}  \left( \frac{\partial}{\partial \theta} \log ( f(x;\theta) )  \right)^2 f(x;\theta)  & \text{for discrete $X$}\\
+\smashoperator[r]{\int_{x \in \Xz}}  \left( \frac{\partial}{\partial \theta} \log ( f(x;\theta) )  \right)^2 f(x;\theta) dx & \text{for continuous $X$} 
+\end{cases}
+\label{E:FisherInfoOriginal}
+\end{eqnarray}
+If $\log(f(x;\theta))$ is twice differentiable with respect to $\theta$ and under further regularity conditions, we can also express Fisher Information as the negative of the expected curvature of the log likelihood function:
+\begin{eqnarray}
+I_1 (\theta)
+&=& - \E_{\theta} \left(  \frac{\partial^2 \log f(X;\theta)}{\partial \theta^2} \right)
 =
 \begin{cases}
--\sum_{x \in \Xz}  \left( \frac{\partial^2 \log f(x;\theta)}{\partial^2 \theta} \right) f(x;\theta)  & \text{for discrete $X$}\\
--\int_{x \in \Xz}  \left( \frac{\partial^2 \log f(x;\theta)}{\partial^2 \theta} \right) f(x;\theta) dx  & \text{for continuous $X$} \qquad \label{E:FisherInfo1}
+-\smashoperator[r]{\sum_{x \in \Xz}}  \left( \frac{\partial^2 \log f(x;\theta)}{\partial \theta^2} \right) f(x;\theta)  & \text{for discrete $X$}\\
+-\smashoperator[r]{\int_{x \in \Xz}}  \left( \frac{\partial^2 \log f(x;\theta)}{\partial \theta^2} \right) f(x;\theta) dx  & \text{for continuous $X$} \qquad \label{E:FisherInfo1}
 \end{cases}
 \end{eqnarray}
+Note that \eqref{E:FisherInfo1} is due to taking expectation, $E_{\theta} (\cdot)$, of the LHS and RHS of the following equalities:
+\begin{eqnarray*}
+\left( \frac{\partial^2}{\partial \theta^2} \log (f(x; \theta)) \right)
+&=& 
+\frac{\partial}{\partial \theta} \left( \frac{\partial}{\partial \theta} \log ( f(x;\theta) )   \right)
+=
+\frac{\partial}{\partial \theta} \left( \frac{\frac{\partial}{\partial \theta} f(x;\theta)}{f(x;\theta)}  \right) \\
+&=&
+\frac{\frac{\partial^2}{\partial \theta^2} f(x;\theta)}{f(x;\theta)}  - \left( \frac{\frac{\partial}{\partial \theta} f(x;\theta)}{f(x; \theta)} \right)^2
+=
+\frac{\frac{\partial^2}{\partial \theta^2} f(x;\theta)}{f(x;\theta)}  - \left( \frac{\partial}{\partial \theta} \log(f(x;\theta)) \right)^2
+\end{eqnarray*}
+and due to the $E_{\theta}$ of the second-last term above being $0$ and that of the last term being $I_1$ as per \eqref{E:FisherInfoOriginal}.
 \end{definition}
 Next, we give a {\bf general method} for obtaining:
 \begin{enumerate}
@@ -1254,11 +1292,11 @@ Finally, the ML Estimator of $\lambda^*$ is $\widehat{\Lambda}_n = \overline{X}_
 
 Now, we want an $1-\alpha$ confidence interval for $\lambda^*$ using the $\widehat{\mathsf{se}}_n \approxeq \sqrt{1/I_n(\widehat{\lambda}_n)}$ that is based on the Fisher Information $I_n(\lambda) = n I_1(\lambda)$ given in \eqref{E:FisherInfo}.  We need $I_1$ given in \eqref{E:FisherInfo1}.  Since $X_1,X_2,\ldots,X_n \sim \poisson(\lambda)$, we have discrete RVs:
 \[
-I_1 = -\sum_{x \in \Xz}  \left( \frac{\partial^2 \log (f(x;\lambda))}{\partial^2 \lambda} \right) f(x;\lambda) = -\sum_{x =0}^{\infty}  \left( \frac{\partial^2 \log (f(x;\lambda))}{\partial^2 \lambda} \right) f(x;\lambda)
+I_1 = -\sum_{x \in \Xz}  \left( \frac{\partial^2 \log (f(x;\lambda))}{\partial \lambda^2} \right) f(x;\lambda) = -\sum_{x =0}^{\infty}  \left( \frac{\partial^2 \log (f(x;\lambda))}{\partial \lambda^2} \right) f(x;\lambda)
 \]
 First find 
 \begin{eqnarray}
-\frac{\partial^2 \log (f(x;\lambda))}{\partial^2 \lambda}
+\frac{\partial^2 \log (f(x;\lambda))}{\partial \lambda^2}
 &=& \frac{\partial}{\partial \lambda} \left( \frac{\partial} {\partial \lambda} \log \left(  f(x;\lambda) \right
 ) \right)
 =  \frac{\partial}{\partial \lambda} \left( \frac{\partial} {\partial \lambda} \log \left( e^{-\lambda} \frac{\lambda^x}{x!} \right) \right) \notag \\
@@ -1302,11 +1340,11 @@ Suppose $X_1,X_2,\ldots,X_n \overset{IID}{\sim}$ $\bernoulli(\theta^*)$.  Also, 
 \end{flalign*}
 So, we need to first compute $I_1(\theta)$, the Fisher Information of one sample.  Due to \eqref{E:FisherInfo1} and the fact that the $\bernoulli(\theta^*)$ distributed RV $X$ is discrete with probability mass function $f(x;\theta)=\theta^{x} (1-\theta)^{1-x}$, for $x\in \Xz := \{0,1\}$, we have,
 \begin{flalign*}
-I_1(\theta) &= - \E_{\theta} \left(  \frac{\partial^2 log f(X;\theta)}{\partial^2 \theta} \right) = - \sum_{x \in \Xz = \{0,1\}} \left( \frac{\partial^2 \log \left( \theta^{x} (1-\theta)^{1-x} \right)}{\partial^2 \theta} \right) \theta^{x} (1-\theta)^{1-x} \\
+I_1(\theta) &= - \E_{\theta} \left(  \frac{\partial^2 log f(X;\theta)}{\partial \theta^2} \right) = - \sum_{x \in \Xz = \{0,1\}} \left( \frac{\partial^2 \log \left( \theta^{x} (1-\theta)^{1-x} \right)}{\partial \theta^2} \right) \theta^{x} (1-\theta)^{1-x} \\
 \end{flalign*}
 Next, let us compute,
 \begin{flalign*}
-\frac{\partial^2 \log \left( \theta^{x} (1-\theta)^{1-x} \right)}{\partial^2 \theta} & :=
+\frac{\partial^2 \log \left( \theta^{x} (1-\theta)^{1-x} \right)}{\partial \theta^2} & :=
 \frac{\partial}{\partial \theta} \left( \frac{\partial}{\partial \theta} \left( \log \left( \theta^{x} (1-\theta)^{1-x} \right) \right) \right) = 
 \frac{\partial}{\partial \theta} \left( \frac{\partial}{\partial \theta} \left( x \log(\theta) + (1-x) \log(1-\theta)  \right) \right) \\
 & = \frac{\partial}{\partial \theta} \left(  x \theta^{-1} + (1-x)(1-\theta)^{-1} (-1)  \right) 
@@ -1316,7 +1354,7 @@ Next, let us compute,
 \end{flalign*}
 Now, we compute the expectation $I_1$, i.e.~the sum over the two possible values of $x\in\{0,1\}$,
 \begin{flalign*}
-I_1(\theta) &= - \sum_{x \in \Xz = \{0,1\}} \left( \frac{\partial^2 \log \left( \theta^{x} (1-\theta)^{1-x} \right)}{\partial^2 \theta} \right) \theta^{x} (1-\theta)^{1-x} \\
+I_1(\theta) &= - \sum_{x \in \Xz = \{0,1\}} \left( \frac{\partial^2 \log \left( \theta^{x} (1-\theta)^{1-x} \right)}{\partial \theta^2} \right) \theta^{x} (1-\theta)^{1-x} \\
 & = - \left( \left(- 0 \ \theta^{-2} - (1-0) (1-\theta)^{-2} \right) \theta^{0} (1-\theta)^{1-0} + \left( - 1 \ \theta^{-2} - (1-1) (1-\theta)^{-2} \right) \theta^{1} (1-\theta)^{1-1} \right) \\
 & = - \left( \left(0 - 1 (1-\theta)^{-2} \right) \ 1 \ (1-\theta)^1 + \left( - \theta^{-2} - 0  \right) \theta^1 \ 1 \right) 
 =  (1-\theta)^{-2} (1-\theta)^1 +  \theta^{-2} \theta^1 \\
@@ -1354,11 +1392,11 @@ and construct an approximate $95\%$ confidence interval for $\lambda^*$ using th
 
 So, we need to first compute $I_1(\theta)$, the Fisher Information of one sample.  Due to \eqref{E:FisherInfo1} and the fact that the $\exponential(\lambda^*)$ distributed RV $X$ is continuous with probability density function $f(x;\lambda)=\lambda e^{-\lambda x}$, for $x\in \Xz := [0,\infty)$, we have,
 \begin{flalign*}
-I_1(\theta) &= - \E_{\theta} \left(  \frac{\partial^2 log f(X;\theta)}{\partial^2 \theta} \right) = - \int_{x \in \Xz = [0,\infty)} \left( \frac{\partial^2 \log \left( \lambda e^{-\lambda x} \right)}{\partial^2 \lambda} \right) \lambda e^{-\lambda x} \ dx
+I_1(\theta) &= - \E_{\theta} \left(  \frac{\partial^2 log f(X;\theta)}{\partial \theta^2} \right) = - \int_{x \in \Xz = [0,\infty)} \left( \frac{\partial^2 \log \left( \lambda e^{-\lambda x} \right)}{\partial \lambda^2} \right) \lambda e^{-\lambda x} \ dx
 \end{flalign*}
 Let us compute the above integrand next.
 \begin{flalign*}
-\frac{\partial^2 \log \left( \lambda e^{-\lambda x} \right)}{\partial^2 \lambda}
+\frac{\partial^2 \log \left( \lambda e^{-\lambda x} \right)}{\partial \lambda^2}
 &:= 
 \frac{\partial}{\partial \lambda} \left( \frac{\partial}{\partial \lambda} \left( \log \left( \lambda e^{-\lambda x} \right)   \right) \right)
 = \frac{\partial}{\partial \lambda} \left( \frac{\partial}{\partial \lambda} \left( \log(\lambda) + \log(e^{-\lambda x} \right) \right) \\
@@ -1367,7 +1405,7 @@ Let us compute the above integrand next.
 \end{flalign*}
 Now, let us evaluate the integral by recalling that the expectation of the constant $1$ is 1 for any RV $X$ governed by some parameter, say $\theta$.  For instance when $X$ is a continuous RV, $\E_{\theta}(1) = \int_{x \in \Xz} 1 \ f(x;\theta) =  \int_{x \in \Xz} \ f(x;\theta) = 1$.  Therefore, the Fisher Information of one sample is
 \begin{flalign*}
-I_1(\theta) = - \int_{x \in \Xz = [0,\infty)} \left( \frac{\partial^2 \log \left( \lambda e^{-\lambda x} \right)}{\partial^2 \lambda} \right) \lambda e^{-\lambda x} \ dx
+I_1(\theta) = - \int_{x \in \Xz = [0,\infty)} \left( \frac{\partial^2 \log \left( \lambda e^{-\lambda x} \right)}{\partial \lambda^2} \right) \lambda e^{-\lambda x} \ dx
  &=  - \int_{0}^{\infty} \left(-\frac{1}{\lambda^2} \right) \lambda e^{-\lambda x} \ dx \\
 & = -  \left(-\frac{1}{\lambda^2} \right) \int_{0}^{\infty} \lambda e^{-\lambda x} \ dx = \frac{1}{\lambda^2} \ 1 = \frac{1}{\lambda^2}
 \end{flalign*}
@@ -1533,7 +1571,7 @@ Finally, we set the solution, i.e.~the maximiser of the concave-down log-likelih
 \]
 Therefore, in much the same way as in part (2) earlier,
 \begin{flalign*}
-\frac{\partial^2 \log f(x;\sigma)}{\partial^2 \sigma} 
+\frac{\partial^2 \log f(x;\sigma)}{\partial \sigma^2} 
 & := \frac{\partial}{\partial \sigma} 
 \left( 
 \frac{\partial}{\partial \sigma} 
@@ -1548,7 +1586,7 @@ Therefore, in much the same way as in part (2) earlier,
 Now, we compute the Fisher Information of one sample as an expectation of the continuous RV $X$ over $\Xz = (-\infty,\infty)$ with density $f(x;\sigma)$,
 \begin{flalign*}
 I_1(\sigma) 
-& = - \int_{x \in \Xz = (-\infty,\infty)} \left( \frac{\partial^2 \log f(x;\sigma)}{\partial^2 \lambda} \right) f(x;\sigma) \ dx
+& = - \int_{x \in \Xz = (-\infty,\infty)} \left( \frac{\partial^2 \log f(x;\sigma)}{\partial \lambda^2} \right) f(x;\sigma) \ dx
  =  - \int_{-\infty}^{\infty} \left( \sigma^{-2}  -3  \sigma^{-4} (x-\mu)^2  \right) f(x;\sigma) \ dx \\
  &=   \int_{-\infty}^{\infty} -\sigma^{-2}  f(x;\sigma) \ dx +  \int_{-\infty}^{\infty} 3  \sigma^{-4} (x-\mu)^2  f(x;\sigma) \ dx \\
 & =  -\sigma^{-2} \int_{-\infty}^{\infty} f(x;\sigma) \ dx + 3  \sigma^{-4} \int_{-\infty}^{\infty} (x- \mu)^2  f(x;\sigma) \ dx \\

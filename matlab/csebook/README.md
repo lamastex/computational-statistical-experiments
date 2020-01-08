@@ -1,4 +1,4 @@
-Probability Theory I, Uppsala University, Fall 2019
+Probability Theory I & Inference Theory I, Uppsala University, Fall 2019
 ========================================
 
 **Raazesh Sainudiin∗, Dominic Lee† and Michael Nussbaum•**,

@@ -1,17 +1,16 @@
 Probability Theory I, Uppsala University, Fall 2019
 ========================================
 
-Raazesh Sainudiin* and Dominic Lee†,
+**Raazesh Sainudiin∗, Dominic Lee† and Michael Nussbaum•**,
 
-∗Laboratory for Mathematical Statistical Experiments, Uppsala Centre, and
+∗Laboratory for Mathematical Statistical Experiments, Uppsala Centre, and ∗Department of Mathematics, Uppsala University, Uppsala, Sweden
 
-∗Department of Mathematics, Uppsala University, Uppsala, Sweden
+†School of Mathematics and Statistics, University of Canterbury, Christchurch, New Zealand 
 
-†School of Mathematics and Statistics, University of Canterbury, Christchurch, New Zealand
+•Department of Mathematics, Cornell University, Ithaca, New York, USA
 
-Version Date: October 14, 2019
-
-CC 2007–2019 Raazesh Sainudiin. CC 2008–2013 Dominic Lee.
+Version Date: January 7, 2020
+CC 2007–2019 Raazesh Sainudiin. CC 2008–2019 Dominic Lee. CC 2010–2019 Michael Nussbaum
 
 This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 4.0
 International License. To view a copy of this license, visit

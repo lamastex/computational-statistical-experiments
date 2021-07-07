@@ -1,0 +1,977 @@
+\chapter{Probability Model}\label{S:ProbModel}
+
+\section{Experiments}\label{S:Experiments}
+
+Ideas about chance events and random behaviour arose out of thousands of
+years of game playing, long before any attempt was made to use
+mathematical reasoning about them. Board and dice games were well known
+in Egyptian times, and Augustus Caesar gambled with dice. Calculations
+of odds for gamblers were put on a proper theoretical basis by Fermat
+and Pascal in the early 17th century.
+
+\begin{definition}
+An {\bf experiment} is an activity or procedure that produces distinct, well-defined possibilities called {\bf outcomes}.  
+The set  of all outcomes   is called the {\bf sample space}, and is denoted by $\Omega$.
+
+The subsets of $\Omega$ are called {\bf events}.  
+A single outcome, $\omega$, when seen as a subset of $\Omega$, as in
+$\{\omega\}$, is called a  {\bf simple event}.
+
+Events, $E_1,\, E_2\, \dots \, E_n$,  that cannot occur at the same time are called {\bf mutually exclusive} events, or {\bf pair-wise disjoint} events.  This means that $E_i
+\cap E_j = \emptyset $ where $i\not=j$.
+\end{definition}
+
+
+
+\begin{example}
+Some standard examples of experiments are the following:
+
+\bit
+
+\item $\Omega=\{ {\textsf{Defective, Non-defective}} \}$ if our
+  experiment is to inspect a light bulb.
+
+There are only two outcomes here, so   $\Omega = \{ \omega_1, \omega_2\}$
+where $\omega_1= {\textsf{Defective}}$ and  $\omega_2 =
+{\textsf{Non-defective}}$.
+
+
+\item $\Omega=\{ {\textsf{Heads, Tails}} \}$ if our experiment is to
+  note the outcome of a coin toss.
+
+
+This time, $\Omega=\{ \omega_1, \omega_2\}$ where $\omega_1= {\textsf{Heads}}$ and  $\omega_2 = {\textsf{Tails}}$.
+
+
+\item If our experiment is to roll a die  then there are six outcomes corresponding to
+  the number that shows on the top. For this experiment,
+  $\Omega = \{\mathsf{1,2,3,4,5,6}\}$.
+
+
+Some examples of events are the set of odd numbered outcomes
+$A=\{\mathsf{1,3,5}\}$, and  the set of
+even numbered outcomes $B=\{\mathsf{2,4,6}\}$.
+
+
+The simple events  of $\Omega$ are $\{\sf{1}\}, \{\sf{2}\}, \{\sf{3}\}, \{\sf{4}\}, \{\sf{5}\}$, and $\{\sf{6}\}$.
+
+\eit
+\end{example}
+
+
+The outcome of a random experiment is uncertain until it is performed and observed.  
+Note that sample spaces need to reflect the problem in hand.  
+The example below is to convince you that an experiment's sample space is merely a collection of distinct elements called outcomes and these outcomes have to be {\em discernible in some well-specified sense} to the experimenter!
+
+
+\begin{example}
+\label{Eg:SensoryDiscerningExperiments} 
+Consider a generic
+  die-tossing experiment by a human experimenter. Here \newline $\Omega=
+  \{\omega_1,\omega_2,\omega_3,\ldots,\omega_6\}$, but the
+  experiment might correspond to rolling a die whose faces are:
+\begin{enumerate}
+\item sprayed with six different scents (nose!), or
+\item studded with six distinctly flavoured candies (tongue!), or
+\item contoured with six distinct bumps and pits (touch!), or
+\item acoustically discernible at six different frequencies (ears!), or
+\item painted with six different colours (eyes!), or
+\item marked with six different numbers $\mathsf{1,2,3,4,5,6}$ (eyes!), or , \ldots
+\end{enumerate}
+These six experiments are  equivalent as far as probability goes.
+\end{example}
+
+
+\begin{definition}
+{A {\bf trial} is a single performance of an experiment and it
+  results in an outcome.}
+\end{definition}
+
+
+
+\begin{example}
+Some standard examples of a trial are:
+
+\bit
+
+\item A roll of a die.
+
+\item A toss of a coin.
+
+\item A release of a chaotic double pendulum.
+
+\eit
+\end{example}
+
+An experimenter often performs more than one trial.  Repeated trials of an experiment forms the basis of science and engineering as the experimenter learns about the phenomenon by repeatedly performing the same mother experiment with possibly different outcomes.  This repetition of trials in fact provides the very motivation for the definition of probability.
+
+\begin{definition}{An {\bf ${\mathbf n}$-product experiment} is obtained by
+    repeatedly performing $n$ trials of some experiment. 
+    %This experiment is often called the mother experiment.% Raaz substituted to avoid the ambiguous reference to 'This'
+    The experiment that is repeated is called the ``mother'' experiment.}
+\end{definition}
+
+
+
+\begin{example}[Toss a coin $n$ times]\label{EX:T3X}
+Suppose our experiment entails tossing a coin $n$ times and recording ${\tt H}$ for Heads and ${\tt T}$ for Tails.  When $n=3$, one possible outcome of this experiment is ${\tt HHT}$, ie.~a Head followed by another Head and then a Tail.  Seven other outcomes are possible.  
+%Below, we refer to this experiment by the symbol $\EE{E}_{\theta}^{3}$.  More generally, we refer to the experiment of tossing a coin $n$ times as $\EE{E}_{\theta}^{n}$ and sometimes refer to $\EE{E}_{\theta}^{1}$ by $\EE{E}_{\theta}$ for simplicity.  The reason for the $\theta$ subscrip will become apparent as we develop the theory.
+\end{example}
+
+
+The sample space for ``toss a coin three times" experiment %$\EE{E}_{\theta}^{3}$ %\hyperref[EX:T3X]{Experiment \ref*{EX:T3X}} of tossing a coin 3 times 
+is:
+\[
+\Omega = \{ {\tt H}, {\tt T} \}^3 =  \{ {\tt HHH}, {\tt HHT}, {\tt HTH}, {\tt HTT}, {\tt THH}, {\tt THT}, {\tt TTH}, {\tt TTT}  \} \ ,
+\]
+with a particular sample point or outcome $\omega = {\tt HTH}$, and another distinct outcome $\omega' = {\tt HHH}$.  An event, say $A$, that `at least two Heads occur' is the following subset of $\Omega$:
+\[
+A = \{ {\tt HHH}, {\tt HHT}, {\tt HTH}, {\tt THH} \} \ .
+\]
+Another event, say $B$, that `no Heads occur' is:
+\[
+B = \{{\tt TTT}\}
+\]
+Note that the event $B$ is also an outcome or sample point.  Another interesting event is the empty set $\emptyset  \subset \Omega$.  The event that `nothing in the sample space occurs' is $\emptyset$.
+
+\begin{classwork}[A thrice-bifurcating tree of outcomes]
+Can you think of a graphical way to enumerate the outcomes of the Experiment~\ref{EX:T3X}%$\EE{E}_{\theta}^{3}$
+?  Draw a diagram of this under the caption of \hyperref[F:T3X]{Figure~\ref*{F:T3X}}, using the caption as a hint (in other words, draw your own \hyperref[F:T3X]{Figure~\ref*{F:T3X}}).
+\begin{figure}[htpb]
+\caption{A binary tree whose leaves are all possible outcomes.\label{F:T3X}}
+\vspace{4cm}
+\end{figure}
+\end{classwork}
+
+\remove{
+In \hyperref[LW:T3X]{Labwork~\ref*{LW:T3X}} we implement \hyperref[AL:T3X]{Algorithm~\ref*{AL:T3X}} to  print all the outcomes.  The algorithm uses {\bf for loops} to reach the leaves (outcomes of $\EE{E}_{\theta}^{3}$) of the binary tree.
+\begin{algorithm}[htpb]
+\caption{List $\Omega$ for ``Toss a Coin Three Times" experiment $\EE{E}_{\theta}^{3}$}
+\label{AL:T3X}
+\begin{algorithmic}[1]
+\STATE {\it input:} nothing
+
+\STATE {\it output:} print/list all outcomes of $\EE{E}_{\theta}^{3}$ 
+
+\STATE {\it initialize:} ${\bf SampleSpace1Toss} = \{ {\tt H}, {\tt T} \}$  \COMMENT{{\tiny ${\bf SampleSpace1Toss}[1]={\tt H}$ and ${\bf SampleSpace1Toss}[2]={\tt T}$}}
+\FOR{$i=1$ to $2$} 
+\FOR{$j=1$ to $2$}
+\FOR{$k=1$ to $2$}
+\STATE {
+ Print ${\bf SampleSpace1Toss}[i]$ ${\bf SampleSpace1Toss}[j]$ ${\bf SampleSpace1Toss}[k]$ \\
+Print `` , "  \COMMENT{{\tiny print a comma character to delimit outcomes}}
+}
+\ENDFOR
+\ENDFOR
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
+
+\begin{labwork}[Three for loops for the thrice-bifurcating tree]\label{LW:T3X}
+Let's write a {\sc Matlab} code in a script file named {\tt OutcomesOf3Tosses.m} that implements \hyperref[AL:T3X]{Algorithm~\ref*{AL:T3X}} to print all the outcomes of $\EE{E}_{\theta}^{3}$.  You need to go to the File menu and create a new file named {\tt OutcomesOf3Tosses.m} Run it in the command window.
+\begin{VrbM}
+>> type OutcomesOf3Tosses.m
+
+SampleSpace1Toss='HT';	% declare a string vector or character array
+% SampleSpace1Toss is the name of the char array
+SampleSpace1Toss(1);		% access the first element 'H' this way
+SampleSpace1Toss(2);		% access the second element 'T' this way
+% Now let's write the routine for listing the sample space of 'toss 3 times'
+w=' ';		% declare w to be the character ' '
+for i = 1:1:2		% for loop for variable i = start:increment:end
+  for j = 1:1:2		% for loop for variable j
+    for k = 1:1:2	% for loop for variable j
+     % next we concatenate using strcat -- strcat('A','B','C','D') concatenates the 4 char arrays
+     x = strcat(SampleSpace1Toss(i),SampleSpace1Toss(j),SampleSpace1Toss(k),' , '); % ' ,' delimited outcome
+     w = strcat(w,x); % recursively store the outcomes in a new array w
+    end
+  end
+end
+w		% print w at the end of the three for loops
+>> lab1work4
+>> SampleSpace1Toss(1)
+ans = H
+>> SampleSpace1Toss(2)
+ans = T
+>> w
+w = HHH ,HHT ,HTH ,HTT ,THH ,THT ,TTH ,TTT ,
+\end{VrbM}
+\end{labwork}
+}
+
+
+\begin{framed}
+EXPERIMENT SUMMARY\\
+
+\begin{tabular}{rcl}
+Experiment &$-$& an activity producing distinct outcomes.\\
+$\Omega$ &$-$& set of all outcomes of the experiment.\\
+$\omega$ &$-$& an individual outcome in $\Omega$, called a simple event.\\
+$A\subseteq \Omega$ &$-$& a subset $A$ of $\Omega$ is an event.\\
+Trial &$-$& one performance of an experiment resulting in 1 outcome.\\
+\end{tabular}
+\end{framed}
+
+
+\section{Probability}\label{S:Probability}
+The  mathematical model for probability or the probability model is an axiomatic system that may be motivated by the intuitive idea of `long-term relative frequency'.  If the axioms and definitions are intuitively motivated, the probability model simply follows from the application of logic to these axioms and definitions.  No attempt to define probability in the real world is made. However, the application of probability models to real-world problems through statistical experiments has a fruitful track record.  In fact, you are here for exactly this reason.
+
+\begin{idea}[The long-term relative frequency (LTRF) idea]
+Suppose we are interested in the fairness of a coin, i.e.~if landing Heads has the same ``probability" as landing Tails.  We can toss it $n$ times and call 
+$N({\tt H},n)$ the fraction of times we observed Heads out of $n$ tosses.
+Suppose that after conducting the tossing experiment $1000$ times, we rarely observed Heads, e.g.~$9$ out of the $1000$ tosses, then $N({\tt H},1000)=9/1000=0.009$.  Suppose we continued the number of tosses to a million and found that this number approached closer to $0.1$, or, more generally, $N({\tt H},n) \to 0.1$ as $n \to \infty$.  We might, at least intuitively, think that the coin is unfair and has a lower ``probability'' of $0.1$ of landing Heads.  We might think that it is fair had we observed $N({\tt H},n) \to 0.5$ as $n \to \infty$.  Other crucial assumptions that we have made here are:
+\begin{enumerate}
+\item {\bf Something Happens}: Each time we toss a coin, we are certain to observe Heads {\bf or} Tails, denoted by ${\tt H} \cup {\tt T}$.  The probability that ``something happens'' is $1$.  More formally:
+\[
+N({\tt H} \cup {\tt T},n)= \frac{n}{n} = 1.
+\]
+This is an intuitively reasonable assumption that simply says that one of the possible outcomes is certain to occur, provided the coin is not so thick that it can land on or even roll along its circumference.
+
+\item {\bf Addition Rule}: Heads and Tails are mutually exclusive events in any given toss of a coin, i.e.~they cannot occur simultaneously.  The intersection of mutually exclusive events is the empty set and is denoted by ${\tt H} \cap {\tt T} = \emptyset$. The event ${\tt H} \cup {\tt T}$, namely that the event that ``coin lands Heads {\bf or} coin lands Tails" satisfies:
+\[
+N({\tt H} \cup {\tt T},n)= N({\tt H},n) + N({\tt T},n) .
+\]
+\item The coin-tossing experiment is repeatedly performed in an {\bf independent} manner, i.e.~the outcome of any individual coin-toss does not affect that of another.  This is an intuitively reasonable assumption since the coin has no memory and the coin is tossed identically each time.
+\end{enumerate}
+\end{idea}
+
+We will use the LTRF idea more generally to motivate a mathematical model of probability called probability model.  Suppose $A$ is an event associated with some experiment $\EE{E}$, so that $A$ either does or does not occur when the experiment is performed.  We want the probability that event $A$ occurs in a specific performance of $\EE{E}$, denoted by $\P(A)$, to intuitively mean the following:  if one were to perform a super-experiment $\EE{E}^{\infty}$ by independently repeating the experiment $\EE{E}$ and recording $N(A,n)$, the fraction of times $A$ occurs in the first $n$ performances of $\EE{E}$ within the super-experiment $\EE{E}^{\infty}$. Then the LTRF idea suggests:
+\begin{equation}\label{E:NofAn}
+N(A,n) :=  \frac{\text{Number of times $A$ occurs}}{n=\text{Number of performances of $\EE{E}$}} \to \P(A), \ as \quad  n \to \infty
+\end{equation}
+
+Now, we are finally ready to define probability.
+\begin{definition}[Probability]\label{D:Prob}
+Let $\EE{E}$ be an experiment with sample space $\Omega$.  Let $\C{F}$ denote a suitable collection of events in $\Omega$ that satisfy the following conditions:
+\begin{enumerate}
+\item It (the collection) contains the sample space:
+$\boxed{
+\Omega \in \C{F} }$.
+\item It is closed under complementation:
+$\boxed{
+A \in \C{F} \quad \implies \quad A^c \in \C{F} }$.
+\item It is closed under countable unions:
+$\boxed{
+A_1, A_2, \ldots \in \C{F} \quad \implies \quad \bigcup_{i} {A_i} := A_1 \cup A_2 \cup \cdots \in \C{F} }$.
+\end{enumerate}
+Formally, this collection of events is called a {\bf sigma field} or a {\bf sigma algebra}.  Our experiment $\EE{E}$ has a sample space $\Omega$ and a collection of events $\C{F}$ that satisfy the three condition. 
+
+Given a double, e.g. $(\Omega, \C{F})$, {\bf probability} is just a function $\P$ which assigns each event $A \in \C{F}$ a number $\P(A)$ in the real interval $[0,1]$, i.e.~$\boxed{\P : \C{F} \to [0,1] }$, such that:
+\begin{enumerate}
+\item The `Something Happens' axiom holds, i.e.~$\boxed{\P(\Omega) = 1}$. 
+\item The `Addition Rule' axiom holds, i.e.~for events $A$ and $B$:
+$$
+\boxed{
+A \cap B = \emptyset \quad \implies \quad \P(A \cup B) = \P(A) + \P(B)
+} \ .
+$$
+\end{enumerate}
+\end{definition}
+\subsection{Consequences of our Definition of Probability}\label{S:ConseqDefProb}
+It is important to realize that we accept the `addition rule' as an axiom in our mathematical definition of probability (or our probability model) and we do {\bf not} prove this rule.  However, the facts which are stated ({\scriptsize with proofs}) below, are logical consequences of our definition of probability:
+\begin{enumerate}
+\item For any event $A$, $\boxed{\P(A^c) = 1 - \P(A)}$.
+{\scriptsize
+\begin{proof}
+One line proof.
+\[
+\overbrace{\P(A) + \P(A^c)}^{LHS} \underbrace{=}_{+~\text{rule}~\because A \cap A^c = \emptyset} \P(A \cup A^c) \underbrace{=}_{A \cup A^c = \Omega} \P(\Omega) \underbrace{=}_{\because~\P(\Omega) = 1} \overbrace{1}^{RHS} \quad \underbrace{\Longrightarrow}_{LHS-\P(A)~\&~RHS-\P(A)} \quad \P(A^c) = 1-\P(A)
+\]
+\end{proof}
+}
+\begin{itemize}
+\item If $A = \Omega$ then $A^c = \Omega^c = \emptyset$ and 
+$\boxed{\P(\emptyset) = 1-\P(\Omega) = 1-1 = 0}$.
+\end{itemize}
+
+\item For any two events $A$ and $B$, we have the {\bf inclusion-exclusion principle}:
+\[
+\boxed{
+\P(A \cup B) = \P(A) + \P(B) - \P(A \cap B)
+}.
+\]
+{\scriptsize
+\begin{proof}
+Since: 
+\begin{eqnarray}
+\quad A = (A \setminus B) \cup (A \cap B) & \quad \text{and} \quad & (A \setminus B) \cap (A \cap B) = \emptyset, \notag \\
+\quad A \cup B = (A \setminus B) \cup B & \quad \text{and} \quad & (A \setminus B) \cap B = \emptyset \notag
+\end{eqnarray}
+the addition rule implies that:
+\begin{eqnarray}
+\P(A) &=& \P(A \setminus B) + \P(A \cap B) \notag \\
+\P(A \cup B) &=& \P(A \setminus B) + \P(B) \notag
+\end{eqnarray}
+Substituting the first equality above into the second, we get:
+\[
+\P(A \cup B) = \P(A \setminus B) + \P(B) = \P(A) - \P(A \cap B) + \P(B)
+\]
+\end{proof}
+}
+\item From inclusion-exclusion principle we get {\bf Boole's inequality}: for any two events $A, B$
+\[
+\P(A \cup B) \leq \P(A) + \P(B)
+\]
+\item The inclusion-exclusion principle extends similarly to any three events $A_1,A_2,A_3$ as follows:
+\[
+\P(A_1 \cup A_2 \cup A_3) = \P(A_1) + \P(A_2) + \P(A_3) - \P(A_1 \cap A_2) - \P(A_1 \cap A_3) - \P(A_2 \cap A_3) + \P(A_1 \cap A_2 \cap A_3)
+\]
+and generalises to any $n$ events $A_1,A_2,\ldots,A_n$ as folows:
+\[
+\P \left( \bigcup_{i=1}^n A_i \right) = \sum_{i=1}^n \P(A_i) - \sum_{i<j} \P(A_i \cap A_j) + \sum_{i<j<k} \P(A_i \cap A_j \cap A_k) + \cdots + (-1)^{n-1} \sum_{i< \cdots <n} \P \left( \bigcap_{i=1}^n A_i \right)
+\]
+
+{\scriptsize
+\begin{proof} See the counting argument in \url{https://en.wikipedia.org/wiki/Inclusion\%E2\%80\%93exclusion_principle} if you are curious.
+\end{proof}
+}  
+\item Once again by the inclusion-exclusion principle, the Boole's inequality generalises to any $n$ events $A_1,A_2,\ldots,A_n$ as folows:
+\[
+\P \left( \bigcup_{i=1}^n A_i \right) \leq \sum_{i=1}^n \P(A_i)
+\]
+\item For a sequence of mutually disjoint events $A_1, A_2, A_3, \ldots, A_n$: 
+\[
+\boxed{
+A_i \cap A_j = \emptyset \quad \text{for any $i \neq j$} \quad \implies \quad \P(A_1 \cup A_2 \cup \cdots \cup A_n) = \P(A_1)+\P(A_2)+ \cdots + \P(A_n)} .
+\]
+{\scriptsize
+\begin{proof}
+If $A_1, A_2, A_3$ are mutually disjoint events, then $A_1 \cup A_2$ is disjoint from $A_3$.  Thus, two applications of the addition rule for disjoint events yields:
+\[
+\P(A_1 \cup A_2 \cup A_3) = \P((A_1 \cup A_2) \cup A_3) \underbrace{=}_{+~\text{rule}} \P(A_1 \cup A_2) + \P(A_3) \underbrace{=}_{+~\text{rule}}  \P(A_1) + \P(A_2) + \P(A_3)
+\]
+The $n$-event case follows by mathematical induction.
+\end{proof}
+}
+\end{enumerate}
+
+We have formally defined the {\bf probability model} specified by the {\bf probability triple} $(\Omega, \C{F},\P)$ that can be used to model an {\bf experiment} $\EE{E}$.
+
+\begin{example}[First Ball out of NZ Lotto]\label{Eg:NZLottoModel}
+Let us observe the number on {\em the first ball that pops out in a New Zealand Lotto trial}.  
+There are forty balls labelled $1$ through $40$ for this experiment and so the sample space is \[\Omega\;=\;\{\mathsf{1,2,3,\dots,39,40}\}\,.\]  
+Because the balls are vigorously whirled around inside the Lotto machine, modelled as a well-stirrred urn, before the first one pops out, 
+we can model each ball to pop out first with the same probability. 
+So, we assign each outcome $\omega \in \Omega$ the same probability of $\frac{1}{40}$, i.e., our probability model for this experiment is:
+\[
+\P(\omega) = \frac{1}{40}, \ \text{for each \ } \omega \in \Omega = \{\mathsf{1,2,3,\ldots,39,40}\} \enspace .
+\]
+Note: We sometimes abuse notation and write $\P(\omega)$ instead of the
+more accurate but cumbersome $\P(\{\omega\})$ when writing down
+probabilities of simple events. 
+
+Crucially, by $\omega=\mathsf{17}$ for example, we mean all the detailed dynamics inside the Lotto machine that lead to the event that the ball labelled by the number $\mathsf{17}$ ends up popping out. 
+So, $\Omega$ here is indeed a more complicated set although it only leads to $40$ possible outcomes.
+
+Figure~\ref{F:LottoDraws}~(a) shows the frequency of the first ball number in 1114 NZ Lotto draws.  
+Figure~\ref{F:LottoDraws}~(b) shows the relative frequency, i.e., the frequency divided by $1114$, the number of draws.  
+Figure~\ref{F:LottoDraws}~(b) also shows the equal probabilities under our model.
+
+\begin{figure}[htbp]
+\centering
+\subfigure[{\scriptsize Frequency of first ball.}]{
+\includegraphics[width=7.5cm,height=4cm]{figures/mylotto_freq}}
+\quad
+\subfigure[{\scriptsize Relative frequency and probability of first ball.}]{
+\includegraphics[width=7.5cm,height=4cm]{figures/mylotto_freq_relative}}
+\caption{First ball number in 1114 NZ Lotto draws from 1987 to 2008.\label{F:LottoDraws}}
+\end{figure}
+\end{example}
+
+
+Next, let us take a detour into how one might interpret it in the real world.  The following is an adaptation from Williams D, {\it Weighing the Odds: A Course in Probability and Statistics}, Cambridge University Press, 2001, which henceforth is abbreviated as WD2001.
+\begin{center}
+\begin{tabular}{l l}
+{\bf Probability Model} & {\bf Real-world Interpretation} \\
+Sample space $\Omega$ & Set of all outcomes of an experiment \\
+Sample point $\omega$ & Possible outcome of an experiment \\ 
+(No counterpart) & Actual outcome $\omega^{\star}$ of an experiment\\
+Event A, a (suitable) subset of $\Omega$ & The real-world event corresponding to A \\
+ & occurs if and only if $\omega^{\star} \in A$\\
+$\P(A)$, a number between $0$ and $1$         & Probability that $A$ will occur for an \\
+ & experiment yet to be performed \\
+\\
+% \end{tabular}
+% \end{center}
+% \begin{center}
+% \begin{tabular}{l l}
+{\bf Events in Probability Model} & {\bf Real-world Interpretation} \\
+Sample space $\Omega$ & The certain even `something happens' \\
+The $\emptyset$ of $\Omega$ & The impossible event `nothing happens' \\ 
+The intersection $A \cap B$ & `Both $A$ and $B$ occur'\\
+$A_1 \cap A_2 \cap \cdots \cap A_n $ & `All of the events $A_1, A_2, \ldots, A_n$ occur simultaneously'\\
+The union $A \cup B$ & `At least one of $A$ and $B$ occurs'\\
+$A_1 \cup A_2 \cup \cdots \cup A_n$ & `At least one of the events $A_1, A_2, \ldots, A_n$ occurs'\\
+$A^c$, the complement of $A$ & `$A$ does not occur'\\
+$A \setminus B$ & `$A$ occurs, but $B$ does not occur'\\
+$A \subset B$ & `If $A$ occurs, then $B$ must occur'
+\end{tabular}
+\end{center}
+
+
+{In the probability model of Example~\ref{Eg:NZLottoModel}, show that for any event $E \subset \Omega$, \[\P(E)\; =\;
+\frac{1}{40} \;\times \;\text{number of elements in $E$} \enspace . \]
+}
+{\label{Eg:NZLottoExp}}
+{
+Let $E = \{\omega_1,\omega_2,\ldots,\omega_k\}$ be an event with $k$ outcomes (simple events).  
+Then by the addition rule for mutually exclusive events we get:
+%\begin{multiline}
+$$\P(E)\;=\;\P\left( \{\omega_1,\omega_2,\ldots,\omega_k\} \right)
+= \P\left(\bigcup^{k}_{i=1} \{ \omega_i \}\right)\;=\;\sum^{k}_{i=1}\P\left(\{\omega_i\}\right)\;=\;\sum^{k}_{i=1}\frac{1}{40}\;=\;\frac{k}{40} \enspace .$$
+
+%\end{multiline}
+}
+
+\subsection{Sigma Algebras of Typical Experiments$^*$}
+
+\begin{example}[`Toss a fair coin once']
+Consider the `Toss a fair coin once' experiment.  What is its sample space $\Omega$ and a reasonable collection of events $\C{F}$ that underpin this experiment?  
+\[
+\Omega = \{  {\tt H}, {\tt T} \}, \qquad \C{F} = \{ {\tt H}, {\tt T},\Omega, \emptyset \} \ ,
+\]
+A function that will satisfy the definition of probability for this collection of events $\C{F}$ and assign $\P({\tt H}) = \frac{1}{2}$ is summarized below.  First check that the above $\C{F}$ is a sigma-algebra.  Draw a picture for $\P$ with arrows that map elements in the domain $\C{F}$ given above to elements in its range. 
+\begin{center}
+\begin{tabular*}{3.5in}{@{\extracolsep{\fill}}r c l} \hline
+Event $A \in \C{F}$ & $\P : \C{F} \to [0,1]$ & $\P(A) \in [0,1]$ \\ \hline
+$\Omega=\{ {\tt H}, {\tt T} \} \, \bullet$ & $ \ \longrightarrow \ $ & $1$ \\ 
+${\tt T} \, \bullet$ & $ \ \longrightarrow \ $ & $1-\frac{1}{2}$ \\ 
+${\tt H}  \, \bullet$ & $ \ \longrightarrow \ $ & $\frac{1}{2}$ \\ 
+$\emptyset \, \bullet$ & $ \ \longrightarrow \ $ & $0$ \\ \hline
+\end{tabular*}
+\end{center}
+\end{example}
+
+\begin{classwork}[The trivial sigma algebra]
+Note that $\C{F}' = \{ \Omega, \emptyset\}$ is also a sigma algebra of the sample space $\Omega= \{  {\tt H}, {\tt T} \}$.  Can you think of a probability for the collection $\C{F}'$?
+\begin{center}
+\begin{tabular*}{3.5in}{@{\extracolsep{\fill}}r c l} \hline
+Event $A \in \C{F}'$ & $\P : \C{F}' \to [0,1]$ & $\P(A) \in [0,1]$ \\ \hline
+$\Omega=\{ {\tt H}, {\tt T} \} \, \bullet$ & $ \ \longrightarrow \ $ &\\ 
+$\emptyset \, \bullet$ & $ \ \longrightarrow \ $ & \\ \hline
+\end{tabular*}
+\end{center}
+{\scriptsize
+Thus, $\C{F}$ and $\C{F}'$ are two distinct sigma algebras over our $\Omega=\{ {\tt H}, {\tt T} \}$.  Moreover, $\C{F}' \subset \C{F}$ and is called a sub sigma algebra.  Try to show that $\{\Omega,\emptyset\}$ is the smallest possible sigma algebra over all possible sigma algebras over any given sample space $\Omega$ (think of intersecting an arbitrary family of sigma algebras)?
+}
+\end{classwork}
+ 
+Generally one encounters four types of sigma algebras (you will understand the last two types after taking more advanced courses in mathematics, so it is fine to understand the ideas intuitively for now!) and they are:
+\be
+\item
+When the sample space $\Omega=\{\omega_1,\omega_2,\ldots,\omega_k\}$ is a finite set with $k$ outcomes and $\P(\omega_i)$, the probability for each outcome $\omega_i \in \Omega$ is known, then one typically takes the sigma-algebra $\C{F}$ to be the set of all subsets of $\Omega$ called the {\bf power set} and denoted by $2^{\Omega}$.  
+The probability of each event $A \in 2^{\Omega}$ can be obtained by adding the probabilities of the outcomes in $A$, i.e., $\P(A)=\sum_{\omega_i \in A} \P(\omega_i)$.  
+Clearly, $2^{\Omega}$ is indeed a sigma-algebra and it contains $2^{\#\Omega}$ events in it.  
+
+\item
+When the sample space $\Omega=\{\omega_1,\omega_2,\ldots\}$ is a countable set then one typically takes the sigma-algebra $\C{F}$ to be the set of all subsets of $\Omega$.  Note that this is very similar to the case with finite $\Omega$ except now $\C{F}=2^{\Omega}$ could have uncountably many events in it.
+
+%%TODO make an example of a continuous space experiment, say Darth Mole's light saber for R^1 and destination of a random ride in Doctor Who's TARDIS space-time R^d 
+\item
+If $\Omega = \Rz^d$ for finite $d \in \{1,2,3,\ldots\}$ then the {\bf Borel sigma-algebra} is the smallest sigma-algebra containing 
+all {\bf half-spaces}, i.e., sets of the form 
+$$\{x=(x_1,x_2,\ldots,x_d) \in \Rz^d: x_1 \leq c_1, x_2 \leq c_2, \ldots, x_d \leq c_d\}, \quad \text{ for any } c=(c_1,c_2,\ldots,c_d)\in\Rz^d \enspace ,
+$$
+When $d=1$ the half-spaces are the half-lines $\{(-\infty,c]: c \in \Rz\}$ and when $d=2$ the half-spaces are the south-west quadrants $\{(-\infty,c_1]\times(-\infty,c_2] : (c_1,c_2) \in \Rz^2\}$, etc.  
+(Equivalently, the Borel sigma-algebra is the smallest sigma-algebra containing all open sets in $\Rz^d$). 
+
+\item
+Given a finite set $\Sz=\{s_1,s_2,\ldots,s_k\}$, let $\Omega$ be the sequence space $\Sz^{\infty}:=\Sz \times \Sz \times \Sz \times\cdots$, i.e., the set of sequences of infinite length that are made up of elements from $\Sz$.  
+A set of the form
+\[
+A_1 \times A_2 \times \cdots \times A_n \times \Sz \times \Sz \times \cdots, \quad A_k \subset \Sz \text{ for all } k \in \{1,2,\ldots,n\} \enspace ,
+\]
+is called a {\bf cylinder set}.  
+The set of events in $\Sz^{\infty}$ is the smallest sigma-algebra containing the cylinder sets. 
+
+\begin{itemize}
+\item {\bf A most primitive sigma-algebra for probability theory:} 
+For example if $\Sz=\{0,1\}$, then $\Omega = \{0,1\}^{\infty}$ is the set of all infinite sequences made of $0$'s and $1$'s. 
+To take advantage of arithmetic and analysis, $\Omega$ can be seen as the binary representation of all real numbers in the unit interval $[0,1]$.  
+We can take advantage of combinatorics and algebra if we further represent the dyadic partition of $[0,1]$ by a binary tree (as drawn in lectures). 
+Then, a cylinder set such as $1 \times 1 \times 0 \times \{0,1\} \times \{0,1\} \times \cdots$, an event here, can be interpreted as the finite binary sequence $(1,1,0)$ --- corresponding to the third leaf of a finite binary tree with four leaves obtained by splitting the right-most leaf twice. This cylindrical event $(1,1,0)$ contains all real numbers in the interval $[\frac{3}{4},\frac{7}{8}] \subset [0,1] =: \Omega$.\end{itemize}
+
+\ee
+
+\begin{Exercise}[title={Intuiting a most primitive sigma-algebra -- this is optional},label={underMPSA}]
+Try to carefully recollect and understand the most primitive sigma-algebra in the last item above as it was explained in lectures.
+%\ExePart
+%\Question
+%\subQuestion Show that...
+%\subQuestion In this question...
+%\subsubQuestion Show that...
+%\subsubQuestion Conclude...
+%\subQuestion Conclude.
+%\Question Show that if $b > 1$...
+%\ExePart
+%\Question What happens to if $b=1$?
+\end{Exercise}
+\begin{Answer}
+This is an optional exercise. You will understand this as you progress through your mathematics programme. 
+The explanation in the said item was (or will be explained in person again) in the lectures. 
+This exercise was created to answer natural questions that were asked by students who wanted to know.
+\end{Answer}
+
+
+\begin{framed}
+PROBABILITY SUMMARY
+
+\medskip
+
+Axioms:
+\begin{enumerate}
+\item If $A\subseteq \Omega$ then $0\leq \P(A)\leq 1$ and $\P(\Omega)=1$.
+\item If $A$, $B$ are disjoint events, then $\P(A\cup B)=\P(A)+\P(B)$.
+
+[This is true only when $A$ and $B$ are disjoint.]
+\item If $A_1,A_2,\dots$ are disjoint then $\P(A_1\cup A_2
+\cup\dots)=\P(A_1)+\P(A_2)+\dots$
+\end{enumerate}
+Rules:
+$$\P(A^c)\;=\;1-\P(A)$$
+$$\P(A\cup B)\;=\;\P(A)+\P(B)-\P(A\cap B) \qquad [\textrm{always true}]$$
+\end{framed}
+
+\input{ExsInProbability.tex}
+
+\section{Conditional Probability}\label{S:CondProb}
+
+Conditional probabilities arise when we have partial information about
+the result of an  experiment which restricts the sample space to a range
+of outcomes.  For example, if there has been a lot of recent seismic activity
+in Christchurch, then the probability that an already damaged building will
+collapse tomorrow is clearly higher than if there had been no recent seismic activity.
+
+Conditional probabilities are  often
+expressed in English by phrases such as:\cen{ ``If $A$ happens, what is the probability that
+$B$ happens?''} or \cen{``What is the probability that  $A$ happens if
+$B$ happens?''} or \cen{``  What is the probability that  $A$ occurs given that $B$ occurs?''}
+
+Next, we define conditional probability and the notion of independence of events.  We use the LTRF idea to motivate the definition.
+\begin{idea}[LTRF intuition for conditional probability]
+Let $A$ and $B$ be any two events associated with our experiment $\EE{E}$ with $\P(A) \neq 0$.  The `conditional probability that $B$ occurs given that $A$ occurs' denoted by $\P(B|A)$ is again intuitively underpinned by the super-experiment $\EE{E}^{\infty}$ which is the `independent' repitition of our original experiment $\EE{E}$ `infinitely' often.  The LTRF idea is that $\P(B|A)$ is the long-term proportion of those experiments on which $A$ occurs that $B$ also occurs.
+ 
+Recall that $N(A,n)$ as defined in \eqref{E:NofAn} is the fraction of times $A$ occurs out of $n$ independent repetitions of our experiment $\EE{E}$ (ie.~the experiment $\EE{E}^{n}$).  If $A \cap B$ is the event that `$A$ and $B$ occur simultaneously', then we intuitively want
+\[
+\P(B|A) \quad \lq\lq \rightarrow " \quad \frac{N(A \cap B,n)}{N(A,n)} = \frac{N(A \cap B,n)/n}{N(A,n)/n} =  \frac{\P(A \cap B)}{\P(A)}
+\]
+as our $\EE{E}^{n} \rightarrow \EE{E}^{\infty}$.  So, we {\bf define} conditional probability as we want.
+ \end{idea}
+ \begin{definition}[Conditional Probability]\label{D:CondProb}
+Suppose we are given an experiment $\EE{E}$ with a triple $(\Omega, \C{F}, \P)$.  Let $A$ and $B$ be events, ie.~$A,B \in \C{F}$, such that $\P(A) \neq 0$.  Then, we define the {\bf conditional probability} of $B$ given $A$ by,
+ \begin{equation}\label{E:CPD}
+ \P(B|A) := \frac{\P(A \cap B)}{\P(A)} \ .
+ \end{equation}
+Note that $A$ serves as the new reduced sample space so that conditional probabilities given $A$ \emph{are} indeed  probabilities.
+Thus, for a {\bf fixed} event $A \in \C{F}$ with $\P(A)>0$ and {\bf any} event $B \in \C{F}$, the conditional  probability $\P(B | A)$ is a probability as in \hyperref[D:Prob]{Definition \ref*{D:Prob}}, ie.~a function:
+ \[
+ \P(B | A) : \C{F} \rightarrow [0,1]
+ \]
+ that assigns to each $B \in \C{F}$ a number in the interval $[0,1]$, such that, the axioms of probability are satisfied:
+\begin{itemize}
+\item[]{Axiom~(1): For any event $B$, $0\leq P(B|A)\leq 1$.}
+\item[]{Axiom~(2): $\P(\Omega | A) = 1$ \qquad Meaning `Something Happens given the event A happens'}
+\item[]{Axiom~(3): The `Addition Rule' axiom holds, ie.~for events $B_1, B_2 \in \C{F}$,
+ \[
+ B_1 \cap B_2 = \emptyset \quad \text{implies} \quad \P(B_1 \cup B_2 | A) = \P(B_1 | A) + \P(B_2 |  A)  \ .
+ \]}
+\item[]{Axiom~(4): For mutually exclusive events, $B_1,B_2, \ldots$,
+\[
+\P(B_1 \cup B_2 \cup \cdots | A) = \P(B_1|A)+\P(B_2|A)+\cdots \enspace .
+\]}
+\end{itemize} 
+\end{definition}
+
+From the definition of conditional probability we get the following properties or rules:
+\begin{itemize}
+\item[]{{\bf Complementation rule:} $\P(B | A)\, = \,1 - \P(B^c | A)$ .}
+\item[]{{\bf Addition rule for two arbitrary events $B_1$ and $B_2$:} \[{\P(B_1 \cup B_2 | A) \;= \;\P(B_1 | A) + \P(B_2 | A) - \P(B_1\cap B_2|A)}\,.\]}
+\item[]{Solving for $P(A\cap B)$ with  these definitions of conditional probability
+gives another rule:
+\begin{framed}
+{\bf Multiplication rule for two likely events:} 
+
+If $A$ and $B$ are events, and if
+  $\P(A)\neq 0$ and  $\P(B)\neq 0$, then
+\[\P(A\cap B)\;=\;\P(A)\P(B|A)\;=\;\P(B)\P(A|B)\,. \]
+\end{framed}
+}
+\end{itemize}
+
+%%%%%%%
+
+\begin{example}[Wasserman03, p.~11]\label{EX:Wasserman03p11}
+ A medical test for a disease $D$ has outcomes $+$ and $-$.  the probabilities are:
+\begin{center}
+ \begin{tabular}{l | c | c}
+ \hline
+ & Have Disease ($D$) & Don't have disease ($D^c$)  \\ \hline
+Test positive ($+$) & 0.009 & 0.099 \\
+ Test negative ($-$) & 0.001 & 0.891\\ \hline
+ \end{tabular}
+ \end{center}
+ Using the definition of conditional probability, we can compute the conditional probability that you test positive given that you have the disease:
+ \[
+ \P(+ | D) = \frac{\P(+ \cap D)}{\P(D)} = \frac{0.009}{0.009+0.001}=0.9 \ ,
+ \]
+ and the conditional probability that you test negative given that you don't have the disease:
+ \[
+ \P(- | D^c) = \frac{\P(- \cap D^c)}{\P(D^c)} = \frac{0.891}{0.099+0.891} \approxeq 0.9 \ .
+ \]
+ Thus, the test is quite accurate since sick people test positive 90\% of the time and healthy people test negative 90\% of the time.
+ 
+Now, suppose you go for a test and and test positive.  What is the probability that you have the disease ?
+ \[
+ \P(D|+) = \frac{\P(D \cap +)}{\P(+)} = \frac{0.009}{0.009+0.099} \approxeq 0.08
+ \]
+Most people who are not used to the definition of conditional probability would intuitively associate a number much bigger than $0.08$ for the answer.  Interpret conditional probability in terms of the meaning of the numbers that appear in the numerator and denominator of the above calculations.
+\end{example}
+ 
+\subsection{Bayes' Theorem}\label{S:BayesTheorem}
+ Next we look at one of the most elegant applications of the definition of conditional probability along with the addition rule for a partition of $\Omega$ called \emph{Bayes' Theorem}. 
+We will present a two event case first called \emph{Bayes' Rule} and then present the more general case of the Theorem.
+
+This is useful because many problems involve reversing the order of conditional
+probabilities. Suppose we want to investigate  some phenomenon $A$  and
+have an observation $B$ that is evidence about $A$: for example, $A$ may
+be breast cancer and $B$  may be a positive mammogram. Then  Bayes'
+Theorem tells us how we should update our probability of $A$, given the
+new evidence $B$.
+
+Or, put more simply, Bayes' Rule is useful when you know $P(B | A)$ but
+want $P(A | B )$!
+
+\begin{framed}
+\begin{prop}[Bayes' Rule]\label{P:BayesRule}
+\begin{equation}
+P(A|B)\;=\;\frac{P(A)P(B|A)}{P(B)} \enspace .
+\end{equation}
+\end{prop}
+\end{framed}
+\begin{proof}
+From the  definition of conditional probability and the multiplication rule for two likely events $A$ and $B$ we get:
+$$
+P(A|B)\;=\;\frac{P(A \cap B)}{P(B)} \; = \;\frac{P(B \cap A)}{P(B)}\;= \; \frac{P(B|A)P(A)}{P(B)}\;  =\; \frac{P(A)P(B|A)}{P(B)} \enspace .
+$$
+\end{proof}
+
+\begin{example}[Mammogram]\label{EXmammogram}
+Approximately 1\% of women aged 40--50 have breast cancer. 
+A woman with breast cancer has a 90\% chance of a positive test from a mammogram, while a woman without breast cancer has a 10\% chance of a false positive result from the test. 
+What is the probability that a woman indeed has breast cancer given that she just had a positive test?\\[3pt]
+Solution:\\[3pt]
+{Let $A=$``the woman has breast cancer'', and $B=$``a positive
+test.''
+
+\medskip
+
+ We want  $P(A|B)$ but what we are given is $P(B|A)= 0.9$.
+\medskip
+
+By the definition of conditional probability,
+$$P(A|B)\;=\;P(A\cap B)/P(B)$$
+
+To evaluate the numerator we use the multiplication rule
+$$P(A\cap B)\;=\;P(A)P(B|A)\;=\;0.01\times 0.9\;=\;0.009$$
+
+Similarly,
+$$P(A^c\cap B)\;=\;P(A^c)P(B|A^c)\;=\;0.99 \times 0.1\;=\;0.099$$
+
+Now $P(B)\,=\,P(A\cap B)+P(A^c\cap B)$ so
+
+$$P(A|B)\;=\;\frac{P(A\cap B)}{P(B)}\;=\;\frac{0.009}{0.009+0.099}\;=\;\frac{9}{108}$$
+or a little less than 9\%. This situation comes about because it is much easier to have a false positive for a healthy woman, which has probability $0.099$, than to find a woman with breast cancer having a positive test, which has probability $0.009$.
+
+\medskip
+
+This answer is somewhat surprising. Indeed when ninety-five physicians were asked this question their average answer was 75\%. The two statisticians who carried out this survey indicated that physicians were better able to see the answer when the data was presented in frequency format. 10 out of 1000 women have breast cancer. Of these 9 will have a positive mammogram. However of the remaining 990 women without breast cancer 99 will have a positive reaction, and again we arrive the answer $9/(9+99)$.
+
+\bigskip
+
+\emph{Alternative solution using a tree diagram:}
+
+\begin{center}
+\begin{picture}(100,140)(75,30)\drawline(0,90)(75,120)(125,140)
+\drawline(75,120)(125,100)\drawline(0,90)(75,60)(125,40)
+\drawline(75,60)(125,80)
+\put(60,120){$A$}\put(60,50){$A^c$}
+\put(130,140){$\mathsf{B}$ \;\;$P(A\cap B)=0.009$}\put(130,100){$\mathsf{B^c}$ \;\;$0.001$}
+\put(130,80){$\mathsf{B}$ \;\; $P(A^c\cap B)=0.099$}\put(130,40){$\mathsf{B^c}$ \;\;$ 0.891$}
+\put(95,140){$0.9$}\put(95,95){$0.1$}
+\put(95,75){$0.1$}\put(95,35){$0.9$}
+\put(30,110){$0.01$}\put(30,60){$0.99$}
+\put(20,160){\text{\small Breast Cancer}}
+\put(100,160){\text{\small Positive Test}}
+\end{picture}
+\end{center}
+
+So the probability that a woman has breast cancer given that
+she has just had a positive test is  $$P(A|B)\;=\;\frac{P(A\cap B)}{P(B)}\;=\;\frac{0.009}{0.009+0.099}\;=\;\frac{9}{108}$$
+
+\emph{$^*$In the exam, there won't be any need for electronic calculators and you may leave the answer in either of the last two numerical forms for full credit, provided you show the steps in your reasoning.}
+}
+\end{example}
+
+Before we see the more general form of Bayes' Rule, let us make a simple observation called the \emph {total probaility theorem}.
+
+\begin{framed}
+\begin{prop}[Total probability theorem]\label{Thm:TotalProb}
+Suppose $A_1 \cup A_2 \ldots \cup A_k$ is a sequence of events with positive probability that partition the sample space, that is, $A_1\cup A_2 \cdots \cup A_k=\Omega$ and  $A_i \cap A_j = \emptyset$ for any $i \neq j$, then for some arbitrary event $B$.
+\begin{equation}\label{E:TotalProb}
+P(B) \;= \;\sum_{h=1}^k P(B \cap A_h) \;= \;\sum_{h=1}^k P(B|A_h)P(A_h)
+\end{equation}
+\end{prop}
+\end{framed}
+\begin{proof}
+The first equality is due to the addition rule for mutually exclusive events, \[B \cap A_1, B \cap A_2, \ldots, B \cap A_k\] and the second equality is due to the multiplication rule for two likely events.
+\end{proof}
+Reference to the Venn digram (you should draw below as done in lectures) will help you understand this idea for the four event case.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics{pstricks/totProbThmVennDiagram.eps}
+\caption{Reference to the Venn digram will help you understand this idea behind the proof of the total probability theorem in Proposition~\ref{Thm:TotalProb} for the four event case.}
+\end{center}
+\end{figure}
+
+\begin{example}[Urn with red and black balls]\label{EX:urnRedBlackBalls} 
+A well-mixed urn contains five
+{\sf red} and ten {\sf black} balls. We draw two balls from the urn
+without replacement. What is the probability that the second ball drawn
+is {\sf red}?
+
+This is easy to see if we draw a probability tree diagram.  
+The first split in the tree is based on the outcome of the first draw and the second on the outcome of the last draw.  
+The outcome of the first draw dictates the probabilities for the second one since we are sampling without replacement.  
+We multiply the probabilities on the edges to get probabilities of the four endpoints, and then sum the ones that correspond to {\sf red} in the second draw, that is
+\[
+P(\text{second ball is red}) \;=\; 4/42+10/42\;=\;1/3 \enspace .
+\]
+
+\begin{center}
+\begin{picture}(100,140)(75,30)
+\drawline(0,90)(75,120)(125,140)
+\drawline(75,120)(125,100)
+\drawline(0,90)(75,60)(125,40)
+\drawline(75,60)(125,80)
+\put(55,125){{\sf red}}\put(55,45){{\sf black}}
+\put(130,140){$\mathsf{(red, red)}$ 4/42}\put(130,100){$\mathsf{(red, black)}$ 10/42}
+\put(130,80){$\mathsf{(black, red)}$ 10/42}\put(130,40){$\mathsf{(black, black)}$ 18/42}
+\put(95,140){4/14}\put(95,115){10/14}
+\put(95,80){5/14}\put(95,55){9/14}
+\put(30,110){1/3}\put(30,80){2/3}
+\end{picture}
+\end{center}
+
+Alternatively,  use the total probability theorem to break
+the problem  down into manageable pieces.  
+Let
+  $R_1=\{\mathsf{(red,red),(red,black)}\}$ and
+  $R_2=\{\mathsf{(red,red),(black,red)}\}$ be the events corresponding
+  to a {\sf red} ball in the $1$st and $2$nd draws, respectively, and
+  let $B_1=\{\mathsf{(black,red),(black,black)}\}$ be the event of a
+  {\sf black} ball on the first draw.
+
+Now $R_1$ and $B_1$ partition $\Omega$ so we can  write:
+\begin{eqnarray*}
+P(R_2)
+&=& \P(R_2\cap R_1) + \P(R_2\cap B_1)\\[6pt]
+&=& \P\;(R_2| R_1)\P(R_1) + \P(R_2|B_1)\P(B_1)\\[6pt]
+&=& (4/14)(1/3)\,+\,(5/14)(2/3) =  1/3 \enspace .
+\end{eqnarray*}
+\end{example}
+
+\begin{framed}
+\begin{prop}[Bayes' Theorem, 1763]
+ Suppose the events $A_1,A_2,\ldots,A_k \in \C{F}$, with $\P(A_h)>0$ for each $h \in \{1,2,\ldots,k\}$, partition the sample space $\Omega$, ie.~they are mutually exclusive (disjoint) and exhaustive events with positive probability: 
+ \[
+ A_i \cap A_j = \emptyset, \ \text{for any distinct $i,j \in \{1,2,\ldots,k\}$}, \qquad \bigcup_{h=1}^k A_h = \Omega, \qquad \P(A_h) > 0
+ \]
+ Thus, precisely one of the $A_h$'s will occur on any performance of our experiment $\EE{E}$.  
+ 
+ Let $B \in \C{F}$ be some event with $\P(B) > 0$, then 
+ \begin{equation}\label{E:BayesThm}
+ \P(A_h|B) = \frac{\P(B|A_h) \P(A_h)}{\sum_{h=1}^k \P(B|A_h) \P(A_h)}
+ \end{equation}
+ \end{prop}
+\end{framed}
+ {\scriptsize
+ \begin{proof}
+ We apply elementary set theory, the definition of conditional probability $k+2$ times and the addition rule once:
+ \begin{eqnarray}
+ \P(A_h | B) &=& \frac{\P(A_h \cap B)}{\P(B)} = \frac{\P( B \cap A_h)}{\P(B)} = 
+ \frac{\P( B | A_h) \P(A_h)}{\P(B)}  \notag \\
+ &=& \frac{\P( B | A_h) \P(A_h)}{\P \left( \bigcup_{h=1}^k (B \cap A_h) \right)} =
+ \frac{\P( B | A_h) \P(A_h)}{\sum_{h=1}^k \P \left( B \cap A_h \right)} \notag \\
+ &=& \frac{\P( B | A_h) \P(A_h)}{\sum_{h=1}^k \P(B | A_h) \P(A_h)} \notag
+ \end{eqnarray}
+The operations done to the denominator in the proof above is merely the total probability theorem:
+\begin{equation*}
+\P( B) = \sum_{h=1}^k \P(B | A_h) \P(A_h)
+\end{equation*}
+ \end{proof}
+}
+
+We call $\P(A_h)$ the {\bf prior probability of} $A_h$, i.e., before observing $B$ or \emph{a priori}, and $\P(A_h|B)$ the {\bf posterior probability of} $A_h$, i.e., after observing $B$ or \emph{a posteriori}. 
+
+This theorem is at the heart of solving Bayesian \emph{Decision Problems} which fall into several sub-problems called \emph{inference}, \emph{learning} and \emph{control} problems.
+Let's see one of the simplest such \emph{learning problems} called \emph{prediction}, more specifically \emph{classification}, where we need to choose between finitely many possible choices based on past information next.
+
+\begin{example}[Wasserman2003~p.12]\label{Wasserman2003p12}
+Suppose Larry divides his email into three categories: $A_1 = \text{``spam''}$, $A_2 =\text{ ``low priority''}$, and $A_3 = \text{ ``high priority''}$.  From previous experience, he finds that $\P(A_1) = 0.7$, $\P(A_2) = 0.2$ and $\P(A_3)=0.1$.  Note that $\P(A_1 \cup A_2 \cup A_3) = \P(\Omega) = 0.7+0.2+0.1 = 1$.  Let $B$ be the event that the email contains the word ``free.''  From previous experience, $\P(B|A_1) = 0.9$, $\P(B|A_2) = 0.01$ and $\P(B|A_3)=0.01$.  Note that $\P(B|A_1) + \P(B|A_2) + \P(B|A_3) = 0.9+0.01+0.01 \neq 1$.  Now, suppose Larry receives an email with the word ``free.''  What is the probability that it is ``spam,'' ``low priority,''  and ``high priority'' ?
+%{\color{Gray}{
+
+Solution:\\[4pt]
+{\scriptsize{
+\[
+\begin{array}{l l l l l}
+\P(A_1 | B) 
+&= \frac{\P(B|A_1)\P(A_1)}{\P(B|A_1)\P(A_1)+\P(B|A_2)\P(A_2)+\P(B|A_3)\P(A_3)} 
+&= \frac{0.9 \times 0.7}{(0.9 \times 0.7)+ (0.01 \times 0.2) + (0.01 \times 0.1)}
+&= \frac{0.63}{0.633}
+&\approxeq 0.995 \\
+\\
+\P(A_2 | B) 
+&= \frac{\P(B|A_2)\P(A_2)}{\P(B|A_1)\P(A_1)+\P(B|A_2)\P(A_2)+\P(B|A_3)\P(A_3)} 
+&= \frac{0.01 \times 0.2}{(0.9 \times 0.7)+ (0.01 \times 0.2) + (0.01 \times 0.1)}
+&= \frac{0.002}{0.633}
+&\approxeq 0.003 \\
+\\
+\P(A_3 | B) 
+&= \frac{\P(B|A_3)\P(A_3)}{\P(B|A_1)\P(A_1)+\P(B|A_2)\P(A_2)+\P(B|A_3)\P(A_3)} 
+&= \frac{0.01 \times 0.1}{(0.9 \times 0.7)+ (0.01 \times 0.2) + (0.01 \times 0.1)}
+&= \frac{0.001}{0.633}
+&\approxeq 0.002 \\
+\end{array}
+\]
+Note that $\P(A_1|B) + \P(A_2|B)+\P(A_3|B) = 0.995+0.003+0.002=1$.
+}}
+%}}
+
+This is essentially the idea behind \emph{Bayes classifiers}, that are used to solve such \emph{prediction} problems across different problem domains in \emph{statistical machine learning}, where solutions are given from computer programs.
+\end{example}
+
+\subsection{Independence and Dependence}\label{S:IndepDep}
+
+In general, $P(A | B)$ and $P(A)$ are different, but sometimes the
+occurrence of $B$ makes no difference, and gives no new information about the
+chances of $A$ occurring.  This is the idea behind independence. Events
+like ``having blue eyes'' and ``having blond hair'' are
+associated due to common genetic ancestry, but  events like ``my neighbour wins Lotto'' and ``I win Lotto'' are not due to the Lotto machine being chaotically whirled around before ejection (as modelled by a well-stirred urn).
+
+\begin{definition}[Independence of two events]\label{D:IndOf2Events}
+ Any two events $A$ and $B$ are said to be {\bf independent} if and only if
+ \begin{equation}\label{E:PofAB=PAPB}
+ \P(A \cap B) = \P(A) \P(B) \ .
+ \end{equation}
+ \end{definition}
+ Let us make sense of this definition in terms of our previous definitions.  When $\P(A)=0$ or $\P(B)=0$, both sides of the above equality are $0$.  If $\P(A) \neq 0$, then rearranging the above equation we get:
+ \[
+ \frac{\P(A \cap B)}{\P(A)} = \P(B) \ .
+ \]
+ But, the LHS is $\P(B|A)$ by \hyperref[E:CPD]{definition \ref*{E:CPD}}, and thus for independent events $A$ and $B$, we get:
+ \[
+ \P(B|A) = \P(B) \ .
+ \]
+This says that information about the occurrence of $A$ does not affect the occurrence of $B$.  If $\P(B) \neq 0$, then an analogous argument:
+{\scriptsize
+\[
+\P(A \cap B) = \P(A) \P(B) \iff \P(B \cap A) = \P(A) \P(B) \iff \frac{\P(B \cap A)}{\P(B)} = \P(A) \iff  \P(A|B) = \P(A) \ ,
+\]
+}
+says that information about the occurrence of $B$ does not affect the occurrence of $A$.  Therefore, the probability of their joint occurence $\P(A \cap B)$ is simply the product of their individual probabilities $\P(A) \P(B)$.
+
+\begin{definition}[Independence of a sequence of events]\label{D:IndOfSeqOfEvents}
+We say that a finite or infinite sequence of events $A_1,A_2,\ldots$ are independent if whenever $i_1,i_2,\ldots,i_k$ are distinct elements from the set of indices $\Nz$, such that $A_{i_1},A_{i_2},\ldots,A_{i_k}$ are defined (elements of $\C{F}$), then
+\[
+\P(A_{i_1} \cap A_{i_2} \ldots \cap A_{i_k})  =  \P(A_{i_1} ) \P(A_{i_2})  \cdots \P(A_{i_k}) 
+\]
+\end{definition}
+
+\begin{example}[Some Standard Examples]\label{EX:SStsExs}
+A sequence of events in a sequence of independent trials is independent.
+\be
+
+\item[(a)] Suppose you toss a fair coin twice such that the first toss is independent of the second.  Then,
+$$
+\P(\mathsf{Heads} \text{ on the first toss} \cap \mathsf{Tails} \text{ on the second toss} ) = \P(\mathsf{H}) \P(\mathsf{T}) = \frac{1}{2} \times \frac{1}{2}= \frac{1}{4} \enspace .
+$$
+
+\item[(b)] Suppose you independently toss a fair die three times.  Let $E_i$ be the event that the outcome is an even number on the $i$-th trial.  The probability of getting an even number in all three trials is:
+\begin{eqnarray*}
+\P(E_1 \cap E_2 \cap E_3)
+&=& \P(E_1) \P(E_2) \P(E_3)\\
+&=& \left(\P(\{\mathsf{2,4,6}\})\right)^3\\
+&=& \left(\P(\{\mathsf{2}\} \cup \{\mathsf{4}\} \cup \{\mathsf{6}\}) \right)^3 \\
+&=& \left(\P(\{\mathsf{2}\}) + \P(\{\mathsf{4}\}) + \P(\{\mathsf{6}\})\right)^3\\
+&=& \left(\frac{1}{6} + \frac{1}{6} + \frac{1}{6} \right)^3 
+= \left(\frac{1}{2} \right)^3
+= \frac{1}{8} \enspace .
+\end{eqnarray*}
+%This is an obvious answer but there is a lot of maths going on here!
+
+\item[(c)]Suppose you toss a fair coin independently $m$ times.  Then each of the $2^m$ possible outcomes in the sample space $\Omega$ has equal probability of $\frac{1}{2^m}$ due to independence.
+\ee
+\end{example}
+
+\begin{example}[dependence and independence]\label{EX:depAndindep} 
+Suppose we toss two fair dice.  
+Let $A$ denote the event that the sum of the dice is six and $B$ denote the event that the first die equals four.  The sample space encoding the thirty six ordered pairs of outcomes for the two dice is $\Omega = \{ (1,1), (1,2), \ldots, (1,6), (2,1), \ldots, (2,6), \ldots, (5,6), (6,6)\}$ and due to independence $\P(\omega)=1/36$ for each $\omega\in\Omega$.  
+Then 
+\[
+\P(A \cap B)  = \P (\{(4,2)\}) = \frac{1}{36} \enspace ,
+\]
+but
+\begin{eqnarray*}
+\P(A)\P(B) 
+&=& \P (\{(1,5),(2,4),(3,3),(4,2),(5,1)\}) \P( \{ (4,1),(4,2),(4,3),(4,4),(4,5),(4,6) \}) \\
+&=& \frac{5}{36}\times \frac{6}{36} = \frac{5}{36}\times\frac{1}{6} = \frac{5}{216} \enspace ,
+\end{eqnarray*}
+and therefore $A$ and $B$ are not independent.  
+The reason for the events $A$ and $B$ being dependent is clear because the chance of getting a total of six depends on the outcome of the first die (not being six).
+
+Now, let $C$ be the event that the sum of the two dice equals seven.  
+Then
+\[
+\P(C \cap B)  = \P (\{(4,3)\}) = \frac{1}{36} \enspace ,
+\]
+while
+\begin{eqnarray*}
+\P(C \cap B)  
+&=& \P (\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}) \P( \{ (4,1),(4,2),(4,3),(4,4),(4,5),(4,6) \})\\
+&=& \frac{6}{36}\times\frac{6}{36}= \frac{1}{36} \enspace ,
+\end{eqnarray*}
+and therefore $C$ and $B$ are independent events.  Once again this is clear because the chance of getting a total of seven does not depend any more on the outcome of the first die (it is allowed to be any one of the six possible outcomes). 
+\end{example}
+
+
+\begin{example}[Pairwise independent events that are not jointly independent]\label{EX:2indButNotMutind}
+Let a ball be drawn from an well-stirred urn containing four balls labelled 1,2,3,4.  
+Consider the events $A = \{1,2\}$, $B=\{1,3\}$ and $C=\{1,4\}$.  
+Then,
+\begin{eqnarray*}
+\P(A \cap B) &=& \P(A)\P(B) = \frac{2}{4}\times\frac{2}{4} = \frac{1}{4},\\
+\P(A \cap C) &=& \P(A)\P(C) = \frac{2}{4}\times\frac{2}{4} = \frac{1}{4},\\
+\P(B \cap C) &=& \P(B)\P(C) = \frac{2}{4}\times\frac{2}{4} = \frac{1}{4},
+\end{eqnarray*}
+but,
+\[
+\frac{1}{4} = \P(\{1\}) = \P (A \cap B \cap C) \neq \P(A)\P(B)\P(C) = \frac{2}{4}\times\frac{2}{4}\times\frac{2}{4}=\frac{1}{8} \enspace .
+\]
+Therefore, inspite of being pairwise independent, the events $A$, $B$ and $C$ are not jointly independent.
+\end{example}
+
+\begin{framed}
+CONDITIONAL PROBABILITY SUMMARY\\
+
+$\P(A|B)$ means the probability that $A$ occurs given that $B$ has
+occurred.
+
+$$\P(A|B)\;=\;\frac{\P(A\cap B)}{\P(B)}\;=\;\frac{\P(A)\P(B|A)}{\P(B)}\quad \textrm{if}\quad \P(B)\neq0$$
+
+$$\P(B|A)\;=\;\frac{\P(A\cap B)}{\P(A)}\;=\;\frac{\P(B)\P(A|B)}{\P(A)}\quad \textrm{if}\quad \P(A)\neq 0$$
+
+Conditional probabilities obey the axioms and rules of probability.
+\end{framed}
+
+\input{ExsInConditionalProbability.tex}

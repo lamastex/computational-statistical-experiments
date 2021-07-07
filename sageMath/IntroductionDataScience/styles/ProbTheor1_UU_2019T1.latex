@@ -1,0 +1,138 @@
+
+\begin{table}[htpb]
+\centering
+\begin{tabular*}{5.0in}{@{\extracolsep{\fill}}|llr|} \hline
+%STAT 218 & \hspace*{0.5 in} & Semester 2, 2007 \\ 
+Course Code: 1MS034 & \hspace*{0.5 in} & Semester: Autumn 2019 \\
+
+Report Code: 10504 & & week: 36 -- 44\\
+33\%, DAG, NML  & $\overset{{\text{work}}}{\Longrightarrow}$ & $12 = \lfloor{\frac{33}{100} 37.5}\rfloor$ hours / week\\
+Uppsala University & & 2019-09-02 -- 2019-11-03  \\
+ & & \\
+\multicolumn{3}{|c|}{{\bf Probability Theory I, 5.0 c}} \\
+%\multicolumn{3}{|c|}{{\bf Inference Theory I, 5.0 c}} \\
+\multicolumn{3}{|c|}{
+{Course Syllabus: Friday, 04th of October 2019}} \\
+%\multicolumn{3}{|c|}{
+%%{Revised Syllabus: Tuesday, 25th September, 2007 
+%%(See \S~\ref*{S:RevisedSyllabus})
+%%}
+%}\\
+% & & \\
+\multicolumn{3}{|r|}{Course Coordinator: Raazesh Sainudiin} \\ \hline
+\end{tabular*}
+\end{table}
+
+\section*{Official Course Syllabus}\label{S:AboutCourse}
+
+See \url{https://www.uu.se/en/admissions/master/selma/kursplan/?kpid=38971&type=1}.
+
+{\bf LEARNING OUTCOMES}\\
+On completion of the course, the student should be able to
+\begin{itemize}
+\item account for the axiomatic basis of the probability theory;
+\item carry out probability calculations by means of combinatorial principles and be able to use methods for independent events;
+\item account for the concepts of stochastic variable and expectation and be able to calculate probabilities, expectations and variance for given distributions;
+\item account for the most common probability distributions and how to do simulations with them;
+\item handle conditioned probabilities, distributions and expectations as well as moment generating and characteristic functions;
+\item apply the law of large numbers and the central limit theorem;
+\item account for probabilistic models within different application fields.
+\end{itemize}
+
+{\bf CONTENT}\\
+Combinatorics. The probability concept. Calculation of probabilities. Stochastic variable. Probability distributions. Independent and conditioned distributions. Expectation and variance. Conditioned expectations. Moment generating function. The central limit theorem. The law of large numbers. Practical examples of design of probability models.
+
+{\bf ASSESSMENT}\\
+Written examination at the end of the course combined with written assignments during the course according to instructions delivered at course start.
+
+
+\clearpage
+
+\section*{Time Table -- Prob.~Theor.~I}
+\begin{table}[hbt]
+\addcontentsline{toc}{chapter}{1MS034 Time Table}
+\centering
+(KEY,VALUE): (EX, Exercise), (RD, Read), (RW, Review), (UD, Understand), (PM, Program)
+\caption{Time Table for Virtual Student of Probability Theory I} \label{T:TTCB}
+{\scriptsize
+ %\begin{tabular*}{4.5in}{@{\extracolsep{\fill}}|ll||l|l|l|}
+ \begin{tabular}{|ll|l|l|l|}%|l|l|l|l|}
+ \hline
+Lec.& Lab.& Week & Topics & Comprehension $\mapsto$ Action $\times$ Content \\ 
+ \hline
+01 & &36& Preliminaries: Set Theory, Numbers, Functions ,\ldots & RW Sec.~\ref{S:SetTheory},\ref{S:NatIntRatNumbers},\ref{S:Reals} \\
+   & &  &                                                       & EX~\ref{xSets}; RW Table.~\ref{T:SymbTableSets} \\
+   & &  & \qquad Elementary Combinatorics \& Number Theory & RD~\ref{S:PermsFactsCombs}; UD~\ref{EX:unrestrictedPIN},\ref{EX:restrictedPIN}; EX~\ref{xChoose3of50}; RD~\ref{S:ElemNumTh}\\
+   &*&  &  \qquad [optional] Introduction to {\sc Matlab}  & PM~\ref{LW:IntroMatlab},\ref{LW:Seqs},\ref{LW:VecsMats},\ref{LW:2Dplot},\ref{LW:FloorCeil} \\ 
+02 & &  & Probability & RD~\ref{S:Experiments},\ref{S:Probability}; EXs~\ref{S:xsProbability}  \\ 
+03 & &  & Probability and Conditional Probability &  RD~\ref{S:Probability},\ref{S:CondProb}; UD~\ref{EX:Wasserman03p11}  \\
+\hline
+04 & &37& Conditional Probability \& Bayes Theorem  & RD~\ref{S:BayesTheorem}; UD~\ref{EXmammogram},\ref{EX:urnRedBlackBalls},\ref{Wasserman2003p12}; RD~\ref{S:IndepDep}  \\
+   & &  & Conditional Probability \& Independence & RD~\ref{S:IndepDep}; UD~\ref{EX:SStsExs},\ref{EX:depAndindep},\ref{EX:2indButNotMutind}; EXs~\ref{S:xsCondProb}  \\
+05 & &  &  Random variables & RD~\ref{S:RVBasicDefs}; EX~\ref{drawDiscontFuncs}; UD~\ref{M:IndicatorIsaRV},\ref{CW:ARVwith3Values}i, EX~\ref{xFairCoinRV}\\ % Stats ch \ref{LW:XsFromUni01Twstr101mean} \\ 
+06 & &  &  Discrete Random variables and IID $\bernoulli$ Trials & RD~\ref{S:RVBasicDefs}, \ref{S:ElemDiscRV}, \ref{S:SomeCommonDiscreteRVs} \\
+   & & &  Common Discrete Random variables & RD~\ref{S:SomeCommonDiscreteRVs}; UD~\ref{Ex:WaitinfFor1stHeads}; UD~\ref{M:GeomRV} ;EX~\ref{xCouponCollPr};\\
+\hline
+07 & &38&  Common Discrete Random variables & UD~\ref{Exmp:Flip10times}, \ref{M:binomial}, \ref{Eg:70f10recover}, \ref{Eg:alteast2_6s}, \ref{M:Poisson}, \ref{eqn:poi_cars}, \ref{Eg:serviceStation}, \ref{Eg:still-born}\\ 
+   & & &  Common Discrete Random variables & EX~\ref{xbombsOnLondon} \& EXs~\ref{S:xsDiscreteRVs};\\ 
+08  & & & Continuous RVs & RD~\ref{S:ContRVs}; UD~\ref{EgTimeStudentLeaves}, \ref{EgPdf3xsqon01}, \ref{EgPdfSinxon0piover2}, RD~\ref{S:ElemContRV}\\
+    & & & Common Continuous RVs & RD~\ref{S:CommonContRV}; UD~\ref{EgPdfeToTheminusx}, \ref{darkDesHWWaitingTime}; EX~\ref{xmemorylessnessOfExponentialLambdaRV}, \ref{xPDFHeightOfUniformOn2_6}\\
+    & & & Common Continuous RVs & EX~\ref{xDrawPDFOfStdNormal}, \ref{xDrawDFOfStdNormal}; UD~\ref{Eg:UsingNormalTables}; EXs~\ref{S:xsContinuousRVs} \\
+09  & & & Transformations of RVs -- Discrete  & RD~\ref{S:TransformationsOFRvs}; UD~\ref{EgProfitOn5With500cost}, \ref{EgSignal2NoiseInDecibels10TimeslogBase10OfX}; RW~\ref{S:RWInverseImages}\\
+\hline
+10   & &39& Transformations of RVs -- Discrete  & RD~\ref{TransformationsOFDiscreteRvs}, UD~\ref{EXMP:Discrete1to1TransYis2X}, \ref{EXMP:Discrete1to1TransYis2Xplus1}, \ref{Eg:DiscreteManyTo1TransYisXSquared}\\
+     & & & Transformations of RVs -- Continuous (1-to-1 \& monotone) & RD~\ref{S:TransformationsOFContinuousRvs}; UD~\ref{Ex:1-UisU},~\ref{Eg:Expontial1IsMinusLogOfUniform01}, \ref{Eg:LinearTransfStdGaussianGaussian}, \ref{EgGaussianProbLocScaleFromTableMremsInFlight}\\
+    & & & Transformations of RVs -- Continuous (Direct method) & RD~\ref{S:DirectMethod}; UD~\ref{Exm:DirectMethodforYisXSquared}, \ref{Eg:SquaredStdNormalIsChiSquared}; EXs~\ref{S:xsTransformationsOfRVs}\\
+11  & & & Expectations & RD~\ref{S:Expectations}, \ref{S:ExpectationsOfFunsOfRVs}; 
+UD~\ref{EgWinningsOnAverage}, \ref{EgProbIsAnExpectation}, \ref{EgMeanAndVarOfBernoulli}, \ref{EgMeanAndVarOfUnif01}, \ref{EgExpectedExponentialOfUniform01};\\
+    & & &              &  EX~\ref{xMeanAndVarOfUniformab}; UD~\ref{EgmeanAndVarOfExponential}, \ref{EgmeanAndVarOfGeometric}, \ref{EgMeanAndVarOfBinomial}, \ref{EgMeanAndVarOfPoisson}; EXs~\ref{S:xsExpectationsOfRVs}\\
+\hline
+12  & &40& Multivariate Random Variables & RD~\ref{S:RVecs}; UD~\ref{Eg:Discrete2DPMF}, \ref{Eg:Unif2DPDFandCDF}, \ref{Eg:PlotPDF2ServerTimes}, \ref{EgGetMarginalFromJointDiscrete}, \\
+    & &  &                   & UD~\ref{EgGetMarginalFromJointContUnif2DPDFandCDF}, \ref{EgGetMarginalFromJointContServerTimes}, \ref{EgIndepPairOfBernoulis}, \ref{EgShowIndepUnifDensityOnUnitSquare}, \ref{EgDistBetweenFaultsOnLine}, \ref{EgBuffonsNeedle}\\
+13  & &  & &  RD~\ref{S:CondRVs}, \ref{S:Rm-valuedRVs}; UD~\ref{EgCovOf2IndepRVs}, \ref{EgLinCombOfNormals}\\
+    & &  & Common $\Rz^m$-valued RVs & RD~\ref{S:SomeCommonRmValuedRVs}; UD~\ref{EgVectorArithmetic}, \ref{EgExpectationOfBernoulliRVector};\\
+    & &  &                           & EX~\ref{xRWsinIQ}, \ref{xRWsinIQAndQunicux}, EXs~\ref{S:xsMultivariateRVs}\\
+14  & &  & Characteristic Functions & RD~\ref{S:CF}; UD~\ref{EgCFOfBernoulli}, \ref{EgCFOfExponential}, \ref{EgCFOfNormalMuSigma}, \ref{EgCFOfBinomial}, \ref{EgCFOfSumOf2IndepNormals};\\
+    & &  &  & EXs~\ref{S:xsCFs}; [non-examinable] UD~\ref{EX:FlippantFreddy}, \ref{EX:DryWetChain}\\
+\hline
+15  & & 41& Statistics \& Random Number Generation &  RD~\ref{S:Statistics}, \ref{S:RNGIntro}, \ref{S:nonUniformRVG}\\
+16  & &   & Statistics                             & EXs~\ref{S:xsStatistics} \\
+17  & &   & Simulation -- Inversion \& Rejection Samplers & EXs~\ref{S:xsSimulation} \\
+\hline
+18  & & 42& Convergence of RVs \& Limit Laws & RD~\ref{S:ConvOfRVs}, UD~\ref{CW:Normal01bynConvToPointMass0}, \ref{EX:Normal01bynConvinDistToPointMass0}, \ref{EgBinomialConvergesInDistToPoisson}, \ref{EX:Normal01bynConvinProbToPointMass0}\\
+19  & &   & Basic Inequalities \& Law of Large Numbers & UD~\ref{EgBernoulliWLLN}, \ref{Eg:LLNExponential}, \ref{Eg:LLNBernoulli}; EX~\ref{xSumOFUnifminu1To1DividedBySqrtn}\\
+    & &   & Law of Large Numbers \& Central Limit Theorem via CFs & UD~\ref{EgProbOfErrorInMeanEstimateFromKnownVar}, \ref{EgHowLargeASampleSizeToEstimateMeanWithinTOL}, \ref{EgExponentialCIOfMeanWaitingTimesWithSampleMeanAndVar}, \ref{EgBernoulliCIWithSampleMeanAndVar}; EXs~\ref{S:xsLimitLaws}\\
+20  & &   & Model exam with live-scribed solutions& \\
+\hline
+\remove{
+EXs~\ref{Exs:onRV}
+{S:xsLimitLaws} {S:xsCFs}  {S:xsMultivariateRVs}
+
+
+
+ 6 & & & Random variables, Expectations \& RNG &  \ref{S:ElemContRV}, \ref{S:Expectations}, \ref{S:RNGIntro}, \ref{S:RNGMatlab} \\
+   & & & Statistics \& Visualisation &  \ref{LW:XsFromUni01Twstr101varstd}, \ref{LW:SortedXsFromUni01Twstr101}, \ref{LW:ECDF},  \ref{LW:qthSampleQuantile}, \ref{LW:hist}, \ref{LW:StemEcdf}, \ref{LW:2DScatter}, \ref{LW:3DScatter} \\ \hline
+
+ 7 & & & IID RVs, Statistics, Common RVs & \ref{S:StochProc}, \ref{S:DataStats}, \ref{S:ExploringData}, \ref{S:InvS}, \ref{S:InvSContinuousRVs} \\
+ 8 & & & Common RVs \& Simulation  & \ref{S:InvS}, \ref{S:InvSContinuousRVs} \\ 
+   & & & Simulation of RVs   & Sims: \ref{SIM:Uniformab}, \ref{SIM:Exponential}, \ref{SIM:Laplace}, \ref{SIM:StdCauchy}  \& LWs: \ref{LW:Next7Buses}, \ref{LW:RunningMeanCauchy} \\ \hline
+          
+ 9  & & & Common RVs \& Simulation & \ref{S:InvSContinuousRVs}, \ref{S:InvSDiscrete}, \ref{S:InvSDiscreteRVs} \\
+ 10 & & & Common RV, \rv~\& Simulation & \ref{S:InvSDiscreteRVs}, \ref{S:Quincunx}, \ref{S:RVecs} \\
+    & & & Implementation  & Sims: \ref{SIM:NormalByNewRap}, \ref{SIM:Bernoulli}, \ref{SIM:PointMass}, \ref{SIM:deMoivreEqui}, \ref{SIM:deMoivre}, \ref{SIM:Geometric}, \ref{SIM:BinomialFromBernoulliSum}, \ref{SIM:BinomialFromGeoms} \\
+   & & & &       LWs: \ref{LW:NormalIntervalProb}, \ref{LW:CLTOfExponentials}, \ref{LW:RelFreqHistForGeomSims}, \ref{LW:BinomialPdf} \\ \hline
+          
+ 11 & & &  Common RV, \rv~\& Simulation &  \ref{S:InvSDiscreteRVs}, \ref{S:Quincunx}, \ref{S:RVecs} \\
+ 12 & & & Rejection Sampling, Other RVs and \rv s \& Experiments &  \ref{S:RS}, \ref{S:OtherContRVs}, \ref{S:OtherRVecs}, \ref{S:SummaryRVs}, \ref{S:StatExps} \\ 
+    & & & Simulation  & Sims: \ref{SIM:Poisson}, \ref{SIM:Multinomial}, \ref{SIM:Normal01FromLaplace}, \ref{SIM:Gamma} \& LWs: \ref{LW:MultinomialPdf}, \ref{LW:randn} \\ \hline 
+         
+ 13 & & & Limits of RVs \& Limit Laws in Statistics  &  \ref{S:ConvOfRVs}, \ref{S:LimitLawsStats}  \\
+ 14 & & &  Limit Laws in Statistics \& Point Estimation & \ref{S:LimitLawsStats}, \ref{S:PointEstimation} \\
+    & & & Point Estimation  & LWs: \ref{LW:1000CoinTossingExp}, \ref{LW:BernoulliMLE}\\ \hline \hline%2 week break
+}
+ \end{tabular}
+ } \\
+\end{table}
+
+%\clearpage
+

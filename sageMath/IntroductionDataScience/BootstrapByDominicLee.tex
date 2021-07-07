@@ -1,0 +1,764 @@
+%% Dominic's material
+%\chapter{Bootstrap}
+%WORK fuse with earlier material
+%\comment{
+
+\section{Empirical distribution function}
+\work
+
+%\subsection{\define} 
+Let $x_1,\ldots,x_n$ be a random sample of size $n$. The {\it empirical distribution function} (EDF) of $x_1,\ldots,x_n$ is, for any real number $t$:
+\begin{equation}
+\hat{F}_n(t)=\frac{|\{x_i:x_i\leq t\}|}{n}=\frac{1}{n}\sum^n_{i=1}I_{(-\infty,t]}(x_i),
+\end{equation}
+
+i.e. the proportion of sample points that are less than or equal to $t$.
+%\begin{flushright}   $\boxbox$ \end{flushright}
+
+Note that the EDF takes values between 0 and 1. Note also that if the sample comes from a continuous distribution, then the EDF takes a step of $1/n$ at each sample value; if the sample comes from a discrete distribution, the EDF may take steps that are multiples of $1/n$ at distinct sample values.
+
+%\subsection{\define}
+Let $x_1^*,\ldots,x_n^*$ be the distinct points in $x_1,\ldots,x_n$, so that $m \leq n$, and let:
+\begin{equation}
+c_=|\{x_i:x_i=x_j^* \}|=\sum^n_{i=1}I_{(x_j^*)}(x_i),
+\end{equation}
+i.e. $c_j$ is the number of sample values that are equal to $x^*_j$. The EDF can also be regarded as a discrete distribution that assigns a probability mass of $1/n$ to each of the observations, $x_1,\ldots,x_n$, i.e. with an {\it empirical mass function} (EMF):
+\begin{equation}
+\hat{f}_n(x)=\frac{1}{n}\sum^m_{j=1}c_jI_{(x^*_j)}(x)=\begin{array}{l}
+c_j/n,\textrm{    if }x=x^*_j,\\0,\textrm{    otherwise.}\\
+\end{array}
+\end{equation}
+ 
+If the sample values are continuous, then $m = n$ and $c_1=\ldots=c_n=1$.
+%\begin{flushright}   $\boxbox$ \end{flushright}
+
+\begin{example}
+{\it Continuous data.}
+Suppose the observed values of 10 continuous random variables, arranged in increasing order, are:
+$$\begin{array}{ccccc}
+ 1.5937     &   1.4410 &       1.3362&        0.6918 &      0.2944\\
+0.5711	   &    0.7143&        0.8580&        1.2540  &      1.6236\\
+\end{array}$$
+
+%\includegraphics
+%\includegraphics
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{example}
+
+\begin{example}
+{\it Discrete data.}
+Suppose the observed values of 10 discrete random variables, arranged in increasing order, are
+$$\begin{array}{cccccccccc}
+1 &    2&     2&     2&     2  &   2&     3&     4  &   5 &    5
+\end{array}$$
+%\includegraphics
+%\includegraphics
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{example}
+
+The EDF is an estimator for the distribution function and can therefore be used as a model for the distribution function. The EDF is a {\it nonparametric} model because its parameters are the sample points, $x_1,\ldots,x_n$, and so the number of parameters increases as the sample size increases. The following two results show why the EDF is a good estimator for the distribution function.
+
+\begin{prop}
+For any real number $t$:
+\begin{equation}
+E[\hat{F}_n(t)]=F(t),
+\end{equation}
+and:
+\begin{equation}
+Var[\hat{F}_n(t)]=\frac{F(t)[1-F(t)]}{n},
+\end{equation}
+
+and therefore $\hat{F}_n(t)$ is an unbiased and consistent estimator of $F(t)$.
+
+\begin{proof}
+Consider a fixed real number $t$. By definition:
+$$\hat{F}_n(t)=\frac{1}{n}\sum^n_{i=1}I_{(-\infty,t]}(x_i).$$
+
+The result follows by noting that $I_{(-\infty,t]}(x_i)$ is a Bernoulli random variable with parameter (\textquotedblleft success" probability):
+$$P[I_{(\infty,t]}(x_i)=1]=P(x_i\leq t)=F(t),$$
+since $x_i$ has distribution function $F$.
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{proof}
+\end{prop}
+
+\begin{prop}[Glivenko-Cantelli theorem]
+For any real number $t$, $\hat{F}_n(t)$ converges almost certainly (i.e. with a probability of 1) and uniformly to $F(t)$, i.e.:
+\begin{equation}
+P(\lim_{n\rightarrow\infty}\sup_t|\hat{F}_n(t)-F(t)|=0)=1.
+\end{equation}
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{prop}
+
+The Glivenko-Cantelli theorem says that the largest absolute difference between $\hat{F}_x$ and $F$ converges to 0 as $n$ goes to infinity, with a probability of 1.
+
+The next result allows us to construct a confidence band for the EDF.
+
+\begin{prop}[Dvoretzky-Kiefer-Wolfowitz inequality]
+For any  $\epsilon > 0$:
+\begin{equation}
+P(\sup_t|\hat{F}_n(t)-F(t)|>\epsilon)\leq 2 \exp(-2n\epsilon^2).
+\end{equation}
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{prop}
+
+For $\alpha\in (0, 1), a (1-\alpha)$ confidence band for $F$ should contain $F$ with probability of at least $(1-\alpha)$. In other words, the probability of $F$ being outside the band is at most $\alpha$. Hence, the bound in the Dvoretzky-Kiefer-Wolfowitz inequality should be $\alpha$:
+\begin{equation}
+2\exp(-2n\epsilon^2)=\alpha\Leftrightarrow \epsilon=\sqrt{\frac{1}{2n}\ln(\frac{2}{\alpha})},
+\end{equation}
+i.e.:
+$$P(\sup_t|\hat{F}_n(t)-F(t)|>\sqrt{\frac{1}{2n}\ln(\frac{2}{\alpha})})\leq\alpha,$$
+or, for all $t$:
+$$P(\max\{\hat{F}_n(t)-\sqrt{\frac{1}{2n}\ln(\frac{2}{\alpha})},0\}\leq F(t)\leq\min\{\hat{F}_n(t)+\sqrt{\frac{1}{2n}\ln(\frac{2}{\alpha})},1\}).$$
+Therefore, a $(1-\alpha )$ confidence band for $F$ is:
+\begin{equation}
+[\max\{\hat{F}_n(t)-\sqrt{\frac{1}{2n}\ln(\frac{2}{\alpha})},0\},\min\{ \hat{F}_n(t)+\sqrt{\frac{1}{2n}\ln(\frac{2}{\alpha})} \}].
+\end{equation}
+
+\begin{example}
+Referring to Example 4.1.3 where $n = 10$, a 0.95 confidence band for $F$ is given by:
+\begin{displaymath}\begin{split}
+&[\max\{\hat{F}_10(t)-\sqrt{\frac{\ln 40}{20}},0\},\min\{\hat{F}_10(t)+\sqrt{\frac{\ln 40}{20}}\}]\\
+=&[\max\{\hat{F}_10(t)-0.4295,0\},\min\{\hat{F}_10(t)+0.4295\}]\\
+\end{split}\end{displaymath}
+The function edfplot, which is available from the course web-page, produced the figure below:
+%\includegraphics
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{example}
+
+\section{Nonparametric bootstrap}
+\work
+Let $x_1,\ldots,x_n$ be a random sample and suppose that we wish to estimate an unknown quantity, $\theta$, using an estimator $\hat{\theta}$ that is based on $x_1,\ldots,x_n$. The performance of $\hat{\theta}$ as an estimator for $\theta$ can be assessed by its {\it bias, variance} and {\it mean squared error}.
+
+%\subsection{{\it Definitions}}
+\begin{asparaenum}[(a)]
+\item The {\it bias} of $\hat{\theta}$ is:
+\begin{equation}
+Bias(\hat{\theta})=E(\hat{\theta})-\theta.
+\end{equation}
+
+\item The {\it variance} of $\hat{\theta}$ is:
+\begin{equation}
+Var(\hat{\theta})=E[(\hat{\theta}-E(\hat{\theta}))^2]=E(\hat{\theta}^2)-E(\hat{\theta})^2.
+\end{equation}
+
+
+\item The {\it mean squared error (MSE)} of $\hat{\theta}$ is:
+\begin{equation}
+MSE(\hat{\theta})=E[(\hat{\theta}-\theta)^2]=Var(\hat{\theta})+Bias(\hat{\theta})^2.
+\end{equation}
+\end{asparaenum}
+%\begin{flushright}   $\boxbox$ \end{flushright}
+When the distribution of $x_1,\ldots,x_n$ is known, one way to estimate the MSE of $\hat{\theta}$ is to use Monte Carlo simulation to generate $N$ new random samples, each of size $n$, from which $N$ new estimates of $\theta$ can be obtained:
+\begin{displaymath}
+\begin{split}
+\textrm{original sample :}\{x_1,\ldots,x_n\}&\rightarrow\hat{\theta}\\
+\textrm{generated samples :}\{x_{1,1},\ldots&,x_{1,n}\}\rightarrow\hat{\theta}_1\\
+M&\\
+\{x_{N,1},\ldots&,x_{N,n}\}\rightarrow\hat{\theta}_N.\\
+\end{split}
+\end{displaymath}
+Here, $x_{j,i}$ denotes the $i^{\textrm{th}}$ value in the $j^{\textrm{th}}$ sample. An estimate of $MSE(\hat{\theta})$ is given by:
+\begin{equation}
+MES(\hat{\theta})\approx\frac{1}{N}\sum^N_{j=1}(\hat{\theta}_j-\hat{\theta})^2.
+\end{equation}
+
+Furthermore, if $N$ is large, an approximate $(1-\alpha)$ confidence interval for $\theta$ is given by $(\hat{\theta}_{(\lceil N\alpha/2\rceil)},\hat{\theta}_{(\lceil N(1-\alpha/2)\rceil)})$. For example, if $N = 1000$, then an approximate 0.95 confidence interval is $(\hat{\theta}_{(25)},\hat{\theta}_{(975)})$.
+
+If the distribution of $x_1,\ldots,x_n$ is unknown, the idea behind the {\it nonparametric bootstrap} is to use the EDF as an estimate of $F$, and then perform Monte Carlo simulation with $\hat{F}_n$ to estimate the MSE and to get approximate confidence intervals.
+
+\subsection{Bootstrap estimates of bias, variance and mean squared error}
+\work
+Recall that the EDF can be regarded as a discrete distribution that assigns a probability mass of $1/n$ to each of the observations, $x_1,\ldots,x_n$. Thus, using $\hat{F}_n$ as an estimate of $F$, a random sample can be generated from $\hat{F}_n$ by {\it randomly sampling with replacement} from $x_1,\ldots,x_n$. A random sample of size n obtained in this way is called a {\it bootstrap sample}. The MSE of an estimator $\hat{\theta}$ can be obtained as follows:
+\begin{asparaenum}[(a)]
+\item Compute $\hat{\theta}$ using $x_1,\ldots,x_n$.
+
+\item Obtain $N$ bootstrap samples, each of size $n$, by randomly sampling with replacement from $x_1,\ldots,x_n$: $\{x_{1,1},\ldots,x_{1,n}\},\{x_{2,1},\ldots,x_{2,n}\},\ldots,\{x_{N,1},\ldots,x_{N,n}\}$.
+
+\item	For each bootstrap sample, compute the {\it bootstrap estimate} of $\theta$:
+\begin{displaymath}
+\begin{split}
+\{x_{1,1},\ldots&,x_{1,n}\}\rightarrow\hat{\theta}_1\\
+M&\\
+\{x_{N,1},\ldots&,x_{N,n}\}\rightarrow\hat{\theta}_N.\\
+\end{split}
+\end{displaymath}
+  
+\item	Compute the mean of the bootstrap estimates:
+\begin{equation}
+\bar{\hat{\theta}}=\frac{1}{N}\sum^N_{j=1}\hat{\theta}_j.
+\end{equation}
+\item	Estimate the bias, variance and MSE by:
+
+\begin{equation}
+Bias(\hat{\theta})\approx \bar{\hat{\theta}}-\hat{\theta},
+\end{equation}
+\begin{equation}
+Var(\hat{\theta})\approx \frac{1}{N}\sum^N_{j=1}(\hat{\theta}_j-\bar{\hat{\theta}})^2,
+MSE(\hat{\theta})\approx \frac{1}{N}\sum^N_{j=1}(\hat{\theta}_j-\bar{\hat{\theta}})^2.
+\end{equation}
+
+
+\end{asparaenum}
+%\begin{flushright}   $\boxbox$ \end{flushright}
+
+\begin{labwork}
+The table below contains the number, rounded to the nearest thousand, of open-close cycles of 20 door latches before they fail. Find the bias, variance and MSE of the sample mean.
+
+\begin{table}[h]
+%\caption{Number of open-close cycles until latch failure (thousands).}
+$$\begin{array}{|cccccccccc|}
+\multicolumn{10}{|c|}{\textrm{Sample mean} = 38.65}\\\hline
+7	&11&	15&	16&	20&	22&	24&	25&	29&	33\\
+34	&37	&41	&42	&49	&57	&66	&71	&84	&90\\\hline
+\end{array}$$
+\end{table}
+
+\begin{table}[h]
+%\caption{Bootstrap samples and sample means.}
+$$\begin{array}{|c|cccccccccc|c|}
+\multicolumn{1}{|c|}{j}&\multicolumn{10}{|c|}{j^{\textrm{th}} \textrm{bootstrap sample}} &\multicolumn{1}{|c|}{ \hat{\theta}_j}\\ \hline
+1	&22 & 57 & 42&  16 & 24 & 11 & 20&   7 & 41&  90&\\
+&90  &16 & 66 & 25 & 90 & 66 & 25&  24 & 84 & 66	&44.1\\
+&&&&&&&&&&&\\		
+2	&90 & 37 & 15 & 84 & 29 & 57  &57 & 57&  11 & 49&\\
+&41&  57 & 84  &71 & 37 & 20 & 29&  84&   7 & 15	&46.6\\
+		&&&&&&&&&&&\\	
+3	&49 & 84&  29 & 41 & 57 & 11 & 49 & 42  &90 & 34&\\
+&71&  33&  41 & 84 & 49 & 66 & 20 & 20 & 29 & 15&	45.7\\
+&&&&&&&&&&&\\	
+M&&&&&&M&&&&&M\\	
+&&&&&&&&&&&\\\hline
+\end{array}$$
+\end{table}
+
+%\Matlab code:
+\begin{VrbM}
+x = load('latch.txt') % load data from text file and store in x
+n = length(x); % determine number of data values
+N = 100000; % number of bootstrap samples
+nN = n * N;
+xmean = mean(x) % mean of original data
+xboot = randsample(x,nN,true); % sample with replacement nN values from x
+xboot = reshape(xboot,n,N); % organise resampled values into N columns of n
+                                              % values each so that each column is a bootstrap
+                                              % sample of size n
+xbootmean = mean(xboot); % means of bootstrap samples
+bmean = mean(xbootmean); % mean of bootstrap means
+bias = bmean - xmean
+variance = mean((xbootmean - bmean).^2)
+mse = variance + bias * bias
+\end{VrbM}
+Results:
+\begin{VrbM}
+xmean = 38.6500
+bias = 0.0308
+variance = 27.3295
+mse = 27.3304
+\end{VrbM}
+ %\begin{flushright}   $\boxbox$ \end{flushright}
+\end{labwork}
+
+\subsection{Percentile interval} 
+\work
+Let $\hat{\theta}_1,\ldots,\hat{\theta}_N$ be the bootstrap estimates of $\theta$ from $N$ bootstrap samples. An approximate $1-\alpha$ confidence interval for $\theta$, known as a $1-\alpha$ percentile interval, is given by $(\hat{\theta}_{(\lceil N\alpha/2\rceil)},\hat{\theta}_{(\lceil N(1-\alpha/2)\rceil)})$.
+%\begin{flushright}   $\boxbox$ \end{flushright}
+
+\begin{labwork}
+ The sodium contents of single servings from 40 packages of a food product are measured and given in the table below. Find a 0.95 percentile interval for the median amount of sodium in a single serving of this food product.
+\begin{table}
+%\caption
+$$\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|}
+\multicolumn{11}{|c|}{\textrm{ \small{Sodium contents (mg) of single servings from 40 packages of a food product.}}}\\
+\hline
+i	&1&	2	&3&	4	&5&	6&	7&	8&	9&	10\\
+x_{(i)}	&72.1&	72.8	&72.9	&73.3&	73.3	&73.3&	73.9	&74.0	&74.2&74.2\\
+\hline
+\multicolumn{11}{|c|}{ \textrm{ }}\\\hline
+i	&11	&12	&13	&14	&15	&16	&17	&18	&19	&20\\
+x_{(i)}	&	74.3	&74.6	&74.7	&75.0	&75.1	&75.1	&75.2	&75.3	&75.3	&75.3\\\hline
+\multicolumn{11}{|c|}{ \textrm{ }}\\\hline
+i	&21	&22	&23	&24	&25	&26	&27&28	&29	&30\\
+x_{(i)}		&75.4&	76.1	&76.5	&76.5	&76.6	&76.9&	77.1	&77.2&	77.4&77.4\\\hline
+\multicolumn{11}{|c|}{\textrm{ } }\\\hline
+i	&31	&32	&33	&34	&35	&36	&37	&38	&39	&40\\
+x_{(i)}		&77.7&	78.0	&78.3&	78.6	&78.8	&78.9	&79.7	&80.3&	80.5	&81.0\\\hline
+\end{array}$$
+\end{table}
+
+\Matlab code:
+\begin{VrbM}
+x = load('sodium.txt'); % load data from text file and store in x
+n = length(x); % determine number of data values
+N = 100000; % number of bootstrap samples
+nN = n * N;
+alpha = 0.05;
+alpha2 = alpha / 2;
+alpha21 = 1 - alpha2;
+xmed = median(x) % median of original data
+xboot = randsample(x,nN,true); % sample with replacement nN values from x
+xboot = reshape(xboot,n,N); % organise resampled values into N columns of n
+                                              % values each so that each column is a bootstrap
+                                              % sample of size n
+xbootmed = median(xboot); % medians of bootstrap samples
+xbootmedsort = sort(xbootmed); % sort medians in increasing order
+
+% (1-alpha) percentile interval:
+[xbootmedsort(ceil(N*alpha2)) xbootmedsort(ceil(N*alpha21))] 
+\end{VrbM}
+Results:
+\begin{VrbM}
+xmed = 75.3500
+ans =  75.0500   77.0000
+\end{VrbM}
+Therefore, a 0.95 percentile interval for the median is $(\hat{\theta}_{(2500)},\hat{\theta}_{(97500)})= (75.05, 77)$.
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\subsection{{\it Properties of the percentile interval.}}
+\work
+\begin{asparaenum}[(a)]
+\item {\it Transformation-invariant.} Let $g$ be a one-to-one transformation and let $\psi=g(\theta)$. Let $(\hat{\theta}_{(\lceil N\alpha/2\rceil)},\hat{\theta}_{(\lceil N(1-\alpha/2)\rceil)})$ be a $1-\alpha$ percentile interval for $\theta$. If $g$ is increasing, then $(g(\hat{\theta}_{(\lceil N\alpha/2\rceil)}),g(\hat{\theta}_{(\lceil N(1-\alpha/2)\rceil)}))$ is a $1-\alpha$ percentile interval for $\psi$. If $g$ is decreasing, then $(g(\hat{\theta}_{(\lceil N(1-\alpha/2)\rceil)}),g(\hat{\theta}_{(\lceil N\alpha/2\rceil)}))$ is a $1-\alpha$ percentile interval for $\psi$.
+
+\item {\it Range-preserving.} A percentile interval for $\theta$ lies within the range of possible values for $\theta$.
+
+\item {\it First-order accurate.} The error in the coverage probability of a percentile interval goes to zero at rate $1/\sqrt{n}$.
+
+\end{asparaenum}
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{labwork}
+
+\subsection{Bias-corrected and accelerated (BCA) interval} 
+\work
+The BCA interval is an improvement of the percentile interval that corrects for median bias (the difference between $\hat{\theta}$ and the median of $\hat{\theta}_1,\ldots,\hat{\theta}_N$) and has a coverage probability that is closer to $1-\alpha$. Like the percentile interval, the BCA interval's end-points are chosen from the ordered values of $\hat{\theta}_1,\ldots,\hat{\theta}_N$, and so the interval has the form $(\hat{\theta}_{(r)},\hat{\theta}_{(s)})$, where $1   r < s   N$. The variables $r$ and $s$ are chosen to correct for median bias and improve coverage probability.
+
+Let $\Phi$ denote the standard normal distribution function and let $z_p$ be the $p$-quantile of the standard normal distribution. Then:
+\begin{equation}
+r=round[N\Phi(z_{\hat{b}}+\frac{z_{\hat{b}}+z_{\hat{\alpha/2}}}{1-\hat{\alpha}(z_{\hat{b}}+z_{\hat{\alpha/2}})})],
+\end{equation}
+and:
+\begin{equation}
+s=round[N\Phi(z_{\hat{b}}+\frac{z_{\hat{b}}+z_{\hat{\alpha/2}}}{1-\hat{\alpha}(z_{\hat{b}}+z_{\hat{\alpha/2}})})],
+\end{equation}
+
+where $\hat{a}$ and $\hat{b}$ are yet to be defined. Before defining them, observe that if $\hat{a}=z_{\hat{b}}=0$, then the BCA interval reduces to the percentile interval.
+
+Now $z_{\hat{b}}$ is a measure of the median bias of the bootstrap estimates, $\hat{\theta}_1,\ldots,\hat{\theta}_N$, and so:
+\begin{equation}
+\hat{b}=\frac{|\{\hat{\theta}_j:\hat{\theta}_j<\hat{\theta}\}|}{N}=\frac{1}{N}\sum^N_{j=1}I_{(-\infty,\hat{\theta})(\hat{\theta}_j)}.
+\end{equation}
+
+If the median of $\hat{\theta}_1,\ldots,\hat{\theta}_N$ coincides with $\hat{\theta}$, then $\hat{b}=0.5$ and $z_{0.5}=0$, and so there is no median bias.
+The symbol $\hat{a}$ signifies the acceleration because it measures the rate of change of the standard deviation of $\hat{\theta}$  with respect to $\theta$. If the standard deviation of $\hat{\theta}$ is assumed to be the same for all $\theta$, then $\hat{a}$ is 0; this is often unrealistic, so $\hat{a}$ corrects for this. One way to compute $\hat{a}$ is:
+\begin{equation}
+\hat{a}=\frac{\sum^N_{j=1}(\bar{\hat{\theta}}-\hat{\theta}_j)^3}{6[\sum^N_{j=1}(\bar{\hat{\theta}}-\hat{\theta}_j)^2]^{3/2}}.
+\end{equation}
+%\begin{flushright}   $\boxbox$ \end{flushright}
+
+\begin{labwork}
+Continuing with the previous example, find a 0.95 BCA interval for the median.
+%\Matlab code: (continued)
+\begin{VrbM}
+% (1-alpha) BCA interval:
+b = sum(xbootmed < xmed) / N;
+xbootmedmean = mean(xbootmed);
+a = sum((xbootmedmean - xbootmed).^3) / (6 * (sum((xbootmedmean -
+xbootmed).^2)^1.5));
+zb = norminv(b,0,1);
+zalpha2 = norminv(alpha2,0,1);
+zalpha21 = norminv(alpha21,0,1);
+r = round(N * normcdf(zb + ((zb + zalpha2) / (1 - a * (zb + zalpha2))),0,1));
+s = round(N * normcdf(zb + ((zb + zalpha21) / (1 - a * (zb + zalpha21))),0,1));
+[xbootmedsort(r) xbootmedsort(s)]
+\end{VrbM}
+Results: (continued)
+\begin{VrbM}
+r = 1188
+s = 95149
+ans = 74.8500   76.7500
+\end{VrbM}
+Therefore, the 0.95 BCA interval for the median is $ (\hat{\theta}_{1188},\hat{\theta}_{95149})= (74.85, 76.75)$.
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{labwork}
+
+\subsection{Properties of the BCA interval}
+\work
+\begin{asparaenum}[(a)]
+\item The BCA interval is transformation-invariant and range-preserving.
+
+\item {\it Second-order accurate.} The error in the coverage probability of a BCA interval tends to zero at rate $1/n$.
+
+\end{asparaenum}
+%\begin{flushright}   $\boxbox$ \end{flushright}
+
+\section{Extension to multivariate data and linear regression}
+\work
+The extension of the nonparametric bootstrap to multivariate data is straightforward. Bootstrap samples are obtained by randomly sampling with replacement from the multivariate data points.
+
+\begin{labwork}
+This is an example involving bivariate data. The data in {\tt shoe.txt} are the shoe sizes (column 1) and heights (column 2, in inches) of 24 college-age men.
+%\includegraphics
+Represent each bivariate data point by $(x_i,y_i)$, where $x_i$ is the shoe size and $y_i$ is the height of the $i^{\textrm{th}}$ man. The correlation between $x$ and $y$ is:
+$$\rho=\frac{E\{[x-E(x)][y-E(y)]\}}{\sqrt{E\{[x-E(x)]^2\}E\{[y-E(y)]^2\}}},$$
+
+which can be estimated by the sample correlation:
+
+$$\hat{\rho}=\frac{\sum_{i=1}^{24}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{[\sum^{24}_{i=1}(x_i-\bar{x})^2][\sum^{24}_{i=1}(y_i-\bar{y})^2]}}$$
+
+where $\bar{x}$ and $\bar{y}$ are the sample means of x and y respectively. Find a 0.95 BCA interval for the correlation.
+
+A bootstrap sample is obtained by randomly sampling with replacement from $(x_1,y_1),\ldots,(x_{24},y_{24})$. Denoting the $j^{\textrm{th}}$ bootstrap sample by $(x_{j,1},y_{j,1}),\ldots,(x_{j,24},y_{j,24})$, the $j^{\textrm{th}}$ bootstrap estimate of the correlation coefficient is:
+$$\hat{\rho}_j=\frac{\sum_{i=1}^{24}(x_{j,i}-\bar{x}_j)(y_{j,i}-\bar{y}_j)}{\sqrt{[\sum^{24}_{i=1}(x_{j,i}-\bar{x}_j)^2][\sum^{24}_{i=1}(y_{j,i}-\bar{y}_j)^2]}}.$$
+
+%\Matlab code:
+\begin{VrbM}
+data = load('shoe.txt'); % load data from text file
+x = data(:,1); % store shoe size in x
+y = data(:,2); % store height in y
+n = length(x); % determine number of data values
+N = 100000; % number of bootstrap samples
+nN = n * N;
+alpha = 0.05;
+alpha2 = alpha / 2;
+alpha21 = 1 - alpha2;
+bootcxy = zeros(1,N); % storage for correlations of bootstrap samples
+cxy = corr(x,y) % sample correlation between x and y
+iboot = randsample(n,nN,true); % sample with replacement nN values from the
+                                                   % indices 1,...,n
+iboot = reshape(iboot,n,N); % organise resampled values into N columns of n
+                                            % values each so that each column cotains the
+                                            % indices for a bootstrap sample of size n
+for i = 1:N
+    bootcxy(i) = corr(x(iboot(:,i)),y(iboot(:,i))); % correlation of bootstrap sample i
+end
+bootcxysort = sort(bootcxy); % sort correlations in increasing order
+
+% (1-alpha) BCA interval:
+b = sum(bootcxy < cxy) / N;
+bootcxymean = mean(bootcxy);
+a = sum((bootcxymean - bootcxy).^3) / (6 * (sum((bootcxymean -
+bootcxy).^2)^1.5));
+zb = norminv(b,0,1);
+zalpha2 = norminv(alpha2,0,1);
+zalpha21 = norminv(alpha21,0,1);
+r = round(N * normcdf(zb + ((zb + zalpha2) / (1 - a * (zb + zalpha2))),0,1))
+s = round(N * normcdf(zb + ((zb + zalpha21) / (1 - a * (zb + zalpha21))),0,1))
+[bootcxysort(r) bootcxysort(s)]
+\end{VrbM}
+Results:
+\begin{VrbM}
+cxy = 0.7176
+r = 1596
+s = 96198
+ans = 0.3647    0.8737
+\end{VrbM}
+Therefore, the 0.95 BCA interval for the correlation is $ (\hat{\rho}_{(1596)},\hat{\rho}_{(96198)})= (0.3647, 0.8737)$. For comparison, the usual asymptotic 0.95 confidence interval is $(0.4422, 0.8693)$.
+%\includegraphics
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{labwork}
+
+\subsection{Confidence intervals for regression coefficients}
+\work
+For the shoe data, consider a simple linear regression of height on shoe size:
+$$y_i=\beta_0+\beta_1x_i+\epsilon_i$$
+
+where the $\epsilon_1,\epsilon_2,\ldots$ are assumed to be IID with mean 0 and variance $\sigma^2$. Let:
+$$B=\left( \begin{array}{c}\beta_0\\\beta_1\\\end{array} \right), Y=\left( \begin{array}{c}y_1\\M\\y_{24}\end{array} \right) \textrm{ and } X=\left( \begin{array}{cc}1&x_1\\ M&M\\ 1&x_{24}\\\end{array}\right).$$
+
+
+The least-squares estimates of the regression coefficients are given by:
+$$\hat{B}=(X^TX)^{-1}xTY,$$
+which is equivalent to:
+$$\hat{\beta}_1=\frac{\sum^n_{i=1}(x_i-\bar{x})(y_i-\bar{y})}{\sum^n_{i=1}(x_i-\bar{x})^2}\textrm{ ,    }\hat{\beta}_0=\bar{y}-\hat{\beta}_1\bar{x}.$$
+%\Matlab code:
+\begin{VrbM}
+data = load('shoe.txt'); % load data from text file
+x = data(:,1); % store shoe size in x
+y = data(:,2); % store height in y
+ 
+n = length(x); % determine number of data values
+X = [ones(n,1) x]; % predictor matrix
+be = regress(y,X) % linear regression of y on x
+\end{VrbM}
+Results:
+\begin{VrbM}
+be = 	59.2285
+		1.1988
+\end{VrbM}
+Therefore, the least-squares line is $y = 59.23 + 1.2x $.
+
+To get 0.95 BCA intervals for the regression coefficients, we obtain bootstrap samples of size 24 and recompute the least-squares estimates for each bootstrap sample. As in the previous example, a bootstrap sample is obtained by randomly sampling with replacement from $(x_1,y_1),\ldots,(x_{24},y_{24})$. Denote the $j^{\textrm{th}}$ bootstrap sample by $(x_{j,1},y_{j,1}),\ldots,(x_{j,24},y_{j,24})$ and let:
+$$Y_j=\left(\begin{array}{c}y_{j,1}\\M\\y_{j,24}\end{array}\right)\textrm{ and }X_j=\left(\begin{array}{cc}
+1&x_{j,1}\\ M&M\\1&x_{j,24}\end{array}\right).$$
+
+
+Then the $j^{\textrm{th}}$ bootstrap estimates of the regression coefficients are given by:
+$$\hat{B}_j=(X^T_jX_j)^{-1}X^T_jY_j.$$
+\Matlab code: (continued)
+\begin{VrbM}
+N = 100000; % number of bootstrap samples
+nN = n * N;
+alpha = 0.05;
+alpha2 = alpha / 2;
+alpha21 = 1 - alpha2;
+bootbe = zeros(2,N);
+iboot = randsample(n,nN,true); % sample with replacement nN values from the
+                                                  % indices 1,...,n
+iboot = reshape(iboot,n,N); % organise resampled values into N columns of n
+                                            % values each so that each column cotains the
+                                            % indices for a bootstrap sample of size n
+for i = 1:N
+    % regression for bootstrap sample i:
+    bootbe(:,i) = regress(y(iboot(:,i)),[ones(n,1) x(iboot(:,i))]);
+end
+bootbesort = sort(bootbe,2); % sort regression coefficients in increasing order
+ 
+% (1-alpha) BCA interval for be0:
+b = sum(bootbe(1,:) < be(1)) / N;
+bootbe0mean = mean(bootbe(1,:));
+a = sum((bootbe0mean - bootbe(1,:)).^3) / (6 * (sum((bootbe0mean -
+bootbe(1,:)).^2)^1.5));
+zb = norminv(b,0,1);
+zalpha2 = norminv(alpha2,0,1);
+zalpha21 = norminv(alpha21,0,1);
+r = round(N * normcdf(zb + ((zb + zalpha2) / (1 - a * (zb + zalpha2))),0,1))
+s = round(N * normcdf(zb + ((zb + zalpha21) / (1 - a * (zb + zalpha21))),0,1))
+[bootbesort(1,r) bootbesort(1,s)]
+ 
+% (1-alpha) BCA interval for be1:
+b = sum(bootbe(2,:) < be(2)) / N;
+bootbe1mean = mean(bootbe(2,:));
+a = sum((bootbe1mean - bootbe(2,:)).^3) / (6 * (sum((bootbe1mean -
+bootbe(2,:)).^2)^1.5));
+zb = norminv(b,0,1);
+zalpha2 = norminv(alpha2,0,1);
+zalpha21 = norminv(alpha21,0,1);
+r = round(N * normcdf(zb + ((zb + zalpha2) / (1 - a * (zb + zalpha2))),0,1))
+s = round(N * normcdf(zb + ((zb + zalpha21) / (1 - a * (zb + zalpha21))),0,1))
+[bootbesort(2,r) bootbesort(2,s)]
+\end{VrbM}
+Results: (continued)
+\begin{VrbM}
+r = 2489
+s = 97489
+ans = 55.3841   63.9200
+
+r = 2407
+s = 97404
+ans = 0.6913    1.5887
+\end{VrbM}
+Therefore, the 0.95 BCA interval for $\beta_0$ is $(\hat{\beta}_{0,(2489)},\hat{\beta}_{0,(97489)}) = (55.38, 63.92)$ and for $\beta_1$ is $(\hat{\beta}_{1,(2407)},\hat{\beta}_{1,(97404)}) = (0.6913, 1.5887)$.
+%\includegraphics
+
+\subsection{Alternative bootstrap method for regression}
+\work
+ Consider simple linear regression of response $y$ on predictor $x$ with $(x_1,y_1),\ldots,(x_n,y_n)$, where the predictors $x_1,\ldots,x_n$ are fixed and deterministic. As in the previous example:
+$$y_i=\beta_0+\beta_1x_i+\epsilon_i,$$
+
+where the $\epsilon_1,\epsilon_2,\ldots$ are assumed to be IID with mean 0 and variance $\sigma^2$. Using the same notations as before, the least-squares estimates of the regression coefficients are given by: 
+$$\left(\begin{array}{c}\hat{\beta}_0\\\hat{\beta}_1\end{array}\right)=(X^TX)^{-1}X^TY.$$
+
+For $i = 1,\ldots,n$, compute the residuals:
+$$\hat{\epsilon}_i=y_i-\hat{\beta}_0+\hat{\beta}_1x_i,$$
+
+and then the centred residuals:
+$$\hat{\epsilon}^*_i=\hat{\epsilon}_i-\bar{\hat{\epsilon}},$$
+where $\bar{\hat{\epsilon}}$ is the sample mean of $\hat{\epsilon}_1,\ldots,\hat{\epsilon}_n$.
+
+The $j^{\textrm{th}}$ bootstrap sample and bootstrap regression coefficients are obtained as follows:
+\begin{asparaenum}[(a)]
+\item Randomly sample with replacement from $\hat{\epsilon}_1^*,\ldots,\hat{\epsilon}_n^*$ to get $\hat{\epsilon}_{j,1},\ldots,\hat{\epsilon}_{j,n}$.
+
+\item	For $i = 1,\ldots,n$, obtain bootstrap responses by:
+$$y_{j,i}=\hat{\beta}_0+\hat{\beta}_1x_i+\hat{\epsilon}_{j,i}.$$
+
+The bootstrap sample is $(x_1,y_{j,1}),\ldots,(x_n,y_{j,n})$.
+
+\item	The bootstrap regression coefficients are given by:
+$$\left(\begin{array}{c}\hat{\beta}_{j,0}\\\hat{\beta}_{j,1}\end{array}\right)=(X^TX)^{-1}X^TY_j.$$
+\end{asparaenum}
+
+\begin{labwork}
+Referring to Example 4.3.2 for the shoe data, obtain 0.95 BCA intervals for the regression coefficients by bootstrapping residuals.
+
+%\Matlab code:
+\begin{VrbM}
+data = load('shoe.txt'); % load data from text file
+x = data(:,1); % store shoe size in x
+y = data(:,2); % store height in y
+n = length(x); % determine number of data values
+X = [ones(n,1) x]; % predictor matrix
+ 
+% linear regression of y on x:
+[be,beint,res] = regress(y,X); % store residuals in res
+res = res - mean(res); % centred residuals
+ 
+N = 100000; % number of bootstrap samples
+nN = n * N;
+alpha = 0.05;
+alpha2 = alpha / 2;
+alpha21 = 1 - alpha2;
+bootbe = zeros(2,N);
+ 
+rboot = randsample(res,nN,true); % sample with replacement nN values from res
+rboot = reshape(rboot,n,N); % organise resampled values into N columns of n
+                                             % values each so that each column contains n
+                                             % bootstrapped residuals
+for i = 1:N
+    yboot = X * be + rboot(:,i);
+    bootbe(:,i) = regress(yboot,X); % regression for bootstrap sample i
+end
+bootbesort = sort(bootbe,2); % sort regression coefficients in increasing order
+ 
+% (1-alpha) BCA interval for be0:
+b = sum(bootbe(1,:) < be(1)) / N;
+bootbe0mean = mean(bootbe(1,:));
+a = sum((bootbe0mean - bootbe(1,:)).^3) / (6 * (sum((bootbe0mean - bootbe(1,:)).^2)^1.5));
+zb = norminv(b,0,1);
+zalpha2 = norminv(alpha2,0,1);
+zalpha21 = norminv(alpha21,0,1);
+r = round(N * normcdf(zb + ((zb + zalpha2) / (1 - a * (zb + zalpha2))),0,1))
+s = round(N * normcdf(zb + ((zb + zalpha21) / (1 - a * (zb + zalpha21))),0,1))
+[bootbesort(1,r) bootbesort(1,s)]
+ 
+% (1-alpha) BCA interval for be1:
+b = sum(bootbe(2,:) < be(2)) / N;
+bootbe1mean = mean(bootbe(2,:));
+a = sum((bootbe1mean - bootbe(2,:)).^3) / (6 * (sum((bootbe1mean - bootbe(2,:)).^2)^1.5));
+zb = norminv(b,0,1);
+zalpha2 = norminv(alpha2,0,1);
+zalpha21 = norminv(alpha21,0,1);
+r = round(N * normcdf(zb + ((zb + zalpha2) / (1 - a * (zb + zalpha2))),0,1))
+s = round(N * normcdf(zb + ((zb + zalpha21) / (1 - a * (zb + zalpha21))),0,1))
+[bootbesort(2,r) bootbesort(2,s)]
+\end{VrbM}
+Results:
+\begin{VrbM}
+r = 2551
+s = 97550
+ans = 54.6419   63.9479
+
+r = 2372
+s = 97366
+ans = 0.7148    1.6548
+\end{VrbM}
+Therefore, the 0.95 BCA interval for $\beta_0$ is $(\hat{\beta}_{0,(2551)},\hat{\beta}_{0,(97550)})  = (54.64, 63.95)$; for $\beta_1$, it is $(\hat{\beta}_{1,(2372)},\hat{\beta}_{1,(97366)})= (0.7148, 1.6548)$.
+%\includegraphics
+%\begin{flushright}   $\boxbox$ \end{flushright}
+\end{labwork}
+
+\section{Extension to dependent data}
+\work
+Recall that the nonparametric bootstrap requires the data values to be IID. We briefly describe how the nonparametric bootstrap can be applied when the data values are not independent, particularly in the context of time series data. The key idea is to divide the data into blocks that are \textquotedblleft approximately independent" and then perform random sampling with replacement on these blocks rather than on the individual data values. Hence, this extension of the nonparametric bootstrap to dependent data is sometimes referred to as the {\it block bootstrap}.
+
+\subsection{Block bootstrap}
+\work
+Let $x_1,\ldots,x_n$ be a sequence of time series measurements, with the indices denoting the times at which the measurements are taken, i.e. $x_1$ is obtained before $x_2$ and so on. The measurements are not independent but have some form of dependence over time. One of the simplest forms of the block bootstrap is as follows:
+\begin{asparaenum}[(a)]
+\item Specify a {\it block length} $b$ ($b$ must be smaller than $n$). Let $m=round(n/b)$.
+
+\item	 Divide $x_1,\ldots,x_n$ into blocks as follows:
+$$\begin{array}{l}
+B_1=\{x_1,\ldots,x_b\}\\
+B_2=\{x_2,\ldots,x_b+1\}\\
+\textrm{        M      }\\
+B_{n-b+1}=\{x_{n-b+1},\ldots,x_n\}\\
+\end{array} $$
+
+
+\item Randomly pick $m$ blocks with replacement, calling them $B_1^*,\ldots,B_m^*$.
+
+\item Concatenate $B_1^*,\ldots,B_m^*$ to get a bootstrap sample of the time series.
+
+\item 	Repeat Steps (c) and (d) to get another bootstrap sample.
+\end{asparaenum}
+%\begin{flushright}   $\boxbox$ \end{flushright}
+The block bootstrap procedure looks simple but the difficulty lies in the choice of the block length. A good block length depends on at least three things: the time series, the statistic of interest and the purpose for bootstrapping the statistic. Unfortunately, further discussion on block length choice involves concepts that are beyond the level of this course and so we shall have to stop here.
+
+\section{Exercises}
+\work
+\begin{exercise}
+Download the \Matlab function, {\tt edfplot.m}, from the course webpage. Use it to obtain the EDF and 0.95 confidence band for:
+\begin{asparaenum}[(a)]
+\item the continuous data in Example 4.1.3;
+
+\item the discrete data in Example 4.1.4.
+\end{asparaenum}
+\end{exercise}
+
+\begin{exercise}
+The sodium data in Example 4.2.5 are given in {\tt sodium.txt}. Use the nonparametric bootstrap with 100,000 bootstrap samples to find the bias, variance and MSE of the sample median.
+\end{exercise}
+
+\begin{exercise}
+The latch data in Example 4.2.3 are given in {\tt latch.txt}. Use the nonparametric bootstrap with 100,000 bootstrap samples to find a 0.95 percentile interval and the 0.95 BCA for the standard deviation. (\Matlab function for standard deviation is {\tt std}.)
+\end{exercise}
+
+\begin{exercise}
+The data in {\tt hemoglobin.txt} are the haemoglobin levels (in g/dl) of 20 Canadian Olympic ice hockey players.
+\begin{asparaenum}[(A)]
+\item	Use the nonparametric bootstrap with 100000 bootstrap samples to find:
+\begin{asparaenum}[(i)]
+\item the bias, variance and MSE of the sample 0.1-quantile;
+
+\item	a 0.95 percentile interval and the 0.95 BCA for the 0.1-quantile.
+\end{asparaenum}
+(\Matlab function for quantile is {\tt quantile}.)
+
+\item	Using the BCA interval that you have already found in Part (a), find the 0.95 BCA interval for the square root of the 0.1-quantile.
+
+\item	Plot a density histogram for the bootstrap estimates of the 0.1-quantile.
+\end{asparaenum}
+\end{exercise}
+
+\begin{exercise}
+The data in {\tt tar.txt} are the tar contents in a sample of 30 cigars of a particular brand.
+\begin{asparaenum}[(a)]
+\item Use the nonparametric bootstrap with 100,000 bootstrap samples to find:
+\begin{asparaenum}[(i)]
+\item the bias, variance and MSE of the sample interquartile range;
+
+\item	a 0.95 percentile interval and the 0.95 BCA for the interquartile range.
+\end{asparaenum}
+(\Matlab function for interquartile range is {\tt iqr}.)
+
+\item	Plot a density histogram for the bootstrap estimates of the interquartile range.
+\end{asparaenum}
+\end{exercise}
+
+\begin{exercise}
+Work through Examples 4.3.1, 4.3.2 and 4.3.4 for the shoe data.
+\end{exercise}
+
+\begin{exercise}
+The data in {\tt stream.txt} contain chloride concentrations (in mg/l) found at the surface of streams (column 1), and road densities (in \%) in the vicinities of the streams (column 2).
+\begin{asparaenum}[(a)]
+\item Obtain a scatter plot of chloride concentration against road density and find a 0.95 BCA interval (using 100,000 nonparametric bootstrap samples) for the correlation coefficient between road density and chloride concentration. What can you conclude from the scatter plot and the confidence interval?
+
+\item	Consider a simple linear regression of chloride concentration ($y$ or response) on road density ($x$ or predictor). Obtain 0.95 BCA intervals for the regression coefficients, using 100,000 nonparametric bootstrap samples and by:
+\begin{asparaenum}[(i)]
+\item bootstrapping sample points;
+
+\item	bootstrapping residuals.
+\end{asparaenum}\end{asparaenum}
+\end{exercise}
+
+\begin{exercise}
+The data in salmon.txt contain the number of recruits (column 1) and the number of spawners (column 2) in 40 salmon farms. The units are thousands of fish. Recruits are fish that are big enough to be sold. Spawners are fish that are kept for laying eggs, after which they die.
+
+The Beverton-Holt model for the relationship between recruits and spawners is:
+$$R=\frac{1}{\beta_0+(\beta_1/S)},$$
+where $R$ and $S$ are the numbers of recruits and spawners, and $\beta_0,\beta_1\geq 0$.
+\begin{asparaenum}[(a)]
+\item	Use the data to estimate $\beta_0$ and $\beta_1$ for the Beverton-Holt model by using linear regression with the transformed variables $1/R$ and $1/S$.
+
+\item	Consider the problem of maintaining a sustainable farm. The salmon population stabilises when $R = S$. Show that the stable population size is given by:
+$$R=S=\frac{1-\beta_1}{\beta_0}.$$
+
+Using the estimates from Part (a), estimate the stable population size.
+
+\item	Use the nonparametric bootstrap with 100,000 bootstrap samples to find 0.95 BCA intervals for the stable population by:
+\begin{asparaenum}[(i)]
+\item	bootstrapping sample points;
+
+\item	bootstrapping residuals.
+\end{asparaenum}\end{asparaenum}
+\end{exercise}
+%}% end of comment for Dominic's material

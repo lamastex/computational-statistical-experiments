@@ -1,0 +1,176 @@
+\addcontentsline{toc}{chapter}{Course Syllabus}
+
+\begin{table}[htpb]
+\centering
+\begin{tabular*}{5.0in}{@{\extracolsep{\fill}}|llr|} \hline
+%STAT 218 & \hspace*{0.5 in} & Semester 2, 2007 \\ 
+STAT 218 - 07S2 (C)  & \hspace*{0.5 in} & Semester Two 2007 \\
+
+11 points, 0.0917 EFTS & & 16/07/2007-15/11/2007  \\
+ & & \\
+\multicolumn{3}{|c|}{{\bf Computational Methods in Statistics}} \\
+\multicolumn{3}{|c|}{
+{Course Syllabus: Wednesday, 11th July 2007}} \\
+\multicolumn{3}{|c|}{
+{Revised Syllabus: Tuesday, 25th September, 2007 
+%(See \S~\ref*{S:RevisedSyllabus})
+}}\\
+ & & \\
+\multicolumn{3}{|r|}{Course Coordinator: Raazesh Sainudiin} \\ \hline
+\end{tabular*}
+\end{table}
+
+\section{About the Course}\label{S:AboutCourse}
+The power of modern computers has unleashed new ways of thinking about statistics and implementing statistical solutions.  This course introduces the student to computational techniques with uses ranging from exploratory data analysis to statistical inference. These techniques are now widely used and are fast becoming indispensable in the modern statistical toolkit.  The course will provide the student with a sound understanding of the computational methods, and with hands-on experience in implementing and using them.  Topics include generating random variables, Monte Carlo integration and importance sampling, bootstrap methods, Markov chain Monte Carlo, kernel density estimation and regression, and classification and regression trees.\\{\bf Pre-requisites}: STAT111 or STAT112 or MATH108 or MATH115 or MATH171\\
+%{\bf Required Text}: {\it Computational Statistics Handbook with Matlab}, Martinez and Martinez, Chapman \& Hall/CRC, 2002. 
+
+\section{Formal Interactions}
+\subsection*{Lectures}
+{\bf Days}: Mondays and Wednesdays \ {\bf Times}: 1400 \textendash 1500 hours \\
+{\bf Place}: Commerce Room 101 Lecture Theatr \\
+{\bf Lecturer}: Raazesh Sainudiin \\
+{\bf Purpose}: To communicate the essential concepts and techniques necessary for a sound application of computers to solve statistical problems as described in \hyperref[S:AboutCourse]{\S~\ref*{S:AboutCourse}}.
+
+{\small \emph{You are encouraged to be actively engaged during the lectures to make the most of them.  Since it is impossible to impart knowledge to a passive audience, it is in your best interest to think of the lectures as an interactive video game as opposed to a TV show.
+}}
+\subsection*{Laboratories}
+{\bf Days}: Wednesdays OR Thursdays \ {\bf Times}: 1600 \textendash 1700 hours \ {\bf Place}: 035 Erskine Building\\
+{\bf Tutor}: Jing Luo \ {\bf Email}: {\tt lji19@student.canterbury.ac.nz}\\
+{\bf Purpose}: To give you a taste of implementing code in a personal computer.  This activity will reinforce and complement the lectures.
+
+{\small \emph{{\tt Matlab} is the default medium for code implementation in the laboratory, but by no means are you restricted to the ``cozy'' computing environment of {\tt Matlab}.  In fact, you are encouraged to write code in a lower level language such as {\tt C} or an object-oriented language such as {\tt C++}, provided you don't expect your tutor to help with these programming languages.  The lecturer may guide you in {\tt C} or {\tt C++} if you are keen to give these a try.  For motivation, check out the programming requirements for most industry/academic/research jobs in scientific/statistical computing.  If you are familiar with other languages such as {\tt FORTRAN} or {\tt Java}, then feel free to use them in the laboratory (your comments, however, will need to be more detailled), but don't expect any guidance from the lecturer.}}
+
+\section{Individualised Interactions \& Course Communications}
+{\bf Lecturer}: Raazesh Sainudiin, 724 Erskine Building \\
+{\bf Email}: {\tt r.sainudiin@math.canterbury.ac.nz} \\
+{\bf Office Hours}: Mondays and Wednesdays 1500\textendash 1600 hours \\
+{\bf Additional Office Hours \& Policy}: Fridays 1430\textendash 1630 hours %(See \S~\ref*{S:AttendanceAndAddOffcHrPol}) 
+\\
+{\bf Purpose}: To clarify specific topics or examples that were unclear to a student or a small group of students during past formal interactions.\\
+{\bf Course url}: \url{http://www.math.canterbury.ac.nz/STAT218/07/S2/C/}
+
+{\small \emph{It is your responsibility to check the course url and stay up-to-date with course communications, including assignments, lecture notes and other announcements.  I will try to post the lectures, at least a few hours before the lecture and the assignment about a week before it is due.  Since this course is being taught for the first time and I am in the trouble-shooting phase, I cannot promise a prompt posting (if any at all) of the lectures on the web.
+}}
+\section{Student Evaluation}
+\begin{itemize}
+\item[40\%] Fortnightly assignments that will involve coding and/or pencil \& paper (4 @ 10\% each) -- {\scriptsize {\bf Originally this used to be 60\% but now it is 40\%.}}
+\item[20\%] Term project that may be presented to and partly graded/reviewed by peers -- {\scriptsize {\bf 12.5\% based on written report \& 7.5\% based on partly peer-reviewed oral presentation} %[See \S~\ref*{S:OralRep}]
+}
+\item[40\%] Open book, open notes final exam 
+%(no access to {\scriptsize {\bf any electronic or computational device} [See \S~\ref*{S:RevisedSyllabus}~1.])}
+\end{itemize}
+%\subsection*{Rationale for Corrections to the Original Evaluation Scheme} 
+%\begin{enumerate}
+%\item In my original Syllabus, I reserved the right to adapt the evaluation scheme, as shown in {\bf bold-face font} in the paragraph below.  
+%\item Assignment~2 was extended by a week to allow most of you to complete it.  This delayed the schedule.  This will NOT happen again.
+%\item Based on a careful grading of Assignment~2, I have strong suspicions that the academic integrity code of the University was violated.  The original scheme took your academic honesty and integrity for granted by the statement ``Cheating is uncool'' in the paragraph below.  Now, I expect you to turn in your Assignment~3 \& 4 by appending a signed affidavit of the academic integrity code [See \S~\ref*{S:RevisedSyllabus}~]  4.~Moreover, the grading bottom-line of the original evaluation scheme highlighted in {\sc Small-Caps font} in the following paragraph still holds.  This bottom-line still holds because I mistakenly assumed that 80\% is a B grade.  In conclusion, the current policy is meant to reflect your true abilities as a budding Statistician [See \S~\ref*{S:RevisedSyllabus}~5.].  
+%\item You are more than welcome to make a consistent  argument to convince me otherwise, with regards to the revised evaluation scheme, by 1615 hours on Friday, September 28, 2007.
+%\end{enumerate}
+
+{\small \emph{Assignments will be due in class on the due date.  A penalty of $-x d \%$ will be applied for each late assignment, where $d$ is the ceiling of the rational number of days since the due date and hour and $x$ is at least $25\%$ of the grade.  In other words, don't bother to turn in an assignment $(3)$ days past the due date. No excuses other than those beyond your control, such as injury or bereavement are acceptable.  For instance, ``I had another assignment due around the same time'' is NOT acceptable.  You are expected to be mature enough to manage your time.  {\bf The course coordinator reserves the right to adapt the evaluation scheme to account for the learning styles of the students}.  
+{\sc Basically, getting good grades is simple.  If you regularly work hard regularly and complete the assignments on time, you pass.  A decent project and to hard work on the assignments will get you a B grade.  A high final exam score demonstrating your ability to think statistically will earn you an A, provided you have also done well on assignments and the project.}  Cheating is completely unacceptable (and uncool).
+}}
+
+%\section{Course Policy \& Time Table}\label{S:RevisedSyllabus}
+%The Time Table for the course is finally set based on the subset of preliminary project reports that were handed in.  The last 6 lectures are methodologies necessary for the project you may be doing.  If you have NOT turned in your preliminary project report in writing, then please do so by 1615 hours on  Friday, September 28, 2007.  This is mostly to integrate your project with the Examples, Classworks and Labworks I need to build, while covering the computational, statistical methodologies you may need to complete your project.  Projects without preliminary project reports by the extended deadline of September 28, 2007, don't exist.  This means you get 0\% for the group project.
+
+%If you regularly miss the lectures from 26/09/07 (see next section) for whatever reason and count on getting full grades in assignments ``some how'' without appreciating and understanding the assignment and/or join a group without equal participation in the group project, then the following measures are taken to ensure that your grade is reflective of your understanding of the subject:
+
+%{\scriptsize
+%\begin{enumerate}
+%\item A reasonable fraction of the multiple choice questions in the open-books, open-notes, electronic \&/or computational device-free {\bf final exam} will test whether you truly understood the solutions to the assignments you turned in.  This means no calculators, cell-phones, pagers, abacus, etc are permitted in the final exam, but you may bring any set of books and lecture notes that you can single-handedly carry.
+%\item There will be several dozen multiple-choice questions in the final exam.  You may answer as many as you can.  The first half of the final-exam questions will constitute $20\%$ of the total grade while the second half of the final-exam questions will be substantially more difficult and meant to separate A and A+ students from the rest.
+%\item Sample final-exam questions will be given in class ONLY and no typeset PDF document of the sample final-exam questions will be posted on the course web-site.
+%\item Each member in a group project must mention what he or she did for the project in the written project report.  Thus, each individual within a group may receive different grades for the same project.  This is merely an attempt at penalizing group-parasitic behaviors.  So far, individuals in two groups have complained of such a problem.  
+%\item Your Assignments 3 \& 4 must accompany a signed and dated Assignment Cover Sheet (available at the Course Web page) in which you confirm your academic honesty and integrity as outlined below. \\
+%{
+%\begin{center}
+%    {\large\textbf{STATEMENT REGARDING DISHONEST PRACTICE}}\\
+%    (relating to work submitted for assessment)
+%\end{center}
+
+%The University has a clear interpretation of what constitutes dishonest
+%practice as described in you Calendar.  Dishonest practice includes the following:
+%\begin{enumerate}
+%    \item \textbf{Plagiarism}, being the presentation of any material
+%    (text, data or figures, on any medium including computer files)
+%    from any other source without clear and proper acknowledgement of
+%    the source of that material. (Guidelines for appropriate acknowledgement
+%    will be provided with assignment handouts).
+%    \item \textbf{Collusion}, being work performed in whole or in
+%    part in conjunction with another person or persons, but submitted as
+%    if it had been completed by the named author alone (or joint authors
+%    if a group item of work).
+%    \item \textbf{Copying}, being the use of material (in any medium,
+%    including computer files) produced by another person or persons, with or
+%    without their knowledge and approval.
+%    \item \textbf{Ghost writing}, being the use of another party (with or
+%    without any form of payment) to prepare all or part of an item of work
+%    submitted for assessment.
+%\end{enumerate}
+
+%Under the University regulations, evidence of any of these or
+%other forms of dishonest practice by any student(s) represents
+%grounds for disciplinary action and may result in penalties
+%ranging from denial of credit for the item of work in question to
+%exclusion from the University.
+%\begin{itemize}
+%    \item This interpretation of the dishonest practice of collusion
+%    is not intended to discourage students from having discussions
+%    with each other about how to approach a particular assigned task,
+%    and incorporating general ideas coming out of such discussions
+%    into their own individual submissions.
+%\end{itemize}
+%}
+%\end{enumerate}
+%}
+%Ultimately, this is meant to be a fun opportunity for you.  For most of you this may be the first statistical experiment you have ever carried out.  This basic skill of making an observation in the real-world and then making a statistically sound statement about an observable phenomenon in question is crucial for your career, whether as a scientist (physical sciences and humanities), engineer, manager, data analyst, actuary, financial/market analyst, etc.  This project-centered course involves a lot of energy from my part.  You can at least attend the methodological lectures from 26/09/07 as a matter of courtesy for constructive feed-back, either formally through the course surveys or informally. 
+
+%\section{New Attendance \& Office Hour Policy from 26/09/07}\label{S:AttendanceAndAddOffcHrPol}
+%I have instituted this attendance policy to not only save {\bf my time} but also to encourage you to manage {\bf your time} more efficiently.  There will be an {\bf attendance sheet} that you {\bf need to sign in} every day starting from Lecture No.~18.  If you miss lectures from now on, without an acceptable and pre-approved excuse, and thereby miss the methodology you may need to complete your group project or complete the remaining two Assignments, then don't expect me to complete your project or give hints toward solving your assignment  during my {\bf new additional office hours from 1430-1630 hours on Fridays}.  Therefore, I do NOT have open office hours all through Friday anymore.  If you need to see me then it is best to reserve your time slot in advance by email.  You may still do a random walk into my office on Fridays but only during the new additional office hours and wait, if necessary in a queue that prioritizes  those who have made an appointment by email or verbally after lecture.  Say for instance, I cover the topic of nonparametric tests for distribution functions on a certain date beginning 26/09/07 and you missed that date, as evident from your missing signature on the attendance sheet of that day, without prior approval, then I will not re-lecture the material to you during my office hours.  The office hours are prioritized to those who came to a particular lecture and didn't follow its content.  {\bf If you do not understand the above sentences written in my English then this is OK, provided you visit me to clarify any semantic ambiguities in the policy no later than 1615 hours on Friday September 28, 2007}.  
+% 
+\section{Oral Presentation at the Department Seminar on 18/10/07}\label{S:OralRep}
+During the last Thursday of the term (October 18, 2007) your entire group will make an oral presentation of your group project on the 4th floor of Erskine Building (room number to be confirmed) in the Maths \& Stats Department's official seminar series.  This means your audience may include undergraduate students, graduate students, post-doctorates and faculty from the Department of Mathematics and Statistics.  I suggest you plan to make less than 10 slides in Latex ({\scriptsize you may use of my slide template from the project involving the ``pencil rolling experiment''}) or Powerpoint ({\scriptsize you are on your own here}) for your oral presentation.  Each member of the group should talk for at least 2 to 3 minutes.  The total time taken for your oral presentation should be about 6 to 7 minutes, depending on your group size, with about 1 or 2 minute for quick questions, if any from the audience.  No presentation will be permitted to run more than 9 minutes in total.  {\scriptsize The exact details of the start-time and duration of your oral presentation will need o be arranged using input from some of you, especially those who have not met all previous deadlines.  This input needs to be in to me by by 1615 hours on Friday September 28, so I can arrange the final schedule}.  Carefully select the slides that  most succinctly summarise the experiment you have conducted in your group project.  You are encouraged to run them by me for my suggestions (well before the last couple of days) to make an attractive presentation of your project for the Maths \& Stats audience.  {\bf A subset of your projects (slides of your presentation \& the written report) will be made publicly available online as Maths \& Stats Department Research Reports with due project-group authorship in the world-wide-web through the course website and integrated as examples referred to by your project-name or hyphenated last names in the final set of notes for this course series}.  {\scriptsize These notes are meant to inspire the next generation of STAT 218 students.  Also, you will need them to continue with advanced Computational Statistics course at the 300 level next year, if I coordinate it}.  Finally, {\bf each one of us has to work as a team to make this a successful course}.  Contact me immediately if you cannot make it to the oral presentation -with a {\bf good reason} that you can substantiate.
+ 
+\begin{table}
+\centering
+\caption{Time Table \& Course Overview} \label{T:TTCB}
+{\scriptsize
+ %\begin{tabular*}{4.5in}{@{\extracolsep{\fill}}|l|l|l|l|}
+ \begin{tabular}{|l|l|l|l|}
+ \hline
+Lecture No.~ & Date  & Topics & Section (TBA) \\ 
+ \hline
+ 1 & 16/07/07 & Preliminaries: Set Theory \& Functions &  \\
+ 2 & 18/07/07 & Introduction to Kolmogorov's Probability Model &  \\
+ 3 & 23/07/07 & Definition of Probability &  \\
+ 4 & 25/07/07 & Random Variables &  \\ \hline
+ 5 & 30/07/07 & Inversion Sampler: Continuous RVs & \\
+ 6 & 01/08/07 & Random Variables & \\
+ 7 & 06/08/07 & Inversion Sampler: Discrete RVs& \\
+ 8 & 08/08/07 & Definition of Conditional Probability  & \\ \hline
+ 9 & 13/08/07 & Independence \& Dependence & \\
+ 10 & 15/08/07 & Bayes Theorem \& Law of Total Probability & \\
+ 11 & 20/08/07& Integration \& Numerical Quadrature & \\
+ 12 & 22/08/07 & Expectations of Random Variables & \\ \hline \hline%2 week break
+ 13 & 10/09/07 & Convergence of Random Variables & \\
+ 14 & 12/09/07 & Weak Law of large Numbers & \\
+ 15 & 17/09/07 & Central Limit Theorem \& Gilvenko-Cantelli Theorem & \\
+ 16 & 19/09/07 & Basics of Estimation, Confidence Sets \& Testing & \\ \hline
+ 17 & 24/09/07 & Monte Carlo Integration \& Importance Sampling & \\
+ 18 & 26/09/07 & Rejection Sampling & \\
+ 19 & 01/10/07 & Non-parametric Tests \& Bootstraps & \\
+ 20 & 03/10/07 & Nonparametric Estimation \& Confidence Sets & \\ \hline
+ 21 & 08/10/07 & Likelihood \& Point Estimation & \\ 
+ 22 & 10/10/07 & Parametric Bootstrap Tests & \\
+ 23 & 15/10/07 & Nonparametric Tests & \\
+ 24 & 17/10/07 & Review & \\ \hline
+ *Oral    & 18/10/07 & Group Project Presentation & Erskine 446 \\
+ Presentation & 1515$\pm \epsilon_1$-1645$\pm \epsilon_2$ hours & at the Maths \& Stats Dept.~Seminar &  Room No.~TBA \\
+\hline
+%\end{tabular*}
+ \end{tabular}
+ } \\
+{\scriptsize Table \ref*{T:TTCB} will be updated after 1615 hours, Friday September 28.\\
+{\bf * Lecture Notes may not be updated regularly any longer.  Taking your own notes in class is essential. }}
+\end{table}

@@ -1,0 +1,501 @@
+\section{Exercises in Multivariate Random Variables}\label{S:xsMultivariateRVs}
+\begin{ExerciseList}
+%question 9 (cts )
+\Exercise
+Find the probability that none of the three bulbs in a traffic signal, that are assumed to have independent life-times (i.e., the time during which they are operational), need to be replaced during the first 1200 hours of operation if the length of time before a single bulb needs to  be replaced is a continuous random variable $X$ with density
+$$f(x)\;=\;\begin{cases}6\left(0.25-(x-1.5)^2\right)&1<x<2\\0&\textrm{otherwise}\end{cases}\enspace.$$
+Note: $X$ is measured in multiples of 1000 hours.
+\Answer
+The probability that  \emph{one}  light bulb doesn't need to be replaced in  1200 hours is:
+\ba{\P(X>1.2)&\;=\;1-\P(X<1.2)\\[3pt]
+&=\;1\;-\;\int^{1.2}_1 6 (0.25-(x-1.5)^2)\,dx\\[3pt]
+&=\;1\;-\;\int^{1.2}_1 6(0.25-x^2+3x-2.25)\,dx\\[3pt]
+&=\;1\;-\;\int^{1.2}_1 (-6x^2+18x-12)\,dx\\[3pt]
+&=\;1\;-\;\left[-2x^3+9x^2-12x\right]^{1.2}_1\\[3pt]
+&=\;1-0.1040\\[3pt]
+&\;=\;0.8960}
+Assuming  that   the three light bulbs function  independently of  each
+other, the probability that none of them need to be replaced in the
+first 1200 hours is
+$$\P(\{X_1>1.2\}\cap\{X_2>1.2\}\cap\{X_3>1.2\}\;=\;0.8960^3\;=\;
+0.7193$$
+where $X_i$ is the length of time that bulb $i$ lasts.
+
+\Exercise
+Let $(X,Y)$ be a continuous \rv~with joint probability density function (JPDF)
+\[
+f_{X,Y}(x,y)
+=
+\begin{cases}
+a (x^2+y) & \text{ if } 0 < x < 1 \text{ and } 0 < y < 1\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+\]
+Find the following:
+\be
+\item~the normalizing constant $a$ which will ensure $\P(\Omega) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_{X,Y}(x,y) dx dy = 1$
+\item~$f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) dy$ called the marginal probability density function (MPDF) of $X$
+\item~$f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) dx$ called the marginal probability density function (MPDF) of $Y$
+\item Check if $f_X(x)f_Y(y)=f_{X,Y}(x,y)$ for every $(x,y)$ and decide whether $X$ and $Y$ are independent random variables.  {Hint: $X$ and $Y$ are said to be independent if $f_X(x)f_Y(y)=f_{X,Y}(x,y)$ for every $(x,y)$.}
+\item~$F_{X,Y}(x,y)$, the joint cumulative distribution function (JCDF) of $(X,Y)$ for any $(x,y) \in (0,1) \times (0,1)$ 
+\item~the probability that $X > 0.5$ and $Y<0.6$, i.e., $\P(X>0.5,Y<0.6)$
+\item~$E(X)$, the expectation of $X$ or the first moment of $X$
+\item~$E(Y)$, the expectation of $Y$ or the first moment of $Y$
+\item~$E(XY)$, the expectation of $XY$
+\item~$\cv(X,Y)=E(XY)-E(X)E(Y)$, the covariance of $X$ and $Y$.
+\ee
+
+\Answer
+~\\
+\be
+\item~To find $a$ we simply set $1=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_{X,Y}(x,y) dx dy$ and solve for $a$ as follows:
+\begin{align*}
+1
+&=
+\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f_{X,Y}(x,y) dx dy = \int_{0}^{1}\int_{0}^{1} a(x^2+y) dx dy\\
+&=
+a\int_{0}^{1}\int_{0}^{1} (x^2+y) dx dy = a\int_{0}^{1} \left[ \frac{1}{3}x^3+yx \right]_{x=0^1} dy\\
+&=
+a\int_{0}^{1} \left( \frac{1}{3}+y - 0 \right) dy = a \left[ \frac{y}{3}+\frac{1}{2}y^2 \right]_{y=0}^{1}\\
+&=
+a \left( 0-\left(\frac{1}{3}+\frac{1}{2}1^2\right) \right) = a \left( \frac{1}{3}+\frac{1}{2} \right)\\
+&=
+a \left( \frac{5}{6} \right)
+\end{align*}
+Therefore $a=6/5$ and the joint PDF is
+\[
+f_{X,Y}(x,y)
+=
+\begin{cases}
+\frac{6}{5} (x^2+y) & \text{ if } 0 < x < 1 \text{ and } 0 < y < 1\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+\]
+\item~First compute the marginal PDF $f_X(x)$ for any $x \in (0,1)$ by integrating over $y$
+\begin{align*}
+f_X(x) 
+&= \int_{-\infty}^{\infty} f_{X,Y}(x,y) dy
+= \int_0^1 \frac{6}{5} (x^2+y) dy 
+= \left[ \frac{6}{5} (yx^2+y^2/2) \right]_{y=0}^1\\
+&= \frac{6}{5} \left((1 \times x^2 + 1^2/2) - 0 \right)
+= \frac{6}{5} \left( x^2 + \frac{1}{2} \right)
+\end{align*}
+Finally, the marginal PDF of the RV $X$ in the first component of the \rv~$(X,Y)$ is
+\[
+f_{X}(x)
+=
+\begin{cases}
+\frac{6}{5} \left( x^2 + \frac{1}{2} \right) & \text{ if } 0 < x < 1\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+\]
+\item~Similarly, the marginal PDF $f_Y(y)$ for any $y \in (0,1)$ by integrating over $x$ is 
+\[
+f_Y(y)=\int_{-\infty}^{\infty} f_{X,Y}(x,y) dx = \int_0^1 \frac{6}{5}(x^2+y) dx = \frac{6}{5} \left[ x^3/3+yx\right]_{x=0}^1 = \frac{6}{5}(y+1/3).
+\]
+Finally, the marginal PDF of the RV $Y$ in the second component of the \rv~$(X,Y)$ is
+\[
+f_{Y}(y)
+=
+\begin{cases}
+\frac{6}{5} \left( y + \frac{1}{3} \right) & \text{ if } 0 < y < 1\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+\]
+\item The product of marginal PDFs of $X$ and $Y$ does not equal the joint PDF of $(X,Y)$ for values of $(x,y) \in (0,1)^2$
+\[
+f_X(x)f_Y(y) = \frac{6}{5} \frac{6}{5} \left( y + \frac{1}{3} \right) \left( x^2 + \frac{1}{2} \right) = \frac{6}{25} \left( 6 x^2y+2x^2+3y+1\right) \neq \frac{6}{5}(x^2+y) = f_{X,Y}(x,y)
+\]
+Therefore $X$ and $Y$ are not independent random variables (they are dependent!).
+\item~The joint distribution function $F_{X,Y}(x,y)$ for any $(x,y) \in (0,1)^2$ is
+\begin{align*}
+F_{X,Y}(x,y) 
+&= \int_{-\infty}^{y} \int_{-\infty}^{x} f_{X,Y}(u,v) du dv
+= \int_{0}^{y} \int_{0}^{x} \frac{6}{5} (u^2+v) du dv
+= \frac{6}{5} \int_{0}^{y} \left[ \frac{u^3}{3}+vu) \right]_{u=0}^{x} dv\\
+&= \frac{6}{5} \int_{0}^{y} \left( \frac{x^3}{3}+vx - 0 \right) dv
+= \frac{6}{5} \left[ \frac{x^3v}{3}+\frac{v^2x}{2} \right]_{v=0}^{y}
+= \frac{6}{5} \left( \frac{x^3y}{3}+\frac{y^2x}{2} - 0 \right)\\
+&= \frac{6}{5} \left( \frac{x^3y}{3}+\frac{y^2x}{2} - 0 \right)
+\end{align*}
+\item~
+\begin{align*}
+\P(X>0.5,Y<0.6) 
+&= \int_{-\infty}^{0.6} \int_{0.5}^{\infty} f_{X,Y}(x,y) dx dy
+= \int_{0}^{0.6} \int_{0.5}^{1} \frac{6}{5} (x^2+y) dx dy\\
+&= \frac{6}{5} \int_{0}^{0.6} \left[ \frac{x^3}{3}+yx \right]_{x=0.5}^{1} dy
+= \frac{6}{5} \int_{0}^{0.6} \left(\frac{7}{24} + \frac{y}{2} \right) dy\\
+&= \frac{6}{5} \left[\frac{7}{24}y + \frac{y^2}{2} \right]_{y=0}^{0.6}
+= \frac{6}{5} \left(\frac{7}{24}\times \frac{6}{10} + \frac{36}{400} \right)
+=0.318
+\end{align*}
+\item~
+\begin{align*}
+E(X) 
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} x f_{X,Y}(x,y) dx dy\\
+&=\frac{6}{5} \int_{0}^{1} \int_{0}^{1}  x \left( x^2 + y \right) dx dy
+=\frac{6}{5} \int_{0}^{1} \int_{0}^{1}  \left( x^3 + xy \right) dx dy
+= \frac{6}{5} \int_{0}^{1} \left[ \frac{x^4}{4} + \frac{1}{2}x^2y\right]_{x=0}^{1} dy\\
+&=\frac{6}{5} \int_{0}^{1} \left( \frac{1}{4} + \frac{y}{2} - 0 - 0\right) dy
+= \frac{6}{5} \left[ \frac{y}{4} + \frac{y^2}{4} \right]_{y=0}^{1} 
+= \frac{6}{5} \left(\frac{1}{4} + \frac{1}{4} - 0 - 0 \right) = \frac{6}{5}\times \frac{1}{2}=\frac{3}{5}
+\end{align*}
+\item~
+\begin{align*}
+E(Y) 
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} y f_{X,Y}(x,y) dx dy\\
+&= \int_{0}^{1} \int_{0}^{1} y \frac{6}{5} \left( x^2 + y \right) dx dy
+= \frac{6}{5} \int_{0}^{1} \int_{0}^{1}  \left( x^2y + y^2 \right) dx dy
+= \frac{6}{5} \int_{0}^{1} \left[ \frac{x^3y}{3} + y^2x \right]_{x=0}^{1} dy\\
+&= \frac{6}{5} \int_{0}^{1} \left( \frac{y}{3} + y^2 -0-0\right) dy
+= \frac{6}{5} \left[ \frac{y^2}{6} + \frac{y^3}{3} \right]_{y=0}^{1} 
+= \frac{6}{5} \left( \frac{1}{6} + \frac{1}{3} + - 0 -0 \right) = \frac{6}{5} \times \frac{3}{6}=\frac{3}{5}
+\end{align*}
+\item~
+\begin{align*}
+E(XY) 
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} xy f_{X,Y}(x,y) dx dy\\
+&=\frac{6}{5} \int_{0}^{1} \int_{0}^{1}  xy \left( x^2 + y \right) dx dy
+=\frac{6}{5} \int_{0}^{1} \int_{0}^{1} x^3y+xy^2 dx dy
+=\frac{6}{5} \int_{0}^{1} \left[ \frac{x^4}{4}y+\frac{x^2 y^2}{2} \right]_{x=0}^1 dy\\
+&=\frac{6}{5} \int_{0}^{1} \left( \frac{y}{4} + \frac{y^2}{2} -0-0\right)dy
+=\frac{6}{5} \left[ \frac{y^2}{8} + \frac{y^3}{6}\right]_{y=0}^1 
+=\frac{6}{5} \left(\frac{1}{8} + \frac{1}{6}-0-0\right)\\
+&=\frac{6}{5} \left(\frac{3}{24}+\frac{4}{24}\right)=\frac{6}{5}\times\frac{7}{24}=\frac{7}{20}
+\end{align*}
+\item~
+\[
+\cv(X,Y) = E(XY)-E(X)E(Y) = \frac{7}{20}-\left(\frac{3}{5} \times \frac{3}{5} \right) = \frac{7}{20}-\frac{9}{25} = \frac{35}{100}-\frac{36}{100} = -\frac{1}{100}
+\]
+\ee
+
+\Exercise
+Logs are milled to have a width of $\mu$.
+The actual width of a randomly selected item is $X$.
+If $X$ is a $\normal(\mu,\sigma^2)$ random variable then find the probability density function of the {\em squared-error} of the milling process,
+\[ Y\,=\, (X-\mu)^2\,.\]
+\Answer
+Note that $Y= (X-\mu)^2$ is not on-to-one so it is better to use the direct method by differentiating the distribution function  of $Y$, $F_Y(y)$,  to obtain $f_Y(y)$.
+
+If $y\geqslant 0$,
+\begin{align*}
+ F_Y(y)\;=&\; \P(Y \leqslant y) \\[3pt]
+ \;=&\;  \P( (X-\mu)^2 \leqslant y) \\[3pt]
+ \;=&\; \P(-\sqrt y \leqslant X-\mu \leqslant \sqrt y)\\[3pt]
+ \;=&\; \P(\mu -\sqrt y \leqslant X  \leqslant \mu + \sqrt y)\\[3pt]
+\;=&\; F_X( \mu + \sqrt y) \,-\, F_X( \mu + \sqrt y)
+\end{align*}
+
+Differentiating this expression gives
+\begin{align*}
+f_Y(y) \;=&\; \frac{d}{dy} \left(F_X( \mu + \sqrt y) \,-\, F_X( \mu - \sqrt y)  \right) \\[3pt]
+\;=&\;\frac{1}{2} y^{-\frac{1}{2}} \, f_X (\mu + \sqrt y ) \,- \, \left( -\frac{1}{2} y^{-\frac{1}{2}} \right)\, f_X (\mu - \sqrt y ) \\[3pt]
+\;=&\;\frac{1}{2 \sqrt y } \left(  f_X (\mu + \sqrt y )  + f_X (\mu - \sqrt y )  \right)
+\end{align*}
+
+Note: If $y<0$ then $f_Y(y) = 0$  since  $F_Y(y)=0$ in this case.
+
+\Exercise
+Let $(X,Y)$ be a discrete random vector (\rv) with support:
+\[
+\mathcal{S}_{X,Y} = \{(0,0),(0,1),(1,0),(1,1)\} \enspace .
+\]
+Let its joint probability mass function (JPMF) be:
+\[
+f_{X,Y}(x,y) = 
+\begin{cases}
+\frac{1}{4} & \text{ if } (x,y)=(0,0)\\
+\frac{1}{4} & \text{ if } (x,y)=(0,1)\\
+\frac{1}{4} & \text{ if } (x,y)=(1,0)\\
+\frac{1}{4} & \text{ if } (x,y)=(1,1)\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+\]
+Are $X$ and $Y$ independent? 
+\Answer
+~\\
+First derive the marginal PMF of $X$ and $Y$ and then check if the JPMF is the product of the marginal PMFs.
+\[
+f_X(0) = \sum_{y \in \mathcal{S}_{X,Y}} f_{X,Y}(0,y) = f_{X,Y}(0,0) + f_{X,Y}(0,1) = \frac{1}{4}+\frac{1}{4}=\frac{1}{2}
+\]
+and
+\[
+f_X(1) = \sum_{y \in \mathcal{S}_{X,Y}} f_{X,Y}(1,y) = f_{X,Y}(1,0) + f_{X,Y}(1,1) = \frac{1}{4}+\frac{1}{4}=\frac{1}{2}
+\]
+Thus,
+\[
+f_{X}(x) = 
+\begin{cases}
+\frac{1}{2} & \text{ if } x = 0\\
+\frac{1}{2} & \text{ if } x = 1\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+\]
+Similarly,
+\[
+f_{Y}(y) = 
+\begin{cases}
+\sum_{x \in \mathcal{S}_{X,Y}} f_{X,Y}(x,0)=f_{X,Y}(0,0) + f_{X,Y}(1,0) = \frac{1}{4}+\frac{1}{4}=\frac{1}{2} & \text{ if } y = 0\\
+\sum_{x \in \mathcal{S}_{X,Y}} f_{X,Y}(x,1)=f_{X,Y}(0,1) + f_{X,Y}(1,1) = \frac{1}{4}+\frac{1}{4}=\frac{1}{2} & \text{ if } y = 1\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+\]
+Finally, the product of $f_X(x)$ and $f_Y(y)$ is
+\[
+f_{X}(x) \times f_{Y}(y) = 
+\begin{cases}
+\frac{1}{2} \times \frac{1}{2}=\frac{1}{4} & \text{ if } (x,y)=(0,0)\\
+\frac{1}{2} \times \frac{1}{2}=\frac{1}{4} & \text{ if } (x,y)=(0,1)\\
+\frac{1}{2} \times \frac{1}{2}=\frac{1}{4} & \text{ if } (x,y)=(1,0)\\
+\frac{1}{2} \times \frac{1}{2}=\frac{1}{4} & \text{ if } (x,y)=(1,1)\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+\]
+which in turn is equal to the JPMF $f_{X,Y}(x,y)$ in the question.  Therefore we have shown that the component RVs $X$ and $Y$ in the \rv~$(X,Y)$ are indeed indepedent.
+
+\Exercise
+A semiconductor product consists of three layers that are fabricated independently.  
+If the variances in thickness of the first, second and third third layers are $25$, $40$ and $30$ nanometers squared, what is the variance of the thickness of the final product? 
+\Answer
+~\\
+Let $X_1$, $X_2$, $X_3$ be independent RVs that denote the thickness of the first, second and third layer, respectively.  Let $X$ denote the thickness of the final product.  Then
+\[
+X= X_1+X_2+X_3
+\]
+By the property that $V\left(\sum_{i=1}^n a_i X_i\right) = \sum_{i=1}^n a_i^2 V(X_i)$, Variance of $X$ is
+\[
+V(X) = 1^2 V(X_1) + 1^2 V(X_2) + 1^2 V(X_3) = 25+40+30 = 95 nm^2 \enspace .
+\] 
+This shows how the variance in each layer is propagated to the variance of the final product.
+
+\Exercise
+Find the covariance for the discrete \rv~$(X,Y)$ with joint probability mass function
+\[
+f_{X,Y}(x,y) = 
+\begin{cases}
+0.2 & \text{ if } (x,y)=(0,0)\\
+0.1 & \text{ if } (x,y)=(1,1)\\
+0.1 & \text{ if } (x,y)=(1,2)\\
+0.1 & \text{ if } (x,y)=(2,1)\\
+0.1 & \text{ if } (x,y)=(2,2)\\
+0.4 & \text{ if } (x,y)=(3,3)\\
+0 & \text{ otherwise } \enspace .
+\end{cases}
+\]
+[Hint: Recall that $\cv(X,Y)=E(XY)-E(X)E(Y)$]
+\Answer
+~\\
+Find $E(XY)$, $E(X)$ and $E(Y)$ to get $\cv(X,Y)=E(XY)-E(X)E(Y)$ as follows:
+\begin{multline*}
+E(XY) = \sum_{(x,y) \in \mathcal{S}_{X,Y}} x \times y \times f_{X,Y}(x,y) \\
+= 0 \times 0 \times 0.2 + 1 \times 1 \times 0.1+ 1 \times 2 \times 0.1 + 2 \times 1 \times 0.1 + 2 \times 2 \times 0.1 + 3 \times 3 \times 0.4 = 4.5
+\end{multline*}
+\begin{multline*}
+E((X,Y)) = \sum_{(x,y) \in \mathcal{S}_{X,Y}} (x , y) \times f_{X,Y}(x,y) \\
+= (0 , 0) \times 0.2 + (1 , 1) \times 0.1 + (1 , 2) \times 0.1 + (2 , 1) \times 0.1 + (2 , 2) \times 0.1 + (3 , 3) \times 0.4\\= (0,0)+(0.1,0.1)+(0.1,0.2)+(0.2,0.1)+(0.2,0.2)+(1.2,1.2) \\
+= (1.8,1.8) 
+\end{multline*}
+Since addition is component-wise $E((X,Y))=(E(X),E(Y))$ and therefore $E(X)=E(Y)=1.8$.
+
+Alternatively, you can first find the marginal PMFs $f_X$ and $f_Y$ for $X$ and $Y$ and then take the expectations $E(X)=\sum_x x \times f_X(x)$ and $E(Y)=\sum_y y \times f_Y(y)$.
+
+Finally, 
+\[
+\cv(X,Y) = E(XY)-E(X)E(Y) = 4.5 - 1.8^2 = 1.26 \enspace .
+\]
+
+\Exercise
+Consider two random variables (RVs) $X$ and $Y$ having marginal distribution functions
+\[
+F_X(x) =
+\begin{cases}
+0 & \text{ if } x < 1\\
+\frac{1}{2} & \text{ if } 1 \leq x < 2\\
+1 & \text{ if } x \geq 2\\
+\end{cases}
+\] 
+\[
+F_Y(y) =
+\begin{cases}
+0 & \text{ if } y < 0\\
+1-\frac{1}{2}e^{-y}-\frac{1}{2}e^{-2y} & \text{ if } y \geq 0\\
+\end{cases}
+\]
+If $X$ and $Y$ are independent, what is their joint distribution function $F_{X,Y}(x,y)$? [Hint: you need to express $F_{X,Y}(x,y)$ for any $(x,y) \in \Rz^2$.]
+\Answer
+~\\
+Since $X$ and $Y$ are independent, $F_{X,Y}(x,y) = F_X(x) F_Y(y)$ for all $(x,y) \in \Rz^2$, and we get:
+\[
+F_{X,Y}(x,y) = 
+\begin{cases}
+0 & \text{ if } x < 1 \text{ or } y < 0\\
+\frac{1}{2}\left(1-\frac{1}{2}e^{-y}-\frac{1}{2}e^{-2y}\right) & \text{ if } 1 \leq x < 2 \text{ and } y \geq 0\\
+1-\frac{1}{2}e^{-y}-\frac{1}{2}e^{-2y} & \text{ if } x \geq 2 \text{ and } y \geq 0
+\end{cases}
+\]
+{\small
+You can arrive at the answer by partitioning $x$-axis into $(-\infty,1)$, $[1,2)$ and $[2,\infty)$ where $F_X(x)$ takes distinct values.  Similarly, partition the $y$-axis into  $(-\infty,0)$ and $[0,\infty)$ where $F_Y(y)$ takes distinct values.  
+Now $(x,y)$ can take values in one of these $3 \times 2=6$ partitions of the $x \times y$ plane as follows (make a picture!):
+\[
+(-\infty,1) \times (-\infty,0), \,
+[1,2) \times (-\infty,0), \,
+[2,\infty) \times (-\infty,0), \,
+(-\infty,1) \times [0,\infty), \,
+[1,2) \times [0,\infty), \,
+[2,\infty) \times [0,\infty) \enspace .
+\]
+Now work out what $F_{X,Y}(x,y) = F_X(x) F_Y(y)$ is for $(x,y)$ in each of the above six partitions of the plane and you will get the the expression for $F_{X,Y}(x,y)$ given above.
+}
+
+\Exercise
+Let $(X,Y)$ be a continuous \rv~with joint probability density function (JPDF):
+\[
+f_{X,Y}(x,y) = 
+\begin{cases}
+e^{-x} & \text{ if } x \in [0,\infty) \text{ and }  y \in [2,3]\\
+0 & \text{otherwise} \enspace .
+\end{cases}
+\]
+Are $X$ and $Y$ independent?
+\Answer
+~\\
+First obtain marginal PDF of $Y$.  If $y \in [2,3]$ then
+\[
+f_Y(y) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) dx = \int_0^{\infty} e^{-x} dx = \left[ -e^{-x} \right]_0^{\infty} = 0 - (-1)=1 \enspace .
+\]
+Therefore,
+\[
+f_Y(y) =
+\begin{cases}
+1 & \text{ if } y \in [2,3]\\
+0 & \text{otherwise} \enspace .
+\end{cases}
+\]
+Now, obtain the marginal PDF of $X$.  If $x \in [0,\infty)$ then
+\[
+f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x,y) dy = \int_2^3 e^{-x} dy  = e^{-x} \int_2^3 1 dy = e^{-x} \left[ y \right]_2^3 = e^{-x} (3-2) = e^{-x} \enspace .
+\]
+Therefore,
+\[
+f_X(x) =
+\begin{cases}
+e^{-x} & \text{ if } x \in [0,\infty)\\
+0 & \text{otherwise} \enspace .
+\end{cases}
+\]
+Finally, verifying that $f_{X,Y}(x,y) = f_X(x) f_Y(y)$ for any $(x,y) \in \Rz^2$ is done case by case.  
+Draw a picture on the plane to work out the cases from the distinct expressions taken by $f_{X,Y}(x,y)$.  
+There are only two cases to consider (when $f_{X,Y}(x,y)$ takes zero values and when $f_{X,Y}(x,y)$ takes non-zero values):
+\be
+\item~If $x \notin [0,\infty)$ or $y \notin [2,3]$ then $f_X(x)f_Y(y)=0=f_{X,Y}(x,y)$
+\item~If $x \in [0,\infty)$ and $y \in [2,3]$ then $f_X(x)f_Y(y)=e^{-x} \times 1=e^{-x}=f_{X,Y}(x,y)$.
+\ee
+Thus, $X$ and $Y$ are independent.
+
+\Exercise
+In an electronic assembly, let the RVs $X_1,X_2,X_3,X_4$ denote the lifetimes of four components in hours.  
+Suppose that the JPDF of these variables is
+\begin{align*}
+~& f_{X_1,X_2,X_3,X_4}(x_1,x_2,x_3,x_4) \\
+&\qquad= 
+\begin{cases}
+9 \times 10^{-12} e^{-0.001 x_1 - 0.002 x_2 - 0.0015 x_3 - 0.003 x_4} & \text{ if } x_1 \geq 0, x_2 \geq 0, x_3 \geq 0, x_4 \geq 0\\
+0 & \text{ otherwise} \enspace.
+\end{cases}
+\end{align*}
+What is the probability that the device operates for more than 1000 hours without any failures? [Hint: The requested probability is $\P(X_1>1000,X_2>1000,X_3>1000,X_4>1000)$ since each one of the four components of the device must not fail before 1000 hours.]
+\Answer
+~\\
+\begin{multline*}
+\P(X_1>1000,X_2>1000,X_3>1000,X_4>1000) \\
+= \int_{1000}^{\infty} \int_{1000}^{\infty} \int_{1000}^{\infty} \int_{1000}^{\infty} 9 \times 10^{-12} e^{-0.001 x_1 - 0.002 x_2 - 0.0015 x_3 - 0.003 x_4} dx_1 dx_2 dx_3 dx_4\\
+= 9 \times 10^{-12} \int_{1000}^{\infty} \int_{1000}^{\infty} \int_{1000}^{\infty} \int_{1000}^{\infty}  e^{-0.001 x_1} e^{- 0.002 x_2} e^{- 0.0015 x_3} e^{- 0.003 x_4} dx_1 dx_2 dx_3 dx_4\\
+=  9 \times 10^{-12} \int_{1000}^{\infty} e^{-0.001 x_1} \int_{1000}^{\infty} e^{- 0.002 x_2} \int_{1000}^{\infty} e^{- 0.0015 x_3} \int_{1000}^{\infty} e^{- 0.003 x_4} dx_4 dx_3 dx_2 dx_1\\
+\end{multline*}
+Since
+\[
+\int_{1000}^{\infty} e^{- a x_i} dx_i = \left[ \frac{e^{-a x_i}}{-a} \right]_{1000}^{\infty} = 0 + \frac{e^{-1000\times a}}{a} \enspace ,
+\]
+the above quadruply iterated integral becomes
+\begin{align*}
+&~ 9 \times 10^{-12} \times \frac{e^{-1000 \times 0.001}}{0.001} \times \frac{e^{-1000 \times 0.002}}{0.002} 
+\times \frac{e^{-1000 \times 0.0015}}{0.0015} \times \frac{e^{-1000 \times 0.003}}{0.003}\\
+&= 9 \times 10^{-12} \times \frac{1000}{1} \times \frac{1000}{2} \times \frac{1000}{1.5} \times \frac{1000}{3} \times
+e^{-1} \times e^{-2} \times e^{-1.5} \times e^{-3} \\
+&= 9 \times 10^{-12} \times \frac{1}{9} \times 10^{12} \times e^{-7.5} = e^{-7.5} \approxeq 0.00055 \enspace .
+\end{align*}
+
+\Exercise
+Suppose the RVs $Y_1$, $Y_2$ and $Y_3$ represent the thickness in micrometers of a substrate, an active layer, and a coating layer of a chemical product.  
+Assume $Y_1$, $Y_2$ and $Y_3$ are $\normal(10000,250^2)$, $\normal(1000,20^2)$ and $\normal(80,4^2)$ RVs, respectively.  
+Further suppose that they are independent.  
+The required specifications for the thickness of the substrate, active layer and coating layer are $[9500,10500]$, $[950,1050]$ and $[75,85]$, respectively.  
+What proportion of chemical products meets all thickness specifications? [Hint: this is just $\P(9500<Y_1<10500,950<Y_2<1050,75<Y_3<85)$]  Which one of the three thicknesses has the least probability of meeting specifications?   
+\Answer
+~\\
+Due to independence of $Y_1$, $Y_2$ and $Y_3$
+\begin{multline*}
+\P(9500<Y_1<10500,950<Y_2<1050,75<Y_3<85)\\ = \P(9500<Y_1<10500) \P(950<Y_2<1050) \P(75<Y_3<85)
+\end{multline*}
+After standardizing each Normal RV (subtracting its mean and dividing by its standard deviation) we get
+\begin{align*}
+&~ \P(9500<Y_1<10500) \P(950<Y_2<1050) \P(75<Y_3<85)\\
+&=  P\left(\frac{9500-10000}{250}< Z < \frac{10500-10000}{250} \right) P\left( \frac{950-1000}{20}<Z<\frac{1050-1000}{20}\right)\\
+&\qquad \qquad \qquad \qquad \qquad \qquad P\left(\frac{75-80}{4}<Z<\frac{85-80}{4}\right)\\
+&= \P(-2.0<Z<2.0) \P(-2.5<Z<2.5) \P(-1.25<Z<1.25) \\
+&= (\Phi(2.0)-(1-\Phi(2.0)) \times (\Phi(2.5)-(1-\Phi(2.5)) \times (\Phi(1.25)-(1-\Phi(1.25))\\
+&= (2\Phi(2.0)-1) \times (2\Phi(2.5)-1) \times (2\Phi(1.25)-1)\\
+&= ((2 \times 0.9772) -1) \times ((2 \times 0.9938) - 1) \times ((2 \times 0.8944)-1) \qquad \text{ using Table for $\Phi(z)$} \\
+&= 0.9544 \times 0.9876 \times 0.7888 = 0.7435
+\end{align*}
+%To follow the fourth-last equality above see Example 8.14(d) from EMTH119. % TODO? 
+The values for the distribution function $\Phi(z)$ of the $\normal(0,1)$ RV $Z$ are in the table on page 67. 
+
+The thickness of the coating layer represented by $Y_3$ has the least probability ($0.7888$) of meeting specifications.  Consequently, a priority should be to reduce variability in this part of the process.
+
+\Exercise
+Soft drink cans are filled by an automated filling machine.  
+Assume the fill volumes of the cans are independent $\normal(12.1,0.01)$ RVs.  
+What is the probability that the average volume of ten cans selected from this process is less than $12.01$ fluid ounces?
+\Answer
+~\\
+Let $X_1,X_2,\ldots,X_{10}$ denote the fill volumes of $10$ cans.  The average fill volume is the sample mean
+\[
+\ol{X}_{10} = \frac{1}{10} \sum_{i=1}^{10} X_i
+\]
+By property of Expectations and Variances for linear combinations
+\[
+E(\ol{X}_{10}) = E \left(\frac{1}{10} \sum_{i=1}^{10} X_i \right) = \frac{1}{10}\sum_{i=1}^nE(X_i) = \frac{1}{10}\sum_{i=1}^nE(X_1) = \frac{1}{10} \times 10 \times E(X_1) = E(X_1) = 12.1
+\]
+Or by directly using the ``formula'' $E(\ol{X}_{10}) = E(X_1)=12.1$ for these $10$ identically distributed RVs.  
+Similarly, 
+\[
+V\left(\ol{X}_{10}\right) = V \left(\frac{1}{10} \sum_{i=1}^{10} X_i \right) = 10 \times \frac{1}{10^2} V(X_1) = \frac{1}{10} \times 0.01 = 0.001 
+\]
+Or by directly using the ``formula'' $V(\ol{X}_{10}) = V(X_1)/10$ for these $10$ independently and identically distributed RVs.
+ 
+By the special property of Normal RVs -- a linear combination of independent normal RVs is also normal -- we know that 
+$\ol{X}_{10}$ is a $\normal(12.1,0.001)$ RV.
+Consequetly, the probability of interest is
+\begin{align*}
+\P(\ol{X}_{10} < 12.01) 
+&= P \left( \frac{\ol{X}_{10}-E(\ol{X}_{10})}{\sqrt{0.001}} < \frac{12.01 - E(\ol{X}_{10})}{\sqrt{0.001}} \right) = P\left(Z < \frac{12.01-12.1}{0.0316}\right)\\ 
+&\approxeq \P(Z<-2.85) = 1-\P(Z<2.85) = 1-\Phi(2.85) = 1-0.9978=0.0022
+\end{align*}
+
+\Exercise
+Let $X_1,X_2,X_3,X_4$ be RVs that denote the number of bits received in a digital channel that are classified as {\em excellent}, {\em good}, {\em fair} and {\em poor}, respectively.  
+In a transmission of $10$ bits, what is the probability that $6$ of the bits received are {\em excellent}, $2$ are {\em good}, $2$ are {\em fair} and none are {\em poor} under the assumption that the classification of bits are independent events and that the probabilities of each bit being {\em excellent}, {\em good}, {\em fair} and {\em poor} are $0.6$, $0.3$, $0.08$ and $0.02$, respectively. 
+[Hint: Think of $\multinomial(n=10,\theta_1=0.6,\theta_2=0.3,\theta_3=0.08,\theta_4=0.02)$ as a model for bit classification in this digital channel.]
+\Answer
+~\\
+Using the $\multinomial(n=10,\theta_1=0.6,\theta_2=0.3,\theta_3=0.08,\theta_4=0.02)$ \rv~as our model
+\begin{align*}
+&~ P\left( (X_1,X_2,X_3,X_4)=(6,2,2,0); n=10,\theta_1=0.6,\theta_2=0.3,\theta_3=0.08,\theta_4=0.02 \right)\\ 
+&= \frac{10!}{6! \times 2! \times 2! \times 0!} \times 0.6^6 \times 0.3^2 \times 0.08^2 \times 0.02^0\\
+&= \frac{10 \times 9 \times 8 \times 7 \times 6 \times 5 \times 4 \times 3 \times 2 \times 1}{(6 \times 5 \times 4 \times 3 \times 2 \times 1) \times (2 \times 1) \times (2 \times 1) \times 1} \times  0.6^6 \times 0.3^2 \times 0.08^2 \times 1 \approxeq 0.03386\\
+\end{align*}
+
+
+\end{ExerciseList}
+

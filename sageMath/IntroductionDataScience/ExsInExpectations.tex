@@ -1,0 +1,133 @@
+\section{Exercises in Expectations of Random Variables}\label{S:xsExpectationsOfRVs} %S:xsMultivariateRVs
+\begin{ExerciseList}
+\Exercise
+Let $X$ be the number of air
+  conditioners a  store  sells each day, and assume that $X$ has
+  probability mass function $f(10)=0.1$, $f(11)=0.3$,
+  $f(12)=0.4$, $f(13)=0.2$.
+\be
+\item  Find the expected number of conditioners that the store sells
+  each day.
+\item If the profit per conditioner is $\$55$, what is the expected daily profit?
+\ee
+\Answer
+\be
+\item
+The expected number of conditioners that the store sells daily  is
+\ba{\E(X)&=\;\sum_{i=1}^{n}x_ip_{x_i}\\[6pt]
+&=(10\times0.1+11\times0.3+12\times0.4+13\times0.2)\\[6pt]
+&=1+3.3+4.8+2.6\\[6pt]
+&=11.7\enspace . }
+\item
+The profit per conditioner is $\$55$, and so the expected daily profit given by
+\[E( 55 \,X)\;=\; 55 E(X) \;=\; 55 \times 11.7 \;=\; 643.50\, ,\]
+is $\$643.50$.
+\ee
+
+\Exercise
+A small petrol station is supplied with fuel  every Saturday
+  afternoon. Assume that its volume of sales $X$, in ten thousands of
+  litres, has density
+$$f(x)\;=\;\begin{cases}6x(1-x)&0\leq x \leq
+  1\\0&\textrm{otherwise}\end{cases}\,.$$
+Determine the mean and  variance of $X$.
+\Answer
+The expected value $\E(X)$ is
+\ba{\E(X)&=\int^1_0 6x(1-x)x\,dx\\
+&=\;\int^1_0 (6x^2-6x^3)\,dx\\[3pt]
+&=\;\left. 2x^3-\frac{6}{4}x^4\right]^1_0\\
+&=\;2(1^3-0)-\frac{6}{4}(1^4-0)\\
+&=\;0.5}
+
+\ba{\E(X^2)&=\int^1_0 6x(1-x)x^2\,dx\\[3pt]
+&=\;\int^1_0 6x^3-6x^4\,dx\\[3pt]
+&=\;\left.\frac{6}{4}x^4-\frac{6}{5}x^5\right]^1_0\\
+&=\;\frac{6}{4}(1^4-0)-\frac{6}{5}(1^5-0)\\
+&=0.3  
+}
+the variance is $\V(X)\;=\;\E(X^2)-(\E(X))^2\;=\;0.3-0.5^2\;=\;0.05$
+
+\Exercise
+Starting from the definition of the variance of a random variable (Definition~\ref{D:VarianceofX}) show that
+\[\V(X) = \E(X^2) - \left(\E(X)\right)^2 \enspace .\]
+\Answer
+This was already done in Sec.~\ref{S:PropOfEs} on Properties of Expectation. Make sure you understand each step.
+
+\Exercise
+Show that $V(aX+b) = a^2 V(X)$ for constants $a$ and $b$ and a random variable $X$.
+\Answer
+Using the definition of variance, expectations and by completing the square, we get:
+\begin{multline*}
+V(aX+b) = E ((aX+b)^2) - (E(aX+b))^2 = E \left( (aX)^2 + 2aXb + b^2 \right) - \left( aE(X)+b\right)^2 \\
+= a^2 E \left(X^2\right) + 2ab E(X) + b^2 - a^2(E(X))^2 - 2abE(X) - b^2
+= a^2 \left( E \left(X^2\right) - (E(X))^2 \right) = a^2 V(X) \, .
+\end{multline*}
+
+\Exercise
+{**}Let $X$ be a discrete random variable with PMF given by
+\[
+f(x) = 
+\begin{cases}
+\frac{x}{10} & \text{ if } x \in \{1,2,3,4\} ,\\
+0 & \text{ otherwise.}
+\end{cases}
+\]
+\begin{itemize}
+\item[(a)] Find:
+\begin{itemize}
+\item[(i)] $\P(X=0)$
+\item[(ii)] $\P(2.5 < X < 5)$
+\item[(iii)] $\E(X)$
+\item[(iv)] $\V(X)$
+\end{itemize}
+\item[(b)] Write down the DF (or CDF) of $X$.
+\item[(c)] Plot the PMF and CDF of $X$.
+\end{itemize}
+
+\Exercise
+Find the mean and the variance of the following  random variables.
+\be
+\item $X$ a discrete uniform random variable on $\{1,2,3,4,5,6\}$, i.e., \textit{the number a fair die turns up}.
+ \item $X$ is a $\uniform(0,8)$ random variable, i.e., \textit{a continuous uniform random variable from the interval} $[0,8]$.
+
+\item $X$ has a density function
+$$
+f(x)\,=\, 
+\begin{cases} 
+2e^{-2x} & \text{ if }  x \geq 0\\ 
+0 & \text{ otherwise} \, . 
+\end{cases}
+$$
+\ee
+\Answer
+\be
+\item
+The probability mass function of $X$ is
+$$f(x)=\begin{cases}\frac{1}{6}&x=1\\
+\frac{1}{6}&x=2\\
+\frac{1}{6}&x=3\\
+\frac{1}{6}&x=4\\
+\frac{1}{6}&x=5\\
+\frac{1}{6}&x=6
+\end{cases}$$
+and so
+$$\E(X)\;=\;\sum_{i=1}^6
+x_if(x_i)\;=\;\frac{1}{6}+\frac{2}{6}+\frac{3}{6}+\frac{4}{6}+\frac{5}{6}+\frac{6}{6}\;=\;3.5\,.$$
+Now,
+$$\E(X^2)\;=\;\sum_{i=1}^6 x^2_if(x_i)\;=\;\frac{1}{6}+\frac{4}{6}+\frac{9}{6}+\frac{16}{6}+\frac{25}{6}+\frac{36}{6}\;=\;\frac{91}{6}\;=\;15.1667$$
+and so  the variance is
+\[V(X)\; =\; \E(X^2) - (\E(X))^2 \;=\; 15.1667-3.5^2\;=\;2.9167\,.\] 
+  
+\item The density function of the uniform distribution, $X$,  on $[0,8]$ is  $$f(x)=\begin{cases}\frac{1}{8}&0<x<8\\0&\textrm{otherwise}\end{cases}$$
+Therefore, $$\E(X)\;=\;\frac{8+0}{2}\;=\;4\enspace,$$
+and $$\V(X)\;=\;\frac{(8-0)^2}{12}\;=\;\frac{16}{3}$$
+
+\item Since $f(x)$ is the density function of an $\exponential(\lambda)$ random variable with parameter $\lambda=2$, we can use earlier results to get
+$$\E(X)\;=\;\frac{1}{2}\quad \text{and}\quad
+\V(X)\;=\;\frac{1}{4}\enspace.$$
+
+(You should also be able to do this by integration!)
+\ee
+
+\end{ExerciseList}
+

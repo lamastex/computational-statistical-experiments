@@ -1,0 +1,290 @@
+%%&latex
+\documentclass[html,11pt,oneside,a4paper,notitlepage,openany]{book}
+\usepackage[lastexercise,answerdelayed]{exercise}
+\usepackage[pdftex]{hyperref}
+\usepackage{fullpage}
+\usepackage{amssymb,amsmath,multicol}
+\usepackage{picture,epic}
+\usepackage{theorem}
+\usepackage{framed}
+\usepackage{paralist}
+%\usepackage{amssymb,amsmath,amsthm,stmaryrd,booktabs}
+\usepackage[mathscr]{eucal}
+\usepackage{url,subfigure}
+\usepackage{mathtools}
+\usepackage[usenames]{color}
+\usepackage{fancyvrb}
+\definecolor{Gray}{rgb}{0.75,0.75,0.75}
+
+
+\CustomVerbatimEnvironment{VrbM}{Verbatim}{frame=single,fontshape=n,fontfamily=tt,rulecolor=\color{Gray},fontsize=\scriptsize}
+
+\CustomVerbatimCommand{\VrbMf}{VerbatimInput}
+{frame=lines,framerule=1pt,fontshape=n,fontfamily=tt,rulecolor=\color{Gray},fontsize=\scriptsize}
+
+
+% begin: to autmatically convert eps to pdf while typesetting
+\usepackage{graphicx}% needs Ghostscript installed
+%\usepackage[dvipsnames,svgnames,xcdraw, table]{xcolor}
+\usepackage{epstopdf}% uncomment this for autoconverting to EPS to PDF
+%\usepackage{styles/ps4pdf} % comment this for Dominic if needed
+%\usepackage{ps4pdf}
+%\PSforPDF{\usepackage{pstricks,pst-plot}}
+% end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% http://tex.stackexchange.com/questions/1072/which-graphics-formats-can-be-included-in-documents-processed-by-latex-or-pdflate
+%Which one it chooses is even customisable: there's a list of extensions for each output type and it goes through the list until it finds a file that exists. Redefining that list changes the priorities. The list is stored in a comma-separated macro called \Gin@extensions so redefining that will change the order. Here's a simple way to ensure that .pdf is selected first when producing PDF output (since, oddly, the list for PDF output starts with .png):
+%\usepackage{ifpdf}
+%\ifpdf
+%\PassOptionsToPackage{pdftex}{graphicx}
+%\fi
+%\ifpdf
+%\makeatletter
+%\let\orig@Gin@extensions\Gin@extensions
+%%\def\Gin@extensions{.pdf,\orig@Gin@extensions} %prepend .pdf before .png
+%\def\Gin@extensions{.png,\orig@Gin@extensions} %prepend .png before .pdf
+%\makeatother
+%\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%\usepackage{styles/algorithmic}
+%\usepackage{styles/algorithm}
+%WORK change all algorithms in 2e
+%\usepackage[lined,algonl,boxed]{algorithm2e}
+% Alter some LaTeX defaults for better treatment of figures:
+    % See p.105 of "TeX Unbound" for suggested values.
+    % See pp. 199-200 of Lamport's "LaTeX" book for details.
+    %   General parameters, for ALL pages:
+    \renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+    \renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+
+% some operators we need
+\newcommand{\nbhd}{\operatorname{nbhd}}
+\newcommand{\ideg}{\operatorname{ideg}}
+\newcommand{\odeg}{\operatorname{odeg}}
+\newcommand{\erf}{\operatorname{erf}}
+\newcommand{\sign}{\operatorname{sign}}
+\newcommand{\abs}{\operatorname{abs}}
+\newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
+\newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+%to comment out
+%\newcommand{\comment}[1]{{#1}} % for stat 459
+\newcommand{\comment}[1]{} % for stat 313 %% also Comment BootstrapByDominicLee.tex manually below...
+
+% some acronyms
+%\newcommand{\D}[1]{\mathbb{#1}}%math black board Double \D{A}% replaced with \Az
+\newcommand{\C}[1]{\mathcal{#1}}%math caligraphic \C{A}
+\newcommand{\EE}[1]{\mathscr{#1}}%math Euler script \E{A}
+\newcommand{\B}[1]{\mathbf{#1}}%math bold font \B{A}
+\newcommand{\F}[1]{\mathfrak{#1}}%math frak \F{A}
+
+\newcommand{\work}{{\includegraphics[width=0.25in]{figures/WorkGT}}}
+
+
+\newcommand{\ba}[1]{\begin{align*} #1 \end{align*}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bit}{\begin{itemize}}
+\newcommand{\eit}{\end{itemize}}
+%% This unremoving does not work as it causes conflict with \VrbM environment
+%\newcommand{\remove}[1]{#1} % to unremove computational content
+\newcommand{\remove}[1]{}% to remove computaitonal content
+
+\newcommand{\cen}[1]{\begin{center}#1\end{center}}
+\newcommand{\cenn}[1]{\vspace*{-3pt}\begin{center}#1\end{center}\vspace*{-3pt}}
+
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\matno}[1]{\begin{matrix}#1\end{matrix}}
+\newcommand{\matc}[1]{\vspace*{-12pt}\[\begin{bmatrix} #1\end{bmatrix}\]}
+
+\newcommand{\matt}[1]{\vspace*{-12pt}\begin{matrix} #1\end{matrix}}
+
+\newcommand{\bcols}[1]{\begin{multicols}{#1}}
+\newcommand{\ecols}{\end{multicols}}
+
+% for pstricks mainly pspicture - needs to be loaded like this after fancyvrb as it otherwise causes color clash
+%\usepackage[dvipsnames]{pst-pdf}
+%\usepackage{pst-pdf}
+%pspicture is still not working due to some color clash with fancyvrv!!!
+
+%http://www.math.uh.edu/~torok/math_6298/latex/fancy-stuff.html#theorem-fonts
+{\theorembodyfont{\rmfamily}
+\newtheorem{definition}{Definition}
+%\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{prop}[definition]{Proposition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{idea}[definition]{Idea}
+\newtheorem{rem}[definition]{Remark}
+\newtheorem{model}{Model}
+\newtheorem{Exp}[model]{Experiment}
+%\newtheorem{experiment}{Experiment}
+\newtheorem{example}{Example}
+\newtheorem{simulation}[example]{Simulation}
+\newtheorem{demo}[example]{Demonstration}
+\newtheorem{classwork}[example]{Classwork}
+\newtheorem{exercise}[example]{Exercise}
+\newtheorem{data}[example]{Data}
+\newtheorem{labwork}[example]{Labwork}}
+
+\numberwithin{Answer}{chapter}
+\numberwithin{Exercise}{chapter}
+%%\numberwithin{example}{chapter}
+%%\numberwithin{classwork}{chapter}
+
+\renewcommand{\ExerciseHeader}{\medskip\textbf{\ExerciseName~\ExerciseHeaderNB\ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+%\par\nopagebreak
+%\medskip
+}
+\renewcommand{\ExerciseHeaderTitle}{~(\ExerciseTitle)}
+
+\renewcommand{\AnswerHeader}{\medskip{\textbf{Answer (\ExerciseName\ \ExerciseHeaderNB)~---~}}}
+
+% to get nice proofs ...
+%\newcommand{\qedsymb}{\mbox{ }~\hfill~{\rule{2mm}{2mm}}}
+%\newenvironment{proof}{\begin{trivlist}
+%\item[\hspace{\labelsep}{\bf\noindent Proof: }]
+%}{\qedsymb\end{trivlist}}
+
+\newenvironment{proof}{\begin{trivlist}
+\item[\hspace{\labelsep}{\bf\noindent Proof: }]
+}{\end{trivlist}}
+
+
+%\includeonly{Statistics,LimitsOfRVs,Estimation,SingleParamEstim,MultiParamEstim}
+%% Nussbaum's Intro to Math Stats Macros remixing with intmacro.sty
+% need latest post-April-2019 full texlive distribution
+\usepackage{mismath}
+%\renewcommand\probastyle{\mathbb}
+\usepackage{makeidx}
+
+\makeindex
+\begin{document}
+
+\renewcommand{\baselinestretch}{1.1}
+\input{Macros.tex}
+
+\title{Introduction to Data Science 1MS041}
+%\title{{Computational Statistical Experiments in \Matlab}}
+%\title{{Random Processes: Introductory Lectures}}
+%\title{{EMTH210: Probability \& Statistics for Engineers}}
+%\title{{STAT211: Random Processes\\{\small Non-examinable Supplement for Researchers}}}
+\author{Benny Avelin, Raazesh Sainudiin$^*$, Dominic Lee$^{\dag}$ and Michael Nussbaum$^{\bullet}$,\\$^*$Laboratory for Mathematical Statistical Experiments, Uppsala Centre, and\\ $^*$Department of Mathematics, Uppsala University, Uppsala, Sweden\\$^{\dag}$School of Mathematics and Statistics, University of Canterbury, Christchurch, New Zealand\\$^{\bullet}$Department of Mathematics, Cornell University, Ithaca, New York, USA}
+\date{Version Date: \today \\~\\
+{\small{
+\copyright 2021--2021 Benny Avelin \copyright 2007--2021 Raazesh Sainudiin. \copyright 2008--2021 Dominic Lee. \copyright 2010--2021\\  %Some rights reserved. {\makebox{\includegraphics[width=1.0in]{styles/CreativeCommonsNZ3_0_88x31.png}}}\\
+This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 4.0 International License. To view a copy of this license, visit \url{https://creativecommons.org/licenses/by-nc-sa/4.0/}.\\  {\tiny This work was partially supported by NSF grant DMS-03-06497, NSF/NIGMS grant DMS-02-01037 and Erskine Fellowship at Department of Statistics, University of Oxford.}.
+}}
+\vspace{0.0cm}
+\begin{figure}[htpb]
+\centering   \makebox{\includegraphics [width=4.25in]{figures/UniformECDFsBands}}
+\end{figure}
+\vspace{-1.0cm}
+\begin{figure}[htpb]
+%\centering   \makebox{\includegraphics [width=5.0in]{figures/WebLogTimesECDFsBands}}
+\centering   \makebox{\includegraphics [width=4.5in]{figures/SeptcunxN21T100}}
+\end{figure}
+}
+\maketitle
+
+%\remove{
+%\chapter*{Vision Satement}
+
+%\include{CSEMotivate.tex}
+
+% \chapter*{1MS034 Syllabus}
+% \addcontentsline{toc}{chapter}{1MS034 Syllabus}
+% \input{styles/ProbTheor1_UU_2019T1.latex}
+% \chapter*{1MS035 Syllabus}
+% \addcontentsline{toc}{chapter}{1MS035 Syllabus}
+% \input{styles/InfTheor1_UU_2019T2.latex}
+% %}%% end remove
+
+\tableofcontents
+\listoftables
+\listoffigures
+
+%\chapter{Introduction and Preliminaries}
+%Lecture Notes for STAT 313 \& 459 S2 2011: Computational Statistics\\
+%Raazesh Sainudiin, Dept.~of Maths \& Stats, University of Canterbury, Christchurch, NZ.
+
+
+%\remove{
+\include{IntroPrelims}
+%
+% %\clearpage
+\include{ProbabilityModel}
+%
+\include{RandomVariables}
+%
+\include{Statistics}
+%
+\include{RandomNumbers}
+%
+\include{LimitsOfRVs}
+% \include{stub211MarkovChains}
+% \include{StdNormalTable}%just std normal table values
+% \include{ProbabilityISummary}
+%
+% %}
+%
+% %\remove{
+% %\include{CommonRVs}
+\include{MarkovChains}
+%\include{MCMC}
+% %}
+%
+% \include{Experiments}
+% \include{InferProportions}
+% \include{Estimation}
+% \include{HypothesisTesting}
+% \include{SingleParamEstim}
+%
+\include{NonParamEstimDFPlugIn}
+\include{Bootstrap}
+\include{Regression}
+%
+% \remove{
+% \include{MultiParamEstim}
+% \include{BootstrapByDominicLee}%comment for stat313 manually cause Sha Zhu's tex of this material is not tight!!!
+% \include{MonteCarloIntegralEstim}
+% }
+
+%\include{DensityEstimation}
+%FIX\input{NonparametricRegression.tex}
+%\include{BayesianExperiments}
+%\include{Learning}
+%\remove{
+%
+%}
+
+\clearpage
+
+\newpage
+
+%\chapter*{Answers to Selected Exercises}
+%\addcontentsline{toc}{chapter}{Answers to Selected Exercises}
+
+
+%\renewcommand{\ExerciseName}{Ex.}
+
+%Will be provided at tutorial...
+%\remove{
+%\shipoutAnswer
+%}
+
+%\remove{
+%\input{CodeAppendix.tex}
+%}
+
+%\comment{
+%\input{StudentProjects.tex}
+%}
+
+%}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+\end{document}

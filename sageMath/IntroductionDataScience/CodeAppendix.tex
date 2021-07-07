@@ -1,0 +1,116 @@
+\chapter{Appendix}
+%\addcontentsline{toc}{chapter}{Appendix}
+\section{Code}
+\begin{labwork}[PDF and DF of a $\normal(\mu,\sigma^2)$ RV]\label{Mf: NormalCdfPdf}
+Here are the functions to evaluate the PDF and DF of a $\normal(\mu,\sigma^2)$ RV $X$ at a given $x$.
+{\VrbMf[label=NormalPdf.m]{scripts/NormalPdf.m}}
+{\VrbMf[label=NormalCdf.m]{scripts/NormalCdf.m}}
+Plots of the PDF and DF of several Normally distributed RVs depicted in \hyperref[F:plotPdfCdfNormals]{Figure~\ref*{F:plotPdfCdfNormals}} were generated using the following script file:
+{\VrbMf[label=PlotPdfCdfNormal.m]{scripts/PlotPdfCdfNormal.m}}
+\end{labwork}
+
+\begin{labwork}[PDF and DF of an $\exponential(\lambda)$ RV $X$]\label{Mf:ExponentialPdfCdf}
+Here are the functions to evaluate the PDF and DF of an $\exponential(\lambda)$ RV $X$ at a  given $x$ (point or a vector).
+{\VrbMf[label=ExponentialPdf.m]{scripts/ExponentialPdf.m}}
+{\VrbMf[label=ExponentialCdf.m]{scripts/ExponentialCdf.m}}
+Plots of the PDF and DF of several Exponentially distributed RVs at four axes scales that are depicted in \hyperref[F:plotPdfCdfExponentials]{Figure \ref*{F:plotPdfCdfExponentials}} were generated using the following script file:
+{\VrbMf[label=PlotPdfCdfExponential.m]{scripts/PlotPdfCdfExponential.m}}
+\end{labwork}
+
+%\begin{labwork}\label{Mf:ECDF}
+%A {\sc Matlab} function to plot the empirical DF \eqref{E:ECDF} of $n$ user-specified samples.  Read the following M-file for the algorithm:
+%{\VrbMf[label=ECDF.m]{scripts/ECDF.m}}
+%Ideally, this function needs to be rewritten using primitives such as {\sc Matlab}'s {\tt line} commands.
+%\end{labwork}
+
+\begin{labwork}[Plotting the empirical DF]\label{Mf:ECDF}
+A {\sc Matlab} function to plot the empirical DF \eqref{E:ECDF} of $n$ user-specified samples efficiently for massive number of samples.  Read the following M-file for the algorithm:
+{\VrbMf[label=ECDF.m]{scripts/ECDF.m}}
+Ideally, this function needs to be rewritten using primitives such as {\sc Matlab}'s {\tt line} commands.
+\end{labwork}
+
+\begin{labwork}[q-th sample quantile]\label{Mf:qthSampleQuantile}
+Let us implement \hyperref[A:qthSampleQuantile]{Algorithm \ref*{A:qthSampleQuantile}} as the following {\sc Matlab} function:
+{\VrbMf[label=qthSampleQuantile.m]{scripts/qthSampleQuantile.m}}
+\end{labwork}
+
+\begin{labwork}[Loading ]\label{Mf:NZEQChCch20110222}
+Let us save all the steps done in \hyperref[LW:NZEQChCch20110222]{Labwork~\ref*{LW:NZEQChCch20110222}} into the following script M-file:
+{\VrbMf[label=NZEQChCch20110222.m]{scripts/NZEQChCch20110222.m}}
+\end{labwork}
+
+\remove{
+\begin{labwork}[Importance Resampler Demo]\label{Mf:ImpResamplerCauchyViaNormal}
+Visualisation of the Importance Resampler of \hyperref[A:ImpReSampler]{Algorithm~\ref*{A:ImpReSampler}} by producing approximate samples from $\cauchy$ using samples from $\normal(0,1)$.
+%\hyperref[F:LevyDensityPlot]{Figure \ref*{F:LevyDensityPlot}} was made with the following script file.
+{\VrbMf[label=ImpResamplerCauchyViaNormal.m]{scripts/ImpResamplerCauchyViaNormal.m}}
+\end{labwork}
+
+\begin{labwork}[Levy density plot]\label{Mf:LevyDensityPlot}
+\hyperref[F:LevyDensityPlot]{Figure \ref*{F:LevyDensityPlot}} was made with the following script file.
+{\VrbMf[label=LevyDensityPlot.m]{scripts/LevyDensityPlot.m}}
+\end{labwork}
+
+\begin{labwork}[Negative of the Levy density]\label{Mf:NegLevyDensity}
+The negative of the Levy density \eqref{E:LevyDensity} is encoded in the following M-file as a function to be passed to {\sc Matlab}'s {\tt fminsearch}.
+{\VrbMf[label=NegLevyDensity.m]{scripts/NegLevyDensity.m}}
+\end{labwork}
+
+\begin{labwork}[Log-likelihood of $\lognormal$]\label{Mf:LogNormalLogLklPlot}
+\hyperref[F:LogNormalLogLklPlot]{Figure \ref*{F:LogNormalLogLklPlot}} was made with the following script file.
+{\VrbMf[label=LogNormalLogLklPlot.m]{scripts/LogNormalLogLklPlot.m}}
+\end{labwork}
+}
+
+\begin{labwork}[Consistency of MLE in Bernoulli experiment]\label{Mf:BernoulliMLEConsistency}
+\hyperref[F:BernoulliMLEConsistency]{Figure~\ref*{F:BernoulliMLEConsistency}} was made with the following script file.
+{\VrbMf[label=BernoulliMLEConsistency.m]{scripts/BernoulliMLEConsistency.m}}
+\end{labwork}
+
+\begin{labwork}[Gilvenko-Cantelli Lemma for $\uniform(0,1)$]\label{Mf:GilvenkoCantelliUnif01n10n100n100ECDFs}
+The following script was used to generate the \hyperref[F:GilvenkoCantelliUnif01n10n100n100ECDFs]{Figure \ref*{F:GilvenkoCantelliUnif01n10n100n100ECDFs}}.
+{\VrbMf[label=GilvenkoCantelliUnif01.m]{scripts/GilvenkoCantelliUnif01.m}}
+\end{labwork}
+
+\section{Data}\label{S:Data}
+%\addcontentsline{toc}{chapter}{Data Appendix}
+
+Here we describe some of the data sets we analyze.
+\begin{data}[Our Maths \& Stats Dept. Web Logs]\label{DA:WebLogs}
+We assume access to a {\tt Unix} terminal ({\tt Linux, Mas OS X, Sun Solaris}, etc).  We show how to get your hands dirty with web logs that track among others, every {\tt IP} address and its time of login to our department web server over the world-wide-web.  The raw text files of web logs may be manipulated but they are typically huge files and need some {\tt Unix} command-line utilities.
+\begin{VrbM}
+rsa64@mathopt03:~> cd October010203WebLogs/
+rsa64@mathopt03:~/October010203WebLogs> ls -al
+-rw-r--r--+  1 rsa64 math 7527169 2007-10-04 09:38 access-07_log.2
+-rw-r--r--+  1 rsa64 math 7727745 2007-10-04 09:38 access-07_log.3
+\end{VrbM}
+The files are quite large over 7.5 MB each.  So we need to compress it.  We use the {\tt gzip} and {\tt gunzip} utility in any {\tt Unix} environment to compress and decompress these large text files of web logs.  After compression the file sizes are more reasonable.
+\begin{VrbM}
+rsa64@mathopt03:~/October010203WebLogs> gzip access-07_log.3 
+rsa64@mathopt03:~/October010203WebLogs> gzip access-07_log.2 
+rsa64@mathopt03:~/October010203WebLogs> zcat access-07_log.2.gz | grep ' 200 ' 
+| awk '{ print \$4}'| sed -e 's/\[\([0-9]\{2\}\)\/\([a-Z]\{3\}\)\/\([0-9]\{4\}\)
+:\([0-9]\{2\}\):\([0-9]\{2\}\):\([0-9]\{2\}\)/\3 10 \1 \4 \5 \6/'
+2007 10 02 03 57 48
+2007 10 02 03 58 31
+.
+.
+.
+2007 10 03 03 56 21
+2007 10 03 03 56 52
+\end{VrbM}
+Finally, there are $56485$ and $53966$ logins for the two 24-hour cycles, starting {\tt 01/Oct} and {\tt 01/Oct}, respectively.  We can easily get these counts by further piping the previous output into the line counting utility {\tt wc} with the {-l} option.  All the {\tt Unix} command-line tools mentioned earlier can be learned by typing {\tt man } followed by the tool-name, for eg.~type {\tt man sed} to learn about the usage of {\tt sed} ata  {\tt Unix} command shell.  We further pipe the output of login times for the two 24-hour cycles starting {\tt 01/Oct} and {\tt 02/Oct} in format {\tt YYYY MM DD HH MM SS} to 
+{\tt | sed -e 's/2007 10 //' > WebLogTimes20071001035730.dat} and 
+{\tt ... > WebLogTimes20071002035730.dat}, respectively to strip away the redundant information on {\tt YYYY MM }, namely {\tt 2007 10 }, and only save the relevant information of {\tt DD HH MM SS} in files named 
+{\tt WebLogTimes20071001035730.dat} and {\tt WebLogTimes20071002035730.dat}, respectively.  These two files have the data of interest to us.  Note that the size of these two uncompressed final data files in plain text are smaller than the compressed raw web log files we started out from. 
+\begin{VrbM}
+rsa64@mathopt03:~/October010203WebLogs> ls -al
+-rw-r--r--+  1 rsa64 math 677820 2007-10-05 15:36 WebLogTimes20071001035730.dat
+-rw-r--r--+  1 rsa64 math 647592 2007-10-05 15:36 WebLogTimes20071002035730.dat
+-rw-r--r--+  1 rsa64 math 657913 2007-10-04 09:38 access-07_log.2.gz
+-rw-r--r--+  1 rsa64 math 700320 2007-10-04 09:38 access-07_log.3.gz
+\end{VrbM}
+Now that we have been familiarized with the data of login times to our web-server over 2 24-hour cycles, let us do some statistics.  The log files and basic scripts are courtesy of the Department's computer systems administrators Paul Brouwers and Steve Gourdie.  This data processing activity was shared in such detail to show you that statistics is only meaningful when the data and the process that generated it are clear to the experimenter.  Let us process the data and visualize the empirical distribution functions using the following script:
+{\VrbMf[label=WebLogDataProc.m]{scripts/WebLogDataProc.m}}
+\end{data}
+

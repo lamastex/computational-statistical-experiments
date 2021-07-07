@@ -1,0 +1,262 @@
+\newpage
+\chapter*{Summary of Probability Theory I}
+\addcontentsline{toc}{chapter}{Summary of Probability Theory I}
+
+{\scriptsize
+
+\begin{framed}
+\begin{tabular}{rcl}
+SET SUMMARY\\ \\
+$\{a_1,a_2,\dots,a_n\}$& $-$& a set containing the elements, $a_1,a_2,\dots,a_n$.\\
+$a\in A$ &$-$& $a$ is an element of the set $A$.\\
+$A\subseteq B$ &$-$& the set $A$ is a subset of $B$.\\
+$A\cup B$ &$-$& ``union'', meaning the set of all elements which are in $A$ or $B$, \\
+& & \ \ or both.\\
+$A\cap B$ &$-$& ``intersection'', meaning the set of all elements in both $A$ and $B$.\\
+$\{\}$ or $\emptyset$ &$-$& empty set.\\
+$\Omega $ &$-$& universal set.  \\
+$A^c $ &$-$& the complement of $A$, meaning the set of all elements in $\Omega$,\\
+& & \ \ the universal set, which are not in $A$.\\
+\end{tabular}
+\end{framed}
+
+
+\begin{framed}
+EXPERIMENT SUMMARY\\
+
+\begin{tabular}{rcl}
+Experiment &$-$& an activity producing distinct outcomes.\\
+$\Omega$ &$-$& set of all outcomes of the experiment.\\
+$\omega$ &$-$& an individual outcome in $\Omega$, called a simple event.\\
+$A\subseteq \Omega$ &$-$& a subset $A$ of $\Omega$ is an event.\\
+Trial &$-$& one performance of an experiment resulting in 1 outcome.\\
+\end{tabular}
+\end{framed}
+
+\begin{framed}
+PROBABILITY SUMMARY
+
+\medskip
+
+Axioms:
+\begin{enumerate}
+\item If $A\subseteq \Omega$ then $0\leq P(A)\leq 1$ and $P(\Omega)=1$.
+\item If $A$, $B$ are disjoint events, then $P(A\cup B)=P(A)+P(B)$.
+
+[This is true only when $A$ and $B$ are disjoint.]
+\item If $A_1,A_2,\dots$ are disjoint then $P(A_1\cup A_2
+\cup\dots)=P(A_1)+P(A_2)+\dots$
+\end{enumerate}
+Rules:
+$$P(A^c)\;=\;1-P(A)$$
+$$P(A\cup B)\;=\;P(A)+P(B)-P(A\cap B) \qquad [\textrm{always true}]$$
+\end{framed}
+
+\newpage
+\begin{framed}
+CONDITIONAL PROBABILITY SUMMARY\\
+
+$P(A|B)$ means the probability that $A$ occurs given that $B$ has
+occurred.
+
+$$P(A|B)\;=\;\frac{P(A\cap B)}{P(B)}\;=\;\frac{P(A)P(B|A)}{P(B)}\quad \textrm{if}\quad P(B)\neq0$$
+
+$$P(B|A)\;=\;\frac{P(A\cap B)}{P(A)}\;=\;\frac{P(B)P(A|B)}{P(A)}\quad \textrm{if}\quad P(A)\neq 0$$
+
+Conditional probabilities obey the 4 axioms of probability.
+\end{framed}
+
+\begin{framed}
+DISCRETE RANDOM VARIABLE SUMMARY\\
+
+Probability mass function $$f(x)=P(X=x_i)$$
+Distribution function $$F(x)=\sum_{x_i\leq x}f(x_i)$$
+
+\begin{center}
+{\small
+{\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|c|c|p{3.0cm}|p{5.0cm}|}
+\multicolumn{1}{c}{\bf Random  Variable} & \multicolumn{1}{c}{\bf Possible  Values}
+&\multicolumn{1}{c}{\bf Probabilities} &\multicolumn{1}{c}{\bf Modeled situations} \\\hline
+Discrete  uniform&$\{x_1,x_2,\dots,x_k\}$&$P(X=x_i)=\frac{1}{k}$&Situations with $k$ equally likely values.  Parameter: $k$.\\\hline
+$\bernoulli(\theta)$&$\{0,1\}$&$P(X=0)=1-\theta$\newline$P(X=1)=\theta$&Situations with only 2 outcomes, coded 1 for success and 0 for failure.\newline Parameter:\newline $\theta=P(\textrm{success}) \in (0, 1)$.\\\hline
+Geometric($\theta$)&$\{1,2,3,\dots\}$&$P(X=x)\newline=(1-\theta)^{x-1}\theta$& Situations where you count the number of trials until the first success in a sequence of independent trails with a constant probability of success. \newline Parameter:\newline $\theta=P(\textrm{success}) \in (0, 1)$.\\\hline
+Binomial($n,\theta$)&$\{0,1,2,\dots,n\}$&$P(X=x)$\newline $=\displaystyle\binom{n}{x}\theta^x(1-\theta)^{n-x}$&Situations where you count the number of success in $n$ trials where each trial is independent and there is a constant probability of success.\newline Parameters: $n \in \{1,2,\ldots\}$;\newline $\theta=P(\textrm{success}) \in (0, 1)$.\\\hline
+Poisson($\lambda$)&$\{0,1,2,\dots\}$&$P(X=x)\newline=\displaystyle \frac{\lambda^xe^{-\lambda}}{x!}$&Situations where you count the number of events in a continuum where the events occur one at a time and are independent of one another.\newline Parameter: $\lambda$= rate $\in (0,\infty)$.\\\hline
+\end{tabular}}
+}
+\end{center}
+\end{framed}
+
+\begin{framed}
+CONTINUOUS RANDOM VARIABLES: NOTATION\\
+
+$f(x)$: Probability density function (PDF)
+\begin{itemize}
+\item$f(x)\;\geq\;0$
+\item Areas underneath $f(x)$ measure probabilities.
+\end{itemize}
+
+$F(x)$: Distribution function (DF)
+\begin{itemize}
+\item $0\;\leq\;\ F(x)\;\leq \;1$
+\item $F(x)\;= \;P(X\leq x)$ is a probability
+\item $F^{\prime}(x)\;=\;f(x)$ for every $x$ where $f(x)$ is continuous
+\item $F(x)\;=\;\displaystyle\int^x_{-\infty}f(v)dv$
+\item $P(a<X\leq b)\;=\;F(b)-F(a)\;=\;\displaystyle \int^b_af(v)dv$
+\end{itemize}
+\end{framed}
+
+\begin{framed}
+\textbf{Expectation} of a function $g(X)$ of a random variable $X$ is defined as:
+\[
+E(g(X))\; =\;
+\begin{cases}
+\displaystyle \sum_x g(x) f(x) & \text{if $X$ is a discrete RV}\\[12pt]
+\displaystyle \int_{-\infty}^{\infty} g(x) f(x) dx & \text{if $X$ is a continuous RV}
+\end{cases}
+\]
+\begin{center}
+Some Common Expectations
+{\renewcommand{\arraystretch}{1.75}
+%\begin{tabular}{|c|c|p{3.0cm}|p{5.0cm}|}
+\begin{tabular}{|c|p{6.0cm}|p{6.0cm}|}
+\hline
+$g(x)$ & definition & also known as \\
+\hline
+$x$    & $E(X)$     & Expectation, Population Mean or First Moment of $X$\\
+%       &            & or First Moment of $X$\\
+\hline
+$(x-E(X))^2$ & $V(X):=E((X-E(X))^2)$ \newline $\quad =E(X^2)-(E(X))^2$ & Variance or Population Variance of $X$\\
+\hline
+$e^{\imath t x}$ & $\phi_X(t) := E\left( e^{\imath t X}\right)$ & Characteristic Function (CF) of $X$\\
+\hline
+$x^k$  & $E(X^k) =\frac{1}{\imath^k} \left[\frac{d^k \phi_X(t)}{dt^k}\right]_{t=0} $  & $k$-th Moment of $X$\\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{framed}
+
+\begin{table}[htb]
+\centering
+{\small
+\begin{tabular}{| l | l |}
+\hline
+Symbol & Meaning\\ \hline
+$\BB{1}_{A}(x)$ & Indicator or set membership function that returns $1$ if $x \in A$ and $0$ otherwise\\
+$\Rz^d := (-\infty,\infty)^d$ & $d$-dimensional Real Space \\
+\hline
+\end{tabular}
+}
+\caption{Symbol Table: Probability and Statistics \label{T:SymbTableProbStats}}
+\end{table}
+
+%\section*{Summary of Random Variables}\label{S:SummaryRVs}
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c|c|c|c|}%|c}
+\hline
+Model &PDF or PMF&Mean&Variance\\ \hline%&{\tt MGF}\\
+%$\pointmass(\theta)$&$\BB{1}_{\{\theta\}}(x)$&$\theta$&$0$\\%&$e^{\theta t}$\\
+$\bernoulli(\theta)$ &$\theta^x(1-\theta)^{1-x} \BB{1}_{\{0,1\}}(x)$&$\theta$&$\theta(1-\theta)$\\%&$\theta e^t+(1-\theta)$\\
+$\binomial(n,\theta)$&$(^n_{\theta})\theta^x(1-\theta)^{n-x} \BB{1}_{\{0,1,\ldots,n\}}(x)$&$n \theta$&$n \theta(1-\theta)$\\%&$(\theta e^t+(1-\theta))^n$\\
+$\geometric(\theta)$ &$\theta(1-\theta)^{x} \BB{1}_{\Zz_+}(x)$&$ \frac{1}{\theta}-1$&$\frac{1-\theta}{\theta^2}$\\%&$\frac{\theta e^t}{1-(1-\theta)e^t}(t<-log(1-\theta))$\\
+$\poisson(\lambda)$&$\frac{\lambda^xe^{-\lambda}}{x!} \BB{1}_{\Zz_+}(x)$&$\lambda$&$\lambda$\\%&$e^{\lambda(e^t-1)}$\\
+$\uniform(\theta_1,\theta_2)$&$\BB{1}_{[\theta_1,\theta_2]}(x)/(\theta_2-\theta_1)$&$\frac{\theta_1+\theta_2}{2}$&$\frac{(\theta_2-\theta_1)^2}{12}$\\%&$\frac{e^{\theta_2 t}-e^{\theta_1 t}}{(\theta_2-\theta_1)t}$\\
+$\exponential(\lambda)$&$\lambda e^{-\lambda x}$&$\lambda^{-1}$&$\lambda^{-2}$\\%&$\frac{1}{1-\frac{1}{\lambda} t}(t<\lambda)$\\
+$\normal(\mu,\sigma^2)$&$\frac{1}{\sigma\sqrt{2\pi}}e^{(x-\mu)^2/(2\sigma^2)}$&$\mu$&$\sigma^2$\\%&$exp\{ut+\frac{\sigma^2t^2}{2}\}$\\
+%$\gammA(\alpha,\beta)$&$\frac{\beta^{\alpha}}{\Gamma(\alpha)}{x^{\alpha-1}e^{-\beta x}}$&$\alpha/\beta$&$\alpha/\beta^2$\\%&$(\frac{1}{1-\beta t})^{\alpha}(t<1/\beta)$\\
+%$\betA(\alpha,\beta)$ & $\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1}$ & $\frac{\alpha}{\alpha+\beta}$ & $\frac{\alpha\beta}{(\alpha+\beta)^2 (\alpha+\beta+1)} $ \\%& $ 1+\Sigma^\infty_{k+1}(\Pi^{k-1}_{r=0}\frac{\alpha+r}{\alpha+\beta+r})\frac{t^k}{k\!}$\\
+%$t_v$ & $\frac{\Gamma((v+1)/2)}{\Gamma(v/2)}  \frac{1}{(1+x^2/v)^{(v+1)/2}$ &0 (if $v>1$ ) & $\frac{v}{v-2}$  (if $v>2$) & does not exist \\
+% $\chi^2_p$&$\frac{1}{\Gamma(p/2)2^{p/2}}x^{(p-2)-1}e^{-x/2}$&$p$&$2p$\\ \hline%&$(\frac{1}{1-2t})^{p/2}(t<1/2)$\\
+\hline
+\end{tabular}
+\caption{Random Variables with PDF and PMF (using indicator function), Mean and Variance}
+%\label{tab:}
+\end{table}
+
+\begin{table}[htb]
+\centering
+{\small
+\begin{tabular}{| l | l |}
+\hline
+Symbol & Meaning\\ \hline
+$A = \{ \star, \circ, \bullet \}$& $A$ is a set containing the elements $\star$, $\circ$ and $\bullet$ \\
+$\circ \in A$ & $\circ$ belongs to $A$ or $\circ$ is an element of $A$\\
+$A \ni \circ$ & $\circ$ belongs to $A$ or $\circ$ is an element of $A$\\
+$\odot \notin A$& $\odot$ does not belong to $A$ \\
+$\# A$& Size of the set $A$, for e.g.~$\#\{ \star, \circ, \bullet, \odot \}=4$\\
+$\Nz$& The set of natural numbers $\{1,2,3,\ldots\}$\\
+$\Zz$&The set of integers $\{\ldots,-3,-2,-1,0,1,2,3,\ldots\}$\\
+$\Zz_+$& The set of non-negative integers $\{0,1,2,3,\ldots\}$\\
+%$\Rz$& The set of real numbers\\
+$\emptyset$&Empty set or the collection of nothing or $\{\}$\\
+$A \subset B$ & $A$ is a subset of $B$ or $A$ is contained by $B$, e.g.~$A=\{\circ\}, B=\{\bullet\}$\\
+$A \supset B$& $A$ is a superset of $B$ or $A$ contains $B$ e.g.~$A=\{\circ, \star,\bullet\}, B=\{\circ, \bullet\}$ \\
+$A=B$ & $A$ equals $B$, i.e.~$A \subset B$ and  $B \subset A$\\
+$Q \implies R$ & Statement $Q$ implies statement $R$ or If $Q$ then $R$ \\
+$Q \iff R$ & $Q \implies R$ and $R \implies Q$ \\
+$\{x: x \text{ satisfies property } R \}$& The set of all $x$ such that $x$ satisfies property $R$\\
+$A \cup B$& $A$ union $B$, i.e.~$\{x: x\in A \text{ or } x \in B\}$\\
+$A \cap B$& $A$ intersection $B$, i.e.~$\{x: x\in A \text{ and } x \in B\}$\\
+$A \setminus B $& $A$ minus $B$, i.e.~$\{x: x\in A \text{ and } x \notin B\}$\\
+$A:=B$& $A$ is equal to $B$ by definition\\
+$A=:B$& $B$ is equal to $A$ by definition\\
+$A^c$& $A$ complement, i.e.~$\{x: x\in U, \text{ the universal set, but } x \notin A\}$\\ 
+$A_1 \times A_2 \times \cdots \times A_m$ & The $m$-product set $\{(a_1,a_2,\ldots,a_{m}): a_1 \in A_1, a_2 \in A_2, \ldots, a_{m} \in A_m \}$ \\
+$A^m$ & The $m$-product set $\{(a_1,a_2,\ldots,a_{m}): a_1 \in A, a_2 \in A, \ldots, a_{m} \in A \}$ \\ 
+$f := f(x)=y:\Xz \to \Yz$ & A function $f$ from domain $\Xz$ to range $\Yz$ \\
+$f^{[-1]}(y)$ & Inverse image of $y$ \\ 
+$f^{[-1]} := f^{[-1]}(y \in \Yz) = X \subset \Xz$ & Inverse of $f$ \\ 
+%$\Zz:=\{\ldots,-2,-1,0,1,2,\ldots\}$ & Integers \\
+$a<b$ or $a \leq b$ & $a$ is less than $b$ or $a$ is less than or equal to $b$ \\
+$a>b$ or $a \geq b$ & $a$ is greater than $b$ or $a$ is greater than or equal to $b$ \\ 
+$\Qz$ & Rational numbers \\ 
+$(x,y)$ & the open interval $(x,y)$, i.e.~$\{r: x < r < y\}$ \\ 
+$[x,y]$ & the closed interval $(x,y)$, i.e.~$\{r: x \leq r \leq y\}$ \\ 
+$(x,y]$ & the half-open interval $(x,y]$, i.e.~$\{r: x < r \leq y\}$ \\ 
+$[x,y)$ & the half-open interval $[x,y)$, i.e.~$\{r: x \leq r < y\}$ \\ 
+$\Rz := (-\infty,\infty)$ & Real numbers, i.e.~$\{r: -\infty < r <  \infty \}$ \\
+$\Rz_+ := [0,\infty)$ & Real numbers, i.e.~$\{r: 0 \leq r <  \infty \}$ \\
+$\Rz_{>0} := (0,\infty)$ & Real numbers, i.e.~$\{r: 0 < r <  \infty \}$ \\
+\hline
+\end{tabular}
+}
+\caption{Symbol Table: Sets and Numbers \label{T:SummarySymbTableSets}}
+\end{table}
+
+
+\begin{table}[htb]
+\centering
+{\small
+{\renewcommand{\arraystretch}{1.75}
+\begin{tabular}{| p{6.0cm}| p{10.0cm}|}
+\hline
+Symbol & Meaning\\ \hline
+$\BB{1}_{A}(x)$ & Indicator or set membership function that returns $1$ if $x \in A$ and $0$ otherwise\\
+$\Rz^d := (-\infty,\infty)^d$ & $d$-dimensional Real Space \\
+\rv~ & random vector\\ 
+$F_{X,Y}(x,y)$ & Joint distribution function (JDF) of the \rv~ $(X,Y)$\\
+$F_{X,Y}(x,y)$ & Joint cumulative distribution function (JCDF) of the \rv~ $(X,Y)$ --- same as JDF \\
+$f_{X,Y}(x,y)$ & Joint probability mass function (JPMF) of the discrete \rv~ $(X,Y)$\\
+$\mathcal{S}_{X,Y}$\newline$=\{(x_i,y_j): f_{X,Y}(x_i,x_j)>0\}$ & The support set of the discrete \rv~ $(X,Y)$\\
+$f_{X,Y}(x,y)$ & Joint probability density function (JPDF) of the continuous \rv~ $(X,Y)$\\
+$f_{X}(x)=\int_{-\infty}^{\infty}f_{X,Y}(x,y)dy$ & Marginal probability density/mass function (MPDF/MPMF) of $X$\\
+$f_{Y}(y)$\newline$=\int_{-\infty}^{\infty}f_{X,Y}(x,y)dx$ & Marginal probability density/mass function (MPDF/MPMF) of $Y$\\
+$E(g(X,Y))$\newline$=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}g(x,y)f_{X,Y}(x,y)dxdy$ & Expectation of a function $g(x,y)$ for continuous \rv \\
+$E(g(X,Y))$\newline$=\sum_{(x,y)\in\mathcal{S}_{X,Y}}g(x,y)f_{X,Y}(x,y)$ & Expectation of a function $g(x,y)$ for discrete \rv \\
+$E(X^rY^s)$ & Joint moment \\
+$\cv(X,Y) = E(XY)-E(X)E(Y)$ & Covariance of $X$ and $Y$, provided $E(X^2)<\infty$ and $E(Y^2)>\infty$\\
+$F_{X,Y}(x,y)=F_X(x)F_Y(y)$,\newline for every $(x,y)$ & if and only if $X$ and $Y$ are said to be independent\\ 
+$f_{X,Y}(x,y)=f_X(x)f_Y(y)$,\newline for every $(x,y)$ & if and only if $X$ and $Y$ are said to be independent\\ 
+$F_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n)$ & Joint (cumulative) distribution function (JDF/JCDF) of the discrete or continuous \rv~ $(X_1,X_2,\ldots,X_n)$\\
+$f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n)$ & Joint probability mass/density function (JPMF/JPDF) of the discrete/continuous \rv~ $(X_1,X_2,\ldots,X_n)$\\
+$f_{X_1,X_2,\ldots,X_n}(x_1,x_2,\ldots,x_n)$\newline$=\prod_{i=1}^n f_{X_i}(x_i)$,\newline for every $(x_1,x_2,\ldots,x_n)$ & if and only if $X_1,X_2,\ldots,X_n$ are (mutually/jointly) independent\\
+\hline
+\end{tabular}
+}
+}
+\caption{Symbol Table: Probability and Statistics \label{T:FullSymbTableProbStats}}
+\end{table}
+}

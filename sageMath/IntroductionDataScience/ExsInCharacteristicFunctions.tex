@@ -1,0 +1,208 @@
+\section{Exercises in Characteristic Functions}\label{S:xsCFs}% {S:xsExpectationsOfRVs} %S:xsMultivariateRVs
+\begin{ExerciseList}
+%CF
+\Exercise
+Let $X$ be a discrete random variable (RV) with probability mass function (PMF)
+\[
+f_X(x) = 
+\begin{cases}
+\frac{1}{3} & \text{ if } x=0\\
+\frac{1}{3} & \text{ if } x=1\\
+\frac{1}{3} & \text{ if } x=2\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+\]
+\be
+\item~Find the characteristic function (CF) of $X$
+\item~Using the CF find $V(X)$, the variance of $X$. {Hint: $V(X)=E(X^2)-(E(X))^2$}
+\ee
+
+\Answer
+~\\
+\be
+\item~The CF of the discrete RV $X$ is
+\begin{align*}
+\cf_X(t) 
+&= E(e^{\imath t X}) = \sum_{x\in\{0,1,2\}} e^{\imath t x} f_X(x)
+= e^{\imath t \times 0} \times \frac{1}{3} + e^{\imath t \times 1} \times \frac{1}{3}+e^{\imath t \times 2} \times \frac{1}{3}\\
+&= \frac{1}{3} \left(1+e^{\imath t} + e^{\imath 2 t}\right) \enspace .
+\end{align*}
+
+\item~To find $V(X)$ using $V(X)=E(X^2)-(E(X))^2$ we need the first two moments of $X$.  First, differentiate $\cf_X(t)$ w.r.t.~$t$
+\begin{align*}
+\frac{d}{dt}\cf_X(t)
+= \frac{d}{dt} \left( \frac{1}{3} \left(1+e^{\imath t} + e^{\imath 2 t}\right) \right)
+= \frac{1}{3} \left(0+ \imath e^{\imath t} + 2 \imath e^{\imath 2 t} \right)
+= \frac{\imath}{3} \left(e^{\imath t} + 2 e^{\imath 2 t} \right)
+\end{align*}
+We get the $k$-th moment $E(X^k)$ by multiplying the $k$-th derivative of $\cf_X(t)$ evaluated at $t=0$ by $\frac{1}{\imath^k}$ as follows:
+\begin{align*}
+E(X) 
+= \frac{1}{\imath} \left[ \frac{d}{dt}\cf_X(t) \right]_{t=0} 
+= \frac{1}{\imath} \left[ \frac{\imath}{3} \left(e^{\imath t} + 2 e^{\imath 2 t} \right)\right]_{t=0} 
+= \frac{1}{\imath} \frac{\imath}{3} \left(e^0+2e^0\right) = \frac{1}{3}(1+2)=1 \enspace .
+\end{align*}
+\begin{align*}
+E(X^2) 
+&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2}\cf_X(t) \right]_{t=0} 
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \frac{\imath}{3} \left(e^{\imath t} + 2 e^{\imath 2 t} \right) \right]_{t=0}
+= \frac{1}{\imath^2} \left[ \frac{\imath}{3} \left(\imath e^{\imath t} + 4 \imath e^{\imath 2 t} \right) \right]_{t=0}\\
+& = \frac{1}{3} \left(e^0 + 4 e^0\right) = \frac{5}{3} \enspace .
+\end{align*}
+Finally,
+\[
+V(X) = E(X^2)-(E(X))^2 = \frac{5}{3} - 1^2 = \frac{5-3}{3}=\frac{2}{3} \enspace .
+\] 
+\ee
+
+\Exercise
+Recall that the $\geometric(\theta)$ RV $X$ has the following PMF
+\[
+f_X(x;\theta) = 
+\begin{cases}
+\theta (1-\theta)^x & \text{ if } x \in \{0,1,2,3,\ldots\}\\
+0 & \text{ otherwise}
+\end{cases}
+\]
+\be
+\item~Find the CF of $X$. (Hint: the sum of the infinite geometric series $\sum_{x=0}^{\infty} a r^x = \frac{a}{1-r}$.)
+\item~Using the CF find $E(X)$.
+\ee
+\Answer
+~\\
+\be
+\item~
+\[
+\cf_X(t) = E \left(e^{\imath t X}\right) = \sum_{x=0}^{\infty} e^{\imath t x}\theta(1-\theta)^x
+= \sum_{x=0}^{\infty} \theta \left(e^{\imath t} (1-\theta)\right)^x = \frac{\theta}{1-e^{\imath t} (1-\theta)} \enspace .
+\]
+The last equality is due to $\sum_{x=0}^{\infty} a r^x = \frac{a}{1-r}$ with $a=\theta$ and $r=e^{\imath t} (1-\theta)$.
+\item~
+\begin{align*}
+E(X)
+&= \frac{1}{\imath} \left[ \frac{d}{dt} \left( \frac{\theta}{1-e^{\imath t}(1-\theta)} \right) \right]_{t=0} 
+=  \frac{1}{\imath} \theta \left[ \frac{d}{dt} \left( \left(1-e^{\imath t}(1-\theta)\right)^{-1} \right) \right]_{t=0} \\
+&= \frac{1}{\imath} \theta \left[ -\left(1-e^{\imath t} (1-\theta)\right)^{-2} \frac{d}{dt} \left( 1-e^{\imath t}(1-\theta)\right) \right]_{t=0}\\ 
+&= \frac{1}{\imath} \theta \left[ -\left(1-e^{\imath t} (1-\theta)\right)^{-2} \left( 0-\imath e^{\imath t}(1-\theta)\right) \right]_{t=0}\\
+&= \frac{1}{\imath} \theta \left( -\left(1-e^{0} (1-\theta)\right)^{-2} \left( -\imath e^{0}(1-\theta)\right) \right)\\ 
+&= \frac{1}{\imath} \theta \left( -\left(1- 1+\theta\right)^{-2} \left( -\imath (1-\theta)\right) \right)\\
+&=\frac{1-\theta}{\theta} \enspace .
+\end{align*}
+\ee
+
+\Exercise
+Let $X$ be the $\uniform(a,b)$ RV with the following probability density function (PDF)
+\[
+f_X(x; a,b) = 
+\begin{cases}
+\frac{1}{b-a} & \text{ if } x \in [a,b] \\
+0 & \text{ otherwise} \enspace.
+\end{cases}
+\]
+Find the CF of $X$.
+\Answer
+~\\
+\begin{align*}
+\cf_X(t) 
+&= E\left( e^{\imath t X} \right) 
+= \int_{-\infty}^{\infty} e^{\imath t x} f_X(x;a,b) dx
+= \int_{a}^{b} e^{\imath t x} \frac{1}{b-a} dx
+= \frac{1}{b-a} \int_{a}^{b} e^{\imath t x} dx
+= \frac{1}{b-a} \left[ \frac{e^{\imath t x}}{\imath t} \right]_{x=a}^b\\
+&=  \frac{1}{(b-a)\imath t} \left( e^{\imath t b} - e^{\imath t a}\right) \enspace .
+\end{align*}
+
+\Exercise
+%\vspace{0.5cm}
+
+%A nice property of CFs we will use for some of the exercises below is the following.  If $X_1,X_2,\ldots,X_n$ are independent RVs and $a_1,a_2,\ldots,a_n$ are some constants, then the CF of the linear combination $Y=\sum_{i=1}^n a_i X_i$ is
+%\begin{equation}\label{E:LinCombCFtut}
+%\cf_Y (t) = \cf_{X_1} (a_1 t) \times \cf_{X_2} (a_2 t) \times \cdots \times \cf_{X_n} (a_n t) = \prod_{i=1}^n \cf_{X_i} (a_i t) \enspace .
+%\end{equation}
+
+Recall that the $\poisson(\lambda)$ RV has the following PMF
+\[
+f_X(x;\lambda) = 
+\begin{cases}
+\frac{\lambda^x}{x!}e^{-\lambda} & \text{ if } x \in \{0,1,2,3,\ldots \}\\
+0 & \text{ otherwise} \enspace .
+\end{cases}
+\]
+{Hint: the power series of $e^{\alpha} = \sum_{x=0}^{\infty} \frac{\alpha^x}{x!}$.}
+\be
+\item~
+Find the CF of $X$.
+\item~
+Find the variance of $X$ using its CF.
+\ee
+\Answer
+~\\
+\be
+\item~
+\[
+\cf_X(t) = E\left(e^{\imath t X}\right)
+= \sum_{x=0}^{\infty} e^{\imath t x} \frac{\lambda^x}{x!}e^{-\lambda}
+= e^{-\lambda} \sum_{x=0}^{\infty} \frac{e^{\imath t x} \lambda^x}{x!}
+= e^{-\lambda} \sum_{x=0}^{\infty} \frac{\left(\lambda e^{\imath t}\right)^x}{x!}
+= e^{-\lambda} e^{\lambda e^{\imath t}} = e^{\lambda e^{\imath t} - \lambda} \enspace .
+\]
+The second-last equality above is using $e^{\alpha} = \sum_{x=0}^{\infty} \frac{\alpha^x}{x!}$ with $\alpha=\lambda e^{\imath t}$.
+\item~
+To find $V(X)$ using $\cf_X(t)$ we need $E(X)$ and $E(X^2)$.
+\begin{align*}
+E(X) 
+&= \frac{1}{\imath} \left[ \frac{d}{dt} \cf_X(t) \right]_{t=0}
+= \frac{1}{\imath} \left[ \frac{d}{dt} e^{\lambda e^{\imath t} - \lambda} \right]_{t=0}
+= \frac{1}{\imath} \left[ e^{\lambda e^{\imath t} - \lambda} \frac{d}{dt} \left(\lambda e^{\imath t} - \lambda \right) \right]_{t=0}\\
+&= \frac{1}{\imath} \left[ e^{\lambda e^{\imath t} - \lambda} \lambda \imath e^{\imath t} \right]_{t=0}
+= \frac{1}{\imath} \left( e^{\lambda - \lambda} \lambda \imath \right)
+= \frac{1}{\imath} \left( \lambda \imath \right) = \lambda \enspace .
+\end{align*}
+\begin{align*}
+E(X^2) 
+&= \frac{1}{\imath^2} \left[ \frac{d^2}{dt^2} \cf_X(t) \right]_{t=0}
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \left( e^{\lambda e^{\imath t} - \lambda} \lambda \imath e^{\imath t} \right) \right]_{t=0}
+= \frac{1}{\imath^2} \left[ \frac{d}{dt} \left( \lambda \imath e^{\lambda e^{\imath t} - \lambda + \imath t} \right) \right]_{t=0}\\
+&= \frac{1}{\imath^2} \left[ \lambda \imath e^{\lambda e^{\imath t} - \lambda + \imath t} \frac{d}{dt} \left( \lambda e^{\imath t} - \lambda + \imath t \right) \right]_{t=0}
+= \frac{1}{\imath^2} \left[ \lambda \imath e^{\lambda e^{\imath t} - \lambda + \imath t} \left( \lambda \imath e^{\imath t} - 0 + \imath \right) \right]_{t=0}\\
+&= \frac{1}{\imath^2} \left( \lambda \imath e^{\lambda e^{0} - \lambda + 0} \left( \lambda \imath e^{0}  + \imath \right) \right)
+= \frac{1}{\imath^2} \left( \lambda \imath \left( \lambda \imath  + \imath \right) \right)
+= \frac{1}{\imath^2} \left( \lambda \imath^2 \left( \lambda  + 1 \right) \right)
+= \lambda^2 + \lambda \enspace .
+\end{align*}
+Finally,
+\[
+V(X) = E(X^2) - (E(X))^2 = \lambda^2 + \lambda - \lambda^2 = \lambda \enspace .
+\]
+\ee
+
+\Exercise
+Let $X$ be a $\poisson(\lambda)$ RV and $Y$ be another $\poisson(\mu)$ RV.  
+Suppose $X$ and $Y$ are independent.
+Use Eqn.~\eqref{E:LinCombCF} to first find the CF of the RV $W=X+Y$.  
+From the CF of $W$ try to identify what RV it is. 
+
+\Answer
+~\\
+\[
+\cf_{W}(t) = \cf_{X+Y}(t) = \cf_X(t) \times \cf_Y(t) 
+= e^{\lambda e^{\imath t}-\lambda} \times e^{\mu e^{\imath t}-\mu}
+= e^{\lambda e^{\imath t}-\lambda + \mu e^{\imath t}-\mu} 
+= e^{(\lambda+\mu) e^{\imath t} -(\lambda+\mu)} \enspace . 
+\]
+So, $W$ is a $\poisson(\lambda+\mu)$ RV. Thus the sum of two independent Poisson RVs is also a Poisson RV with parameter given by the sum of the parameters of the two RVs being added.  The same idea generalizes to the sum of more than two Poisson RVs. 
+
+\Exercise
+Recall from lecture that if $Y=a+bX$ for some constants $a$ and $b$ with $b\neq 0$ then $\cf_Y(t) = e^{\imath a t} \cf_X(bt)$ and that $\cf_Z(t)=e^{-t^2/2}$ if $Z$ is the $\normal(0,1)$ RV.  
+Using these facts find the CF of $-Z$, the RV obtained from $Z$ by simply switching its sign.
+From the CF of $-Z$ identify what RV it is.
+\Answer
+~\\
+We can use the facts by noting $Y=-Z = 0 + (-1) \times Z$, with $a=0$ and $b=-1$ in $Y=a+bX$ and get
+\[
+\cf_{Y}(t) = e^{\imath \times 0 \times t} \cf_Z(-1 \times t) = \cf_Z(-t) = e^{-((-1 \times t))^2/2} = e^{-t^2/2} = \cf_Z(t)
+\]
+Thus, $\cf_{-Z}(t) = \cf_Z(t)$ and therefore the distributions of $Z$ and $-Z$ are the same. This should make sense because by switching signs of a symmetric (about $0$) RV you have not changed its distribution!  Note: we are not saying $Z=-Z$ but just that their distibutions are the same, i.e., $F_Z(z) = F_{-Z}(z)$ for every $z \in \Rz$.
+
+\end{ExerciseList}
+

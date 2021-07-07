@@ -1,0 +1,298 @@
+\chapter{Monte Carlo Estimation}\label{S:MCEstim}
+Various problems can be solved by taking advantage of randomness and random number generators.  Such an approach yields a Monte Carlo solution.  %We focus on Monte Carlo integration here.
+
+\section{Monte Carlo Integral Estimation}\label{S:BMC}
+Suppose we want to estimate the integral
+\[
+\vartheta^* = \int_{A} h(x) \, dx \ , \text{where, } h(x): \Rz^k \to \Rz, A \subset \Rz^k \ .
+\]
+If the integrand function $h$ is simple enough, eg.~polynomial, simple transcendal or trigonometric, then we can evaluate $\vartheta^*$ {\bf analytically by hand}.  When this is not the case, then a closed form expression for $\vartheta^*$ may not exist and we may approximate it by {\bf numerical quadrature}, eg.~Mid-point rectangles rule ({\tt QuadMR}), or adaptive Simpson's quadrature rule ({\tt quad}) or adaptive Lobatto's quadrature rule ({\tt quadl}).  Numerical quadratures are inefficient in higher dimensions since the number of samples or grid-points grow exponentially with the dimension $k$ of the domain $A$.
+
+{\bf Basic Monte Carlo (BMC) integral estimation} or {\bf Basic Monte Carlo integration} is a stochastic method to estimate the integral $\vartheta^*$ by its point estimate $\widehat{\varTheta}_n$ based on $n$ samples drawn at random from the domain $A$.  BMC integration is renowned for its {\bf simplicity}, {\bf generality} (class of integrands) and {\bf scalability} (dimension of the  integration domain).
+
+Let the domain be a $k$-dimensional box or hyper-cuboid $A=([\underline{a}_1,\overline{a}_1], [\underline{a}_2,\overline{a}_2] , \ldots, [\underline{a}_k,\overline{a}_k] )$.  We can rewrite the integral as:
+\begin{equation}\label{E:BMCI}
+\vartheta^* = \int_A h(x)\, dx = \int_A w(x) f(x)\, dx \ ,
+\end{equation}
+where the functions $w(x)$ and $f(x)$ are:
+\[
+w(x)= h(x) \prod_{j=1}^k (\overline{a}_j - \underline{a}_j) , \qquad f(x)=\frac{1}{\prod_{j=1}^k (\overline{a}_j - \underline{a}_j) } \ .
+\]
+The PDF of the RV $X \sim \uniform(A) = \uniform(\underline{a}_1,\overline{a}_1) \times  \uniform(\underline{a}_2,\overline{a}_2) \times \cdots \times  \uniform(\underline{a}_k,\overline{a}_k)$ is $f(x)$ over the box $A$.  Therefore: 
+\[
+\vartheta^* =  \int_A w(x) f(x)\, dx = \E_f(w(X)) = \E(w(X)) \ .
+\]
+We subscript the expectation $E$ by $f$ to emphasize the PDF with respect to which we integrate.  Thus, if we generate $X_1,X_2,\ldots,X_n \overset{\IID}{\sim} \uniform(A)$, then by the WLLN:
+\[
+\widehat{\varTheta}_n := \frac{1}{n} \sum_{i=1}^n w(X_i) \overset{P}{\longrightarrow} \E(w(X_1)) = \vartheta^* \ .
+\]
+The standard error:
+\[
+\mathsf{se}_n := \sqrt{\V(\widehat{\varTheta}_n)} = \sqrt{\V(\frac{1}{n} \sum_{i=1}^n w(X_i))} = \sqrt{\frac{1}{n^2} \sum_{i=1}^n \V( w(X_i))} = \sqrt{\frac{1}{n^2} n \V( w(X_1))} = \frac{1}{\sqrt{n}} \sqrt{\V( w(X_1))} \ .
+\]
+We can get the estimated standard error $\widehat{\mathsf{se}}_n$ of the integral estimate $\widehat{\varTheta}_n$ from the sample standard deviation $s_n$:
+\[
+\widehat{\mathsf{se}}_n = \frac{s_n}{\sqrt{n}}, \qquad 
+s_n^2 = S_n^2((y_1,y_2,\ldots,y_n)) = \frac{1}{n-1} \sum_{i=1}^n \left( y_i - \widehat{\varTheta}_n \right)^2 \ , 
+\]
+where, $Y_i = w(X_i)$.  A Normal-based $1-\alpha$ confidence interval (CI) for $\vartheta^*$ is $\widehat{\varTheta}_n \pm z_{\alpha/2} \widehat{\mathsf{se}}_n$.  Therefore, we can take $n$ as large as we want and thereby shrink the width of the confidence interval as small as we want.  Our recipe for estimating $\vartheta^*$ is simply summarized in \hyperref[A:BMCI]{Algorithm \ref*{A:BMCI}}.  
+\begin{algorithm}
+\caption{Basic Monte Carlo Integral Estimation for $\vartheta^*= \int_A h(x) dx$\label{A:BMCI}}
+\begin{algorithmic}[1]
+\STATE{
+{\it input:} 
+\begin{enumerate}
+\item $n \gets$ the number of samples.
+\item $h(x) \gets$ the integrand function over $\Rz$
+\item $[\underline{a}_j,\overline{a}_j] \gets$ lower and upper bounds of integration for each $j=1,2,\ldots,k$
+\item capability to draw $nk$ IID samples from $\uniform(0,1)$ RV
+\end{enumerate}
+}
+\STATE{{\it output:} a point estimate $\widehat{\vartheta}_n$ of $\vartheta^*$ and the estimated standard error $\widehat{\mathsf{se}}_n$}
+\STATE{{\it initialize:} $y \gets (0,0,\ldots,0)$, initialize $y$ as a zero vector of length $n$}
+\WHILE{$i \leq n$}
+\STATE{
+\begin{enumerate}
+\item $i \gets i+1$, 
+\item $x_i = (x_{i,1},x_{i,2},\ldots,x_{i,k})$, with $x_{i,j} \gets u_j$, $u_j \sim \uniform(\underline{a}_j,\overline{a}_j)$, for $j=1,2,\ldots,k$, 
+\item $y_i \gets w(x_i)= h(x_i) \prod_{j=1}^k (\overline{a}_j-\underline{a}_j) $
+\end{enumerate}
+}
+\ENDWHILE
+\STATE{{\it compute:}
+\begin{enumerate}
+\item $\widehat{\vartheta}_n \gets \overline{y}_n$, the sample mean of $y=(y_1,y_2,\ldots,y_n)$
+\item $\widehat{\mathsf{se}}_n = s_n(y) / \sqrt{n}$, where $s_n(y)$ is the sample standard deviation of $y$
+\end{enumerate}
+}
+\STATE{{\it return:} $\widehat{\vartheta}_n$ and $\widehat{\mathsf{se}}_n$}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{labwork}[1D integral over an interval]\label{LW:1DintegralOverInterval}
+Estimate $\vartheta^* := \int^{0.5}_0x(1-x^2)^{3/2}dx$ using \hyperref[A:BMCI]{Algorithm \ref*{A:BMCI}}.  We use IID samples $x_1,x_2,\ldots,x_n$ from $\uniform(0,0.5)$ RV to estimate $\vartheta^*$ as follows:
+\[
+\widehat{\vartheta}_n = \frac{1}{n} \sum_{i=1}^n w(x_i) = \frac{1}{n} \sum_{i=1}^n h(x_i) (0.5-0), \quad \text{where, } h(x_i)= x_i(1-x_i^2)^{3/2} \enspace .
+\]
+The estimation procedure may be implemented as follows:
+\begin{VrbM}
+>> rand('twister',189783)% initialise the fundamental sampler
+>> N=1000000; % estimate from 1000000 samples
+>> Xs=0.5*rand(1,N); % save 1 million samples from Uniform(0,0.5) in array Xs
+>> Ws=(Xs .* ((1 - (Xs .^ 2)) .^ 1.5)) * 0.5; % h(Xs)* 1/f, f is density of Uniform(0,0.5)
+>> MCEst=mean(Ws(1:N)) % point estimate of the integral
+MCEst =    0.1026
+>> StdErr=std(Ws(1:N))/sqrt(N) % estimated standard error
+StdErr =   5.0026e-05
+>> % approximate 95% confiednce interval of the estimate
+>> [MCEst-2*StdErr MCEst+2*StdErr]
+ans =
+    0.1025    0.1027
+\end{VrbM}
+
+The estimates and the associated confidence intervals for different sample sizes  are:
+$$
+\begin{array}{ccc}
+\hline
+n		&\widehat{\vartheta}_n		&\approx 95\%\textrm{~C.I.}\\ \hline
+10^2&		0.1087			&	(0.0985, 0.1189)\\
+10^3	&		0.1055			&	(0.1023, 0.1086)\\
+10^4	&		0.1028			&	(0.1018, 0.1038)\\
+10^5	&		0.1023			&	(0.1020, 0.1027)\\
+10^6	&		0.1026			&	(0.1025, 0.1027)\\ \hline
+\end{array}
+$$
+The exact answer is:
+$$\int^{0.5}_0x(1-x^2)^{3/2}dx=\left( -\frac{(1-x^2)^{5/2}}{5} \right]^{0.5}_0=0.10257.$$
+\end{labwork}
+
+\begin{labwork}[2D integral over a rectangle]\label{LW:2DintegralOverRectangle}
+Let us estimate the area of a circle $C:=\{(x,y): \sqrt{x^2+y^2} \leq 1\}$ centred at the origin with unit radius using IID uniform samples from a unit square $[-1,1]^2 := [-1,1] \times [-1,1]$ that contains $C$.  Therefore, the integral of interest:
+$$
+\vartheta^*:=\int_{-1}^{1} \int_{-1}^1 \BB{1}_C (u_1,u_2) d u_1 d u_2 =\int_{-1}^{1} \int_{-1}^1 \left( 4 \ \BB{1}_C (u_1,u_2) \right) \frac{1}{4} \ d u_1 d u_2 \ ,
+$$ where $ \frac{1}{4} \ \BB{1}_{[-1,1]^2} (u_1,u_2)$ is the joint PDF of $\uniform([-1,1]^2)$ RV, and the Monte Carlo estimate of $\vartheta^*$ based on $n$ samples from $\uniform([-1,1]^2)$ is:
+\[
+\widehat{\vartheta}_n = \frac{1}{n} \sum_{i=1}^n 4 \ \BB{1}_{C} (u_1,u_2) 
+\]
+We know that our integral, namely the area of the unit circle, is $\pi ({\rm radius})^2=\pi 1^2=\pi=3.1416\ldots$.
+\begin{VrbM}
+>> rand('twister',188);%Initialise the fundamental sampler
+>> N=10000; % sample size of ten thousand
+>> Ws=zeros(1,N); % initialise a vector of zeros
+>> % produce N pairs of Uniform(0,1) numbers and set to 4 if they fall inside a unit circle
+>> Ws(find( sqrt(sum(rand(2,N) .^ 2)) <= 1.0 ))=4; 
+>> MCEst=mean(Ws(1:N)); % MC estimate
+>> StdErr=std(Ws(1:N))/sqrt(N); % estimated standard error
+>> disp([MCEst StdErr MCEst-2*StdErr MCEst+2*StdErr])% display estimate, std error, and approx 95% CI
+    3.1476    0.0164    3.1148    3.1804
+
+>> % with N=10^7 samples we get a better approximation
+>> rand('twister',188); N=10000000; Ws=zeros(1,N); Ws(find( sqrt(sum(rand(2,N) .^ 2)) <= 1.0 ))=4;
+>> MCEst=mean(Ws(1:N)); StdErr=std(Ws(1:N))/sqrt(N);
+>> disp([MCEst StdErr MCEst-2*StdErr MCEst+2*StdErr])
+    3.1420    0.0005    3.1409    3.1430
+>> pi % correct value of pi
+ans =    3.1416
+\end{VrbM}
+\end{labwork}
+
+We can also estimate the integral of functions over unbounded domain by first transforming them to one over a bounded domain.
+For the integral:
+$$\vartheta^* :=\int^{\infty}_0h(x)dx \ ,$$
+the substitution $y=1/(x+1)$ will change the interval of integration to a bounded one:
+$$\vartheta^*=\int^{\infty}_0h(x)dx=\int^0_1 h \left( \frac{1}{y}-1 \right) \frac{-1}{y^2}dy=\int^1_0 h \left( \frac{1}{y}-1 \right) \frac{1}{y^2}dy.$$
+Therefore, with $y_1,\ldots,y_n \overset{IID}{\sim} \uniform(0,1)$, the integral can be estimated by:
+$$
+\widehat{\vartheta}_n=\frac{1}{n}\sum^n_{i=1} h \left(\frac{1}{y_i}-1\right) \frac{1}{y_i^2} \ .
+$$
+Similarly, we can estimate the integral:
+$$
+\vartheta^* := \int^{\infty}_{-\infty}h(x)dx=\int^{0}_{-\infty}h(x)dx+\int^{\infty}_{0}h(x)dx=\int^{\infty}_{0} \left( h(-x)+h(x) \right) dx \ ,
+$$
+can be estimated by:
+$$\widehat{\vartheta}_n=\frac{1}{n}\sum^n_{i=1} \left( h \left(1-\frac{1}{y_i} \right)+h\left( \frac{1}{y_i}-1 \right) \right) \frac{1}{y_i^2} \ .
+$$
+
+\begin{labwork}[1D Integral with Unbounded Domain]\label{LW:1DintegralOverUnboundedDomain}
+Estimate $\vartheta^* = \int^{\infty}_{-\infty}e^{-x^2}dx$ by the Monte Carlo estimate $\widehat{\vartheta}_n = \frac{1}{n}\sum_{i=1}^n e^{-x_i}, \ x_i \overset{IID}{\sim} \uniform(0,1)$
+\Matlab code:
+\begin{VrbM}
+>> y=rand(1,1000000);
+>> Hy = (exp(- ((1 - (1./y)).^2)) + exp(- (( (1./y) - 1).^2))) ./ (y .* y);
+>> mean(Hy)
+ans =    1.7722
+>> disp([mean(Hy)- 1.96*std(Hy)/sqrt(1000000), mean(Hy)+ 1.96*std(Hy)/sqrt(1000000)])
+    1.7694    1.7749
+\end{VrbM}
+The Monte Carlo estimates $\widehat{\vartheta}_n$ of $\vartheta^*$ for different sample sizes $n$ are:
+$$\begin{array}{ccc} 
+\hline
+n	&\widehat{\vartheta}_n	&	\approx~ 95\% \textrm{~C.I.}\\ \hline
+		10^2		&  1.7062			&(1.4, 2.0)\\
+		10^4		&1.7849  			&(1.75, 1.81)\\
+		10^6		& 1.7717			&(1.769, 1.775)\\ \hline
+\end{array}$$
+The exact answer is:
+$$\int^{\infty}_{-\infty}e^{-x^2}dx=\sqrt{\pi}=1.7725  \textrm{(  4 decimal places)},$$
+which can be obtained by noting that $e^{-x^2}$ is the un-normalised $\normal(0,0.5^2)$ density.
+\end{labwork}
+
+\section{Variance Reduction via Importance Sampling}\label{S:IS}
+
+Consider the problem of estimating the integral $\vartheta^* = \int h(x) f(x) dx$, where $f(x)$ is a PDF.  In basic Monte Carlo method, we can simulate from the RV $X$ with PDF $f$.  However, there are situations where we may not be able to draw samples from $X$.  {\bf Importance sampling} overcomes this problem by generalising the basic Monte Carlo method.   Suppose $g(x)$ is a PDF from which we can draw samples, then
+\[
+\vartheta^* = \int h(x) f(x) dx = \int \frac{h(x) f(x)}{g(x)} g(x) dx = \E_{g}(Y) \ ,
+\]
+where, $Y=h(X)f(X)/g(X)$ and the expectation $\E_g(Y)$ is taken with respect to the PDF $g$.  Therefore, we can simulate $x_1,x_2,\ldots,x_n \overset{IID}{\sim} g$ and estimate $\vartheta^*$ by:
+\[
+\widehat{\vartheta}_n = \frac{1}{n} \sum_{i=1}^n y_i =  \frac{1}{n} \sum_{i=1}^n \frac{h(x_i) f(x_i)}{g(x_i)} \ .
+\]
+By the law of large numbers, $\widehat{\varTheta}_n \overset{P}{\to} \vartheta^*$, however $\widehat{\varTheta}_n$ may have an infinite standard error if $g(x)$ is chosen poorly.  Since the estimator $\widehat{\varTheta}_n$ of $\vartheta^*$ is the mean of $w(X) = h(X)f(X)/g(X)$ and the second moment of $W(X)$, given by:
+\[
+\E_g(w^2(X)) = \int \left(w(x)\right)^2 g(x) dx = \int \left( \frac{h(x) f(x)}{g(x)} \right)^2 g(x) dx = \int \frac{h^2(x) f^2(x)}{g(x)} dx
+\]
+may be infinite if $g$ has thinner tails than $f$.  Moreover, $\E_g(w^2(X))$ may be large if $g(x)$ is small over some set $A$ where $f(x)$ is large, since the ratio $f/g$ over $A$ could become large.  Therefore, we want the {\bf importance sampling density} $g$ to have thicker tails than $f$ and also be of similar shape to $f$ to minimise the ratio $f/g$.  In fact, the optimal choice of the importance sampling density $g$ is given by the following proposition.
+
+\begin{prop}[Optimal Importance Sampling Density]
+The optimal choice for the importance sampling density $g$ that minimises the variance of the importance sampling estimator 
+$$
+\widehat{\varTheta}_n = \frac{1}{n} \sum_{i=1}^n \frac{h(X_i) f(X_i)}{g(X_i)}, \quad X_1,X_2,\ldots,X_n \overset{IID}{\sim} g
+$$
+of the integral:
+\[
+\vartheta^* = \int h(x) f(x) dx \ ,
+\]
+is 
+\[
+g^*(x) = \frac{|h(x)| f(x)}{\int |h(t)| f(t) dt} \ .
+\]
+\begin{proof}
+Let $w(X) := \frac{f(X)h(X)}{g(X)}$.  The variance of $w(X)$ is:
+\begin{flalign*}
+\V_g(w(X)) 
+&= \E_g(w^2(X)) - (\E_g(w(X)))^2 \\
+&= \int w^2(x) g(x) dx  - \left( \int w(x) g(x) dx \right)^2 \\
+&= \int \frac{h^2(x) f^2(x)}{g^2(x)} g(x) dx  - \left( \int \frac{h(x)f(x)}{g(x)} g(x) dx \right)^2 \\
+&= \int \frac{h^2(x) f^2(x)}{g^2(x)} g(x) dx  - \left( \int h(x)f(x) dx \right)^2 \\
+\end{flalign*} 
+Note that $\left( \int h(x)f(x) dx \right)^2$ does not depend on $g$, therefore, minimisation of 
+\[
+\V_g(\widehat{\varTheta}_n) = \V_g \left( \frac{1}{n} \sum_{i=1}^n \frac{h(X_i) f(X_i)}{g(X_i)} \right) = \V_g \left( \sum_{i=1}^n  \frac{1}{n} w(X_i) \right) =  n \frac{1}{n^2} \V_g(w(X_1)) = \frac{1}{n} \V_g(w(X_1))
+\]
+over all possible densities $g$, is equivalent to minimisation of $\E_g(w^2(X)) = \int \frac{h^2(x) f^2(x)}{g^2(x)} g(x) dx$, where $X \sim g$.  Due to Jensen's inequality:
+\begin{flalign*}
+\E_g(w^2(X)) 
+& \geq \left( \E_g(|w(X)|) \right)^2 \\
+& = \left( \int \frac{|h(x) f(x)|}{|g(x)|} g(x) dx \right)^2
+= \left( \int \frac{|h(x)| f(x)}{g(x)} g(x) dx \right)^2
+= \left( \int |h(x)| f(x) dx \right)^2
+\end{flalign*}
+This establishes a lower bound on $\E_g(w^2(X))$ and thereby on $\V_g(\widehat{\varTheta}_n)$.  This lower bound is achieved when $g(x)=g^*(x)=\frac{|h(x)|f(x)}{\int |h(t)| f(t) dt}$:
+\begin{flalign*}
+\E_{g^*}(w^2(X))  
+&= \int \frac{h^2(x)f^2(x)}{{g^*}^2(x)} g^*(x) dx 
+= \int \frac{|h(x)|^2f^2(x)}{\frac{|h(x)|^2f^2(x)}{\left(\int |h(t)| f(t) dt \right)^2}} \frac{|h(x)|f(x)}{\int |h(t)| f(t) dt} dx \\
+&= \int \left(\int |h(t)| f(t) dt \right)^2 \frac{|h(x)|f(x)}{\int |h(t)| f(t) dt} dx 
+= \left(\int |h(t)| f(t) dt \right) \int |h(x)|f(x) dx \\
+&= \left( \int |h(x)| f(x) dx \right)^2 
+\end{flalign*}
+\end{proof}
+\end{prop} 
+There is no free lunch.  If we can't sample from $f(x)$, then we probably can't sample from the more complicated optimal importance sampling density $g(x)^*=|h(x)|f(x)/\int |h(t)| f(t) dt$ either.  In practice, we sample from a thick-tailed density $g$ that is as close a possible to $g^*=|h|f$.
+
+\begin{labwork}[Estimating $\P(Z>\pi)$]\label{LW:GaussianTailProbs}
+Compare the estimates and standard errors of the following estimators of the Gaussian tail probability: 
+$$
+\vartheta^* = \P(Z>\pi) = \int_{-\infty}^{\infty} \BB{1}_{(\pi,\infty)}(x) \phi(x) dx, \quad \text{where, $Z \sim \normal(0,1)$, $\phi(x)$ is PDF of $Z$} \ ,
+$$
+for different sample sizes $n=\{10^2,10^4, 10^6\}$, based on four different importance sampling densities:
+\begin{enumerate}
+\item $g^{(1)}=\phi$, the PDF of $\normal(0,1)$ (simulate $x_1,x_2,\ldots,x_n$ from $\normal(0,1)$ via {\tt randn(1,n)}), 
+\item $g^{(2)}$, the PDF of $\normal(\mu=4.4,\sigma^2=1)$ (simulate $x_1,x_2,\ldots,x_n$ from $\normal(\mu,\sigma^2)$ by $x_i \gets \mu + \sigma z_i, z_i \sim \normal(0,1)$, i.e.~via {\tt 4.4 + 1.*randn(1,n);}),
+\item $g^{(3)} = \exp(\pi - x)$, the PDF of a $\pi$-translated $\exponential(\lambda=1)$ RV $X$ with support $[\pi,\infty)$ (simulate $x_1,x_2,\ldots,x_n \sim X$ by $x_i \gets \pi + -\log(u_i), u_i \sim \uniform(0,1)$) and
+\item $g^{(4)}$, the PDF of $|X|$, where $X \sim \normal(\pi,1)$.
+\end{enumerate}
+
+The Monte Carlo estimate based on $g^{(1)}=\phi \sim \normal(0,1)$:
+\[
+\widehat{\vartheta}^{(1)}_n 
+= \frac{1}{n} \sum_{i=1}^n \frac{\BB{1}_{(\pi,\infty)}(x_i) \phi(x_i)}{g^{(1)}(x_i)}
+= \frac{1}{n} \sum_{i=1}^n \BB{1}_{(\pi,\infty)}(x_i), \qquad x_1,\ldots,x_n \overset{IID}{\sim} g^{(1)} = \phi \sim \normal(0,1) \ .
+\] 
+
+The Monte Carlo estimate based on $g^{(2)} \sim \normal(4.4,1)$:
+\[
+\widehat{\vartheta}^{(1)}_n 
+= \frac{1}{n} \sum_{i=1}^n \frac{\BB{1}_{(\pi,\infty)}(x_i) \phi(x_i)}{g^{(2)}(x_i)}
+= \frac{1}{n} \sum_{i=1}^n \BB{1}_{(\pi,\infty)}(x_i)\frac{\phi(x_i)}{g^{(2)}(x_i)}, \qquad x_1,\ldots,x_n \overset{IID}{\sim} g^{(2)} \sim \normal(4.4,1) \ .
+\] 
+
+The Monte Carlo estimate based on $g^{(3)}$:
+\[
+\widehat{\vartheta}^{(1)}_n 
+= \frac{1}{n} \sum_{i=1}^n \frac{\BB{1}_{(\pi,\infty)}(x_i) \phi(x_i)}{g^{(3)}(x_i)}
+= \frac{1}{n} \sum_{i=1}^n \BB{1}_{(\pi,\infty)}(x_i)\frac{\phi(x_i)}{g^{(3)}(x_i)}, \qquad x_1,\ldots,x_n \overset{IID}{\sim} g^{(3)} \ .
+\] 
+
+The Monte Carlo estimate based on $g^{(4)}$:
+\[
+\widehat{\vartheta}^{(1)}_n 
+= \frac{1}{n} \sum_{i=1}^n \frac{\BB{1}_{(\pi,\infty)}(x_i) \phi(x_i)}{g^{(4)}(x_i)}
+= \frac{1}{n} \sum_{i=1}^n \BB{1}_{(\pi,\infty)}(x_i)\frac{\phi(x_i)}{g^{(4)}(x_i)}, \qquad x_1,\ldots,x_n \overset{IID}{\sim} g^{(4)} \ .
+\] 
+
+\end{labwork}
+
+\section{Sequential Monte Carlo Methods}
+\work
+
+\subsection{Sequential Importance Sampling}
+
+\subsection{Population MCMC}
+
+\subsection{Genetic Monte Carlo Algorithms}
+
+\section{Monte Carlo Optimisation}
+\work
+
+

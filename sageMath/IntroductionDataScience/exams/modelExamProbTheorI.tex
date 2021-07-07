@@ -1,0 +1,547 @@
+\RequirePackage[l2tabu,orthodox]{nag}
+\documentclass[11pt,paper=a4,abstract=on,parskip=half,DIV=calc,compact]{scrartcl}
+\usepackage{silence} \WarningFilter{fixltx2e}{}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Latin Modern font, extended version of the default Computer Modern font 
+\usepackage{lmodern}
+
+% \usepackage{microtype}
+% \usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+
+\usepackage{scrlayer-scrpage}
+
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{booktabs}
+
+\usepackage{array}
+
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+\usepackage{subcaption}
+
+\usepackage[swedish]{babel}
+
+\usepackage[all,warning]{onlyamsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[separate-uncertainty=true,multi-part-units=single]{siunitx}
+
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary{babel}
+
+\usepackage{csquotes}
+
+\usepackage{float}
+
+\usepackage{todonotes}
+
+\usepackage{listings}
+\lstset{literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+  {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+}
+
+% \usepackage{ragged2e}
+
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+
+% \usepackage[backend=biber]{biblatex}
+% \addbibresource{refs.bib}
+
+% \usepackage{tcolorbox}
+% \usepackage{etoolbox}
+
+% \makeatletter{}
+%   \patchcmd{\@sect}{}
+% \makeatother{}
+
+\usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
+
+\usepackage[noabbrev]{cleveref}
+\usepackage[lastexercise,answerdelayed]{exercise}
+
+\recalctypearea
+
+\pagestyle{plain.scrheadings}
+
+% \pagestyle{scrheadings}
+% \renewcommand{\titlepagestyle}{scrheadings}
+
+% \setheadtopline{1pt}
+% \setheadsepline{0.5pt}
+% \setfootsepline{0.5pt}
+% \setfootbotline{0.5pt}
+
+% \ihead{One can}
+% \chead{have}
+% \ohead{stuff}
+% \ifoot{all over}
+% \cfoot{section: \thesection, page: \thepage}
+% \ofoot{the place}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{remark}{Remark}
+\newtheorem{definition}{Definition}
+
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\erf}{erf}
+
+\setcounter{secnumdepth}{0}
+
+\newcommand{\points}[1]{\marginpar{(#1)}}
+
+
+% to embed tutorial problems with the book at end of each chapter
+%\newtoggle{PlaceTutsHere}
+%\toggletrue{PlaceTutsHere}
+%\togglefalse{PlaceTutsHere}
+
+% to place tutorial solutions in the end of the book
+%\newtoggle{PlaceTutsSolsHere}
+%\toggletrue{PlaceTutsSolsHere}
+%\togglefalse{PlaceTutsSolsHere}
+
+\begin{document}
+
+\thispagestyle{scrheadings}
+\ihead{\textsc{Uppsala Universitet} \\ Matematiska Institutionen \\ Raazesh Sainudiin}
+\chead{}
+%\ohead{\textsc{Prov-Tentamen i Inferensteori I} \\  1MS035 \\ 2018-08-28}
+\ohead{\textsc{Model Exam in Probability Theory I} \\  1MS034 \\ 20**-**-**} % Exam 0
+\ifoot{}
+\cfoot{}
+\ofoot{}
+\setheadsepline{1pt}
+
+Time Allowed: 5 hours. Total sum: 40p. Grades 3, 4 and 5 require 18p, 25p and 32p, respectively.
+%Skrivtid: 14:00--19:00. För betygen 3, 4 resp.\ 5 krävs 18, 25 resp.\ 32 poäng. Minst
+%8 poäng måste vara från del A. Vis poängsättningen kommer en helhetsbedömning
+%att göras. Observera:
+Note:
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+%\item \framebox{Motivera lösningar väl, dock ej mer än nödvändigt.}
+	\item \framebox{Motivate solutions well but no more than necessary.}
+  \vspace{1mm}
+%\item Skriv endast på ena sidan av pappret.
+\item Just write on one side of the paper.
+%\item Påbörja ny uppgift på ny sida, skriv uppgiftens nummer på \emph{höger} sida.
+\item Start new question on new page, and label the question number clearly next to your solution.
+%\item Skriv ej med rödpenna.
+\item Do not write with red-ink pen.
+%\item Lägg lösningarna i \emph{stigande} nummerordning.
+\item Write the solutions in increasing order of question numbers.
+\item Hints and other information provided in a problem may also be useful for subsequent problems.
+\item Submit this exam paper with your solutions, i.e., you may NOT take this exam paper with you.  
+\end{itemize}
+%Tillåtna hjälpmedel: Alla textböcker och anteckningar, miniräknar, %Räknedosa, eget A4-blad (fram- och baksida) med egenhändigt handskrivna antecknignar, 
+%samt lexikon för översättning mellan svenska och andra språk. 
+Permitted aids: Any books and notes.
+\vspace{-0.2\baselineskip} \newline{}\rule{\textwidth}{1pt}
+
+%\vspace{-1.5\baselineskip}
+
+%\section{Del A. (totalsumma 12 p.\ minst 8 p.\ för godkänt)}
+
+\vspace{\baselineskip}
+
+
+\begin{ExerciseList}
+
+\Exercise {\em 5p} --
+Suppose you observe the following five data points from some product experiment:
+\[
+0,2,1,0,3 .
+\]
+\begin{enumerate}[(a)]
+\item --- {\em 1p} -- Report the sample mean. 
+\item --- {\em 1p} -- Report the sample variance. 
+\item --- {\em 1p} -- Report the five order statistics from minimum to maximum.
+\item --- {\em 1p} -- Sketch the plot of the Empirical Mass Function showing discontinuities in the function and clearly labeling the axes. 
+\item --- {\em 1p} -- Sketch the plot of the Empirical Distribution Function showing discontinuities in the function and clearly labeling the axes. 
+\end{enumerate}
+\Answer
+~\\
+This was done in the last day. Note that you will get $0$ points if the points of discontinuity are not perfectly plotted with open and closed circles and solid and dashed lines with axes labelled and marked properly.
+\begin{enumerate}[(a)]
+\item sample mean = 
+\vspace{2cm}
+\item sample variance = 
+\vspace{4cm}
+\item order statistics is:
+\vspace{2cm}
+\item{Empirical Mass Function is given by:
+\vspace{2cm}
+\item{Empirical Distribution Function is given by:
+\vspace{5cm}
+}
+\end{enumerate}
+
+\Exercise {\em 5p} --
+\begin{enumerate}
+\item --- {\em 3p} -- 
+{
+In a survey, the two attributes of  houses, whether they have a chimney and/or have a tile roof,
+were cross tabulated. The following table gives the resulting probabilities.
+Are these two attributes independent? You must justify your answer.
+$$\begin{array}{c|cc}
+& \multicolumn{2}{c}{\mbox{Tile Roof}} \\
+\mbox{Chimney} & \mbox{No} & \mbox{Yes}  \\\hline
+\mbox{No}  & 0.3 & 0.1 \\
+\mbox{Yes} & 0.4 & 0.2 \\
+\end{array}$$
+}
+\item --- {\em 2p} --  
+{
+A certain river contains on average 1 trout per 100 m of length along the bank.
+Assuming the trout occur at random and their location is independent of
+other trout, what is the probability:
+\begin{enumerate}
+% \item There is one trout in a 100 m stretch of river.
+\item There are two or more trout in a 100 m stretch of river.
+\item There are no trout in a 500 m stretch of river.
+\end{enumerate}
+}
+\end{enumerate}
+
+\Answer
+~\\
+\begin{enumerate}%[(a)]
+\item 
+{For independence $P(A\cap B) = P(A)\,P(B)$ or equivalently $P(A | B) = P(A)$.
+\begin{align*}
+P(\,\text{Chimney}\,) &= 0.4+0.2 = 0.6\\
+P(\,\text{Tile roof}\,) &= 0.1+0.2 = 0.3\\
+P(\, \text{Chimney}\cap\text{Tile roof} ) &= 0.2 \neq 0.6 \times 0.3 = 0.18
+\end{align*}
+So the attributes are not independent.
+}
+\item
+{
+\begin{align*}
+(a)\qquad \qquad P(\, X \geq 2\,) &= 1-P(0)-P(1) \\
+& = 1 -e^{-1}-e^{-1} = 1 -2e^{-1} \\
+& \approx 1 -2\times 0.368 =1 -0.736=0.264
+\end{align*}
+\vspace*{5mm}
+\begin{align*}
+(b)  \qquad \qquad \lambda =5, \qquad
+P(\, X=0\,) &= e^{-5} \frac{5^0}{0!} = e^{-5}\\
+& =0.007 \ \text{from the tables.   OR}\ (0.368)^5
+\end{align*}
+}
+\end{enumerate}
+
+
+\Exercise
+ {\em 5 p} -- Assume 
+{
+In testing
+ seeds for germination, batches of 20 seeds are tested at a time.
+If the true probability of germination for a seed is 0.9, and the germination
+of the seeds is independent, then:
+\begin{enumerate}
+\item[(i)] What is the expected number of seeds that will germinate?
+\item[(ii)] What is the probability that exactly 19 seeds germinate.
+\item[(iii)] Suppose there is a pollutant in the field and the probability of germination is $1/100$. Assuming germination is independent, find an expression for the probability that none of the $1000$ planted seeds in a given unit area of a field will germinate using the ``Poisson approximation to the Binomial''. 
+\item[(iv)] Justify the probability model used in the above computation in (iii). Give an example of agricultural conditions that can violate this model? 
+\item[(v)] Suppose there is another pollutant that reduces the probability of germination to $5/100$ independently of the presence of the first pollutant. Using Poisson approximations for the second pollutant (as well as the first pollutant), what is the probability that none of the $1000$ planted seeds in a unit area of a field will germinate in the presence of both pollutants?
+\end{enumerate}
+}
+\Answer
+{
+(i) \qquad $\text{Expected number}\ = np = 20\times 0.9 = 18.$
+
+(ii) \qquad $P( \, X = 19 \,) = \binom{20}{19}   (0.9)^{19}(0.1)^1 = 2 \, (0.9)^{19} $
+
+(iii) [only partial answer and hints given]: ... [see Lacunae problem on steel specimens to figure out how to get the expression here...]
+
+(iv) Heterogeneity in other field conditions like soil fertility, moisture, competing species, could violate the Poisson assumption.
+
+(v) [only partial answer and hints given]: Get Poisson approxmation under second pollutant and recall Exercise 3.54 that the sum of independent Poissons is Poisson with paramater given by the sum of the individual Poisson parameters.
+}
+
+\Exercise  {\em 5p} --
+\begin{enumerate}
+\item
+{Consider the continuous random variable, $X$, with the
+probability density function
+$$
+f(x) = \left\{ \begin{array}{cl} \displaystyle Kx(1-x), & \mbox{if}~ 0 \leq x \leq 1   \\[2ex]
+0, & \mbox{otherwise}
+\end{array} \right..
+$$
+}
+\begin{enumerate}
+\item
+{Find the value of $K$.}
+\item
+{Find the distribution function, $F(x)$.}
+\item
+{Find the probability, $P(\, 1/4<X<1/2 \,)$.}
+\end{enumerate}
+\item
+{Consider the discrete random variable, $X$, with the
+probability mass function given in the table below:\\
+\[
+\begin{array}{c|cccc}
+x      & 0   &  1  &  2  & 4   \\ \hline
+P(X=x) & 0.4 & 0.3 & 0.2 & 0.1 \\
+\end{array}
+\]
+}
+\begin{enumerate}
+\item
+{Find the mean value of $X$, $E(X)$.}
+\item 
+{If $Y = {1+X^2}$, find the expected value of $Y$, $E(Y)$.}
+\end{enumerate}
+
+\end{enumerate}
+
+\Answer
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item
+{
+To be a probability distribution
+\begin{align*}
+1 = \int_0^1 f(x)\, dx  &= K \int_0^1 x(1-x)\, dx\\
+                        &= K \int_0^1 x -x^2 \, dx\\
+                        & = K \left[ \frac{x^2}{2} - \frac{x^3}{3} \right]^1_0\\
+                        & = K \frac{1}{6} .
+\end{align*}
+So that $1 =K/6 $, implying $K=6$.
+}
+\item
+{
+For $0 < x < 1$,
+$$
+F(x) = 6\left[ \frac{x^2}{2} - \frac{x^3}{3} \right] = 3x^2 -2x^3.
+$$
+Therefore,
+$$F(x) = \begin{cases} 0, & x \leq 0\\
+          3x^2 -2x^3, & 0 < x < 1\\
+          1, & x \geq 1.
+          \end{cases}
+$$ }
+\item
+{
+\begin{align*} P(\, \frac{1}{4} < x < \frac{1}{2} \, )
+& = F\left( \frac{1}{2} \right) -F\left( \frac{1}{4} \right)\\
+& = \left[ 3 \left( \frac{1}{2} \right)^2 -2 \left( \frac{1}{2}\right)^3 \right]
+- \left[ 3 \left( \frac{1}{4} \right)^2 -2 \left( \frac{1}{4} \right)^3 \right]\\
+& = \left[ \frac{3}{4} -\frac{1}{4} \right] - \left[ \frac{3}{16} -\frac{1}{32} \right] \\
+&= \frac{1}{2} - \frac{5}{32} = \frac{11}{32}
+\end{align*}
+}
+\end{enumerate}
+\item
+\begin{enumerate}
+\item -- {\em *p} --- 
+{ \begin{align*}
+E(X) &= \sum_i x_i \, p_i = 0 \times 0.4 + 1 \times 0.3 + 2 \times 0.2 + 4 \times 0.1\\
+& = 0 + 0.3 + 0.4 + 0.4\\
+&= 1.1
+\end{align*}
+}
+\item
+{
+\begin{align*}
+E(Y) &= \sum_i y_i \, p_i = (1+0^2)\times
+ 0.4 + (1+1^2) \times 0.3 + (1+2^2) \times 0.2 + (1+4^2) \times 0.1 \\
+&= 1 \times 0.4 + 2 \times 0.3 +5 \times 0.2 + 17 \times 0.1\\
+& = 0.4 +0.6 +1.0 + 1.7 \\
+&= 3.7
+\end{align*}
+}
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+\Exercise {\em 5p} --
+{Consider the continuous random variable, $X$, with the
+probability density function
+$$
+f(x) = \left\{ \begin{array}{cl} \displaystyle \frac{2}{x^2}, & \mbox{if}~ 1 \leq x \leq 2   \\[2ex]
+0, & \mbox{otherwise}
+\end{array} \right.$$
+}
+\begin{enumerate}
+\item
+~{Find the mean value of $X$, $E(X)$.}
+\item
+~{Find the variance of $X$, $V(X)$.}
+\item
+~{If $Y = \sqrt{X}$, find the probability density function $f(y)$.
+}
+\end{enumerate}
+
+\Answer
+\begin{enumerate}
+\item
+~{
+\begin{align*}
+E(X) &= \int_1^2 x \, f(x) \, dx \\
+&= \int_1^2 x \frac{2}{x^2} \, dx = \int_1^2 2x^{-1}\, dx = \left[ \, 2 \ln(x) \, \right]_1^2 \\
+&= 2 \ln 2 - 2 \ln 1 = 2 \ln 2 \approx 1.386
+\end{align*}
+}
+\item
+~{
+$$ \text{Var}(x) = E(X^2) - E(X)^2.
+$$
+$$
+E(X^2) = \int_1^2 x^2 \frac{2}{x^2} \, dx = \int_1^2 2 \, dx = 2.
+$$
+Therefore,
+$$ \text{Var}(X) = 2 - \left[ 2 \ln (2) \right]^2 \approx 0.0782.
+$$
+}
+\item
+~{
+$$ y=\sqrt{x}, \qquad g(x) = \sqrt{x} = x^{1/2} \implies g'(x) = \frac{1}{2} x^{-1/2} = \frac{1}{2 \sqrt{x}}.$$
+Hence, $\sqrt{x}$ is strictly increasing and therefore one to one. Hence $g$ is invertible. $ x =  g^{-1}(y) = y^2$.
+$$ \left| \frac{d}{dy} g^{-1}(y) \right| = \frac{d}{dy} y^2 = 2y. $$
+Therefore, for $1 <y < 2$,
+\begin{align*}
+f_Y(y) &= f_X \left( g^{-1}(y)\right) \cdot \left| \frac{d}{dy} g^{-1}(y) \right| \\
+&= \frac{2}{(y^2)^2} \cdot 2y = \frac{4y}{y^4} = \frac{4}{y^3}.
+\end{align*}
+Thus
+$$
+f_Y(y) = \begin{cases} \frac{4}{y^3}, & 1 < y < \sqrt{2},\\
+0, & \text{otherwise}.
+\end{cases}
+$$
+}
+\end{enumerate}
+
+\Exercise {\em 5p} --
+Let $X$ be Normal$(1,3)$, $Y$ be Normal$(-1,1)$ and $Z$ be Normal$(0,1)$ RVs that are jointly independent.
+Obtain the following:
+\begin{enumerate}
+\item~$E(3X-3Y+4Z)$
+\item~$V(2Y-2Z)$
+\item~the distribution of $6-3Z+X-2Y$
+\item~the probability that $6-3Z+X-2Y>0$
+\item~Covariance of $X$ and $W$, where $W=X-Y$.
+\end{enumerate}
+
+\Answer
+This is just a modification of the exact solution for Example 96 given below (you should find the answer for {\em this problem}! on your own):
+\begin{enumerate}
+\item
+\[
+E(3X-2Y+4Z) = 3E(X)-2E(Y)+4(Z) = (3 \times 2) + (-2 \times (-1)) + 4 \times 0 = 6 +2 +0 = 8
+\]
+\item
+\[
+V(2Y-3Z) = 2^2V(Y) + (-3)^2V(Z) = (4 \times 2) + (9 \times 1) = 8 + 9 = 17 
+\]
+\item
+From the special property of normal RVs, the distribution of $6-2Z+X-Y$ is
+\begin{align*}
+&~ Normal\left( 6+(-2 \times 0)+(1 \times 2)+(-1 \times -1), ((-2)^2 \times 1) + (1^2 \times 4) + ((-1)^2 \times 2)  \right)\\
+&= Normal\left( 6+0+2+1, 4 + 4 +  2  \right)\\
+&= Normal(9,10)
+\end{align*}
+\item
+Let $U=6-2Z+X-Y$ and we know $U$ is $Normal(9,10)$ RV.
+\begin{align*}
+P(6-2Z+X-Y>0)
+&= P(U>0) = P(U-9>0-9) = P\left( \frac{U-9}{\sqrt{10}} > \frac{-9}{\sqrt{10}} \right)\\
+&= P\left( Z > \frac{-9}{\sqrt{10}} \right)\\
+&= P\left( Z < \frac{9}{\sqrt{10}} \right) \\
+&\approxeq P(Z < 2.85) = 0.9978
+\end{align*}
+\item
+\begin{align*}
+\mathbf{Cov}(X,W)
+&= E(XW)-E(X)E(W) = E(X(X-Y))-E(X)E(X-Y)\\
+&= E(X^2-XY)-E(X)(E(X)-E(Y)) = E(X^2)-E(XY)-2\times(2-(-1)) \\
+&= E(X^2)-E(X)E(Y)-6 = E(X^2)-(2 \times (-1))-6\\
+&= (V(X)+(E(X))^2) +2-6 = (4+2^2)-4=4
+\end{align*}
+\end{enumerate}
+
+\Exercise {\em 5p} --
+Suppose the collection of RVs $X_1,X_2, \ldots, X_n$ model the number of errors in $n$ computer programs named $1,2,\ldots,n$, respectively.  
+Suppose that the RV $X_i$ modeling the number of errors in the $i$-th program is the $\textrm{Poisson}(\lambda=3)$ for any $i=1,2,\ldots,n$.  
+Further suppose that they are independently distributed.  Succinctly, we suppose that
+\[
+X_1,X_2,\ldots,X_n \overset{IID}{\sim} Poisson(\lambda=3) \ . 
+\]
+Suppose we have $n=123$ programs and want to make a probability statement about the sample mean from these $123$ samples which is the average error per program out of these $123$ programs.  
+Since $E(X_i) = \lambda=3$ and $V(X_i)=\lambda=3$, we want to know how often our sample mean differs from the expectation of $3$ errors per program.
+Using the CLT find the probability that the sample mean from the $123$ samples is 
+\begin{enumerate}
+\item ~less than $4$
+\item ~less that or equal to $0$
+\end{enumerate}
+\Answer
+See solution to Exercise 5.3 in the draft book for the course and modify it with the numbers specific to {\em this problem}!.
+
+\Exercise {\em 5p} --
+\begin{enumerate}
+\item
+~Show that the minimum of $k$ IID Exponential$(\lambda)$ RVs is another Exponential$(k\lambda)$ RV. Explain your argument step-by-step. 
+\item ~Show that the Exponential$(\lambda)$ RV satisfies the following: \[P(X > s+t | X>s) = P(X > t).\] Explain your argument step-by-step.
+\end{enumerate}
+\Answer
+\begin{enumerate}
+\item
+This was done in lectures on the last day (so only partial answer and hints on how to proceed are given). Think about what happens when $k=2$ first.
+Let $Y=\min(X_1,X_2)$, then try to derive $F(Y)$ using the fact that $P(Y>y) = P(X_1>y) P(X_2>y)$.
+Use the complementary DF and proceed. You will have to show your reasoning step-by-step. 
+\item
+This was done in lectures. It is just the proof of Proposition 26 on memorylessness of Exponential RV but with $x$ and $y$ replaced by $s$ and $t$.
+\end{enumerate}
+
+\end{ExerciseList}
+
+
+
+
+
+\thispagestyle{scrheadings}
+\ihead{}
+\chead{}
+\ohead{}
+\ifoot{}
+\cfoot{\Large \bfseries Lycka till!}
+\ofoot{}
+\setheadsepline{0pt}
+
+%\newpage
+\include{StdNormalTable}%just std normal table values
+
+\newpage
+
+\shipoutAnswer
+
+\end{document}

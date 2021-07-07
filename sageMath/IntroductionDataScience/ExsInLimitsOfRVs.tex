@@ -1,0 +1,64 @@
+\section{Exercises in Limit Laws of Statistics}\label{S:xsLimitLaws}% {S:xsCFs}% {S:xsExpectationsOfRVs} %S:xsMultivariateRVs
+
+\begin{ExerciseList}
+
+\Exercise
+Suppose you plan to obtain a simple random sequence (SRS) --- also known as independent and identically distributed (IID) sequence --- of $n$ measurements from an instrument.  
+This instrument has been calibrated so that the distribution of measurements made with it have population variance of $1/4$.  
+Your boss wants you to make a point estimate of the unknown population mean from a SRS of sample size $n$.  
+He also insists that the tolerance for error has to be $1/10$ and the probability of meeting this tolerance should be just above $95\%$.  
+Use CLT to find how large should $n$ be to meet the specifications of your boss.
+\Answer
+~\\
+%Using the CLT implied Equation (61) in the lecture notes and further noting from the Standard Normal Table that when $z_{\alpha/2}=2$ we get the desired $1-\alpha=0.9772>0.95$ we get
+%\[
+%n = \left( \sqrt{(V(X_1)} z_{\alpha/2}) / \epsilon \right)^2 = \left( (\sqrt{1/4}\times 2) / (1/10) \right)^2
+%= \left( ((1/2)\times 2) / (1/10) \right)^2 = 10^2 = 100
+%\]
+We want $1-\alpha = 0.95$, and from the standard Normal Table we know that the corresponding $z_{\alpha/2}=1.96$.   
+Then we can get the right sample size $n$ from the CLT implied Equation (61) in the lecture notes, which is,
+\[
+n = \left( \sqrt{(V(X_1)} z_{\alpha/2}) / \epsilon \right)^2 \enspace ,
+\] 
+as follows:
+\begin{eqnarray*}
+n &= \left( \sqrt{(V(X_1)} z_{\alpha/2}) / \epsilon \right)^2 = \left( (\sqrt{1/4}\times 1.96) / (1/10) \right)^2\\
+&= \left( ((1/2)\times 1.96) / (1/10) \right)^2 = (0.98 \times 10)^2 = 9.8^2 = 96.04
+\end{eqnarray*}
+Finally, by rounding $96.04$ up to the next largest integer we need $n=97$ measurements to meet the specifications of your boss (at least up to the approximation provided by the CLT).
+
+
+\Exercise 
+Suppose the collection of RVs $X_1,X_2, \ldots, X_n$ model the number of errors in $n$ computer programs named $1,2,\ldots,n$, respectively.  Suppose that the RV $X_i$ modeling the number of errors in the $i$-th program is the $\textrm{Poisson}(\lambda=5)$ for any $i=1,2,\ldots,n$.  Further suppose that they are independently distributed.  Succinctly, we suppose that 
+\[
+X_1,X_2,\ldots,X_n \overset{\IID}{\sim} \poisson(\lambda=5) \ . 
+\]
+Suppose we have $n=125$ programs and want to make a probability statement about $\overline{X}_{125}$ which is the average error per program out of these $125$ programs.  Since $E(X_i) = \lambda=5$ and $V(X_i)=\lambda=5$, we want to know how often our sample mean $\overline{X}_{125}$ differs from the expectation of $5$ errors per program.  
+Using the CLT find the $P(\overline{X}_{125} < 5.5)$.
+\Answer
+~\\
+By CLT, $\frac{\sqrt{n}(\overline{X}_n - \E(X_1))}{\sqrt{\V(X_1)}} \rightsquigarrow Z \sim \mathrm{Normal}(0,1)$.  
+So we need to apply the ``standardization'' to both sides of the inequality that is defining the event of interest:
+$$\{\overline{X}_n < 5.5\} \enspace ,$$ 
+in order to find its probability $\P(\overline{X}_n < 5.5)$.
+~\\
+\begin{eqnarray}
+\P(\overline{X}_n < 5.5) 
+&=& P \left( \frac{\sqrt{n}(\overline{X}_n - \E(X_1))}{\sqrt{\V(X_1)}} < \frac{\sqrt{n}(5.5-\E(X_1))}{\sqrt{\V(X_1)}} \right) \notag \\
+&\approxeq& P \left( Z < \frac{\sqrt{n}(5.5-\lambda)}{\sqrt{\lambda}} \right) \qquad \text{{\scriptsize [
+since we know/assume that $\E(X_1)=\V(X_1)=\lambda$]}} \notag \\
+&=& P \left( Z < \frac{\sqrt{125}(5.5-5)}{\sqrt{5}} \right) \qquad \text{{\scriptsize [Since, $\lambda=5$ and $n=125$ in this Example]}} \notag \\
+&=& \P(Z \leq 2.5) = \Phi(2.5) = 0.9938\ . \notag
+\end{eqnarray}
+(source: Wasserman, {\em All of Statistics}, Springer, p.~78, 2003)
+
+
+\Exercise
+What is the distribution of $\sum_{i=1}^n{X_i}/n$ as $n \to \infty$ when $X_i \overset{IID}{\sim} \uniform(-10,10)$?
+\Answer
+HINT: Use the LLN after finding the population mean of $X_i$.
+\Exercise
+What is the distribution of $\sum_{i=1}^n{X_i}/\sqrt{\V(X_i)n}$ as $n \to \infty$ when $X_i \overset{IID}{\sim} \uniform(-10,10)$?
+\Answer
+HINT: Use the CLT after finding the population mean and variance of $X_i$.
+\end{ExerciseList}

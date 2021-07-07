@@ -1,0 +1,126 @@
+\addcontentsline{toc}{chapter}{Course Syllabus}
+
+\begin{table}[htpb]
+\centering
+\begin{tabular*}{5.0in}{@{\extracolsep{\fill}}|llr|} \hline
+%STAT 218 & \hspace*{0.5 in} & Semester 2, 2007 \\ 
+STAT 218 - 08S2 (C)  & \hspace*{0.5 in} & Semester Two 2008 \\
+
+11 points, 0.0917 EFTS & & 14/07/2008-12/11/2008  \\
+ & & \\
+\multicolumn{3}{|c|}{{\bf Computational Methods in Statistics}} \\
+\multicolumn{3}{|c|}{
+{Course Syllabus:Wednesday, 12th July 2008}} \\
+\multicolumn{3}{|c|}{
+%{Revised Syllabus: Tuesday, 25th September, 2007 
+%(See \S~\ref*{S:RevisedSyllabus})
+%}
+}\\
+ & & \\
+\multicolumn{3}{|r|}{Course Coordinator: Raazesh Sainudiin} \\ \hline
+\end{tabular*}
+\end{table}
+
+\section{About the Course}\label{S:AboutCourse}
+The power of modern computers has unleashed new ways of thinking about statistics and implementing statistical solutions.  This course introduces the student to computational techniques with uses ranging from exploratory data analysis to statistical inference. These techniques are now widely used and are fast becoming indispensable in the modern statistical toolkit.  The course will provide the student with a sound understanding of the computational methods, and with hands-on experience in implementing and using them.  Topics include generating random variables, Monte Carlo integration and importance sampling, bootstrap methods, Markov chain Monte Carlo, kernel density estimation and regression, and classification and regression trees.\\{\bf Pre-requisites}: STAT111 or STAT112 or MATH108 or MATH115 or MATH171\\
+%{\bf Required Text}: {\it Computational Statistics Handbook with Matlab}, Martinez and Martinez, Chapman \& Hall/CRC, 2002. 
+
+\section{Formal Interactions}
+\subsection*{Lectures}
+{\bf Days}: Mondays and Wednesdays \ {\bf Times}: 1400 \textendash 1500 hours \\
+{\bf Place}: Room S6, Science Lecture Theatre \\
+{\bf Lecturer}: Raazesh Sainudiin \\
+{\bf Purpose}: To communicate the essential concepts and techniques necessary for a sound application of computers to solve statistical problems as described in \hyperref[S:AboutCourse]{\S~\ref*{S:AboutCourse}}.
+
+{\small \emph{You are encouraged to be actively engaged during the lectures to make the most of them.  Since it is impossible to impart knowledge to a passive audience, it is in your best interest to think of the lectures as an interactive video game as opposed to a TV show.  Please ask questions at anytime during the lectures.
+}}
+\subsection*{Laboratories}
+{\bf Days}: Wednesdays OR Thursdays \\ {\bf Times}: 1600 \textendash 1700 hours \\ {\bf Place}: 035 (Wednesdays) and 036 (Thursdays) Erskine Building\\
+{\bf Tutor}: Zhu Sha (Joe) \ {\bf Email}: {\tt szh41@student.canterbury.ac.nz}\\
+{\bf Purpose}: To give you a taste of implementing code in a personal computer.  This activity will reinforce and complement the lectures.
+
+\section{Individualised Interactions \& Course Communications}
+{\bf Lecturer}: Raazesh Sainudiin, 724 Erskine Building \\
+{\bf Email}: {\tt r.sainudiin@math.canterbury.ac.nz} \\
+{\bf Office Hours}: TBA \\
+{\bf Purpose}: To clarify specific topics or examples that were unclear to a student or a small group of students during past formal interactions.\\
+{\bf Course url}: \url{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218}
+
+\section{Student Evaluation}\label{S:StudentEval}
+\begin{itemize}
+\item[22\%] Laboratory Attendance and Completion of Labworks and Computer Exercises ($2\% \times 11$ Labwork Submissions).  
+\paragraph{Labwork submission}
+At the end of the lab, we expect you to hand in some work. Create a diary file named {\it LabWeek$\#$.txt}, where $\#$ is the week number (see column 2 of  \hyperref[T:TTCB]{Table~\ref*{T:TTCB}}), of your laboratory work.  The diary file should show what you did in each lab.  For full credit you should complete the assigned Labworks and Exercises for the given week  and electronically submit the diary file at  \href{http://www.math.canterbury.ac.nz/php/resources/tools/submit/assignment}{\url{http://www.math.canterbury.ac.nz/php/resources/tools/submit/assignment}} by the deadline (by midnight on the Friday of the following week).
+\item[12\%] Mid-semester assignment that will involve coding and/or pencil \& paper 
+\item[26\%] Term project report -- {\scriptsize {\bf 20.0\% based on written report \& 6\% based on partly peer-reviewed oral presentation}}.  Please visit \href{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218/projects/Stat218StudentProjects2007.pdf}{\url{http://www.math.canterbury.ac.nz/~r.sainudiin/courses/STAT218/projects/Stat218StudentProjects2007.pdf}} to see the term projects completed by students of STAT 218 from 2007.
+\item[40\%] Open book, open notes final exam.
+\end{itemize}
+ 
+ Lecture Notes will be updated to the course web-page regularly about a week after the lecture.  Taking your own notes in class is essential.  The topics may change as we may not be able to cover such an ambitious survey of computational statistics.
+
+\clearpage
+
+\section{Time Table \& Course Overview}
+\begin{table}[hbt]
+\centering
+\caption{Time Table \& Course Overview} \label{T:TTCB}
+{\scriptsize
+ %\begin{tabular*}{4.5in}{@{\extracolsep{\fill}}|ll||l|l|l|}
+ \begin{tabular}{|ll|l|l|l|}%|l|l|l|l|}
+ \hline
+Lec.& Lab.& Date  & Topics & Section/Labworks/Simulations \\ 
+ \hline
+ 1 & & 14-07-08& Preliminaries: Set Theory, Numbers, Functions ,\ldots & \ref{S:CompStatExps}, \ref{S:SetTheory}, \ref{S:NatIntRatNumbers} \\
+ 2 & & 16-07-08& Probability & \ref{S:Reals}, \ref{S:Probability}  \\
+    &1 & 16/17-07-08&  Introduction to {\sc Matlab} & \ref{LW:IntroMatlab}, \ref{LW:Seqs}, \ref{LW:VecsMats}, \ref{LW:2Dplot}, \ref{LW:FloorCeil}, \ref{LW:T3X} \\ \hline
+    
+ 3 & & 21-07-08& Probability and Conditional Probability &  \ref{S:Probability},\ref{S:CondProb}  \\
+ 4 & & 23-07-08&  Cond.~Probability, Independence \& Bayes Theorem  & \ref{S:CondProb}  \\
+    &2 & 23/24-07-08&  Random variables and Expectations & \ref{LW:Unif01Pdf}, \ref{LW:Unif01Cdf}, \ref{LW:PlotUnif01PdfCdf}, \ref{LW:XsFromUni01Twstr101mean} \\ \hline
+     
+ 5 & & 28-07-08 &  Random variables &  \ref{S:RVBasicDefs}, \ref{S:ElemDiscRV} \\
+ 6 & & 30-07-08 & Random variables, Expectations \& RNG &  \ref{S:ElemContRV}, \ref{S:Expectations}, \ref{S:RNGIntro}, \ref{S:RNGMatlab} \\
+    & 3& 30/31-07-08& Statistics \& Visualisation &  \ref{LW:XsFromUni01Twstr101varstd}, \ref{LW:SortedXsFromUni01Twstr101}, \ref{LW:ECDF},  \ref{LW:qthSampleQuantile}, \ref{LW:hist}, \ref{LW:StemEcdf}, \ref{LW:2DScatter}, \ref{LW:3DScatter} \\ \hline
+
+ 7 & & 04-08-08 & IID RVs, Statistics, Common RVs & \ref{S:StochProc}, \ref{S:DataStats}, \ref{S:ExploringData}, \ref{S:InvS}, \ref{S:InvSContinuousRVs} \\
+ 8 & & 06-08-08 & Common RVs \& Simulation  & \ref{S:InvS}, \ref{S:InvSContinuousRVs} \\ 
+          & 4 & 06/07-08-08 & Simulation of RVs   & Sims: \ref{SIM:Uniformab}, \ref{SIM:Exponential}, \ref{SIM:Laplace}, \ref{SIM:StdCauchy}  \& LWs: \ref{LW:Next7Buses}, \ref{LW:RunningMeanCauchy} \\ \hline
+          
+ 9 & & 11-08-08 & Common RVs \& Simulation & \ref{S:InvSContinuousRVs}, \ref{S:InvSDiscrete}, \ref{S:InvSDiscreteRVs} \\
+ 10 & & 13-08-08 & Common RV, \rv~\& Simulation & \ref{S:InvSDiscreteRVs}, \ref{S:Quincunx}, \ref{S:RVecs} \\
+          & 5 & 13/14-08-08 & Implementation  & Sims: \ref{SIM:NormalByNewRap}, \ref{SIM:Bernoulli}, \ref{SIM:PointMass}, \ref{SIM:deMoivreEqui}, \ref{SIM:deMoivre}, \ref{SIM:Geometric}, \ref{SIM:BinomialFromBernoulliSum}, \ref{SIM:BinomialFromGeoms} \\
+   & & & &       LWs: \ref{LW:NormalIntervalProb}, \ref{LW:CLTOfExponentials}, \ref{LW:RelFreqHistForGeomSims}, \ref{LW:BinomialPdf} \\ \hline
+          
+ 11 & & 18-08-08 &  Common RV, \rv~\& Simulation &  \ref{S:InvSDiscreteRVs}, \ref{S:Quincunx}, \ref{S:RVecs} \\
+ 12 & & 20-08-08 & Rejection Sampling, Other RVs and \rv s \& Experiments &  \ref{S:RS}, \ref{S:OtherContRVs}, \ref{S:OtherRVecs}, \ref{S:SummaryRVs}, \ref{S:StatExps} \\ 
+         & 6 & 20/21-08-08 & Simulation  & Sims: \ref{SIM:Poisson}, \ref{SIM:Multinomial}, \ref{SIM:Normal01FromLaplace}, \ref{SIM:Gamma} \& LWs: \ref{LW:MultinomialPdf}, \ref{LW:randn} \\ \hline \hline%2 week break
+         
+ 13 &  & 08-09-08 & Limits of RVs \& Limit Laws in Statistics  &  \ref{S:ConvOfRVs}, \ref{S:LimitLawsStats}  \\
+ 14 &  & 10-09-08 &  Limit Laws in Statistics \& Point Estimation & \ref{S:LimitLawsStats}, \ref{S:PointEstimation} \\
+        & 7 & 10/11-09-08 & Point Estimation  & LWs: \ref{LW:1000CoinTossingExp}, \ref{LW:BernoulliMLE}\\ \hline
+
+ 15 &  &15-09-08 & Point Estimation \& Confidence Sets & \ref{S:PointEstimation}, \ref{S:PropPointEstim}, \ref{S:ConfidenceSets} \\
+ 16 &  &17-09-08 & Confidence Intervals \& Likelihoods & \ref{S:ConfidenceSets} , \ref{S:Likelihood} \\ 
+       & 8 & 17/18-09-08 & Implementation  & LWs: (\ref{LW:BernoulliMLE}), \ref{LW:ExponentialMLEOrbiter}, \ref{LW:ExponentialBusMLE} \\ \hline
+       
+ 17 &  &22-09-08 & Maximum Likelihood Estimation  & \ref{S:MLE} \\
+ 18 &  &24-09-08 & Fisher Information & \ref{S:PropsMLE}, \ref{S:FisherInfo} \\
+        & 9 & 24/25-09-08 & Implementation  & LWs: \ref{LW:NZSIEarthQuakesExponentialMLE}, \ref{LW:RayleighOceanHeightsMLE}, \ref{LW:ExponentialMLECIOrbiter}, \ref{LW:IDSeededBusStopMLECI} \\ \hline
+        
+ 19 &  & 29-09-08 & DF Estimation \& Plug-in Estimation & \ref{S:EstimDF}, \ref{S:PlugIn} \\
+ 20 & & 01-10-08 & Bootstrap & \ref{S:NPBootstrap}, \ref{S:PBootstrap} \\ 
+       & 10 & 01/02-10-08 & Implementation & LWs: \ref{LW:NZSIEQTimesECDFsConfBands}, \ref{LW:OrbiterECDFsConfBands}, \ref{LW:PlugInEstimatesEarthQuakes}, \ref{LW:NZSIEQTimesMedianBootstrap}, \ref{LW:LSATGPACorrBoot}  \\ \hline
+       
+ 21 & & 06-10-08 &Hypothesis Testing: size, level, power, Wald Test \& p-value     & \ref{S:HypTestIntro}, \ref{S:WaldTest}, \ref{S:p-values} \\ 
+ 22 & & 08-10-08 & Permutation Test \& $\chisquare$  & \ref{S:PermTest}, \ref{S:Chi2} \\
+       & 11 & 08/09-10-08 & Oral presentation preparation  &  email oral presentation  \\ \hline
+       
+ 23 &  & 13-10-08& Group Project Presentation & \\
+ 24 &  & 15-10-08 & Group Project Presentation & \\ 
+      & 12 & 15/16-10-08 & Type-setting Written Report & email written report \\ \hline
+ %*Oral    & 18/10/07 & &  & Erskine 446 \\
+ %Presentation &  & & at the Maths \& Stats Dept.~Seminar &  Room No.~TBA \\
+%\end{tabular*}
+ \end{tabular}
+ } \\
+\end{table}
